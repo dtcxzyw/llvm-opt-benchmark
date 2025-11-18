@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef signext i8 @_ZNK5boost4urls11decode_view8iteratordeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8, !tbaa !3, !range !9, !noundef !10
@@ -137,7 +137,7 @@ define void @_ZN5boost4urls11decode_viewC2ENS_4core17basic_string_viewIcEEmNS0_1
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZNK5boost4urls11decode_view7compareENS_4core17basic_string_viewIcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::urls::decode_view::iterator", align 8
   %.sroa.04.0.copyload = load ptr, ptr %0, align 8, !tbaa !19
@@ -195,7 +195,7 @@ define noundef i32 @_ZNK5boost4urls11decode_view7compareENS_4core17basic_string_
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZNK5boost4urls11decode_view7compareES1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0, ptr noundef readonly byval(%"class.boost::urls::decode_view") align 8 captures(none) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::urls::decode_view::iterator", align 8
   %4 = alloca %"class.boost::urls::decode_view::iterator", align 8
@@ -305,7 +305,7 @@ define void @_ZNK5boost4urls11decode_view5writeERSo(ptr noundef nonnull readonly
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef signext) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5boost4urls11decode_view13remove_prefixEm(ptr noundef nonnull align 8 captures(none) dereferenceable(25) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !13, !noalias !42
   %.not9 = icmp eq i64 %1, 0
@@ -339,7 +339,7 @@ define void @_ZN5boost4urls11decode_view13remove_prefixEm(ptr noundef nonnull al
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5boost4urls11decode_view13remove_suffixEm(ptr noundef nonnull align 8 captures(none) dereferenceable(25) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !13, !noalias !46
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -390,7 +390,7 @@ _ZN5boost4urls11decode_view8iteratormmEv.exit:    ; preds = %12, %15
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK5boost4urls11decode_view11starts_withENS_4core17basic_string_viewIcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #6 align 2 {
   %4 = alloca %"class.boost::urls::decode_view::iterator", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -442,7 +442,7 @@ define noundef zeroext i1 @_ZNK5boost4urls11decode_view11starts_withENS_4core17b
   ret i1 %.06
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK5boost4urls11decode_view9ends_withENS_4core17basic_string_viewIcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #6 align 2 {
   %4 = alloca %"class.boost::urls::decode_view::iterator", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -535,7 +535,7 @@ _ZN5boost4urls11decode_view8iteratormmEv.exit12:  ; preds = %32, %35
   ret i1 %.08
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK5boost4urls11decode_view11starts_withEc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0, i8 noundef signext %1) local_unnamed_addr #7 align 2 {
   %3 = alloca %"class.boost::urls::decode_view::iterator", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -564,7 +564,7 @@ define noundef zeroext i1 @_ZNK5boost4urls11decode_view11starts_withEc(ptr nound
   ret i1 %16
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK5boost4urls11decode_view9ends_withEc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0, i8 noundef signext %1) local_unnamed_addr #7 align 2 {
   %3 = alloca %"class.boost::urls::decode_view::iterator", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -609,7 +609,7 @@ _ZNK5boost4urls11decode_view4backEv.exit:         ; preds = %14, %17
   ret i1 %23
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @_ZNK5boost4urls11decode_view4findEc(ptr dead_on_unwind noalias writable sret(%"class.boost::urls::decode_view::iterator") align 8 captures(none) initializes((0, 17)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %1, i8 noundef signext %2) local_unnamed_addr #8 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
   %4 = load ptr, ptr %1, align 8, !tbaa !13, !noalias !65
@@ -645,7 +645,7 @@ define void @_ZNK5boost4urls11decode_view4findEc(ptr dead_on_unwind noalias writ
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @_ZNK5boost4urls11decode_view5rfindEc(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::urls::decode_view::iterator") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %1, i8 noundef signext %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %"class.boost::urls::decode_view::iterator", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -765,15 +765,15 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #11
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }

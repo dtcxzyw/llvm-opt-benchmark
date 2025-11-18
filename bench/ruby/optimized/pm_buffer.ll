@@ -18,7 +18,7 @@ define hidden noundef zeroext i1 @pm_buffer_init_capacity(ptr noundef writeonly 
   store i64 0, ptr %0, align 8, !tbaa !7
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8, !tbaa !14
-  %4 = tail call noalias ptr @malloc(i64 noundef %1) #17
+  %4 = tail call noalias ptr @malloc(i64 noundef %1) #18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %5, align 8, !tbaa !15
   %6 = icmp ne ptr %4, null
@@ -33,7 +33,7 @@ define hidden noundef zeroext i1 @pm_buffer_init(ptr noundef writeonly captures(
   store i64 0, ptr %0, align 8, !tbaa !7
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1024, ptr %2, align 8, !tbaa !14
-  %3 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #17
+  %3 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %4, align 8, !tbaa !15
   %5 = icmp ne ptr %3, null
@@ -53,7 +53,7 @@ define hidden i64 @pm_buffer_length(ptr noundef readonly captures(none) %0) loca
   ret i64 %2
 }
 
-; Function Attrs: nounwind sspstrong uwtable
+; Function Attrs: nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @pm_buffer_append_zeroes(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = load i64, ptr %0, align 8, !tbaa !7
   %4 = add i64 %3, %1
@@ -94,7 +94,7 @@ define hidden void @pm_buffer_append_zeroes(ptr noundef captures(none) %0, i64 n
   %.lcssa.i = phi i64 [ %14, %._crit_edge.i ], [ %.promoted.i, %11 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !15
-  %19 = tail call ptr @realloc(ptr noundef %18, i64 noundef %.lcssa.i) #18
+  %19 = tail call ptr @realloc(ptr noundef %18, i64 noundef %.lcssa.i) #19
   store ptr %19, ptr %17, align 8, !tbaa !15
   %20 = icmp eq ptr %19, null
   br i1 %20, label %pm_buffer_append_length.exit, label %21
@@ -103,7 +103,7 @@ define hidden void @pm_buffer_append_zeroes(ptr noundef captures(none) %0, i64 n
   %22 = phi ptr [ %.pre, %._crit_edge ], [ %19, %16 ]
   store i64 %4, ptr %0, align 8, !tbaa !7
   %23 = getelementptr i8, ptr %22, i64 %3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %23, i8 noundef 0, i64 noundef %1, i1 noundef false) #19
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %23, i8 noundef 0, i64 noundef %1, i1 noundef false) #20
   br label %pm_buffer_append_length.exit
 
 pm_buffer_append_length.exit:                     ; preds = %16, %21
@@ -111,11 +111,11 @@ pm_buffer_append_length.exit:                     ; preds = %16, %21
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @pm_buffer_append_format(ptr noundef captures(none) %0, ptr noundef %1, ...) local_unnamed_addr #4 {
+define hidden void @pm_buffer_append_format(ptr noundef captures(none) %0, ptr noundef %1, ...) local_unnamed_addr #5 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %4 = call i32 @__vsnprintf_chk(ptr noundef null, i64 noundef 0, i32 noundef 1, i64 noundef -1, ptr noundef %1, ptr noundef nonnull %3) #19
+  %4 = call i32 @__vsnprintf_chk(ptr noundef null, i64 noundef 0, i32 noundef 1, i64 noundef -1, ptr noundef %1, ptr noundef nonnull %3) #20
   call void @llvm.va_end.p0(ptr nonnull %3)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %pm_buffer_append_length.exit, label %6
@@ -157,7 +157,7 @@ define hidden void @pm_buffer_append_format(ptr noundef captures(none) %0, ptr n
   %.lcssa.i = phi i64 [ %20, %._crit_edge.i ], [ %.promoted.i, %17 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !15
-  %25 = call ptr @realloc(ptr noundef %24, i64 noundef %.lcssa.i) #18
+  %25 = call ptr @realloc(ptr noundef %24, i64 noundef %.lcssa.i) #19
   store ptr %25, ptr %23, align 8, !tbaa !15
   %26 = icmp eq ptr %25, null
   br i1 %26, label %pm_buffer_append_length.exit, label %27
@@ -168,7 +168,7 @@ define hidden void @pm_buffer_append_format(ptr noundef captures(none) %0, ptr n
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !15
   %30 = getelementptr i8, ptr %29, i64 %9
-  %31 = call i32 @__vsnprintf_chk(ptr noundef %30, i64 noundef range(i64 -2147483648, 2147483648) %8, i32 noundef 1, i64 noundef -1, ptr noundef %1, ptr noundef nonnull %3) #19
+  %31 = call i32 @__vsnprintf_chk(ptr noundef %30, i64 noundef range(i64 -2147483648, 2147483648) %8, i32 noundef 1, i64 noundef -1, ptr noundef %1, ptr noundef nonnull %3) #20
   call void @llvm.va_end.p0(ptr nonnull %3)
   %32 = load i64, ptr %0, align 8, !tbaa !7
   %33 = add i64 %32, -1
@@ -181,12 +181,12 @@ pm_buffer_append_length.exit:                     ; preds = %22, %27, %2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #5
+declare void @llvm.va_start.p0(ptr) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #5
+declare void @llvm.va_end.p0(ptr) #6
 
-; Function Attrs: nounwind sspstrong uwtable
+; Function Attrs: nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @pm_buffer_append_string(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = load i64, ptr %0, align 8, !tbaa !7
   %5 = add i64 %4, %2
@@ -227,7 +227,7 @@ define hidden void @pm_buffer_append_string(ptr noundef captures(none) %0, ptr n
   %.lcssa.i.i = phi i64 [ %15, %._crit_edge.i.i ], [ %.promoted.i.i, %12 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !15
-  %20 = tail call ptr @realloc(ptr noundef %19, i64 noundef %.lcssa.i.i) #18
+  %20 = tail call ptr @realloc(ptr noundef %19, i64 noundef %.lcssa.i.i) #19
   store ptr %20, ptr %18, align 8, !tbaa !15
   %21 = icmp eq ptr %20, null
   br i1 %21, label %pm_buffer_append.exit, label %22
@@ -236,14 +236,14 @@ define hidden void @pm_buffer_append_string(ptr noundef captures(none) %0, ptr n
   %23 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %20, %17 ]
   store i64 %5, ptr %0, align 8, !tbaa !7
   %24 = getelementptr i8, ptr %23, i64 %4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %24, ptr noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef false) #19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %24, ptr noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef false) #20
   br label %pm_buffer_append.exit
 
 pm_buffer_append.exit:                            ; preds = %17, %22
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
+; Function Attrs: nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @pm_buffer_append_bytes(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = load i64, ptr %0, align 8, !tbaa !7
   %5 = add i64 %4, %2
@@ -284,7 +284,7 @@ define hidden void @pm_buffer_append_bytes(ptr noundef captures(none) %0, ptr no
   %.lcssa.i.i = phi i64 [ %15, %._crit_edge.i.i ], [ %.promoted.i.i, %12 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !15
-  %20 = tail call ptr @realloc(ptr noundef %19, i64 noundef %.lcssa.i.i) #18
+  %20 = tail call ptr @realloc(ptr noundef %19, i64 noundef %.lcssa.i.i) #19
   store ptr %20, ptr %18, align 8, !tbaa !15
   %21 = icmp eq ptr %20, null
   br i1 %21, label %pm_buffer_append.exit, label %22
@@ -293,14 +293,14 @@ define hidden void @pm_buffer_append_bytes(ptr noundef captures(none) %0, ptr no
   %23 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %20, %17 ]
   store i64 %5, ptr %0, align 8, !tbaa !7
   %24 = getelementptr i8, ptr %23, i64 %4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %24, ptr noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef false) #19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %24, ptr noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef false) #20
   br label %pm_buffer_append.exit
 
 pm_buffer_append.exit:                            ; preds = %17, %22
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
+; Function Attrs: nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @pm_buffer_append_byte(ptr noundef captures(none) %0, i8 noundef zeroext %1) local_unnamed_addr #4 {
   %3 = load i64, ptr %0, align 8, !tbaa !7
   %4 = add i64 %3, 1
@@ -341,7 +341,7 @@ define hidden void @pm_buffer_append_byte(ptr noundef captures(none) %0, i8 noun
   %.lcssa.i.i = phi i64 [ %14, %._crit_edge.i.i ], [ %.promoted.i.i, %11 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !15
-  %19 = tail call ptr @realloc(ptr noundef %18, i64 noundef %.lcssa.i.i) #18
+  %19 = tail call ptr @realloc(ptr noundef %18, i64 noundef %.lcssa.i.i) #19
   store ptr %19, ptr %17, align 8, !tbaa !15
   %20 = icmp eq ptr %19, null
   br i1 %20, label %pm_buffer_append.exit, label %21
@@ -357,7 +357,7 @@ pm_buffer_append.exit:                            ; preds = %16, %21
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
+; Function Attrs: nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @pm_buffer_append_varuint(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp ult i32 %1, 128
   br i1 %3, label %5, label %.preheader
@@ -408,7 +408,7 @@ define hidden void @pm_buffer_append_varuint(ptr noundef captures(none) %0, i32 
   %.lcssa.i.i.i = phi i64 [ %18, %._crit_edge.i.i.i ], [ %.promoted.i.i.i, %15 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !15
-  %23 = tail call ptr @realloc(ptr noundef %22, i64 noundef %.lcssa.i.i.i) #18
+  %23 = tail call ptr @realloc(ptr noundef %22, i64 noundef %.lcssa.i.i.i) #19
   store ptr %23, ptr %21, align 8, !tbaa !15
   %24 = icmp eq ptr %23, null
   br i1 %24, label %pm_buffer_append_byte.exit, label %25
@@ -460,7 +460,7 @@ define hidden void @pm_buffer_append_varuint(ptr noundef captures(none) %0, i32 
 43:                                               ; preds = %._crit_edge.i.i.i16, %38
   %.lcssa.i.i.i14 = phi i64 [ %41, %._crit_edge.i.i.i16 ], [ %.promoted.i.i.i13, %38 ]
   %44 = load ptr, ptr %.phi.trans.insert.i.i11, align 8, !tbaa !15
-  %45 = tail call ptr @realloc(ptr noundef %44, i64 noundef %.lcssa.i.i.i14) #18
+  %45 = tail call ptr @realloc(ptr noundef %44, i64 noundef %.lcssa.i.i.i14) #19
   store ptr %45, ptr %.phi.trans.insert.i.i11, align 8, !tbaa !15
   %46 = icmp eq ptr %45, null
   br i1 %46, label %pm_buffer_append_byte.exit17, label %47
@@ -515,7 +515,7 @@ pm_buffer_append_byte.exit17:                     ; preds = %43, %47
 66:                                               ; preds = %._crit_edge.i.i.i24, %61
   %.lcssa.i.i.i22 = phi i64 [ %64, %._crit_edge.i.i.i24 ], [ %.promoted.i.i.i21, %61 ]
   %67 = load ptr, ptr %.phi.trans.insert.i.i11, align 8, !tbaa !15
-  %68 = tail call ptr @realloc(ptr noundef %67, i64 noundef %.lcssa.i.i.i22) #18
+  %68 = tail call ptr @realloc(ptr noundef %67, i64 noundef %.lcssa.i.i.i22) #19
   store ptr %68, ptr %.phi.trans.insert.i.i11, align 8, !tbaa !15
   %69 = icmp eq ptr %68, null
   br i1 %69, label %pm_buffer_append_byte.exit, label %70
@@ -531,7 +531,7 @@ pm_buffer_append_byte.exit:                       ; preds = %70, %66, %25, %20
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
+; Function Attrs: nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @pm_buffer_append_varsint(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = shl i32 %1, 1
   %4 = ashr i32 %1, 31
@@ -540,7 +540,7 @@ define hidden void @pm_buffer_append_varsint(ptr noundef captures(none) %0, i32 
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
+; Function Attrs: nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @pm_buffer_append_double(ptr noundef captures(none) %0, double noundef %1) local_unnamed_addr #4 {
   %3 = load i64, ptr %0, align 8, !tbaa !7
   %4 = add i64 %3, 8
@@ -581,7 +581,7 @@ define hidden void @pm_buffer_append_double(ptr noundef captures(none) %0, doubl
   %.lcssa.i.i = phi i64 [ %14, %._crit_edge.i.i ], [ %.promoted.i.i, %11 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !15
-  %19 = tail call ptr @realloc(ptr noundef %18, i64 noundef %.lcssa.i.i) #18
+  %19 = tail call ptr @realloc(ptr noundef %18, i64 noundef %.lcssa.i.i) #19
   store ptr %19, ptr %17, align 8, !tbaa !15
   %20 = icmp eq ptr %19, null
   br i1 %20, label %pm_buffer_append.exit, label %21
@@ -597,7 +597,7 @@ pm_buffer_append.exit:                            ; preds = %16, %21
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
+; Function Attrs: nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @pm_buffer_append_unicode_codepoint(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp ult i32 %1, 128
   br i1 %3, label %4, label %27
@@ -643,7 +643,7 @@ define hidden noundef zeroext i1 @pm_buffer_append_unicode_codepoint(ptr noundef
   %.lcssa.i.i.i = phi i64 [ %17, %._crit_edge.i.i.i ], [ %.promoted.i.i.i, %14 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !15
-  %22 = tail call ptr @realloc(ptr noundef %21, i64 noundef %.lcssa.i.i.i) #18
+  %22 = tail call ptr @realloc(ptr noundef %21, i64 noundef %.lcssa.i.i.i) #19
   store ptr %22, ptr %20, align 8, !tbaa !15
   %23 = icmp eq ptr %22, null
   br i1 %23, label %pm_buffer_append_byte.exit, label %24
@@ -702,7 +702,7 @@ define hidden noundef zeroext i1 @pm_buffer_append_unicode_codepoint(ptr noundef
   %.lcssa.i.i.i23 = phi i64 [ %44, %._crit_edge.i.i.i25 ], [ %.promoted.i.i.i22, %41 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !15
-  %49 = tail call ptr @realloc(ptr noundef %48, i64 noundef %.lcssa.i.i.i23) #18
+  %49 = tail call ptr @realloc(ptr noundef %48, i64 noundef %.lcssa.i.i.i23) #19
   store ptr %49, ptr %47, align 8, !tbaa !15
   %50 = icmp eq ptr %49, null
   br i1 %50, label %pm_buffer_append_byte.exit, label %51
@@ -772,7 +772,7 @@ define hidden noundef zeroext i1 @pm_buffer_append_unicode_codepoint(ptr noundef
   %.lcssa.i.i.i30 = phi i64 [ %79, %._crit_edge.i.i.i32 ], [ %.promoted.i.i.i29, %76 ]
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %83 = load ptr, ptr %82, align 8, !tbaa !15
-  %84 = tail call ptr @realloc(ptr noundef %83, i64 noundef %.lcssa.i.i.i30) #18
+  %84 = tail call ptr @realloc(ptr noundef %83, i64 noundef %.lcssa.i.i.i30) #19
   store ptr %84, ptr %82, align 8, !tbaa !15
   %85 = icmp eq ptr %84, null
   br i1 %85, label %pm_buffer_append_byte.exit, label %86
@@ -833,7 +833,7 @@ define hidden noundef zeroext i1 @pm_buffer_append_unicode_codepoint(ptr noundef
   %.lcssa.i.i.i38 = phi i64 [ %104, %._crit_edge.i.i.i40 ], [ %.promoted.i.i.i37, %101 ]
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %108 = load ptr, ptr %107, align 8, !tbaa !15
-  %109 = tail call ptr @realloc(ptr noundef %108, i64 noundef %.lcssa.i.i.i38) #18
+  %109 = tail call ptr @realloc(ptr noundef %108, i64 noundef %.lcssa.i.i.i38) #19
   store ptr %109, ptr %107, align 8, !tbaa !15
   %110 = icmp eq ptr %109, null
   br i1 %110, label %pm_buffer_append_byte.exit, label %111
@@ -861,7 +861,7 @@ pm_buffer_append_byte.exit:                       ; preds = %111, %106, %86, %81
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @pm_buffer_append_source(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
+define hidden void @pm_buffer_append_source(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -954,7 +954,7 @@ define hidden void @pm_buffer_append_source(ptr noundef %0, ptr noundef readonly
 33:                                               ; preds = %._crit_edge.i.i.i, %28
   %.lcssa.i.i.i = phi i64 [ %31, %._crit_edge.i.i.i ], [ %.promoted.i.i.i, %28 ]
   %34 = load ptr, ptr %.phi.trans.insert.i.i127, align 8, !tbaa !15
-  %35 = tail call ptr @realloc(ptr noundef %34, i64 noundef %.lcssa.i.i.i) #18
+  %35 = tail call ptr @realloc(ptr noundef %34, i64 noundef %.lcssa.i.i.i) #19
   store ptr %35, ptr %.phi.trans.insert.i.i127, align 8, !tbaa !15
   %36 = icmp eq ptr %35, null
   br i1 %36, label %pm_buffer_append_string.exit, label %37
@@ -1007,7 +1007,7 @@ define hidden void @pm_buffer_append_source(ptr noundef %0, ptr noundef readonly
 54:                                               ; preds = %._crit_edge.i.i.i61, %49
   %.lcssa.i.i.i59 = phi i64 [ %52, %._crit_edge.i.i.i61 ], [ %.promoted.i.i.i58, %49 ]
   %55 = load ptr, ptr %.phi.trans.insert.i.i127, align 8, !tbaa !15
-  %56 = tail call ptr @realloc(ptr noundef %55, i64 noundef %.lcssa.i.i.i59) #18
+  %56 = tail call ptr @realloc(ptr noundef %55, i64 noundef %.lcssa.i.i.i59) #19
   store ptr %56, ptr %.phi.trans.insert.i.i127, align 8, !tbaa !15
   %57 = icmp eq ptr %56, null
   br i1 %57, label %pm_buffer_append_string.exit, label %58
@@ -1056,7 +1056,7 @@ define hidden void @pm_buffer_append_source(ptr noundef %0, ptr noundef readonly
 74:                                               ; preds = %._crit_edge.i.i.i69, %69
   %.lcssa.i.i.i67 = phi i64 [ %72, %._crit_edge.i.i.i69 ], [ %.promoted.i.i.i66, %69 ]
   %75 = load ptr, ptr %.phi.trans.insert.i.i127, align 8, !tbaa !15
-  %76 = tail call ptr @realloc(ptr noundef %75, i64 noundef %.lcssa.i.i.i67) #18
+  %76 = tail call ptr @realloc(ptr noundef %75, i64 noundef %.lcssa.i.i.i67) #19
   store ptr %76, ptr %.phi.trans.insert.i.i127, align 8, !tbaa !15
   %77 = icmp eq ptr %76, null
   br i1 %77, label %pm_buffer_append_string.exit, label %78
@@ -1105,7 +1105,7 @@ define hidden void @pm_buffer_append_source(ptr noundef %0, ptr noundef readonly
 94:                                               ; preds = %._crit_edge.i.i.i77, %89
   %.lcssa.i.i.i75 = phi i64 [ %92, %._crit_edge.i.i.i77 ], [ %.promoted.i.i.i74, %89 ]
   %95 = load ptr, ptr %.phi.trans.insert.i.i127, align 8, !tbaa !15
-  %96 = tail call ptr @realloc(ptr noundef %95, i64 noundef %.lcssa.i.i.i75) #18
+  %96 = tail call ptr @realloc(ptr noundef %95, i64 noundef %.lcssa.i.i.i75) #19
   store ptr %96, ptr %.phi.trans.insert.i.i127, align 8, !tbaa !15
   %97 = icmp eq ptr %96, null
   br i1 %97, label %pm_buffer_append_string.exit, label %98
@@ -1157,7 +1157,7 @@ define hidden void @pm_buffer_append_source(ptr noundef %0, ptr noundef readonly
 115:                                              ; preds = %._crit_edge.i.i.i85, %110
   %.lcssa.i.i.i83 = phi i64 [ %113, %._crit_edge.i.i.i85 ], [ %.promoted.i.i.i82, %110 ]
   %116 = load ptr, ptr %.phi.trans.insert.i.i127, align 8, !tbaa !15
-  %117 = tail call ptr @realloc(ptr noundef %116, i64 noundef %.lcssa.i.i.i83) #18
+  %117 = tail call ptr @realloc(ptr noundef %116, i64 noundef %.lcssa.i.i.i83) #19
   store ptr %117, ptr %.phi.trans.insert.i.i127, align 8, !tbaa !15
   %118 = icmp eq ptr %117, null
   br i1 %118, label %pm_buffer_append_string.exit, label %119
@@ -1210,7 +1210,7 @@ define hidden void @pm_buffer_append_source(ptr noundef %0, ptr noundef readonly
 136:                                              ; preds = %._crit_edge.i.i.i93, %131
   %.lcssa.i.i.i91 = phi i64 [ %134, %._crit_edge.i.i.i93 ], [ %.promoted.i.i.i90, %131 ]
   %137 = load ptr, ptr %.phi.trans.insert.i.i127, align 8, !tbaa !15
-  %138 = tail call ptr @realloc(ptr noundef %137, i64 noundef %.lcssa.i.i.i91) #18
+  %138 = tail call ptr @realloc(ptr noundef %137, i64 noundef %.lcssa.i.i.i91) #19
   store ptr %138, ptr %.phi.trans.insert.i.i127, align 8, !tbaa !15
   %139 = icmp eq ptr %138, null
   br i1 %139, label %pm_buffer_append_string.exit, label %140
@@ -1259,7 +1259,7 @@ define hidden void @pm_buffer_append_source(ptr noundef %0, ptr noundef readonly
 156:                                              ; preds = %._crit_edge.i.i.i101, %151
   %.lcssa.i.i.i99 = phi i64 [ %154, %._crit_edge.i.i.i101 ], [ %.promoted.i.i.i98, %151 ]
   %157 = load ptr, ptr %.phi.trans.insert.i.i127, align 8, !tbaa !15
-  %158 = tail call ptr @realloc(ptr noundef %157, i64 noundef %.lcssa.i.i.i99) #18
+  %158 = tail call ptr @realloc(ptr noundef %157, i64 noundef %.lcssa.i.i.i99) #19
   store ptr %158, ptr %.phi.trans.insert.i.i127, align 8, !tbaa !15
   %159 = icmp eq ptr %158, null
   br i1 %159, label %pm_buffer_append_string.exit, label %160
@@ -1308,7 +1308,7 @@ define hidden void @pm_buffer_append_source(ptr noundef %0, ptr noundef readonly
 176:                                              ; preds = %._crit_edge.i.i.i109, %171
   %.lcssa.i.i.i107 = phi i64 [ %174, %._crit_edge.i.i.i109 ], [ %.promoted.i.i.i106, %171 ]
   %177 = load ptr, ptr %.phi.trans.insert.i.i127, align 8, !tbaa !15
-  %178 = tail call ptr @realloc(ptr noundef %177, i64 noundef %.lcssa.i.i.i107) #18
+  %178 = tail call ptr @realloc(ptr noundef %177, i64 noundef %.lcssa.i.i.i107) #19
   store ptr %178, ptr %.phi.trans.insert.i.i127, align 8, !tbaa !15
   %179 = icmp eq ptr %178, null
   br i1 %179, label %pm_buffer_append_string.exit, label %180
@@ -1374,7 +1374,7 @@ define hidden void @pm_buffer_append_source(ptr noundef %0, ptr noundef readonly
 203:                                              ; preds = %._crit_edge.i.i.i117, %198
   %.lcssa.i.i.i115 = phi i64 [ %201, %._crit_edge.i.i.i117 ], [ %.promoted.i.i.i114, %198 ]
   %204 = load ptr, ptr %.phi.trans.insert.i.i127, align 8, !tbaa !15
-  %205 = tail call ptr @realloc(ptr noundef %204, i64 noundef %.lcssa.i.i.i115) #18
+  %205 = tail call ptr @realloc(ptr noundef %204, i64 noundef %.lcssa.i.i.i115) #19
   store ptr %205, ptr %.phi.trans.insert.i.i127, align 8, !tbaa !15
   %206 = icmp eq ptr %205, null
   br i1 %206, label %pm_buffer_append_byte.exit, label %207
@@ -1423,7 +1423,7 @@ pm_buffer_append_byte.exit:                       ; preds = %207, %203, %187, %1
 222:                                              ; preds = %._crit_edge.i.i.i124, %217
   %.lcssa.i.i.i122 = phi i64 [ %220, %._crit_edge.i.i.i124 ], [ %.promoted.i.i.i121, %217 ]
   %223 = load ptr, ptr %.phi.trans.insert.i.i127, align 8, !tbaa !15
-  %224 = tail call ptr @realloc(ptr noundef %223, i64 noundef %.lcssa.i.i.i122) #18
+  %224 = tail call ptr @realloc(ptr noundef %223, i64 noundef %.lcssa.i.i.i122) #19
   store ptr %224, ptr %.phi.trans.insert.i.i127, align 8, !tbaa !15
   %225 = icmp eq ptr %224, null
   br i1 %225, label %pm_buffer_append_string.exit, label %226
@@ -1472,7 +1472,7 @@ pm_buffer_append_byte.exit:                       ; preds = %207, %203, %187, %1
 242:                                              ; preds = %._crit_edge.i.i.i132, %237
   %.lcssa.i.i.i130 = phi i64 [ %240, %._crit_edge.i.i.i132 ], [ %.promoted.i.i.i129, %237 ]
   %243 = load ptr, ptr %.phi.trans.insert.i.i127, align 8, !tbaa !15
-  %244 = tail call ptr @realloc(ptr noundef %243, i64 noundef %.lcssa.i.i.i130) #18
+  %244 = tail call ptr @realloc(ptr noundef %243, i64 noundef %.lcssa.i.i.i130) #19
   store ptr %244, ptr %.phi.trans.insert.i.i127, align 8, !tbaa !15
   %245 = icmp eq ptr %244, null
   br i1 %245, label %pm_buffer_append_string.exit, label %246
@@ -1521,7 +1521,7 @@ pm_buffer_append_byte.exit:                       ; preds = %207, %203, %187, %1
 262:                                              ; preds = %._crit_edge.i.i.i140, %257
   %.lcssa.i.i.i138 = phi i64 [ %260, %._crit_edge.i.i.i140 ], [ %.promoted.i.i.i137, %257 ]
   %263 = load ptr, ptr %.phi.trans.insert.i.i127, align 8, !tbaa !15
-  %264 = tail call ptr @realloc(ptr noundef %263, i64 noundef %.lcssa.i.i.i138) #18
+  %264 = tail call ptr @realloc(ptr noundef %263, i64 noundef %.lcssa.i.i.i138) #19
   store ptr %264, ptr %.phi.trans.insert.i.i127, align 8, !tbaa !15
   %265 = icmp eq ptr %264, null
   br i1 %265, label %pm_buffer_append_string.exit, label %266
@@ -1540,7 +1540,7 @@ pm_buffer_append_string.exit:                     ; preds = %266, %262, %226, %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @pm_buffer_prepend_string(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
+define hidden void @pm_buffer_prepend_string(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = load i64, ptr %0, align 8, !tbaa !7
   %5 = add i64 %4, %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1580,7 +1580,7 @@ define hidden void @pm_buffer_prepend_string(ptr noundef captures(none) %0, ptr 
   %.lcssa.i = phi i64 [ %15, %._crit_edge.i ], [ %.promoted.i, %12 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !15
-  %20 = tail call ptr @realloc(ptr noundef %19, i64 noundef %.lcssa.i) #18
+  %20 = tail call ptr @realloc(ptr noundef %19, i64 noundef %.lcssa.i) #19
   store ptr %20, ptr %18, align 8, !tbaa !15
   %21 = icmp eq ptr %20, null
   br i1 %21, label %pm_buffer_append_length.exit, label %22
@@ -1590,16 +1590,16 @@ define hidden void @pm_buffer_prepend_string(ptr noundef captures(none) %0, ptr 
   store i64 %5, ptr %0, align 8, !tbaa !7
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = getelementptr i8, ptr %23, i64 %2
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %25, ptr noundef nonnull align 1 %23, i64 noundef %4, i1 noundef false) #19
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %25, ptr noundef nonnull align 1 %23, i64 noundef %4, i1 noundef false) #20
   %26 = load ptr, ptr %24, align 8, !tbaa !15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %26, ptr noundef nonnull align 1 %1, i64 noundef %2, i1 noundef false) #19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %26, ptr noundef nonnull align 1 %1, i64 noundef %2, i1 noundef false) #20
   br label %pm_buffer_append_length.exit
 
 pm_buffer_append_length.exit:                     ; preds = %17, %22
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
+; Function Attrs: nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @pm_buffer_concat(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = load i64, ptr %1, align 8, !tbaa !7
   %.not = icmp eq i64 %3, 0
@@ -1647,7 +1647,7 @@ define hidden void @pm_buffer_concat(ptr noundef captures(none) %0, ptr noundef 
   %.lcssa.i.i = phi i64 [ %18, %._crit_edge.i.i ], [ %.promoted.i.i, %15 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !15
-  %23 = tail call ptr @realloc(ptr noundef %22, i64 noundef %.lcssa.i.i) #18
+  %23 = tail call ptr @realloc(ptr noundef %22, i64 noundef %.lcssa.i.i) #19
   store ptr %23, ptr %21, align 8, !tbaa !15
   %24 = icmp eq ptr %23, null
   br i1 %24, label %pm_buffer_append.exit, label %25
@@ -1656,7 +1656,7 @@ define hidden void @pm_buffer_concat(ptr noundef captures(none) %0, ptr noundef 
   %26 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %23, %20 ]
   store i64 %8, ptr %0, align 8, !tbaa !7
   %27 = getelementptr i8, ptr %26, i64 %7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %27, ptr noundef nonnull readonly align 1 %6, i64 noundef %3, i1 noundef false) #19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %27, ptr noundef nonnull readonly align 1 %6, i64 noundef %3, i1 noundef false) #20
   br label %pm_buffer_append.exit
 
 pm_buffer_append.exit:                            ; preds = %25, %20, %2
@@ -1664,13 +1664,13 @@ pm_buffer_append.exit:                            ; preds = %25, %20, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden void @pm_buffer_clear(ptr noundef writeonly captures(none) initializes((0, 8)) %0) local_unnamed_addr #6 {
+define hidden void @pm_buffer_clear(ptr noundef writeonly captures(none) initializes((0, 8)) %0) local_unnamed_addr #7 {
   store i64 0, ptr %0, align 8, !tbaa !7
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @pm_buffer_rstrip(ptr noundef captures(none) %0) local_unnamed_addr #4 {
+define hidden void @pm_buffer_rstrip(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %.pr = load i64, ptr %0, align 8, !tbaa !7
   %.not4 = icmp eq i64 %.pr, 0
   br i1 %.not4, label %.critedge, label %.lr.ph
@@ -1685,7 +1685,7 @@ define hidden void @pm_buffer_rstrip(ptr noundef captures(none) %0) local_unname
   %6 = getelementptr i8, ptr %5, i64 %4
   %7 = getelementptr i8, ptr %6, i64 -1
   %8 = load i8, ptr %7, align 1, !tbaa !19
-  %9 = tail call zeroext i1 @pm_char_is_whitespace(i8 noundef zeroext %8) #19
+  %9 = tail call zeroext i1 @pm_char_is_whitespace(i8 noundef zeroext %8) #20
   br i1 %9, label %10, label %.critedge
 
 10:                                               ; preds = %3
@@ -1699,15 +1699,15 @@ define hidden void @pm_buffer_rstrip(ptr noundef captures(none) %0) local_unname
   ret void
 }
 
-declare zeroext i1 @pm_char_is_whitespace(i8 noundef zeroext) local_unnamed_addr #7
+declare zeroext i1 @pm_char_is_whitespace(i8 noundef zeroext) local_unnamed_addr #8
 
-; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @pm_buffer_index(ptr noundef readonly captures(none) %0, i8 noundef signext %1) local_unnamed_addr #8 {
+; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define hidden i64 @pm_buffer_index(ptr noundef readonly captures(none) %0, i8 noundef signext %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !15
   %5 = sext i8 %1 to i32
   %6 = load i64, ptr %0, align 8, !tbaa !7
-  %7 = tail call ptr @memchr(ptr noundef %4, i32 noundef %5, i64 noundef %6) #20
+  %7 = tail call ptr @memchr(ptr noundef %4, i32 noundef %5, i64 noundef %6) #21
   %8 = icmp eq ptr %7, null
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %4 to i64
@@ -1717,10 +1717,10 @@ define hidden i64 @pm_buffer_index(ptr noundef readonly captures(none) %0, i8 no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #9
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @pm_buffer_insert(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #4 {
+define hidden void @pm_buffer_insert(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #5 {
   %5 = load i64, ptr %0, align 8, !tbaa !7
   %6 = icmp eq i64 %1, %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1764,7 +1764,7 @@ define hidden void @pm_buffer_insert(ptr noundef captures(none) %0, i64 noundef 
   %.lcssa.i.i.i = phi i64 [ %18, %._crit_edge.i.i.i ], [ %.promoted.i.i.i, %15 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !15
-  %23 = tail call ptr @realloc(ptr noundef %22, i64 noundef %.lcssa.i.i.i) #18
+  %23 = tail call ptr @realloc(ptr noundef %22, i64 noundef %.lcssa.i.i.i) #19
   store ptr %23, ptr %21, align 8, !tbaa !15
   %24 = icmp eq ptr %23, null
   br i1 %24, label %pm_buffer_append_string.exit, label %25
@@ -1811,7 +1811,7 @@ define hidden void @pm_buffer_insert(ptr noundef captures(none) %0, i64 noundef 
   %.lcssa.i.i = phi i64 [ %36, %._crit_edge.i.i18 ], [ %.promoted.i.i, %33 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !15
-  %41 = tail call ptr @realloc(ptr noundef %40, i64 noundef %.lcssa.i.i) #18
+  %41 = tail call ptr @realloc(ptr noundef %40, i64 noundef %.lcssa.i.i) #19
   store ptr %41, ptr %39, align 8, !tbaa !15
   %42 = icmp eq ptr %41, null
   br i1 %42, label %pm_buffer_append_zeroes.exit, label %43
@@ -1820,7 +1820,7 @@ define hidden void @pm_buffer_insert(ptr noundef captures(none) %0, i64 noundef 
   %44 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %41, %38 ]
   store i64 %28, ptr %0, align 8, !tbaa !7
   %45 = getelementptr i8, ptr %44, i64 %5
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %45, i8 noundef 0, i64 noundef %3, i1 noundef false) #19
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %45, i8 noundef 0, i64 noundef %3, i1 noundef false) #20
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !15
   br label %pm_buffer_append_zeroes.exit
@@ -1833,73 +1833,74 @@ pm_buffer_append_zeroes.exit:                     ; preds = %38, %43
   %50 = load i64, ptr %0, align 8, !tbaa !7
   %51 = add i64 %3, %1
   %52 = sub i64 %50, %51
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %49, ptr noundef nonnull align 1 %48, i64 noundef %52, i1 noundef false) #19
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %49, ptr noundef nonnull align 1 %48, i64 noundef %52, i1 noundef false) #20
   %53 = load ptr, ptr %47, align 8, !tbaa !15
   br label %pm_buffer_append_string.exit.sink.split
 
 pm_buffer_append_string.exit.sink.split:          ; preds = %pm_buffer_append_zeroes.exit, %25
   %.sink35 = phi ptr [ %26, %25 ], [ %53, %pm_buffer_append_zeroes.exit ]
   %54 = getelementptr i8, ptr %.sink35, i64 %1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %54, ptr noundef nonnull align 1 %2, i64 noundef %3, i1 noundef false) #19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %54, ptr noundef nonnull align 1 %2, i64 noundef %3, i1 noundef false) #20
   br label %pm_buffer_append_string.exit
 
 pm_buffer_append_string.exit:                     ; preds = %pm_buffer_append_string.exit.sink.split, %20
   ret void
 }
 
-; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden void @pm_buffer_free(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
+; Function Attrs: mustprogress nounwind sspstrong willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define hidden void @pm_buffer_free(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !15
-  tail call void @free(ptr noundef %3) #19
+  tail call void @free(ptr noundef %3) #20
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #12
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree
-declare i32 @__vsnprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #13
+declare i32 @__vsnprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #16
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #17
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind sspstrong willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nounwind sspstrong willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nounwind allocsize(0) }
-attributes #18 = { nounwind allocsize(1) }
-attributes #19 = { nounwind }
-attributes #20 = { nounwind willreturn memory(read) }
+attributes #4 = { nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nounwind sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nounwind sspstrong willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nounwind allocsize(0) }
+attributes #19 = { nounwind allocsize(1) }
+attributes #20 = { nounwind }
+attributes #21 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

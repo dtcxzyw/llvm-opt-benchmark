@@ -145,7 +145,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN5clang13DiagnosticIDsC1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang13DiagnosticIDsC2Ev
 @_ZN5clang13DiagnosticIDsD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang13DiagnosticIDsD2Ev
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local range(i32 0, 40) i32 @_ZNK5clang13DiagnosticIDs17getDefaultMappingEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = icmp ugt i32 %1, 8819
   br i1 %3, label %4, label %14
@@ -263,7 +263,7 @@ define internal fastcc noundef ptr @_ZL11GetDiagInfoj(i32 noundef %0) unnamed_ad
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5clang13DiagnosticIDs21initCustomDiagMappingERNS_17DiagnosticMappingEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(1) %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !3
@@ -314,7 +314,7 @@ define dso_local void @_ZN5clang13DiagnosticIDs21initCustomDiagMappingERNS_17Dia
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef range(i32 0, 64) i32 @_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = tail call fastcc noundef ptr @_ZL11GetDiagInfoj(i32 noundef %0)
   %.not.not = icmp eq ptr %2, null
@@ -362,7 +362,7 @@ define dso_local { ptr, i64 } @_ZN5clang13DiagnosticIDs21getCategoryNameFromIDEj
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef range(i32 0, 4) i32 @_ZN5clang13DiagnosticIDs27getDiagnosticSFINAEResponseEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = tail call fastcc noundef ptr @_ZL11GetDiagInfoj(i32 noundef %0)
   %.not.not = icmp eq ptr %2, null
@@ -380,7 +380,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN5clang13DiagnosticIDs27getDiagn
   ret i32 %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN5clang13DiagnosticIDs12isDeferrableEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = tail call fastcc noundef ptr @_ZL11GetDiagInfoj(i32 noundef %0)
   %.not.not.not = icmp eq ptr %2, null
@@ -910,7 +910,7 @@ _ZNSt6vectorIjSaIjEE12emplace_backIJRjEEES3_DpOT_.exit: ; preds = %_ZNSt6vectorI
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang13DiagnosticIDs20isWarningOrExtensionEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = icmp ult i32 %1, 8820
   br i1 %3, label %4, label %11
@@ -946,7 +946,7 @@ _ZNK5clang13DiagnosticIDs12getDiagClassEj.exit:   ; preds = %6, %4, %11
   ret i1 %22
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef range(i32 0, 8) i32 @_ZNK5clang13DiagnosticIDs12getDiagClassEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = icmp ugt i32 %1, 8819
   br i1 %3, label %4, label %15
@@ -981,7 +981,7 @@ define dso_local noundef range(i32 0, 8) i32 @_ZNK5clang13DiagnosticIDs12getDiag
   ret i32 %.07
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang13DiagnosticIDs6isNoteEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = icmp ult i32 %1, 8820
   br i1 %3, label %4, label %_ZNK5clang13DiagnosticIDs12getDiagClassEj.exit
@@ -1003,7 +1003,7 @@ _ZNK5clang13DiagnosticIDs12getDiagClassEj.exit:   ; preds = %6, %4, %2
   ret i1 %11
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang13DiagnosticIDs15isExtensionDiagEjRb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %2) local_unnamed_addr #2 align 2 {
   %4 = icmp ugt i32 %1, 8819
   br i1 %4, label %_ZNK5clang13DiagnosticIDs12getDiagClassEj.exit.thread, label %5
@@ -1032,7 +1032,7 @@ _ZNK5clang13DiagnosticIDs12getDiagClassEj.exit.thread: ; preds = %5, %3, %_ZNK5c
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang13DiagnosticIDs23isDefaultMappingAsErrorEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = icmp ugt i32 %1, 8819
   br i1 %3, label %4, label %13
@@ -1065,7 +1065,7 @@ _ZNK5clang13DiagnosticIDs17getDefaultMappingEj.exit: ; preds = %4, %13, %15
   ret i1 %19
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local { ptr, i64 } @_ZNK5clang13DiagnosticIDs14getDescriptionEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call fastcc noundef ptr @_ZL11GetDiagInfoj(i32 noundef %1)
   %.not.not = icmp eq ptr %3, null
@@ -1672,7 +1672,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %21, %"_ZN4llvm15par
   ret i64 %.sroa.2.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local range(i64 0, 8589934592) i64 @_ZNK5clang13DiagnosticIDs15getGroupForDiagEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = icmp ugt i32 %1, 8819
   br i1 %3, label %4, label %16
@@ -1714,7 +1714,7 @@ define dso_local range(i64 0, 8589934592) i64 @_ZNK5clang13DiagnosticIDs15getGro
   ret i64 %.sroa.0.0.insert.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local { ptr, i64 } @_ZN5clang13DiagnosticIDs23getWarningOptionForDiagEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
   %3 = icmp ugt i32 %1, 8819
   br i1 %3, label %_ZNK5clang13DiagnosticIDs15getGroupForDiagEj.exit, label %4
@@ -2344,7 +2344,7 @@ _ZN4llvm4copyINS_8ArrayRefIjEESt20back_insert_iteratorINS_15SmallVectorImplIjEEE
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5clang13DiagnosticIDs16setGroupSeverityEN4llvm9StringRefENS_4diag8SeverityE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr readonly captures(none) %1, i64 %2, i8 noundef zeroext %3) local_unnamed_addr #11 align 2 {
   %5 = alloca i8, align 1
   store i8 %3, ptr %5, align 1, !tbaa !125
@@ -2373,7 +2373,7 @@ define dso_local void @_ZN5clang13DiagnosticIDs16setGroupSeverityEN4llvm9StringR
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5clang13DiagnosticIDs25setGroupNoWarningsAsErrorEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr readonly captures(none) %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #11 align 2 {
   %5 = alloca %class.anon.157, align 8
   %6 = alloca i8, align 1
@@ -2941,7 +2941,7 @@ _ZN5clang10DiagnosticD2Ev.exit:                   ; preds = %_ZN5clang17Diagnost
 
 declare void @_ZN5clang10DiagnosticC1EPKNS_17DiagnosticsEngineERKNS_17DiagnosticBuilderE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef, ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #8
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang13DiagnosticIDs15isUnrecoverableEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
   %3 = icmp ugt i32 %1, 8819
   br i1 %3, label %4, label %15
@@ -3072,7 +3072,7 @@ _ZN5clang10DiagnosticD2Ev.exit:                   ; preds = %22, %_ZNKSt7__cxx11
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN5clang13DiagnosticIDs15isARCDiagnosticEj(i32 noundef %0) local_unnamed_addr #10 align 2 {
   %2 = tail call fastcc noundef ptr @_ZL11GetDiagInfoj(i32 noundef %0)
   %.not.not.i = icmp eq ptr %2, null
@@ -3100,7 +3100,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %1, %_ZN5clang13Diag
   ret i1 %12
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN5clang13DiagnosticIDs27isCodegenABICheckDiagnosticEj(i32 noundef %0) local_unnamed_addr #10 align 2 {
   %2 = tail call fastcc noundef ptr @_ZL11GetDiagInfoj(i32 noundef %0)
   %.not.not.i = icmp eq ptr %2, null
@@ -4486,7 +4486,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZL19forEachSubGroupImplIZN5clang13DiagnosticIDs16setGroupSeverityEN4llvm9StringRefENS0_4diag8SeverityEE3$_0EvPKN12_GLOBAL__N_113WarningOptionET_"(i16 %.4.val, ptr readonly captures(none) %0, ptr readonly captures(none) %1) unnamed_addr #18 {
   %3 = zext i16 %.4.val to i64
   %4 = getelementptr inbounds nuw i16, ptr @_ZL13DiagSubGroups, i64 %3
@@ -4523,7 +4523,7 @@ define internal fastcc void @"_ZL19forEachSubGroupImplIZN5clang13DiagnosticIDs16
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !248
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZL19forEachSubGroupImplIZN5clang13DiagnosticIDs25setGroupNoWarningsAsErrorEN4llvm9StringRefEbE3$_0EvPKN12_GLOBAL__N_113WarningOptionET_"(i16 %.4.val, ptr noundef readonly byval(%class.anon.157) align 8 captures(none) %0) unnamed_addr #18 {
   %2 = zext i16 %.4.val to i64
   %3 = getelementptr inbounds nuw i16, ptr @_ZL13DiagSubGroups, i64 %2
@@ -4591,9 +4591,9 @@ declare i64 @llvm.umax.i64(i64, i64) #23
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #23
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4601,15 +4601,15 @@ attributes #6 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protec
 attributes #7 = { mustprogress nofree nounwind willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #21 = { nocallback nofree nounwind willreturn memory(argmem: read) }

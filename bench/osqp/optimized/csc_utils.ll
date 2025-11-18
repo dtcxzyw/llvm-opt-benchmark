@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [54 x i8] c"Matrix A and B do not have the same number of columns\00", align 1
 @.str.5 = private unnamed_addr constant [41 x i8] c"Matrix allocation failed (out of memory)\00", align 1
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i64 0, 2) i64 @csc_is_eq(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, double noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !3
@@ -126,9 +126,9 @@ define i64 @csc_cumsum(ptr noundef writeonly captures(address_is_null) %0, ptr n
   ret i64 %.021
 }
 
-; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none, target_mem0: none, target_mem1: none) uwtable
 define noalias noundef ptr @csc_spalloc(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #2 {
-  %6 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #15
+  %6 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #16
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %.critedge, label %7
 
@@ -146,7 +146,7 @@ define noalias noundef ptr @csc_spalloc(i64 noundef %0, i64 noundef %1, i64 noun
   %13 = add nsw i64 %1, 1
   %14 = select i1 %.not28, i64 %13, i64 %9
   %15 = shl nsw i64 %14, 3
-  %16 = tail call noalias noundef ptr @malloc(i64 noundef %15) #16
+  %16 = tail call noalias noundef ptr @malloc(i64 noundef %15) #17
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %16, ptr %17, align 8, !tbaa !11
   %.not29 = icmp eq i64 %3, 0
@@ -158,10 +158,10 @@ define noalias noundef ptr @csc_spalloc(i64 noundef %0, i64 noundef %1, i64 noun
 
 .thread33:                                        ; preds = %7
   %19 = shl nsw i64 %9, 3
-  %20 = tail call noalias noundef ptr @malloc(i64 noundef %19) #16
+  %20 = tail call noalias noundef ptr @malloc(i64 noundef %19) #17
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %20, ptr %21, align 8, !tbaa !15
-  %22 = tail call noalias noundef ptr @malloc(i64 noundef %19) #16
+  %22 = tail call noalias noundef ptr @malloc(i64 noundef %19) #17
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %22, ptr %23, align 8, !tbaa !17
   %.not3034 = icmp eq ptr %16, null
@@ -174,7 +174,7 @@ define noalias noundef ptr @csc_spalloc(i64 noundef %0, i64 noundef %1, i64 noun
   br i1 %or.cond, label %25, label %.critedge
 
 25:                                               ; preds = %24
-  tail call void @free(ptr noundef nonnull %16) #17
+  tail call void @free(ptr noundef nonnull %16) #18
   br label %26
 
 26:                                               ; preds = %.thread33, %25
@@ -182,7 +182,7 @@ define noalias noundef ptr @csc_spalloc(i64 noundef %0, i64 noundef %1, i64 noun
   br i1 %.not12.i, label %28, label %27
 
 27:                                               ; preds = %26
-  tail call void @free(ptr noundef nonnull %20) #17
+  tail call void @free(ptr noundef nonnull %20) #18
   br label %28
 
 28:                                               ; preds = %27, %26
@@ -190,11 +190,11 @@ define noalias noundef ptr @csc_spalloc(i64 noundef %0, i64 noundef %1, i64 noun
   br i1 %.not13.i, label %csc_spfree.exit, label %29
 
 29:                                               ; preds = %28
-  tail call void @free(ptr noundef nonnull %22) #17
+  tail call void @free(ptr noundef nonnull %22) #18
   br label %csc_spfree.exit
 
 csc_spfree.exit:                                  ; preds = %18, %28, %29
-  tail call void @free(ptr noundef nonnull %6) #17
+  tail call void @free(ptr noundef nonnull %6) #18
   br label %.critedge
 
 .critedge:                                        ; preds = %24, %18, %5, %csc_spfree.exit
@@ -205,7 +205,7 @@ csc_spfree.exit:                                  ; preds = %18, %28, %29
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @csc_spfree(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %2
@@ -217,7 +217,7 @@ define void @csc_spfree(ptr noundef captures(address_is_null) %0) local_unnamed_
   br i1 %.not11, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void @free(ptr noundef nonnull %4) #17
+  tail call void @free(ptr noundef nonnull %4) #18
   br label %6
 
 6:                                                ; preds = %5, %2
@@ -227,7 +227,7 @@ define void @csc_spfree(ptr noundef captures(address_is_null) %0) local_unnamed_
   br i1 %.not12, label %10, label %9
 
 9:                                                ; preds = %6
-  tail call void @free(ptr noundef nonnull %8) #17
+  tail call void @free(ptr noundef nonnull %8) #18
   br label %10
 
 10:                                               ; preds = %9, %6
@@ -237,11 +237,11 @@ define void @csc_spfree(ptr noundef captures(address_is_null) %0) local_unnamed_
   br i1 %.not13, label %14, label %13
 
 13:                                               ; preds = %10
-  tail call void @free(ptr noundef nonnull %12) #17
+  tail call void @free(ptr noundef nonnull %12) #18
   br label %14
 
 14:                                               ; preds = %13, %10
-  tail call void @free(ptr noundef nonnull %0) #17
+  tail call void @free(ptr noundef nonnull %0) #18
   br label %15
 
 15:                                               ; preds = %14, %1
@@ -251,7 +251,7 @@ define void @csc_spfree(ptr noundef captures(address_is_null) %0) local_unnamed_
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noalias noundef ptr @csc_submatrix_byrows(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !3
@@ -263,7 +263,7 @@ define noalias noundef ptr @csc_submatrix_byrows(ptr noundef readonly captures(n
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !17
   %12 = shl i64 %5, 3
-  %13 = tail call noalias ptr @malloc(i64 noundef %12) #16
+  %13 = tail call noalias ptr @malloc(i64 noundef %12) #17
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %77, label %.preheader78
 
@@ -407,7 +407,7 @@ define noalias noundef ptr @csc_submatrix_byrows(ptr noundef readonly captures(n
 
 .sink.split:                                      ; preds = %._crit_edge95, %34, %.lr.ph.preheader.i, %._crit_edge
   %.0.ph = phi ptr [ null, %._crit_edge ], [ %31, %.lr.ph.preheader.i ], [ %31, %34 ], [ %31, %._crit_edge95 ]
-  tail call void @free(ptr noundef %13) #17
+  tail call void @free(ptr noundef %13) #18
   br label %77
 
 77:                                               ; preds = %.sink.split, %2
@@ -418,7 +418,7 @@ define noalias noundef ptr @csc_submatrix_byrows(ptr noundef readonly captures(n
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noalias noundef ptr @triplet_to_csc(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #6 {
   %3 = load i64, ptr %0, align 8, !tbaa !21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -434,14 +434,14 @@ define noalias noundef ptr @triplet_to_csc(ptr noundef readonly captures(none) %
   %14 = icmp ne ptr %11, null
   %15 = zext i1 %14 to i64
   %16 = tail call ptr @csc_spalloc(i64 noundef %3, i64 noundef %5, i64 noundef %13, i64 noundef %15, i64 noundef 0)
-  %17 = tail call noalias noundef ptr @calloc(i64 noundef %5, i64 noundef 8) #15
+  %17 = tail call noalias noundef ptr @calloc(i64 noundef %5, i64 noundef 8) #16
   %18 = icmp ne ptr %16, null
   %19 = icmp ne ptr %17, null
   %or.cond = and i1 %18, %19
   br i1 %or.cond, label %33, label %20
 
 20:                                               ; preds = %2
-  tail call void @free(ptr noundef %17) #17
+  tail call void @free(ptr noundef %17) #18
   %.not.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i, label %csc_done.exit, label %21
 
@@ -452,7 +452,7 @@ define noalias noundef ptr @triplet_to_csc(ptr noundef readonly captures(none) %
   br i1 %.not11.i.i, label %25, label %24
 
 24:                                               ; preds = %21
-  tail call void @free(ptr noundef nonnull %23) #17
+  tail call void @free(ptr noundef nonnull %23) #18
   br label %25
 
 25:                                               ; preds = %24, %21
@@ -462,7 +462,7 @@ define noalias noundef ptr @triplet_to_csc(ptr noundef readonly captures(none) %
   br i1 %.not12.i.i, label %29, label %28
 
 28:                                               ; preds = %25
-  tail call void @free(ptr noundef nonnull %27) #17
+  tail call void @free(ptr noundef nonnull %27) #18
   br label %29
 
 29:                                               ; preds = %28, %25
@@ -472,7 +472,7 @@ define noalias noundef ptr @triplet_to_csc(ptr noundef readonly captures(none) %
   br i1 %.not13.i.i, label %csc_done.exit.sink.split, label %32
 
 32:                                               ; preds = %29
-  tail call void @free(ptr noundef nonnull %31) #17
+  tail call void @free(ptr noundef nonnull %31) #18
   br label %csc_done.exit.sink.split
 
 33:                                               ; preds = %2
@@ -596,7 +596,7 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 csc_done.exit.sink.split:                         ; preds = %.lr.ph58.split.split, %.lr.ph58.split.split.us, %.lr.ph58.split.us, %csc_cumsum.exit, %29, %32
   %.sink = phi ptr [ %16, %32 ], [ %16, %29 ], [ %17, %csc_cumsum.exit ], [ %17, %.lr.ph58.split.us ], [ %17, %.lr.ph58.split.split.us ], [ %17, %.lr.ph58.split.split ]
   %.0.ph = phi ptr [ null, %32 ], [ null, %29 ], [ %16, %csc_cumsum.exit ], [ %16, %.lr.ph58.split.us ], [ %16, %.lr.ph58.split.split.us ], [ %16, %.lr.ph58.split.split ]
-  tail call void @free(ptr noundef nonnull %.sink) #17
+  tail call void @free(ptr noundef nonnull %.sink) #18
   br label %csc_done.exit
 
 csc_done.exit:                                    ; preds = %csc_done.exit.sink.split, %20
@@ -604,10 +604,10 @@ csc_done.exit:                                    ; preds = %csc_done.exit.sink.
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @csc_done(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i64 noundef %3) local_unnamed_addr #4 {
-  tail call void @free(ptr noundef %1) #17
-  tail call void @free(ptr noundef %2) #17
+  tail call void @free(ptr noundef %1) #18
+  tail call void @free(ptr noundef %2) #18
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %5, label %csc_spfree.exit
 
@@ -622,7 +622,7 @@ define noundef ptr @csc_done(ptr noundef captures(address_is_null, ret: address,
   br i1 %.not11.i, label %10, label %9
 
 9:                                                ; preds = %6
-  tail call void @free(ptr noundef nonnull %8) #17
+  tail call void @free(ptr noundef nonnull %8) #18
   br label %10
 
 10:                                               ; preds = %9, %6
@@ -632,7 +632,7 @@ define noundef ptr @csc_done(ptr noundef captures(address_is_null, ret: address,
   br i1 %.not12.i, label %14, label %13
 
 13:                                               ; preds = %10
-  tail call void @free(ptr noundef nonnull %12) #17
+  tail call void @free(ptr noundef nonnull %12) #18
   br label %14
 
 14:                                               ; preds = %13, %10
@@ -642,11 +642,11 @@ define noundef ptr @csc_done(ptr noundef captures(address_is_null, ret: address,
   br i1 %.not13.i, label %18, label %17
 
 17:                                               ; preds = %14
-  tail call void @free(ptr noundef nonnull %16) #17
+  tail call void @free(ptr noundef nonnull %16) #18
   br label %18
 
 18:                                               ; preds = %17, %14
-  tail call void @free(ptr noundef nonnull %0) #17
+  tail call void @free(ptr noundef nonnull %0) #18
   br label %csc_spfree.exit
 
 csc_spfree.exit:                                  ; preds = %18, %5, %4
@@ -654,7 +654,7 @@ csc_spfree.exit:                                  ; preds = %18, %5, %4
   ret ptr %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noalias noundef ptr @triplet_to_csr(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #6 {
   %3 = load i64, ptr %0, align 8, !tbaa !21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -670,14 +670,14 @@ define noalias noundef ptr @triplet_to_csr(ptr noundef readonly captures(none) %
   %14 = icmp ne ptr %11, null
   %15 = zext i1 %14 to i64
   %16 = tail call ptr @csc_spalloc(i64 noundef %3, i64 noundef %5, i64 noundef %13, i64 noundef %15, i64 noundef 0)
-  %17 = tail call noalias noundef ptr @calloc(i64 noundef %3, i64 noundef 8) #15
+  %17 = tail call noalias noundef ptr @calloc(i64 noundef %3, i64 noundef 8) #16
   %18 = icmp ne ptr %16, null
   %19 = icmp ne ptr %17, null
   %or.cond = and i1 %18, %19
   br i1 %or.cond, label %33, label %20
 
 20:                                               ; preds = %2
-  tail call void @free(ptr noundef %17) #17
+  tail call void @free(ptr noundef %17) #18
   %.not.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i, label %csc_done.exit, label %21
 
@@ -688,7 +688,7 @@ define noalias noundef ptr @triplet_to_csr(ptr noundef readonly captures(none) %
   br i1 %.not11.i.i, label %25, label %24
 
 24:                                               ; preds = %21
-  tail call void @free(ptr noundef nonnull %23) #17
+  tail call void @free(ptr noundef nonnull %23) #18
   br label %25
 
 25:                                               ; preds = %24, %21
@@ -698,7 +698,7 @@ define noalias noundef ptr @triplet_to_csr(ptr noundef readonly captures(none) %
   br i1 %.not12.i.i, label %29, label %28
 
 28:                                               ; preds = %25
-  tail call void @free(ptr noundef nonnull %27) #17
+  tail call void @free(ptr noundef nonnull %27) #18
   br label %29
 
 29:                                               ; preds = %28, %25
@@ -708,7 +708,7 @@ define noalias noundef ptr @triplet_to_csr(ptr noundef readonly captures(none) %
   br i1 %.not13.i.i, label %csc_done.exit.sink.split, label %32
 
 32:                                               ; preds = %29
-  tail call void @free(ptr noundef nonnull %31) #17
+  tail call void @free(ptr noundef nonnull %31) #18
   br label %csc_done.exit.sink.split
 
 33:                                               ; preds = %2
@@ -832,7 +832,7 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 csc_done.exit.sink.split:                         ; preds = %.lr.ph58.split.split, %.lr.ph58.split.split.us, %.lr.ph58.split.us, %csc_cumsum.exit, %29, %32
   %.sink = phi ptr [ %16, %32 ], [ %16, %29 ], [ %17, %csc_cumsum.exit ], [ %17, %.lr.ph58.split.us ], [ %17, %.lr.ph58.split.split.us ], [ %17, %.lr.ph58.split.split ]
   %.0.ph = phi ptr [ null, %32 ], [ null, %29 ], [ %16, %csc_cumsum.exit ], [ %16, %.lr.ph58.split.us ], [ %16, %.lr.ph58.split.split.us ], [ %16, %.lr.ph58.split.split ]
-  tail call void @free(ptr noundef nonnull %.sink) #17
+  tail call void @free(ptr noundef nonnull %.sink) #18
   br label %csc_done.exit
 
 csc_done.exit:                                    ; preds = %csc_done.exit.sink.split, %20
@@ -840,7 +840,7 @@ csc_done.exit:                                    ; preds = %csc_done.exit.sink.
   ret ptr %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @csc_extract_diag(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !3
@@ -898,14 +898,14 @@ define void @csc_extract_diag(ptr noundef readonly captures(none) %0, ptr nounde
   ret void
 }
 
-; Function Attrs: nofree nounwind memory(write, argmem: read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree nounwind memory(write, argmem: read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define noalias noundef ptr @csc_pinv(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
 3:                                                ; preds = %2
   %4 = shl nsw i64 %1, 3
-  %5 = tail call noalias noundef ptr @malloc(i64 noundef %4) #16
+  %5 = tail call noalias noundef ptr @malloc(i64 noundef %4) #17
   %.not14 = icmp eq ptr %5, null
   br i1 %.not14, label %.loopexit, label %.preheader
 
@@ -928,7 +928,7 @@ define noalias noundef ptr @csc_pinv(ptr noundef readonly captures(address_is_nu
   ret ptr %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noalias noundef ptr @csc_symperm(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #6 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !3
@@ -945,14 +945,14 @@ define noalias noundef ptr @csc_symperm(ptr noundef readonly captures(none) %0, 
   %17 = select i1 %15, i1 %16, i1 false
   %18 = zext i1 %17 to i64
   %19 = tail call ptr @csc_spalloc(i64 noundef %6, i64 noundef %6, i64 noundef %14, i64 noundef %18, i64 noundef 0)
-  %20 = tail call noalias noundef ptr @calloc(i64 noundef %6, i64 noundef 8) #15
+  %20 = tail call noalias noundef ptr @calloc(i64 noundef %6, i64 noundef 8) #16
   %21 = icmp ne ptr %19, null
   %22 = icmp ne ptr %20, null
   %or.cond = and i1 %21, %22
   br i1 %or.cond, label %36, label %23
 
 23:                                               ; preds = %4
-  tail call void @free(ptr noundef %20) #17
+  tail call void @free(ptr noundef %20) #18
   %.not.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i, label %csc_done.exit, label %24
 
@@ -963,7 +963,7 @@ define noalias noundef ptr @csc_symperm(ptr noundef readonly captures(none) %0, 
   br i1 %.not11.i.i, label %28, label %27
 
 27:                                               ; preds = %24
-  tail call void @free(ptr noundef nonnull %26) #17
+  tail call void @free(ptr noundef nonnull %26) #18
   br label %28
 
 28:                                               ; preds = %27, %24
@@ -973,7 +973,7 @@ define noalias noundef ptr @csc_symperm(ptr noundef readonly captures(none) %0, 
   br i1 %.not12.i.i, label %32, label %31
 
 31:                                               ; preds = %28
-  tail call void @free(ptr noundef nonnull %30) #17
+  tail call void @free(ptr noundef nonnull %30) #18
   br label %32
 
 32:                                               ; preds = %31, %28
@@ -983,7 +983,7 @@ define noalias noundef ptr @csc_symperm(ptr noundef readonly captures(none) %0, 
   br i1 %.not13.i.i, label %csc_done.exit.sink.split, label %35
 
 35:                                               ; preds = %32
-  tail call void @free(ptr noundef nonnull %34) #17
+  tail call void @free(ptr noundef nonnull %34) #18
   br label %csc_done.exit.sink.split
 
 36:                                               ; preds = %4
@@ -1362,7 +1362,7 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 csc_done.exit.sink.split:                         ; preds = %.loopexit, %.loopexit.us, %.loopexit.us.us123, %.loopexit.us.us, %.loopexit.us.us.us, %csc_cumsum.exit, %._crit_edge.thread, %32, %35
   %.sink = phi ptr [ %19, %35 ], [ %19, %32 ], [ %20, %._crit_edge.thread ], [ %20, %csc_cumsum.exit ], [ %20, %.loopexit.us.us.us ], [ %20, %.loopexit.us.us ], [ %20, %.loopexit.us.us123 ], [ %20, %.loopexit.us ], [ %20, %.loopexit ]
   %.0.ph = phi ptr [ null, %35 ], [ null, %32 ], [ %19, %._crit_edge.thread ], [ %19, %csc_cumsum.exit ], [ %19, %.loopexit.us.us.us ], [ %19, %.loopexit.us.us ], [ %19, %.loopexit.us.us123 ], [ %19, %.loopexit.us ], [ %19, %.loopexit ]
-  tail call void @free(ptr noundef nonnull %.sink) #17
+  tail call void @free(ptr noundef nonnull %.sink) #18
   br label %csc_done.exit
 
 csc_done.exit:                                    ; preds = %csc_done.exit.sink.split, %23
@@ -1370,7 +1370,7 @@ csc_done.exit:                                    ; preds = %csc_done.exit.sink.
   ret ptr %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noalias noundef ptr @csc_copy(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load i64, ptr %0, align 8, !tbaa !21
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1454,13 +1454,13 @@ prea_vec_copy.exit:                               ; preds = %.lr.ph.i24, %prea_i
   ret ptr %13
 }
 
-; Function Attrs: nofree nounwind memory(readwrite, argmem: read) uwtable
+; Function Attrs: nofree nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
 define noalias noundef ptr @csc_to_dns(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = load i64, ptr %0, align 8, !tbaa !21
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !3
   %5 = mul nsw i64 %4, %2
-  %6 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 8) #15
+  %6 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 8) #16
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -1510,7 +1510,7 @@ define noalias noundef ptr @csc_to_dns(ptr noundef readonly captures(none) %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @triu_to_csc(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define noalias noundef ptr @triu_to_csc(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = load i64, ptr %0, align 8, !tbaa !21
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !3
@@ -1624,7 +1624,7 @@ define noalias noundef ptr @triu_to_csc(ptr noundef readonly captures(none) %0) 
   br i1 %.not11.i, label %62, label %61
 
 61:                                               ; preds = %._crit_edge
-  tail call void @free(ptr noundef nonnull %60) #17
+  tail call void @free(ptr noundef nonnull %60) #18
   br label %62
 
 62:                                               ; preds = %61, %._crit_edge
@@ -1634,7 +1634,7 @@ define noalias noundef ptr @triu_to_csc(ptr noundef readonly captures(none) %0) 
   br i1 %.not12.i, label %66, label %65
 
 65:                                               ; preds = %62
-  tail call void @free(ptr noundef nonnull %64) #17
+  tail call void @free(ptr noundef nonnull %64) #18
   br label %66
 
 66:                                               ; preds = %65, %62
@@ -1644,11 +1644,11 @@ define noalias noundef ptr @triu_to_csc(ptr noundef readonly captures(none) %0) 
   br i1 %.not13.i, label %csc_spfree.exit, label %69
 
 69:                                               ; preds = %66
-  tail call void @free(ptr noundef nonnull %68) #17
+  tail call void @free(ptr noundef nonnull %68) #18
   br label %csc_spfree.exit
 
 csc_spfree.exit:                                  ; preds = %66, %69
-  tail call void @free(ptr noundef nonnull %14) #17
+  tail call void @free(ptr noundef nonnull %14) #18
   br label %70
 
 70:                                               ; preds = %csc_spfree.exit, %22, %5
@@ -1657,10 +1657,10 @@ csc_spfree.exit:                                  ; preds = %66, %69
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #11
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @vstack(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
+define noalias noundef ptr @vstack(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1819,7 +1819,7 @@ define noalias noundef ptr @vstack(ptr noundef readonly captures(none) %0, ptr n
   br i1 %.not11.i, label %93, label %92
 
 92:                                               ; preds = %._crit_edge
-  tail call void @free(ptr noundef nonnull %91) #17
+  tail call void @free(ptr noundef nonnull %91) #18
   br label %93
 
 93:                                               ; preds = %92, %._crit_edge
@@ -1829,7 +1829,7 @@ define noalias noundef ptr @vstack(ptr noundef readonly captures(none) %0, ptr n
   br i1 %.not12.i, label %97, label %96
 
 96:                                               ; preds = %93
-  tail call void @free(ptr noundef nonnull %95) #17
+  tail call void @free(ptr noundef nonnull %95) #18
   br label %97
 
 97:                                               ; preds = %96, %93
@@ -1839,11 +1839,11 @@ define noalias noundef ptr @vstack(ptr noundef readonly captures(none) %0, ptr n
   br i1 %.not13.i, label %csc_spfree.exit, label %100
 
 100:                                              ; preds = %97
-  tail call void @free(ptr noundef nonnull %99) #17
+  tail call void @free(ptr noundef nonnull %99) #18
   br label %csc_spfree.exit
 
 csc_spfree.exit:                                  ; preds = %97, %100
-  tail call void @free(ptr noundef nonnull %19) #17
+  tail call void @free(ptr noundef nonnull %19) #18
   br label %101
 
 101:                                              ; preds = %csc_spfree.exit, %28, %7
@@ -1852,38 +1852,39 @@ csc_spfree.exit:                                  ; preds = %97, %100
 }
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #12
+declare i64 @llvm.smax.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #12
+declare i64 @llvm.smin.i64(i64, i64) #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #13
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #12
+declare double @llvm.fabs.f64(double) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
-attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind willreturn memory(readwrite, argmem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind memory(write, argmem: read, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind memory(readwrite, argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nofree nounwind }
-attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #15 = { nounwind allocsize(0,1) }
-attributes #16 = { nounwind allocsize(0) }
-attributes #17 = { nounwind }
+attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind memory(write, argmem: read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nofree nounwind }
+attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #16 = { nounwind allocsize(0,1) }
+attributes #17 = { nounwind allocsize(0) }
+attributes #18 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

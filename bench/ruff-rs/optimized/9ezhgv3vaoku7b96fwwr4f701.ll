@@ -3817,7 +3817,7 @@ define internal noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17h49ad86678bad2
   ret i1 %3
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut17h5c31c22b813a1d9dE(ptr noundef nonnull readonly align 8 captures(none) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = load i32, ptr %0, align 8, !range !703, !noundef !3
   %3 = icmp eq i32 %2, 29
@@ -3889,7 +3889,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd6ae18f01187e1e9E.exit: ; preds = %4
   ret void
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h03b324c80b1f172bE"(ptr noundef readonly captures(none) %0, ptr noundef nonnull align 8 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !135, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !722)
@@ -3921,7 +3921,7 @@ _ZN4core3ops8function6FnOnce9call_once17h2b9f4cf3ff923e13E.exit: ; preds = %2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h5d93dfb1c8e380dfE"(ptr noundef readonly captures(none) %0, ptr noundef nonnull align 8 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !135, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !736)
@@ -16332,7 +16332,7 @@ define internal fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..option..Optio
   br label %"_ZN4core3ptr69drop_in_place$LT$ruff_python_ast..comparable..ComparableParameter$GT$17h8cd4c0c28b52307fE.exit"
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h68e3f0853b4cbcb7E"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %4 = icmp samesign eq i64 %1, 0
@@ -17870,7 +17870,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i: ; preds = %24
   resume { ptr, i32 } %33
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h23e7cffa12c4b2d3E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
@@ -17900,7 +17900,7 @@ define internal fastcc noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$imp
   ret i1 %.sroa.0.0.i
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h3a80d76b9518aeceE"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
@@ -17949,7 +17949,7 @@ _ZN4core3cmp9PartialEq2ne17h68abc1b157a0eca4E.exit: ; preds = %21, %22
   ret i1 %.sroa.0.0.i
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hbd9582dffdeb5d93E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
@@ -18095,7 +18095,7 @@ _ZN4core3cmp9PartialEq2ne17h5faf5288cbda4406E.exit: ; preds = %56
   ret i1 %.sroa.0.0.i
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd9ae3547f891ce46E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
@@ -18250,7 +18250,7 @@ _ZN4core3cmp9PartialEq2ne17he6f6e45e2776b23aE.exit: ; preds = %76
   ret i1 %.sroa.0.0.i
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hdf45bf6068052d28E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
@@ -20223,7 +20223,7 @@ define internal noundef zeroext i1 @"_ZN70_$LT$core..num..error..TryFromIntError
   ret i1 %4
 }
 
-; Function Attrs: nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h69e729ef0d9927cdE"(ptr noundef nonnull align 8 %0, i64 noundef %1, ptr noundef nonnull align 8 %2, i64 noundef %3) unnamed_addr #11 personality ptr @rust_eh_personality {
   %.not = icmp eq i64 %1, %3
   br i1 %.not, label %.preheader.split, label %"_ZN72_$LT$ruff_python_ast..nodes..Keyword$u20$as$u20$core..cmp..PartialEq$GT$2eq17h585a0da154a05da7E.exit.thread"
@@ -20346,7 +20346,7 @@ define internal noundef zeroext i1 @"_ZN74_$LT$aho_corasick..util..error..MatchE
   ret i1 %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17hf873df514ce3afa6E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #12 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %4 = load i8, ptr %3, align 1, !range !124, !alias.scope !3268, !noundef !3
@@ -30952,7 +30952,7 @@ define noalias noundef nonnull align 8 ptr @"_ZN145_$LT$ruff_python_ast..compara
   ret ptr %5
 }
 
-; Function Attrs: nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @"_ZN82_$LT$ruff_python_ast..comparable..HashableExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17haffe772b37c8b512E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(128) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(128) %1) unnamed_addr #11 {
   %3 = tail call fastcc noundef zeroext i1 @"_ZN84_$LT$ruff_python_ast..comparable..ComparableExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0844d387cb89fbf3E"(ptr noalias noundef readonly align 8 dereferenceable(128) %0, ptr noalias noundef readonly align 8 dereferenceable(128) %1)
   ret i1 %3
@@ -31735,7 +31735,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h1bc2bd1eb3b2afa9E.exit: ; preds
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i64, ptr } @"_ZN15ruff_python_ast10expression154_$LT$impl$u20$core..convert..From$LT$$RF$alloc..boxed..Box$LT$ruff_python_ast..generated..Expr$GT$$GT$$u20$for$u20$ruff_python_ast..generated..ExprRef$GT$4from17h0d57f84169259fbfE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #21 {
 switch.lookup:
   %1 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
@@ -31750,7 +31750,7 @@ switch.lookup:
   ret { i64, ptr } %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i32, i32 } @"_ZN100_$LT$ruff_python_ast..expression..LiteralExpressionRef$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h6e696078f07f0458E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #21 {
   %2 = load i64, ptr %0, align 8, !range !5057, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -31801,7 +31801,7 @@ switch.lookup:
   ret { i64, ptr } %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZN15ruff_python_ast10expression20LiteralExpressionRef24is_implicit_concatenated17h303abb60d1d5a3e5E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #21 {
   %2 = load i64, ptr %0, align 8, !range !5057, !noundef !3
   switch i64 %2, label %13 [
@@ -31834,7 +31834,7 @@ define noundef zeroext i1 @_ZN15ruff_python_ast10expression10StringLike10is_fstr
   ret i1 %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN15ruff_python_ast10expression10StringLike5parts17h0f322c180b3094faE(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #23 {
   %3 = load i64, ptr %1, align 8, !range !398, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -32051,7 +32051,7 @@ switch.lookup:                                    ; preds = %2
   ret { i64, ptr } %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i32, i32 } @"_ZN90_$LT$ruff_python_ast..expression..StringLike$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h7f9eebaea20d80c2E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #21 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !398, !noundef !3
@@ -32070,7 +32070,7 @@ switch.lookup:
   ret { i32, i32 } %.pn
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef range(i8 0, 84) i8 @_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #21 {
   %2 = load i64, ptr %0, align 8, !range !398, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -32320,7 +32320,7 @@ switch.lookup:
   ret { i64, ptr } %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i32, i32 } @"_ZN94_$LT$ruff_python_ast..expression..StringLikePart$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h75346936316ac2e3E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #21 {
   %2 = load i64, ptr %0, align 8, !range !398, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -32337,7 +32337,7 @@ define { i32, i32 } @"_ZN94_$LT$ruff_python_ast..expression..StringLikePart$u20$
   ret { i32, i32 } %.pn
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i64, ptr } @"_ZN106_$LT$ruff_python_ast..expression..StringLikePartIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb48730bcdc24d3e1E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0) unnamed_addr #23 {
   %2 = load i64, ptr %0, align 8, !range !398, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -32432,7 +32432,7 @@ default.unreachable8:                             ; preds = %2
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i64, ptr } @"_ZN121_$LT$ruff_python_ast..expression..StringLikePartIter$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb3f04338f55116dcE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0) unnamed_addr #23 {
   %2 = load i64, ptr %0, align 8, !range !398, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -34207,7 +34207,7 @@ define { i64, ptr } @"_ZN127_$LT$ruff_python_ast..generated..ModRef$u20$as$u20$c
   ret { i64, ptr } %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i32, i32 } @"_ZN85_$LT$ruff_python_ast..generated..ModRef$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0e1ebe001f425468E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #21 {
   %2 = load i64, ptr %0, align 8, !range !75, !noundef !3
   %3 = trunc nuw i64 %2 to i1
@@ -34514,7 +34514,7 @@ define { i64, ptr } @"_ZN135_$LT$ruff_python_ast..generated..StmtRef$u20$as$u20$
   ret { i64, ptr } %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i32, i32 } @"_ZN86_$LT$ruff_python_ast..generated..StmtRef$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hdeb147bc0aa5658eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #21 {
   %2 = load i64, ptr %0, align 8, !range !5098, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -34847,7 +34847,7 @@ define { i64, ptr } @"_ZN135_$LT$ruff_python_ast..generated..ExprRef$u20$as$u20$
   ret { i64, ptr } %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i32, i32 } @"_ZN86_$LT$ruff_python_ast..generated..ExprRef$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h8d42267b20a33cdcE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #21 {
   %2 = load i64, ptr %0, align 8, !range !5099, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -35019,7 +35019,7 @@ define noundef nonnull align 8 dereferenceable(72) ptr @"_ZN146_$LT$ruff_python_
   ret ptr %0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i32, i32 } @"_ZN95_$LT$ruff_python_ast..generated..ExceptHandlerRef$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hb010aeeb5eb12160E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #21 {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !135, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -35055,7 +35055,7 @@ define { i64, ptr } @"_ZN142_$LT$ruff_python_ast..generated..FStringElementRef$u
   ret { i64, ptr } %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i32, i32 } @"_ZN96_$LT$ruff_python_ast..generated..FStringElementRef$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hfc4da22701f90599E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #21 {
   %2 = load i64, ptr %0, align 8, !range !75, !noundef !3
   %3 = trunc nuw i64 %2 to i1
@@ -35175,7 +35175,7 @@ define { i64, ptr } @"_ZN128_$LT$ruff_python_ast..generated..PatternRef$u20$as$u
   ret { i64, ptr } %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i32, i32 } @"_ZN89_$LT$ruff_python_ast..generated..PatternRef$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17he71a87323afbe698E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #21 {
   %2 = load i64, ptr %0, align 8, !range !5103, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -35257,7 +35257,7 @@ define { i64, ptr } @"_ZN134_$LT$ruff_python_ast..generated..TypeParamRef$u20$as
   ret { i64, ptr } %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i32, i32 } @"_ZN91_$LT$ruff_python_ast..generated..TypeParamRef$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hca2c667b3bad46f5E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #21 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !align !135, !noundef !3
@@ -36224,7 +36224,7 @@ define { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u
   ret { i64, ptr } %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i32, i32 } @"_ZN89_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hd6791b713880e4f5E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #21 {
   %2 = load i64, ptr %0, align 8, !range !5104, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -38169,7 +38169,7 @@ define noundef zeroext i1 @_ZN15ruff_python_ast7helpers9is_sunder17h51d0b6d39f59
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZN15ruff_python_ast7helpers25is_assignment_to_a_dunder17h6535183909e7da09E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #12 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !4450, !noundef !3
   %3 = icmp slt i64 %2, -9223372036854775784
@@ -38270,7 +38270,7 @@ define noundef zeroext i1 @_ZN15ruff_python_ast7helpers12is_singleton17h758b79af
   ret i1 %switch
 }
 
-; Function Attrs: nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZN15ruff_python_ast7helpers11is_constant17h79959e90414154a4E(ptr noundef nonnull readonly align 8 captures(none) %0) unnamed_addr #27 personality ptr @rust_eh_personality {
   %2 = load i32, ptr %0, align 8, !range !703, !noundef !3
   %3 = icmp eq i32 %2, 29
@@ -38304,7 +38304,7 @@ define noundef zeroext i1 @_ZN15ruff_python_ast7helpers11is_constant17h79959e904
   ret i1 %.sroa.0.0.in
 }
 
-; Function Attrs: nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZN15ruff_python_ast7helpers25is_constant_non_singleton17hb206db5bd7e06dbcE(ptr noundef nonnull readonly align 8 captures(none) %0) unnamed_addr #27 personality ptr @rust_eh_personality {
   %2 = load i32, ptr %0, align 8, !range !703, !noundef !3
   %3 = icmp eq i32 %2, 29
@@ -43462,7 +43462,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %2
   br label %_ZN15ruff_python_ast7visitor9walk_stmt17hccc52186fa361565E.exit
 }
 
-; Function Attrs: nofree nosync nounwind nonlazybind uwtable
+; Function Attrs: nofree nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN102_$LT$ruff_python_ast..helpers..ReturnStatementVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h3ece2f43deb67194E"(ptr noalias noundef writeonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 %1) unnamed_addr #28 {
   %3 = load i32, ptr %1, align 8, !range !703, !noundef !3
   %.off75 = add nsw i32 %3, -13
@@ -44224,7 +44224,7 @@ _ZN15ruff_python_ast17statement_visitor9walk_body17h5d7e6eda895b2488E.exit12.loo
   br i1 %93, label %_ZN15ruff_python_ast17statement_visitor9walk_body17h5d7e6eda895b2488E.exit12.loopexit, label %.lr.ph
 }
 
-; Function Attrs: nofree nosync nounwind nonlazybind uwtable
+; Function Attrs: nofree nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN92_$LT$ruff_python_ast..helpers..AwaitVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_stmt17haa44638863ad17edE"(ptr noalias noundef align 1 dereferenceable(1) %0, ptr noalias noundef readonly align 8 dereferenceable(120) %1) unnamed_addr #28 {
   %3 = load i64, ptr %1, align 8, !range !4450, !noundef !3
   %4 = icmp slt i64 %3, -9223372036854775784
@@ -44832,7 +44832,7 @@ _ZN15ruff_python_ast7visitor9walk_stmt17hbc5aa8646edd5085E.exit: ; preds = %.lr.
   br label %_ZN15ruff_python_ast7visitor9walk_stmt17hbc5aa8646edd5085E.exit
 }
 
-; Function Attrs: nofree nosync nounwind nonlazybind uwtable
+; Function Attrs: nofree nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN92_$LT$ruff_python_ast..helpers..AwaitVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17hb4c60499e1cdacedE"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(1) %0, ptr noundef nonnull readonly align 8 %1) unnamed_addr #28 {
   br label %tailrecurse
 
@@ -45441,7 +45441,7 @@ _ZN15ruff_python_ast7visitor7Visitor14visit_f_string17hddaad06950e81ee4E.exit: ;
   br i1 %.not48.i, label %common.ret, label %tailrecurse.backedge
 }
 
-; Function Attrs: nofree nosync nounwind nonlazybind uwtable
+; Function Attrs: nofree nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN92_$LT$ruff_python_ast..helpers..AwaitVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$19visit_comprehension17h4fc917fd1d8af1c0E"(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(1) %0, ptr noundef nonnull align 8 %1) unnamed_addr #28 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %4 = load i8, ptr %3, align 8, !range !825, !noundef !3
@@ -45477,7 +45477,7 @@ _ZN15ruff_python_ast7visitor18walk_comprehension17h245175dcb9bff251E.exit: ; pre
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZN15ruff_python_ast7helpers17is_docstring_stmt17h908735d454a37fa6E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #21 {
   %2 = load i64, ptr %0, align 8, !range !4450, !noundef !3
   %3 = icmp eq i64 %2, -9223372036854775789
@@ -45609,7 +45609,7 @@ switch.lookup:                                    ; preds = %2
   ret i1 %.sroa.0.0.shrunk
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal noundef zeroext i1 @"_ZN15ruff_python_ast7helpers23is_unpacking_assignment28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he3e3b87924b07347E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 %1) unnamed_addr #5 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !135, !noundef !3
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !135, !noundef !3
@@ -45617,7 +45617,7 @@ define internal noundef zeroext i1 @"_ZN15ruff_python_ast7helpers23is_unpacking_
   ret i1 %5
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal noundef zeroext i1 @"_ZN15ruff_python_ast7helpers23is_unpacking_assignment28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1b4d305db6a967f7E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 %1) unnamed_addr #5 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !135, !noundef !3
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !135, !noundef !3
@@ -45635,7 +45635,7 @@ switch.lookup:
   ret i8 %switch.masked
 }
 
-; Function Attrs: nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZN15ruff_python_ast7helpers21is_non_empty_f_string17h564d7152fab0a494E(ptr noalias noundef readonly align 8 captures(address) dereferenceable(48) %0) unnamed_addr #29 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !462, !alias.scope !6495, !noundef !3
   %3 = icmp eq i64 %2, -9223372036854775807
@@ -45707,7 +45707,7 @@ define noundef zeroext i1 @_ZN15ruff_python_ast7helpers21is_non_empty_f_string17
   ret i1 %.not.i5
 }
 
-; Function Attrs: nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN15ruff_python_ast7helpers21is_non_empty_f_string5inner17h963601089857b7e3E(ptr noundef nonnull readonly align 8 captures(address) %0) unnamed_addr #29 personality ptr @rust_eh_personality {
   br label %tailrecurse
 
@@ -45899,7 +45899,7 @@ _ZN15ruff_python_ast7helpers21is_non_empty_f_string17h564d7152fab0a494E.exit: ; 
   ret i1 %.sroa.0.0.shrunk
 }
 
-; Function Attrs: nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZN15ruff_python_ast7helpers17is_empty_f_string17hdac8295e370e4be5E(ptr noalias noundef readonly align 8 captures(address) dereferenceable(48) %0) unnamed_addr #29 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !462, !alias.scope !6561, !noundef !3
   %3 = icmp eq i64 %2, -9223372036854775807
@@ -45971,7 +45971,7 @@ define noundef zeroext i1 @_ZN15ruff_python_ast7helpers17is_empty_f_string17hdac
   ret i1 %38
 }
 
-; Function Attrs: nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN15ruff_python_ast7helpers17is_empty_f_string5inner17hcdea6f2b27fe3216E(ptr noundef nonnull readonly align 8 captures(address) %0) unnamed_addr #29 personality ptr @rust_eh_personality {
   %2 = load i32, ptr %0, align 8, !range !703, !noundef !3
   switch i32 %2, label %_ZN15ruff_python_ast5nodes18StringLiteralValue8is_empty17hee0476e9c7c42dfdE.exit [
@@ -48500,7 +48500,7 @@ define noundef zeroext i1 @"_ZN66_$LT$ruff_python_ast..name..Name$u20$as$u20$cor
   ret i1 %11
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @"_ZN97_$LT$ruff_python_ast..name..Name$u20$as$u20$core..cmp..PartialEq$LT$alloc..string..String$GT$$GT$2eq17h80989cf0d097aa3bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #12 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !3
@@ -50828,7 +50828,7 @@ define noundef zeroext i1 @"_ZN15ruff_python_ast4node56_$LT$impl$u20$ruff_python
   ret i1 %switch.selectcmp
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define { i64, ptr } @"_ZN15ruff_python_ast4node56_$LT$impl$u20$ruff_python_ast..generated..AnyNodeRef$GT$18last_child_in_body17h17146342c83bf64eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #30 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !5104, !noundef !3
   switch i64 %2, label %.thread [
@@ -51121,7 +51121,7 @@ define { i64, ptr } @"_ZN15ruff_python_ast4node56_$LT$impl$u20$ruff_python_ast..
   br label %.thread
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @"_ZN15ruff_python_ast4node56_$LT$impl$u20$ruff_python_ast..generated..AnyNodeRef$GT$26is_first_statement_in_body17hc3435e596ebb42ffE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef range(i64 0, 92) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #30 {
   switch i64 %1, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit37 [
     i64 2, label %4
@@ -52113,7 +52113,7 @@ _ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit54.thread: 
   br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit37
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @"_ZN15ruff_python_ast4node56_$LT$impl$u20$ruff_python_ast..generated..AnyNodeRef$GT$36is_first_statement_in_alternate_body17h066d8f54bf2007eeE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef range(i64 0, 92) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #30 {
   switch i64 %1, label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit [
     i64 10, label %15
@@ -52622,7 +52622,7 @@ _ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit28.thread: 
   br label %_ZN15ruff_python_ast4node17are_same_optional17hc8bd64c6a457e30aE.exit
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { ptr, i64 } @"_ZN15ruff_python_ast5nodes58_$LT$impl$u20$ruff_python_ast..generated..StmtClassDef$GT$5bases17h9fff4bd4f5982a89E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #21 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8, !align !135, !noundef !3
@@ -52643,7 +52643,7 @@ define { ptr, i64 } @"_ZN15ruff_python_ast5nodes58_$LT$impl$u20$ruff_python_ast.
   ret { ptr, i64 } %10
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { ptr, i64 } @"_ZN15ruff_python_ast5nodes58_$LT$impl$u20$ruff_python_ast..generated..StmtClassDef$GT$8keywords17hd534775aeac91927E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #21 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8, !align !135, !noundef !3
@@ -52717,7 +52717,7 @@ define { i64, ptr } @"_ZN15ruff_python_ast5nodes50_$LT$impl$u20$ruff_python_ast.
   ret { i64, ptr } %17
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef range(i8 0, 21) i8 @"_ZN15ruff_python_ast5nodes50_$LT$impl$u20$ruff_python_ast..generated..Expr$GT$10precedence17h5e00e3ba7a9f103fE"(ptr noundef nonnull align 8 %0) unnamed_addr #21 {
 switch.lookup:
   %1 = alloca [16 x i8], align 8
@@ -52744,7 +52744,7 @@ define noundef zeroext i1 @"_ZN15ruff_python_ast5nodes53_$LT$impl$u20$ruff_pytho
   ret i1 %switch
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef range(i8 0, 21) i8 @"_ZN15ruff_python_ast5nodes53_$LT$impl$u20$ruff_python_ast..generated..ExprRef$GT$10precedence17hf4205f80badd04f7E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #21 {
   %2 = tail call noundef range(i8 0, 21) i8 @_ZN15ruff_python_ast19operator_precedence18OperatorPrecedence13from_expr_ref17h05149a7c684b7456E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
   ret i8 %2
@@ -52962,7 +52962,7 @@ define noundef zeroext i1 @_ZN15ruff_python_ast5nodes15DictKeyIterator8is_empty1
   ret i1 %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i64, ptr } @"_ZN98_$LT$ruff_python_ast..nodes..DictKeyIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8d2dc3759f6f0765E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0) unnamed_addr #23 {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -53026,7 +53026,7 @@ define void @"_ZN98_$LT$ruff_python_ast..nodes..DictKeyIterator$u20$as$u20$core.
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i64, ptr } @"_ZN113_$LT$ruff_python_ast..nodes..DictKeyIterator$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h8b86a4bba899ee56E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0) unnamed_addr #23 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !alias.scope !7435, !nonnull !3, !noundef !3
@@ -53893,7 +53893,7 @@ define noundef zeroext i1 @_ZN15ruff_python_ast5nodes18StringLiteralValue24is_im
   ret i1 %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZN15ruff_python_ast5nodes18StringLiteralValue10is_unicode17hcb657dfb5a146f97E(ptr noundef nonnull readonly align 8 captures(none) %0) unnamed_addr #21 {
   %2 = load i64, ptr %0, align 8, !range !333, !noundef !3
   %.not.i.i = icmp eq i64 %2, -9223372036854775808
@@ -53979,7 +53979,7 @@ define { ptr, ptr } @_ZN15ruff_python_ast5nodes18StringLiteralValue8iter_mut17h0
   ret { ptr, ptr } %9
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZN15ruff_python_ast5nodes18StringLiteralValue8is_empty17hee0476e9c7c42dfdE(ptr noundef nonnull readonly align 8 captures(none) %0) unnamed_addr #32 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !333, !noundef !3
   %.not.i.i.i = icmp eq i64 %2, -9223372036854775808
@@ -54019,7 +54019,7 @@ _ZN15ruff_python_ast5nodes18StringLiteralValue3len17hb053a5269edc60c4E.exit: ; p
   ret i1 %.sroa.04.0.i.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i64 @_ZN15ruff_python_ast5nodes18StringLiteralValue3len17hb053a5269edc60c4E(ptr noundef nonnull readonly align 8 captures(none) %0) unnamed_addr #32 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !333, !noundef !3
   %.not.i.i = icmp eq i64 %2, -9223372036854775808
@@ -54152,7 +54152,7 @@ define { ptr, ptr } @"_ZN116_$LT$$RF$mut$u20$ruff_python_ast..nodes..StringLiter
   ret { ptr, ptr } %9
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @"_ZN94_$LT$ruff_python_ast..nodes..StringLiteralValue$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h46e9251331fbdf7eE"(ptr noundef nonnull readonly align 8 captures(address) %0, ptr noalias noundef nonnull readonly align 1 captures(address) %1, i64 noundef %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = load i64, ptr %0, align 8, !range !333, !noundef !3
   %.not.i.i.i = icmp eq i64 %4, -9223372036854775808
@@ -54648,7 +54648,7 @@ define void @"_ZN15ruff_python_ast5nodes127_$LT$impl$u20$core..convert..From$LT$
   ret void
 }
 
-; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @"_ZN90_$LT$ruff_python_ast..nodes..ConcatenatedStringLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2b7ce10650513dbbE"(ptr noundef nonnull readonly align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) %1) unnamed_addr #33 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !3
@@ -54866,7 +54866,7 @@ define { ptr, ptr } @_ZN15ruff_python_ast5nodes17BytesLiteralValue8iter_mut17hbe
   ret { ptr, ptr } %10
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZN15ruff_python_ast5nodes17BytesLiteralValue8is_empty17hfdcb1c8092e09bd8E(ptr noalias noundef readonly align 8 captures(address) dereferenceable(32) %0) unnamed_addr #32 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !alias.scope !7601, !noundef !3
   %3 = icmp eq ptr %2, null
@@ -54895,7 +54895,7 @@ define noundef zeroext i1 @_ZN15ruff_python_ast5nodes17BytesLiteralValue8is_empt
   ret i1 %11
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i64 @_ZN15ruff_python_ast5nodes17BytesLiteralValue3len17h7f77dc243045b4b5E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #32 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !alias.scope !7612, !noundef !3
   %3 = icmp eq ptr %2, null
@@ -54982,7 +54982,7 @@ define { ptr, ptr } @"_ZN115_$LT$$RF$mut$u20$ruff_python_ast..nodes..BytesLitera
   ret { ptr, ptr } %10
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @"_ZN102_$LT$ruff_python_ast..nodes..BytesLiteralValue$u20$as$u20$core..cmp..PartialEq$LT$$u5b$u8$u5d$$GT$$GT$2eq17h6473e3b9cbfcaab2E"(ptr noalias noundef readonly align 8 captures(address) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 captures(address) %1, i64 noundef %2) unnamed_addr #32 personality ptr @rust_eh_personality {
   %4 = load ptr, ptr %0, align 8, !alias.scope !7635, !noundef !3
   %5 = icmp eq ptr %4, null
@@ -56546,7 +56546,7 @@ tailrecurse:                                      ; preds = %9, %2
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @"_ZN15ruff_python_ast5nodes53_$LT$impl$u20$ruff_python_ast..generated..Pattern$GT$11is_wildcard17hb45faedb9faa20cbE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #27 personality ptr @rust_eh_personality {
   br label %tailrecurse
 
@@ -56662,7 +56662,7 @@ define noundef align 8 ptr @_ZN15ruff_python_ast5nodes15AnyParameterRef7default1
   ret ptr %.sroa.01.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i32, i32 } @"_ZN90_$LT$ruff_python_ast..nodes..AnyParameterRef$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h8e3af8b55128134bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #21 {
   %.pn.in = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pn = load ptr, ptr %.pn.in, align 8, !nonnull !3, !align !135, !noundef !3
@@ -56708,7 +56708,7 @@ define void @_ZN15ruff_python_ast5nodes10Parameters24iter_non_variadic_params17h
   ret void
 }
 
-; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef align 8 dereferenceable_or_null(64) ptr @_ZN15ruff_python_ast5nodes10Parameters4find17hda9646494e040ae3E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #34 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !alias.scope !7832, !noalias !7835, !nonnull !3, !noundef !3
@@ -56895,7 +56895,7 @@ define noundef range(i64 0, 432345564227567616) i64 @_ZN15ruff_python_ast5nodes1
   ret i64 %22
 }
 
-; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZN15ruff_python_ast5nodes10Parameters8includes17hb75ff259d7fda276E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #34 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !alias.scope !7905, !noalias !7910, !nonnull !3, !noundef !3
@@ -57316,7 +57316,7 @@ define void @"_ZN100_$LT$$RF$ruff_python_ast..nodes..Parameters$u20$as$u20$core.
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN15ruff_python_ast5nodes135_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$$RF$alloc..boxed..Box$LT$ruff_python_ast..nodes..Parameters$GT$$GT$9into_iter17h98080f28b237373cE"(ptr dead_on_unwind noalias noundef writable writeonly sret([64 x i8]) align 8 captures(none) dereferenceable(64) initializes((0, 64)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #35 {
   %3 = load ptr, ptr %1, align 8, !nonnull !3, !align !135, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7959)
@@ -57401,7 +57401,7 @@ define { i64, ptr } @"_ZN119_$LT$ruff_python_ast..nodes..ArgOrKeyword$u20$as$u20
   ret { i64, ptr } %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i32, i32 } @"_ZN87_$LT$ruff_python_ast..nodes..ArgOrKeyword$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h907f798306e9b4cfE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #21 {
   %2 = load i64, ptr %0, align 8, !range !75, !noundef !3
   %3 = trunc nuw i64 %2 to i1
@@ -57452,7 +57452,7 @@ define noundef zeroext i1 @_ZN15ruff_python_ast5nodes9Arguments8is_empty17h489f7
   ret i1 %7
 }
 
-; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef align 8 ptr @_ZN15ruff_python_ast5nodes9Arguments12find_keyword17hf9e72e013352ee1fE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #34 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !135, !noundef !3
@@ -57499,7 +57499,7 @@ define noundef align 8 ptr @_ZN15ruff_python_ast5nodes9Arguments12find_keyword17
   ret ptr %.sroa.0.0.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define noundef align 8 ptr @_ZN15ruff_python_ast5nodes9Arguments15find_positional17h8a2469cf1e8df7feE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0, i64 noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !135, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -57553,7 +57553,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h8a74ed755581e618E.exit: ; p
   ret ptr %.sroa.0.0
 }
 
-; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef align 8 ptr @_ZN15ruff_python_ast5nodes9Arguments19find_argument_value17h897cb2def357446aE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #33 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8003)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8006)
@@ -57650,7 +57650,7 @@ _ZN15ruff_python_ast5nodes9Arguments13find_argument17h24d5069c0ea0e46bE.exit.thr
   ret ptr %.sroa.0.0
 }
 
-; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define { i64, ptr } @_ZN15ruff_python_ast5nodes9Arguments13find_argument17h24d5069c0ea0e46bE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #33 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8038)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -58097,7 +58097,7 @@ define noundef range(i8 1, 3) i8 @"_ZN85_$LT$ruff_python_ast..nodes..Singleton$u
   ret i8 %.
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef range(i8 0, 21) i8 @_ZN15ruff_python_ast19operator_precedence18OperatorPrecedence13from_expr_ref17h05149a7c684b7456E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #21 {
   %2 = load i64, ptr %0, align 8, !range !5099, !noundef !3
   switch i64 %2, label %default.unreachable1 [
@@ -58197,7 +58197,7 @@ switch.lookup:                                    ; preds = %1
   ret i8 %.sroa.0.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef range(i8 0, 21) i8 @_ZN15ruff_python_ast19operator_precedence18OperatorPrecedence9from_expr17h81e0a350afcd4285E(ptr noundef nonnull align 8 %0) unnamed_addr #21 {
 switch.lookup:
   %1 = alloca [16 x i8], align 8
@@ -58222,7 +58222,7 @@ define noundef zeroext i1 @_ZN15ruff_python_ast19operator_precedence18OperatorPr
   ret i1 %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef range(i8 0, 21) i8 @"_ZN140_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h61409c48ce645b99E"(ptr noundef nonnull align 8 %0) unnamed_addr #21 {
 switch.lookup:
   %1 = alloca [16 x i8], align 8
@@ -58241,7 +58241,7 @@ switch.lookup:
   ret i8 %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef range(i8 0, 21) i8 @"_ZN143_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..ExprRef$GT$$GT$4from17h51dd5e338cc254f0E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #21 {
   %2 = tail call noundef i8 @_ZN15ruff_python_ast19operator_precedence18OperatorPrecedence13from_expr_ref17h05149a7c684b7456E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
   ret i8 %2
@@ -58794,7 +58794,7 @@ define { i8, i8 } @"_ZN89_$LT$ruff_python_ast..python_version..PythonVersion$u20
   ret { i8, i8 } { i8 3, i8 9 }
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i24 @"_ZN122_$LT$ruff_python_ast..python_version..PythonVersion$u20$as$u20$core..convert..TryFrom$LT$$LP$$RF$str$C$$RF$str$RP$$GT$$GT$8try_from17h3064c0be05c513a2E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #32 {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !21, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -59528,7 +59528,7 @@ _ZN5alloc5alloc15exchange_malloc17he7dced161648df71E.exit: ; preds = %2
   resume { ptr, i32 } %.pn83.pn
 }
 
-; Function Attrs: nofree nosync nounwind nonlazybind uwtable
+; Function Attrs: nofree nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN15ruff_python_ast8relocate13relocate_expr17h99a79bdabee96873E(ptr noalias noundef align 8 dereferenceable(64) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #28 {
   %4 = alloca [8 x i8], align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -59540,7 +59540,7 @@ define void @_ZN15ruff_python_ast8relocate13relocate_expr17h99a79bdabee96873E(pt
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind nonlazybind uwtable
+; Function Attrs: nofree nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN107_$LT$ruff_python_ast..relocate..Relocator$u20$as$u20$ruff_python_ast..visitor..transformer..Transformer$GT$10visit_expr17h226a668033bf5546E"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #28 {
   %3 = load i32, ptr %0, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -60443,7 +60443,7 @@ _ZN15ruff_python_ast7visitor11transformer9walk_expr17h3f292f14d8b9b0f9E.exit: ; 
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind nonlazybind uwtable
+; Function Attrs: nofree nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN107_$LT$ruff_python_ast..relocate..Relocator$u20$as$u20$ruff_python_ast..visitor..transformer..Transformer$GT$13visit_keyword17h2e6efb7670975120E"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(104) initializes((96, 104)) %1) unnamed_addr #28 {
   %3 = load i32, ptr %0, align 4, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -61784,7 +61784,7 @@ define { ptr, i64 } @_ZN15ruff_python_ast3str14trailing_quote17hccff8546dd40befe
   ret { ptr, i64 } %13
 }
 
-; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZN15ruff_python_ast3str15is_triple_quote17h2a329e373faabbe2E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1) unnamed_addr #33 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8625)
   br label %.lr.ph.i.i
@@ -62164,7 +62164,7 @@ define { i8, i8 } @"_ZN87_$LT$ruff_python_ast..str_prefix..AnyStringPrefix$u20$a
   ret { i8, i8 } { i8 2, i8 2 }
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN15ruff_python_ast9traversal5suite17h896eca029692fec0E(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(address) dereferenceable(120) %1, ptr noalias noundef readonly align 8 dereferenceable(120) %2) unnamed_addr #36 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -62866,7 +62866,7 @@ define noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15Traversal
   ret i1 %2
 }
 
-; Function Attrs: nofree nosync nounwind nonlazybind uwtable
+; Function Attrs: nofree nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN15ruff_python_ast7visitor11transformer11Transformer22visit_f_string_element17h084c93789ab11feaE(ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1) unnamed_addr #28 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8776)
   %3 = load i64, ptr %1, align 8, !range !462, !alias.scope !8776, !noalias !8779, !noundef !3
@@ -62903,7 +62903,7 @@ _ZN15ruff_python_ast7visitor11transformer21walk_f_string_element17h9d17ad85bdedb
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind nonlazybind uwtable
+; Function Attrs: nofree nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17had8995fd59712ef0E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #28 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8786)
   %3 = load ptr, ptr %1, align 8, !alias.scope !8786, !noalias !8789, !nonnull !3, !align !135, !noundef !3
@@ -62942,7 +62942,7 @@ _ZN15ruff_python_ast7visitor14walk_arguments17h72221478dd747f49E.exit: ; preds =
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind nonlazybind uwtable
+; Function Attrs: nofree nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN15ruff_python_ast7visitor7Visitor16visit_parameters17h84c07ed70acb198bE(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1) unnamed_addr #28 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !8791, !noalias !8794, !nonnull !3, !noundef !3
@@ -63095,7 +63095,7 @@ _ZN15ruff_python_ast7visitor15walk_parameters17h282029283b6816dbE.exit: ; preds 
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind nonlazybind uwtable
+; Function Attrs: nofree nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN15ruff_python_ast7visitor7Visitor16visit_parameters17he664107e029c5c4fE(ptr noalias noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1) unnamed_addr #28 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !8826, !noalias !8829, !nonnull !3, !noundef !3
@@ -63248,7 +63248,7 @@ _ZN15ruff_python_ast7visitor15walk_parameters17h793a5f8ac10dd6ebE.exit: ; preds 
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind nonlazybind uwtable
+; Function Attrs: nofree nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN15ruff_python_ast7visitor7Visitor13visit_pattern17h550943faaffd7951E(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(88) %1) unnamed_addr #28 {
   br label %tailrecurse
 
@@ -63396,7 +63396,7 @@ _ZN15ruff_python_ast7visitor12walk_pattern17ha18b9c8e8c741ff1E.exit: ; preds = %
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind nonlazybind uwtable
+; Function Attrs: nofree nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN15ruff_python_ast7visitor7Visitor13visit_pattern17hc2a37d7d7091a94cE(ptr noalias noundef nonnull align 1 dereferenceable(1) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(88) %1) unnamed_addr #28 {
   br label %tailrecurse
 
@@ -63581,7 +63581,7 @@ _ZN15ruff_python_ast7visitor21walk_f_string_element17h90595acac89ae62aE.exit: ; 
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind nonlazybind uwtable
+; Function Attrs: nofree nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN15ruff_python_ast7visitor7Visitor22visit_f_string_element17h8cfa1fc6bffe06ecE(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1) unnamed_addr #28 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8901)
   %3 = load i64, ptr %1, align 8, !range !462, !alias.scope !8901, !noalias !8904, !noundef !3
@@ -63655,7 +63655,7 @@ _ZN15ruff_python_ast7visitor21walk_f_string_element17h469f9949eb954145E.exit: ; 
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind nonlazybind uwtable
+; Function Attrs: nofree nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN15ruff_python_ast7visitor7Visitor22visit_f_string_element17hd3ffa6b66f6c0e02E(ptr noalias noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1) unnamed_addr #28 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8921)
   %3 = load i64, ptr %1, align 8, !range !462, !alias.scope !8921, !noalias !8924, !noundef !3
@@ -64019,7 +64019,7 @@ define noundef zeroext i1 @_ZN15ruff_python_ast12PySourceType8is_ipynb17h20cfe49
   ret i1 %2
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN89_$LT$ruff_python_ast..comparable..ComparableParameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1a9c48a086e2ea1fE"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !3
@@ -64055,7 +64055,7 @@ define internal fastcc noundef zeroext i1 @"_ZN89_$LT$ruff_python_ast..comparabl
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h636e5880d12e1373E.exit.thread"
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN84_$LT$ruff_python_ast..comparable..ComparableExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0844d387cb89fbf3E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(128) %1) unnamed_addr #5 {
   br label %tailrecurse
 
@@ -69190,7 +69190,7 @@ default.unreachable1:                             ; preds = %2
   ret i1 %.sroa.0.0.in
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull readonly align 8 %0, ptr noundef nonnull readonly align 8 %1) unnamed_addr #5 {
   %3 = load i32, ptr %0, align 8, !range !703, !noundef !3
   %4 = load i32, ptr %1, align 8, !range !703, !noundef !3
@@ -69597,7 +69597,7 @@ default.unreachable:                              ; preds = %6
   br label %"_ZN77_$LT$ruff_python_ast..generated..ExprDict$u20$as$u20$core..cmp..PartialEq$GT$2eq17h742ba0d71fe42699E.exit"
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN79_$LT$ruff_python_ast..generated..ExprBoolOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h939f14b80747e999E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8, !noundef !3
@@ -69653,7 +69653,7 @@ define internal fastcc noundef zeroext i1 @"_ZN79_$LT$ruff_python_ast..generated
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN78_$LT$ruff_python_ast..generated..ExprNamed$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbec28930de8d2b6dE"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !noundef !3
@@ -69689,7 +69689,7 @@ define internal fastcc noundef zeroext i1 @"_ZN78_$LT$ruff_python_ast..generated
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN78_$LT$ruff_python_ast..generated..ExprBinOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17he057ad68afa02ff0E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !noundef !3
@@ -69733,7 +69733,7 @@ define internal fastcc noundef zeroext i1 @"_ZN78_$LT$ruff_python_ast..generated
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN80_$LT$ruff_python_ast..generated..ExprUnaryOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h480ab60cb3273471E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !noundef !3
@@ -69769,7 +69769,7 @@ define internal fastcc noundef zeroext i1 @"_ZN80_$LT$ruff_python_ast..generated
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN79_$LT$ruff_python_ast..generated..ExprLambda$u20$as$u20$core..cmp..PartialEq$GT$2eq17he0c2b6b450905cbaE"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !noundef !3
@@ -70031,7 +70031,7 @@ _ZN4core3cmp9PartialEq2ne17he6f6e45e2776b23aE.exit: ; preds = %108
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN75_$LT$ruff_python_ast..generated..ExprIf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5d3db6cdef4a5072E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8, !noundef !3
@@ -70075,7 +70075,7 @@ define internal fastcc noundef zeroext i1 @"_ZN75_$LT$ruff_python_ast..generated
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN81_$LT$ruff_python_ast..generated..ExprListComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h507b5918ad010b35E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8, !noundef !3
@@ -70189,7 +70189,7 @@ define internal fastcc noundef zeroext i1 @"_ZN81_$LT$ruff_python_ast..generated
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN80_$LT$ruff_python_ast..generated..ExprSetComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5368de791447260eE"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8, !noundef !3
@@ -70303,7 +70303,7 @@ define internal fastcc noundef zeroext i1 @"_ZN80_$LT$ruff_python_ast..generated
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN81_$LT$ruff_python_ast..generated..ExprDictComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha1a024a2dd5f7e6fE"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8, !noundef !3
@@ -70425,7 +70425,7 @@ define internal fastcc noundef zeroext i1 @"_ZN81_$LT$ruff_python_ast..generated
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN82_$LT$ruff_python_ast..generated..ExprGenerator$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb28248bf67a5ccb9E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8, !noundef !3
@@ -70547,7 +70547,7 @@ define internal fastcc noundef zeroext i1 @"_ZN82_$LT$ruff_python_ast..generated
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN78_$LT$ruff_python_ast..generated..ExprAwait$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5d59004b7a749868E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !noundef !3
@@ -70575,7 +70575,7 @@ define internal fastcc noundef zeroext i1 @"_ZN78_$LT$ruff_python_ast..generated
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN78_$LT$ruff_python_ast..generated..ExprYield$u20$as$u20$core..cmp..PartialEq$GT$2eq17had2484cfd75b280cE"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #5 {
   %3 = load i32, ptr %0, align 8, !noundef !3
   %4 = load i32, ptr %1, align 8, !noundef !3
@@ -70610,7 +70610,7 @@ define internal fastcc noundef zeroext i1 @"_ZN78_$LT$ruff_python_ast..generated
   br label %18
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN82_$LT$ruff_python_ast..generated..ExprYieldFrom$u20$as$u20$core..cmp..PartialEq$GT$2eq17hac0ee345e0899ea3E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !noundef !3
@@ -70638,7 +70638,7 @@ define internal fastcc noundef zeroext i1 @"_ZN82_$LT$ruff_python_ast..generated
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN80_$LT$ruff_python_ast..generated..ExprCompare$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6ddc827e56297891E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8, !noundef !3
@@ -70718,7 +70718,7 @@ define internal fastcc noundef zeroext i1 @"_ZN80_$LT$ruff_python_ast..generated
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN77_$LT$ruff_python_ast..generated..ExprCall$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4d5539ce72ab6440E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8, !noundef !3
@@ -70800,7 +70800,7 @@ define internal fastcc noundef zeroext i1 @"_ZN77_$LT$ruff_python_ast..generated
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN82_$LT$ruff_python_ast..generated..ExprAttribute$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb42f06b3e01ff46eE"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8, !noundef !3
@@ -70887,7 +70887,7 @@ define internal fastcc noundef zeroext i1 @"_ZN82_$LT$ruff_python_ast..generated
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN82_$LT$ruff_python_ast..generated..ExprSubscript$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f00e9533b9701ddE"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !noundef !3
@@ -70931,7 +70931,7 @@ define internal fastcc noundef zeroext i1 @"_ZN82_$LT$ruff_python_ast..generated
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN80_$LT$ruff_python_ast..generated..ExprStarred$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5604e7c62c9a2dbdE"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !noundef !3
@@ -70967,7 +70967,7 @@ define internal fastcc noundef zeroext i1 @"_ZN80_$LT$ruff_python_ast..generated
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN77_$LT$ruff_python_ast..generated..ExprList$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7a12dc1e296b8c1eE"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8, !noundef !3
@@ -71023,7 +71023,7 @@ define internal fastcc noundef zeroext i1 @"_ZN77_$LT$ruff_python_ast..generated
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN78_$LT$ruff_python_ast..generated..ExprTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb2bb4cd82dbe6690E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8, !noundef !3
@@ -71087,7 +71087,7 @@ define internal fastcc noundef zeroext i1 @"_ZN78_$LT$ruff_python_ast..generated
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN78_$LT$ruff_python_ast..generated..ExprSlice$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha19168c8d104febaE"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #5 {
   %3 = load i32, ptr %0, align 8, !noundef !3
   %4 = load i32, ptr %1, align 8, !noundef !3
@@ -71160,7 +71160,7 @@ define internal fastcc noundef zeroext i1 @"_ZN78_$LT$ruff_python_ast..generated
   br label %38
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN89_$LT$ruff_python_ast..generated..ExprIpyEscapeCommand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h601592f971afb003E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #38 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !noundef !3
@@ -71237,7 +71237,7 @@ define noundef zeroext i1 @"_ZN69_$LT$ruff_python_ast..name..Name$u20$as$u20$sal
   ret i1 %4
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN89_$LT$ruff_python_ast..nodes..FStringExpressionElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17h51f0913b899c6dc8E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8, !noundef !3
@@ -71384,7 +71384,7 @@ define internal noundef zeroext i1 @"_ZN75_$LT$ruff_python_ast..nodes..Conversio
   ret i1 %9
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN77_$LT$ruff_python_ast..nodes..FStringValue$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8072e925d095f6a9E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #5 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10229)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10232)
@@ -72306,7 +72306,7 @@ define void @"_ZN15ruff_python_ast5nodes1_113_$LT$impl$u20$core..iter..traits..c
   ret void
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN80_$LT$ruff_python_ast..nodes..FStringElements$u20$as$u20$core..cmp..PartialEq$GT$2eq17hab044659fdf49a7bE"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #5 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10466)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10469)
@@ -72391,7 +72391,7 @@ define internal fastcc noundef zeroext i1 @"_ZN80_$LT$ruff_python_ast..nodes..FS
   ret i1 %.sroa.0.0.i
 }
 
-; Function Attrs: inlinehint nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN88_$LT$ruff_python_ast..nodes..StringLiteralValueInner$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdba7a94a12c58602E"(ptr noundef nonnull readonly align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) %1) unnamed_addr #39 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !333, !noundef !3
   %4 = icmp ne i64 %3, -9223372036854775808
@@ -73094,7 +73094,7 @@ define void @"_ZN15ruff_python_ast5nodes1_119_$LT$impl$u20$core..iter..traits..c
   ret void
 }
 
-; Function Attrs: inlinehint nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN87_$LT$ruff_python_ast..nodes..BytesLiteralValueInner$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbc3b3dfab3341177E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #39 {
   %3 = load ptr, ptr %0, align 8, !noundef !3
   %4 = icmp eq ptr %3, null
@@ -74352,7 +74352,7 @@ define void @"_ZN15ruff_python_ast5nodes1_115_$LT$impl$u20$core..iter..traits..c
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN71_$LT$ruff_python_ast..nodes..Number$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3097091beb54955E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #40 {
   %3 = load i64, ptr %0, align 8, !range !398, !noundef !3
   %4 = load i64, ptr %1, align 8, !range !398, !noundef !3
@@ -74495,7 +74495,7 @@ define internal noundef zeroext i1 @"_ZN70_$LT$ruff_python_ast..nodes..Parameter
   ret i1 %6
 }
 
-; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i32, ptr %0, align 8, !noundef !3
   %4 = load i32, ptr %1, align 8, !noundef !3
@@ -75280,15 +75280,15 @@ attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonla
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { cold minsize nonlazybind optsize uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #4 = { inlinehint nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #5 = { inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #4 = { inlinehint nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #5 = { inlinehint nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #7 = { nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #7 = { nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { cold nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #10 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" "target-features"="+sse,+sse2,+avx,+avx2,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+crc32,+ssse3" }
-attributes #11 = { nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #12 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #11 = { nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #12 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #13 = { alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #14 = { alwaysinline nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #15 = { alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -75297,26 +75297,26 @@ attributes #17 = { alwaysinline mustprogress nofree norecurse nosync nounwind no
 attributes #18 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #19 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #20 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #21 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #21 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #22 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #23 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #23 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #24 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #25 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #26 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #27 = { nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #28 = { nofree nosync nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #29 = { nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #30 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #27 = { nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #28 = { nofree nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #29 = { nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #30 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #31 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #32 = { nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #33 = { nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #34 = { nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #35 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #36 = { nofree norecurse nosync nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #32 = { nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #33 = { nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #34 = { nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #35 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #36 = { nofree norecurse nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #37 = { nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #38 = { inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #39 = { inlinehint nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #40 = { inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #38 = { inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #39 = { inlinehint nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #40 = { inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #41 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #42 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #43 = { cold minsize noreturn nonlazybind optsize uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

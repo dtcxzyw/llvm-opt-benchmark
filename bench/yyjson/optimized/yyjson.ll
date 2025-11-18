@@ -127,7 +127,7 @@ define dso_local noundef i32 @yyjson_version() local_unnamed_addr #0 {
   ret i32 2560
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @yyjson_alc_pool_init(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %4, !prof !4
@@ -174,7 +174,7 @@ size_align_up.exit:                               ; preds = %4
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal ptr @pool_malloc(ptr noundef captures(none) %0, i64 noundef %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %0, align 8, !tbaa !15
@@ -253,7 +253,7 @@ define internal ptr @pool_malloc(ptr noundef captures(none) %0, i64 noundef %1) 
   ret ptr %.024
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal ptr @pool_realloc(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #3 {
   %5 = getelementptr inbounds i8, ptr %1, i64 -16
   %6 = load i64, ptr %0, align 8, !tbaa !15
@@ -476,7 +476,7 @@ pool_free.exit:                                   ; preds = %.lr.ph, %46, %45, %
   ret ptr %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @pool_free(ptr noundef captures(none) %0, ptr noundef %1) #3 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -546,9 +546,9 @@ define internal void @pool_free(ptr noundef captures(none) %0, ptr noundef %1) #
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef ptr @yyjson_alc_dyn_new() local_unnamed_addr #4 {
-  %1 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #30
+  %1 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #31
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %2, !prof !4
 
@@ -570,23 +570,23 @@ define dso_local noundef ptr @yyjson_alc_dyn_new() local_unnamed_addr #4 {
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define internal noalias noundef ptr @default_malloc(ptr readnone captures(none) %0, i64 noundef %1) #5 {
-  %3 = tail call noalias ptr @malloc(i64 noundef %1) #30
+  %3 = tail call noalias ptr @malloc(i64 noundef %1) #31
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal noalias noundef ptr @default_realloc(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i64 %2, i64 noundef %3) #6 {
-  %5 = tail call ptr @realloc(ptr noundef %1, i64 noundef %3) #31
+  %5 = tail call ptr @realloc(ptr noundef %1, i64 noundef %3) #32
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @default_free(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #6 {
-  tail call void @free(ptr noundef %1) #32
+  tail call void @free(ptr noundef %1) #33
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal ptr @dyn_malloc(ptr noundef captures(none) %0, i64 noundef %1) #7 {
   %3 = add i64 %1, 4111
   %4 = and i64 %3, -4096
@@ -600,7 +600,7 @@ define internal ptr @dyn_malloc(ptr noundef captures(none) %0, i64 noundef %1) #
   br i1 %.not, label %8, label %.preheader
 
 8:                                                ; preds = %5
-  %9 = tail call noalias noundef ptr @malloc(i64 noundef %4) #30
+  %9 = tail call noalias noundef ptr @malloc(i64 noundef %4) #31
   %.not32 = icmp eq ptr %9, null
   br i1 %.not32, label %dyn_size_align.exit, label %10, !prof !4
 
@@ -640,7 +640,7 @@ define internal ptr @dyn_malloc(ptr noundef captures(none) %0, i64 noundef %1) #
   br i1 %.not34, label %27, label %.preheader
 
 27:                                               ; preds = %24
-  %28 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %15, i64 noundef %4) #31
+  %28 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %15, i64 noundef %4) #32
   %.not35 = icmp eq ptr %28, null
   br i1 %.not35, label %dyn_size_align.exit, label %29, !prof !4
 
@@ -661,7 +661,7 @@ dyn_size_align.exit:                              ; preds = %2, %27, %8, %29, %1
   ret ptr %.029
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal ptr @dyn_realloc(ptr noundef captures(none) %0, ptr noundef %1, i64 %2, i64 noundef %3) #7 {
   %5 = getelementptr inbounds i8, ptr %1, i64 -16
   %6 = add i64 %3, 4111
@@ -698,7 +698,7 @@ define internal ptr @dyn_realloc(ptr noundef captures(none) %0, ptr noundef %1, 
   br label %dyn_chunk_list_remove.exit
 
 dyn_chunk_list_remove.exit:                       ; preds = %12, %15
-  %18 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %5, i64 noundef %7) #31
+  %18 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %5, i64 noundef %7) #32
   %.not19 = icmp eq ptr %18, null
   br i1 %.not19, label %20, label %19, !prof !4
 
@@ -722,7 +722,7 @@ dyn_size_align.exit:                              ; preds = %4, %8, %20
   ret ptr %.017
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @dyn_free(ptr noundef captures(address) %0, ptr noundef %1) #3 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -781,7 +781,7 @@ dyn_chunk_list_remove.exit:                       ; preds = %dyn_chunk_list_remo
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @yyjson_alc_dyn_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %2, !prof !4
@@ -796,7 +796,7 @@ define dso_local void @yyjson_alc_dyn_free(ptr noundef captures(address_is_null)
   %.020 = phi ptr [ %6, %.lr.ph ], [ %4, %2 ]
   %5 = getelementptr inbounds nuw i8, ptr %.020, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !34
-  tail call void @free(ptr noundef nonnull %.020) #32
+  tail call void @free(ptr noundef nonnull %.020) #33
   %.not17 = icmp eq ptr %6, null
   br i1 %.not17, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
@@ -810,12 +810,12 @@ define dso_local void @yyjson_alc_dyn_free(ptr noundef captures(address_is_null)
   %.122 = phi ptr [ %10, %.lr.ph24 ], [ %8, %._crit_edge ]
   %9 = getelementptr inbounds nuw i8, ptr %.122, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !34
-  tail call void @free(ptr noundef nonnull %.122) #32
+  tail call void @free(ptr noundef nonnull %.122) #33
   %.not18 = icmp eq ptr %10, null
   br i1 %.not18, label %._crit_edge25, label %.lr.ph24, !llvm.loop !39
 
 ._crit_edge25:                                    ; preds = %.lr.ph24, %._crit_edge
-  tail call void @free(ptr noundef nonnull %0) #32
+  tail call void @free(ptr noundef nonnull %0) #33
   br label %11
 
 11:                                               ; preds = %1, %._crit_edge25
@@ -823,7 +823,7 @@ define dso_local void @yyjson_alc_dyn_free(ptr noundef captures(address_is_null)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @unsafe_yyjson_str_pool_grow(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @unsafe_yyjson_str_pool_grow(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #9 {
   %4 = icmp ugt i64 %2, -17
   br i1 %4, label %25, label %5, !prof !4
 
@@ -835,7 +835,7 @@ define dso_local noundef zeroext i1 @unsafe_yyjson_str_pool_grow(ptr noundef cap
   %9 = load ptr, ptr %1, align 8, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !22
-  %12 = tail call ptr %9(ptr noundef %11, i64 noundef %.) #32
+  %12 = tail call ptr %9(ptr noundef %11, i64 noundef %.) #33
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %25, label %13, !prof !4
 
@@ -867,7 +867,7 @@ define dso_local noundef zeroext i1 @unsafe_yyjson_str_pool_grow(ptr noundef cap
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @unsafe_yyjson_val_pool_grow(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @unsafe_yyjson_val_pool_grow(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #9 {
   %4 = icmp ugt i64 %2, 768614336404564649
   br i1 %4, label %26, label %5, !prof !4
 
@@ -880,7 +880,7 @@ define dso_local noundef zeroext i1 @unsafe_yyjson_val_pool_grow(ptr noundef cap
   %10 = load ptr, ptr %1, align 8, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !22
-  %13 = tail call ptr %10(ptr noundef %12, i64 noundef %.) #32
+  %13 = tail call ptr %10(ptr noundef %12, i64 noundef %.) #33
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %26, label %14, !prof !4
 
@@ -912,7 +912,7 @@ define dso_local noundef zeroext i1 @unsafe_yyjson_val_pool_grow(ptr noundef cap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef zeroext i1 @yyjson_mut_doc_set_str_pool_size(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #9 {
+define dso_local noundef zeroext i1 @yyjson_mut_doc_set_str_pool_size(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #10 {
   %3 = icmp ne ptr %0, null
   %4 = add i64 %1, -1
   %5 = icmp ult i64 %4, -17
@@ -930,7 +930,7 @@ define dso_local noundef zeroext i1 @yyjson_mut_doc_set_str_pool_size(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef zeroext i1 @yyjson_mut_doc_set_val_pool_size(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #9 {
+define dso_local noundef zeroext i1 @yyjson_mut_doc_set_val_pool_size(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #10 {
   %3 = icmp ne ptr %0, null
   %4 = add i64 %1, -1
   %5 = icmp ult i64 %4, 768614336404564649
@@ -949,7 +949,7 @@ define dso_local noundef zeroext i1 @yyjson_mut_doc_set_val_pool_size(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @yyjson_mut_doc_free(ptr noundef %0) local_unnamed_addr #7 {
+define dso_local void @yyjson_mut_doc_free(ptr noundef %0) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -968,7 +968,7 @@ define dso_local void @yyjson_mut_doc_free(ptr noundef %0) local_unnamed_addr #7
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.0.i13 = phi ptr [ %6, %.lr.ph ], [ %5, %2 ]
   %6 = load ptr, ptr %.0.i13, align 8, !tbaa !45
-  tail call void %.sroa.3.0.copyload(ptr noundef %.sroa.6.0.copyload, ptr noundef nonnull %.0.i13) #32
+  tail call void %.sroa.3.0.copyload(ptr noundef %.sroa.6.0.copyload, ptr noundef nonnull %.0.i13) #33
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %unsafe_yyjson_str_pool_release.exit, label %.lr.ph, !llvm.loop !65
 
@@ -981,12 +981,12 @@ unsafe_yyjson_str_pool_release.exit:              ; preds = %.lr.ph, %2
 .lr.ph16:                                         ; preds = %unsafe_yyjson_str_pool_release.exit, %.lr.ph16
   %.0.i615 = phi ptr [ %9, %.lr.ph16 ], [ %8, %unsafe_yyjson_str_pool_release.exit ]
   %9 = load ptr, ptr %.0.i615, align 8, !tbaa !56
-  tail call void %.sroa.3.0.copyload(ptr noundef %.sroa.6.0.copyload, ptr noundef nonnull %.0.i615) #32
+  tail call void %.sroa.3.0.copyload(ptr noundef %.sroa.6.0.copyload, ptr noundef nonnull %.0.i615) #33
   %.not.i7 = icmp eq ptr %9, null
   br i1 %.not.i7, label %unsafe_yyjson_val_pool_release.exit, label %.lr.ph16, !llvm.loop !66
 
 unsafe_yyjson_val_pool_release.exit:              ; preds = %.lr.ph16, %unsafe_yyjson_str_pool_release.exit
-  tail call void %.sroa.3.0.copyload(ptr noundef %.sroa.6.0.copyload, ptr noundef nonnull %0) #32
+  tail call void %.sroa.3.0.copyload(ptr noundef %.sroa.6.0.copyload, ptr noundef nonnull %0) #33
   br label %10
 
 10:                                               ; preds = %unsafe_yyjson_val_pool_release.exit, %1
@@ -994,13 +994,13 @@ unsafe_yyjson_val_pool_release.exit:              ; preds = %.lr.ph16, %unsafe_y
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_mut_doc_new(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_mut_doc_new(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   %spec.store.select = select i1 %.not, ptr @YYJSON_DEFAULT_ALC, ptr %0
   %2 = load ptr, ptr %spec.store.select, align 8, !tbaa !18
   %3 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !22
-  %5 = tail call ptr %2(ptr noundef %4, i64 noundef 120) #32
+  %5 = tail call ptr %2(ptr noundef %4, i64 noundef 120) #33
   %.not14 = icmp eq ptr %5, null
   br i1 %.not14, label %12, label %6
 
@@ -1023,7 +1023,7 @@ define dso_local ptr @yyjson_mut_doc_new(ptr noundef readonly captures(address_i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_doc_mut_copy(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_doc_mut_copy(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %yyjson_mut_doc_new.exit.thread, label %3
 
@@ -1038,7 +1038,7 @@ define dso_local ptr @yyjson_doc_mut_copy(ptr noundef readonly captures(address_
   %6 = load ptr, ptr %spec.store.select.i, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %spec.store.select.i, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !22
-  %9 = tail call ptr %6(ptr noundef %8, i64 noundef 120) #32
+  %9 = tail call ptr %6(ptr noundef %8, i64 noundef 120) #33
   %.not14.i = icmp eq ptr %9, null
   br i1 %.not14.i, label %yyjson_mut_doc_new.exit.thread, label %10
 
@@ -1073,7 +1073,7 @@ define dso_local ptr @yyjson_doc_mut_copy(ptr noundef readonly captures(address_
 .lr.ph.i:                                         ; preds = %18, %.lr.ph.i
   %.0.i13.i = phi ptr [ %21, %.lr.ph.i ], [ %20, %18 ]
   %21 = load ptr, ptr %.0.i13.i, align 8, !tbaa !45
-  tail call void %.sroa.3.0.copyload.i(ptr noundef %.sroa.6.0.copyload.i, ptr noundef nonnull %.0.i13.i) #32
+  tail call void %.sroa.3.0.copyload.i(ptr noundef %.sroa.6.0.copyload.i, ptr noundef nonnull %.0.i13.i) #33
   %.not.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i, label %unsafe_yyjson_str_pool_release.exit.i, label %.lr.ph.i, !llvm.loop !65
 
@@ -1086,12 +1086,12 @@ unsafe_yyjson_str_pool_release.exit.i:            ; preds = %.lr.ph.i, %18
 .lr.ph16.i:                                       ; preds = %unsafe_yyjson_str_pool_release.exit.i, %.lr.ph16.i
   %.0.i615.i = phi ptr [ %24, %.lr.ph16.i ], [ %23, %unsafe_yyjson_str_pool_release.exit.i ]
   %24 = load ptr, ptr %.0.i615.i, align 8, !tbaa !56
-  tail call void %.sroa.3.0.copyload.i(ptr noundef %.sroa.6.0.copyload.i, ptr noundef nonnull %.0.i615.i) #32
+  tail call void %.sroa.3.0.copyload.i(ptr noundef %.sroa.6.0.copyload.i, ptr noundef nonnull %.0.i615.i) #33
   %.not.i7.i = icmp eq ptr %24, null
   br i1 %.not.i7.i, label %yyjson_mut_doc_free.exit, label %.lr.ph16.i, !llvm.loop !66
 
 yyjson_mut_doc_free.exit:                         ; preds = %.lr.ph16.i, %unsafe_yyjson_str_pool_release.exit.i
-  tail call void %.sroa.3.0.copyload.i(ptr noundef %.sroa.6.0.copyload.i, ptr noundef nonnull %9) #32
+  tail call void %.sroa.3.0.copyload.i(ptr noundef %.sroa.6.0.copyload.i, ptr noundef nonnull %9) #33
   br label %yyjson_mut_doc_new.exit.thread
 
 25:                                               ; preds = %10
@@ -1104,7 +1104,7 @@ yyjson_mut_doc_new.exit.thread:                   ; preds = %5, %2, %3, %25, %yy
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_val_mut_copy(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_val_mut_copy(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #9 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -1320,7 +1320,7 @@ unsafe_yyjson_mut_val.exit.thread:                ; preds = %.critedge, %.prehea
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_mut_doc_mut_copy(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_mut_doc_mut_copy(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %yyjson_mut_doc_new.exit, label %3
 
@@ -1332,7 +1332,7 @@ define dso_local ptr @yyjson_mut_doc_mut_copy(ptr noundef readonly captures(addr
   %5 = load ptr, ptr %spec.store.select.i, align 8, !tbaa !18
   %6 = getelementptr inbounds nuw i8, ptr %spec.store.select.i, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !22
-  %8 = tail call ptr %5(ptr noundef %7, i64 noundef 120) #32
+  %8 = tail call ptr %5(ptr noundef %7, i64 noundef 120) #33
   %.not14.i = icmp eq ptr %8, null
   br i1 %.not16, label %9, label %16
 
@@ -1399,7 +1399,7 @@ yyjson_mut_val_mut_copy.exit.thread:              ; preds = %yyjson_mut_val_mut_
 .lr.ph.i:                                         ; preds = %yyjson_mut_val_mut_copy.exit.thread, %.lr.ph.i
   %.0.i13.i = phi ptr [ %25, %.lr.ph.i ], [ %.pre, %yyjson_mut_val_mut_copy.exit.thread ]
   %25 = load ptr, ptr %.0.i13.i, align 8, !tbaa !45
-  tail call void %.sroa.3.0.copyload.i(ptr noundef %.sroa.6.0.copyload.i, ptr noundef nonnull %.0.i13.i) #32
+  tail call void %.sroa.3.0.copyload.i(ptr noundef %.sroa.6.0.copyload.i, ptr noundef nonnull %.0.i13.i) #33
   %.not.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i, label %unsafe_yyjson_str_pool_release.exit.i, label %.lr.ph.i, !llvm.loop !65
 
@@ -1414,12 +1414,12 @@ unsafe_yyjson_str_pool_release.exit.i:            ; preds = %.lr.ph.i, %yyjson_m
 .lr.ph16.i:                                       ; preds = %unsafe_yyjson_str_pool_release.exit.i, %.lr.ph16.i
   %.0.i615.i = phi ptr [ %28, %.lr.ph16.i ], [ %27, %unsafe_yyjson_str_pool_release.exit.i ]
   %28 = load ptr, ptr %.0.i615.i, align 8, !tbaa !56
-  tail call void %.sroa.3.0.copyload.i39(ptr noundef %.sroa.6.0.copyload.i40, ptr noundef nonnull %.0.i615.i) #32
+  tail call void %.sroa.3.0.copyload.i39(ptr noundef %.sroa.6.0.copyload.i40, ptr noundef nonnull %.0.i615.i) #33
   %.not.i7.i = icmp eq ptr %28, null
   br i1 %.not.i7.i, label %yyjson_mut_doc_free.exit, label %.lr.ph16.i, !llvm.loop !66
 
 yyjson_mut_doc_free.exit:                         ; preds = %.lr.ph16.i, %unsafe_yyjson_str_pool_release.exit.i
-  tail call void %.sroa.3.0.copyload.i39(ptr noundef %.sroa.6.0.copyload.i40, ptr noundef nonnull %8) #32
+  tail call void %.sroa.3.0.copyload.i39(ptr noundef %.sroa.6.0.copyload.i40, ptr noundef nonnull %8) #33
   br label %yyjson_mut_doc_new.exit
 
 29:                                               ; preds = %yyjson_mut_val_mut_copy.exit
@@ -1432,7 +1432,7 @@ yyjson_mut_doc_new.exit:                          ; preds = %16, %10, %9, %2, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_mut_val_mut_copy(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_mut_val_mut_copy(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #9 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -1448,7 +1448,7 @@ define dso_local ptr @yyjson_mut_val_mut_copy(ptr noundef %0, ptr noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1) unnamed_addr #7 {
+define internal fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1) unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8, !tbaa !60
@@ -1586,7 +1586,7 @@ unsafe_yyjson_mut_val.exit.thread:                ; preds = %.lr.ph, %8, %53, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_mut_doc_imut_copy(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_mut_doc_imut_copy(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -1601,7 +1601,7 @@ define dso_local ptr @yyjson_mut_doc_imut_copy(ptr noundef readonly captures(add
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_mut_val_imut_copy(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_mut_val_imut_copy(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #9 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -1626,7 +1626,7 @@ size_align_up.exit:                               ; preds = %2
   %10 = load ptr, ptr %spec.store.select, align 8, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !22
-  %13 = call ptr %10(ptr noundef %12, i64 noundef %9) #32
+  %13 = call ptr %10(ptr noundef %12, i64 noundef %9) #33
   %.not28 = icmp eq ptr %13, null
   br i1 %.not28, label %34, label %14
 
@@ -1645,7 +1645,7 @@ size_align_up.exit:                               ; preds = %2
 19:                                               ; preds = %14
   %20 = load ptr, ptr %spec.store.select, align 8, !tbaa !18
   %21 = load ptr, ptr %11, align 8, !tbaa !22
-  %22 = call ptr %20(ptr noundef %21, i64 noundef %18) #32
+  %22 = call ptr %20(ptr noundef %21, i64 noundef %18) #33
   store ptr %22, ptr %6, align 8, !tbaa !86
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store ptr %22, ptr %23, align 8, !tbaa !88
@@ -1656,7 +1656,7 @@ size_align_up.exit:                               ; preds = %2
   %25 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !21
   %27 = load ptr, ptr %11, align 8, !tbaa !22
-  call void %26(ptr noundef %27, ptr noundef nonnull %13) #32
+  call void %26(ptr noundef %27, ptr noundef nonnull %13) #33
   br label %34
 
 28:                                               ; preds = %19, %14
@@ -1678,8 +1678,8 @@ size_align_up.exit:                               ; preds = %2
   ret ptr %.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @yyjson_mut_stat(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #10 {
+; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc void @yyjson_mut_stat(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #11 {
   %4 = load i64, ptr %0, align 8, !tbaa !73
   %5 = trunc i64 %4 to i8
   %6 = load i64, ptr %1, align 8, !tbaa !85
@@ -1757,8 +1757,8 @@ define internal fastcc void @yyjson_mut_stat(ptr noundef readonly captures(none)
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @yyjson_imut_copy(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #10 {
+; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc i64 @yyjson_imut_copy(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #11 {
   %4 = load ptr, ptr %0, align 8, !tbaa !87
   %5 = load i64, ptr %2, align 8, !tbaa !73
   %6 = trunc i64 %5 to i8
@@ -1867,8 +1867,8 @@ define internal fastcc i64 @yyjson_imut_copy(ptr noundef nonnull captures(none) 
   ret i64 %.0
 }
 
-; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @unsafe_yyjson_equals(ptr noundef %0, ptr noundef %1) local_unnamed_addr #11 {
+; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define dso_local zeroext i1 @unsafe_yyjson_equals(ptr noundef %0, ptr noundef %1) local_unnamed_addr #12 {
   %3 = load i64, ptr %0, align 8, !tbaa !73
   %4 = trunc i64 %3 to i8
   %5 = and i8 %4, 7
@@ -2131,8 +2131,8 @@ default.unreachable:                              ; preds = %9
   ret i1 %.037
 }
 
-; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @unsafe_yyjson_mut_equals(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
+; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define dso_local zeroext i1 @unsafe_yyjson_mut_equals(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #12 {
   %3 = load i64, ptr %0, align 8, !tbaa !73
   %4 = trunc i64 %3 to i8
   %5 = and i8 %4, 7
@@ -2328,7 +2328,7 @@ default.unreachable:                              ; preds = %9
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @yyjson_locate_pos(ptr noundef readonly captures(address) %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #12 {
+define dso_local noundef zeroext i1 @yyjson_locate_pos(ptr noundef readonly captures(address) %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #13 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %2
   %.not = icmp ne ptr %0, null
   %8 = icmp ule i64 %2, %1
@@ -2439,8 +2439,8 @@ define dso_local noundef zeroext i1 @yyjson_locate_pos(ptr noundef readonly capt
   ret i1 %or.cond.not
 }
 
-; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @unsafe_yyjson_ptr_getx(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #13 {
+; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define dso_local ptr @unsafe_yyjson_ptr_getx(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #14 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   br label %6
 
@@ -2732,8 +2732,8 @@ ptr_obj_get.exit:                                 ; preds = %.lr.ph106, %.prehea
   ret ptr %.0
 }
 
-; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @unsafe_yyjson_mut_ptr_getx(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #13 {
+; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define dso_local ptr @unsafe_yyjson_mut_ptr_getx(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #14 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %.not40 = icmp ne ptr %3, null
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3078,7 +3078,7 @@ ptr_mut_obj_get.exit.thread:                      ; preds = %44
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @unsafe_yyjson_mut_ptr_putx(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @unsafe_yyjson_mut_ptr_putx(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8) local_unnamed_addr #9 {
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   br label %11
 
@@ -4603,8 +4603,8 @@ yyjson_mut_obj_add.exit301:                       ; preds = %yyjson_mut_is_obj.e
   ret i1 %.0193
 }
 
-; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @unsafe_yyjson_mut_ptr_replacex(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #14 {
+; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define dso_local ptr @unsafe_yyjson_mut_ptr_replacex(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #15 {
   %7 = alloca %struct.yyjson_ptr_ctx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
@@ -4882,8 +4882,8 @@ yyjson_mut_obj_put.exit:                          ; preds = %120, %127, %128, %y
   ret ptr %8
 }
 
-; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @unsafe_yyjson_mut_ptr_removex(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #14 {
+; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define dso_local ptr @unsafe_yyjson_mut_ptr_removex(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #15 {
   %6 = alloca %struct.yyjson_ptr_ctx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -5050,7 +5050,7 @@ yyjson_mut_obj_put.exit:                          ; preds = %yyjson_mut_obj_iter
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_patch(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_patch(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #9 {
   %5 = alloca %struct.yyjson_patch_err, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
@@ -5979,7 +5979,7 @@ yyjson_mut_equals.exit.thread:                    ; preds = %yyjson_mut_ptr_getx
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 7) i32 @patch_op_get(i64 %.0.val, ptr readonly captures(none) %.8.val) unnamed_addr #15 {
+define internal fastcc range(i32 0, 7) i32 @patch_op_get(i64 %.0.val, ptr readonly captures(none) %.8.val) unnamed_addr #16 {
   %1 = lshr i64 %.0.val, 8
   switch i64 %1, label %8 [
     i64 3, label %2
@@ -6028,7 +6028,7 @@ define internal fastcc range(i32 0, 7) i32 @patch_op_get(i64 %.0.val, ptr readon
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_mut_patch(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_mut_patch(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #9 {
   %5 = alloca %struct.yyjson_patch_err, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
@@ -6966,7 +6966,7 @@ yyjson_mut_equals.exit.thread:                    ; preds = %yyjson_mut_ptr_getx
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_merge_patch(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_merge_patch(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #9 {
   %4 = alloca %struct.yyjson_val, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not.i75 = icmp eq ptr %2, null
@@ -7293,7 +7293,7 @@ yyjson_mut_obj.exit.thread:                       ; preds = %yyjson_mut_is_obj.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_mut_merge_patch(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_mut_merge_patch(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #9 {
   %.sroa.0 = alloca i64, align 8
   %.sroa.5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
@@ -7667,7 +7667,7 @@ yyjson_mut_val_mut_copy.exit:                     ; preds = %yyjson_mut_is_obj.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_read_opts(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_read_opts(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #9 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.bigint, align 8
   %8 = alloca %struct.bigint, align 8
@@ -7753,7 +7753,7 @@ define dso_local ptr @yyjson_read_opts(ptr noundef %0, i64 noundef %1, i32 nound
   %39 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %40 = load ptr, ptr %39, align 8, !tbaa !22
   %41 = add nuw i64 %1, 4
-  %42 = tail call ptr %38(ptr noundef %40, i64 noundef %41) #32
+  %42 = tail call ptr %38(ptr noundef %40, i64 noundef %41) #33
   %.not116 = icmp eq ptr %42, null
   br i1 %.not116, label %43, label %44, !prof !4
 
@@ -7814,7 +7814,7 @@ define dso_local ptr @yyjson_read_opts(ptr noundef %0, i64 noundef %1, i32 nound
   %63 = load ptr, ptr %62, align 8, !tbaa !21
   %64 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %65 = load ptr, ptr %64, align 8, !tbaa !22
-  tail call void %63(ptr noundef %65, ptr noundef nonnull %.promoted) #32
+  tail call void %63(ptr noundef %65, ptr noundef nonnull %.promoted) #33
   br label %10019
 
 66:                                               ; preds = %53
@@ -7861,7 +7861,7 @@ define dso_local ptr @yyjson_read_opts(ptr noundef %0, i64 noundef %1, i32 nound
   %80 = load ptr, ptr %79, align 8, !tbaa !21
   %81 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %82 = load ptr, ptr %81, align 8, !tbaa !22
-  tail call void %80(ptr noundef %82, ptr noundef nonnull %.promoted) #32
+  tail call void %80(ptr noundef %82, ptr noundef nonnull %.promoted) #33
   br label %10019
 
 83:                                               ; preds = %._crit_edge6888, %46
@@ -7916,7 +7916,7 @@ define dso_local ptr @yyjson_read_opts(ptr noundef %0, i64 noundef %1, i32 nound
   %108 = add nuw nsw i64 %107, 8
   %109 = select i1 %.not3882, i64 %108, i64 24, !prof !23
   %110 = shl nuw i64 %109, 4
-  %111 = tail call ptr %.sroa.01813.0.copyload1814.pre6935(ptr noundef %.sroa.28.0.copyload1789, i64 noundef %110) #32
+  %111 = tail call ptr %.sroa.01813.0.copyload1814.pre6935(ptr noundef %.sroa.28.0.copyload1789, i64 noundef %110) #33
   %.not.i = icmp eq ptr %111, null
   br i1 %.not.i, label %5047, label %.thread, !prof !4
 
@@ -7979,7 +7979,7 @@ define dso_local ptr @yyjson_read_opts(ptr noundef %0, i64 noundef %1, i32 nound
   %137 = add i64 %136, %.2.i
   %138 = shl i64 %.2.i, 4
   %139 = shl i64 %137, 4
-  %140 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.2557.i, i64 noundef %138, i64 noundef %139) #32
+  %140 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.2557.i, i64 noundef %138, i64 noundef %139) #33
   %.not729.i = icmp eq ptr %140, null
   br i1 %.not729.i, label %5047, label %.thread3380
 
@@ -8247,7 +8247,7 @@ define dso_local ptr @yyjson_read_opts(ptr noundef %0, i64 noundef %1, i32 nound
   %236 = add i64 %235, %.1.i.ph
   %237 = shl i64 %.1.i.ph, 4
   %238 = shl i64 %236, 4
-  %239 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.1556.i.ph, i64 noundef %237, i64 noundef %238) #32
+  %239 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.1556.i.ph, i64 noundef %237, i64 noundef %238) #33
   %.not726.i = icmp eq ptr %239, null
   br i1 %.not726.i, label %5047, label %.thread3386
 
@@ -10822,7 +10822,7 @@ read_number.exit430:                              ; preds = %.loopexit4246, %504
   %1507 = add i64 %1506, %.1.i.ph
   %1508 = shl i64 %.1.i.ph, 4
   %1509 = shl i64 %1507, 4
-  %1510 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.1556.i.ph, i64 noundef %1508, i64 noundef %1509) #32
+  %1510 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.1556.i.ph, i64 noundef %1508, i64 noundef %1509) #33
   %.not723.i = icmp eq ptr %1510, null
   br i1 %.not723.i, label %5047, label %.thread3415
 
@@ -11910,7 +11910,7 @@ read_string.exit728:                              ; preds = %.split.loop.exit520
   %2076 = add i64 %2075, %.1.i.ph
   %2077 = shl i64 %.1.i.ph, 4
   %2078 = shl i64 %2076, 4
-  %2079 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.1556.i.ph, i64 noundef %2077, i64 noundef %2078) #32
+  %2079 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.1556.i.ph, i64 noundef %2077, i64 noundef %2078) #33
   %.not720.i = icmp eq ptr %2079, null
   br i1 %.not720.i, label %5047, label %.thread3422
 
@@ -11953,7 +11953,7 @@ read_true.exit814:                                ; preds = %2089
   %2097 = add i64 %2096, %.1.i.ph
   %2098 = shl i64 %.1.i.ph, 4
   %2099 = shl i64 %2097, 4
-  %2100 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.1556.i.ph, i64 noundef %2098, i64 noundef %2099) #32
+  %2100 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.1556.i.ph, i64 noundef %2098, i64 noundef %2099) #33
   %.not717.i = icmp eq ptr %2100, null
   br i1 %.not717.i, label %5047, label %.thread3428
 
@@ -11997,7 +11997,7 @@ read_false.exit817:                               ; preds = %2110
   %2119 = add i64 %2118, %.1.i.ph
   %2120 = shl i64 %.1.i.ph, 4
   %2121 = shl i64 %2119, 4
-  %2122 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.1556.i.ph, i64 noundef %2120, i64 noundef %2121) #32
+  %2122 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.1556.i.ph, i64 noundef %2120, i64 noundef %2121) #33
   %.not714.i = icmp eq ptr %2122, null
   br i1 %.not714.i, label %5047, label %.thread3434
 
@@ -12144,7 +12144,7 @@ read_null.exit820:                                ; preds = %2132
   %2178 = add i64 %2177, %.1.i.ph
   %2179 = shl i64 %.1.i.ph, 4
   %2180 = shl i64 %2178, 4
-  %2181 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.1556.i.ph, i64 noundef %2179, i64 noundef %2180) #32
+  %2181 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.1556.i.ph, i64 noundef %2179, i64 noundef %2180) #33
   %.not709.i = icmp eq ptr %2181, null
   br i1 %.not709.i, label %5047, label %.thread3441
 
@@ -12462,7 +12462,7 @@ read_null.exit820:                                ; preds = %2132
   %2307 = add i64 %2306, %.4.i
   %2308 = shl i64 %.4.i, 4
   %2309 = shl i64 %2307, 4
-  %2310 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.5560.i, i64 noundef %2308, i64 noundef %2309) #32
+  %2310 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.5560.i, i64 noundef %2308, i64 noundef %2309) #33
   %.not732.i = icmp eq ptr %2310, null
   br i1 %.not732.i, label %5047, label %.thread3449
 
@@ -12719,7 +12719,7 @@ read_null.exit820:                                ; preds = %2132
   %2399 = add i64 %2398, %.0546.i.ph
   %2400 = shl i64 %.0546.i.ph, 4
   %2401 = shl i64 %2399, 4
-  %2402 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.0555.i.ph, i64 noundef %2400, i64 noundef %2401) #32
+  %2402 = tail call ptr %.sroa.5.0.copyload1764(ptr noundef %.sroa.28.0.copyload1789, ptr noundef %.0555.i.ph, i64 noundef %2400, i64 noundef %2401) #33
   %.not703.i = icmp eq ptr %2402, null
   br i1 %.not703.i, label %5047, label %.thread3455
 
@@ -18045,7 +18045,7 @@ read_string.exit728.thread:                       ; preds = %2583, %2750, %2749,
   %spec.store.select.sroa.sel1509.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1509.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1509.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink, ptr %spec.store.select.sroa.sel1509.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.27.i) #32
+  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.27.i) #33
   br label %read_root_pretty.exit
 
 5035:                                             ; preds = %.thread3611, %.thread3608, %3580, %read_number.exit535.thread, %251, %read_number.exit430.thread
@@ -18079,7 +18079,7 @@ read_string.exit728.thread:                       ; preds = %2583, %2750, %2749,
   %spec.store.select.sroa.sel1581.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1581.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1581.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8598, ptr %spec.store.select.sroa.sel1581.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.28.i) #32
+  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.28.i) #33
   br label %read_root_pretty.exit
 
 5047:                                             ; preds = %2397, %2305, %2176, %2117, %2095, %2074, %1505, %234, %135, %101
@@ -18103,7 +18103,7 @@ read_string.exit728.thread:                       ; preds = %2583, %2750, %2749,
   br i1 %.not736.i, label %read_root_pretty.exit, label %5053
 
 5053:                                             ; preds = %5047
-  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.29.i) #32
+  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.29.i) #33
   br label %read_root_pretty.exit
 
 .loopexit4244:                                    ; preds = %.lr.ph4686, %.lr.ph5179, %.preheader4320, %.preheader4243
@@ -18123,7 +18123,7 @@ read_string.exit728.thread:                       ; preds = %2583, %2750, %2749,
   %spec.store.select.sroa.sel1449.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1449.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1449.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8603, ptr %spec.store.select.sroa.sel1449.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.30.i) #32
+  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.30.i) #33
   br label %read_root_pretty.exit
 
 read_true.exit814.thread:                         ; preds = %4831, %2089
@@ -18143,7 +18143,7 @@ read_true.exit814.thread:                         ; preds = %4831, %2089
   %spec.store.select.sroa.sel1557.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1557.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1557.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8608, ptr %spec.store.select.sroa.sel1557.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.31.i) #32
+  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.31.i) #33
   br label %read_root_pretty.exit
 
 read_false.exit817.thread:                        ; preds = %4836, %2110
@@ -18163,7 +18163,7 @@ read_false.exit817.thread:                        ; preds = %4836, %2110
   %spec.store.select.sroa.sel1545.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1545.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1545.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8613, ptr %spec.store.select.sroa.sel1545.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.32.i) #32
+  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.32.i) #33
   br label %read_root_pretty.exit
 
 read_nan.exit829.thread:                          ; preds = %4853, %4854, %4855, %2142, %2143, %2144, %4852, %2141
@@ -18183,7 +18183,7 @@ read_nan.exit829.thread:                          ; preds = %4853, %4854, %4855,
   %spec.store.select.sroa.sel1533.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1533.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1533.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8618, ptr %spec.store.select.sroa.sel1533.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.33.i) #32
+  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.33.i) #33
   br label %read_root_pretty.exit
 
 read_inf_or_nan.exit873.thread:                   ; preds = %4931, %2246, %4876, %2191, %4915, %4916, %4919, %2230, %2231, %2234, %4937, %2249
@@ -18203,7 +18203,7 @@ read_inf_or_nan.exit873.thread:                   ; preds = %4931, %2246, %4876,
   %spec.store.select.sroa.sel1569.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1569.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1569.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8623, ptr %spec.store.select.sroa.sel1569.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.34.i) #32
+  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.34.i) #33
   br label %read_root_pretty.exit
 
 .loopexit4268:                                    ; preds = %2270, %2275
@@ -18222,7 +18222,7 @@ read_inf_or_nan.exit873.thread:                   ; preds = %4931, %2246, %4876,
   %spec.store.select.sroa.sel1497.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1497.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1497.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8628, ptr %spec.store.select.sroa.sel1497.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.8563.i.ph) #32
+  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.8563.i.ph) #33
   br label %read_root_pretty.exit
 
 .loopexit4325:                                    ; preds = %2986, %2989
@@ -18241,7 +18241,7 @@ read_inf_or_nan.exit873.thread:                   ; preds = %4931, %2246, %4876,
   %spec.store.select.sroa.sel1593.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1593.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1593.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8633, ptr %spec.store.select.sroa.sel1593.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.0555.i.ph) #32
+  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.0555.i.ph) #33
   br label %read_root_pretty.exit
 
 .loopexit4308:                                    ; preds = %3011, %3016
@@ -18260,7 +18260,7 @@ read_inf_or_nan.exit873.thread:                   ; preds = %4931, %2246, %4876,
   %spec.store.select.sroa.sel1521.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1521.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1521.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8638, ptr %spec.store.select.sroa.sel1521.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.25.i) #32
+  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.25.i) #33
   br label %read_root_pretty.exit
 
 .loopexit4273:                                    ; preds = %4958, %4963
@@ -18279,7 +18279,7 @@ read_inf_or_nan.exit873.thread:                   ; preds = %4931, %2246, %4876,
   %spec.store.select.sroa.sel1461.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1461.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1461.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8643, ptr %spec.store.select.sroa.sel1461.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.21.i.ph) #32
+  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.21.i.ph) #33
   br label %read_root_pretty.exit
 
 5099:                                             ; preds = %4997, %4963, %4937, %3016, %2989, %2275, %2249
@@ -18299,7 +18299,7 @@ read_inf_or_nan.exit873.thread:                   ; preds = %4931, %2246, %4876,
   %spec.store.select.sroa.sel1473.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1473.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1473.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8648, ptr %spec.store.select.sroa.sel1473.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.35.i) #32
+  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.35.i) #33
   br label %read_root_pretty.exit
 
 5105:                                             ; preds = %.loopexit4232
@@ -18317,7 +18317,7 @@ read_inf_or_nan.exit873.thread:                   ; preds = %4931, %2246, %4876,
   %spec.store.select.sroa.sel1485.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1485.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1485.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8653, ptr %spec.store.select.sroa.sel1485.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.20.i) #32
+  tail call void %.sroa.14.0.copyload1774(ptr noundef %.sroa.28.0.copyload1789, ptr noundef nonnull %.20.i) #33
   br label %read_root_pretty.exit
 
 read_root_pretty.exit:                            ; preds = %5015, %read_string.exit728.thread, %5046, %5047, %5053, %.loopexit4244, %read_true.exit814.thread, %read_false.exit817.thread, %read_nan.exit829.thread, %read_inf_or_nan.exit873.thread, %.loopexit4268, %.loopexit4325, %.loopexit4308, %.loopexit4273, %5099, %5105
@@ -18348,7 +18348,7 @@ read_root_pretty.exit:                            ; preds = %5015, %read_string.
   %5117 = add nuw nsw i64 %5116, 8
   %5118 = select i1 %.not3647, i64 %5117, i64 50, !prof !23
   %5119 = shl nuw i64 %5118, 4
-  %5120 = tail call ptr %.sroa.01813.0.copyload1814(ptr noundef %.sroa.281842.0.copyload1844, i64 noundef %5119) #32
+  %5120 = tail call ptr %.sroa.01813.0.copyload1814(ptr noundef %.sroa.281842.0.copyload1844, i64 noundef %5119) #33
   %.not.i121 = icmp eq ptr %5120, null
   br i1 %.not.i121, label %9898, label %.thread3490, !prof !4
 
@@ -18407,7 +18407,7 @@ read_root_pretty.exit:                            ; preds = %5015, %read_string.
   %5142 = add i64 %5141, %.2.i125
   %5143 = shl i64 %.2.i125, 4
   %5144 = shl i64 %5142, 4
-  %5145 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.2556.i, i64 noundef %5143, i64 noundef %5144) #32
+  %5145 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.2556.i, i64 noundef %5143, i64 noundef %5144) #33
   %.not728.i128 = icmp eq ptr %5145, null
   br i1 %.not728.i128, label %9898, label %.thread3491
 
@@ -18477,7 +18477,7 @@ read_root_pretty.exit:                            ; preds = %5015, %read_string.
   %5174 = add i64 %5173, %.1.i123.ph
   %5175 = shl i64 %.1.i123.ph, 4
   %5176 = shl i64 %5174, 4
-  %5177 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.1555.i.ph, i64 noundef %5175, i64 noundef %5176) #32
+  %5177 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.1555.i.ph, i64 noundef %5175, i64 noundef %5176) #33
   %.not725.i192 = icmp eq ptr %5177, null
   br i1 %.not725.i192, label %9898, label %.thread3497
 
@@ -21046,7 +21046,7 @@ read_number.exit:                                 ; preds = %.loopexit4151, %544
   %6443 = add i64 %6442, %.1.i123.ph
   %6444 = shl i64 %.1.i123.ph, 4
   %6445 = shl i64 %6443, 4
-  %6446 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.1555.i.ph, i64 noundef %6444, i64 noundef %6445) #32
+  %6446 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.1555.i.ph, i64 noundef %6444, i64 noundef %6445) #33
   %.not722.i184 = icmp eq ptr %6446, null
   br i1 %.not722.i184, label %9898, label %.thread3527
 
@@ -22134,7 +22134,7 @@ read_string.exit:                                 ; preds = %.split.loop.exit579
   %7012 = add i64 %7011, %.1.i123.ph
   %7013 = shl i64 %.1.i123.ph, 4
   %7014 = shl i64 %7012, 4
-  %7015 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.1555.i.ph, i64 noundef %7013, i64 noundef %7014) #32
+  %7015 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.1555.i.ph, i64 noundef %7013, i64 noundef %7014) #33
   %.not719.i181 = icmp eq ptr %7015, null
   br i1 %.not719.i181, label %9898, label %.thread3534
 
@@ -22177,7 +22177,7 @@ read_true.exit:                                   ; preds = %7025
   %7033 = add i64 %7032, %.1.i123.ph
   %7034 = shl i64 %.1.i123.ph, 4
   %7035 = shl i64 %7033, 4
-  %7036 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.1555.i.ph, i64 noundef %7034, i64 noundef %7035) #32
+  %7036 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.1555.i.ph, i64 noundef %7034, i64 noundef %7035) #33
   %.not716.i178 = icmp eq ptr %7036, null
   br i1 %.not716.i178, label %9898, label %.thread3540
 
@@ -22221,7 +22221,7 @@ read_false.exit:                                  ; preds = %7046
   %7055 = add i64 %7054, %.1.i123.ph
   %7056 = shl i64 %.1.i123.ph, 4
   %7057 = shl i64 %7055, 4
-  %7058 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.1555.i.ph, i64 noundef %7056, i64 noundef %7057) #32
+  %7058 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.1555.i.ph, i64 noundef %7056, i64 noundef %7057) #33
   %.not713.i175 = icmp eq ptr %7058, null
   br i1 %.not713.i175, label %9898, label %.thread3546
 
@@ -22368,7 +22368,7 @@ read_null.exit:                                   ; preds = %7068
   %7114 = add i64 %7113, %.1.i123.ph
   %7115 = shl i64 %.1.i123.ph, 4
   %7116 = shl i64 %7114, 4
-  %7117 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.1555.i.ph, i64 noundef %7115, i64 noundef %7116) #32
+  %7117 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.1555.i.ph, i64 noundef %7115, i64 noundef %7116) #33
   %.not708.i187 = icmp eq ptr %7117, null
   br i1 %.not708.i187, label %9898, label %.thread3553
 
@@ -22670,7 +22670,7 @@ read_null.exit:                                   ; preds = %7068
   %7236 = add i64 %7235, %.4.i133
   %7237 = shl i64 %.4.i133, 4
   %7238 = shl i64 %7236, 4
-  %7239 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.5559.i, i64 noundef %7237, i64 noundef %7238) #32
+  %7239 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.5559.i, i64 noundef %7237, i64 noundef %7238) #33
   %.not731.i134 = icmp eq ptr %7239, null
   br i1 %.not731.i134, label %9898, label %.thread3561
 
@@ -22730,7 +22730,7 @@ read_null.exit:                                   ; preds = %7068
   %7261 = add i64 %7260, %.0545.i.ph
   %7262 = shl i64 %.0545.i.ph, 4
   %7263 = shl i64 %7261, 4
-  %7264 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.0554.i.ph, i64 noundef %7262, i64 noundef %7263) #32
+  %7264 = tail call ptr %.sroa.51815.0.copyload1817(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef %.0554.i.ph, i64 noundef %7262, i64 noundef %7263) #33
   %.not702.i156 = icmp eq ptr %7264, null
   br i1 %.not702.i156, label %9898, label %.thread3567
 
@@ -28023,7 +28023,7 @@ read_string.exit.thread:                          ; preds = %7445, %7612, %7611,
   %spec.store.select.sroa.sel1677.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1677.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1677.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8695, ptr %spec.store.select.sroa.sel1677.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.27.i160) #32
+  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.27.i160) #33
   br label %read_root_minify.exit
 
 9886:                                             ; preds = %.thread3617, %.thread3614, %8440, %read_number.exit325.thread, %5189, %read_number.exit.thread
@@ -28057,7 +28057,7 @@ read_string.exit.thread:                          ; preds = %7445, %7612, %7611,
   %spec.store.select.sroa.sel1749.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1749.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1749.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8700, ptr %spec.store.select.sroa.sel1749.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.28.i171) #32
+  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.28.i171) #33
   br label %read_root_minify.exit
 
 9898:                                             ; preds = %7259, %7234, %7112, %7053, %7031, %7010, %6441, %5172, %5140, %5110
@@ -28081,7 +28081,7 @@ read_string.exit.thread:                          ; preds = %7445, %7612, %7611,
   br i1 %.not735.i130, label %read_root_minify.exit, label %9904
 
 9904:                                             ; preds = %9898
-  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.29.i129) #32
+  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.29.i129) #33
   br label %read_root_minify.exit
 
 .loopexit4149:                                    ; preds = %.lr.ph5301, %.lr.ph5768, %.preheader4224, %.preheader4148
@@ -28101,7 +28101,7 @@ read_string.exit.thread:                          ; preds = %7445, %7612, %7611,
   %spec.store.select.sroa.sel1617.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1617.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1617.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8706, ptr %spec.store.select.sroa.sel1617.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.30.i140) #32
+  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.30.i140) #33
   br label %read_root_minify.exit
 
 read_true.exit.thread:                            ; preds = %9689, %7025
@@ -28121,7 +28121,7 @@ read_true.exit.thread:                            ; preds = %9689, %7025
   %spec.store.select.sroa.sel1725.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1725.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1725.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8711, ptr %spec.store.select.sroa.sel1725.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.31.i167) #32
+  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.31.i167) #33
   br label %read_root_minify.exit
 
 read_false.exit.thread:                           ; preds = %9694, %7046
@@ -28141,7 +28141,7 @@ read_false.exit.thread:                           ; preds = %9694, %7046
   %spec.store.select.sroa.sel1713.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1713.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1713.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8716, ptr %spec.store.select.sroa.sel1713.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.32.i165) #32
+  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.32.i165) #33
   br label %read_root_minify.exit
 
 read_nan.exit.thread:                             ; preds = %9711, %9712, %9713, %7078, %7079, %7080, %9710, %7077
@@ -28161,7 +28161,7 @@ read_nan.exit.thread:                             ; preds = %9711, %9712, %9713,
   %spec.store.select.sroa.sel1701.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1701.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1701.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8721, ptr %spec.store.select.sroa.sel1701.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.33.i163) #32
+  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.33.i163) #33
   br label %read_root_minify.exit
 
 read_inf_or_nan.exit861.thread:                   ; preds = %9789, %7182, %9734, %7127, %9773, %9774, %9777, %7166, %7167, %7170, %9795, %7185
@@ -28181,7 +28181,7 @@ read_inf_or_nan.exit861.thread:                   ; preds = %9789, %7182, %9734,
   %spec.store.select.sroa.sel1737.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1737.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1737.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8726, ptr %spec.store.select.sroa.sel1737.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.34.i169) #32
+  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.34.i169) #33
   br label %read_root_minify.exit
 
 .loopexit4173:                                    ; preds = %7205, %7208
@@ -28200,7 +28200,7 @@ read_inf_or_nan.exit861.thread:                   ; preds = %9789, %7182, %9734,
   %spec.store.select.sroa.sel1665.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1665.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1665.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8731, ptr %spec.store.select.sroa.sel1665.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.8562.i.ph) #32
+  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.8562.i.ph) #33
   br label %read_root_minify.exit
 
 .loopexit4229:                                    ; preds = %7849, %7852
@@ -28219,7 +28219,7 @@ read_inf_or_nan.exit861.thread:                   ; preds = %9789, %7182, %9734,
   %spec.store.select.sroa.sel1761.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1761.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1761.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8736, ptr %spec.store.select.sroa.sel1761.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.0554.i.ph) #32
+  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.0554.i.ph) #33
   br label %read_root_minify.exit
 
 .loopexit4212:                                    ; preds = %7870, %7876
@@ -28238,7 +28238,7 @@ read_inf_or_nan.exit861.thread:                   ; preds = %9789, %7182, %9734,
   %spec.store.select.sroa.sel1689.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1689.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1689.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8741, ptr %spec.store.select.sroa.sel1689.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.25.i158) #32
+  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.25.i158) #33
   br label %read_root_minify.exit
 
 .loopexit4178:                                    ; preds = %9815, %9818
@@ -28257,7 +28257,7 @@ read_inf_or_nan.exit861.thread:                   ; preds = %9789, %7182, %9734,
   %spec.store.select.sroa.sel1629.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1629.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1629.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8746, ptr %spec.store.select.sroa.sel1629.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.21.i147.ph) #32
+  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.21.i147.ph) #33
   br label %read_root_minify.exit
 
 9950:                                             ; preds = %9848, %9818, %9795, %7876, %7852, %7208, %7185
@@ -28277,7 +28277,7 @@ read_inf_or_nan.exit861.thread:                   ; preds = %9789, %7182, %9734,
   %spec.store.select.sroa.sel1641.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1641.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1641.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8751, ptr %spec.store.select.sroa.sel1641.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.35.i149) #32
+  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.35.i149) #33
   br label %read_root_minify.exit
 
 9956:                                             ; preds = %.loopexit
@@ -28295,7 +28295,7 @@ read_inf_or_nan.exit861.thread:                   ; preds = %9789, %7182, %9734,
   %spec.store.select.sroa.sel1653.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1653.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1653.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr %.str.57.sink8756, ptr %spec.store.select.sroa.sel1653.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
-  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.20.i151) #32
+  tail call void %.sroa.141826.0.copyload1828(ptr noundef %.sroa.281842.0.copyload1844, ptr noundef nonnull %.20.i151) #33
   br label %read_root_minify.exit
 
 read_root_minify.exit:                            ; preds = %9866, %read_string.exit.thread, %9897, %9898, %9904, %.loopexit4149, %read_true.exit.thread, %read_false.exit.thread, %read_nan.exit.thread, %read_inf_or_nan.exit861.thread, %.loopexit4173, %.loopexit4229, %.loopexit4212, %.loopexit4178, %9950, %9956
@@ -28434,7 +28434,7 @@ read_root_minify.exit:                            ; preds = %9866, %read_string.
   %10016 = load ptr, ptr %10015, align 8, !tbaa !21
   %10017 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %10018 = load ptr, ptr %10017, align 8, !tbaa !22
-  tail call void %10016(ptr noundef %10018, ptr noundef nonnull %.promoted) #32
+  tail call void %10016(ptr noundef %10018, ptr noundef nonnull %.promoted) #33
   br label %10019
 
 10019:                                            ; preds = %9964, %10014, %.thread3606, %77, %78, %57, %61, %43, %36, %29, %27
@@ -28445,8 +28445,8 @@ read_root_minify.exit:                            ; preds = %9866, %read_string.
   ret ptr %.0111
 }
 
-; Function Attrs: nofree noinline norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @skip_spaces_and_comments(ptr noundef nonnull captures(none) %0) unnamed_addr #16 {
+; Function Attrs: nofree noinline norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc zeroext i1 @skip_spaces_and_comments(ptr noundef nonnull captures(none) %0) unnamed_addr #17 {
   %2 = load ptr, ptr %0, align 8, !tbaa !86
   br label %.outer
 
@@ -28541,7 +28541,7 @@ define internal fastcc zeroext i1 @skip_spaces_and_comments(ptr noundef nonnull 
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc ptr @read_root_single(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly byval(%struct.yyjson_alc) align 8 captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) unnamed_addr #17 {
+define internal fastcc ptr @read_root_single(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly byval(%struct.yyjson_alc) align 8 captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) unnamed_addr #18 {
   %7 = alloca i32, align 4
   %8 = alloca %struct.bigint, align 8
   %9 = alloca %struct.bigint, align 8
@@ -28554,7 +28554,7 @@ define internal fastcc ptr @read_root_single(ptr noundef %0, ptr noundef %1, ptr
   %13 = load ptr, ptr %3, align 8, !tbaa !18
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !22
-  %16 = tail call ptr %13(ptr noundef %15, i64 noundef 80) #32
+  %16 = tail call ptr %13(ptr noundef %15, i64 noundef 80) #33
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %1963, label %17, !prof !4
 
@@ -32424,7 +32424,7 @@ read_string.exit:                                 ; preds = %1899, %1901, %1885,
   %1946 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %1947 = load ptr, ptr %1946, align 8, !tbaa !21
   %1948 = load ptr, ptr %14, align 8, !tbaa !22
-  tail call void %1947(ptr noundef %1948, ptr noundef nonnull %16) #32
+  tail call void %1947(ptr noundef %1948, ptr noundef nonnull %16) #33
   br label %2026
 
 .thread581._crit_edge.sink.split:                 ; preds = %690, %120, %108, %739, %720, %817, %792, %760, %97, %read_inf_or_nan.exit.thread, %read_number.exit
@@ -32453,7 +32453,7 @@ read_string.exit:                                 ; preds = %1899, %1901, %1885,
   %1960 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %1961 = load ptr, ptr %1960, align 8, !tbaa !21
   %1962 = load ptr, ptr %14, align 8, !tbaa !22
-  tail call void %1961(ptr noundef %1962, ptr noundef nonnull %16) #32
+  tail call void %1961(ptr noundef %1962, ptr noundef nonnull %16) #33
   br label %2026
 
 1963:                                             ; preds = %6
@@ -32494,7 +32494,7 @@ read_true.exit:                                   ; preds = %1820
   store ptr %.str.57..str.59, ptr %1979, align 8, !tbaa !146
   %1980 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %1981 = load ptr, ptr %1980, align 8, !tbaa !21
-  tail call void %1981(ptr noundef %15, ptr noundef nonnull %16) #32
+  tail call void %1981(ptr noundef %15, ptr noundef nonnull %16) #33
   br label %2026
 
 read_false.exit:                                  ; preds = %1823
@@ -32512,7 +32512,7 @@ read_false.exit:                                  ; preds = %1823
   store ptr %.str.57..str.60, ptr %1987, align 8, !tbaa !146
   %1988 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %1989 = load ptr, ptr %1988, align 8, !tbaa !21
-  tail call void %1989(ptr noundef %15, ptr noundef nonnull %16) #32
+  tail call void %1989(ptr noundef %15, ptr noundef nonnull %16) #33
   br label %2026
 
 read_nan.exit.thread:                             ; preds = %1836, %1837, %1838, %read_null.exit
@@ -32530,7 +32530,7 @@ read_nan.exit.thread:                             ; preds = %1836, %1837, %1838,
   store ptr %.str.57..str.61, ptr %1995, align 8, !tbaa !146
   %1996 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %1997 = load ptr, ptr %1996, align 8, !tbaa !21
-  tail call void %1997(ptr noundef %15, ptr noundef nonnull %16) #32
+  tail call void %1997(ptr noundef %15, ptr noundef nonnull %16) #33
   br label %2026
 
 read_inf_or_nan.exit202:                          ; preds = %1850, %1887, %1891, %1888, %1848
@@ -32548,7 +32548,7 @@ read_inf_or_nan.exit202:                          ; preds = %1850, %1887, %1891,
   store ptr %.str.57..str.83, ptr %2003, align 8, !tbaa !146
   %2004 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %2005 = load ptr, ptr %2004, align 8, !tbaa !21
-  tail call void %2005(ptr noundef %15, ptr noundef nonnull %16) #32
+  tail call void %2005(ptr noundef %15, ptr noundef nonnull %16) #33
   br label %2026
 
 2006:                                             ; preds = %1912
@@ -32567,7 +32567,7 @@ read_inf_or_nan.exit202:                          ; preds = %1850, %1887, %1891,
   %2013 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %2014 = load ptr, ptr %2013, align 8, !tbaa !21
   %2015 = load ptr, ptr %14, align 8, !tbaa !22
-  tail call void %2014(ptr noundef %2015, ptr noundef nonnull %16) #32
+  tail call void %2014(ptr noundef %2015, ptr noundef nonnull %16) #33
   br label %2026
 
 2016:                                             ; preds = %.loopexit
@@ -32586,7 +32586,7 @@ read_inf_or_nan.exit202:                          ; preds = %1850, %1887, %1891,
   %2023 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %2024 = load ptr, ptr %2023, align 8, !tbaa !21
   %2025 = load ptr, ptr %14, align 8, !tbaa !22
-  tail call void %2024(ptr noundef %2025, ptr noundef nonnull %16) #32
+  tail call void %2024(ptr noundef %2025, ptr noundef nonnull %16) #33
   br label %2026
 
 2026:                                             ; preds = %1971, %1968, %2016, %2006, %read_inf_or_nan.exit202, %read_nan.exit.thread, %read_false.exit, %read_true.exit, %.thread581._crit_edge, %.loopexit1442, %1928
@@ -32597,7 +32597,7 @@ read_inf_or_nan.exit202:                          ; preds = %1850, %1887, %1891,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_read_file(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_read_file(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #9 {
   %5 = alloca %struct.yyjson_read_err, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
@@ -32642,7 +32642,7 @@ define dso_local ptr @yyjson_read_file(ptr noundef readonly captures(address_is_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_read_fp(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_read_fp(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #9 {
   %5 = alloca %struct.yyjson_read_err, align 8
   %6 = alloca %struct.yyjson_alc, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -32713,7 +32713,7 @@ define dso_local ptr @yyjson_read_fp(ptr noundef captures(address_is_null) %0, i
   %30 = load ptr, ptr %6, align 8, !tbaa !18
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %32 = load ptr, ptr %31, align 8, !tbaa !22
-  %33 = tail call ptr %30(ptr noundef %32, i64 noundef %29) #32
+  %33 = tail call ptr %30(ptr noundef %32, i64 noundef %29) #33
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %36
 
@@ -32742,7 +32742,7 @@ define dso_local ptr @yyjson_read_fp(ptr noundef captures(address_is_null) %0, i
   store i32 13, ptr %spec.store.select, align 8, !tbaa !147
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !21
-  tail call void %40(ptr noundef %32, ptr noundef nonnull %33) #32
+  tail call void %40(ptr noundef %32, ptr noundef nonnull %33) #33
   br label %.critedge
 
 41:                                               ; preds = %61
@@ -32755,7 +32755,7 @@ define dso_local ptr @yyjson_read_fp(ptr noundef captures(address_is_null) %0, i
   store i32 2, ptr %spec.store.select, align 8, !tbaa !147
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !21
-  tail call void %43(ptr noundef %26, ptr noundef nonnull %.3) #32
+  tail call void %43(ptr noundef %26, ptr noundef nonnull %.3) #33
   br label %.critedge
 
 44:                                               ; preds = %.preheader, %61
@@ -32768,7 +32768,7 @@ define dso_local ptr @yyjson_read_fp(ptr noundef captures(address_is_null) %0, i
   br i1 %.not116, label %46, label %49
 
 46:                                               ; preds = %44
-  %47 = tail call ptr %27(ptr noundef %26, i64 noundef %45) #32
+  %47 = tail call ptr %27(ptr noundef %26, i64 noundef %45) #33
   %.not117 = icmp eq ptr %47, null
   br i1 %.not117, label %48, label %54
 
@@ -32783,7 +32783,7 @@ define dso_local ptr @yyjson_read_fp(ptr noundef captures(address_is_null) %0, i
   br label %.critedge
 
 49:                                               ; preds = %44
-  %50 = tail call ptr %24(ptr noundef %26, ptr noundef nonnull %.198164, i64 noundef %.096165, i64 noundef %45) #32
+  %50 = tail call ptr %24(ptr noundef %26, ptr noundef nonnull %.198164, i64 noundef %.096165, i64 noundef %45) #33
   %.not118 = icmp eq ptr %50, null
   br i1 %.not118, label %51, label %54
 
@@ -32797,7 +32797,7 @@ define dso_local ptr @yyjson_read_fp(ptr noundef captures(address_is_null) %0, i
   store i32 2, ptr %spec.store.select, align 8, !tbaa !147
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !21
-  tail call void %53(ptr noundef %26, ptr noundef nonnull %.198164) #32
+  tail call void %53(ptr noundef %26, ptr noundef nonnull %.198164) #33
   br label %.critedge
 
 54:                                               ; preds = %49, %46
@@ -32838,7 +32838,7 @@ define dso_local ptr @yyjson_read_fp(ptr noundef captures(address_is_null) %0, i
   %72 = load ptr, ptr %71, align 8, !tbaa !21
   %73 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %74 = load ptr, ptr %73, align 8, !tbaa !22
-  call void %72(ptr noundef %74, ptr noundef nonnull %.097) #32
+  call void %72(ptr noundef %74, ptr noundef nonnull %.097) #33
   br label %.critedge
 
 .critedge:                                        ; preds = %51, %48, %41, %70, %68, %38, %35, %10
@@ -32849,15 +32849,15 @@ define dso_local ptr @yyjson_read_fp(ptr noundef captures(address_is_null) %0, i
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #18
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #18
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #18
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #19
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local ptr @yyjson_read_number(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2, ptr noundef readnone captures(none) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #3 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.bigint, align 8
@@ -35326,7 +35326,7 @@ read_number.exit:                                 ; preds = %1227, %959
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_val_write_opts(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_val_write_opts(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
   %6 = alloca %struct.yyjson_write_err, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %2, null
@@ -35415,7 +35415,7 @@ get_enc_table_with_flag.exit67:                   ; preds = %20, %21
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !75
   %30 = add nuw nsw i64 %27, 2
-  %31 = tail call ptr %.sroa.0884.0(ptr noundef %.sroa.9.0, i64 noundef %30) #32
+  %31 = tail call ptr %.sroa.0884.0(ptr noundef %.sroa.9.0, i64 noundef %30) #33
   %.not107.i = icmp eq ptr %31, null
   br i1 %.not107.i, label %1204, label %32
 
@@ -35430,7 +35430,7 @@ get_enc_table_with_flag.exit67:                   ; preds = %20, %21
   %37 = load ptr, ptr %36, align 8, !tbaa !75
   %38 = mul nuw nsw i64 %35, 6
   %39 = add nuw nsw i64 %38, 4
-  %40 = tail call ptr %.sroa.0884.0(ptr noundef %.sroa.9.0, i64 noundef %39) #32
+  %40 = tail call ptr %.sroa.0884.0(ptr noundef %.sroa.9.0, i64 noundef %39) #33
   %.not104.i = icmp eq ptr %40, null
   br i1 %.not104.i, label %1204, label %41
 
@@ -36900,7 +36900,7 @@ write_string_noesc.exit93:                        ; preds = %.lr.ph2607, %.prehe
   br label %write_string.exit551
 
 811:                                              ; preds = %get_enc_table_with_flag.exit67
-  %812 = tail call ptr %.sroa.0884.0(ptr noundef %.sroa.9.0, i64 noundef 42) #32
+  %812 = tail call ptr %.sroa.0884.0(ptr noundef %.sroa.9.0, i64 noundef 42) #33
   %.not102.i = icmp eq ptr %812, null
   br i1 %.not102.i, label %1204, label %813
 
@@ -37419,7 +37419,7 @@ write_number.exit571:                             ; preds = %1166, %1169, %1175,
   br i1 %.not103.i, label %1206, label %write_string.exit551, !prof !216
 
 1179:                                             ; preds = %get_enc_table_with_flag.exit67
-  %1180 = tail call ptr %.sroa.0884.0(ptr noundef %.sroa.9.0, i64 noundef 8) #32
+  %1180 = tail call ptr %.sroa.0884.0(ptr noundef %.sroa.9.0, i64 noundef 8) #33
   %.not101.i = icmp eq ptr %1180, null
   br i1 %.not101.i, label %1204, label %write_bool.exit575
 
@@ -37435,7 +37435,7 @@ write_bool.exit575:                               ; preds = %1179
   br label %write_string.exit551
 
 1186:                                             ; preds = %get_enc_table_with_flag.exit67
-  %1187 = tail call ptr %.sroa.0884.0(ptr noundef %.sroa.9.0, i64 noundef 8) #32
+  %1187 = tail call ptr %.sroa.0884.0(ptr noundef %.sroa.9.0, i64 noundef 8) #33
   %.not100.i = icmp eq ptr %1187, null
   br i1 %.not100.i, label %1204, label %1188
 
@@ -37445,7 +37445,7 @@ write_bool.exit575:                               ; preds = %1179
   br label %write_string.exit551
 
 1190:                                             ; preds = %get_enc_table_with_flag.exit67
-  %1191 = tail call ptr %.sroa.0884.0(ptr noundef %.sroa.9.0, i64 noundef 4) #32
+  %1191 = tail call ptr %.sroa.0884.0(ptr noundef %.sroa.9.0, i64 noundef 4) #33
   %.not99.i = icmp eq ptr %1191, null
   br i1 %.not99.i, label %1204, label %1192
 
@@ -37455,7 +37455,7 @@ write_bool.exit575:                               ; preds = %1179
   br label %write_string.exit551
 
 1194:                                             ; preds = %get_enc_table_with_flag.exit67
-  %1195 = tail call ptr %.sroa.0884.0(ptr noundef %.sroa.9.0, i64 noundef 4) #32
+  %1195 = tail call ptr %.sroa.0884.0(ptr noundef %.sroa.9.0, i64 noundef 4) #33
   %.not.i = icmp eq ptr %1195, null
   br i1 %.not.i, label %1204, label %1196
 
@@ -37522,7 +37522,7 @@ default.unreachable:                              ; preds = %get_enc_table_with_
   br label %yyjson_write_single.exit
 
 1206:                                             ; preds = %write_number.exit571
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %812) #32
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %812) #33
   br i1 %.not28, label %.cont816, label %.else818
 
 .else818:                                         ; preds = %1206
@@ -37537,7 +37537,7 @@ default.unreachable:                              ; preds = %get_enc_table_with_
   br label %yyjson_write_single.exit
 
 .loopexit:                                        ; preds = %.thread, %.thread1055, %.thread1065, %.thread1075
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %40) #32
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %40) #33
   br i1 %.not28, label %.cont813, label %.else815
 
 .else815:                                         ; preds = %.loopexit
@@ -37587,7 +37587,7 @@ size_align_up.exit641.i:                          ; preds = %1212, %1213
   %1222 = and i64 %1221, -32
   %1223 = add i64 %1222, 71
   %1224 = and i64 %1223, -32
-  %1225 = tail call ptr %.sroa.0884.0(ptr noundef %.sroa.9.0, i64 noundef %1224) #32
+  %1225 = tail call ptr %.sroa.0884.0(ptr noundef %.sroa.9.0, i64 noundef %1224) #33
   %.not.i31 = icmp eq ptr %1225, null
   br i1 %.not.i31, label %.loopexit1399, label %1226
 
@@ -37671,7 +37671,7 @@ size_align_up.exit639.i:                          ; preds = %1249
   %1263 = add i64 %1262, 7
   %1264 = and i64 %1263, -8
   %1265 = add i64 %1264, %.0545.i
-  %1266 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0483.i, i64 noundef %.0545.i, i64 noundef %1265) #32
+  %1266 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0483.i, i64 noundef %.0545.i, i64 noundef %1265) #33
   %.not596.i = icmp eq ptr %1266, null
   br i1 %.not596.i, label %.loopexit1399, label %.thread1089, !prof !4
 
@@ -39174,7 +39174,7 @@ size_align_up.exit637.i:                          ; preds = %2049
   %2056 = add i64 %2055, 7
   %2057 = and i64 %2056, -8
   %2058 = add i64 %2057, %.0545.i
-  %2059 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0483.i, i64 noundef %.0545.i, i64 noundef %2058) #32
+  %2059 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0483.i, i64 noundef %.0545.i, i64 noundef %2058) #33
   %.not590.i = icmp eq ptr %2059, null
   br i1 %.not590.i, label %.loopexit1399, label %.thread1137, !prof !4
 
@@ -39760,7 +39760,7 @@ size_align_up.exit635.i:                          ; preds = %2450
   %2455 = add i64 %2454, 7
   %2456 = and i64 %2455, -8
   %2457 = add i64 %2456, %.0545.i
-  %2458 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0483.i, i64 noundef %.0545.i, i64 noundef %2457) #32
+  %2458 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0483.i, i64 noundef %.0545.i, i64 noundef %2457) #33
   %.not587.i = icmp eq ptr %2458, null
   br i1 %.not587.i, label %.loopexit1399, label %.thread1147, !prof !4
 
@@ -39827,7 +39827,7 @@ size_align_up.exit633.i:                          ; preds = %2481
   %2488 = add i64 %2487, 7
   %2489 = and i64 %2488, -8
   %2490 = add i64 %2489, %.0545.i
-  %2491 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0483.i, i64 noundef %.0545.i, i64 noundef %2490) #32
+  %2491 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0483.i, i64 noundef %.0545.i, i64 noundef %2490) #33
   %.not585.i = icmp eq ptr %2491, null
   br i1 %.not585.i, label %.loopexit1399, label %.thread1154, !prof !4
 
@@ -39918,7 +39918,7 @@ size_align_up.exit631.i:                          ; preds = %2519
   %2526 = add i64 %2525, 7
   %2527 = and i64 %2526, -8
   %2528 = add i64 %2527, %.0545.i
-  %2529 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0483.i, i64 noundef %.0545.i, i64 noundef %2528) #32
+  %2529 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0483.i, i64 noundef %.0545.i, i64 noundef %2528) #33
   %.not582.i = icmp eq ptr %2529, null
   br i1 %.not582.i, label %.loopexit1399, label %.thread1161, !prof !4
 
@@ -39983,7 +39983,7 @@ size_align_up.exit629.i:                          ; preds = %2550
   %2557 = add i64 %2556, 7
   %2558 = and i64 %2557, -8
   %2559 = add i64 %2558, %.0545.i
-  %2560 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0483.i, i64 noundef %.0545.i, i64 noundef %2559) #32
+  %2560 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0483.i, i64 noundef %.0545.i, i64 noundef %2559) #33
   %.not579.i = icmp eq ptr %2560, null
   br i1 %.not579.i, label %.loopexit1399, label %.thread1168, !prof !4
 
@@ -40046,7 +40046,7 @@ size_align_up.exit627.i:                          ; preds = %2577
   %2588 = add i64 %2587, 7
   %2589 = and i64 %2588, -8
   %2590 = add i64 %2589, %.0545.i
-  %2591 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0483.i, i64 noundef %.0545.i, i64 noundef %2590) #32
+  %2591 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0483.i, i64 noundef %.0545.i, i64 noundef %2590) #33
   %.not576.i = icmp eq ptr %2591, null
   br i1 %.not576.i, label %.loopexit1399, label %.thread1175, !prof !4
 
@@ -40127,7 +40127,7 @@ size_align_up.exit625.i:                          ; preds = %.preheader1398
   %2620 = add i64 %2619, 7
   %2621 = and i64 %2620, -8
   %2622 = add i64 %2621, %.9554.i
-  %2623 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.16.i, i64 noundef %.9554.i, i64 noundef %2622) #32
+  %2623 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.16.i, i64 noundef %.9554.i, i64 noundef %2622) #33
   %.not601.i = icmp eq ptr %2623, null
   br i1 %.not601.i, label %.loopexit1399, label %.thread1182, !prof !4
 
@@ -40203,7 +40203,7 @@ size_align_up.exit.i:                             ; preds = %2653
   %2657 = add nuw i64 %2656, 7
   %2658 = and i64 %2657, -8
   %2659 = add i64 %2658, %.10555.i
-  %2660 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.18.i, i64 noundef %.10555.i, i64 noundef %2659) #32
+  %2660 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.18.i, i64 noundef %.10555.i, i64 noundef %2659) #33
   %.not605.i = icmp eq ptr %2660, null
   br i1 %.not605.i, label %.loopexit1399, label %.thread1188, !prof !4
 
@@ -40263,7 +40263,7 @@ size_align_up.exit.i:                             ; preds = %2653
   br i1 %.not606.i, label %yyjson_write_single.exit, label %2678
 
 2678:                                             ; preds = %.cont810
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.22.i) #32
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.22.i) #33
   br label %yyjson_write_single.exit
 
 2679:                                             ; preds = %2518
@@ -40278,7 +40278,7 @@ size_align_up.exit.i:                             ; preds = %2653
   %.sroa.sel855.v.sroa.sel.v.sroa.sel.v = select i1 %.not27, ptr %6, ptr %4
   %.sroa.sel855.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel855.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr @.str.93, ptr %.sroa.sel855.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.0483.i) #32
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.0483.i) #33
   br label %yyjson_write_single.exit
 
 2681:                                             ; preds = %write_number.exit562
@@ -40293,7 +40293,7 @@ size_align_up.exit.i:                             ; preds = %2653
   %.sroa.sel849.v.sroa.sel.v.sroa.sel.v = select i1 %.not27, ptr %6, ptr %4
   %.sroa.sel849.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel849.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr @.str.94, ptr %.sroa.sel849.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.5.i) #32
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.5.i) #33
   br label %yyjson_write_single.exit
 
 .loopexit1371:                                    ; preds = %.thread1095, %.thread1105, %.thread1115, %.thread1125
@@ -40308,7 +40308,7 @@ size_align_up.exit.i:                             ; preds = %2653
   %.sroa.sel852.v.sroa.sel.v.sroa.sel.v = select i1 %.not27, ptr %6, ptr %4
   %.sroa.sel852.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel852.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr @.str.95, ptr %.sroa.sel852.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.2.i) #32
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.2.i) #33
   br label %yyjson_write_single.exit
 
 2684:                                             ; preds = %1207
@@ -40335,7 +40335,7 @@ size_align_up.exit476.i:                          ; preds = %2685, %2686
   %2693 = mul i64 %2692, 18
   %2694 = add i64 %2693, 71
   %2695 = and i64 %2694, -8
-  %2696 = tail call ptr %.sroa.0884.0(ptr noundef %.sroa.9.0, i64 noundef %2695) #32
+  %2696 = tail call ptr %.sroa.0884.0(ptr noundef %.sroa.9.0, i64 noundef %2695) #33
   %.not.i35 = icmp eq ptr %2696, null
   br i1 %.not.i35, label %.loopexit1369, label %2697
 
@@ -40403,7 +40403,7 @@ size_align_up.exit474.i:                          ; preds = %2715
   %2727 = add nuw i64 %2726, 7
   %2728 = and i64 %2727, -8
   %2729 = add i64 %2728, %.0405.i
-  %2730 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0357.i, i64 noundef %.0405.i, i64 noundef %2729) #32
+  %2730 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0357.i, i64 noundef %.0405.i, i64 noundef %2729) #33
   %.not441.i = icmp eq ptr %2730, null
   br i1 %.not441.i, label %.loopexit1369, label %.thread1192, !prof !4
 
@@ -41885,7 +41885,7 @@ size_align_up.exit472.i:                          ; preds = %3509
   %3513 = add nuw i64 %3512, 7
   %3514 = and i64 %3513, -8
   %3515 = add i64 %3514, %.0405.i
-  %3516 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0357.i, i64 noundef %.0405.i, i64 noundef %3515) #32
+  %3516 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0357.i, i64 noundef %.0405.i, i64 noundef %3515) #33
   %.not436.i = icmp eq ptr %3516, null
   br i1 %.not436.i, label %.loopexit1369, label %.thread1240, !prof !4
 
@@ -42448,7 +42448,7 @@ size_align_up.exit470.i:                          ; preds = %3898
   %3904 = add nuw i64 %3903, 7
   %3905 = and i64 %3904, -8
   %3906 = add i64 %3905, %.0405.i
-  %3907 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0357.i, i64 noundef %.0405.i, i64 noundef %3906) #32
+  %3907 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0357.i, i64 noundef %.0405.i, i64 noundef %3906) #33
   %.not434.i = icmp eq ptr %3907, null
   br i1 %.not434.i, label %.loopexit1369, label %.thread1249, !prof !4
 
@@ -42533,7 +42533,7 @@ size_align_up.exit468.i:                          ; preds = %3941
   %3945 = add nuw i64 %3944, 7
   %3946 = and i64 %3945, -8
   %3947 = add i64 %3946, %.0405.i
-  %3948 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0357.i, i64 noundef %.0405.i, i64 noundef %3947) #32
+  %3948 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0357.i, i64 noundef %.0405.i, i64 noundef %3947) #33
   %.not432.i = icmp eq ptr %3948, null
   br i1 %.not432.i, label %.loopexit1369, label %.thread1255, !prof !4
 
@@ -42581,7 +42581,7 @@ size_align_up.exit466.i:                          ; preds = %3966
   %3970 = add nuw i64 %3969, 7
   %3971 = and i64 %3970, -8
   %3972 = add i64 %3971, %.0405.i
-  %3973 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0357.i, i64 noundef %.0405.i, i64 noundef %3972) #32
+  %3973 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0357.i, i64 noundef %.0405.i, i64 noundef %3972) #33
   %.not430.i = icmp eq ptr %3973, null
   br i1 %.not430.i, label %.loopexit1369, label %.thread1261, !prof !4
 
@@ -42626,7 +42626,7 @@ size_align_up.exit464.i:                          ; preds = %3988
   %3996 = add nuw i64 %3995, 7
   %3997 = and i64 %3996, -8
   %3998 = add i64 %3997, %.0405.i
-  %3999 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0357.i, i64 noundef %.0405.i, i64 noundef %3998) #32
+  %3999 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0357.i, i64 noundef %.0405.i, i64 noundef %3998) #33
   %.not428.i = icmp eq ptr %3999, null
   br i1 %.not428.i, label %.loopexit1369, label %.thread1267, !prof !4
 
@@ -42706,7 +42706,7 @@ size_align_up.exit.i42:                           ; preds = %4031
   %4035 = add nuw i64 %4034, 7
   %4036 = and i64 %4035, -8
   %4037 = add i64 %4036, %.2407.i
-  %4038 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.3.i40, i64 noundef %.2407.i, i64 noundef %4037) #32
+  %4038 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.3.i40, i64 noundef %.2407.i, i64 noundef %4037) #33
   %.not448.i = icmp eq ptr %4038, null
   br i1 %.not448.i, label %.loopexit1369, label %.thread1273, !prof !4
 
@@ -42766,7 +42766,7 @@ size_align_up.exit.i42:                           ; preds = %4031
   br i1 %.not449.i, label %yyjson_write_single.exit, label %4057
 
 4057:                                             ; preds = %.cont795
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.17.i37) #32
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.17.i37) #33
   br label %yyjson_write_single.exit
 
 4058:                                             ; preds = %3940
@@ -42781,7 +42781,7 @@ size_align_up.exit.i42:                           ; preds = %4031
   %.sroa.sel867.v.sroa.sel.v.sroa.sel.v = select i1 %.not27, ptr %6, ptr %4
   %.sroa.sel867.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel867.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr @.str.93, ptr %.sroa.sel867.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.0357.i) #32
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.0357.i) #33
   br label %yyjson_write_single.exit
 
 4060:                                             ; preds = %write_number.exit
@@ -42796,7 +42796,7 @@ size_align_up.exit.i42:                           ; preds = %4031
   %.sroa.sel861.v.sroa.sel.v.sroa.sel.v = select i1 %.not27, ptr %6, ptr %4
   %.sroa.sel861.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel861.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr @.str.94, ptr %.sroa.sel861.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.5.i39) #32
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.5.i39) #33
   br label %yyjson_write_single.exit
 
 .loopexit1338:                                    ; preds = %.thread1198, %.thread1208, %.thread1218, %.thread1228
@@ -42811,7 +42811,7 @@ size_align_up.exit.i42:                           ; preds = %4031
   %.sroa.sel864.v.sroa.sel.v.sroa.sel.v = select i1 %.not27, ptr %6, ptr %4
   %.sroa.sel864.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel864.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr @.str.95, ptr %.sroa.sel864.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.2.i48) #32
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.2.i48) #33
   br label %yyjson_write_single.exit
 
 yyjson_write_single.exit:                         ; preds = %4062, %4061, %4059, %4057, %.cont795, %.cont792, %2683, %2682, %2680, %2678, %.cont810, %.cont807, %.cont813, %.cont816, %.cont825, %.cont819, %.cont822, %.cont828
@@ -42821,7 +42821,7 @@ yyjson_write_single.exit:                         ; preds = %4062, %4061, %4059,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_write_opts(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_write_opts(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %6
 
@@ -42836,7 +42836,7 @@ define dso_local ptr @yyjson_write_opts(ptr noundef readonly captures(address_is
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @yyjson_val_write_file(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @yyjson_val_write_file(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
   %6 = alloca %struct.yyjson_write_err, align 8
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -42910,7 +42910,7 @@ write_dat_to_file.exit:                           ; preds = %18, %21, %23, %25
   %27 = load ptr, ptr %26, align 8, !tbaa !21
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %29 = load ptr, ptr %28, align 8, !tbaa !22
-  call void %27(ptr noundef %29, ptr noundef nonnull %13) #32
+  call void %27(ptr noundef %29, ptr noundef nonnull %13) #33
   br label %30
 
 30:                                               ; preds = %12, %write_dat_to_file.exit, %.critedge
@@ -42921,7 +42921,7 @@ write_dat_to_file.exit:                           ; preds = %18, %21, %23, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @yyjson_val_write_fp(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @yyjson_val_write_fp(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
   %6 = alloca %struct.yyjson_write_err, align 8
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -42964,7 +42964,7 @@ write_dat_to_fp.exit:                             ; preds = %13, %16
   %18 = load ptr, ptr %17, align 8, !tbaa !21
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !22
-  call void %18(ptr noundef %20, ptr noundef nonnull %12) #32
+  call void %18(ptr noundef %20, ptr noundef nonnull %12) #33
   br label %21
 
 21:                                               ; preds = %11, %write_dat_to_fp.exit, %10
@@ -42975,7 +42975,7 @@ write_dat_to_fp.exit:                             ; preds = %13, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @yyjson_write_file(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @yyjson_write_file(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %6
 
@@ -42990,7 +42990,7 @@ define dso_local noundef zeroext i1 @yyjson_write_file(ptr noundef readonly capt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @yyjson_write_fp(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @yyjson_write_fp(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
   %6 = alloca %struct.yyjson_write_err, align 8
   %7 = alloca i64, align 8
   %.not = icmp eq ptr %1, null
@@ -43042,7 +43042,7 @@ write_dat_to_fp.exit.i:                           ; preds = %20, %17
   %22 = load ptr, ptr %21, align 8, !tbaa !21
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !22
-  call void %22(ptr noundef %24, ptr noundef nonnull %16) #32
+  call void %22(ptr noundef %24, ptr noundef nonnull %16) #33
   br label %yyjson_val_write_fp.exit
 
 yyjson_val_write_fp.exit:                         ; preds = %14, %15, %write_dat_to_fp.exit.i
@@ -43053,13 +43053,13 @@ yyjson_val_write_fp.exit:                         ; preds = %14, %15, %write_dat
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_mut_val_write_opts(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_mut_val_write_opts(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
   %6 = tail call fastcc ptr @yyjson_mut_write_opts_impl(ptr noundef %0, i64 noundef 0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @yyjson_mut_write_opts_impl(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #7 {
+define internal fastcc ptr @yyjson_mut_write_opts_impl(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #9 {
   %7 = alloca %struct.yyjson_write_err, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %3, null
@@ -43148,7 +43148,7 @@ get_enc_table_with_flag.exit.i:                   ; preds = %22, %21
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !75
   %31 = add nuw nsw i64 %28, 2
-  %32 = tail call ptr %.sroa.0430.0(ptr noundef %.sroa.9.0, i64 noundef %31) #32
+  %32 = tail call ptr %.sroa.0430.0(ptr noundef %.sroa.9.0, i64 noundef %31) #33
   %.not107.i.i = icmp eq ptr %32, null
   br i1 %.not107.i.i, label %1205, label %33
 
@@ -43163,7 +43163,7 @@ get_enc_table_with_flag.exit.i:                   ; preds = %22, %21
   %38 = load ptr, ptr %37, align 8, !tbaa !75
   %39 = mul nuw nsw i64 %36, 6
   %40 = add nuw nsw i64 %39, 4
-  %41 = tail call ptr %.sroa.0430.0(ptr noundef %.sroa.9.0, i64 noundef %40) #32
+  %41 = tail call ptr %.sroa.0430.0(ptr noundef %.sroa.9.0, i64 noundef %40) #33
   %.not104.i.i = icmp eq ptr %41, null
   br i1 %.not104.i.i, label %1205, label %42
 
@@ -44633,7 +44633,7 @@ write_string_noesc.exit.i:                        ; preds = %.lr.ph2167, %.prehe
   br label %write_string.exit97.i
 
 812:                                              ; preds = %get_enc_table_with_flag.exit.i
-  %813 = tail call ptr %.sroa.0430.0(ptr noundef %.sroa.9.0, i64 noundef 42) #32
+  %813 = tail call ptr %.sroa.0430.0(ptr noundef %.sroa.9.0, i64 noundef 42) #33
   %.not102.i.i = icmp eq ptr %813, null
   br i1 %.not102.i.i, label %1205, label %814
 
@@ -45152,7 +45152,7 @@ write_number.exit.i:                              ; preds = %1178, %1176, %1170,
   br i1 %.not103.i.i, label %1207, label %write_string.exit97.i, !prof !216
 
 1180:                                             ; preds = %get_enc_table_with_flag.exit.i
-  %1181 = tail call ptr %.sroa.0430.0(ptr noundef %.sroa.9.0, i64 noundef 8) #32
+  %1181 = tail call ptr %.sroa.0430.0(ptr noundef %.sroa.9.0, i64 noundef 8) #33
   %.not101.i.i = icmp eq ptr %1181, null
   br i1 %.not101.i.i, label %1205, label %write_bool.exit.i
 
@@ -45168,7 +45168,7 @@ write_bool.exit.i:                                ; preds = %1180
   br label %write_string.exit97.i
 
 1187:                                             ; preds = %get_enc_table_with_flag.exit.i
-  %1188 = tail call ptr %.sroa.0430.0(ptr noundef %.sroa.9.0, i64 noundef 8) #32
+  %1188 = tail call ptr %.sroa.0430.0(ptr noundef %.sroa.9.0, i64 noundef 8) #33
   %.not100.i.i = icmp eq ptr %1188, null
   br i1 %.not100.i.i, label %1205, label %1189
 
@@ -45178,7 +45178,7 @@ write_bool.exit.i:                                ; preds = %1180
   br label %write_string.exit97.i
 
 1191:                                             ; preds = %get_enc_table_with_flag.exit.i
-  %1192 = tail call ptr %.sroa.0430.0(ptr noundef %.sroa.9.0, i64 noundef 4) #32
+  %1192 = tail call ptr %.sroa.0430.0(ptr noundef %.sroa.9.0, i64 noundef 4) #33
   %.not99.i.i = icmp eq ptr %1192, null
   br i1 %.not99.i.i, label %1205, label %1193
 
@@ -45188,7 +45188,7 @@ write_bool.exit.i:                                ; preds = %1180
   br label %write_string.exit97.i
 
 1195:                                             ; preds = %get_enc_table_with_flag.exit.i
-  %1196 = tail call ptr %.sroa.0430.0(ptr noundef %.sroa.9.0, i64 noundef 4) #32
+  %1196 = tail call ptr %.sroa.0430.0(ptr noundef %.sroa.9.0, i64 noundef 4) #33
   %.not.i.i = icmp eq ptr %1196, null
   br i1 %.not.i.i, label %1205, label %1197
 
@@ -45255,7 +45255,7 @@ default.unreachable:                              ; preds = %get_enc_table_with_
   br label %yyjson_mut_write_single.exit
 
 1207:                                             ; preds = %write_number.exit.i
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %813) #32
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %813) #33
   br i1 %.not30, label %.cont355, label %.else357
 
 .else357:                                         ; preds = %1207
@@ -45270,7 +45270,7 @@ default.unreachable:                              ; preds = %get_enc_table_with_
   br label %yyjson_mut_write_single.exit
 
 .loopexit:                                        ; preds = %.thread, %.thread613, %.thread623, %.thread633
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %41) #32
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %41) #33
   br i1 %.not30, label %.cont352, label %.else354
 
 .else354:                                         ; preds = %.loopexit
@@ -45317,7 +45317,7 @@ get_enc_table_with_flag.exit.i34:                 ; preds = %1214, %1213
   %1220 = shl i64 %1, 5
   %1221 = add i64 %1220, 79
   %1222 = and i64 %1221, -32
-  %1223 = tail call ptr %.sroa.0430.0(ptr noundef %.sroa.9.0, i64 noundef %1222) #32
+  %1223 = tail call ptr %.sroa.0430.0(ptr noundef %.sroa.9.0, i64 noundef %1222) #33
   %.not.i = icmp eq ptr %1223, null
   br i1 %.not.i, label %.loopexit957, label %1224
 
@@ -45414,7 +45414,7 @@ get_enc_table_with_flag.exit.i34:                 ; preds = %1214, %1213
   %1268 = add i64 %1267, 15
   %1269 = and i64 %1268, -16
   %1270 = add i64 %1269, %.0550.i
-  %1271 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0488.i, i64 noundef %.0550.i, i64 noundef %1270) #32
+  %1271 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0488.i, i64 noundef %.0550.i, i64 noundef %1270) #33
   %.not603.i = icmp eq ptr %1271, null
   br i1 %.not603.i, label %.loopexit957, label %.thread647, !prof !4
 
@@ -46917,7 +46917,7 @@ write_string.exit742.i:                           ; preds = %.preheader945, %.lr
   %2062 = add i64 %2061, 15
   %2063 = and i64 %2062, -16
   %2064 = add i64 %2063, %.0550.i
-  %2065 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0488.i, i64 noundef %.0550.i, i64 noundef %2064) #32
+  %2065 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0488.i, i64 noundef %.0550.i, i64 noundef %2064) #33
   %.not597.i = icmp eq ptr %2065, null
   br i1 %.not597.i, label %.loopexit957, label %.thread695, !prof !4
 
@@ -47503,7 +47503,7 @@ write_number.exit.i38.thread:                     ; preds = %2152, %2126, %2106,
   %2462 = add i64 %2461, 15
   %2463 = and i64 %2462, -16
   %2464 = add i64 %2463, %.0550.i
-  %2465 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0488.i, i64 noundef %.0550.i, i64 noundef %2464) #32
+  %2465 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0488.i, i64 noundef %.0550.i, i64 noundef %2464) #33
   %.not594.i = icmp eq ptr %2465, null
   br i1 %.not594.i, label %.loopexit957, label %.thread705, !prof !4
 
@@ -47570,7 +47570,7 @@ write_indent.exit808.i:                           ; preds = %select.unfold711, %
   %2496 = add i64 %2495, 15
   %2497 = and i64 %2496, -16
   %2498 = add i64 %2497, %.0550.i
-  %2499 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0488.i, i64 noundef %.0550.i, i64 noundef %2498) #32
+  %2499 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0488.i, i64 noundef %.0550.i, i64 noundef %2498) #33
   %.not590.i = icmp eq ptr %2499, null
   br i1 %.not590.i, label %.loopexit957, label %.thread712, !prof !4
 
@@ -47676,7 +47676,7 @@ write_indent.exit804.i:                           ; preds = %select.unfold718, %
   %2542 = add i64 %2541, 15
   %2543 = and i64 %2542, -16
   %2544 = add i64 %2543, %.0550.i
-  %2545 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0488.i, i64 noundef %.0550.i, i64 noundef %2544) #32
+  %2545 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0488.i, i64 noundef %.0550.i, i64 noundef %2544) #33
   %.not587.i = icmp eq ptr %2545, null
   br i1 %.not587.i, label %.loopexit957, label %.thread719, !prof !4
 
@@ -47741,7 +47741,7 @@ write_indent.exit800.i:                           ; preds = %select.unfold725, %
   %2574 = add i64 %2573, 15
   %2575 = and i64 %2574, -16
   %2576 = add i64 %2575, %.0550.i
-  %2577 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0488.i, i64 noundef %.0550.i, i64 noundef %2576) #32
+  %2577 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0488.i, i64 noundef %.0550.i, i64 noundef %2576) #33
   %.not584.i = icmp eq ptr %2577, null
   br i1 %.not584.i, label %.loopexit957, label %.thread726, !prof !4
 
@@ -47804,7 +47804,7 @@ write_indent.exit796.i:                           ; preds = %select.unfold732, %
   %2606 = add i64 %2605, 15
   %2607 = and i64 %2606, -16
   %2608 = add i64 %2607, %.0550.i
-  %2609 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0488.i, i64 noundef %.0550.i, i64 noundef %2608) #32
+  %2609 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0488.i, i64 noundef %.0550.i, i64 noundef %2608) #33
   %.not581.i = icmp eq ptr %2609, null
   br i1 %.not581.i, label %.loopexit957, label %.thread733, !prof !4
 
@@ -47890,7 +47890,7 @@ write_indent.exit792.i:                           ; preds = %select.unfold739, %
   %2641 = add i64 %2640, 15
   %2642 = and i64 %2641, -16
   %2643 = add i64 %2642, %.9559.i
-  %2644 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.16.i, i64 noundef %.9559.i, i64 noundef %2643) #32
+  %2644 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.16.i, i64 noundef %.9559.i, i64 noundef %2643) #33
   %.not608.i = icmp eq ptr %2644, null
   br i1 %.not608.i, label %.loopexit957, label %.thread740, !prof !4
 
@@ -47970,7 +47970,7 @@ write_indent.exit.i:                              ; preds = %.lr.ph2034, %2657
   %2683 = add nuw i64 %2682, 15
   %2684 = and i64 %2683, -16
   %2685 = add i64 %2684, %.10560.i
-  %2686 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.18.i, i64 noundef %.10560.i, i64 noundef %2685) #32
+  %2686 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.18.i, i64 noundef %.10560.i, i64 noundef %2685) #33
   %.not612.i = icmp eq ptr %2686, null
   br i1 %.not612.i, label %.loopexit957, label %.thread746, !prof !4
 
@@ -48033,7 +48033,7 @@ write_indent.exit.i:                              ; preds = %.lr.ph2034, %2657
   br i1 %.not613.i, label %yyjson_mut_write_single.exit, label %2704
 
 2704:                                             ; preds = %.cont349
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.22.i) #32
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.22.i) #33
   br label %yyjson_mut_write_single.exit
 
 2705:                                             ; preds = %2533
@@ -48048,7 +48048,7 @@ write_indent.exit.i:                              ; preds = %.lr.ph2034, %2657
   %.sroa.sel397.v.sroa.sel.v.sroa.sel.v = select i1 %.not29, ptr %7, ptr %5
   %.sroa.sel397.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel397.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr @.str.93, ptr %.sroa.sel397.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.0488.i) #32
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.0488.i) #33
   br label %yyjson_mut_write_single.exit
 
 2707:                                             ; preds = %write_number.exit.i38
@@ -48063,7 +48063,7 @@ write_indent.exit.i:                              ; preds = %.lr.ph2034, %2657
   %.sroa.sel391.v.sroa.sel.v.sroa.sel.v = select i1 %.not29, ptr %7, ptr %5
   %.sroa.sel391.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel391.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr @.str.94, ptr %.sroa.sel391.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.5.i) #32
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.5.i) #33
   br label %yyjson_mut_write_single.exit
 
 .loopexit929:                                     ; preds = %.thread653, %.thread663, %.thread673, %.thread683
@@ -48078,7 +48078,7 @@ write_indent.exit.i:                              ; preds = %.lr.ph2034, %2657
   %.sroa.sel394.v.sroa.sel.v.sroa.sel.v = select i1 %.not29, ptr %7, ptr %5
   %.sroa.sel394.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel394.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr @.str.95, ptr %.sroa.sel394.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.2.i) #32
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.2.i) #33
   br label %yyjson_mut_write_single.exit
 
 2710:                                             ; preds = %1208
@@ -48102,7 +48102,7 @@ get_enc_table_with_flag.exit.i168:                ; preds = %2712, %2711
   %2716 = mul i64 %1, 18
   %2717 = add i64 %2716, 79
   %2718 = and i64 %2717, -16
-  %2719 = tail call ptr %.sroa.0430.0(ptr noundef %.sroa.9.0, i64 noundef %2718) #32
+  %2719 = tail call ptr %.sroa.0430.0(ptr noundef %.sroa.9.0, i64 noundef %2718) #33
   %.not.i169 = icmp eq ptr %2719, null
   br i1 %.not.i169, label %.loopexit927, label %2720
 
@@ -48183,7 +48183,7 @@ get_enc_table_with_flag.exit.i168:                ; preds = %2712, %2711
   %2756 = add nuw i64 %2755, 15
   %2757 = and i64 %2756, -16
   %2758 = add i64 %2757, %.0410.i
-  %2759 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0362.i, i64 noundef %.0410.i, i64 noundef %2758) #32
+  %2759 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0362.i, i64 noundef %.0410.i, i64 noundef %2758) #33
   %.not448.i = icmp eq ptr %2759, null
   br i1 %.not448.i, label %.loopexit927, label %.thread750, !prof !4
 
@@ -49665,7 +49665,7 @@ write_string.exit577.i:                           ; preds = %.preheader912, %.lr
   %3543 = add nuw i64 %3542, 15
   %3544 = and i64 %3543, -16
   %3545 = add i64 %3544, %.0410.i
-  %3546 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0362.i, i64 noundef %.0410.i, i64 noundef %3545) #32
+  %3546 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0362.i, i64 noundef %.0410.i, i64 noundef %3545) #33
   %.not443.i = icmp eq ptr %3546, null
   br i1 %.not443.i, label %.loopexit927, label %.thread798, !prof !4
 
@@ -50228,7 +50228,7 @@ write_number.exit.i179.thread:                    ; preds = %3631, %3605, %3585,
   %3935 = add nuw i64 %3934, 15
   %3936 = and i64 %3935, -16
   %3937 = add i64 %3936, %.0410.i
-  %3938 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0362.i, i64 noundef %.0410.i, i64 noundef %3937) #32
+  %3938 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0362.i, i64 noundef %.0410.i, i64 noundef %3937) #33
   %.not439.i = icmp eq ptr %3938, null
   br i1 %.not439.i, label %.loopexit927, label %.thread807, !prof !4
 
@@ -50321,7 +50321,7 @@ write_number.exit.i179.thread:                    ; preds = %3631, %3605, %3585,
   %3981 = add nuw i64 %3980, 15
   %3982 = and i64 %3981, -16
   %3983 = add i64 %3982, %.0410.i
-  %3984 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0362.i, i64 noundef %.0410.i, i64 noundef %3983) #32
+  %3984 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0362.i, i64 noundef %.0410.i, i64 noundef %3983) #33
   %.not437.i = icmp eq ptr %3984, null
   br i1 %.not437.i, label %.loopexit927, label %.thread813, !prof !4
 
@@ -50369,7 +50369,7 @@ write_bool.exit.i320:                             ; preds = %.thread813, %3976
   %4007 = add nuw i64 %4006, 15
   %4008 = and i64 %4007, -16
   %4009 = add i64 %4008, %.0410.i
-  %4010 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0362.i, i64 noundef %.0410.i, i64 noundef %4009) #32
+  %4010 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0362.i, i64 noundef %.0410.i, i64 noundef %4009) #33
   %.not435.i = icmp eq ptr %4010, null
   br i1 %.not435.i, label %.loopexit927, label %.thread819, !prof !4
 
@@ -50414,7 +50414,7 @@ write_bool.exit.i320:                             ; preds = %.thread813, %3976
   %4034 = add nuw i64 %4033, 15
   %4035 = and i64 %4034, -16
   %4036 = add i64 %4035, %.0410.i
-  %4037 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0362.i, i64 noundef %.0410.i, i64 noundef %4036) #32
+  %4037 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.0362.i, i64 noundef %.0410.i, i64 noundef %4036) #33
   %.not433.i = icmp eq ptr %4037, null
   br i1 %.not433.i, label %.loopexit927, label %.thread825, !prof !4
 
@@ -50496,7 +50496,7 @@ write_bool.exit.i320:                             ; preds = %.thread813, %3976
   %4075 = add nuw i64 %4074, 15
   %4076 = and i64 %4075, -16
   %4077 = add i64 %4076, %.2412.i
-  %4078 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.3.i180, i64 noundef %.2412.i, i64 noundef %4077) #32
+  %4078 = tail call ptr %.sroa.7.0(ptr noundef %.sroa.9.0, ptr noundef %.3.i180, i64 noundef %.2412.i, i64 noundef %4077) #33
   %.not455.i = icmp eq ptr %4078, null
   br i1 %.not455.i, label %.loopexit927, label %.thread831, !prof !4
 
@@ -50559,7 +50559,7 @@ write_bool.exit.i320:                             ; preds = %.thread813, %3976
   br i1 %.not456.i, label %yyjson_mut_write_single.exit, label %4097
 
 4097:                                             ; preds = %.cont334
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.17.i173) #32
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.17.i173) #33
   br label %yyjson_mut_write_single.exit
 
 4098:                                             ; preds = %3975
@@ -50574,7 +50574,7 @@ write_bool.exit.i320:                             ; preds = %.thread813, %3976
   %.sroa.sel412.v.sroa.sel.v.sroa.sel.v = select i1 %.not29, ptr %7, ptr %5
   %.sroa.sel412.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel412.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr @.str.93, ptr %.sroa.sel412.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.0362.i) #32
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.0362.i) #33
   br label %yyjson_mut_write_single.exit
 
 4100:                                             ; preds = %write_number.exit.i179
@@ -50589,7 +50589,7 @@ write_bool.exit.i320:                             ; preds = %.thread813, %3976
   %.sroa.sel406.v.sroa.sel.v.sroa.sel.v = select i1 %.not29, ptr %7, ptr %5
   %.sroa.sel406.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel406.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr @.str.94, ptr %.sroa.sel406.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.5.i175) #32
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.5.i175) #33
   br label %yyjson_mut_write_single.exit
 
 .loopexit896:                                     ; preds = %.thread756, %.thread766, %.thread776, %.thread786
@@ -50604,7 +50604,7 @@ write_bool.exit.i320:                             ; preds = %.thread813, %3976
   %.sroa.sel409.v.sroa.sel.v.sroa.sel.v = select i1 %.not29, ptr %7, ptr %5
   %.sroa.sel409.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel409.v.sroa.sel.v.sroa.sel.v, i64 8
   store ptr @.str.95, ptr %.sroa.sel409.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
-  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.2.i212) #32
+  tail call void %.sroa.8.0(ptr noundef %.sroa.9.0, ptr noundef nonnull %.2.i212) #33
   br label %yyjson_mut_write_single.exit
 
 yyjson_mut_write_single.exit:                     ; preds = %4102, %4101, %4099, %4097, %.cont334, %.cont331, %2709, %2708, %2706, %2704, %.cont349, %.cont346, %.cont352, %.cont355, %.cont364, %.cont358, %.cont361, %.cont367
@@ -50614,7 +50614,7 @@ yyjson_mut_write_single.exit:                     ; preds = %4102, %4101, %4099,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @yyjson_mut_write_opts(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_mut_write_opts(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %yyjson_mut_doc_estimated_val_num.exit, label %6, !prof !4
 
@@ -50665,7 +50665,7 @@ yyjson_mut_doc_estimated_val_num.exit:            ; preds = %25, %6, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @yyjson_mut_val_write_file(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @yyjson_mut_val_write_file(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
   %6 = alloca %struct.yyjson_write_err, align 8
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -50739,7 +50739,7 @@ write_dat_to_file.exit:                           ; preds = %18, %21, %23, %25
   %27 = load ptr, ptr %26, align 8, !tbaa !21
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %29 = load ptr, ptr %28, align 8, !tbaa !22
-  call void %27(ptr noundef %29, ptr noundef nonnull %13) #32
+  call void %27(ptr noundef %29, ptr noundef nonnull %13) #33
   br label %30
 
 30:                                               ; preds = %12, %write_dat_to_file.exit, %.critedge
@@ -50750,7 +50750,7 @@ write_dat_to_file.exit:                           ; preds = %18, %21, %23, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @yyjson_mut_val_write_fp(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @yyjson_mut_val_write_fp(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
   %6 = alloca %struct.yyjson_write_err, align 8
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -50793,7 +50793,7 @@ write_dat_to_fp.exit:                             ; preds = %13, %16
   %18 = load ptr, ptr %17, align 8, !tbaa !21
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !22
-  call void %18(ptr noundef %20, ptr noundef nonnull %12) #32
+  call void %18(ptr noundef %20, ptr noundef nonnull %12) #33
   br label %21
 
 21:                                               ; preds = %11, %write_dat_to_fp.exit, %10
@@ -50804,7 +50804,7 @@ write_dat_to_fp.exit:                             ; preds = %13, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @yyjson_mut_write_file(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @yyjson_mut_write_file(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %6
 
@@ -50819,7 +50819,7 @@ define dso_local noundef zeroext i1 @yyjson_mut_write_file(ptr noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @yyjson_mut_write_fp(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @yyjson_mut_write_fp(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
   %6 = alloca %struct.yyjson_write_err, align 8
   %7 = alloca i64, align 8
   %.not = icmp eq ptr %1, null
@@ -50871,7 +50871,7 @@ write_dat_to_fp.exit.i:                           ; preds = %20, %17
   %22 = load ptr, ptr %21, align 8, !tbaa !21
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !22
-  call void %22(ptr noundef %24, ptr noundef nonnull %16) #32
+  call void %22(ptr noundef %24, ptr noundef nonnull %16) #33
   br label %yyjson_mut_val_write_fp.exit
 
 yyjson_mut_val_write_fp.exit:                     ; preds = %14, %15, %write_dat_to_fp.exit.i
@@ -50897,16 +50897,16 @@ define internal void @null_free(ptr readnone captures(none) %0, ptr readnone cap
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #19
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #20
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #21
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: nofree noinline norecurse nounwind memory(argmem: read) uwtable
-define internal fastcc zeroext i1 @is_truncated_end(ptr noundef readnone captures(address) %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 2, 12) %3, i32 noundef %4) unnamed_addr #22 {
+define internal fastcc zeroext i1 @is_truncated_end(ptr noundef readnone captures(address) %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 2, 12) %3, i32 noundef %4) unnamed_addr #23 {
   %6 = ptrtoint ptr %2 to i64
   %.not = icmp ult ptr %1, %2
   br i1 %.not, label %7, label %is_truncated_str.exit118
@@ -51186,13 +51186,13 @@ is_truncated_str.exit118:                         ; preds = %30, %40, %.lr.ph, %
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #18
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #18
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #19
 
-; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @read_number_raw(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #23 {
+; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc noundef zeroext i1 @read_number_raw(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #24 {
   %6 = load ptr, ptr %0, align 8, !tbaa !86
   %7 = load ptr, ptr %1, align 8, !tbaa !86
   %.not = icmp eq ptr %7, null
@@ -51491,7 +51491,7 @@ read_inf_or_nan.exit:                             ; preds = %18, %50, %47, %46, 
 }
 
 ; Function Attrs: nofree noinline norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @bigint_set_buf(ptr noundef nonnull captures(none) initializes((0, 4), (8, 16)) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef readnone captures(address) %5) unnamed_addr #24 {
+define internal fastcc void @bigint_set_buf(ptr noundef nonnull captures(none) initializes((0, 4), (8, 16)) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef readnone captures(address) %5) unnamed_addr #25 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %9, !prof !4
 
@@ -51849,10 +51849,10 @@ bigint_add_u64.exit:                              ; preds = %._crit_edge149, %13
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #25
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #26
 
 ; Function Attrs: nofree noinline norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc ptr @write_f64_raw(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #24 {
+define internal fastcc ptr @write_f64_raw(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #25 {
   %4 = and i64 %1, 4503599627370495
   %5 = lshr i64 %1, 52
   %6 = trunc nuw nsw i64 %5 to i32
@@ -53459,7 +53459,7 @@ write_inf_or_nan.exit:                            ; preds = %1147, %1137, %708, 
 }
 
 ; Function Attrs: nofree noinline norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc ptr @write_f64_raw_fixed(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef range(i32 0, 16) %3) unnamed_addr #24 {
+define internal fastcc ptr @write_f64_raw_fixed(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef range(i32 0, 16) %3) unnamed_addr #25 {
   %5 = and i64 %1, 4503599627370495
   %6 = lshr i64 %1, 52
   %7 = trunc nuw nsw i64 %6 to i32
@@ -54829,7 +54829,7 @@ write_inf_or_nan.exit:                            ; preds = %967, %957, %679, %3
 }
 
 ; Function Attrs: nofree noinline norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc ptr @write_f32_raw(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #24 {
+define internal fastcc ptr @write_f32_raw(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #25 {
   %4 = bitcast i64 %1 to double
   %5 = fptrunc double %4 to float
   %6 = bitcast float %5 to i32
@@ -55760,77 +55760,78 @@ write_inf_or_nan.exit:                            ; preds = %23, %19, %15, %13, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #25
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #26
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #18
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #26
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #27
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #26
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #27
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #28
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #28
+declare i64 @llvm.umin.i64(i64, i64) #29
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #28
+declare i64 @llvm.umax.i64(i64, i64) #29
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #28
+declare i32 @llvm.smax.i32(i32, i32) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #29
+declare i32 @llvm.abs.i32(i32, i1 immarg) #30
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #28
+declare i64 @llvm.fshl.i64(i64, i64, i64) #29
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #28
+declare i32 @llvm.fshl.i32(i32, i32, i32) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #29
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #30
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree noinline norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { nofree noinline norecurse nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { nofree noinline norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #26 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #27 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #28 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #29 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #30 = { nounwind allocsize(0) }
-attributes #31 = { nounwind allocsize(1) }
-attributes #32 = { nounwind }
+attributes #9 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree noinline norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { nofree noinline norecurse nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { nofree noinline norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #27 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #28 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #29 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #30 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #31 = { nounwind allocsize(0) }
+attributes #32 = { nounwind allocsize(1) }
+attributes #33 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

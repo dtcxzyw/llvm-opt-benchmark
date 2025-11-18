@@ -4496,7 +4496,7 @@ entry:
   ret i1 %switch
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage21InitAsDefaultInstanceEv() local_unnamed_addr #5 align 2 {
 entry:
   store ptr @_ZN22protobuf_test_messages6proto237_TestAllTypesProto2_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN22protobuf_test_messages6proto251_TestAllTypesProto2_NestedMessage_default_instance_E, i64 24), align 8
@@ -15159,7 +15159,7 @@ entry:
   ret { ptr, ptr } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN22protobuf_test_messages6proto218TestAllTypesProto221InitAsDefaultInstanceEv() local_unnamed_addr #5 align 2 {
 entry:
   store ptr @_ZN22protobuf_test_messages6proto251_TestAllTypesProto2_NestedMessage_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN22protobuf_test_messages6proto237_TestAllTypesProto2_default_instance_E, i64 2872), align 8
@@ -53040,7 +53040,7 @@ entry:
   ret { ptr, ptr } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN22protobuf_test_messages6proto221UnknownToTestAllTypes21InitAsDefaultInstanceEv() local_unnamed_addr #5 align 2 {
 entry:
   store ptr @_ZN22protobuf_test_messages6proto239_ForeignMessageProto2_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN22protobuf_test_messages6proto240_UnknownToTestAllTypes_default_instance_E, i64 48), align 8
@@ -153835,7 +153835,7 @@ attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

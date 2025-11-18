@@ -1485,7 +1485,7 @@ cleanup:                                          ; preds = %for.body, %cond.tru
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN4node22SocketAddressBlockList17SocketAddressRuleC2ERKSt10shared_ptrINS_13SocketAddressEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %address_) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node22SocketAddressBlockList17SocketAddressRuleE, i64 16), ptr %this, align 8
@@ -1519,7 +1519,7 @@ _ZNSt10shared_ptrIN4node13SocketAddressEEC2ERKS2_.exit: ; preds = %entry, %if.th
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN4node22SocketAddressBlockList22SocketAddressRangeRuleC2ERKSt10shared_ptrINS_13SocketAddressEES6_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %start_, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %end_) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node22SocketAddressBlockList22SocketAddressRangeRuleE, i64 16), ptr %this, align 8
@@ -1580,7 +1580,7 @@ _ZNSt10shared_ptrIN4node13SocketAddressEEC2ERKS2_.exit10: ; preds = %_ZNSt10shar
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN4node22SocketAddressBlockList21SocketAddressMaskRuleC2ERKSt10shared_ptrINS_13SocketAddressEEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 28)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %network_, i32 noundef %prefix_) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node22SocketAddressBlockList21SocketAddressMaskRuleE, i64 16), ptr %this, align 8
@@ -1616,7 +1616,7 @@ _ZNSt10shared_ptrIN4node13SocketAddressEEC2ERKS2_.exit: ; preds = %entry, %if.th
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4node22SocketAddressBlockList17SocketAddressRule5ApplyERKSt10shared_ptrINS_13SocketAddressEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %address) unnamed_addr #8 align 2 {
 entry:
   %address2 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1665,7 +1665,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4node22SocketAddressBlockList22SocketAddressRangeRule5ApplyERKSt10shared_ptrINS_13SocketAddressEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %address) unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %address, align 8
@@ -1723,7 +1723,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4node22SocketAddressBlockList21SocketAddressMaskRule5ApplyERKSt10shared_ptrINS_13SocketAddressEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %address) unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %address, align 8
@@ -9404,8 +9404,8 @@ attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #4 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree norecurse nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

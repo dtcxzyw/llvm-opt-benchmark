@@ -115,7 +115,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.acrossfade_config_output.3 = private unnamed_addr constant [9 x ptr] [ptr @fade_samples_s16, ptr @fade_samples_s32, ptr @fade_samples_flt, ptr @fade_samples_dbl, ptr poison, ptr @fade_samples_s16p, ptr @fade_samples_s32p, ptr @fade_samples_fltp, ptr @fade_samples_dblp], align 8
 @switch.table.acrossfade_config_output.4 = private unnamed_addr constant [9 x ptr] [ptr @scale_samples_s16, ptr @scale_samples_s32, ptr @scale_samples_flt, ptr @scale_samples_dbl, ptr poison, ptr @scale_samples_s16p, ptr @scale_samples_s32p, ptr @scale_samples_fltp, ptr @scale_samples_dblp], align 8
 
-; Function Attrs: cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 -22, 1) i32 @init(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !4
@@ -862,7 +862,7 @@ declare i32 @av_samples_set_silence(ptr noundef, i32 noundef, i32 noundef, i32 n
 
 declare void @av_frame_free(ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @config_output(ptr noundef readonly captures(none) %0) #4 {
   %2 = load ptr, ptr %0, align 8, !tbaa !28
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -926,7 +926,7 @@ switch.lookup:                                    ; preds = %1
   ret i32 0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @fade_samples_dbl(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef %7, double noundef %8, double noundef %9) #5 {
   %11 = load ptr, ptr %0, align 8, !tbaa !71
   %12 = load ptr, ptr %1, align 8, !tbaa !71
@@ -971,7 +971,7 @@ define internal void @fade_samples_dbl(ptr noundef readonly captures(none) %0, p
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @scale_samples_dbl(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, double noundef %4) #5 {
   %6 = load ptr, ptr %0, align 8, !tbaa !71
   %7 = load ptr, ptr %1, align 8, !tbaa !71
@@ -1008,7 +1008,7 @@ define internal void @scale_samples_dbl(ptr noundef readonly captures(none) %0, 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @fade_samples_dblp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef %7, double noundef %8, double noundef %9) #5 {
   %11 = icmp sgt i32 %2, 0
   %12 = icmp sgt i32 %3, 0
@@ -1052,7 +1052,7 @@ define internal void @fade_samples_dblp(ptr noundef readonly captures(none) %0, 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @scale_samples_dblp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, double noundef %4) #5 {
   %6 = icmp sgt i32 %2, 0
   %7 = icmp sgt i32 %3, 0
@@ -1092,7 +1092,7 @@ define internal void @scale_samples_dblp(ptr noundef readonly captures(none) %0,
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @fade_samples_flt(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef %7, double noundef %8, double noundef %9) #5 {
   %11 = load ptr, ptr %0, align 8, !tbaa !71
   %12 = load ptr, ptr %1, align 8, !tbaa !71
@@ -1139,7 +1139,7 @@ define internal void @fade_samples_flt(ptr noundef readonly captures(none) %0, p
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @scale_samples_flt(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, double noundef %4) #5 {
   %6 = load ptr, ptr %0, align 8, !tbaa !71
   %7 = load ptr, ptr %1, align 8, !tbaa !71
@@ -1178,7 +1178,7 @@ define internal void @scale_samples_flt(ptr noundef readonly captures(none) %0, 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @fade_samples_fltp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef %7, double noundef %8, double noundef %9) #5 {
   %11 = icmp sgt i32 %2, 0
   %12 = icmp sgt i32 %3, 0
@@ -1224,7 +1224,7 @@ define internal void @fade_samples_fltp(ptr noundef readonly captures(none) %0, 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @scale_samples_fltp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, double noundef %4) #5 {
   %6 = icmp sgt i32 %2, 0
   %7 = icmp sgt i32 %3, 0
@@ -1266,7 +1266,7 @@ define internal void @scale_samples_fltp(ptr noundef readonly captures(none) %0,
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @fade_samples_s16(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef %7, double noundef %8, double noundef %9) #5 {
   %11 = load ptr, ptr %0, align 8, !tbaa !71
   %12 = load ptr, ptr %1, align 8, !tbaa !71
@@ -1313,7 +1313,7 @@ define internal void @fade_samples_s16(ptr noundef readonly captures(none) %0, p
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @scale_samples_s16(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, double noundef %4) #5 {
   %6 = load ptr, ptr %0, align 8, !tbaa !71
   %7 = load ptr, ptr %1, align 8, !tbaa !71
@@ -1352,7 +1352,7 @@ define internal void @scale_samples_s16(ptr noundef readonly captures(none) %0, 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @fade_samples_s16p(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef %7, double noundef %8, double noundef %9) #5 {
   %11 = icmp sgt i32 %2, 0
   %12 = icmp sgt i32 %3, 0
@@ -1398,7 +1398,7 @@ define internal void @fade_samples_s16p(ptr noundef readonly captures(none) %0, 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @scale_samples_s16p(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, double noundef %4) #5 {
   %6 = icmp sgt i32 %2, 0
   %7 = icmp sgt i32 %3, 0
@@ -1440,7 +1440,7 @@ define internal void @scale_samples_s16p(ptr noundef readonly captures(none) %0,
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @fade_samples_s32(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef %7, double noundef %8, double noundef %9) #5 {
   %11 = load ptr, ptr %0, align 8, !tbaa !71
   %12 = load ptr, ptr %1, align 8, !tbaa !71
@@ -1487,7 +1487,7 @@ define internal void @fade_samples_s32(ptr noundef readonly captures(none) %0, p
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @scale_samples_s32(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, double noundef %4) #5 {
   %6 = load ptr, ptr %0, align 8, !tbaa !71
   %7 = load ptr, ptr %1, align 8, !tbaa !71
@@ -1526,7 +1526,7 @@ define internal void @scale_samples_s32(ptr noundef readonly captures(none) %0, 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @fade_samples_s32p(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef %7, double noundef %8, double noundef %9) #5 {
   %11 = icmp sgt i32 %2, 0
   %12 = icmp sgt i32 %3, 0
@@ -1572,7 +1572,7 @@ define internal void @fade_samples_s32p(ptr noundef readonly captures(none) %0, 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @scale_samples_s32p(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, double noundef %4) #5 {
   %6 = icmp sgt i32 %2, 0
   %7 = icmp sgt i32 %3, 0
@@ -1897,7 +1897,7 @@ declare ptr @ff_null_get_audio_buffer(ptr noundef, i32 noundef) local_unnamed_ad
 
 declare ptr @ff_default_get_audio_buffer(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @acrossfade_config_output(ptr noundef captures(none) initializes((96, 104)) %0) #4 {
   %2 = load ptr, ptr %0, align 8, !tbaa !28
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -1979,7 +1979,7 @@ config_output.exit:                               ; preds = %33, %36
   ret i32 0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @crossfade_samples_dbl(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #5 {
   %8 = load ptr, ptr %0, align 8, !tbaa !71
   %9 = load ptr, ptr %1, align 8, !tbaa !71
@@ -2031,7 +2031,7 @@ define internal void @crossfade_samples_dbl(ptr noundef readonly captures(none) 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @crossfade_samples_dblp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #5 {
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %.lr.ph31, label %._crit_edge32
@@ -2083,7 +2083,7 @@ define internal void @crossfade_samples_dblp(ptr noundef readonly captures(none)
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @crossfade_samples_flt(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #5 {
   %8 = load ptr, ptr %0, align 8, !tbaa !71
   %9 = load ptr, ptr %1, align 8, !tbaa !71
@@ -2138,7 +2138,7 @@ define internal void @crossfade_samples_flt(ptr noundef readonly captures(none) 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @crossfade_samples_fltp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #5 {
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %.lr.ph31, label %._crit_edge32
@@ -2193,7 +2193,7 @@ define internal void @crossfade_samples_fltp(ptr noundef readonly captures(none)
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @crossfade_samples_s16(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #5 {
   %8 = load ptr, ptr %0, align 8, !tbaa !71
   %9 = load ptr, ptr %1, align 8, !tbaa !71
@@ -2248,7 +2248,7 @@ define internal void @crossfade_samples_s16(ptr noundef readonly captures(none) 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @crossfade_samples_s16p(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #5 {
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %.lr.ph31, label %._crit_edge32
@@ -2303,7 +2303,7 @@ define internal void @crossfade_samples_s16p(ptr noundef readonly captures(none)
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @crossfade_samples_s32(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #5 {
   %8 = load ptr, ptr %0, align 8, !tbaa !71
   %9 = load ptr, ptr %1, align 8, !tbaa !71
@@ -2358,7 +2358,7 @@ define internal void @crossfade_samples_s32(ptr noundef readonly captures(none) 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @crossfade_samples_s32p(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #5 {
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %.lr.ph31, label %._crit_edge32
@@ -2442,12 +2442,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
-attributes #0 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

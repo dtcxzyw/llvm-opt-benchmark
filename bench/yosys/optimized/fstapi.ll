@@ -165,7 +165,7 @@ define noundef ptr @fstWriterCreate(ptr noundef readonly captures(address_is_nul
   %14 = alloca double, align 8
   %15 = alloca i64, align 8
   %16 = alloca [257 x i8], align 16
-  %17 = tail call noalias dereferenceable_or_null(344) ptr @calloc(i64 noundef 1, i64 noundef 344) #38
+  %17 = tail call noalias dereferenceable_or_null(344) ptr @calloc(i64 noundef 1, i64 noundef 344) #40
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 233
   %19 = trunc i32 %1 to i8
   %20 = and i8 %19, 1
@@ -176,7 +176,7 @@ define noundef ptr @fstWriterCreate(ptr noundef readonly captures(address_is_nul
 
 22:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %23 = tail call i32 @feof(ptr noundef nonnull %21) #39
+  %23 = tail call i32 @feof(ptr noundef nonnull %21) #41
   %.not2534.i = icmp eq i32 %23, 0
   br i1 %.not2534.i, label %.lr.ph.i, label %.thread32.i
 
@@ -197,20 +197,20 @@ define noundef ptr @fstWriterCreate(ptr noundef readonly captures(address_is_nul
   br i1 %.not27.i, label %.thread.i, label %28
 
 28:                                               ; preds = %26
-  %29 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(10) @.str.60, i64 noundef 9) #40
+  %29 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(10) @.str.60, i64 noundef 9) #42
   %.not28.i = icmp eq i32 %29, 0
   br i1 %.not28.i, label %30, label %.thread.i
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 10
-  %32 = call i64 @strtol(ptr noundef nonnull captures(none) %31, ptr noundef null, i32 noundef 10) #39
+  %32 = call i64 @strtol(ptr noundef nonnull captures(none) %31, ptr noundef null, i32 noundef 10) #41
   %33 = shl i64 %32, 7
   %34 = and i64 %33, 2305843009213693824
   %35 = icmp samesign ugt i64 %34, 134217728
   br i1 %35, label %37, label %.thread.i
 
 .thread.i:                                        ; preds = %30, %28, %26, %.lr.ph.i
-  %36 = call i32 @feof(ptr noundef nonnull %21) #39
+  %36 = call i32 @feof(ptr noundef nonnull %21) #41
   %.not25.i = icmp eq i32 %36, 0
   br i1 %.not25.i, label %.lr.ph.i, label %.thread32.i, !llvm.loop !9
 
@@ -242,23 +242,23 @@ _ZL21fstDetermineBreakSizeP16fstWriterContext.exit: ; preds = %37, %.critedge.i
   br i1 %.not, label %190, label %46
 
 46:                                               ; preds = %_ZL21fstDetermineBreakSizeP16fstWriterContext.exit
-  %47 = call i32 @unlink(ptr noundef nonnull readonly %0) #39
+  %47 = call i32 @unlink(ptr noundef nonnull readonly %0) #41
   %48 = call noalias noundef ptr @fopen(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str)
   store ptr %48, ptr %17, align 8, !tbaa !26
   %.not57 = icmp eq ptr %48, null
   br i1 %.not57, label %190, label %49
 
 49:                                               ; preds = %46
-  %50 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #40
+  %50 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #42
   %51 = shl i64 %50, 32
   %sext = add i64 %51, 25769803776
   %52 = ashr exact i64 %sext, 32
-  %53 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %52) #38
+  %53 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %52) #40
   %54 = ashr exact i64 %51, 32
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr nonnull align 1 %0, i64 %54, i1 false)
   %55 = getelementptr inbounds i8, ptr %53, i64 %54
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %55, ptr noundef nonnull align 1 dereferenceable(6) @.str.1, i64 6, i1 false) #39
-  %56 = call i32 @unlink(ptr noundef readonly %53) #39
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %55, ptr noundef nonnull align 1 dereferenceable(6) @.str.1, i64 6, i1 false) #41
+  %56 = call i32 @unlink(ptr noundef readonly %53) #41
   %57 = call noalias noundef ptr @fopen(ptr noundef readonly %53, ptr noundef nonnull @.str)
   %58 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %57, ptr %58, align 8, !tbaa !27
@@ -289,7 +289,7 @@ _ZL21fstDetermineBreakSizeP16fstWriterContext.exit: ; preds = %37, %.critedge.i
   %75 = getelementptr inbounds nuw i8, ptr %17, i64 164
   store i32 %74, ptr %75, align 4, !tbaa !33
   %76 = and i64 %73, 4294967295
-  %77 = call noalias ptr @malloc(i64 noundef %76) #41
+  %77 = call noalias ptr @malloc(i64 noundef %76) #43
   %78 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store ptr %77, ptr %78, align 8, !tbaa !34
   %79 = load ptr, ptr %58, align 8, !tbaa !27
@@ -316,7 +316,7 @@ _ZL21fstDetermineBreakSizeP16fstWriterContext.exit: ; preds = %37, %.critedge.i
   br i1 %or.cond83, label %149, label %86
 
 86:                                               ; preds = %84
-  %87 = call noalias ptr @strdup(ptr noundef nonnull %0) #39
+  %87 = call noalias ptr @strdup(ptr noundef nonnull %0) #41
   %88 = getelementptr inbounds nuw i8, ptr %17, i64 96
   store ptr %87, ptr %88, align 8, !tbaa !35
   %89 = getelementptr inbounds nuw i8, ptr %17, i64 116
@@ -403,14 +403,14 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit33.i:         ; preds = %108
   %122 = call i32 @fputc(i32 noundef 247, ptr noundef %121)
   %123 = getelementptr inbounds nuw i8, ptr %12, i64 10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(118) %123, i8 0, i64 118, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %12, ptr noundef nonnull align 1 dereferenceable(10) @.str.61, i64 10, i1 false) #39
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %12, ptr noundef nonnull align 1 dereferenceable(10) @.str.61, i64 10, i1 false) #41
   %124 = load ptr, ptr %17, align 8, !tbaa !26
   %125 = call noundef i64 @fwrite(ptr noundef nonnull readonly %12, i64 noundef 128, i64 noundef 1, ptr noundef %124)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(119) %13, i8 0, i64 119, i1 false)
-  %126 = call i64 @time(ptr noundef nonnull %15) #39
-  %127 = call ptr @localtime(ptr noundef nonnull %15) #39
-  %128 = call ptr @asctime(ptr noundef %127) #39
-  %129 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %128) #39
+  %126 = call i64 @time(ptr noundef nonnull %15) #41
+  %127 = call ptr @localtime(ptr noundef nonnull %15) #41
+  %128 = call ptr @asctime(ptr noundef %127) #41
+  %129 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %128) #41
   %130 = load ptr, ptr %17, align 8, !tbaa !26
   %131 = call noundef i64 @fwrite(ptr noundef nonnull readonly %13, i64 noundef 119, i64 noundef 1, ptr noundef %130)
   %132 = getelementptr inbounds nuw i8, ptr %17, i64 232
@@ -444,7 +444,7 @@ _ZL21fstWriterEmitHdrBytesP16fstWriterContext.exit: ; preds = %140
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %147 = call double @strtod(ptr noundef nonnull captures(none) @.str.2, ptr noundef null) #39
+  %147 = call double @strtod(ptr noundef nonnull captures(none) @.str.2, ptr noundef null) #41
   %148 = getelementptr inbounds nuw i8, ptr %17, i64 192
   store double %147, ptr %148, align 8, !tbaa !40
   br label %190
@@ -458,7 +458,7 @@ _ZL21fstWriterEmitHdrBytesP16fstWriterContext.exit: ; preds = %140
 
 153:                                              ; preds = %149
   %154 = call i32 @fclose(ptr noundef nonnull %152)
-  %155 = call i32 @unlink(ptr noundef nonnull %53) #39
+  %155 = call i32 @unlink(ptr noundef nonnull %53) #41
   br label %156
 
 156:                                              ; preds = %153, %149
@@ -477,9 +477,9 @@ _ZL21fstWriterEmitHdrBytesP16fstWriterContext.exit: ; preds = %140
   br i1 %.not14.i, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit, label %162
 
 162:                                              ; preds = %160
-  %163 = call i32 @unlink(ptr noundef nonnull %161) #39
+  %163 = call i32 @unlink(ptr noundef nonnull %161) #41
   %164 = load ptr, ptr %59, align 8, !tbaa !28
-  call void @free(ptr noundef %164) #39
+  call void @free(ptr noundef %164) #41
   store ptr null, ptr %59, align 8, !tbaa !28
   br label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit
 
@@ -499,9 +499,9 @@ _ZL13tmpfile_closePP8_IO_FILEPPc.exit:            ; preds = %160, %162
   br i1 %.not14.i73, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit74, label %170
 
 170:                                              ; preds = %168
-  %171 = call i32 @unlink(ptr noundef nonnull %169) #39
+  %171 = call i32 @unlink(ptr noundef nonnull %169) #41
   %172 = load ptr, ptr %62, align 8, !tbaa !28
-  call void @free(ptr noundef %172) #39
+  call void @free(ptr noundef %172) #41
   store ptr null, ptr %62, align 8, !tbaa !28
   br label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit74
 
@@ -521,9 +521,9 @@ _ZL13tmpfile_closePP8_IO_FILEPPc.exit74:          ; preds = %168, %170
   br i1 %.not14.i77, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit78, label %178
 
 178:                                              ; preds = %176
-  %179 = call i32 @unlink(ptr noundef nonnull %177) #39
+  %179 = call i32 @unlink(ptr noundef nonnull %177) #41
   %180 = load ptr, ptr %65, align 8, !tbaa !28
-  call void @free(ptr noundef %180) #39
+  call void @free(ptr noundef %180) #41
   store ptr null, ptr %65, align 8, !tbaa !28
   br label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit78
 
@@ -543,22 +543,22 @@ _ZL13tmpfile_closePP8_IO_FILEPPc.exit78:          ; preds = %176, %178
   br i1 %.not14.i81, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit82, label %186
 
 186:                                              ; preds = %184
-  %187 = call i32 @unlink(ptr noundef nonnull %185) #39
+  %187 = call i32 @unlink(ptr noundef nonnull %185) #41
   %188 = load ptr, ptr %68, align 8, !tbaa !28
-  call void @free(ptr noundef %188) #39
+  call void @free(ptr noundef %188) #41
   store ptr null, ptr %68, align 8, !tbaa !28
   br label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit82
 
 _ZL13tmpfile_closePP8_IO_FILEPPc.exit82:          ; preds = %184, %186
   %189 = load ptr, ptr %78, align 8, !tbaa !34
-  call void @free(ptr noundef %189) #39
-  call void @free(ptr noundef nonnull %17) #39
+  call void @free(ptr noundef %189) #41
+  call void @free(ptr noundef nonnull %17) #41
   br label %190
 
 190:                                              ; preds = %_ZL21fstWriterEmitHdrBytesP16fstWriterContext.exit, %_ZL13tmpfile_closePP8_IO_FILEPPc.exit82, %_ZL21fstDetermineBreakSizeP16fstWriterContext.exit, %46
   %.sink = phi ptr [ %17, %46 ], [ %17, %_ZL21fstDetermineBreakSizeP16fstWriterContext.exit ], [ %53, %_ZL13tmpfile_closePP8_IO_FILEPPc.exit82 ], [ %53, %_ZL21fstWriterEmitHdrBytesP16fstWriterContext.exit ]
   %.0 = phi ptr [ null, %46 ], [ null, %_ZL21fstDetermineBreakSizeP16fstWriterContext.exit ], [ null, %_ZL13tmpfile_closePP8_IO_FILEPPc.exit82 ], [ %17, %_ZL21fstWriterEmitHdrBytesP16fstWriterContext.exit ]
-  call void @free(ptr noundef nonnull %.sink) #39
+  call void @free(ptr noundef nonnull %.sink) #41
   ret ptr %.0
 }
 
@@ -681,9 +681,9 @@ define void @fstWriterClose(ptr noundef %0) local_unnamed_addr #11 {
 
 44:                                               ; preds = %40
   %45 = load ptr, ptr %0, align 8, !tbaa !26
-  %46 = tail call i32 @fileno(ptr noundef %45) #39
+  %46 = tail call i32 @fileno(ptr noundef %45) #41
   %47 = load i64, ptr %34, align 8, !tbaa !45
-  %48 = tail call noundef i32 @ftruncate(i32 noundef %46, i64 noundef %47) #39
+  %48 = tail call noundef i32 @ftruncate(i32 noundef %46, i64 noundef %47) #41
   %49 = load ptr, ptr %0, align 8, !tbaa !26
   %50 = load i64, ptr %34, align 8, !tbaa !45
   %51 = tail call i32 @fseeko(ptr noundef %49, i64 noundef %50, i32 noundef 0)
@@ -763,7 +763,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit: ; preds = %44, %53
   %90 = shl i32 %89, 2
   %91 = zext i32 %90 to i64
   %92 = shl nuw nsw i64 %91, 2
-  %93 = tail call i32 @munmap(ptr noundef nonnull %86, i64 noundef %92) #39
+  %93 = tail call i32 @munmap(ptr noundef nonnull %86, i64 noundef %92) #41
   br label %94
 
 94:                                               ; preds = %87, %84
@@ -777,7 +777,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit: ; preds = %44, %53
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %99 = load i32, ptr %98, align 8, !tbaa !53
   %100 = zext i32 %99 to i64
-  %101 = tail call i32 @munmap(ptr noundef nonnull %96, i64 noundef %100) #39
+  %101 = tail call i32 @munmap(ptr noundef nonnull %96, i64 noundef %100) #41
   br label %_ZL15fstDestroyMmapsP16fstWriterContexti.exit
 
 _ZL15fstDestroyMmapsP16fstWriterContexti.exit:    ; preds = %94, %97
@@ -788,7 +788,7 @@ _ZL15fstDestroyMmapsP16fstWriterContexti.exit:    ; preds = %94, %97
   br i1 %.not308, label %106, label %104
 
 104:                                              ; preds = %_ZL15fstDestroyMmapsP16fstWriterContexti.exit
-  tail call void @free(ptr noundef nonnull %103) #39
+  tail call void @free(ptr noundef nonnull %103) #41
   store ptr null, ptr %102, align 8, !tbaa !54
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 0, ptr %105, align 8, !tbaa !55
@@ -800,15 +800,15 @@ _ZL15fstDestroyMmapsP16fstWriterContexti.exit:    ; preds = %94, %97
   %109 = tail call i32 @fflush(ptr noundef %108)
   %110 = load ptr, ptr %107, align 8, !tbaa !29
   %111 = tail call i64 @ftello(ptr noundef %110)
-  %112 = tail call ptr @__errno_location() #42
+  %112 = tail call ptr @__errno_location() #44
   store i32 0, ptr %112, align 4, !tbaa !51
   %.not309 = icmp eq i64 %111, 0
   br i1 %.not309, label %_ZL19fstWriterMmapSanityPvPKciS1_.exit.thread, label %113
 
 113:                                              ; preds = %106
   %114 = load ptr, ptr %107, align 8, !tbaa !29
-  %115 = tail call i32 @fileno(ptr noundef %114) #39
-  %116 = tail call ptr @mmap(ptr noundef null, i64 noundef %111, i32 noundef 3, i32 noundef 1, i32 noundef %115, i64 noundef 0) #39
+  %115 = tail call i32 @fileno(ptr noundef %114) #41
+  %116 = tail call ptr @mmap(ptr noundef null, i64 noundef %111, i32 noundef 3, i32 noundef 1, i32 noundef %115, i64 noundef 0) #41
   %magicptr.i = ptrtoint ptr %116 to i64
   %magicptr.off.i = add i64 %magicptr.i, -1
   %switch.i = icmp ult i64 %magicptr.off.i, -2
@@ -817,8 +817,8 @@ _ZL15fstDestroyMmapsP16fstWriterContexti.exit:    ; preds = %94, %97
 117:                                              ; preds = %113
   %118 = load ptr, ptr @stderr, align 8, !tbaa !41
   %119 = load i32, ptr %112, align 4, !tbaa !51
-  %120 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %118, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.4, i32 noundef %119, ptr noundef nonnull @.str.3, i32 noundef 1998) #43
-  tail call void @perror(ptr noundef nonnull @.str.63) #44
+  %120 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %118, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.4, i32 noundef %119, ptr noundef nonnull @.str.3, i32 noundef 1998) #45
+  tail call void @perror(ptr noundef nonnull @.str.63) #46
   br label %_ZL19fstWriterMmapSanityPvPKciS1_.exit
 
 _ZL19fstWriterMmapSanityPvPKciS1_.exit:           ; preds = %117, %113
@@ -829,7 +829,7 @@ _ZL19fstWriterMmapSanityPvPKciS1_.exit:           ; preds = %117, %113
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i64 %111, ptr %21, align 8, !tbaa !56
   %122 = tail call i64 @compressBound(i64 noundef %111)
-  %123 = tail call noalias ptr @malloc(i64 noundef %122) #41
+  %123 = tail call noalias ptr @malloc(i64 noundef %122) #43
   %124 = call i32 @compress2(ptr noundef %123, ptr noundef nonnull %21, ptr noundef nonnull %116, i64 noundef %111, i32 noundef 9)
   %.not311 = icmp ne i32 %124, 0
   %125 = load i64, ptr %21, align 8
@@ -941,8 +941,8 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit342: ; preds = %_ZL15fst
 _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit343: ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit342, %173
   %177 = load ptr, ptr %0, align 8, !tbaa !26
   %178 = call i32 @fflush(ptr noundef %177)
-  call void @free(ptr noundef %123) #39
-  %179 = call i32 @munmap(ptr noundef nonnull %116, i64 noundef %111) #39
+  call void @free(ptr noundef %123) #41
+  %179 = call i32 @munmap(ptr noundef nonnull %116, i64 noundef %111) #41
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %_ZL19fstWriterMmapSanityPvPKciS1_.exit.thread
 
@@ -1056,7 +1056,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit358:          ; preds = %.lr.ph.i351, %209
   %236 = load i64, ptr %235, align 8, !tbaa !60
   %237 = load ptr, ptr %234, align 8, !tbaa !62
   store ptr %237, ptr %208, align 8, !tbaa !63
-  call void @free(ptr noundef %234) #39
+  call void @free(ptr noundef %234) #41
   %238 = load ptr, ptr %208, align 8, !tbaa !63
   store ptr %238, ptr %206, align 8, !tbaa !59
   %239 = add nuw i32 %.0284462, 1
@@ -1142,11 +1142,11 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit366: ; preds = %_ZL15fst
 _ZL15fstWriterUint64P8_IO_FILEm.exit371:          ; preds = %278
   %281 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %282 = load ptr, ptr %281, align 8, !tbaa !35
-  %283 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %282) #40
+  %283 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %282) #42
   %284 = shl i64 %283, 32
   %sext = add i64 %284, 25769803776
   %285 = ashr exact i64 %sext, 32
-  %286 = call noalias ptr @malloc(i64 noundef %285) #41
+  %286 = call noalias ptr @malloc(i64 noundef %285) #43
   %287 = load ptr, ptr %0, align 8, !tbaa !26
   %288 = call i64 @ftello(ptr noundef %287)
   %289 = load ptr, ptr %0, align 8, !tbaa !26
@@ -1185,10 +1185,10 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit376:          ; preds = %298
   br i1 %.not315, label %306, label %336
 
 306:                                              ; preds = %_ZL15fstWriterUint64P8_IO_FILEm.exit376
-  %307 = call noalias dereferenceable_or_null(32768) ptr @malloc(i64 noundef 32768) #41
+  %307 = call noalias dereferenceable_or_null(32768) ptr @malloc(i64 noundef 32768) #43
   %308 = load ptr, ptr %0, align 8, !tbaa !26
-  %309 = call i32 @fileno(ptr noundef %308) #39
-  %310 = call i32 @dup(i32 noundef %309) #39
+  %309 = call i32 @fileno(ptr noundef %308) #41
+  %310 = call i32 @dup(i32 noundef %309) #41
   %311 = load ptr, ptr %0, align 8, !tbaa !26
   %312 = call i32 @fflush(ptr noundef %311)
   %313 = call ptr @gzdopen(i32 noundef %310, ptr noundef nonnull @.str.5)
@@ -1243,7 +1243,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit377: ; preds = %314, %31
   %340 = trunc i64 %339 to i32
   %341 = call i32 @LZ4_compressBound(i32 noundef %340)
   %342 = sext i32 %341 to i64
-  %343 = call noalias ptr @malloc(i64 noundef %342) #41
+  %343 = call noalias ptr @malloc(i64 noundef %342) #43
   store i32 0, ptr %112, align 4, !tbaa !51
   %344 = load i64, ptr %296, align 8, !tbaa !65
   %.not317 = icmp eq i64 %344, 0
@@ -1256,8 +1256,8 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit377: ; preds = %314, %31
 346:                                              ; preds = %336
   %347 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %348 = load ptr, ptr %347, align 8, !tbaa !27
-  %349 = call i32 @fileno(ptr noundef %348) #39
-  %350 = call ptr @mmap(ptr noundef null, i64 noundef %344, i32 noundef 3, i32 noundef 1, i32 noundef %349, i64 noundef 0) #39
+  %349 = call i32 @fileno(ptr noundef %348) #41
+  %350 = call ptr @mmap(ptr noundef null, i64 noundef %344, i32 noundef 3, i32 noundef 1, i32 noundef %349, i64 noundef 0) #41
   call fastcc void @_ZL19fstWriterMmapSanityPvPKciS1_(ptr noundef %350, i32 noundef 2119, ptr noundef nonnull @.str.6)
   %351 = load i64, ptr %296, align 8, !tbaa !65
   %352 = trunc i64 %351 to i32
@@ -1267,7 +1267,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit377: ; preds = %314, %31
 
 354:                                              ; preds = %346
   %355 = load i64, ptr %296, align 8, !tbaa !65
-  %356 = call i32 @munmap(ptr noundef nonnull %350, i64 noundef %355) #39
+  %356 = call i32 @munmap(ptr noundef nonnull %350, i64 noundef %355) #41
   br label %357
 
 357:                                              ; preds = %.thread, %354, %346
@@ -1285,7 +1285,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit377: ; preds = %314, %31
 364:                                              ; preds = %361
   %365 = call i32 @LZ4_compressBound(i32 noundef %358)
   %366 = sext i32 %365 to i64
-  %367 = call noalias ptr @malloc(i64 noundef %366) #41
+  %367 = call noalias ptr @malloc(i64 noundef %366) #43
   %368 = call i32 @LZ4_compress_default(ptr noundef %343, ptr noundef %367, i32 noundef %358, i32 noundef %365)
   %369 = load ptr, ptr %0, align 8, !tbaa !26
   %370 = sext i32 %358 to i64
@@ -1293,7 +1293,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit377: ; preds = %314, %31
   %371 = sext i32 %368 to i64
   %372 = load ptr, ptr %0, align 8, !tbaa !26
   %373 = call noundef i64 @fwrite(ptr noundef readonly %367, i64 noundef %371, i64 noundef 1, ptr noundef %372)
-  call void @free(ptr noundef %367) #39
+  call void @free(ptr noundef %367) #41
   br label %377
 
 .critedge:                                        ; preds = %357, %361
@@ -1305,7 +1305,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit377: ; preds = %314, %31
 377:                                              ; preds = %364, %.critedge, %._crit_edge467, %334
   %.sink = phi ptr [ %307, %334 ], [ %307, %._crit_edge467 ], [ %343, %.critedge ], [ %343, %364 ]
   %.0286 = phi i32 [ 6, %334 ], [ 6, %._crit_edge467 ], [ 6, %.critedge ], [ 7, %364 ]
-  call void @free(ptr noundef %.sink) #39
+  call void @free(ptr noundef %.sink) #41
   %378 = load ptr, ptr %0, align 8, !tbaa !26
   %379 = call i32 @fseeko(ptr noundef %378, i64 noundef 0, i32 noundef 2)
   %380 = icmp slt i32 %379, 0
@@ -1390,9 +1390,9 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit386: ; preds = %_ZL15fst
   %422 = load ptr, ptr %0, align 8, !tbaa !26
   %423 = call i32 @fflush(ptr noundef %422)
   %424 = load ptr, ptr %281, align 8, !tbaa !35
-  %425 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %286, i64 noundef %285, ptr noundef nonnull @.str.7, ptr noundef %424) #39
-  %426 = call i32 @unlink(ptr noundef %286) #39
-  call void @free(ptr noundef %286) #39
+  %425 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %286, i64 noundef %285, ptr noundef nonnull @.str.7, ptr noundef %424) #41
+  %426 = call i32 @unlink(ptr noundef %286) #41
+  call void @free(ptr noundef %286) #41
   br label %427
 
 427:                                              ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit386, %278
@@ -1561,16 +1561,16 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit418:          ; preds = %485
   br i1 %.not14.i, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit, label %499
 
 499:                                              ; preds = %497
-  %500 = call i32 @unlink(ptr noundef nonnull %498) #39
+  %500 = call i32 @unlink(ptr noundef nonnull %498) #41
   %501 = load ptr, ptr %493, align 8, !tbaa !28
-  call void @free(ptr noundef %501) #39
+  call void @free(ptr noundef %501) #41
   store ptr null, ptr %493, align 8, !tbaa !28
   br label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit
 
 _ZL13tmpfile_closePP8_IO_FILEPPc.exit:            ; preds = %497, %499
   %502 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %503 = load ptr, ptr %502, align 8, !tbaa !34
-  call void @free(ptr noundef %503) #39
+  call void @free(ptr noundef %503) #41
   store ptr null, ptr %502, align 8, !tbaa !34
   %504 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %505 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -1589,9 +1589,9 @@ _ZL13tmpfile_closePP8_IO_FILEPPc.exit:            ; preds = %497, %499
   br i1 %.not14.i422, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit423, label %511
 
 511:                                              ; preds = %509
-  %512 = call i32 @unlink(ptr noundef nonnull %510) #39
+  %512 = call i32 @unlink(ptr noundef nonnull %510) #41
   %513 = load ptr, ptr %505, align 8, !tbaa !28
-  call void @free(ptr noundef %513) #39
+  call void @free(ptr noundef %513) #41
   store ptr null, ptr %505, align 8, !tbaa !28
   br label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit423
 
@@ -1613,9 +1613,9 @@ _ZL13tmpfile_closePP8_IO_FILEPPc.exit423:         ; preds = %509, %511
   br i1 %.not14.i426, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit427, label %521
 
 521:                                              ; preds = %519
-  %522 = call i32 @unlink(ptr noundef nonnull %520) #39
+  %522 = call i32 @unlink(ptr noundef nonnull %520) #41
   %523 = load ptr, ptr %515, align 8, !tbaa !28
-  call void @free(ptr noundef %523) #39
+  call void @free(ptr noundef %523) #41
   store ptr null, ptr %515, align 8, !tbaa !28
   br label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit427
 
@@ -1636,9 +1636,9 @@ _ZL13tmpfile_closePP8_IO_FILEPPc.exit427:         ; preds = %519, %521
   br i1 %.not14.i430, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit431, label %530
 
 530:                                              ; preds = %528
-  %531 = call i32 @unlink(ptr noundef nonnull %529) #39
+  %531 = call i32 @unlink(ptr noundef nonnull %529) #41
   %532 = load ptr, ptr %524, align 8, !tbaa !28
-  call void @free(ptr noundef %532) #39
+  call void @free(ptr noundef %532) #41
   store ptr null, ptr %524, align 8, !tbaa !28
   br label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit431
 
@@ -1667,15 +1667,15 @@ _ZL13tmpfile_closePP8_IO_FILEPPc.exit431:         ; preds = %528, %530
 542:                                              ; preds = %539
   %543 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %544 = load ptr, ptr %543, align 8, !tbaa !35
-  %545 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %544) #40
+  %545 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %544) #42
   %546 = shl i64 %545, 32
   %sext325 = add i64 %546, 21474836480
   %547 = ashr exact i64 %sext325, 32
-  %548 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %547) #38
-  %549 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %548, ptr noundef nonnull dereferenceable(1) %544) #39
+  %548 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %547) #40
+  %549 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %548, ptr noundef nonnull dereferenceable(1) %544) #41
   %550 = ashr exact i64 %546, 32
   %551 = getelementptr inbounds i8, ptr %548, i64 %550
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %551, ptr noundef nonnull align 1 dereferenceable(5) @.str.8, i64 5, i1 false) #39
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %551, ptr noundef nonnull align 1 dereferenceable(5) @.str.8, i64 5, i1 false) #41
   %552 = call noalias ptr @fopen(ptr noundef nonnull %548, ptr noundef nonnull @.str.9)
   %.not327 = icmp eq ptr %552, null
   br i1 %.not327, label %620, label %553
@@ -1733,8 +1733,8 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit442:          ; preds = %565
   br label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit443
 
 _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit443: ; preds = %_ZL15fstWriterUint64P8_IO_FILEm.exit442, %574
-  %578 = call i32 @fileno(ptr noundef nonnull %552) #39
-  %579 = call i32 @dup(i32 noundef %578) #39
+  %578 = call i32 @fileno(ptr noundef nonnull %552) #41
+  %579 = call i32 @dup(i32 noundef %578) #41
   %580 = call ptr @gzdopen(i32 noundef %579, ptr noundef nonnull @.str.5)
   %.not328 = icmp eq ptr %580, null
   br i1 %.not328, label %591, label %.preheader
@@ -1812,9 +1812,9 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit450:          ; preds = %608
   %615 = call i32 @fclose(ptr noundef %614)
   store ptr null, ptr %0, align 8, !tbaa !26
   %616 = load ptr, ptr %543, align 8, !tbaa !35
-  %617 = call i32 @unlink(ptr noundef %616) #39
+  %617 = call i32 @unlink(ptr noundef %616) #41
   %618 = load ptr, ptr %543, align 8, !tbaa !35
-  %619 = call i32 @rename(ptr noundef nonnull %548, ptr noundef %618) #39
+  %619 = call i32 @rename(ptr noundef nonnull %548, ptr noundef %618) #41
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %625
 
@@ -1828,7 +1828,7 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit450:          ; preds = %608
   br label %625
 
 625:                                              ; preds = %620, %_ZL15fstWriterUint64P8_IO_FILEm.exit450
-  call void @free(ptr noundef nonnull %548) #39
+  call void @free(ptr noundef nonnull %548) #41
   br label %628
 
 626:                                              ; preds = %539
@@ -1852,7 +1852,7 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit450:          ; preds = %608
 .lr.ph.i452:                                      ; preds = %.preheader.i, %.lr.ph.i452
   %.01421.i = phi ptr [ %633, %.lr.ph.i452 ], [ %632, %.preheader.i ]
   %633 = load ptr, ptr %.01421.i, align 8, !tbaa !76
-  call void @free(ptr noundef nonnull %.01421.i) #39
+  call void @free(ptr noundef nonnull %.01421.i) #41
   %.not19.i = icmp eq ptr %633, null
   br i1 %.not19.i, label %._crit_edge.i, label %.lr.ph.i452, !llvm.loop !78
 
@@ -1863,15 +1863,15 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit450:          ; preds = %608
 
 _Z11JenkinsFreePvj.exit:                          ; preds = %._crit_edge.i
   %634 = load ptr, ptr %629, align 8, !tbaa !80
-  call void @free(ptr noundef %634) #39
+  call void @free(ptr noundef %634) #41
   store ptr null, ptr %629, align 8, !tbaa !80
   br label %635
 
 635:                                              ; preds = %_Z11JenkinsFreePvj.exit, %628
   %636 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %637 = load ptr, ptr %636, align 8, !tbaa !35
-  call void @free(ptr noundef %637) #39
-  call void @free(ptr noundef nonnull %0) #39
+  call void @free(ptr noundef %637) #41
+  call void @free(ptr noundef nonnull %0) #41
   br label %638
 
 638:                                              ; preds = %635, %26, %23, %1
@@ -2143,7 +2143,7 @@ define void @fstWriterEmitValueChange(ptr noundef captures(address_is_null) %0, 
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %41 = load ptr, ptr %40, align 8, !tbaa !34
   %42 = zext i32 %39 to i64
-  %43 = tail call ptr @realloc(ptr noundef %41, i64 noundef %42) #45
+  %43 = tail call ptr @realloc(ptr noundef %41, i64 noundef %42) #47
   store ptr %43, ptr %40, align 8, !tbaa !34
   %.not45 = icmp eq ptr %43, null
   br i1 %.not45, label %44, label %._crit_edge52, !prof !85
@@ -2154,8 +2154,8 @@ define void @fstWriterEmitValueChange(ptr noundef captures(address_is_null) %0, 
 
 44:                                               ; preds = %34
   %45 = load ptr, ptr @stderr, align 8, !tbaa !41
-  %46 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 68, i64 1, ptr %45) #44
-  tail call void @exit(i32 noundef 255) #46
+  %46 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 68, i64 1, ptr %45) #46
+  tail call void @exit(i32 noundef 255) #48
   unreachable
 
 47:                                               ; preds = %._crit_edge52, %._crit_edge
@@ -2274,7 +2274,7 @@ define internal fastcc void @_ZL28fstWriterFlushContextPrivatePv(ptr noundef non
   %40 = and i8 %39, -17
   store i8 %40, ptr %38, align 1
   %41 = zext i32 %32 to i64
-  %42 = tail call noalias ptr @malloc(i64 noundef %41) #41
+  %42 = tail call noalias ptr @malloc(i64 noundef %41) #43
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %44 = load ptr, ptr %43, align 8, !tbaa !34
   %45 = load ptr, ptr %0, align 8, !tbaa !26
@@ -2318,7 +2318,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit:             ; preds = %.lr.ph.i, %37
   %64 = select i1 %.not423, i32 90, i32 70
   %65 = select i1 %.not422, i32 %64, i32 52
   %66 = call i32 @fputc(i32 noundef %65, ptr noundef %45)
-  %67 = call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #41
+  %67 = call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #43
   %68 = load i32, ptr %19, align 8, !tbaa !48
   %.not729 = icmp eq i32 %68, 0
   br i1 %.not729, label %_Z11JenkinsFreePvj.exit, label %.lr.ph711
@@ -2978,9 +2978,9 @@ _ZL21fstCopyVarint32ToLeftPhj.exit511:            ; preds = %.lr.ph.i519, %.lr.p
   br i1 %.not441, label %385, label %388
 
 385:                                              ; preds = %384
-  call void @free(ptr noundef %.0372706) #39
+  call void @free(ptr noundef %.0372706) #41
   %386 = call i64 @compressBound(i64 noundef %378)
-  %387 = call noalias ptr @malloc(i64 noundef %386) #41
+  %387 = call noalias ptr @malloc(i64 noundef %386) #43
   br label %388
 
 388:                                              ; preds = %384, %385
@@ -3074,9 +3074,9 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit533:          ; preds = %.lr.ph.i526, %400
   br i1 %.not444, label %435, label %438
 
 435:                                              ; preds = %432
-  call void @free(ptr noundef %.0372706) #39
+  call void @free(ptr noundef %.0372706) #41
   %436 = zext i32 %434 to i64
-  %437 = call noalias ptr @malloc(i64 noundef %436) #41
+  %437 = call noalias ptr @malloc(i64 noundef %436) #43
   %.pre = load i8, ptr %60, align 4
   br label %438
 
@@ -3235,7 +3235,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit545:          ; preds = %.lr.ph.i538, %457
 .lr.ph.i553:                                      ; preds = %.preheader.i, %.lr.ph.i553
   %.01421.i = phi ptr [ %510, %.lr.ph.i553 ], [ %509, %.preheader.i ]
   %510 = load ptr, ptr %.01421.i, align 8, !tbaa !76
-  call void @free(ptr noundef nonnull %.01421.i) #39
+  call void @free(ptr noundef nonnull %.01421.i) #41
   %.not19.i = icmp eq ptr %510, null
   br i1 %.not19.i, label %._crit_edge.i, label %.lr.ph.i553, !llvm.loop !78
 
@@ -3245,15 +3245,15 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit545:          ; preds = %.lr.ph.i538, %457
   br i1 %.not18.i, label %512, label %.preheader.i, !llvm.loop !79
 
 512:                                              ; preds = %._crit_edge.i
-  call void @free(ptr noundef nonnull %.pre773) #39
+  call void @free(ptr noundef nonnull %.pre773) #41
   store ptr null, ptr %16, align 8, !tbaa !80
   br label %_Z11JenkinsFreePvj.exit
 
 _Z11JenkinsFreePvj.exit:                          ; preds = %_ZL15fstWriterVarintP8_IO_FILEm.exit, %._crit_edge, %512
   %.0370.lcssa811 = phi i64 [ %.1371, %._crit_edge ], [ %.1371, %512 ], [ 0, %_ZL15fstWriterVarintP8_IO_FILEm.exit ]
   %.0372.lcssa810 = phi ptr [ %.5377, %._crit_edge ], [ %.5377, %512 ], [ %67, %_ZL15fstWriterVarintP8_IO_FILEm.exit ]
-  call void @free(ptr noundef %.0372.lcssa810) #39
-  call void @free(ptr noundef %42) #39
+  call void @free(ptr noundef %.0372.lcssa810) #41
+  call void @free(ptr noundef %42) #41
   %513 = call i64 @ftello(ptr noundef %45)
   %514 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %515 = load i32, ptr %514, align 8, !tbaa !71
@@ -3531,11 +3531,11 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit:             ; preds = %619
   br label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit
 
 _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit: ; preds = %_ZL15fstWriterUint64P8_IO_FILEm.exit, %632
-  %636 = tail call ptr @__errno_location() #42
+  %636 = tail call ptr @__errno_location() #44
   store i32 0, ptr %636, align 4, !tbaa !51
   %637 = load ptr, ptr %624, align 8, !tbaa !32
-  %638 = call i32 @fileno(ptr noundef %637) #39
-  %639 = call ptr @mmap(ptr noundef null, i64 noundef %628, i32 noundef 3, i32 noundef 1, i32 noundef %638, i64 noundef 0) #39
+  %638 = call i32 @fileno(ptr noundef %637) #41
+  %639 = call ptr @mmap(ptr noundef null, i64 noundef %628, i32 noundef 3, i32 noundef 1, i32 noundef %638, i64 noundef 0) #41
   %magicptr.i = ptrtoint ptr %639 to i64
   %magicptr.off.i = add i64 %magicptr.i, -1
   %switch.i = icmp ult i64 %magicptr.off.i, -2
@@ -3544,8 +3544,8 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit: ; preds = %_ZL15fstWri
 640:                                              ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit
   %641 = load ptr, ptr @stderr, align 8, !tbaa !41
   %642 = load i32, ptr %636, align 4, !tbaa !51
-  %643 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %641, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.4, i32 noundef %642, ptr noundef nonnull @.str.3, i32 noundef 1734) #43
-  call void @perror(ptr noundef nonnull @.str.63) #44
+  %643 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %641, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.4, i32 noundef %642, ptr noundef nonnull @.str.3, i32 noundef 1734) #45
+  call void @perror(ptr noundef nonnull @.str.63) #46
   br label %_ZL19fstWriterMmapSanityPvPKciS1_.exit
 
 _ZL19fstWriterMmapSanityPvPKciS1_.exit:           ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit, %640
@@ -3556,7 +3556,7 @@ _ZL19fstWriterMmapSanityPvPKciS1_.exit:           ; preds = %_ZL15fstWriterFseek
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 %628, ptr %18, align 8, !tbaa !56
   %645 = call i64 @compressBound(i64 noundef %628)
-  %646 = call noalias ptr @malloc(i64 noundef %645) #41
+  %646 = call noalias ptr @malloc(i64 noundef %645) #43
   %647 = call i32 @compress2(ptr noundef %646, ptr noundef nonnull %18, ptr noundef nonnull %639, i64 noundef %628, i32 noundef 9)
   %648 = icmp eq i32 %647, 0
   br i1 %648, label %649, label %655
@@ -3578,8 +3578,8 @@ _ZL19fstWriterMmapSanityPvPKciS1_.exit:           ; preds = %_ZL15fstWriterFseek
   br label %658
 
 658:                                              ; preds = %655, %652
-  call void @free(ptr noundef %646) #39
-  %659 = call i32 @munmap(ptr noundef nonnull %639, i64 noundef %628) #39
+  call void @free(ptr noundef %646) #41
+  %659 = call i32 @munmap(ptr noundef nonnull %639, i64 noundef %628) #41
   %660 = load ptr, ptr %0, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %661
@@ -3659,8 +3659,8 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit616:          ; preds = %676
 
 _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit617: ; preds = %681, %687
   %691 = load ptr, ptr %624, align 8, !tbaa !32
-  %692 = call i32 @fileno(ptr noundef %691) #39
-  %693 = call noundef i32 @ftruncate(i32 noundef %692, i64 noundef 0) #39
+  %692 = call i32 @fileno(ptr noundef %691) #41
+  %693 = call noundef i32 @ftruncate(i32 noundef %692, i64 noundef 0) #41
   %694 = load ptr, ptr %0, align 8, !tbaa !26
   %695 = call i64 @ftello(ptr noundef %694)
   %696 = load ptr, ptr %0, align 8, !tbaa !26
@@ -3840,10 +3840,10 @@ define internal fastcc void @_ZL19fstWriterMmapSanityPvPKciS1_(ptr noundef %0, i
 
 4:                                                ; preds = %3
   %5 = load ptr, ptr @stderr, align 8, !tbaa !41
-  %6 = tail call ptr @__errno_location() #42
+  %6 = tail call ptr @__errno_location() #44
   %7 = load i32, ptr %6, align 4, !tbaa !51
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.62, ptr noundef %2, i32 noundef %7, ptr noundef nonnull @.str.3, i32 noundef %1) #43
-  tail call void @perror(ptr noundef nonnull @.str.63) #44
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.62, ptr noundef %2, i32 noundef %7, ptr noundef nonnull @.str.3, i32 noundef %1) #45
+  tail call void @perror(ptr noundef nonnull @.str.63) #46
   br label %9
 
 9:                                                ; preds = %3, %4
@@ -3923,8 +3923,8 @@ declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noun
 ; Function Attrs: nofree nounwind
 declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #9
 
-; Function Attrs: mustprogress nounwind uwtable
-define void @_Z11JenkinsFreePvj(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define void @_Z11JenkinsFreePvj(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #16 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %3
 
@@ -3944,7 +3944,7 @@ define void @_Z11JenkinsFreePvj(ptr noundef captures(address_is_null) %0, i32 no
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.01421 = phi ptr [ %8, %.lr.ph ], [ %7, %.preheader ]
   %8 = load ptr, ptr %.01421, align 8, !tbaa !76
-  tail call void @free(ptr noundef nonnull %.01421) #39
+  tail call void @free(ptr noundef nonnull %.01421) #41
   %.not19 = icmp eq ptr %8, null
   br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !78
 
@@ -3955,7 +3955,7 @@ define void @_Z11JenkinsFreePvj(ptr noundef captures(address_is_null) %0, i32 no
 
 10:                                               ; preds = %._crit_edge
   %11 = load ptr, ptr %0, align 8, !tbaa !80
-  tail call void @free(ptr noundef %11) #39
+  tail call void @free(ptr noundef %11) #41
   store ptr null, ptr %0, align 8, !tbaa !80
   br label %12
 
@@ -3973,7 +3973,7 @@ define void @fstWriterSetDate(ptr noundef captures(address_is_null) %0, ptr noun
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load ptr, ptr %0, align 8, !tbaa !26
   %6 = tail call i64 @ftello(ptr noundef %5)
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #40
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #42
   %8 = trunc i64 %7 to i32
   %9 = load ptr, ptr %0, align 8, !tbaa !26
   %10 = tail call i32 @fseeko(ptr noundef %9, i64 noundef 202, i32 noundef 0)
@@ -4017,7 +4017,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit13: ; preds = %_ZL15fstW
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @fstWriterSetVersion(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #13 {
@@ -4031,7 +4031,7 @@ define void @fstWriterSetVersion(ptr noundef captures(address_is_null) %0, ptr n
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = load ptr, ptr %0, align 8, !tbaa !26
   %8 = tail call i64 @ftello(ptr noundef %7)
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #40
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #42
   %10 = trunc i64 %9 to i32
   %11 = load ptr, ptr %0, align 8, !tbaa !26
   %12 = tail call i32 @fseeko(ptr noundef %11, i64 noundef 74, i32 noundef 0)
@@ -4142,7 +4142,7 @@ define internal fastcc void @_ZL24fstWriterSetSourceStem_2PvPKcjji(ptr noundef c
   br i1 %.not, label %47, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #40
+  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #42
   %13 = trunc i64 %12 to i32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %15 = tail call noundef ptr @_Z10JenkinsInsPvPKhjj(ptr noundef nonnull %14, ptr noundef nonnull %1, i32 noundef %13, i32 noundef 65535)
@@ -4166,14 +4166,14 @@ define internal fastcc void @_ZL24fstWriterSetSourceStem_2PvPKcjji(ptr noundef c
   br i1 %.not32, label %27, label %25
 
 25:                                               ; preds = %19
-  %26 = tail call noundef ptr @realpath(ptr noundef nonnull readonly %1, ptr noundef null) #39
+  %26 = tail call noundef ptr @realpath(ptr noundef nonnull readonly %1, ptr noundef null) #41
   br label %27
 
 27:                                               ; preds = %19, %25
   %.0 = phi ptr [ %26, %25 ], [ null, %19 ]
   %.not33 = icmp eq ptr %.0, null
   %28 = select i1 %.not33, ptr %1, ptr %.0
-  %29 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %28) #39
+  %29 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %28) #41
   br label %30
 
 30:                                               ; preds = %33, %27
@@ -4195,11 +4195,11 @@ define internal fastcc void @_ZL24fstWriterSetSourceStem_2PvPKcjji(ptr noundef c
 
 _ZL23fstWriterSetAttrGenericPvPKcim.exit:         ; preds = %30
   tail call void @fstWriterSetAttrBegin(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 3, ptr noundef %29, i64 noundef range(i64 -2147483648, 4294967296) %23)
-  tail call void @free(ptr noundef %29) #39
+  tail call void @free(ptr noundef %29) #41
   br i1 %.not33, label %36, label %35
 
 35:                                               ; preds = %_ZL23fstWriterSetAttrGenericPvPKcim.exit
-  tail call void @free(ptr noundef nonnull %.0) #39
+  tail call void @free(ptr noundef nonnull %.0) #41
   br label %36
 
 36:                                               ; preds = %_ZL23fstWriterSetAttrGenericPvPKcim.exit, %35, %17
@@ -4258,7 +4258,7 @@ define void @fstWriterSetComment(ptr noundef captures(address_is_null) %0, ptr n
   br i1 %or.cond.i, label %5, label %_ZL23fstWriterSetAttrGenericPvPKcim.exit
 
 5:                                                ; preds = %2
-  %6 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %1) #39
+  %6 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %1) #41
   br label %7
 
 7:                                                ; preds = %10, %5
@@ -4280,7 +4280,7 @@ define void @fstWriterSetComment(ptr noundef captures(address_is_null) %0, ptr n
 
 12:                                               ; preds = %7
   tail call void @fstWriterSetAttrBegin(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, ptr noundef %6, i64 noundef 0)
-  tail call void @free(ptr noundef %6) #39
+  tail call void @free(ptr noundef %6) #41
   br label %_ZL23fstWriterSetAttrGenericPvPKcim.exit
 
 _ZL23fstWriterSetAttrGenericPvPKcim.exit:         ; preds = %2, %12
@@ -4295,7 +4295,7 @@ define void @fstWriterSetValueList(ptr noundef captures(address_is_null) %0, ptr
   br i1 %or.cond.i, label %5, label %_ZL23fstWriterSetAttrGenericPvPKcim.exit
 
 5:                                                ; preds = %2
-  %6 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %1) #39
+  %6 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %1) #41
   br label %7
 
 7:                                                ; preds = %10, %5
@@ -4317,7 +4317,7 @@ define void @fstWriterSetValueList(ptr noundef captures(address_is_null) %0, ptr
 
 12:                                               ; preds = %7
   tail call void @fstWriterSetAttrBegin(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 6, ptr noundef %6, i64 noundef 0)
-  tail call void @free(ptr noundef %6) #39
+  tail call void @free(ptr noundef %6) #41
   br label %_ZL23fstWriterSetAttrGenericPvPKcim.exit
 
 _ZL23fstWriterSetAttrGenericPvPKcim.exit:         ; preds = %2, %12
@@ -4332,7 +4332,7 @@ define void @fstWriterSetEnvVar(ptr noundef captures(address_is_null) %0, ptr no
   br i1 %or.cond.i, label %5, label %_ZL23fstWriterSetAttrGenericPvPKcim.exit
 
 5:                                                ; preds = %2
-  %6 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %1) #39
+  %6 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %1) #41
   br label %7
 
 7:                                                ; preds = %10, %5
@@ -4354,7 +4354,7 @@ define void @fstWriterSetEnvVar(ptr noundef captures(address_is_null) %0, ptr no
 
 12:                                               ; preds = %7
   tail call void @fstWriterSetAttrBegin(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 1, ptr noundef %6, i64 noundef 0)
-  tail call void @free(ptr noundef %6) #39
+  tail call void @free(ptr noundef %6) #41
   br label %_ZL23fstWriterSetAttrGenericPvPKcim.exit
 
 _ZL23fstWriterSetAttrGenericPvPKcim.exit:         ; preds = %2, %12
@@ -4411,7 +4411,7 @@ define void @fstWriterSetTimescaleFromString(ptr noundef captures(address_is_nul
   br i1 %or.cond, label %5, label %fstWriterSetTimescale.exit
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strtol(ptr noundef nonnull captures(none) %1, ptr noundef null, i32 noundef 10) #39
+  %6 = tail call i64 @strtol(ptr noundef nonnull captures(none) %1, ptr noundef null, i32 noundef 10) #41
   %7 = trunc i64 %6 to i32
   br label %8
 
@@ -4629,8 +4629,8 @@ define void @fstWriterSetParallelMode(ptr noundef captures(address_is_null) %0, 
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr @stderr, align 8, !tbaa !41
-  %13 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 95, i64 1, ptr %12) #44
-  tail call void @exit(i32 noundef 255) #46
+  %13 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 95, i64 1, ptr %12) #46
+  tail call void @exit(i32 noundef 255) #48
   unreachable
 
 14:                                               ; preds = %3, %2
@@ -4641,10 +4641,10 @@ define void @fstWriterSetParallelMode(ptr noundef captures(address_is_null) %0, 
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #17
+declare void @exit(i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @fstWriterSetDumpSizeLimit(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #18 {
+define void @fstWriterSetDumpSizeLimit(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -4658,7 +4658,7 @@ define void @fstWriterSetDumpSizeLimit(ptr noundef writeonly captures(address_is
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @fstWriterGetDumpSizeLimitReached(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @fstWriterGetDumpSizeLimitReached(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -4676,7 +4676,7 @@ define range(i32 0, 2) i32 @fstWriterGetDumpSizeLimitReached(ptr noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @fstWriterGetFseekFailed(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @fstWriterGetFseekFailed(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -4704,7 +4704,7 @@ define i32 @fstWriterCreateVar2(ptr noundef captures(address_is_null) %0, i32 no
 14:                                               ; preds = %9
   %.not = icmp eq ptr %6, null
   %15 = select i1 %.not, ptr @.str.11, ptr %6
-  %16 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %15) #39
+  %16 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %15) #41
   br label %17
 
 17:                                               ; preds = %20, %14
@@ -4726,7 +4726,7 @@ define i32 @fstWriterCreateVar2(ptr noundef captures(address_is_null) %0, i32 no
 
 22:                                               ; preds = %17
   tail call void @fstWriterSetAttrBegin(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 2, ptr noundef %16, i64 noundef range(i64 -2147483648, 4294967296) %13)
-  tail call void @free(ptr noundef %16) #39
+  tail call void @free(ptr noundef %16) #41
   br label %_ZL23fstWriterSetAttrGenericPvPKcim.exit
 
 _ZL23fstWriterSetAttrGenericPvPKcim.exit:         ; preds = %9, %22
@@ -4760,7 +4760,7 @@ define i32 @fstWriterCreateVar(ptr noundef captures(address_is_null) %0, i32 nou
   %21 = shl i32 %20, 2
   %22 = zext i32 %21 to i64
   %23 = shl nuw nsw i64 %22, 2
-  %24 = tail call i32 @munmap(ptr noundef nonnull %17, i64 noundef %23) #39
+  %24 = tail call i32 @munmap(ptr noundef nonnull %17, i64 noundef %23) #41
   store ptr null, ptr %16, align 8, !tbaa !50
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = load ptr, ptr %25, align 8, !tbaa !49
@@ -4771,7 +4771,7 @@ define i32 @fstWriterCreateVar(ptr noundef captures(address_is_null) %0, i32 nou
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %29 = load i32, ptr %28, align 8, !tbaa !53
   %30 = zext i32 %29 to i64
-  %31 = tail call i32 @munmap(ptr noundef nonnull %26, i64 noundef %30) #39
+  %31 = tail call i32 @munmap(ptr noundef nonnull %26, i64 noundef %30) #41
   br label %_ZL15fstDestroyMmapsP16fstWriterContexti.exit
 
 _ZL15fstDestroyMmapsP16fstWriterContexti.exit:    ; preds = %18, %27
@@ -4784,7 +4784,7 @@ _ZL15fstDestroyMmapsP16fstWriterContexti.exit:    ; preds = %18, %27
   %35 = tail call i32 @fputc(i32 noundef %1, ptr noundef %34)
   %36 = load ptr, ptr %33, align 8, !tbaa !27
   %37 = tail call i32 @fputc(i32 noundef %2, ptr noundef %36)
-  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #40
+  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #42
   %sext = shl i64 %38, 32
   %39 = ashr exact i64 %sext, 32
   %40 = load ptr, ptr %33, align 8, !tbaa !27
@@ -4941,7 +4941,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit97:           ; preds = %.lr.ph.i90, %_ZL15f
 
 122:                                              ; preds = %107
   %123 = and i64 %117, 4294967295
-  %124 = call ptr @realloc(ptr noundef nonnull %121, i64 noundef %123) #45
+  %124 = call ptr @realloc(ptr noundef nonnull %121, i64 noundef %123) #47
   store ptr %124, ptr %120, align 8, !tbaa !34
   br label %125
 
@@ -5071,7 +5071,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit114:          ; preds = %.lr.ph.i107
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #20
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @fstWriterSetScope(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #13 {
@@ -5091,11 +5091,11 @@ define void @fstWriterSetScope(ptr noundef captures(address_is_null) %0, i32 nou
   %13 = select i1 %.not20, ptr @.str.11, ptr %2
   %.not21 = icmp eq ptr %3, null
   %14 = select i1 %.not21, ptr @.str.11, ptr %3
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.12, ptr noundef nonnull %13, i32 noundef 0, ptr noundef nonnull %14, i32 noundef 0) #39
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.12, ptr noundef nonnull %13, i32 noundef 0, ptr noundef nonnull %14, i32 noundef 0) #41
   br i1 %.not20, label %21, label %16
 
 16:                                               ; preds = %5
-  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #40
+  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #42
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = load i64, ptr %18, align 8, !tbaa !65
   %20 = add i64 %19, %17
@@ -5111,7 +5111,7 @@ define void @fstWriterSetScope(ptr noundef captures(address_is_null) %0, i32 nou
   br label %27
 
 22:                                               ; preds = %21
-  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #40
+  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #42
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %25 = load i64, ptr %24, align 8, !tbaa !65
   %26 = add i64 %25, %23
@@ -5194,7 +5194,7 @@ define void @fstWriterSetAttrBegin(ptr noundef captures(address_is_null) %0, i32
   %20 = load ptr, ptr %8, align 8, !tbaa !27
   %.not35 = icmp eq ptr %3, null
   %21 = select i1 %.not35, ptr @.str.11, ptr %3
-  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.13, ptr noundef nonnull %21, i32 noundef 0) #39
+  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.13, ptr noundef nonnull %21, i32 noundef 0) #41
   br i1 %.not35, label %._crit_edge, label %23
 
 ._crit_edge:                                      ; preds = %17
@@ -5203,7 +5203,7 @@ define void @fstWriterSetAttrBegin(ptr noundef captures(address_is_null) %0, i32
   br label %28
 
 23:                                               ; preds = %17
-  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #40
+  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #42
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %26 = load i64, ptr %25, align 8, !tbaa !65
   %27 = add i64 %26, %24
@@ -5289,11 +5289,11 @@ define i32 @fstWriterCreateEnumTable(ptr noundef captures(address_is_null) %0, p
   br i1 %or.cond7, label %13, label %101
 
 13:                                               ; preds = %6
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #40
-  %15 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 16, ptr noundef nonnull @.str.14, i32 noundef %2) #39
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #42
+  %15 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 16, ptr noundef nonnull @.str.14, i32 noundef %2) #41
   %16 = zext i32 %2 to i64
-  %17 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 4) #38
-  %18 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 4) #38
+  %17 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 4) #40
+  %18 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 4) #40
   br label %19
 
 19:                                               ; preds = %13, %19
@@ -5302,7 +5302,7 @@ define i32 @fstWriterCreateEnumTable(ptr noundef captures(address_is_null) %0, p
   %.0118131 = phi i32 [ 0, %13 ], [ %.1119, %19 ]
   %20 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !28
-  %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #40
+  %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #42
   %23 = trunc i64 %22 to i32
   %24 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
   store i32 %23, ptr %24, align 4, !tbaa !51
@@ -5310,7 +5310,7 @@ define i32 @fstWriterCreateEnumTable(ptr noundef captures(address_is_null) %0, p
   %26 = add nsw i32 %25, %.0117132
   %27 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8, !tbaa !28
-  %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #40
+  %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #42
   %30 = trunc i64 %29 to i32
   %31 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
   store i32 %30, ptr %31, align 4, !tbaa !51
@@ -5332,7 +5332,7 @@ define i32 @fstWriterCreateEnumTable(ptr noundef captures(address_is_null) %0, p
   %41 = add i32 %40, %.1119
   %42 = add i32 %41, %26
   %43 = sext i32 %42 to i64
-  %44 = tail call noalias ptr @malloc(i64 noundef %43) #41
+  %44 = tail call noalias ptr @malloc(i64 noundef %43) #43
   %sext = shl i64 %14, 32
   %45 = ashr exact i64 %sext, 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %44, ptr nonnull align 1 %1, i64 %45, i1 false)
@@ -5434,9 +5434,9 @@ define i32 @fstWriterCreateEnumTable(ptr noundef captures(address_is_null) %0, p
   store i32 %99, ptr %97, align 8, !tbaa !111
   %100 = zext i32 %99 to i64
   tail call void @fstWriterSetAttrBegin(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 7, ptr noundef nonnull %44, i64 noundef %100)
-  tail call void @free(ptr noundef nonnull %44) #39
-  tail call void @free(ptr noundef nonnull %18) #39
-  tail call void @free(ptr noundef %17) #39
+  tail call void @free(ptr noundef nonnull %44) #41
+  tail call void @free(ptr noundef nonnull %18) #41
+  tail call void @free(ptr noundef %17) #41
   br label %101
 
 101:                                              ; preds = %.split.us, %6
@@ -5446,7 +5446,7 @@ define i32 @fstWriterCreateEnumTable(ptr noundef captures(address_is_null) %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -2147483647, -2147483648) i32 @fstUtilityBinToEscConvertedLen(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #19 {
+define range(i32 -2147483647, -2147483648) i32 @fstUtilityBinToEscConvertedLen(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #20 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 
@@ -5492,7 +5492,7 @@ define range(i32 -2147483647, -2147483648) i32 @fstUtilityBinToEscConvertedLen(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @fstUtilityBinToEsc(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #21 {
+define i32 @fstUtilityBinToEsc(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #22 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -5837,7 +5837,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit63: ; preds = %_ZL15fstW
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %88 = load ptr, ptr %87, align 8, !tbaa !30
   %89 = tail call i32 @fflush(ptr noundef %88)
-  %90 = tail call ptr @__errno_location() #42
+  %90 = tail call ptr @__errno_location() #44
   store i32 0, ptr %90, align 4, !tbaa !51
   %91 = load i32, ptr %60, align 8, !tbaa !48
   %.not34 = icmp eq i32 %91, 0
@@ -5848,8 +5848,8 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit63: ; preds = %_ZL15fstW
   %94 = zext i32 %93 to i64
   %95 = shl nuw nsw i64 %94, 2
   %96 = load ptr, ptr %87, align 8, !tbaa !30
-  %97 = tail call i32 @fileno(ptr noundef %96) #39
-  %98 = tail call ptr @mmap(ptr noundef null, i64 noundef %95, i32 noundef 3, i32 noundef 1, i32 noundef %97, i64 noundef 0) #39
+  %97 = tail call i32 @fileno(ptr noundef %96) #41
+  %98 = tail call ptr @mmap(ptr noundef null, i64 noundef %95, i32 noundef 3, i32 noundef 1, i32 noundef %97, i64 noundef 0) #41
   store ptr %98, ptr %84, align 8, !tbaa !50
   %magicptr.i = ptrtoint ptr %98 to i64
   %magicptr.off.i = add i64 %magicptr.i, -1
@@ -5859,8 +5859,8 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit63: ; preds = %_ZL15fstW
 99:                                               ; preds = %92
   %100 = load ptr, ptr @stderr, align 8, !tbaa !41
   %101 = load i32, ptr %90, align 4, !tbaa !51
-  %102 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.64, i32 noundef %101, ptr noundef nonnull @.str.3, i32 noundef 1037) #43
-  tail call void @perror(ptr noundef nonnull @.str.63) #44
+  %102 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.64, i32 noundef %101, ptr noundef nonnull @.str.3, i32 noundef 1037) #45
+  tail call void @perror(ptr noundef nonnull @.str.63) #46
   br label %_ZL19fstWriterMmapSanityPvPKciS1_.exit
 
 _ZL19fstWriterMmapSanityPvPKciS1_.exit:           ; preds = %99, %92, %86, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit63
@@ -5873,7 +5873,7 @@ _ZL19fstWriterMmapSanityPvPKciS1_.exit:           ; preds = %99, %92, %86, %_ZL1
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %107 = load ptr, ptr %106, align 8, !tbaa !31
   %108 = tail call i32 @fflush(ptr noundef %107)
-  %109 = tail call ptr @__errno_location() #42
+  %109 = tail call ptr @__errno_location() #44
   store i32 0, ptr %109, align 4, !tbaa !51
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %111 = load i32, ptr %110, align 8, !tbaa !53
@@ -5883,8 +5883,8 @@ _ZL19fstWriterMmapSanityPvPKciS1_.exit:           ; preds = %99, %92, %86, %_ZL1
 112:                                              ; preds = %105
   %113 = zext i32 %111 to i64
   %114 = load ptr, ptr %106, align 8, !tbaa !31
-  %115 = tail call i32 @fileno(ptr noundef %114) #39
-  %116 = tail call ptr @mmap(ptr noundef null, i64 noundef %113, i32 noundef 3, i32 noundef 1, i32 noundef %115, i64 noundef 0) #39
+  %115 = tail call i32 @fileno(ptr noundef %114) #41
+  %116 = tail call ptr @mmap(ptr noundef null, i64 noundef %113, i32 noundef 3, i32 noundef 1, i32 noundef %115, i64 noundef 0) #41
   store ptr %116, ptr %103, align 8, !tbaa !49
   %magicptr.i64 = ptrtoint ptr %116 to i64
   %magicptr.off.i65 = add i64 %magicptr.i64, -1
@@ -5894,8 +5894,8 @@ _ZL19fstWriterMmapSanityPvPKciS1_.exit:           ; preds = %99, %92, %86, %_ZL1
 117:                                              ; preds = %112
   %118 = load ptr, ptr @stderr, align 8, !tbaa !41
   %119 = load i32, ptr %109, align 4, !tbaa !51
-  %120 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %118, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.65, i32 noundef %119, ptr noundef nonnull @.str.3, i32 noundef 1046) #43
-  tail call void @perror(ptr noundef nonnull @.str.63) #44
+  %120 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %118, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.65, i32 noundef %119, ptr noundef nonnull @.str.3, i32 noundef 1046) #45
+  tail call void @perror(ptr noundef nonnull @.str.63) #46
   br label %_ZL19fstWriterMmapSanityPvPKciS1_.exit67
 
 _ZL19fstWriterMmapSanityPvPKciS1_.exit67:         ; preds = %117, %112, %105, %_ZL19fstWriterMmapSanityPvPKciS1_.exit
@@ -5998,15 +5998,15 @@ define void @fstWriterEmitValueChangeVec32(ptr noundef captures(address_is_null)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %19 = load ptr, ptr %18, align 8, !tbaa !54
   %20 = zext i32 %17 to i64
-  %21 = tail call ptr @realloc(ptr noundef %19, i64 noundef %20) #45
+  %21 = tail call ptr @realloc(ptr noundef %19, i64 noundef %20) #47
   store ptr %21, ptr %18, align 8, !tbaa !54
   %.not57 = icmp eq ptr %21, null
   br i1 %.not57, label %22, label %25, !prof !85
 
 22:                                               ; preds = %15
   %23 = load ptr, ptr @stderr, align 8, !tbaa !41
-  %24 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 73, i64 1, ptr %23) #44
-  tail call void @exit(i32 noundef 255) #46
+  %24 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 73, i64 1, ptr %23) #46
+  tail call void @exit(i32 noundef 255) #48
   unreachable
 
 25:                                               ; preds = %._crit_edge69, %15
@@ -6128,15 +6128,15 @@ define void @fstWriterEmitValueChangeVec64(ptr noundef captures(address_is_null)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %19 = load ptr, ptr %18, align 8, !tbaa !54
   %20 = zext i32 %17 to i64
-  %21 = tail call ptr @realloc(ptr noundef %19, i64 noundef %20) #45
+  %21 = tail call ptr @realloc(ptr noundef %19, i64 noundef %20) #47
   store ptr %21, ptr %18, align 8, !tbaa !54
   %.not57 = icmp eq ptr %21, null
   br i1 %.not57, label %22, label %25, !prof !85
 
 22:                                               ; preds = %15
   %23 = load ptr, ptr @stderr, align 8, !tbaa !41
-  %24 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 73, i64 1, ptr %23) #44
-  tail call void @exit(i32 noundef 255) #46
+  %24 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 73, i64 1, ptr %23) #46
+  tail call void @exit(i32 noundef 255) #48
   unreachable
 
 25:                                               ; preds = %._crit_edge69, %15
@@ -6289,7 +6289,7 @@ define void @fstWriterEmitVariableLengthValueChange(ptr noundef captures(address
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %39 = load ptr, ptr %38, align 8, !tbaa !34
   %40 = zext i32 %37 to i64
-  %41 = tail call ptr @realloc(ptr noundef %39, i64 noundef %40) #45
+  %41 = tail call ptr @realloc(ptr noundef %39, i64 noundef %40) #47
   store ptr %41, ptr %38, align 8, !tbaa !34
   %.not36 = icmp eq ptr %41, null
   br i1 %.not36, label %42, label %._crit_edge45, !prof !85
@@ -6300,8 +6300,8 @@ define void @fstWriterEmitVariableLengthValueChange(ptr noundef captures(address
 
 42:                                               ; preds = %31
   %43 = load ptr, ptr @stderr, align 8, !tbaa !41
-  %44 = tail call i64 @fwrite(ptr nonnull @.str.18, i64 82, i64 1, ptr %43) #44
-  tail call void @exit(i32 noundef 255) #46
+  %44 = tail call i64 @fwrite(ptr nonnull @.str.18, i64 82, i64 1, ptr %43) #46
+  tail call void @exit(i32 noundef 255) #48
   unreachable
 
 45:                                               ; preds = %._crit_edge45, %._crit_edge
@@ -6400,7 +6400,7 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit:
   %12 = zext i32 %11 to i64
   store i64 %12, ptr %9, align 8, !tbaa !56
   %13 = tail call i64 @compressBound(i64 noundef %12)
-  %14 = tail call noalias ptr @malloc(i64 noundef %13) #41
+  %14 = tail call noalias ptr @malloc(i64 noundef %13) #43
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load ptr, ptr %15, align 8, !tbaa !49
   %17 = load i32, ptr %10, align 8, !tbaa !53
@@ -6648,18 +6648,18 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit78._crit_edge: ; preds = %_ZL15fstWriterVari
   br label %131
 
 131:                                              ; preds = %127, %124
-  call void @free(ptr noundef %14) #39
+  call void @free(ptr noundef %14) #41
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @fstWriterEmitDumpActive(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #22 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
+define void @fstWriterEmitDumpActive(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %20, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #38
+  %4 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #40
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load i64, ptr %5, align 8, !tbaa !68
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -6715,7 +6715,7 @@ define noundef i32 @_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli(ptr nound
 declare noundef i32 @fseeko(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @fstReaderGetCurrentFlatScope(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
+define ptr @fstReaderGetCurrentFlatScope(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -6731,8 +6731,8 @@ define ptr @fstReaderGetCurrentFlatScope(ptr noundef readonly captures(address_i
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @fstReaderGetCurrentScopeUserInfo(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #23 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define ptr @fstReaderGetCurrentScopeUserInfo(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #24 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -6752,8 +6752,8 @@ define ptr @fstReaderGetCurrentScopeUserInfo(ptr noundef readonly captures(addre
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
-define ptr @fstReaderPopScope(ptr noundef captures(address_is_null) %0) local_unnamed_addr #24 {
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define ptr @fstReaderPopScope(ptr noundef captures(address_is_null) %0) local_unnamed_addr #25 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %20, label %2
 
@@ -6786,7 +6786,7 @@ define ptr @fstReaderPopScope(ptr noundef captures(address_is_null) %0) local_un
   %16 = load ptr, ptr %3, align 8, !tbaa !129
   %17 = load ptr, ptr %16, align 8, !tbaa !132
   store ptr %17, ptr %3, align 8, !tbaa !129
-  tail call void @free(ptr noundef nonnull %4) #39
+  tail call void @free(ptr noundef nonnull %4) #41
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %19 = load ptr, ptr %18, align 8, !tbaa !124
   %.not20 = icmp eq ptr %19, null
@@ -6798,8 +6798,8 @@ define ptr @fstReaderPopScope(ptr noundef captures(address_is_null) %0) local_un
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define void @fstReaderResetScope(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define void @fstReaderResetScope(ptr noundef captures(address_is_null) %0) local_unnamed_addr #16 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.split
 
@@ -6832,7 +6832,7 @@ define void @fstReaderResetScope(ptr noundef captures(address_is_null) %0) local
   %14 = load ptr, ptr %2, align 8, !tbaa !129
   %15 = load ptr, ptr %14, align 8, !tbaa !132
   store ptr %15, ptr %2, align 8, !tbaa !129
-  tail call void @free(ptr noundef nonnull %3) #39
+  tail call void @free(ptr noundef nonnull %3) #41
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %17 = load ptr, ptr %2, align 8, !tbaa !129
   %18 = icmp eq ptr %17, null
@@ -6842,7 +6842,7 @@ define void @fstReaderResetScope(ptr noundef captures(address_is_null) %0) local
   %19 = load ptr, ptr %2, align 8, !tbaa !129
   %20 = load ptr, ptr %19, align 8, !tbaa !132
   store ptr %20, ptr %2, align 8, !tbaa !129
-  tail call void @free(ptr noundef nonnull %21) #39
+  tail call void @free(ptr noundef nonnull %21) #41
   %.pr = load ptr, ptr %2, align 8, !tbaa !129
   %.not18.i6 = icmp eq ptr %.pr, null
   br i1 %.not18.i6, label %..loopexit_crit_edge, label %.split3.preheader
@@ -6873,13 +6873,13 @@ define void @fstReaderResetScope(ptr noundef captures(address_is_null) %0) local
   ret void
 }
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
-define ptr @fstReaderPushScope(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #24 {
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define ptr @fstReaderPushScope(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #25 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %46, label %4
 
 4:                                                ; preds = %3
-  %5 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #41
+  %5 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #43
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %7 = load ptr, ptr %6, align 8, !tbaa !129
   %.not37 = icmp eq ptr %7, null
@@ -6893,7 +6893,7 @@ define ptr @fstReaderPushScope(ptr noundef captures(address_is_null) %0, ptr nou
 11:                                               ; preds = %4, %8
   %12 = phi i32 [ %10, %8 ], [ 0, %4 ]
   %13 = add nsw i32 %12, 1
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #40
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #42
   %15 = trunc i64 %14 to i32
   %16 = add i32 %13, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 656
@@ -6910,11 +6910,11 @@ define ptr @fstReaderPushScope(ptr noundef captures(address_is_null) %0, ptr nou
   br i1 %.not39, label %26, label %24
 
 24:                                               ; preds = %19
-  %25 = tail call ptr @realloc(ptr noundef nonnull %21, i64 noundef %23) #45
+  %25 = tail call ptr @realloc(ptr noundef nonnull %21, i64 noundef %23) #47
   br label %28
 
 26:                                               ; preds = %19
-  %27 = tail call noalias ptr @malloc(i64 noundef %23) #41
+  %27 = tail call noalias ptr @malloc(i64 noundef %23) #43
   br label %28
 
 28:                                               ; preds = %26, %24
@@ -6940,7 +6940,7 @@ define ptr @fstReaderPushScope(ptr noundef captures(address_is_null) %0, ptr nou
 39:                                               ; preds = %30, %33
   %.sink = phi ptr [ %38, %33 ], [ %32, %30 ]
   %.0 = phi i32 [ %16, %33 ], [ %15, %30 ]
-  %40 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.sink, ptr noundef nonnull dereferenceable(1) %1) #39
+  %40 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.sink, ptr noundef nonnull dereferenceable(1) %1) #41
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %.0, ptr %41, align 8, !tbaa !133
   %42 = load ptr, ptr %6, align 8, !tbaa !129
@@ -6957,8 +6957,8 @@ define ptr @fstReaderPushScope(ptr noundef captures(address_is_null) %0, ptr nou
   ret ptr %.031
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @fstReaderGetCurrentScopeLen(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #23 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define i32 @fstReaderGetCurrentScopeLen(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #24 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -6979,7 +6979,7 @@ define i32 @fstReaderGetCurrentScopeLen(ptr noundef readonly captures(address_is
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @fstReaderGetFseekFailed(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @fstReaderGetFseekFailed(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -6995,8 +6995,8 @@ define range(i32 0, 2) i32 @fstReaderGetFseekFailed(ptr noundef readonly capture
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @fstReaderGetFacProcessMask(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #23 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define range(i32 0, 2) i32 @fstReaderGetFacProcessMask(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #24 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %3
 
@@ -7025,8 +7025,8 @@ define range(i32 0, 2) i32 @fstReaderGetFacProcessMask(ptr noundef readonly capt
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @fstReaderSetFacProcessMask(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #25 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define void @fstReaderSetFacProcessMask(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #26 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %3
 
@@ -7055,8 +7055,8 @@ define void @fstReaderSetFacProcessMask(ptr noundef readonly captures(address_is
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @fstReaderClrFacProcessMask(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #25 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define void @fstReaderClrFacProcessMask(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #26 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %20, label %3
 
@@ -7086,8 +7086,8 @@ define void @fstReaderClrFacProcessMask(ptr noundef readonly captures(address_is
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @fstReaderSetFacProcessMaskAll(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #26 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define void @fstReaderSetFacProcessMaskAll(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #27 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -7106,8 +7106,8 @@ define void @fstReaderSetFacProcessMaskAll(ptr noundef readonly captures(address
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @fstReaderClrFacProcessMaskAll(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #26 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define void @fstReaderClrFacProcessMaskAll(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #27 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -7127,7 +7127,7 @@ define void @fstReaderClrFacProcessMaskAll(ptr noundef readonly captures(address
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext i8 @fstReaderGetTimescale(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
+define signext i8 @fstReaderGetTimescale(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7142,7 +7142,7 @@ define signext i8 @fstReaderGetTimescale(ptr noundef readonly captures(address_i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @fstReaderGetStartTime(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
+define i64 @fstReaderGetStartTime(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7157,7 +7157,7 @@ define i64 @fstReaderGetStartTime(ptr noundef readonly captures(address_is_null)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @fstReaderGetEndTime(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
+define i64 @fstReaderGetEndTime(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7172,7 +7172,7 @@ define i64 @fstReaderGetEndTime(ptr noundef readonly captures(address_is_null) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @fstReaderGetMemoryUsedByWriter(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
+define i64 @fstReaderGetMemoryUsedByWriter(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7187,7 +7187,7 @@ define i64 @fstReaderGetMemoryUsedByWriter(ptr noundef readonly captures(address
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @fstReaderGetScopeCount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
+define i64 @fstReaderGetScopeCount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7202,7 +7202,7 @@ define i64 @fstReaderGetScopeCount(ptr noundef readonly captures(address_is_null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @fstReaderGetVarCount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
+define i64 @fstReaderGetVarCount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7217,7 +7217,7 @@ define i64 @fstReaderGetVarCount(ptr noundef readonly captures(address_is_null) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @fstReaderGetMaxHandle(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
+define i32 @fstReaderGetMaxHandle(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7232,7 +7232,7 @@ define i32 @fstReaderGetMaxHandle(ptr noundef readonly captures(address_is_null)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @fstReaderGetAliasCount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
+define i64 @fstReaderGetAliasCount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7247,7 +7247,7 @@ define i64 @fstReaderGetAliasCount(ptr noundef readonly captures(address_is_null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @fstReaderGetValueChangeSectionCount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
+define i64 @fstReaderGetValueChangeSectionCount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7262,7 +7262,7 @@ define i64 @fstReaderGetValueChangeSectionCount(ptr noundef readonly captures(ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @fstReaderGetDoubleEndianMatchState(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @fstReaderGetDoubleEndianMatchState(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -7280,7 +7280,7 @@ define range(i32 0, 2) i32 @fstReaderGetDoubleEndianMatchState(ptr noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @fstReaderGetVersionString(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #27 {
+define ptr @fstReaderGetVersionString(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #28 {
   %.not = icmp eq ptr %0, null
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 123
   %3 = select i1 %.not, ptr null, ptr %2
@@ -7288,7 +7288,7 @@ define ptr @fstReaderGetVersionString(ptr noundef readnone captures(address_is_n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @fstReaderGetDateString(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #27 {
+define ptr @fstReaderGetDateString(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #28 {
   %.not = icmp eq ptr %0, null
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %3 = select i1 %.not, ptr null, ptr %2
@@ -7296,7 +7296,7 @@ define ptr @fstReaderGetDateString(ptr noundef readnone captures(address_is_null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 256) i32 @fstReaderGetFileType(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
+define range(i32 0, 256) i32 @fstReaderGetFileType(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -7312,7 +7312,7 @@ define range(i32 0, 256) i32 @fstReaderGetFileType(ptr noundef readonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @fstReaderGetTimezero(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
+define i64 @fstReaderGetTimezero(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7327,7 +7327,7 @@ define i64 @fstReaderGetTimezero(ptr noundef readonly captures(address_is_null) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @fstReaderGetNumberDumpActivityChanges(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
+define i32 @fstReaderGetNumberDumpActivityChanges(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7341,8 +7341,8 @@ define i32 @fstReaderGetNumberDumpActivityChanges(ptr noundef readonly captures(
   ret i32 %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @fstReaderGetDumpActivityChangeTime(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #23 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define i64 @fstReaderGetDumpActivityChangeTime(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #24 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %3
 
@@ -7369,8 +7369,8 @@ define i64 @fstReaderGetDumpActivityChangeTime(ptr noundef readonly captures(add
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i8 @fstReaderGetDumpActivityChangeValue(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #23 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define zeroext i8 @fstReaderGetDumpActivityChangeValue(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #24 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %3
 
@@ -7515,12 +7515,12 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL25fstReaderRecreateHierFi
   %10 = tail call i64 @ftello(ptr noundef %9)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %12 = load ptr, ptr %11, align 8, !tbaa !155
-  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #40
+  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #42
   %14 = shl i64 %13, 32
   %sext = add i64 %14, 236223201280
   %15 = ashr exact i64 %sext, 32
-  %16 = tail call noalias ptr @malloc(i64 noundef %15) #41
-  %17 = tail call noalias dereferenceable_or_null(32768) ptr @malloc(i64 noundef 32768) #41
+  %16 = tail call noalias ptr @malloc(i64 noundef %15) #43
+  %17 = tail call noalias dereferenceable_or_null(32768) ptr @malloc(i64 noundef 32768) #43
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 122
   %19 = load i8, ptr %18, align 2
   %20 = and i8 %19, 80
@@ -7540,8 +7540,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL25fstReaderRecreateHierFi
 
 24:                                               ; preds = %8, %.fold.split, %21
   %.0131 = phi i32 [ %23, %21 ], [ 4, %8 ], [ 255, %.fold.split ]
-  %25 = tail call i32 @getpid() #39
-  %26 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %16, i64 noundef %15, ptr noundef nonnull @.str.66, ptr noundef nonnull %12, i32 noundef %25, ptr noundef nonnull %0) #39
+  %25 = tail call i32 @getpid() #41
+  %26 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %16, i64 noundef %15, ptr noundef nonnull @.str.66, ptr noundef nonnull %12, i32 noundef %25, ptr noundef nonnull %0) #41
   %27 = load ptr, ptr %0, align 8, !tbaa !154
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %29 = load i64, ptr %28, align 8, !tbaa !156
@@ -7618,16 +7618,16 @@ _ZL15fstReaderUint64P8_IO_FILE.exit158:           ; preds = %58
   %64 = load ptr, ptr %0, align 8, !tbaa !154
   %65 = tail call i32 @fflush(ptr noundef %64)
   %66 = load ptr, ptr %0, align 8, !tbaa !154
-  %67 = tail call i32 @fileno(ptr noundef %66) #39
-  %68 = tail call i32 @dup(i32 noundef %67) #39
+  %67 = tail call i32 @fileno(ptr noundef %66) #41
+  %68 = tail call i32 @dup(i32 noundef %67) #41
   %69 = tail call ptr @gzdopen(i32 noundef %68, ptr noundef nonnull @.str.34)
   %.not141 = icmp eq ptr %69, null
   br i1 %.not141, label %70, label %103
 
 70:                                               ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit158
   %71 = tail call i32 @close(i32 noundef %68)
-  tail call void @free(ptr noundef %17) #39
-  tail call void @free(ptr noundef %16) #39
+  tail call void @free(ptr noundef %17) #41
+  tail call void @free(ptr noundef %16) #41
   br label %.critedge
 
 72:                                               ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit
@@ -7708,12 +7708,12 @@ _ZL15fstReaderUint64P8_IO_FILE.exit169:           ; preds = %94
   %107 = tail call noalias ptr @tmpfile()
   store ptr null, ptr %106, align 8, !tbaa !28
   store ptr %107, ptr %6, align 8, !tbaa !153
-  tail call void @free(ptr noundef %16) #39
+  tail call void @free(ptr noundef %16) #41
   %.not143 = icmp eq ptr %107, null
   br i1 %.not143, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit, label %.thread
 
 _ZL13tmpfile_closePP8_IO_FILEPPc.exit:            ; preds = %105
-  tail call void @free(ptr noundef %17) #39
+  tail call void @free(ptr noundef %17) #41
   br label %.critedge
 
 108:                                              ; preds = %103
@@ -7721,7 +7721,7 @@ _ZL13tmpfile_closePP8_IO_FILEPPc.exit:            ; preds = %105
   br i1 %.not144, label %.thread, label %109
 
 109:                                              ; preds = %108
-  %110 = tail call i32 @unlink(ptr noundef nonnull %16) #39
+  %110 = tail call i32 @unlink(ptr noundef nonnull %16) #41
   br label %.thread
 
 .thread:                                          ; preds = %105, %109, %108
@@ -7766,8 +7766,8 @@ _ZL13tmpfile_closePP8_IO_FILEPPc.exit:            ; preds = %105
   ]
 
 125:                                              ; preds = %124
-  %126 = tail call noalias ptr @malloc(i64 noundef %.0129) #41
-  %127 = tail call noalias ptr @malloc(i64 noundef %.0128) #41
+  %126 = tail call noalias ptr @malloc(i64 noundef %.0129) #43
+  %127 = tail call noalias ptr @malloc(i64 noundef %.0128) #43
   %128 = load ptr, ptr %0, align 8, !tbaa !154
   %129 = tail call noundef i64 @fread(ptr noundef %126, i64 noundef %.0129, i64 noundef 1, ptr noundef %128)
   br label %130
@@ -7797,7 +7797,7 @@ _ZL14fstGetVarint64PhPi.exit:                     ; preds = %.preheader204
   %142 = sub i64 %140, %141
   %143 = trunc i64 %142 to i32
   %144 = add i32 %143, 1
-  %145 = tail call noalias ptr @malloc(i64 noundef %137) #41
+  %145 = tail call noalias ptr @malloc(i64 noundef %137) #43
   %146 = sext i32 %144 to i64
   %147 = getelementptr inbounds i8, ptr %126, i64 %146
   %148 = trunc i64 %.0129 to i32
@@ -7822,14 +7822,14 @@ _ZL14fstGetVarint64PhPi.exit:                     ; preds = %.preheader204
 
 162:                                              ; preds = %154, %_ZL14fstGetVarint64PhPi.exit
   %.6.shrunk = phi i32 [ 0, %_ZL14fstGetVarint64PhPi.exit ], [ %161, %154 ]
-  tail call void @free(ptr noundef %145) #39
-  tail call void @free(ptr noundef %127) #39
-  tail call void @free(ptr noundef %126) #39
+  tail call void @free(ptr noundef %145) #41
+  tail call void @free(ptr noundef %127) #41
+  tail call void @free(ptr noundef %126) #41
   br label %179
 
 163:                                              ; preds = %124
-  %164 = tail call noalias ptr @malloc(i64 noundef %.0129) #41
-  %165 = tail call noalias ptr @malloc(i64 noundef %.0128) #41
+  %164 = tail call noalias ptr @malloc(i64 noundef %.0129) #43
+  %165 = tail call noalias ptr @malloc(i64 noundef %.0128) #43
   %166 = load ptr, ptr %0, align 8, !tbaa !154
   %167 = tail call noundef i64 @fread(ptr noundef %164, i64 noundef %.0129, i64 noundef 1, ptr noundef %166)
   %168 = trunc i64 %.0129 to i32
@@ -7842,8 +7842,8 @@ _ZL14fstGetVarint64PhPi.exit:                     ; preds = %.preheader204
   %.not146 = icmp eq i64 %174, 1
   %narrow = select i1 %.not146, i1 %172, i1 false
   %spec.select152 = zext i1 %narrow to i32
-  tail call void @free(ptr noundef %165) #39
-  tail call void @free(ptr noundef %164) #39
+  tail call void @free(ptr noundef %165) #41
+  tail call void @free(ptr noundef %164) #41
   br label %179
 
 175:                                              ; preds = %124
@@ -7858,8 +7858,8 @@ _ZL14fstGetVarint64PhPi.exit:                     ; preds = %.preheader204
 
 179:                                              ; preds = %162, %175, %177, %163, %.thread174
   %.5 = phi i32 [ %.3, %.thread174 ], [ %.6.shrunk, %162 ], [ %spec.select152, %163 ], [ 0, %177 ], [ 0, %175 ]
-  tail call void @free(ptr noundef %17) #39
-  tail call void @free(ptr noundef %.0126173) #39
+  tail call void @free(ptr noundef %17) #41
+  tail call void @free(ptr noundef %.0126173) #41
   %180 = load ptr, ptr %0, align 8, !tbaa !154
   %181 = tail call i32 @fseeko(ptr noundef %180, i64 noundef %10, i32 noundef 0)
   %182 = icmp slt i32 %181, 0
@@ -7925,13 +7925,13 @@ define ptr @fstReaderIterateHier(ptr noundef %0) local_unnamed_addr #11 {
 
 _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit: ; preds = %13, %18
   %22 = load ptr, ptr %5, align 8, !tbaa !153
-  tail call void @clearerr(ptr noundef %22) #39
+  tail call void @clearerr(ptr noundef %22) #41
   %.pre = load ptr, ptr %5, align 8, !tbaa !153
   br label %23
 
 23:                                               ; preds = %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit, %9
   %24 = phi ptr [ %.pre, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit ], [ %.pre162, %9 ]
-  %25 = tail call i32 @feof(ptr noundef %24) #39
+  %25 = tail call i32 @feof(ptr noundef %24) #41
   %.not115 = icmp eq i32 %25, 0
   br i1 %.not115, label %26, label %205
 
@@ -8081,7 +8081,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit: ; preds = %13, %18
   br i1 %.not118, label %83, label %85
 
 83:                                               ; preds = %71
-  %84 = tail call noalias dereferenceable_or_null(69633) ptr @calloc(i64 noundef 1, i64 noundef 69633) #38
+  %84 = tail call noalias dereferenceable_or_null(69633) ptr @calloc(i64 noundef 1, i64 noundef 69633) #40
   store ptr %84, ptr %81, align 8, !tbaa !165
   br label %85
 
@@ -8424,7 +8424,7 @@ define range(i32 0, 2) i32 @fstReaderProcessHier(ptr noundef %0, ptr noundef cap
   br i1 %.not247, label %322, label %15
 
 15:                                               ; preds = %13, %9
-  %16 = tail call noalias dereferenceable_or_null(69633) ptr @malloc(i64 noundef 69633) #41
+  %16 = tail call noalias dereferenceable_or_null(69633) ptr @malloc(i64 noundef 69633) #43
   %.not248 = icmp eq ptr %1, null
   br i1 %.not248, label %34, label %17
 
@@ -8432,16 +8432,16 @@ define range(i32 0, 2) i32 @fstReaderProcessHier(ptr noundef %0, ptr noundef cap
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i16 0, ptr %6, align 2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 252
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.19, ptr noundef nonnull %18) #39
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.19, ptr noundef nonnull %18) #41
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 123
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.20, ptr noundef nonnull %20) #39
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.20, ptr noundef nonnull %20) #41
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %23 = load i64, ptr %22, align 8, !tbaa !147
   %.not249 = icmp eq i64 %23, 0
   br i1 %.not249, label %26, label %24
 
 24:                                               ; preds = %17
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.21, i64 noundef %23) #39
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.21, i64 noundef %23) #41
   br label %26
 
 26:                                               ; preds = %24, %17
@@ -8464,7 +8464,7 @@ switch.lookup:                                    ; preds = %26
   %.sink = phi i8 [ %switch.load, %switch.lookup ], [ 110, %26 ]
   %.8 = phi i32 [ %switch.load358, %switch.lookup ], [ 1, %26 ]
   store i8 %.sink, ptr %6, align 2, !tbaa !6
-  %33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.22, i32 noundef %.8, ptr noundef nonnull %6) #39
+  %33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.22, i32 noundef %.8, ptr noundef nonnull %6) #41
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %34
 
@@ -8475,13 +8475,13 @@ switch.lookup:                                    ; preds = %26
   store i64 0, ptr %36, align 8, !tbaa !144
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %38 = load ptr, ptr %37, align 8, !tbaa !173
-  call void @free(ptr noundef %38) #39
-  %39 = call noalias dereferenceable_or_null(262144) ptr @malloc(i64 noundef 262144) #41
+  call void @free(ptr noundef %38) #41
+  %39 = call noalias dereferenceable_or_null(262144) ptr @malloc(i64 noundef 262144) #43
   store ptr %39, ptr %37, align 8, !tbaa !173
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %41 = load ptr, ptr %40, align 8, !tbaa !174
-  call void @free(ptr noundef %41) #39
-  %42 = call noalias dereferenceable_or_null(65536) ptr @malloc(i64 noundef 65536) #41
+  call void @free(ptr noundef %41) #41
+  %42 = call noalias dereferenceable_or_null(65536) ptr @malloc(i64 noundef 65536) #43
   store ptr %42, ptr %40, align 8, !tbaa !174
   %43 = load ptr, ptr %11, align 8, !tbaa !153
   %44 = call i32 @fseeko(ptr noundef %43, i64 noundef 0, i32 noundef 0)
@@ -8497,7 +8497,7 @@ switch.lookup:                                    ; preds = %26
 
 _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit: ; preds = %34, %46
   %50 = load ptr, ptr %11, align 8, !tbaa !153
-  %51 = call i32 @feof(ptr noundef %50) #39
+  %51 = call i32 @feof(ptr noundef %50) #41
   %.not250315 = icmp eq i32 %51, 0
   br i1 %.not250315, label %.lr.ph317, label %._crit_edge318
 
@@ -8600,7 +8600,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit: ; preds = %34, %46
   %78 = zext nneg i32 %spec.store.select to i64
   %79 = getelementptr inbounds nuw ptr, ptr @_ZL8modtypes, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !28
-  %81 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.23, ptr noundef %80, ptr noundef nonnull %16) #39
+  %81 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.23, ptr noundef %80, ptr noundef nonnull %16) #41
   br label %292
 
 82:                                               ; preds = %53
@@ -8654,7 +8654,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit: ; preds = %34, %46
   br i1 %.not260, label %105, label %106
 
 105:                                              ; preds = %._crit_edge307
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %16, ptr noundef nonnull align 1 dereferenceable(3) @.str.25, i64 3, i1 false) #39
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %16, ptr noundef nonnull align 1 dereferenceable(3) @.str.25, i64 3, i1 false) #41
   br label %106
 
 106:                                              ; preds = %105, %._crit_edge307
@@ -8718,7 +8718,7 @@ _ZL17fstReaderVarint64P8_IO_FILE.exit:            ; preds = %.preheader.i
   %127 = zext nneg i32 %spec.store.select22 to i64
   %128 = getelementptr inbounds nuw ptr, ptr @_ZL10arraytypes, i64 %127
   %129 = load ptr, ptr %128, align 8, !tbaa !28
-  %130 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.91, ptr noundef %129, ptr noundef nonnull %16, i64 noundef %119) #39
+  %130 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.91, ptr noundef %129, ptr noundef nonnull %16, i64 noundef %119) #41
   br label %292
 
 131:                                              ; preds = %125
@@ -8727,7 +8727,7 @@ _ZL17fstReaderVarint64P8_IO_FILE.exit:            ; preds = %.preheader.i
   %132 = zext nneg i32 %spec.store.select23 to i64
   %133 = getelementptr inbounds nuw ptr, ptr @_ZL14enumvaluetypes, i64 %132
   %134 = load ptr, ptr %133, align 8, !tbaa !28
-  %135 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.92, ptr noundef %134, ptr noundef nonnull %16, i64 noundef %119) #39
+  %135 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.92, ptr noundef %134, ptr noundef nonnull %16, i64 noundef %119) #41
   br label %292
 
 136:                                              ; preds = %125
@@ -8736,7 +8736,7 @@ _ZL17fstReaderVarint64P8_IO_FILE.exit:            ; preds = %.preheader.i
   %137 = zext nneg i32 %spec.store.select24 to i64
   %138 = getelementptr inbounds nuw ptr, ptr @_ZL9packtypes, i64 %137
   %139 = load ptr, ptr %138, align 8, !tbaa !28
-  %140 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.76, ptr noundef %139, ptr noundef nonnull %16, i64 noundef %119) #39
+  %140 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.76, ptr noundef %139, ptr noundef nonnull %16, i64 noundef %119) #41
   br label %292
 
 141:                                              ; preds = %125
@@ -8744,7 +8744,7 @@ _ZL17fstReaderVarint64P8_IO_FILE.exit:            ; preds = %.preheader.i
   br i1 %142, label %143, label %145
 
 143:                                              ; preds = %141
-  %144 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.27, ptr noundef nonnull %16) #39
+  %144 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.27, ptr noundef nonnull %16) #41
   br label %292
 
 145:                                              ; preds = %141
@@ -8772,11 +8772,11 @@ _ZL17fstReaderVarint64P8_IO_FILE.exit:            ; preds = %.preheader.i
   br i1 %154, label %_ZL14fstGetVarint64PhPi.exit, label %.preheader, !llvm.loop !160
 
 _ZL14fstGetVarint64PhPi.exit:                     ; preds = %.preheader
-  %156 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.90, i32 noundef %89, i64 noundef %153, i64 noundef %119) #39
+  %156 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.90, i32 noundef %89, i64 noundef %153, i64 noundef %119) #41
   br label %292
 
 157:                                              ; preds = %145
-  %158 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.90, i32 noundef %89, ptr noundef nonnull %16, i64 noundef %119) #39
+  %158 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.90, i32 noundef %89, ptr noundef nonnull %16, i64 noundef %119) #41
   br label %292
 
 159:                                              ; preds = %53
@@ -8924,10 +8924,10 @@ _ZL17fstReaderVarint32P8_IO_FILE.exit286:         ; preds = %.preheader.i283
   %217 = load ptr, ptr %37, align 8, !tbaa !173
   %218 = zext i32 %216 to i64
   %219 = shl nuw nsw i64 %218, 2
-  %220 = call ptr @realloc(ptr noundef %217, i64 noundef %219) #45
+  %220 = call ptr @realloc(ptr noundef %217, i64 noundef %219) #47
   store ptr %220, ptr %37, align 8, !tbaa !173
   %221 = load ptr, ptr %40, align 8, !tbaa !174
-  %222 = call ptr @realloc(ptr noundef %221, i64 noundef %218) #45
+  %222 = call ptr @realloc(ptr noundef %221, i64 noundef %218) #47
   store ptr %222, ptr %40, align 8, !tbaa !174
   %.pre = load i32, ptr %35, align 8, !tbaa !136
   br label %223
@@ -9011,7 +9011,7 @@ _ZL8fstVcdIDPcj.exit:                             ; preds = %.lr.ph.i, %248
   %258 = sext i32 %55 to i64
   %259 = getelementptr inbounds ptr, ptr @_ZL8vartypes, i64 %258
   %260 = load ptr, ptr %259, align 8, !tbaa !28
-  %261 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.31, ptr noundef %260, i32 noundef %249, ptr noundef nonnull %7, ptr noundef nonnull %16) #39
+  %261 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.31, ptr noundef %260, i32 noundef %249, ptr noundef nonnull %7, ptr noundef nonnull %16) #41
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %262
 
@@ -9075,7 +9075,7 @@ _ZL8fstVcdIDPcj.exit294:                          ; preds = %.lr.ph.i289
   %285 = sext i32 %55 to i64
   %286 = getelementptr inbounds ptr, ptr @_ZL8vartypes, i64 %285
   %287 = load ptr, ptr %286, align 8, !tbaa !28
-  %288 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.31, ptr noundef %287, i32 noundef %278, ptr noundef nonnull %8, ptr noundef nonnull %16) #39
+  %288 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.31, ptr noundef %287, i32 noundef %278, ptr noundef nonnull %8, ptr noundef nonnull %16) #41
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %289
 
@@ -9088,7 +9088,7 @@ _ZL8fstVcdIDPcj.exit294:                          ; preds = %.lr.ph.i289
 292:                                              ; preds = %53, %262, %289, %159, %160, %163, %_ZL17fstReaderVarint64P8_IO_FILE.exit, %122, %143, %157, %_ZL14fstGetVarint64PhPi.exit, %136, %131, %126, %82, %83, %76, %77
   %.1224 = phi i32 [ %.0223316, %53 ], [ %.0223316, %77 ], [ %.0223316, %76 ], [ %.0223316, %83 ], [ %.0223316, %82 ], [ %.0223316, %143 ], [ %.0223316, %_ZL14fstGetVarint64PhPi.exit ], [ %.0223316, %157 ], [ %.0223316, %126 ], [ %.0223316, %131 ], [ %.0223316, %136 ], [ %.0223316, %122 ], [ %.0223316, %_ZL17fstReaderVarint64P8_IO_FILE.exit ], [ %.0223316, %163 ], [ %.0223316, %160 ], [ %.0223316, %159 ], [ %.0223316, %289 ], [ %.2225, %262 ]
   %293 = load ptr, ptr %11, align 8, !tbaa !153
-  %294 = call i32 @feof(ptr noundef %293) #39
+  %294 = call i32 @feof(ptr noundef %293) #41
   %.not250 = icmp eq i32 %294, 0
   br i1 %.not250, label %53, label %._crit_edge318, !llvm.loop !180
 
@@ -9105,26 +9105,26 @@ _ZL8fstVcdIDPcj.exit294:                          ; preds = %.lr.ph.i289
   %299 = load ptr, ptr %37, align 8, !tbaa !173
   %300 = zext i32 %spec.select to i64
   %301 = shl nuw nsw i64 %300, 2
-  %302 = call ptr @realloc(ptr noundef %299, i64 noundef %301) #45
+  %302 = call ptr @realloc(ptr noundef %299, i64 noundef %301) #47
   store ptr %302, ptr %37, align 8, !tbaa !173
   %303 = load ptr, ptr %40, align 8, !tbaa !174
-  %304 = call ptr @realloc(ptr noundef %303, i64 noundef %300) #45
+  %304 = call ptr @realloc(ptr noundef %303, i64 noundef %300) #47
   store ptr %304, ptr %40, align 8, !tbaa !174
   %305 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %306 = load ptr, ptr %305, align 8, !tbaa !137
-  call void @free(ptr noundef %306) #39
+  call void @free(ptr noundef %306) #41
   %307 = add i32 %spec.select, 7
   %308 = lshr i32 %307, 3
   %309 = zext nneg i32 %308 to i64
-  %310 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %309) #38
+  %310 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %309) #40
   store ptr %310, ptr %305, align 8, !tbaa !137
   %311 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %312 = load ptr, ptr %311, align 8, !tbaa !181
-  call void @free(ptr noundef %312) #39
+  call void @free(ptr noundef %312) #41
   %313 = load i32, ptr %10, align 8, !tbaa !172
   %314 = add i32 %313, 1
   %315 = zext i32 %314 to i64
-  %316 = call noalias ptr @malloc(i64 noundef %315) #41
+  %316 = call noalias ptr @malloc(i64 noundef %315) #43
   store ptr %316, ptr %311, align 8, !tbaa !181
   %317 = load i32, ptr %35, align 8, !tbaa !136
   %318 = zext i32 %317 to i64
@@ -9132,7 +9132,7 @@ _ZL8fstVcdIDPcj.exit294:                          ; preds = %.lr.ph.i289
   %320 = add i64 %319, %318
   %321 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %320, ptr %321, align 8, !tbaa !143
-  call void @free(ptr noundef %16) #39
+  call void @free(ptr noundef %16) #41
   br label %322
 
 322:                                              ; preds = %13, %2, %297
@@ -9173,7 +9173,7 @@ define noundef range(i32 0, 2) i32 @_Z13fstReaderInitP16fstReaderContext(ptr nou
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %28 = load ptr, ptr %27, align 8, !tbaa !155
-  %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #40
+  %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #42
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %30 = call noundef i64 @fread(ptr noundef nonnull %18, i64 noundef 8, i64 noundef 1, ptr noundef %.pre)
   br label %31
@@ -9218,10 +9218,10 @@ _ZL15fstReaderUint64P8_IO_FILE.exit291:           ; preds = %39
   %46 = shl i64 %29, 32
   %sext = add i64 %46, 210453397504
   %47 = ashr exact i64 %sext, 32
-  %48 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %47) #38
+  %48 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %47) #40
   %49 = load ptr, ptr %27, align 8, !tbaa !155
-  %50 = tail call i32 @getpid() #39
-  %51 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %48, i64 noundef %47, ptr noundef nonnull @.str.33, ptr noundef %49, i32 noundef %50, ptr noundef nonnull %0) #39
+  %50 = tail call i32 @getpid() #41
+  %51 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %48, i64 noundef %47, ptr noundef nonnull @.str.33, ptr noundef %49, i32 noundef %50, ptr noundef nonnull %0) #41
   %52 = tail call noalias ptr @fopen(ptr noundef %48, ptr noundef nonnull @.str)
   %.not265 = icmp eq ptr %52, null
   br i1 %.not265, label %53, label %56
@@ -9230,7 +9230,7 @@ _ZL15fstReaderUint64P8_IO_FILE.exit291:           ; preds = %39
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 67248
   %55 = tail call noalias ptr @tmpfile()
   store ptr null, ptr %54, align 8, !tbaa !28
-  tail call void @free(ptr noundef %48) #39
+  tail call void @free(ptr noundef %48) #41
   %.not266 = icmp eq ptr %55, null
   br i1 %.not266, label %.critedge, label %.thread
 
@@ -9239,8 +9239,8 @@ _ZL15fstReaderUint64P8_IO_FILE.exit291:           ; preds = %39
   br i1 %.not267, label %.thread, label %57
 
 57:                                               ; preds = %56
-  %58 = tail call i32 @unlink(ptr noundef nonnull %48) #39
-  tail call void @free(ptr noundef nonnull %48) #39
+  %58 = tail call i32 @unlink(ptr noundef nonnull %48) #41
+  tail call void @free(ptr noundef nonnull %48) #41
   br label %.thread
 
 .thread:                                          ; preds = %53, %57, %56
@@ -9261,8 +9261,8 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit: ; preds = %.thread, %62
   %66 = load ptr, ptr %0, align 8, !tbaa !154
   %67 = tail call i32 @fflush(ptr noundef %66)
   %68 = load ptr, ptr %0, align 8, !tbaa !154
-  %69 = tail call i32 @fileno(ptr noundef %68) #39
-  %70 = tail call i32 @dup(i32 noundef %69) #39
+  %69 = tail call i32 @fileno(ptr noundef %68) #41
+  %70 = tail call i32 @dup(i32 noundef %69) #41
   %71 = tail call ptr @gzdopen(i32 noundef %70, ptr noundef nonnull @.str.34)
   %.not268 = icmp eq ptr %71, null
   br i1 %.not268, label %.thread382.critedge, label %.preheader402
@@ -9737,7 +9737,7 @@ _ZL15fstReaderUint64P8_IO_FILE.exit348:           ; preds = %270
 
 _ZL15fstReaderUint64P8_IO_FILE.exit353:           ; preds = %283
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %289 = call noalias ptr @malloc(i64 noundef %288) #41
+  %289 = call noalias ptr @malloc(i64 noundef %288) #43
   %290 = load i8, ptr %105, align 2
   %291 = or i8 %290, 8
   store i8 %291, ptr %105, align 2
@@ -9764,18 +9764,18 @@ _ZL15fstReaderUint64P8_IO_FILE.exit358:           ; preds = %294
   store i32 %299, ptr %107, align 8, !tbaa !136
   store i32 32, ptr %108, align 8, !tbaa !172
   %301 = load ptr, ptr %109, align 8, !tbaa !137
-  call void @free(ptr noundef %301) #39
+  call void @free(ptr noundef %301) #41
   %302 = load i32, ptr %107, align 8, !tbaa !136
   %303 = add i32 %302, 7
   %304 = lshr i32 %303, 3
   %305 = zext nneg i32 %304 to i64
-  %306 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %305) #38
+  %306 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %305) #40
   store ptr %306, ptr %109, align 8, !tbaa !137
   %.not273 = icmp eq i64 %300, %288
   br i1 %.not273, label %316, label %307
 
 307:                                              ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit358
-  %308 = call noalias ptr @malloc(i64 noundef %300) #41
+  %308 = call noalias ptr @malloc(i64 noundef %300) #43
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i64 %288, ptr %22, align 8, !tbaa !56
   %309 = load ptr, ptr %0, align 8, !tbaa !154
@@ -9786,12 +9786,12 @@ _ZL15fstReaderUint64P8_IO_FILE.exit358:           ; preds = %294
 
 312:                                              ; preds = %307
   %313 = load ptr, ptr @stderr, align 8, !tbaa !41
-  %314 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %313, ptr noundef nonnull @.str.35, i32 noundef %311) #43
-  call void @exit(i32 noundef 255) #46
+  %314 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %313, ptr noundef nonnull @.str.35, i32 noundef %311) #45
+  call void @exit(i32 noundef 255) #48
   unreachable
 
 315:                                              ; preds = %307
-  call void @free(ptr noundef %308) #39
+  call void @free(ptr noundef %308) #41
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %319
 
@@ -9802,17 +9802,17 @@ _ZL15fstReaderUint64P8_IO_FILE.exit358:           ; preds = %294
 
 319:                                              ; preds = %316, %315
   %320 = load ptr, ptr %110, align 8, !tbaa !173
-  call void @free(ptr noundef %320) #39
+  call void @free(ptr noundef %320) #41
   %321 = load i32, ptr %107, align 8, !tbaa !136
   %322 = zext i32 %321 to i64
   %323 = shl nuw nsw i64 %322, 2
-  %324 = call noalias ptr @malloc(i64 noundef %323) #41
+  %324 = call noalias ptr @malloc(i64 noundef %323) #43
   store ptr %324, ptr %110, align 8, !tbaa !173
   %325 = load ptr, ptr %111, align 8, !tbaa !174
-  call void @free(ptr noundef %325) #39
+  call void @free(ptr noundef %325) #41
   %326 = load i32, ptr %107, align 8, !tbaa !136
   %327 = zext i32 %326 to i64
-  %328 = call noalias ptr @malloc(i64 noundef %327) #41
+  %328 = call noalias ptr @malloc(i64 noundef %327) #43
   store ptr %328, ptr %111, align 8, !tbaa !174
   %.not440 = icmp eq i32 %326, 0
   br i1 %.not440, label %._crit_edge, label %.preheader
@@ -9890,13 +9890,13 @@ _ZL14fstGetVarint32PhPi.exit:                     ; preds = %.preheader548
 
 ._crit_edge:                                      ; preds = %361, %319
   %365 = load ptr, ptr %112, align 8, !tbaa !181
-  call void @free(ptr noundef %365) #39
+  call void @free(ptr noundef %365) #41
   %366 = load i32, ptr %108, align 8, !tbaa !172
   %367 = add i32 %366, 1
   %368 = zext i32 %367 to i64
-  %369 = call noalias ptr @malloc(i64 noundef %368) #41
+  %369 = call noalias ptr @malloc(i64 noundef %368) #43
   store ptr %369, ptr %112, align 8, !tbaa !181
-  call void @free(ptr noundef %289) #39
+  call void @free(ptr noundef %289) #41
   br label %.loopexit
 
 370:                                              ; preds = %153
@@ -9968,16 +9968,16 @@ _ZL17fstReaderVarint32P8_IO_FILE.exit:            ; preds = %.preheader.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 %398, ptr %102, align 8, !tbaa !148
   %401 = load ptr, ptr %103, align 8, !tbaa !149
-  call void @free(ptr noundef %401) #39
+  call void @free(ptr noundef %401) #41
   %402 = load i32, ptr %102, align 8, !tbaa !148
   %403 = zext i32 %402 to i64
-  %404 = call noalias ptr @calloc(i64 noundef %403, i64 noundef 8) #38
+  %404 = call noalias ptr @calloc(i64 noundef %403, i64 noundef 8) #40
   store ptr %404, ptr %103, align 8, !tbaa !149
   %405 = load ptr, ptr %104, align 8, !tbaa !150
-  call void @free(ptr noundef %405) #39
+  call void @free(ptr noundef %405) #41
   %406 = load i32, ptr %102, align 8, !tbaa !148
   %407 = zext i32 %406 to i64
-  %408 = call noalias ptr @calloc(i64 noundef %407, i64 noundef 1) #38
+  %408 = call noalias ptr @calloc(i64 noundef %407, i64 noundef 1) #40
   store ptr %408, ptr %104, align 8, !tbaa !150
   %.not439 = icmp eq i32 %406, 0
   br i1 %.not439, label %.loopexit, label %.lr.ph435
@@ -10112,14 +10112,14 @@ declare i32 @gzread(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @uncompress(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @fstReaderOpenForUtilitiesOnly() local_unnamed_addr #28 {
-  %1 = tail call noalias dereferenceable_or_null(67264) ptr @calloc(i64 noundef 1, i64 noundef 67264) #38
+define noalias noundef ptr @fstReaderOpenForUtilitiesOnly() local_unnamed_addr #29 {
+  %1 = tail call noalias dereferenceable_or_null(67264) ptr @calloc(i64 noundef 1, i64 noundef 67264) #40
   ret ptr %1
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @fstReaderOpen(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #11 {
-  %2 = tail call noalias dereferenceable_or_null(67264) ptr @calloc(i64 noundef 1, i64 noundef 67264) #38
+  %2 = tail call noalias dereferenceable_or_null(67264) ptr @calloc(i64 noundef 1, i64 noundef 67264) #40
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -10130,24 +10130,24 @@ define noundef ptr @fstReaderOpen(ptr noundef readonly captures(address_is_null)
   br i1 %.not26, label %5, label %6
 
 5:                                                ; preds = %3, %1
-  tail call void @free(ptr noundef %2) #39
+  tail call void @free(ptr noundef %2) #41
   br label %35
 
 6:                                                ; preds = %3
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #40
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #42
   %8 = shl i64 %7, 32
   %sext = add i64 %8, 25769803776
   %9 = ashr exact i64 %sext, 32
-  %10 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %9) #38
+  %10 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %9) #40
   %11 = ashr exact i64 %8, 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr nonnull align 1 %0, i64 %11, i1 false)
   %12 = getelementptr inbounds i8, ptr %10, i64 %11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %12, ptr noundef nonnull align 1 dereferenceable(6) @.str.1, i64 6, i1 false) #39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %12, ptr noundef nonnull align 1 dereferenceable(6) @.str.1, i64 6, i1 false) #41
   %13 = tail call noalias ptr @fopen(ptr noundef %10, ptr noundef nonnull @.str.34)
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %13, ptr %14, align 8, !tbaa !153
-  tail call void @free(ptr noundef %10) #39
-  %15 = tail call noalias ptr @strdup(ptr noundef nonnull %0) #39
+  tail call void @free(ptr noundef %10) #41
+  %15 = tail call noalias ptr @strdup(ptr noundef nonnull %0) #41
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store ptr %15, ptr %16, align 8, !tbaa !155
   %17 = tail call noundef i32 @_Z13fstReaderInitP16fstReaderContext(ptr noundef nonnull %2)
@@ -10202,7 +10202,7 @@ define void @fstReaderClose(ptr noundef captures(address_is_null) %0) local_unna
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %4 = load ptr, ptr %3, align 8, !tbaa !124
-  tail call void @free(ptr noundef %4) #39
+  tail call void @free(ptr noundef %4) #41
   store ptr null, ptr %3, align 8, !tbaa !124
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %6 = load ptr, ptr %5, align 8, !tbaa !129
@@ -10212,7 +10212,7 @@ define void @fstReaderClose(ptr noundef captures(address_is_null) %0) local_unna
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %7 = phi ptr [ %8, %.lr.ph.i ], [ %6, %2 ]
   %8 = load ptr, ptr %7, align 8, !tbaa !132
-  tail call void @free(ptr noundef nonnull %7) #39
+  tail call void @free(ptr noundef nonnull %7) #41
   store ptr %8, ptr %5, align 8, !tbaa !129
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %_ZL28fstReaderDeallocateScopeDataP16fstReaderContext.exit, label %.lr.ph.i, !llvm.loop !187
@@ -10220,23 +10220,23 @@ define void @fstReaderClose(ptr noundef captures(address_is_null) %0) local_unna
 _ZL28fstReaderDeallocateScopeDataP16fstReaderContext.exit: ; preds = %.lr.ph.i, %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %10 = load ptr, ptr %9, align 8, !tbaa !188
-  tail call void @free(ptr noundef %10) #39
+  tail call void @free(ptr noundef %10) #41
   store ptr null, ptr %9, align 8, !tbaa !188
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %12 = load ptr, ptr %11, align 8, !tbaa !189
-  tail call void @free(ptr noundef %12) #39
+  tail call void @free(ptr noundef %12) #41
   store ptr null, ptr %11, align 8, !tbaa !189
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %14 = load ptr, ptr %13, align 8, !tbaa !190
-  tail call void @free(ptr noundef %14) #39
+  tail call void @free(ptr noundef %14) #41
   store ptr null, ptr %13, align 8, !tbaa !190
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %16 = load ptr, ptr %15, align 8, !tbaa !191
-  tail call void @free(ptr noundef %16) #39
+  tail call void @free(ptr noundef %16) #41
   store ptr null, ptr %15, align 8, !tbaa !191
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %18 = load ptr, ptr %17, align 8, !tbaa !192
-  tail call void @free(ptr noundef %18) #39
+  tail call void @free(ptr noundef %18) #41
   store ptr null, ptr %17, align 8, !tbaa !192
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %20 = load i8, ptr %19, align 8
@@ -10244,39 +10244,39 @@ _ZL28fstReaderDeallocateScopeDataP16fstReaderContext.exit: ; preds = %.lr.ph.i, 
   store i8 %21, ptr %19, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %23 = load ptr, ptr %22, align 8, !tbaa !193
-  tail call void @free(ptr noundef %23) #39
+  tail call void @free(ptr noundef %23) #41
   store ptr null, ptr %22, align 8, !tbaa !193
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %25 = load ptr, ptr %24, align 8, !tbaa !137
-  tail call void @free(ptr noundef %25) #39
+  tail call void @free(ptr noundef %25) #41
   store ptr null, ptr %24, align 8, !tbaa !137
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %27 = load ptr, ptr %26, align 8, !tbaa !149
-  tail call void @free(ptr noundef %27) #39
+  tail call void @free(ptr noundef %27) #41
   store ptr null, ptr %26, align 8, !tbaa !149
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %29 = load ptr, ptr %28, align 8, !tbaa !150
-  tail call void @free(ptr noundef %29) #39
+  tail call void @free(ptr noundef %29) #41
   store ptr null, ptr %28, align 8, !tbaa !150
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %31 = load ptr, ptr %30, align 8, !tbaa !181
-  tail call void @free(ptr noundef %31) #39
+  tail call void @free(ptr noundef %31) #41
   store ptr null, ptr %30, align 8, !tbaa !181
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %33 = load ptr, ptr %32, align 8, !tbaa !174
-  tail call void @free(ptr noundef %33) #39
+  tail call void @free(ptr noundef %33) #41
   store ptr null, ptr %32, align 8, !tbaa !174
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %35 = load ptr, ptr %34, align 8, !tbaa !173
-  tail call void @free(ptr noundef %35) #39
+  tail call void @free(ptr noundef %35) #41
   store ptr null, ptr %34, align 8, !tbaa !173
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %37 = load ptr, ptr %36, align 8, !tbaa !155
-  tail call void @free(ptr noundef %37) #39
+  tail call void @free(ptr noundef %37) #41
   store ptr null, ptr %36, align 8, !tbaa !155
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 1688
   %39 = load ptr, ptr %38, align 8, !tbaa !165
-  tail call void @free(ptr noundef %39) #39
+  tail call void @free(ptr noundef %39) #41
   store ptr null, ptr %38, align 8, !tbaa !165
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !153
@@ -10292,9 +10292,9 @@ _ZL28fstReaderDeallocateScopeDataP16fstReaderContext.exit: ; preds = %.lr.ph.i, 
   br i1 %.not14.i, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit, label %46
 
 46:                                               ; preds = %42
-  %47 = tail call i32 @unlink(ptr noundef nonnull %45) #39
+  %47 = tail call i32 @unlink(ptr noundef nonnull %45) #41
   %48 = load ptr, ptr %43, align 8, !tbaa !28
-  tail call void @free(ptr noundef %48) #39
+  tail call void @free(ptr noundef %48) #41
   store ptr null, ptr %43, align 8, !tbaa !28
   br label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit
 
@@ -10312,9 +10312,9 @@ _ZL13tmpfile_closePP8_IO_FILEPPc.exit:            ; preds = %46, %42, %_ZL28fstR
   br i1 %.not14.i39, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit40, label %54
 
 54:                                               ; preds = %50
-  %55 = tail call i32 @unlink(ptr noundef nonnull %53) #39
+  %55 = tail call i32 @unlink(ptr noundef nonnull %53) #41
   %56 = load ptr, ptr %51, align 8, !tbaa !28
-  tail call void @free(ptr noundef %56) #39
+  tail call void @free(ptr noundef %56) #41
   store ptr null, ptr %51, align 8, !tbaa !28
   br label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit40
 
@@ -10325,13 +10325,13 @@ _ZL13tmpfile_closePP8_IO_FILEPPc.exit40:          ; preds = %50, %54
   br i1 %.not35, label %62, label %59
 
 59:                                               ; preds = %_ZL13tmpfile_closePP8_IO_FILEPPc.exit40
-  %60 = tail call i32 @unlink(ptr noundef nonnull %58) #39
+  %60 = tail call i32 @unlink(ptr noundef nonnull %58) #41
   %61 = load ptr, ptr %57, align 8, !tbaa !194
-  tail call void @free(ptr noundef %61) #39
+  tail call void @free(ptr noundef %61) #41
   br label %62
 
 62:                                               ; preds = %_ZL13tmpfile_closePP8_IO_FILEPPc.exit40, %59, %_ZL13tmpfile_closePP8_IO_FILEPPc.exit
-  tail call void @free(ptr noundef nonnull %0) #39
+  tail call void @free(ptr noundef nonnull %0) #41
   br label %63
 
 63:                                               ; preds = %62, %1
@@ -10382,16 +10382,16 @@ define range(i32 0, 2) i32 @fstReaderIterBlocks2(ptr noundef %0, ptr noundef rea
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %37 = load i32, ptr %36, align 8, !tbaa !136
   %38 = zext i32 %37 to i64
-  %39 = tail call noalias ptr @calloc(i64 noundef %38, i64 noundef 4) #38
-  %40 = tail call noalias ptr @calloc(i64 noundef %38, i64 noundef 4) #38
-  %41 = tail call noalias ptr @calloc(i64 noundef %38, i64 noundef 4) #38
+  %39 = tail call noalias ptr @calloc(i64 noundef %38, i64 noundef 4) #40
+  %40 = tail call noalias ptr @calloc(i64 noundef %38, i64 noundef 4) #40
+  %41 = tail call noalias ptr @calloc(i64 noundef %38, i64 noundef 4) #40
   %.not1021 = icmp eq ptr %4, null
   br i1 %.not1021, label %47, label %42
 
 42:                                               ; preds = %35
   %43 = tail call i32 @fflush(ptr noundef nonnull %4)
-  %44 = tail call i32 @setvbuf(ptr noundef nonnull %4, ptr noundef null, i32 noundef 2, i64 noundef 0) #39
-  %45 = tail call i32 @fileno(ptr noundef nonnull %4) #39
+  %44 = tail call i32 @setvbuf(ptr noundef nonnull %4, ptr noundef null, i32 noundef 2, i64 noundef 0) #41
+  %45 = tail call i32 @fileno(ptr noundef nonnull %4) #41
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 1704
   store i32 %45, ptr %46, align 8, !tbaa !195
   br label %47
@@ -10577,7 +10577,7 @@ _ZL15fstReaderUint64P8_IO_FILE.exit1109:          ; preds = %103
 _ZL15fstReaderUint64P8_IO_FILE.exit1114:          ; preds = %121
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %127 = add i64 %126, 66
-  %128 = call noalias ptr @malloc(i64 noundef %127) #41
+  %128 = call noalias ptr @malloc(i64 noundef %127) #43
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %129 = load ptr, ptr %0, align 8, !tbaa !154
   %130 = add i64 %86, %88
@@ -10658,7 +10658,7 @@ _ZL15fstReaderUint64P8_IO_FILE.exit1130:          ; preds = %155
   br i1 %161, label %.loopexit1425, label %162
 
 162:                                              ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit1130
-  %163 = call noalias ptr @malloc(i64 noundef %144) #41
+  %163 = call noalias ptr @malloc(i64 noundef %144) #43
   %.not1025 = icmp eq ptr %163, null
   br i1 %.not1025, label %.loopexit1425, label %164
 
@@ -10681,7 +10681,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit1131: ; preds = %164, %16
   br i1 %.not1026, label %181, label %172
 
 172:                                              ; preds = %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit1131
-  %173 = call noalias ptr @malloc(i64 noundef %152) #41
+  %173 = call noalias ptr @malloc(i64 noundef %152) #43
   %174 = load ptr, ptr %0, align 8, !tbaa !154
   %175 = call noundef i64 @fread(ptr noundef %173, i64 noundef %152, i64 noundef 1, ptr noundef %174)
   %176 = call i32 @uncompress(ptr noundef nonnull %163, ptr noundef nonnull %19, ptr noundef %173, i64 noundef %152)
@@ -10690,12 +10690,12 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit1131: ; preds = %164, %16
 
 177:                                              ; preds = %172
   %178 = load ptr, ptr @stderr, align 8, !tbaa !41
-  %179 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %178, ptr noundef nonnull @.str.36, i32 noundef %176) #43
-  call void @exit(i32 noundef 255) #46
+  %179 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %178, ptr noundef nonnull @.str.36, i32 noundef %176) #45
+  call void @exit(i32 noundef 255) #48
   unreachable
 
 180:                                              ; preds = %172
-  call void @free(ptr noundef %173) #39
+  call void @free(ptr noundef %173) #41
   br label %184
 
 181:                                              ; preds = %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit1131
@@ -10704,7 +10704,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit1131: ; preds = %164, %16
   br label %184
 
 184:                                              ; preds = %181, %180
-  call void @free(ptr noundef %.0853.ph) #39
+  call void @free(ptr noundef %.0853.ph) #41
   %.not1028 = icmp ult i64 %156, 2305843009213693952
   br i1 %.not1028, label %186, label %185
 
@@ -10713,7 +10713,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit1131: ; preds = %164, %16
   unreachable
 
 186:                                              ; preds = %184
-  %187 = call noalias ptr @calloc(i64 noundef %160, i64 noundef 8) #38
+  %187 = call noalias ptr @calloc(i64 noundef %160, i64 noundef 8) #40
   %.not1713 = icmp eq i64 %160, 0
   br i1 %.not1713, label %._crit_edge, label %.preheader1418
 
@@ -10762,8 +10762,8 @@ _ZL14fstGetVarint64PhPi.exit:                     ; preds = %.preheader2476
 ._crit_edge:                                      ; preds = %_ZL14fstGetVarint64PhPi.exit, %186
   %210 = call i64 @llvm.umax.i64(i64 %160, i64 1)
   %211 = trunc nuw i64 %210 to i32
-  %212 = call noalias ptr @calloc(i64 noundef %210, i64 noundef 4) #38
-  call void @free(ptr noundef %163) #39
+  %212 = call noalias ptr @calloc(i64 noundef %210, i64 noundef 4) #40
+  call void @free(ptr noundef %163) #41
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %213 = load ptr, ptr %0, align 8, !tbaa !154
   %214 = add nsw i64 %.0867, 33
@@ -10906,7 +10906,7 @@ _ZL17fstReaderVarint64P8_IO_FILE.exit1156:        ; preds = %.preheader.i1153
   br i1 %or.cond8, label %270, label %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit1170
 
 270:                                              ; preds = %266
-  %271 = call noalias ptr @malloc(i64 noundef %232) #41
+  %271 = call noalias ptr @malloc(i64 noundef %232) #43
   br i1 %.not1021, label %295, label %272
 
 272:                                              ; preds = %270
@@ -10925,7 +10925,7 @@ _ZL17fstReaderVarint64P8_IO_FILE.exit1156:        ; preds = %.preheader.i1153
 
 276:                                              ; preds = %275, %273
   %.5949 = phi i32 [ 2, %275 ], [ %.0944.ph, %273 ]
-  %277 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %20, i64 noundef 32, ptr noundef nonnull @.str.39, i64 noundef %100) #39
+  %277 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %20, i64 noundef 32, ptr noundef nonnull @.str.39, i64 noundef %100) #41
   call fastcc void @_ZL9fstWritexP16fstReaderContextPvj(ptr noundef %0, ptr noundef nonnull %20, i32 noundef %277)
   %.not1031 = icmp eq i32 %.5949, 0
   br i1 %.not1031, label %278, label %279
@@ -10958,7 +10958,7 @@ _ZL17fstReaderVarint64P8_IO_FILE.exit1156:        ; preds = %.preheader.i1153
   %291 = load i8, ptr %290, align 1, !tbaa !6
   %.not1034 = icmp eq i8 %291, 0
   %292 = select i1 %.not1034, ptr @.str.43, ptr @.str.42
-  %293 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %20, i64 noundef 32, ptr noundef nonnull @.str.41, ptr noundef nonnull %292) #39
+  %293 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %20, i64 noundef 32, ptr noundef nonnull @.str.41, ptr noundef nonnull %292) #41
   call fastcc void @_ZL9fstWritexP16fstReaderContextPvj(ptr noundef %0, ptr noundef nonnull %20, i32 noundef %293)
   br label %294
 
@@ -10979,7 +10979,7 @@ _ZL17fstReaderVarint64P8_IO_FILE.exit1156:        ; preds = %.preheader.i1153
   br label %309
 
 300:                                              ; preds = %295
-  %301 = call noalias ptr @malloc(i64 noundef %247) #41
+  %301 = call noalias ptr @malloc(i64 noundef %247) #43
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i64 %232, ptr %21, align 8, !tbaa !56
   %302 = load ptr, ptr %0, align 8, !tbaa !154
@@ -10990,12 +10990,12 @@ _ZL17fstReaderVarint64P8_IO_FILE.exit1156:        ; preds = %.preheader.i1153
 
 305:                                              ; preds = %300
   %306 = load ptr, ptr @stderr, align 8, !tbaa !41
-  %307 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %306, ptr noundef nonnull @.str.44, i32 noundef %304) #43
-  call void @exit(i32 noundef 255) #46
+  %307 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %306, ptr noundef nonnull @.str.44, i32 noundef %304) #45
+  call void @exit(i32 noundef 255) #48
   unreachable
 
 308:                                              ; preds = %300
-  call void @free(ptr noundef %301) #39
+  call void @free(ptr noundef %301) #41
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %309
 
@@ -11262,7 +11262,7 @@ _ZL9fstWritexP16fstReaderContextPvj.exit:         ; preds = %_ZL17fstVcdIDForFwr
   %439 = load i32, ptr %58, align 8, !tbaa !172
   %440 = add i32 %439, 1
   %441 = zext i32 %440 to i64
-  %442 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %438, i64 noundef %441, ptr noundef nonnull @.str.47, double noundef %437) #39
+  %442 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %438, i64 noundef %441, ptr noundef nonnull @.str.47, double noundef %437) #41
   %443 = add i32 %.08831660, 1
   %444 = load ptr, ptr %59, align 8, !tbaa !181
   call void %1(ptr noundef %3, i64 noundef %100, i32 noundef %443, ptr noundef %444)
@@ -11317,7 +11317,7 @@ _ZL8fstVcdIDPcj.exit:                             ; preds = %.lr.ph.i1166, %.loo
   %.0.lcssa.i1169 = phi ptr [ %25, %.loopexit1413 ], [ %460, %.lr.ph.i1166 ]
   store i8 0, ptr %.0.lcssa.i1169, align 1, !tbaa !6
   %462 = load double, ptr %24, align 8, !tbaa !36
-  %463 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %26, i64 noundef 64, ptr noundef nonnull @.str.48, double noundef %462, ptr noundef nonnull %25) #39
+  %463 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %26, i64 noundef 64, ptr noundef nonnull @.str.48, double noundef %462, ptr noundef nonnull %25) #41
   call fastcc void @_ZL9fstWritexP16fstReaderContextPvj(ptr noundef %0, ptr noundef nonnull %26, i32 noundef %463)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
@@ -11338,7 +11338,7 @@ _ZL8fstVcdIDPcj.exit:                             ; preds = %.lr.ph.i1166, %.loo
   br i1 %472, label %.lr.ph, label %._crit_edge1663, !llvm.loop !203
 
 ._crit_edge1663:                                  ; preds = %465, %309
-  call void @free(ptr noundef %271) #39
+  call void @free(ptr noundef %271) #41
   %473 = load ptr, ptr %0, align 8, !tbaa !154
   %474 = sub nsw i64 0, %247
   %475 = call i32 @fseeko(ptr noundef %473, i64 noundef %474, i32 noundef 1)
@@ -11443,7 +11443,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit1182: ; preds = %_ZL17fst
 _ZL15fstReaderUint64P8_IO_FILE.exit1187:          ; preds = %515
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %521 = sub nsw i64 %506, %520
-  %522 = call noalias ptr @malloc(i64 noundef %520) #41
+  %522 = call noalias ptr @malloc(i64 noundef %520) #43
   %.not1036 = icmp eq ptr %522, null
   br i1 %.not1036, label %.loopexit1419, label %523
 
@@ -11466,8 +11466,8 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit1188: ; preds = %523, %52
   br i1 %532, label %533, label %539
 
 533:                                              ; preds = %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit1188
-  call void @free(ptr noundef %.0870.ph) #39
-  call void @free(ptr noundef %.0876.ph) #39
+  call void @free(ptr noundef %.0870.ph) #41
+  call void @free(ptr noundef %.0876.ph) #41
   %534 = add i64 %498, 1
   %.not1037 = icmp eq i64 %534, 0
   br i1 %.not1037, label %.thread1315, label %535
@@ -11481,8 +11481,8 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit1188: ; preds = %523, %52
   br i1 %.not1038, label %.thread1318, label %538
 
 .thread1318:                                      ; preds = %535
-  %536 = call noalias ptr @calloc(i64 noundef %534, i64 noundef 8) #38
-  %537 = call noalias ptr @calloc(i64 noundef %534, i64 noundef 4) #38
+  %536 = call noalias ptr @calloc(i64 noundef %534, i64 noundef 8) #40
+  %537 = call noalias ptr @calloc(i64 noundef %534, i64 noundef 4) #40
   br label %539
 
 538:                                              ; preds = %535
@@ -11870,7 +11870,7 @@ _ZL14fstGetVarint32PhPi.exit1208:                 ; preds = %.preheader2474
   br i1 %exitcond1977.not, label %._crit_edge1683, label %.lr.ph1682, !llvm.loop !209
 
 ._crit_edge1683:                                  ; preds = %696, %.loopexit1422
-  %697 = call noalias dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #41
+  %697 = call noalias dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #43
   %698 = load i32, ptr %36, align 8, !tbaa !136
   %spec.select = call i32 @llvm.umin.i32(i32 %.5888, i32 %698)
   %.not1717 = icmp eq i32 %spec.select, 0
@@ -11984,10 +11984,10 @@ _ZL25fstReaderVarint32WithSkipP8_IO_FILEPj.exit:  ; preds = %.preheader2277
   br i1 %746, label %747, label %751
 
 747:                                              ; preds = %745
-  call void @free(ptr noundef %.09341685) #39
+  call void @free(ptr noundef %.09341685) #41
   %748 = load i32, ptr %741, align 4, !tbaa !51
   %749 = zext i32 %748 to i64
-  %750 = call noalias ptr @malloc(i64 noundef %749) #41
+  %750 = call noalias ptr @malloc(i64 noundef %749) #43
   br label %751
 
 751:                                              ; preds = %747, %745
@@ -12062,8 +12062,8 @@ _ZL25fstReaderVarint32WithSkipP8_IO_FILEPj.exit:  ; preds = %.preheader2277
 .loopexit1420:                                    ; preds = %777, %.thread1337
   %.09611341 = phi i32 [ -3, %.thread1337 ], [ %778, %777 ]
   %781 = load ptr, ptr @stderr, align 8, !tbaa !41
-  %782 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %781, ptr noundef nonnull @.str.52, i32 noundef %703, i32 noundef %733, i32 noundef %.09611341) #43
-  call void @exit(i32 noundef 255) #46
+  %782 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %781, ptr noundef nonnull @.str.52, i32 noundef %703, i32 noundef %733, i32 noundef %.09611341) #45
+  call void @exit(i32 noundef 255) #48
   unreachable
 
 783:                                              ; preds = %.thread1333, %.thread1322, %777
@@ -12157,7 +12157,7 @@ _ZL20fstGetVarint32NoSkipPh.exit1227:             ; preds = %.preheader.i1224
 
 ._crit_edge1693:                                  ; preds = %821, %._crit_edge1683
   %.0934.lcssa = phi ptr [ %697, %._crit_edge1683 ], [ %.4938, %821 ]
-  call void @free(ptr noundef %.0934.lcssa) #39
+  call void @free(ptr noundef %.0934.lcssa) #41
   br i1 %.not1713, label %.loopexit1419, label %.lr.ph1709
 
 .lr.ph1709:                                       ; preds = %._crit_edge1693, %._crit_edge1703
@@ -12215,7 +12215,7 @@ _ZL9fstWritexP16fstReaderContextPvj.exit1228:     ; preds = %833, %837
 
 846:                                              ; preds = %_ZL9fstWritexP16fstReaderContextPvj.exit1228, %831
   %.11955 = phi i32 [ 2, %_ZL9fstWritexP16fstReaderContextPvj.exit1228 ], [ %.79511704, %831 ]
-  %847 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %28, i64 noundef 32, ptr noundef nonnull @.str.39, i64 noundef %825) #39
+  %847 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %28, i64 noundef 32, ptr noundef nonnull @.str.39, i64 noundef %825) #41
   call fastcc void @_ZL9fstWritexP16fstReaderContextPvj(ptr noundef %0, ptr noundef nonnull %28, i32 noundef %847)
   %.not1049 = icmp eq i32 %.11955, 0
   br i1 %.not1049, label %848, label %861
@@ -12267,7 +12267,7 @@ _ZL9fstWritexP16fstReaderContextPvj.exit1229:     ; preds = %848, %852
   %873 = load i8, ptr %872, align 1, !tbaa !6
   %.not1052 = icmp eq i8 %873, 0
   %874 = select i1 %.not1052, ptr @.str.43, ptr @.str.42
-  %875 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %28, i64 noundef 32, ptr noundef nonnull @.str.41, ptr noundef nonnull %874) #39
+  %875 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %28, i64 noundef 32, ptr noundef nonnull @.str.41, ptr noundef nonnull %874) #41
   call fastcc void @_ZL9fstWritexP16fstReaderContextPvj(ptr noundef %0, ptr noundef nonnull %28, i32 noundef %875)
   br label %.thread1343
 
@@ -12571,10 +12571,10 @@ _ZL17fstVcdIDForFwritePcj.exit1265:               ; preds = %.lr.ph.i1260
   %1027 = shl i32 %987, 2
   %1028 = or disjoint i32 %1027, 1
   %1029 = zext i32 %1028 to i64
-  %1030 = call noalias ptr @malloc(i64 noundef %1029) #41
+  %1030 = call noalias ptr @malloc(i64 noundef %1029) #43
   %1031 = call i32 @fstUtilityBinToEsc(ptr noundef %1030, ptr noundef %998, i32 noundef %987)
   call fastcc void @_ZL9fstWritexP16fstReaderContextPvj(ptr noundef %0, ptr noundef %1030, i32 noundef %1031)
-  call void @free(ptr noundef %1030) #39
+  call void @free(ptr noundef %1030) #41
   store i8 32, ptr %30, align 16, !tbaa !6
   %1032 = zext nneg i32 %1018 to i64
   %1033 = getelementptr i8, ptr %30, i64 %1032
@@ -12902,7 +12902,7 @@ _ZL9fstWritexP16fstReaderContextPvj.exit1278:     ; preds = %1135, %1143
   %1186 = load i32, ptr %58, align 8, !tbaa !172
   %1187 = add i32 %1186, 1
   %1188 = zext i32 %1187 to i64
-  %1189 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1185, i64 noundef %1188, ptr noundef nonnull @.str.47, double noundef %1184) #39
+  %1189 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1185, i64 noundef %1188, ptr noundef nonnull @.str.47, double noundef %1184) #41
   %1190 = load i64, ptr %879, align 8, !tbaa !56
   %1191 = load ptr, ptr %59, align 8, !tbaa !181
   call void %1(ptr noundef %3, i64 noundef %1190, i32 noundef %881, ptr noundef %1191)
@@ -12941,7 +12941,7 @@ _ZL9fstWritexP16fstReaderContextPvj.exit1278:     ; preds = %1135, %1143
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %1196
   %1203 = phi double [ %.pre2005, %.loopexit.loopexit ], [ %1198, %1196 ]
-  %1204 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %33, i64 noundef 32, ptr noundef nonnull @.str.55, double noundef %1203) #39
+  %1204 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %33, i64 noundef 32, ptr noundef nonnull @.str.55, double noundef %1203) #41
   %spec.store.select = call i32 @llvm.umin.i32(i32 %1204, i32 32)
   call fastcc void @_ZL9fstWritexP16fstReaderContextPvj(ptr noundef %0, ptr noundef nonnull %33, i32 noundef %spec.store.select)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
@@ -13075,9 +13075,9 @@ thread-pre-split2068:                             ; preds = %966, %1060, %1246
   %.2878 = phi ptr [ %.3879, %1252 ], [ %.3879, %539 ], [ %.0876.ph, %_ZL15fstReaderUint64P8_IO_FILE.exit1187 ], [ %.3879, %._crit_edge1693 ], [ %.3879, %._crit_edge1703 ]
   %.2872 = phi ptr [ %.3873, %1252 ], [ %.3873, %539 ], [ %.0870.ph, %_ZL15fstReaderUint64P8_IO_FILE.exit1187 ], [ %.3873, %._crit_edge1693 ], [ %.3873, %._crit_edge1703 ]
   %.2 = phi i64 [ %.31707, %1252 ], [ %.0850.ph, %539 ], [ %.0850.ph, %_ZL15fstReaderUint64P8_IO_FILE.exit1187 ], [ %.0850.ph, %._crit_edge1693 ], [ %.4, %._crit_edge1703 ]
-  call void @free(ptr noundef %212) #39
-  call void @free(ptr noundef %522) #39
-  call void @free(ptr noundef %128) #39
+  call void @free(ptr noundef %212) #41
+  call void @free(ptr noundef %522) #41
+  call void @free(ptr noundef %128) #41
   %1256 = add i32 %.0862.ph, 1
   %1257 = zext i32 %1256 to i64
   %1258 = load i64, ptr %69, align 8, !tbaa !145
@@ -13090,21 +13090,21 @@ thread-pre-split2068:                             ; preds = %966, %1060, %1246
   br i1 %.not1094, label %.thread1385, label %1260
 
 1260:                                             ; preds = %.loopexit1425
-  call void @free(ptr noundef nonnull %128) #39
+  call void @free(ptr noundef nonnull %128) #41
   br label %.thread1385
 
 .thread1385:                                      ; preds = %91, %_ZL15fstReaderUint64P8_IO_FILE.exit, %_ZL15fstReaderUint64P8_IO_FILE.exit, %116, %.loopexit1419, %1260, %.loopexit1425
   %.1854.ph1393 = phi ptr [ %.0853.ph, %1260 ], [ %.0853.ph, %.loopexit1425 ], [ %.0853.ph, %91 ], [ %.0853.ph, %_ZL15fstReaderUint64P8_IO_FILE.exit ], [ %.0853.ph, %_ZL15fstReaderUint64P8_IO_FILE.exit ], [ %187, %.loopexit1419 ], [ %.0853.ph, %116 ]
   %.1871.ph1392 = phi ptr [ %.0870.ph, %1260 ], [ %.0870.ph, %.loopexit1425 ], [ %.0870.ph, %91 ], [ %.0870.ph, %_ZL15fstReaderUint64P8_IO_FILE.exit ], [ %.0870.ph, %_ZL15fstReaderUint64P8_IO_FILE.exit ], [ %.2872, %.loopexit1419 ], [ %.0870.ph, %116 ]
   %.1877.ph1391 = phi ptr [ %.0876.ph, %1260 ], [ %.0876.ph, %.loopexit1425 ], [ %.0876.ph, %91 ], [ %.0876.ph, %_ZL15fstReaderUint64P8_IO_FILE.exit ], [ %.0876.ph, %_ZL15fstReaderUint64P8_IO_FILE.exit ], [ %.2878, %.loopexit1419 ], [ %.0876.ph, %116 ]
-  call void @free(ptr noundef %41) #39
-  call void @free(ptr noundef %40) #39
-  call void @free(ptr noundef %39) #39
+  call void @free(ptr noundef %41) #41
+  call void @free(ptr noundef %40) #41
+  call void @free(ptr noundef %39) #41
   %.not1095 = icmp eq ptr %.1871.ph1392, null
   br i1 %.not1095, label %1262, label %1261
 
 1261:                                             ; preds = %.thread1385
-  call void @free(ptr noundef nonnull %.1871.ph1392) #39
+  call void @free(ptr noundef nonnull %.1871.ph1392) #41
   br label %1262
 
 1262:                                             ; preds = %1261, %.thread1385
@@ -13112,11 +13112,11 @@ thread-pre-split2068:                             ; preds = %966, %1060, %1246
   br i1 %.not1096, label %1264, label %1263
 
 1263:                                             ; preds = %1262
-  call void @free(ptr noundef nonnull %.1877.ph1391) #39
+  call void @free(ptr noundef nonnull %.1877.ph1391) #41
   br label %1264
 
 1264:                                             ; preds = %1263, %1262
-  call void @free(ptr noundef %.1854.ph1393) #39
+  call void @free(ptr noundef %.1854.ph1393) #41
   br i1 %.not1021, label %_ZL9fstWritexP16fstReaderContextPvj.exit1292, label %1265
 
 1265:                                             ; preds = %1264
@@ -13140,15 +13140,15 @@ _ZL9fstWritexP16fstReaderContextPvj.exit1292:     ; preds = %1267, %1265, %1264,
 declare noundef i32 @setvbuf(ptr noundef captures(none), ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: cold mustprogress nofree noreturn nounwind uwtable
-define internal fastcc void @_ZL16chk_report_abortPKc(ptr noundef %0) unnamed_addr #29 {
+define internal fastcc void @_ZL16chk_report_abortPKc(ptr noundef %0) unnamed_addr #30 {
   %2 = load ptr, ptr @stderr, align 8, !tbaa !41
-  %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.134, ptr noundef %0) #43
-  tail call void @abort() #47
+  %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.134, ptr noundef %0) #45
+  tail call void @abort() #49
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree uwtable
-define internal fastcc void @_ZL9fstWritexP16fstReaderContextPvj(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #30 {
+define internal fastcc void @_ZL9fstWritexP16fstReaderContextPvj(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #31 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %35, label %4
 
@@ -13330,7 +13330,7 @@ define noundef ptr @fstReaderGetValueFromHandleAtTime(ptr noundef %0, i64 nounde
 
 .lr.ph.preheader:                                 ; preds = %37
   %40 = zext i32 %27 to i64
-  %41 = tail call noalias ptr @calloc(i64 noundef %40, i64 noundef 4) #38
+  %41 = tail call noalias ptr @calloc(i64 noundef %40, i64 noundef 4) #40
   store ptr %41, ptr %38, align 8, !tbaa !193
   br label %.lr.ph
 
@@ -13373,23 +13373,23 @@ define noundef ptr @fstReaderGetValueFromHandleAtTime(ptr noundef %0, i64 nounde
 55:                                               ; preds = %52, %49
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %57 = load ptr, ptr %56, align 8, !tbaa !188
-  tail call void @free(ptr noundef %57) #39
+  tail call void @free(ptr noundef %57) #41
   store ptr null, ptr %56, align 8, !tbaa !188
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %59 = load ptr, ptr %58, align 8, !tbaa !189
-  tail call void @free(ptr noundef %59) #39
+  tail call void @free(ptr noundef %59) #41
   store ptr null, ptr %58, align 8, !tbaa !189
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %61 = load ptr, ptr %60, align 8, !tbaa !190
-  tail call void @free(ptr noundef %61) #39
+  tail call void @free(ptr noundef %61) #41
   store ptr null, ptr %60, align 8, !tbaa !190
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %63 = load ptr, ptr %62, align 8, !tbaa !191
-  tail call void @free(ptr noundef %63) #39
+  tail call void @free(ptr noundef %63) #41
   store ptr null, ptr %62, align 8, !tbaa !191
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %65 = load ptr, ptr %64, align 8, !tbaa !192
-  tail call void @free(ptr noundef %65) #39
+  tail call void @free(ptr noundef %65) #41
   store ptr null, ptr %64, align 8, !tbaa !192
   %66 = load i8, ptr %46, align 8
   %67 = and i8 %66, -2
@@ -13645,7 +13645,7 @@ _ZL15fstReaderUint64P8_IO_FILE.exit661:           ; preds = %163
 
 _ZL15fstReaderUint64P8_IO_FILE.exit666:           ; preds = %171
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %177 = tail call noalias ptr @malloc(i64 noundef %160) #41
+  %177 = tail call noalias ptr @malloc(i64 noundef %160) #43
   store i64 %160, ptr %17, align 8, !tbaa !56
   %178 = load ptr, ptr %0, align 8, !tbaa !154
   %179 = sub nsw i64 -24, %168
@@ -13664,7 +13664,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit667: ; preds = %_ZL15fstR
   br i1 %.not601, label %194, label %185
 
 185:                                              ; preds = %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit667
-  %186 = tail call noalias ptr @malloc(i64 noundef %168) #41
+  %186 = tail call noalias ptr @malloc(i64 noundef %168) #43
   %187 = load ptr, ptr %0, align 8, !tbaa !154
   %188 = tail call noundef i64 @fread(ptr noundef %186, i64 noundef %168, i64 noundef 1, ptr noundef %187)
   %189 = call i32 @uncompress(ptr noundef %177, ptr noundef nonnull %17, ptr noundef %186, i64 noundef %168)
@@ -13673,12 +13673,12 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit667: ; preds = %_ZL15fstR
 
 190:                                              ; preds = %185
   %191 = load ptr, ptr @stderr, align 8, !tbaa !41
-  %192 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %191, ptr noundef nonnull @.str.56, i32 noundef %189) #43
-  call void @exit(i32 noundef 255) #46
+  %192 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %191, ptr noundef nonnull @.str.56, i32 noundef %189) #45
+  call void @exit(i32 noundef 255) #48
   unreachable
 
 193:                                              ; preds = %185
-  call void @free(ptr noundef %186) #39
+  call void @free(ptr noundef %186) #41
   br label %197
 
 194:                                              ; preds = %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit667
@@ -13687,7 +13687,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit667: ; preds = %_ZL15fstR
   br label %197
 
 197:                                              ; preds = %194, %193
-  %198 = call noalias ptr @calloc(i64 noundef %176, i64 noundef 8) #38
+  %198 = call noalias ptr @calloc(i64 noundef %176, i64 noundef 8) #40
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 456
   store ptr %198, ptr %199, align 8, !tbaa !190
   %.not874 = icmp eq i64 %176, 0
@@ -13736,7 +13736,7 @@ _ZL14fstGetVarint64PhPi.exit:                     ; preds = %.preheader1071
   br i1 %221, label %.preheader786, label %._crit_edge, !llvm.loop !227
 
 ._crit_edge:                                      ; preds = %_ZL14fstGetVarint64PhPi.exit, %197
-  call void @free(ptr noundef %177) #39
+  call void @free(ptr noundef %177) #41
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %222 = load ptr, ptr %0, align 8, !tbaa !154
   %223 = add nsw i64 %.2492, 32
@@ -13870,7 +13870,7 @@ _ZL17fstReaderVarint64P8_IO_FILE.exit692:         ; preds = %.preheader.i689
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 488
   store i64 %271, ptr %274, align 8, !tbaa !228
-  %275 = call noalias ptr @malloc(i64 noundef %241) #41
+  %275 = call noalias ptr @malloc(i64 noundef %241) #43
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 480
   store ptr %275, ptr %276, align 8, !tbaa !189
   %277 = icmp eq i64 %241, %256
@@ -13882,7 +13882,7 @@ _ZL17fstReaderVarint64P8_IO_FILE.exit692:         ; preds = %.preheader.i689
   br label %291
 
 281:                                              ; preds = %_ZL17fstReaderVarint64P8_IO_FILE.exit692
-  %282 = call noalias ptr @malloc(i64 noundef %256) #41
+  %282 = call noalias ptr @malloc(i64 noundef %256) #43
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 %241, ptr %18, align 8, !tbaa !56
   %283 = load ptr, ptr %0, align 8, !tbaa !154
@@ -13894,12 +13894,12 @@ _ZL17fstReaderVarint64P8_IO_FILE.exit692:         ; preds = %.preheader.i689
 
 287:                                              ; preds = %281
   %288 = load ptr, ptr @stderr, align 8, !tbaa !41
-  %289 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %288, ptr noundef nonnull @.str.57, i32 noundef %286) #43
-  call void @exit(i32 noundef 255) #46
+  %289 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %288, ptr noundef nonnull @.str.57, i32 noundef %286) #45
+  call void @exit(i32 noundef 255) #48
   unreachable
 
 290:                                              ; preds = %281
-  call void @free(ptr noundef %282) #39
+  call void @free(ptr noundef %282) #41
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %291
 
@@ -13987,7 +13987,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit703: ; preds = %_ZL17fstR
 _ZL15fstReaderUint64P8_IO_FILE.exit708:           ; preds = %324
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %330 = sub nsw i64 %315, %329
-  %331 = call noalias ptr @malloc(i64 noundef %329) #41
+  %331 = call noalias ptr @malloc(i64 noundef %329) #43
   %332 = load ptr, ptr %0, align 8, !tbaa !154
   %333 = call i32 @fseeko(ptr noundef %332, i64 noundef %330, i32 noundef 0)
   %334 = icmp slt i32 %333, 0
@@ -14004,10 +14004,10 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit709: ; preds = %_ZL15fstR
   %339 = call noundef i64 @fread(ptr noundef %331, i64 noundef %329, i64 noundef 1, ptr noundef %338)
   %340 = load i64, ptr %307, align 8, !tbaa !225
   %341 = add i64 %340, 1
-  %342 = call noalias ptr @calloc(i64 noundef %341, i64 noundef 8) #38
+  %342 = call noalias ptr @calloc(i64 noundef %341, i64 noundef 8) #40
   %343 = getelementptr inbounds nuw i8, ptr %0, i64 496
   store ptr %342, ptr %343, align 8, !tbaa !191
-  %344 = call noalias ptr @calloc(i64 noundef %341, i64 noundef 4) #38
+  %344 = call noalias ptr @calloc(i64 noundef %341, i64 noundef 4) #40
   %345 = getelementptr inbounds nuw i8, ptr %0, i64 504
   store ptr %344, ptr %345, align 8, !tbaa !192
   %346 = icmp eq i32 %.0498, 8
@@ -14311,7 +14311,7 @@ _ZL14fstGetVarint32PhPi.exit729:                  ; preds = %.preheader1061
 .loopexit782:                                     ; preds = %.loopexit783, %.loopexit778
   %.3536 = phi i32 [ %.2535, %.loopexit778 ], [ %.5538, %.loopexit783 ]
   %.4530 = phi i32 [ %.2528, %.loopexit778 ], [ %.6, %.loopexit783 ]
-  call void @free(ptr noundef %331) #39
+  call void @free(ptr noundef %331) #41
   %466 = load i64, ptr %310, align 8, !tbaa !229
   %467 = sub nsw i64 %330, %466
   %468 = zext i32 %.4530 to i64
@@ -14399,7 +14399,7 @@ _ZL14fstGetVarint32PhPi.exit729:                  ; preds = %.preheader1061
   br i1 %.not616, label %.thread980, label %510
 
 510:                                              ; preds = %509
-  call void @free(ptr noundef nonnull %.pre936) #39
+  call void @free(ptr noundef nonnull %.pre936) #41
   store ptr null, ptr %.phi.trans.insert935, align 8, !tbaa !188
   %511 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %512 = load i8, ptr %511, align 8
@@ -14441,13 +14441,13 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit730: ; preds = %.thread98
 
 532:                                              ; preds = %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit730
   %533 = zext i32 %530 to i64
-  %534 = call noalias ptr @malloc(i64 noundef %533) #41
+  %534 = call noalias ptr @malloc(i64 noundef %533) #43
   %535 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %536 = load ptr, ptr %535, align 8, !tbaa !192
   %537 = getelementptr inbounds nuw i32, ptr %536, i64 %34
   %538 = load i32, ptr %537, align 4, !tbaa !51
   %539 = zext i32 %538 to i64
-  %540 = call noalias ptr @malloc(i64 noundef %539) #41
+  %540 = call noalias ptr @malloc(i64 noundef %539) #43
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i64 %533, ptr %20, align 8, !tbaa !56
   %541 = load ptr, ptr %0, align 8, !tbaa !154
@@ -14468,7 +14468,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit730: ; preds = %.thread98
   br i1 %550, label %.thread, label %.thread752
 
 .thread752:                                       ; preds = %545
-  call void @free(ptr noundef %540) #39
+  call void @free(ptr noundef %540) #41
   br label %557
 
 551:                                              ; preds = %532
@@ -14478,12 +14478,12 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit730: ; preds = %.thread98
   br label %.thread
 
 .thread:                                          ; preds = %551, %545
-  call void @free(ptr noundef %540) #39
+  call void @free(ptr noundef %540) #41
   br label %561
 
 555:                                              ; preds = %532
   %556 = call i32 @uncompress(ptr noundef %534, ptr noundef nonnull %20, ptr noundef %540, i64 noundef %539)
-  call void @free(ptr noundef %540) #39
+  call void @free(ptr noundef %540) #41
   %.not618 = icmp eq i32 %556, 0
   br i1 %.not618, label %561, label %557
 
@@ -14491,8 +14491,8 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit730: ; preds = %.thread98
   %.0532755 = phi i32 [ -3, %.thread752 ], [ %556, %555 ]
   %558 = load ptr, ptr @stderr, align 8, !tbaa !41
   %559 = load i32, ptr %531, align 4, !tbaa !237
-  %560 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %558, ptr noundef nonnull @.str.58, i32 noundef %559, i32 noundef %.0532755) #43
-  call void @exit(i32 noundef 255) #46
+  %560 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %558, ptr noundef nonnull @.str.58, i32 noundef %559, i32 noundef %.0532755) #45
+  call void @exit(i32 noundef 255) #48
   unreachable
 
 561:                                              ; preds = %.thread, %555
@@ -14509,7 +14509,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit730: ; preds = %.thread98
   %568 = sub i32 %566, %567
   store i32 %568, ptr %531, align 4, !tbaa !237
   %569 = zext i32 %568 to i64
-  %570 = call noalias ptr @malloc(i64 noundef %569) #41
+  %570 = call noalias ptr @malloc(i64 noundef %569) #43
   %571 = sext i32 %568 to i64
   %572 = load ptr, ptr %0, align 8, !tbaa !154
   %573 = call noundef i64 @fread(ptr noundef %570, i64 noundef %571, i64 noundef 1, ptr noundef %572)
@@ -14850,7 +14850,7 @@ _ZL14fstGetVarint32PhPi.exit740:                  ; preds = %.preheader1053
 .loopexit:                                        ; preds = %.preheader773, %.loopexit775
   %.in = phi ptr [ %.0489, %.loopexit775 ], [ %21, %.preheader773 ]
   %739 = load double, ptr %.in, align 1
-  %740 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 32, ptr noundef nonnull @.str.55, double noundef %739) #39
+  %740 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 32, ptr noundef nonnull @.str.55, double noundef %739) #41
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.loopexit787
@@ -14953,7 +14953,7 @@ define internal fastcc noundef ptr @_ZL27fstExtractRvatDataFromFrameP16fstReader
 .loopexit:                                        ; preds = %.preheader, %45
   %.in = phi ptr [ %53, %45 ], [ %4, %.preheader ]
   %61 = load double, ptr %.in, align 1
-  %62 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 32, ptr noundef nonnull @.str.47, double noundef %61) #39
+  %62 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 32, ptr noundef nonnull @.str.47, double noundef %61) #41
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %63
 
@@ -14962,8 +14962,8 @@ define internal fastcc noundef ptr @_ZL27fstExtractRvatDataFromFrameP16fstReader
   ret ptr %.034
 }
 
-; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef nonnull ptr @_Z10JenkinsInsPvPKhjj(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #13 {
+; Function Attrs: mustprogress nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define noundef nonnull ptr @_Z10JenkinsInsPvPKhjj(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #32 {
   %5 = load ptr, ptr %0, align 8, !tbaa !80
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %11
@@ -14972,7 +14972,7 @@ define noundef nonnull ptr @_Z10JenkinsInsPvPKhjj(ptr noundef captures(none) %0,
   %7 = add i32 %3, 1
   %8 = zext i32 %7 to i64
   %9 = shl nuw nsw i64 %8, 3
-  %10 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %9) #38
+  %10 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %9) #40
   store ptr %10, ptr %0, align 8, !tbaa !80
   br label %11
 
@@ -15248,7 +15248,7 @@ _ZL6j_hashPKhjj.exit:                             ; preds = %._crit_edge.i, %120
 
 ._crit_edge:                                      ; preds = %177, %_ZL6j_hashPKhjj.exit
   %179 = add nuw nsw i64 %.pre, 31
-  %180 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %179) #38
+  %180 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %179) #40
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %181, ptr align 1 %1, i64 %.pre, i1 false)
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 16
@@ -15269,8 +15269,8 @@ _ZL6j_hashPKhjj.exit:                             ; preds = %._crit_edge.i, %120
   ret ptr %.048
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define i32 @fstUtilityEscToBin(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #31 {
+; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: read, target_mem0: read, target_mem1: read) uwtable
+define i32 @fstUtilityEscToBin(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #33 {
   %.not = icmp eq ptr %0, null
   %. = select i1 %.not, ptr %1, ptr %0
   %4 = icmp sgt i32 %2, 0
@@ -15331,13 +15331,13 @@ define i32 @fstUtilityEscToBin(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
   %20 = getelementptr i8, ptr %6, i64 2
   %21 = load i8, ptr %20, align 1, !tbaa !6
   %22 = zext i8 %21 to i32
-  %23 = tail call i32 @toupper(i32 noundef %22) #40
+  %23 = tail call i32 @toupper(i32 noundef %22) #42
   %24 = add nsw i32 %.067, 3
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds i8, ptr %1, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !6
   %28 = zext i8 %27 to i32
-  %29 = tail call i32 @toupper(i32 noundef %28) #40
+  %29 = tail call i32 @toupper(i32 noundef %28) #42
   %30 = and i32 %23, 255
   %31 = add nsw i32 %30, -65
   %or.cond = icmp ult i32 %31, 6
@@ -15390,7 +15390,7 @@ define i32 @fstUtilityEscToBin(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @toupper(i32 noundef) local_unnamed_addr #32
+declare i32 @toupper(i32 noundef) local_unnamed_addr #34
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noalias noundef ptr @fstUtilityExtractEnumTableFromString(ptr noundef readonly %0) local_unnamed_addr #13 {
@@ -15398,16 +15398,16 @@ define noalias noundef ptr @fstUtilityExtractEnumTableFromString(ptr noundef rea
   br i1 %.not, label %.loopexit, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 32) #40
+  %3 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 32) #42
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %5 = tail call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #39
+  %5 = tail call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #41
   br label %6
 
 6:                                                ; preds = %6, %2
   %.057 = phi i32 [ 0, %2 ], [ %9, %6 ]
   %.054 = phi ptr [ %3, %2 ], [ %8, %6 ]
   %7 = getelementptr inbounds nuw i8, ptr %.054, i64 1
-  %8 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %7, i32 noundef 32) #40
+  %8 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %7, i32 noundef 32) #42
   %.not62 = icmp eq ptr %8, null
   %9 = add nuw nsw i32 %.057, 1
   br i1 %.not62, label %10, label %6, !llvm.loop !250
@@ -15419,27 +15419,27 @@ define noalias noundef ptr @fstUtilityExtractEnumTableFromString(ptr noundef rea
   br i1 %13, label %14, label %.loopexit
 
 14:                                               ; preds = %10
-  %15 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #38
+  %15 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #40
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 %11, ptr %16, align 8, !tbaa !251
-  %17 = tail call noalias ptr @strdup(ptr noundef nonnull %0) #39
+  %17 = tail call noalias ptr @strdup(ptr noundef nonnull %0) #41
   store ptr %17, ptr %15, align 8, !tbaa !254
   %sext = shl i64 %5, 32
   %18 = ashr exact i64 %sext, 32
-  %19 = tail call noalias ptr @calloc(i64 noundef %18, i64 noundef 8) #38
+  %19 = tail call noalias ptr @calloc(i64 noundef %18, i64 noundef 8) #40
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %19, ptr %20, align 8, !tbaa !255
-  %21 = tail call noalias ptr @calloc(i64 noundef %18, i64 noundef 8) #38
+  %21 = tail call noalias ptr @calloc(i64 noundef %18, i64 noundef 8) #40
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %21, ptr %22, align 8, !tbaa !256
-  %23 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %17, i32 noundef 32) #40
+  %23 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %17, i32 noundef 32) #42
   store i8 0, ptr %23, align 1, !tbaa !6
   %24 = icmp sgt i32 %11, 0
   br i1 %24, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %14
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 1
-  %26 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %25, i32 noundef 32) #40
+  %26 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %25, i32 noundef 32) #42
   %wide.trip.count = and i64 %5, 2147483647
   br label %.lr.ph
 
@@ -15451,11 +15451,11 @@ define noalias noundef ptr @fstUtilityExtractEnumTableFromString(ptr noundef rea
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.065 = phi ptr [ %26, %.lr.ph.preheader ], [ %28, %.lr.ph ]
   %27 = getelementptr inbounds nuw i8, ptr %.065, i64 1
-  %28 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %27, i32 noundef 32) #40
+  %28 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %27, i32 noundef 32) #42
   store i8 0, ptr %28, align 1, !tbaa !6
   %29 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
   store ptr %27, ptr %29, align 8, !tbaa !28
-  %30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #40
+  %30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #42
   %31 = trunc i64 %30 to i32
   %32 = tail call i32 @fstUtilityEscToBin(ptr noundef null, ptr noundef nonnull %27, i32 noundef %31)
   %33 = load ptr, ptr %29, align 8, !tbaa !28
@@ -15471,7 +15471,7 @@ define noalias noundef ptr @fstUtilityExtractEnumTableFromString(ptr noundef rea
   %indvars.iv70 = phi i64 [ 0, %.lr.ph68.preheader ], [ %indvars.iv.next71, %40 ]
   %.167 = phi ptr [ %28, %.lr.ph68.preheader ], [ %38, %40 ]
   %37 = getelementptr inbounds nuw i8, ptr %.167, i64 1
-  %38 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %37, i32 noundef 32) #40
+  %38 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %37, i32 noundef 32) #42
   %.not63 = icmp eq ptr %38, null
   br i1 %.not63, label %40, label %39
 
@@ -15482,7 +15482,7 @@ define noalias noundef ptr @fstUtilityExtractEnumTableFromString(ptr noundef rea
 40:                                               ; preds = %39, %.lr.ph68
   %41 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv70
   store ptr %37, ptr %41, align 8, !tbaa !28
-  %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #40
+  %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #42
   %43 = trunc i64 %42 to i32
   %44 = tail call i32 @fstUtilityEscToBin(ptr noundef null, ptr noundef nonnull %37, i32 noundef %43)
   %45 = load ptr, ptr %22, align 8, !tbaa !256
@@ -15503,21 +15503,21 @@ define noalias noundef ptr @fstUtilityExtractEnumTableFromString(ptr noundef rea
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @fstUtilityFreeEnumTable(ptr noundef captures(address_is_null) %0) local_unnamed_addr #24 {
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define void @fstUtilityFreeEnumTable(ptr noundef captures(address_is_null) %0) local_unnamed_addr #25 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !255
-  tail call void @free(ptr noundef %4) #39
+  tail call void @free(ptr noundef %4) #41
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !256
-  tail call void @free(ptr noundef %6) #39
+  tail call void @free(ptr noundef %6) #41
   %7 = load ptr, ptr %0, align 8, !tbaa !254
-  tail call void @free(ptr noundef %7) #39
-  tail call void @free(ptr noundef nonnull %0) #39
+  tail call void @free(ptr noundef %7) #41
+  tail call void @free(ptr noundef nonnull %0) #41
   br label %8
 
 8:                                                ; preds = %2, %1
@@ -15563,40 +15563,40 @@ declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i6
 declare noundef ptr @realpath(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #33
+declare void @abort() local_unnamed_addr #35
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #34
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #36
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #35
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #37
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #35
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #37
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #36
+declare i64 @llvm.umin.i64(i64, i64) #38
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #36
+declare i64 @llvm.smin.i64(i64, i64) #38
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #36
+declare i32 @llvm.smin.i32(i32, i32) #38
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #36
+declare i64 @llvm.umax.i64(i64, i64) #38
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #36
+declare i32 @llvm.umin.i32(i32, i32) #38
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #37
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #39
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #36
+declare i32 @llvm.usub.sat.i32(i32, i32) #38
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #36
+declare i32 @llvm.umax.i32(i32, i32) #38
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -15614,38 +15614,40 @@ attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(none) "
 attributes #13 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #17 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #29 = { cold mustprogress nofree noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #30 = { mustprogress nofree uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #31 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #32 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #33 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #34 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #35 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #36 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #37 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #38 = { nounwind allocsize(0,1) }
-attributes #39 = { nounwind }
-attributes #40 = { nounwind willreturn memory(read) }
-attributes #41 = { nounwind allocsize(0) }
-attributes #42 = { nounwind willreturn memory(none) }
-attributes #43 = { cold nounwind }
-attributes #44 = { cold }
-attributes #45 = { nounwind allocsize(1) }
-attributes #46 = { cold noreturn nounwind }
-attributes #47 = { noreturn nounwind }
+attributes #16 = { mustprogress nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #18 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #30 = { cold mustprogress nofree noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #31 = { mustprogress nofree uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #32 = { mustprogress nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #33 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: read, target_mem0: read, target_mem1: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #34 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #35 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #36 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #37 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #38 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #39 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #40 = { nounwind allocsize(0,1) }
+attributes #41 = { nounwind }
+attributes #42 = { nounwind willreturn memory(read) }
+attributes #43 = { nounwind allocsize(0) }
+attributes #44 = { nounwind willreturn memory(none) }
+attributes #45 = { cold nounwind }
+attributes #46 = { cold }
+attributes #47 = { nounwind allocsize(1) }
+attributes #48 = { cold noreturn nounwind }
+attributes #49 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

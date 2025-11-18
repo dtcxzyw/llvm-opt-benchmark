@@ -6419,7 +6419,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIiiEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %__ti) unnamed_addr #19 align 2 {
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -9628,7 +9628,7 @@ entry:
 ; Function Attrs: nounwind
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
-; Function Attrs: mustprogress nounwind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nounwind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIiiE14checkArgumentsEPNS0_13DecodedVectorES6_S6_ibb(ptr noundef readonly captures(none) %startVector, ptr noundef readonly captures(none) %stopVector, ptr noundef readonly captures(address_is_null) %stepVector, i32 noundef %row, i1 noundef zeroext %isDate, i1 noundef zeroext %isYearMonth) unnamed_addr #22 align 2 {
 entry:
   %data_.i = getelementptr inbounds nuw i8, ptr %startVector, i64 16
@@ -9997,7 +9997,7 @@ declare void @_ZN8facebook5velox10BaseVector14createInternalERKSt10shared_ptrIKN
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #24
 
-; Function Attrs: mustprogress nounwind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nounwind memory(read, argmem: readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIiiE15writeToElementsEPibbiPNS0_13DecodedVectorES7_S7_i(ptr noundef writeonly captures(none) %elements, i1 noundef zeroext %isDate, i1 noundef zeroext %isYearMonth, i32 noundef range(i32 1, 0) %sequenceCount, ptr noundef readonly captures(none) %startVector, ptr noundef readonly captures(none) %stopVector, ptr noundef readonly captures(address_is_null) %stepVector, i32 noundef %row) unnamed_addr #25 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data_.i = getelementptr inbounds nuw i8, ptr %startVector, i64 16
@@ -10291,7 +10291,7 @@ for.end:                                          ; preds = %_ZN8facebook5velox9
   ret void
 }
 
-; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIiiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E0_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #26 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
@@ -13724,7 +13724,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %__ti) unnamed_addr #19 align 2 {
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -15718,7 +15718,7 @@ ehcleanup52:                                      ; preds = %lpad, %lpad.i.i, %e
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
-; Function Attrs: mustprogress nounwind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nounwind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilE14checkArgumentsEPNS0_13DecodedVectorES6_S6_ibb(ptr noundef readonly captures(none) %startVector, ptr noundef readonly captures(none) %stopVector, ptr noundef readonly captures(address_is_null) %stepVector, i32 noundef %row, i1 noundef zeroext %isDate, i1 noundef zeroext %isYearMonth) unnamed_addr #22 align 2 {
 entry:
   %data_.i = getelementptr inbounds nuw i8, ptr %startVector, i64 16
@@ -15895,7 +15895,7 @@ if.end26:                                         ; preds = %if.end21
   ret i32 %conv27
 }
 
-; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_E0_clIiEEDaSO_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i32 noundef %row) unnamed_addr #26 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
@@ -16123,7 +16123,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIllEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %__ti) unnamed_addr #19 align 2 {
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -18312,7 +18312,7 @@ if.end24:                                         ; preds = %.noexc.i, %if.then.
   ret ptr %35
 }
 
-; Function Attrs: mustprogress nounwind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nounwind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIllE14checkArgumentsEPNS0_13DecodedVectorES6_S6_ibb(ptr noundef readonly captures(none) %startVector, ptr noundef readonly captures(none) %stopVector, ptr noundef readonly captures(address_is_null) %stepVector, i32 noundef %row, i1 noundef zeroext %isDate, i1 noundef zeroext %isYearMonth) unnamed_addr #22 align 2 {
 entry:
   %data_.i = getelementptr inbounds nuw i8, ptr %startVector, i64 16
@@ -18478,7 +18478,7 @@ if.end26:                                         ; preds = %if.end21
   ret i32 %conv27
 }
 
-; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIllE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_E0_clIiEEDaSO_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i32 noundef %row) unnamed_addr #26 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
@@ -18704,7 +18704,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS1_9TimestampEiEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %__ti) unnamed_addr #19 align 2 {
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -20726,7 +20726,7 @@ if.end24:                                         ; preds = %.noexc.i, %if.then.
   ret ptr %35
 }
 
-; Function Attrs: mustprogress nounwind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nounwind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampEiE14checkArgumentsEPNS0_13DecodedVectorES7_S7_ibb(ptr noundef readonly captures(none) %startVector, ptr noundef readonly captures(none) %stopVector, ptr noundef readonly captures(address_is_null) %stepVector, i32 noundef %row, i1 noundef zeroext %isDate, i1 noundef zeroext %isYearMonth) unnamed_addr #22 align 2 {
 entry:
   %data_.i = getelementptr inbounds nuw i8, ptr %startVector, i64 16
@@ -21193,7 +21193,7 @@ _ZN8facebook5velox9functions13diffTimestampENS1_12_GLOBAL__N_112DateTimeUnitERKN
   ret { i64, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nounwind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nounwind memory(read, argmem: readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampEiE15writeToElementsEPS4_bbiPNS0_13DecodedVectorES8_S8_i(ptr noundef writeonly captures(none) %elements, i1 noundef zeroext %isDate, i1 noundef zeroext %isYearMonth, i32 noundef range(i32 1, 0) %sequenceCount, ptr noundef readonly captures(none) %startVector, ptr noundef readonly captures(none) %stopVector, ptr noundef readonly captures(address_is_null) %stepVector, i32 noundef %row) unnamed_addr #25 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data_.i = getelementptr inbounds nuw i8, ptr %startVector, i64 16
@@ -21555,7 +21555,7 @@ for.end:                                          ; preds = %_ZN8facebook5velox9
   ret void
 }
 
-; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampEiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E0_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #26 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
@@ -21676,7 +21676,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS1_9TimestampElEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %__ti) unnamed_addr #19 align 2 {
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -23479,7 +23479,7 @@ ehcleanup52:                                      ; preds = %lpad, %lpad.i.i, %e
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
-; Function Attrs: mustprogress nounwind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nounwind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampElE14checkArgumentsEPNS0_13DecodedVectorES7_S7_ibb(ptr noundef readonly captures(none) %startVector, ptr noundef readonly captures(none) %stopVector, ptr noundef readonly captures(address_is_null) %stepVector, i32 noundef %row, i1 noundef zeroext %isDate, i1 noundef zeroext %isYearMonth) unnamed_addr #22 align 2 {
 entry:
   %data_.i = getelementptr inbounds nuw i8, ptr %startVector, i64 16
@@ -23706,7 +23706,7 @@ if.end31:                                         ; preds = %if.end26
   ret i32 %conv32
 }
 
-; Function Attrs: mustprogress nounwind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nounwind memory(read, argmem: readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampElE15writeToElementsEPS4_bbiPNS0_13DecodedVectorES8_S8_i(ptr noundef writeonly captures(none) %elements, i1 noundef zeroext %isDate, i1 noundef zeroext %isYearMonth, i32 noundef range(i32 1, 0) %sequenceCount, ptr noundef readonly captures(none) %startVector, ptr noundef readonly captures(none) %stopVector, ptr noundef readonly captures(address_is_null) %stepVector, i32 noundef %row) unnamed_addr #25 align 2 {
 entry:
   %data_.i = getelementptr inbounds nuw i8, ptr %startVector, i64 16
@@ -23904,7 +23904,7 @@ for.end:                                          ; preds = %_ZN8facebook5velox9
   ret void
 }
 
-; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampElE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E0_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #26 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
@@ -24073,14 +24073,14 @@ attributes #15 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-widt
 attributes #16 = { cold noreturn }
 attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #21 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nounwind memory(read, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nounwind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #23 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #24 = { mustprogress nofree nounwind willreturn memory(read) }
-attributes #25 = { mustprogress nounwind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #26 = { mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nounwind memory(read, argmem: readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nounwind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #27 = { alwaysinline mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #28 = { mustprogress nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #29 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }

@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @H5_crc_table = internal unnamed_addr global [256 x i32] zeroinitializer, align 16
 @.crctable = private unnamed_addr constant [256 x i32] [i32 0, i32 102971031, i32 96753217, i32 65495254, i32 34248685, i32 69837178, i32 130990508, i32 32372539, i32 68497370, i32 37099853, i32 30505371, i32 133320460, i32 102742071, i32 3968672, i32 64745078, i32 100194529, i32 27813083, i32 126571084, i32 74199706, i32 38732813, i32 61010742, i32 92390817, i32 107390327, i32 4559840, i32 96291585, i32 60718486, i32 7937344, i32 106572759, i32 129490156, i32 26536571, i32 41126573, i32 72399930, i32 55626166, i32 91488033, i32 110403575, i32 12036448, i32 22699611, i32 125397196, i32 77465626, i32 45956749, i32 122021484, i32 23515387, i32 42053677, i32 77760186, i32 89092481, i32 57427734, i32 9119680, i32 111677783, i32 49851757, i32 81501178, i32 121436972, i32 18861499, i32 15874688, i32 114363415, i32 87452865, i32 51731030, i32 116228791, i32 13546528, i32 53073142, i32 84599393, i32 82253146, i32 46408653, i32 19088155, i32 117470604, i32 111252332, i32 8562171, i32 57001261, i32 88535994, i32 78316673, i32 42480150, i32 24072896, i32 122446935, i32 45399222, i32 77040161, i32 124840695, i32 22273120, i32 12462939, i32 110960076, i32 91913498, i32 56183693, i32 118093751, i32 19579168, i32 47030774, i32 82745185, i32 84107354, i32 52451021, i32 13055515, i32 115605644, i32 52222061, i32 88076026, i32 114855468, i32 16496827, i32 18239360, i32 120944919, i32 80878017, i32 49360726, i32 99703514, i32 64121933, i32 3476635, i32 102119948, i32 133942583, i32 30997408, i32 37722998, i32 68988385, i32 31749376, i32 130499479, i32 69215041, i32 33756630, i32 65987309, i32 97375354, i32 103462060, i32 623163, i32 72957441, i32 41552022, i32 27093056, i32 129916631, i32 106146284, i32 7380859, i32 60293037, i32 95734074, i32 4985307, i32 107947852, i32 92817306, i32 61567245, i32 38176310, i32 73773217, i32 126013559, i32 27387616, i32 79764919, i32 48376608, i32 17124342, i32 119962977, i32 114002522, i32 15252685, i32 51371035, i32 86829708, i32 13906541, i32 116851962, i32 84960300, i32 53695163, i32 48145792, i32 83727127, i32 119206849, i32 20563286, i32 90798444, i32 55201787, i32 11349805, i32 109975994, i32 123989633, i32 21026838, i32 44546240, i32 75796055, i32 24925878, i32 123691041, i32 79167735, i32 43726432, i32 58114395, i32 89520076, i32 112367386, i32 9544077, i32 126997505, i32 28500630, i32 39158336, i32 74888407, i32 94061548, i32 62420347, i32 6231469, i32 108798778, i32 59046875, i32 94883148, i32 104902042, i32 6527757, i32 26111030, i32 128801441, i32 71973495, i32 40439008, i32 104444122, i32 1738317, i32 66971291, i32 98488332, i32 70461239, i32 34607520, i32 32993654, i32 131352545, i32 36478720, i32 68135319, i32 132696385, i32 30146518, i32 2492653, i32 101006970, i32 98721452, i32 63006779, i32 39882459, i32 71546956, i32 128243866, i32 25685517, i32 6953270, i32 105459617, i32 95309687, i32 59603424, i32 108372225, i32 5674902, i32 61994816, i32 93503959, i32 75445996, i32 39583867, i32 29057197, i32 127424058, i32 63498752, i32 99343511, i32 101497921, i32 3115734, i32 29523437, i32 132205434, i32 67513260, i32 35986747, i32 131974618, i32 33485645, i32 35230619, i32 70952204, i32 97997367, i32 66348192, i32 1246326, i32 103822049, i32 19941229, i32 118714874, i32 83104044, i32 47654843, i32 54186112, i32 85583383, i32 117343937, i32 14528598, i32 86337719, i32 50748960, i32 14761718, i32 113379425, i32 120586074, i32 17615309, i32 48998683, i32 80256908, i32 9970614, i32 112923937, i32 89945591, i32 58671968, i32 43168859, i32 78742220, i32 123134490, i32 24499341, i32 76352620, i32 44972795, i32 21584429, i32 124415162, i32 109550465, i32 10792214, i32 54775232, i32 90241879]
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @H5_checksum_fletcher32(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @H5_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
@@ -102,7 +102,7 @@ define i32 @H5_checksum_fletcher32(ptr noundef readonly captures(none) %0, i64 n
   ret i32 %53
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @H5_checksum_crc(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = load i8, ptr @H5_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
@@ -162,7 +162,7 @@ H5__checksum_crc_update.exit:                     ; preds = %H5__checksum_crc_up
   ret i32 %.07.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @H5_checksum_lookup3(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i8, ptr @H5_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
@@ -434,13 +434,13 @@ default.unreachable163:                           ; preds = %._crit_edge
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @H5_checksum_metadata(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @H5_checksum_lookup3(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   ret i32 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @H5_hash_string(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @H5_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %3 = trunc nuw i8 %2 to i1
@@ -478,8 +478,8 @@ declare i64 @llvm.umin.i64(i64, i64) #2
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #2
 
-attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}

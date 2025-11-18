@@ -3108,7 +3108,7 @@ define internal fastcc void @"_ZN12futures_util6stream17futures_unordered27Futur
   unreachable
 }
 
-; Function Attrs: nofree norecurse nounwind nonlazybind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind nonlazybind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, i64 } @"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h731eab82827b312cE"(ptr noundef nonnull readonly align 8 captures(none) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load atomic ptr, ptr %2 acquire, align 8
@@ -3140,7 +3140,7 @@ define hidden { ptr, i64 } @"_ZN12futures_util6stream17futures_unordered27Future
   br label %11
 }
 
-; Function Attrs: nofree norecurse nounwind nonlazybind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind nonlazybind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, i64 } @"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h9e8b031d1d7d1bd1E"(ptr noundef nonnull readonly align 8 captures(none) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load atomic ptr, ptr %2 acquire, align 8
@@ -3172,7 +3172,7 @@ define hidden { ptr, i64 } @"_ZN12futures_util6stream17futures_unordered27Future
   br label %11
 }
 
-; Function Attrs: nofree norecurse nounwind nonlazybind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind nonlazybind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, i64 } @"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17ha2ee5f63b4f27b87E"(ptr noundef nonnull readonly align 8 captures(none) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load atomic ptr, ptr %2 acquire, align 8
@@ -3204,7 +3204,7 @@ define hidden { ptr, i64 } @"_ZN12futures_util6stream17futures_unordered27Future
   br label %11
 }
 
-; Function Attrs: nofree norecurse nounwind nonlazybind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind nonlazybind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, i64 } @"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17hae15f2311f15f46cE"(ptr noundef nonnull readonly align 8 captures(none) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load atomic ptr, ptr %2 acquire, align 8
@@ -3236,7 +3236,7 @@ define hidden { ptr, i64 } @"_ZN12futures_util6stream17futures_unordered27Future
   br label %11
 }
 
-; Function Attrs: nofree norecurse nounwind nonlazybind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind nonlazybind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, i64 } @"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17he68c8c3418cca9afE"(ptr noundef nonnull readonly align 8 captures(none) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load atomic ptr, ptr %2 acquire, align 8
@@ -13436,7 +13436,7 @@ define hidden void @"_ZN4core3ptr101drop_in_place$LT$alloc..vec..Vec$LT$core..op
   resume { ptr, i32 } %12
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @"_ZN4core3ptr101drop_in_place$LT$core..slice..sort..shared..smallsort..CopyOnDrop$LT$object_store..path..Path$GT$$GT$17h48fdc22b40953e12E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2063)
   %2 = load ptr, ptr %0, align 8, !alias.scope !2063, !noundef !3
@@ -15187,7 +15187,7 @@ define hidden void @"_ZN4core3ptr104drop_in_place$LT$alloc..raw_vec..RawVec$LT$$
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @"_ZN4core3ptr104drop_in_place$LT$core..slice..sort..unstable..quicksort..GapGuardRaw$LT$object_store..path..Path$GT$$GT$17h6fb1da628d4c0d17E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #4 {
   %.val = load ptr, ptr %0, align 8, !noundef !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -22340,7 +22340,7 @@ define internal fastcc void @"_ZN4core3ptr127drop_in_place$LT$alloc..vec..into_i
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @"_ZN4core3ptr127drop_in_place$LT$core..slice..sort..shared..smallsort..CopyOnDrop$LT$polars_io..path_utils..hugging_face..HFAPIResponse$GT$$GT$17h3b84ef0974cad1acE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3727)
   %2 = load ptr, ptr %0, align 8, !alias.scope !3727, !noundef !3
@@ -22683,7 +22683,7 @@ define hidden void @"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Weak$LT$dyn$u2
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @"_ZN4core3ptr130drop_in_place$LT$core..slice..sort..unstable..quicksort..GapGuardRaw$LT$polars_io..path_utils..hugging_face..HFAPIResponse$GT$$GT$17h4ef555a9a0e99f03E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #4 {
   %.val = load ptr, ptr %0, align 8, !noundef !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -25041,7 +25041,7 @@ define hidden void @"_ZN4core3ptr147drop_in_place$LT$alloc..vec..Vec$LT$hashbrow
   resume { ptr, i32 } %11
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @"_ZN4core3ptr147drop_in_place$LT$core..cell..RefMut$LT$core..option..Option$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..current_thread..Core$GT$$GT$$GT$$GT$17hce93bfa230af9b3aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8, !nonnull !3, !align !88, !noundef !3
@@ -26756,7 +26756,7 @@ define internal fastcc void @"_ZN4core3ptr152drop_in_place$LT$core..option..Opti
   br label %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @"_ZN4core3ptr153drop_in_place$LT$core..cell..RefMut$LT$core..option..Option$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$$GT$$GT$17h994f9e3d4dffff69E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8, !nonnull !3, !align !88, !noundef !3
@@ -30914,7 +30914,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @"_ZN4core3ptr178drop_in_place$LT$core..slice..sort..shared..smallsort..CopyOnDrop$LT$$LP$usize$C$core..result..Result$LT$polars_core..frame..DataFrame$C$polars_error..PolarsError$GT$$RP$$GT$$GT$17h423a7fc2bb1261e8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5119)
   %2 = load ptr, ptr %0, align 8, !alias.scope !5119, !noundef !3
@@ -31303,7 +31303,7 @@ define internal fastcc void @"_ZN4core3ptr180drop_in_place$LT$tokio..util..idle_
   resume { ptr, i32 } %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN4core3ptr181drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$polars_core..frame..column..Column$C$alloc..alloc..Global$GT$$GT$17hacb83a7f79d6d57eE"(ptr readonly captures(address_is_null) %.0.val) unnamed_addr #8 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
@@ -31344,7 +31344,7 @@ define internal fastcc void @"_ZN4core3ptr181drop_in_place$LT$$LT$alloc..vec..dr
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @"_ZN4core3ptr181drop_in_place$LT$core..slice..sort..unstable..quicksort..GapGuardRaw$LT$$LP$usize$C$core..result..Result$LT$polars_core..frame..DataFrame$C$polars_error..PolarsError$GT$$RP$$GT$$GT$17h1cf97046ec10bdc2E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #4 {
   %.val = load ptr, ptr %0, align 8, !noundef !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -33242,7 +33242,7 @@ define hidden void @"_ZN4core3ptr1973drop_in_place$LT$rayon_core..job..StackJob$
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN4core3ptr197drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$polars_io..path_utils..hugging_face..HFAPIResponse$C$alloc..alloc..Global$GT$$GT$17h9fee748998b688b5E"(ptr readonly captures(address_is_null) %.0.val) unnamed_addr #8 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
@@ -92216,7 +92216,7 @@ define internal fastcc void @"_ZN4core3ptr82drop_in_place$LT$core..option..Optio
   br label %"_ZN4core3ptr54drop_in_place$LT$tokio..runtime..scheduler..Handle$GT$17ha97dea2d8dbc8714E.exit"
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @"_ZN4core3ptr82drop_in_place$LT$core..slice..sort..shared..smallsort..CopyOnDrop$LT$usize$GT$$GT$17hbb2b816907043a69E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18696)
   %2 = load ptr, ptr %0, align 8, !alias.scope !18696, !noundef !3
@@ -98206,7 +98206,7 @@ define internal fastcc void @"_ZN4core3ptr95drop_in_place$LT$core..result..Resul
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @"_ZN4core3ptr95drop_in_place$LT$core..slice..sort..shared..smallsort..CopyOnDrop$LT$std..path..PathBuf$GT$$GT$17h41d05a585d326badE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19879)
   %2 = load ptr, ptr %0, align 8, !alias.scope !19879, !noundef !3
@@ -99574,7 +99574,7 @@ default.unreachable:                              ; preds = %1
   br label %"_ZN4core3ptr70drop_in_place$LT$polars_io..csv..read..options..NullValuesCompiled$GT$17hb25283c194c635e9E.exit"
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @"_ZN4core3ptr98drop_in_place$LT$core..slice..sort..unstable..quicksort..GapGuardRaw$LT$std..path..PathBuf$GT$$GT$17h5964e492e16596f9E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #4 {
   %.val = load ptr, ptr %0, align 8, !noundef !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -100657,7 +100657,7 @@ define void @"_ZN89_$LT$polars_io..cloud..adaptors..BlockingCloudWriter$u20$as$u
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN90_$LT$polars_io..file_cache..cache_lock..AccessTracker$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5494541381449c82E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #10 {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -102049,16 +102049,16 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #23
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #24
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #1 = { nofree norecurse nounwind nonlazybind memory(readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #1 = { nofree norecurse nounwind nonlazybind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #10 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #10 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #13 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

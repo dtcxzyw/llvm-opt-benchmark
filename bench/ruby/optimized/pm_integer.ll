@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [4 x i8] c"%lu\00", align 1
 @pm_integer_parse_digit_values = internal unnamed_addr constant [256 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\01\02\03\04\05\06\07\08\09\FF\FF\FF\FF\FF\FF\FF\0A\0B\0C\0D\0E\0F\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\FF\0A\0B\0C\0D\0E\0F\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", align 16
 
-; Function Attrs: nounwind sspstrong uwtable
+; Function Attrs: nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @pm_integer_parse(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = ptrtoint ptr %3 to i64
   %6 = alloca %struct.pm_integer_t, align 8
@@ -161,7 +161,7 @@ define hidden void @pm_integer_parse(ptr noundef captures(none) %0, i32 noundef 
   br i1 %67, label %68, label %149
 
 68:                                               ; preds = %60
-  %69 = tail call noalias ptr @malloc(i64 noundef %56) #12
+  %69 = tail call noalias ptr @malloc(i64 noundef %56) #13
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %68, %78
@@ -193,7 +193,7 @@ define hidden void @pm_integer_parse(ptr noundef captures(none) %0, i32 noundef 
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %81 = add i64 %.1.i, 8
   %82 = udiv i64 %81, 9
-  %83 = tail call noalias ptr @calloc(i64 noundef %82, i64 noundef 4) #13
+  %83 = tail call noalias ptr @calloc(i64 noundef %82, i64 noundef 4) #14
   %.not.i.i = icmp eq i64 %.1.i, 0
   br i1 %.not.i.i, label %pm_integer_parse_decimal.exit.i, label %.lr.ph.i.i
 
@@ -230,7 +230,7 @@ pm_integer_parse_decimal.exit.i:                  ; preds = %96, %80
   %99 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %99, align 8
   call fastcc void @pm_integer_convert_base(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 1000000000, i64 noundef 4294967296)
-  tail call void @free(ptr noundef %83) #14
+  tail call void @free(ptr noundef %83) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %pm_integer_parse_big.exit
 
@@ -246,7 +246,7 @@ pm_integer_parse_decimal.exit.i:                  ; preds = %96, %80
   %105 = mul i64 %.0.i.i, %.1.i
   %106 = add i64 %105, 31
   %107 = lshr i64 %106, 5
-  %108 = tail call noalias ptr @calloc(i64 noundef %107, i64 noundef 4) #13
+  %108 = tail call noalias ptr @calloc(i64 noundef %107, i64 noundef 4) #14
   %.not.i19.i = icmp eq i64 %.1.i, 0
   br i1 %.not.i19.i, label %.preheader.i.i, label %.lr.ph.i20.i
 
@@ -341,14 +341,14 @@ pm_integer_free.exit.i.i.i:                       ; preds = %145, %.critedge.i.i
   %.sroa.3.0..sroa_idx.i2936.i = phi ptr [ %.sroa.3.0..sroa_idx.i2541.i, %thread-pre-split.i.i.thread37.i ], [ %.sroa.3.0..sroa_idx.i.i, %.critedge.i.i ], [ %.sroa.3.0..sroa_idx.i25.i, %145 ]
   %.sroa.4.0..sroa_idx.i3035.i = getelementptr inbounds nuw i8, ptr %0, i64 20
   %148 = load i32, ptr %108, align 4, !tbaa !13
-  tail call void @free(ptr noundef nonnull %108) #14
+  tail call void @free(ptr noundef nonnull %108) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store i32 %148, ptr %.sroa.3.0..sroa_idx.i2936.i, align 8, !tbaa !13
   store i32 0, ptr %.sroa.4.0..sroa_idx.i3035.i, align 4
   br label %pm_integer_parse_big.exit
 
 pm_integer_parse_big.exit:                        ; preds = %.lr.ph.i.i.i, %pm_integer_parse_decimal.exit.i, %.critedge.i.i, %pm_integer_free.exit.i.i.i
-  tail call void @free(ptr noundef %69) #14
+  tail call void @free(ptr noundef %69) #15
   br label %152
 
 149:                                              ; preds = %60, %57
@@ -368,7 +368,7 @@ pm_integer_parse_big.exit:                        ; preds = %.lr.ph.i.i.i, %pm_i
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden i32 @pm_integer_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i8, ptr %3, align 4, !tbaa !31, !range !32, !noundef !33
@@ -498,7 +498,7 @@ define hidden void @pm_integers_reduce(ptr noundef captures(none) %0, ptr nounde
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @pm_integer_string(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define hidden void @pm_integer_string(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = alloca %struct.pm_integer_t, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %5 = load i8, ptr %4, align 4, !tbaa !31, !range !32, !noundef !33
@@ -506,7 +506,7 @@ define hidden void @pm_integer_string(ptr noundef %0, ptr noundef readonly captu
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %2
-  tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 45) #14
+  tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 45) #15
   br label %8
 
 8:                                                ; preds = %7, %2
@@ -518,7 +518,7 @@ define hidden void @pm_integer_string(ptr noundef %0, ptr noundef readonly captu
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !30
-  tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %14) #14
+  tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %14) #15
   br label %53
 
 15:                                               ; preds = %8
@@ -528,7 +528,7 @@ define hidden void @pm_integer_string(ptr noundef %0, ptr noundef readonly captu
 
 18:                                               ; preds = %15
   %19 = load i64, ptr %10, align 4
-  tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef %19) #14
+  tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef %19) #15
   br label %53
 
 20:                                               ; preds = %15
@@ -543,13 +543,13 @@ define hidden void @pm_integer_string(ptr noundef %0, ptr noundef readonly captu
 pm_integer_free.exit:                             ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %25 = load i32, ptr %24, align 8, !tbaa !30
-  tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %25) #14
+  tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %25) #15
   br label %52
 
 26:                                               ; preds = %20
   %27 = load i64, ptr %3, align 8, !tbaa !16
   %28 = mul i64 %27, 9
-  %29 = tail call noalias ptr @calloc(i64 noundef %28, i64 noundef 1) #13
+  %29 = tail call noalias ptr @calloc(i64 noundef %28, i64 noundef 1) #14
   %30 = icmp eq ptr %29, null
   br i1 %30, label %52, label %.preheader42
 
@@ -610,9 +610,9 @@ pm_integer_free.exit41:                           ; preds = %.lr.ph47, %48, %.pr
   %.0.lcssa = phi i64 [ 0, %.preheader ], [ %32, %48 ], [ %.046, %.lr.ph47 ]
   %50 = getelementptr i8, ptr %29, i64 %.0.lcssa
   %51 = sub i64 %28, %.0.lcssa
-  tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef %50, i64 noundef %51) #14
-  tail call void @free(ptr noundef %29) #14
-  tail call void @free(ptr noundef nonnull %22) #14
+  tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef %50, i64 noundef %51) #15
+  tail call void @free(ptr noundef %29) #15
+  tail call void @free(ptr noundef nonnull %22) #15
   br label %52
 
 52:                                               ; preds = %pm_integer_free.exit41, %26, %pm_integer_free.exit
@@ -623,14 +623,14 @@ pm_integer_free.exit41:                           ; preds = %.lr.ph47, %48, %.pr
   ret void
 }
 
-declare void @pm_buffer_append_byte(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
+declare void @pm_buffer_append_byte(ptr noundef, i8 noundef zeroext) local_unnamed_addr #4
 
-declare void @pm_buffer_append_format(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @pm_buffer_append_format(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-; Function Attrs: nounwind sspstrong uwtable
+; Function Attrs: nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @pm_integer_convert_base(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 1000000000, 4294967297) %2, i64 noundef range(i64 1000000000, 4294967297) %3) unnamed_addr #0 {
   %5 = alloca %struct.pm_integer_t, align 8
   %6 = alloca %struct.pm_integer_t, align 8
@@ -653,7 +653,7 @@ define internal fastcc void @pm_integer_convert_base(ptr noundef captures(none) 
   %.056 = phi i64 [ 1, %11 ], [ %14, %13 ]
   %16 = add i64 %.056, 1
   %17 = lshr i64 %16, 1
-  %18 = tail call noalias ptr @calloc(i64 noundef %17, i64 noundef 24) #13
+  %18 = tail call noalias ptr @calloc(i64 noundef %17, i64 noundef 24) #14
   %19 = icmp eq ptr %18, null
   br i1 %19, label %165, label %.preheader
 
@@ -685,7 +685,7 @@ define internal fastcc void @pm_integer_convert_base(ptr noundef captures(none) 
 
 26:                                               ; preds = %.preheader29.i
   %27 = shl i64 %24, 2
-  %28 = tail call noalias ptr @malloc(i64 noundef %27) #12
+  %28 = tail call noalias ptr @malloc(i64 noundef %27) #13
   %29 = icmp eq ptr %28, null
   br i1 %29, label %pm_integer_from_uint64.exit, label %.preheader.i
 
@@ -763,7 +763,7 @@ pm_integer_from_uint64.exit:                      ; preds = %21, %26, %._crit_ed
 
 61:                                               ; preds = %.preheader29.i65
   %62 = shl i64 %59, 2
-  %63 = tail call noalias ptr @malloc(i64 noundef %62) #12
+  %63 = tail call noalias ptr @malloc(i64 noundef %62) #13
   %64 = icmp eq ptr %63, null
   br i1 %64, label %pm_integer_from_uint64.exit78, label %.preheader.i71
 
@@ -804,18 +804,18 @@ pm_integer_from_uint64.exit78:                    ; preds = %56, %61, %._crit_ed
   br i1 %.not.i79, label %pm_integer_free.exit, label %75
 
 75:                                               ; preds = %73
-  call void @free(ptr noundef nonnull %74) #14
+  call void @free(ptr noundef nonnull %74) #15
   br label %pm_integer_free.exit
 
 pm_integer_free.exit:                             ; preds = %73, %75
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !42
   %76 = add nuw i64 %.058101, 1
   %77 = lshr i64 %76, 1
-  %78 = call noalias ptr @calloc(i64 noundef %77, i64 noundef 24) #13
+  %78 = call noalias ptr @calloc(i64 noundef %77, i64 noundef 24) #14
   br label %81
 
 79:                                               ; preds = %139
-  call void @free(ptr noundef nonnull %.060100) #14
+  call void @free(ptr noundef nonnull %.060100) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %80 = icmp samesign ugt i64 %.058101, 2
   br i1 %80, label %73, label %._crit_edge103, !llvm.loop !44
@@ -865,7 +865,7 @@ pm_integer_free.exit:                             ; preds = %73, %75
   %104 = call i64 @llvm.umax.i64(i64 %.0.i, i64 %.040.i)
   %105 = add i64 %104, 1
   %106 = shl i64 %105, 2
-  %107 = call noalias ptr @malloc(i64 noundef %106) #12
+  %107 = call noalias ptr @malloc(i64 noundef %106) #13
   %108 = icmp eq ptr %107, null
   br i1 %108, label %big_add.exit, label %.preheader.i80
 
@@ -935,7 +935,7 @@ big_add.exit:                                     ; preds = %100, %._crit_edge.t
   br i1 %.not.i85, label %pm_integer_free.exit86, label %134
 
 134:                                              ; preds = %big_add.exit
-  call void @free(ptr noundef nonnull %133) #14
+  call void @free(ptr noundef nonnull %133) #15
   br label %pm_integer_free.exit86
 
 pm_integer_free.exit86:                           ; preds = %big_add.exit, %134
@@ -945,14 +945,14 @@ pm_integer_free.exit86:                           ; preds = %big_add.exit, %134
   br i1 %.not.i87, label %pm_integer_free.exit88, label %137
 
 137:                                              ; preds = %pm_integer_free.exit86
-  call void @free(ptr noundef nonnull %136) #14
+  call void @free(ptr noundef nonnull %136) #15
   br label %pm_integer_free.exit88
 
 pm_integer_free.exit88:                           ; preds = %pm_integer_free.exit86, %137
   br i1 %102, label %pm_integer_free.exit90, label %138
 
 138:                                              ; preds = %pm_integer_free.exit88
-  call void @free(ptr noundef nonnull %101) #14
+  call void @free(ptr noundef nonnull %101) #15
   br label %pm_integer_free.exit90
 
 pm_integer_free.exit90:                           ; preds = %pm_integer_free.exit88, %138
@@ -1001,7 +1001,7 @@ pm_integer_free.exit.i:                           ; preds = %154, %thread-pre-sp
   %159 = icmp ne i32 %157, 0
   %160 = select i1 %158, i1 %159, i1 false
   %161 = zext i1 %160 to i8
-  call void @free(ptr noundef nonnull %146) #14
+  call void @free(ptr noundef nonnull %146) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %.sroa.2.0..sroa_idx.i91 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %157, ptr %.sroa.2.0..sroa_idx.i91, align 8, !tbaa !13
@@ -1011,14 +1011,14 @@ pm_integer_free.exit.i:                           ; preds = %154, %thread-pre-sp
   br label %pm_integer_normalize.exit
 
 pm_integer_normalize.exit:                        ; preds = %.lr.ph.i92, %._crit_edge103, %pm_integer_free.exit.i
-  call void @free(ptr noundef %.060.lcssa) #14
+  call void @free(ptr noundef %.060.lcssa) #15
   %162 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %163 = load ptr, ptr %162, align 8, !tbaa !22
   %.not.i93 = icmp eq ptr %163, null
   br i1 %.not.i93, label %pm_integer_free.exit94, label %164
 
 164:                                              ; preds = %pm_integer_normalize.exit
-  call void @free(ptr noundef nonnull %163) #14
+  call void @free(ptr noundef nonnull %163) #15
   br label %pm_integer_free.exit94
 
 pm_integer_free.exit94:                           ; preds = %pm_integer_normalize.exit, %164
@@ -1029,15 +1029,15 @@ pm_integer_free.exit94:                           ; preds = %pm_integer_normaliz
   ret void
 }
 
-; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden void @pm_integer_free(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+; Function Attrs: mustprogress nounwind sspstrong willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define hidden void @pm_integer_free(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !22
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %3) #14
+  tail call void @free(ptr noundef nonnull %3) #15
   br label %5
 
 5:                                                ; preds = %4, %1
@@ -1045,20 +1045,20 @@ define hidden void @pm_integer_free(ptr noundef readonly captures(none) %0) loca
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
-declare void @pm_buffer_append_string(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @pm_buffer_append_string(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
-; Function Attrs: nounwind sspstrong uwtable
+; Function Attrs: nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @karatsuba_multiply(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef range(i64 1000000000, 4294967297) %3) unnamed_addr #0 {
   %5 = alloca %struct.pm_integer_t, align 8
   %6 = alloca %struct.pm_integer_t, align 8
@@ -1120,7 +1120,7 @@ define internal fastcc void @karatsuba_multiply(ptr noundef nonnull writeonly ca
 
 37:                                               ; preds = %35
   %38 = add i64 %.0166, %.0
-  %39 = tail call noalias ptr @calloc(i64 noundef %38, i64 noundef 4) #13
+  %39 = tail call noalias ptr @calloc(i64 noundef %38, i64 noundef 4) #14
   %40 = icmp eq ptr %39, null
   br i1 %40, label %290, label %.preheader236
 
@@ -1201,7 +1201,7 @@ define internal fastcc void @karatsuba_multiply(ptr noundef nonnull writeonly ca
 
 72:                                               ; preds = %70
   %73 = add i64 %.0166, %.0
-  %74 = tail call noalias ptr @calloc(i64 noundef %73, i64 noundef 4) #13
+  %74 = tail call noalias ptr @calloc(i64 noundef %73, i64 noundef 4) #14
   %.not277 = icmp eq i64 %.1167, 0
   br i1 %.not277, label %._crit_edge248, label %.lr.ph247
 
@@ -1284,7 +1284,7 @@ define internal fastcc void @karatsuba_multiply(ptr noundef nonnull writeonly ca
   br i1 %.not.i, label %pm_integer_free.exit, label %107
 
 107:                                              ; preds = %._crit_edge.thread
-  call void @free(ptr noundef nonnull %106) #14
+  call void @free(ptr noundef nonnull %106) #15
   br label %pm_integer_free.exit
 
 pm_integer_free.exit:                             ; preds = %._crit_edge.thread, %107
@@ -1345,7 +1345,7 @@ pm_integer_free.exit:                             ; preds = %._crit_edge.thread,
   %129 = call i64 @llvm.umax.i64(i64 %spec.select230, i64 %.040.i)
   %130 = add i64 %129, 1
   %131 = shl i64 %130, 2
-  %132 = call noalias ptr @malloc(i64 noundef %131) #12
+  %132 = call noalias ptr @malloc(i64 noundef %131) #13
   %133 = icmp eq ptr %132, null
   br i1 %133, label %big_add.exit, label %.preheader.i
 
@@ -1424,7 +1424,7 @@ big_add.exit:                                     ; preds = %109, %._crit_edge.t
   %164 = call i64 @llvm.umax.i64(i64 %spec.select232, i64 %.040.i195)
   %165 = add i64 %164, 1
   %166 = shl i64 %165, 2
-  %167 = call noalias ptr @malloc(i64 noundef %166) #12
+  %167 = call noalias ptr @malloc(i64 noundef %166) #13
   %168 = icmp eq ptr %167, null
   br i1 %168, label %big_add.exit208, label %.preheader.i196
 
@@ -1513,7 +1513,7 @@ big_add.exit208:                                  ; preds = %big_add.exit, %._cr
   %.052.i = select i1 %205, ptr %206, ptr %204
   %.051.i = select i1 %205, i64 1, i64 %207
   %208 = shl i64 %.0.i209, 2
-  %209 = call noalias ptr @malloc(i64 noundef %208) #12
+  %209 = call noalias ptr @malloc(i64 noundef %208) #13
   %.not.i210 = icmp eq i64 %.0.i209, 0
   br i1 %.not.i210, label %big_sub2.exit, label %.lr.ph.i211
 
@@ -1592,13 +1592,13 @@ big_add.exit208:                                  ; preds = %big_add.exit, %._cr
 big_sub2.exit:                                    ; preds = %.lr.ph63.i, %244, %big_add.exit208, %.preheader.i213
   %.1.lcssa.i = phi i64 [ 1, %.preheader.i213 ], [ 0, %big_add.exit208 ], [ %.162.i, %.lr.ph63.i ], [ 1, %244 ]
   %247 = add i64 %.0166, %.0
-  %248 = call noalias ptr @calloc(i64 noundef %247, i64 noundef 4) #13
+  %248 = call noalias ptr @calloc(i64 noundef %247, i64 noundef 4) #14
   %249 = shl i64 %202, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %248, ptr noundef nonnull align 1 %199, i64 noundef %249, i1 noundef false) #14
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %248, ptr noundef nonnull align 1 %199, i64 noundef %249, i1 noundef false) #15
   %250 = and i64 %.1, -2
   %251 = getelementptr i32, ptr %248, i64 %250
   %252 = shl i64 %207, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %251, ptr noundef nonnull align 1 %204, i64 noundef %252, i1 noundef false) #14
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %251, ptr noundef nonnull align 1 %204, i64 noundef %252, i1 noundef false) #15
   %invariant.gep = getelementptr i32, ptr %248, i64 %110
   %.not279 = icmp eq i64 %.1.lcssa.i, 0
   br i1 %.not279, label %.preheader237, label %.lr.ph251
@@ -1665,23 +1665,23 @@ big_sub2.exit:                                    ; preds = %.lr.ph63.i, %244, %
 
 pm_integer_free.exit217:                          ; preds = %.lr.ph260, %279, %.preheader237
   %.0176.lcssa = phi i64 [ %247, %.preheader237 ], [ 1, %279 ], [ %.0176259, %.lr.ph260 ]
-  call void @free(ptr noundef nonnull %199) #14
+  call void @free(ptr noundef nonnull %199) #15
   %.not.i218 = icmp eq ptr %209, null
   br i1 %.not.i218, label %pm_integer_free.exit221, label %282
 
 282:                                              ; preds = %pm_integer_free.exit217
-  call void @free(ptr noundef nonnull %209) #14
+  call void @free(ptr noundef nonnull %209) #15
   br label %pm_integer_free.exit221
 
 pm_integer_free.exit221:                          ; preds = %pm_integer_free.exit217, %282
-  call void @free(ptr noundef nonnull %204) #14
+  call void @free(ptr noundef nonnull %204) #15
   %283 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %284 = load ptr, ptr %283, align 8, !tbaa !22
   %.not.i222 = icmp eq ptr %284, null
   br i1 %.not.i222, label %pm_integer_free.exit223, label %285
 
 285:                                              ; preds = %pm_integer_free.exit221
-  call void @free(ptr noundef nonnull %284) #14
+  call void @free(ptr noundef nonnull %284) #15
   br label %pm_integer_free.exit223
 
 pm_integer_free.exit223:                          ; preds = %pm_integer_free.exit221, %285
@@ -1691,14 +1691,14 @@ pm_integer_free.exit223:                          ; preds = %pm_integer_free.exi
   br i1 %.not.i224, label %pm_integer_free.exit225, label %288
 
 288:                                              ; preds = %pm_integer_free.exit223
-  call void @free(ptr noundef nonnull %287) #14
+  call void @free(ptr noundef nonnull %287) #15
   br label %pm_integer_free.exit225
 
 pm_integer_free.exit225:                          ; preds = %pm_integer_free.exit223, %288
   br i1 %195, label %pm_integer_free.exit227, label %289
 
 289:                                              ; preds = %pm_integer_free.exit225
-  call void @free(ptr noundef nonnull %194) #14
+  call void @free(ptr noundef nonnull %194) #15
   br label %pm_integer_free.exit227
 
 pm_integer_free.exit227:                          ; preds = %pm_integer_free.exit225, %289
@@ -1723,32 +1723,33 @@ pm_integer_free.exit227:                          ; preds = %pm_integer_free.exi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #11
+declare i64 @llvm.umax.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #11
+declare i64 @llvm.umin.i64(i64, i64) #12
 
-attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nounwind sspstrong willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind allocsize(0) }
-attributes #13 = { nounwind allocsize(0,1) }
-attributes #14 = { nounwind }
+attributes #3 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nounwind sspstrong willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nounwind allocsize(0) }
+attributes #14 = { nounwind allocsize(0,1) }
+attributes #15 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

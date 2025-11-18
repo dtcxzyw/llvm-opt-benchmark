@@ -31,13 +31,13 @@ define void @avdevice_register_all() local_unnamed_addr #0 {
 
 declare void @avpriv_register_devices(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @av_input_audio_device_next(ptr noundef readnone captures(address) %0) local_unnamed_addr #2 {
   %2 = tail call fastcc ptr @next_input(ptr noundef %0, i32 noundef 43) #4
   ret ptr %2
 }
 
-; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc ptr @next_input(ptr noundef readnone captures(address) %0, i32 noundef range(i32 41, 44) %1) unnamed_addr #2 {
   %.old1.not = icmp eq ptr %0, null
   br i1 %.old1.not, label %.critedge.preheader, label %.preheader
@@ -94,19 +94,19 @@ define internal fastcc ptr @next_input(ptr noundef readnone captures(address) %0
   ret ptr %8
 }
 
-; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @av_input_video_device_next(ptr noundef readnone captures(address) %0) local_unnamed_addr #2 {
   %2 = tail call fastcc ptr @next_input(ptr noundef %0, i32 noundef 41) #4
   ret ptr %2
 }
 
-; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @av_output_audio_device_next(ptr noundef readnone captures(address) %0) local_unnamed_addr #2 {
   %2 = tail call fastcc ptr @next_output(ptr noundef %0, i32 noundef 42) #4
   ret ptr %2
 }
 
-; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc ptr @next_output(ptr noundef readnone captures(address) %0, i32 noundef range(i32 40, 43) %1) unnamed_addr #2 {
   %.old1.not = icmp eq ptr %0, null
   br i1 %.old1.not, label %.critedge.preheader, label %.preheader
@@ -163,7 +163,7 @@ define internal fastcc ptr @next_output(ptr noundef readnone captures(address) %
   ret ptr %8
 }
 
-; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @av_output_video_device_next(ptr noundef readnone captures(address) %0) local_unnamed_addr #2 {
   %2 = tail call fastcc ptr @next_output(ptr noundef %0, i32 noundef 40) #4
   ret ptr %2
@@ -171,7 +171,7 @@ define ptr @av_output_video_device_next(ptr noundef readnone captures(address) %
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold nofree norecurse nosync nounwind optsize memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold nofree norecurse nosync nounwind optsize memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
 attributes #4 = { cold }
 

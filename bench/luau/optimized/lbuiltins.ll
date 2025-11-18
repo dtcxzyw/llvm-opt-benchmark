@@ -1581,7 +1581,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_rshiftP9lua_StateP10lua
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_typeP9lua_StateP10lua_TValueS2_iS2_i(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #5 {
   %7 = icmp sgt i32 %5, 0
   %8 = icmp slt i32 %3, 2
@@ -1607,7 +1607,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_typeP9lua_StateP10lua_T
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef range(i32 -1, -2147483648) i32 @_ZL10luauF_byteP9lua_StateP10lua_TValueS2_iS2_i(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #6 {
   %7 = icmp sgt i32 %5, 1
   br i1 %7, label %8, label %.critedge
@@ -1775,7 +1775,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_charP9lua_StateP10lua_T
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_lenP9lua_StateP10lua_TValueS2_iS2_i(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #5 {
   %7 = icmp sgt i32 %5, 0
   %8 = icmp slt i32 %3, 2
@@ -2320,7 +2320,7 @@ define internal noundef range(i32 -1, -2147483648) i32 @_ZL13luauF_tunpackP9lua_
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_vectorP9lua_StateP10lua_TValueS2_iS2_i(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #5 {
   %7 = load i8, ptr @_ZN5FFlag22LuauVector2ConstructorE, align 8, !tbaa !65, !range !69, !noundef !70
   %8 = trunc nuw i8 %7 to i1
@@ -2478,7 +2478,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL13luauF_countrzP9lua_StateP10lu
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_selectP9lua_StateP10lua_TValueS2_iS2_i(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #8 {
   %7 = icmp eq i32 %5, 1
   %8 = icmp eq i32 %3, 1
@@ -2917,7 +2917,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL14luauF_byteswapP9lua_StateP10l
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerIaEiP9lua_StateP10lua_TValueS3_iS3_i(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #5 {
   %7 = icmp sgt i32 %5, 1
   %8 = icmp slt i32 %3, 2
@@ -2961,7 +2961,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerIaEiP9lua_St
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerIhEiP9lua_StateP10lua_TValueS3_iS3_i(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #5 {
   %7 = icmp sgt i32 %5, 1
   %8 = icmp slt i32 %3, 2
@@ -3005,7 +3005,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerIhEiP9lua_St
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef range(i32 -1, 1) i32 @_ZL18luauF_writeintegerIhEiP9lua_StateP10lua_TValueS3_iS3_i(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #8 {
   %7 = icmp sgt i32 %5, 2
   %8 = icmp slt i32 %3, 1
@@ -3055,7 +3055,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL18luauF_writeintegerIhEiP9lua_S
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerIsEiP9lua_StateP10lua_TValueS3_iS3_i(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #5 {
   %7 = icmp sgt i32 %5, 1
   %8 = icmp slt i32 %3, 2
@@ -3101,7 +3101,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerIsEiP9lua_St
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerItEiP9lua_StateP10lua_TValueS3_iS3_i(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #5 {
   %7 = icmp sgt i32 %5, 1
   %8 = icmp slt i32 %3, 2
@@ -3147,7 +3147,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerItEiP9lua_St
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef range(i32 -1, 1) i32 @_ZL18luauF_writeintegerItEiP9lua_StateP10lua_TValueS3_iS3_i(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #8 {
   %7 = icmp sgt i32 %5, 2
   %8 = icmp slt i32 %3, 1
@@ -3199,7 +3199,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL18luauF_writeintegerItEiP9lua_S
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerIiEiP9lua_StateP10lua_TValueS3_iS3_i(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #5 {
   %7 = icmp sgt i32 %5, 1
   %8 = icmp slt i32 %3, 2
@@ -3245,7 +3245,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerIiEiP9lua_St
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerIjEiP9lua_StateP10lua_TValueS3_iS3_i(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #5 {
   %7 = icmp sgt i32 %5, 1
   %8 = icmp slt i32 %3, 2
@@ -3291,7 +3291,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerIjEiP9lua_St
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef range(i32 -1, 1) i32 @_ZL18luauF_writeintegerIjEiP9lua_StateP10lua_TValueS3_iS3_i(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #8 {
   %7 = icmp sgt i32 %5, 2
   %8 = icmp slt i32 %3, 1
@@ -3343,7 +3343,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL18luauF_writeintegerIjEiP9lua_S
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_readfpIfEiP9lua_StateP10lua_TValueS3_iS3_i(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #5 {
   %7 = icmp sgt i32 %5, 1
   %8 = icmp slt i32 %3, 2
@@ -3389,7 +3389,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_readfpIfEiP9lua_StateP1
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef range(i32 -1, 1) i32 @_ZL13luauF_writefpIfEiP9lua_StateP10lua_TValueS3_iS3_i(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #8 {
   %7 = icmp sgt i32 %5, 2
   %8 = icmp slt i32 %3, 1
@@ -3440,7 +3440,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL13luauF_writefpIfEiP9lua_StateP
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_readfpIdEiP9lua_StateP10lua_TValueS3_iS3_i(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #5 {
   %7 = icmp sgt i32 %5, 1
   %8 = icmp slt i32 %3, 2
@@ -3485,7 +3485,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_readfpIdEiP9lua_StateP1
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef range(i32 -1, 1) i32 @_ZL13luauF_writefpIdEiP9lua_StateP10lua_TValueS3_iS3_i(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #8 {
   %7 = icmp sgt i32 %5, 2
   %8 = icmp slt i32 %3, 1
@@ -4313,7 +4313,7 @@ declare float @llvm.fabs.f32(float) #11
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #11
 
-; Function Attrs: nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: nounwind memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_GLOBAL__sub_I_lbuiltins.cpp() #18 section ".text.startup" {
   store ptr null, ptr @luauF_table, align 16, !tbaa !83
   store ptr @_ZL12luauF_assertP9lua_StateP10lua_TValueS2_iS2_i, ptr getelementptr inbounds nuw (i8, ptr @luauF_table, i64 8), align 8, !tbaa !83
@@ -4504,10 +4504,10 @@ attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+sse4.1,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
@@ -4517,7 +4517,7 @@ attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nounwind memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #21 = { nounwind }

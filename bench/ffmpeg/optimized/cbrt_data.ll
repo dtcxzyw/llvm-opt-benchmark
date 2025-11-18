@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ff_cbrt_tableinit.cbrt_tab_dbl = internal unnamed_addr global [8192 x double] zeroinitializer, align 16
 @ff_cbrt_tab = local_unnamed_addr global [8192 x i32] zeroinitializer, align 16
 
-; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @ff_cbrt_tableinit() local_unnamed_addr #0 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_cbrt_tab, i64 32764), align 4, !tbaa !4
   %.not = icmp eq i32 %1, 0
@@ -106,7 +106,7 @@ define void @ff_cbrt_tableinit() local_unnamed_addr #0 {
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare double @cbrt(double noundef) local_unnamed_addr #1
 
-attributes #0 = { cold nofree norecurse nosync nounwind optsize memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { cold nofree norecurse nosync nounwind optsize memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind willreturn memory(none) }
 

@@ -8151,7 +8151,7 @@ declare ptr @PyIter_Next(ptr noundef) local_unnamed_addr #1
 
 declare ptr @PyMem_Realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree nounwind memory(write, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nounwind memory(write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal double @m_tgamma(double noundef %0) #11 {
   %2 = tail call double @llvm.fabs.f64(double %0)
   %3 = fcmp ueq double %2, 0x7FF0000000000000
@@ -8451,7 +8451,7 @@ declare i32 @PyObject_RichCompareBool(ptr noundef, ptr noundef, i32 noundef) loc
 
 declare ptr @PyNumber_Subtract(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree nounwind memory(write, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nounwind memory(write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal double @m_lgamma(double noundef %0) #11 {
   %2 = tail call double @llvm.fabs.f64(double %0)
   %3 = fcmp ueq double %2, 0x7FF0000000000000
@@ -8611,7 +8611,7 @@ m_sinpi.exit:                                     ; preds = %50, %53, %57, %61, 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @log(double noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef double @m_log(double noundef %0) #14 {
   %2 = tail call double @llvm.fabs.f64(double %0)
   %3 = fcmp ueq double %2, 0x7FF0000000000000
@@ -8671,7 +8671,7 @@ define internal double @_Py_log1p(double noundef %0) #12 {
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @log1p(double noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef double @m_log10(double noundef %0) #14 {
   %2 = tail call double @llvm.fabs.f64(double %0)
   %3 = fcmp ueq double %2, 0x7FF0000000000000
@@ -8706,7 +8706,7 @@ define internal noundef double @m_log10(double noundef %0) #14 {
   ret double %.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef double @m_log2(double noundef %0) #14 {
   %2 = tail call double @llvm.fabs.f64(double %0)
   %3 = fcmp ueq double %2, 0x7FF0000000000000
@@ -9306,10 +9306,10 @@ attributes #7 = { inlinehint nofree nounwind memory(argmem: readwrite, errnomem:
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nofree nounwind memory(write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind memory(write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nounwind }

@@ -645,7 +645,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: nounwind
 declare void @_ZN11OpenImageIO6v3_1_011ImageOutputdlEPv(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef range(i32 0, 2) i32 @_ZNK11OpenImageIO6v3_1_09IffOutput8supportsENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !19
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3294,7 +3294,7 @@ declare noundef ptr @_ZN11OpenImageIO6v3_1_011ImageOutput14to_native_tileENS0_8T
 ; Function Attrs: nounwind
 declare noundef i64 @_ZNK11OpenImageIO6v3_1_09ImageSpec11pixel_bytesEb(ptr noundef nonnull align 8 dereferenceable(160), i1 noundef zeroext) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN11OpenImageIO6v3_1_09IffOutput17compress_verbatimERPKhRPhiNS0_4spanIS2_Lm18446744073709551615EEENS7_IhLm18446744073709551615EEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(376) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %2, i32 noundef %3, ptr %4, i64 %5, ptr noundef readonly byval(%"class.OpenImageIO::v3_1_0::span.21") align 8 captures(none) %6) local_unnamed_addr #9 align 2 {
   %8 = icmp sgt i32 %3, 1
   br i1 %8, label %.lr.ph, label %.loopexit
@@ -3362,7 +3362,7 @@ define hidden void @_ZN11OpenImageIO6v3_1_09IffOutput17compress_verbatimERPKhRPh
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN11OpenImageIO6v3_1_09IffOutput18compress_duplicateERPKhRPhiNS0_4spanIS2_Lm18446744073709551615EEENS7_IhLm18446744073709551615EEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(376) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %2, i32 noundef %3, ptr readnone captures(none) %4, i64 %5, ptr noundef readnone byval(%"class.OpenImageIO::v3_1_0::span.21") align 8 captures(none) %6) local_unnamed_addr #9 align 2 {
   %8 = icmp sgt i32 %3, 1
   br i1 %8, label %.lr.ph, label %._crit_edge.thread
@@ -3421,7 +3421,7 @@ define hidden void @_ZN11OpenImageIO6v3_1_09IffOutput18compress_duplicateERPKhRP
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN11OpenImageIO6v3_1_09IffOutput20compress_rle_channelEPKhPhiNS0_4spanIS2_Lm18446744073709551615EEENS5_IhLm18446744073709551615EEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(376) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr %4, i64 %5, ptr noundef readonly byval(%"class.OpenImageIO::v3_1_0::span.21") align 8 captures(none) %6) local_unnamed_addr #9 align 2 {
   %8 = sext i32 %3 to i64
   %9 = getelementptr inbounds i8, ptr %1, i64 %8
@@ -28426,10 +28426,10 @@ attributes #2 = { nofree nounwind }
 attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { cold nofree noreturn }

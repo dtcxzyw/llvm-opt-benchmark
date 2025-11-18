@@ -90066,7 +90066,7 @@ _ZN5glTF24NodeD2Ev.exit:                          ; preds = %_ZNSt6vectorIN10glT
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN10glTFCommonL10ReadMemberINS_8NullableIA3_fEEEEbRN9rapidjson12GenericValueINS4_4UTF8IcEENS4_19MemoryPoolAllocatorINS4_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(13) %2) unnamed_addr #30 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.rapidjson::GenericValue", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 14
@@ -106052,7 +106052,7 @@ _ZNSt6vectorIPN5glTF28MaterialESaIS2_EE9push_backERKS2_.exit: ; preds = %14, %_Z
   ret { ptr, i32 } %.fca.1.insert
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN10glTFCommonL10ReadMemberIA4_fEEbRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #30 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.rapidjson::GenericValue", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 14
@@ -106231,7 +106231,7 @@ _ZN10glTFCommon10ReadHelperIA4_fE4ReadERN9rapidjson12GenericValueINS3_4UTF8IcEEN
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIfEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %2) unnamed_addr #30 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.rapidjson::GenericValue", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 14
@@ -106706,7 +106706,7 @@ _ZN10glTFCommon10FindMemberERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19Memory
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN10glTFCommonL10ReadMemberIA3_fEEbRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) %2) unnamed_addr #30 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.rapidjson::GenericValue", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 14
@@ -120047,7 +120047,7 @@ attributes #26 = { mustprogress nocallback nofree nounwind willreturn memory(err
 attributes #27 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #28 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #29 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #30 = { inlinehint mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #30 = { inlinehint mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #31 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #32 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #33 = { nocallback nofree nounwind willreturn memory(argmem: read) }

@@ -11119,7 +11119,7 @@ define hidden void @"_ZN106_$LT$polars_arrow..array..primitive..PrimitiveArray$L
           to label %43 unwind label %36
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden { i64, double } @"_ZN106_$LT$polars_arrow..array..primitive..PrimitiveArray$LT$T$GT$$u20$as$u20$polars_utils..index..Indexable$GT$13get_unchecked17h5c79801c41b21fd9E"(ptr noundef nonnull readonly align 8 captures(none) %0, i64 noundef %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !noundef !4
@@ -11165,7 +11165,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h49dc8b5f1c42aae6E.exit.thread
   ret { i64, double } %30
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden { i32, float } @"_ZN106_$LT$polars_arrow..array..primitive..PrimitiveArray$LT$T$GT$$u20$as$u20$polars_utils..index..Indexable$GT$13get_unchecked17h833eb87f4190ff95E"(ptr noundef nonnull readonly align 8 captures(none) %0, i64 noundef %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !noundef !4
@@ -13097,7 +13097,7 @@ define internal fastcc void @"_ZN113_$LT$polars_utils..python_function..serde_wr
   resume { ptr, i32 } %eh.lpad-body
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11lower_bound17h00d55726d010e134E(i64 noundef %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = add i64 %0, %1
   %5 = lshr i64 %4, 1
@@ -13304,7 +13304,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hcd6583360113fd90E.exit.i.i.i1
   ret i64 %.sroa.0.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11lower_bound17h0706e492e0efc6cfE(i64 noundef %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #8 personality ptr @rust_eh_personality {
   %4 = add i64 %0, %1
   %5 = lshr i64 %4, 1
@@ -13468,7 +13468,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   ret { i64, i64 } %68
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11lower_bound17h317c8d119f4b6382E(i64 noundef %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = add i64 %0, %1
   %5 = lshr i64 %4, 1
@@ -13744,7 +13744,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   ret { i64, i64 } %68
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11lower_bound17h49546f91146501dbE(i64 noundef %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = add i64 %0, %1
   %5 = lshr i64 %4, 1
@@ -14333,7 +14333,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hcd6583360113fd90E.exit.i.i.i2
   ret { i64, i64 } %116
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11lower_bound17h70dae4a36e69008aE(i64 noundef %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = add i64 %0, %1
   %5 = lshr i64 %4, 1
@@ -14540,7 +14540,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h49dc8b5f1c42aae6E.exit.i.i.i1
   ret i64 %.sroa.0.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11lower_bound17h71371e7463dc7adfE(i64 noundef %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = add i64 %0, %1
   %5 = lshr i64 %4, 1
@@ -14943,7 +14943,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h49dc8b5f1c42aae6E.exit.i.i.i2
   ret { i64, i64 } %114
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11lower_bound17h804c6631c27d3b7bE(i64 noundef %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #8 personality ptr @rust_eh_personality {
   %4 = add i64 %0, %1
   %5 = lshr i64 %4, 1
@@ -14991,7 +14991,7 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   ret i64 %spec.select29
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11lower_bound17h82bda725a46150dbE(i64 noundef %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = add i64 %0, %1
   %5 = lshr i64 %4, 1
@@ -15151,7 +15151,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h49dc8b5f1c42aae6E.exit.i.i.i1
   ret i64 %.sroa.0.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11lower_bound17h87fc53c87d064cb1E(i64 noundef %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #8 personality ptr @rust_eh_personality {
   %4 = add i64 %0, %1
   %5 = lshr i64 %4, 1
@@ -15315,7 +15315,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   ret { i64, i64 } %66
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11lower_bound17h90793b36045a104aE(i64 noundef %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #8 personality ptr @rust_eh_personality {
   %4 = add i64 %0, %1
   %5 = lshr i64 %4, 1
@@ -15374,7 +15374,7 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   ret i64 %spec.select29
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11lower_bound17h93f873ce5d0feb0dE(i64 noundef %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #8 personality ptr @rust_eh_personality {
   %4 = add i64 %0, %1
   %5 = lshr i64 %4, 1
@@ -16059,7 +16059,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   ret { i64, i64 } %68
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11lower_bound17hb218d5ddd6466b10E(i64 noundef %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #8 personality ptr @rust_eh_personality {
   %4 = add i64 %0, %1
   %5 = lshr i64 %4, 1
@@ -16118,7 +16118,7 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   ret i64 %spec.select30
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11lower_bound17hbdee1b82d4c8f282E(i64 noundef %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = add i64 %0, %1
   %5 = lshr i64 %4, 1
@@ -16278,7 +16278,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hcd6583360113fd90E.exit.i.i.i1
   ret i64 %.sroa.0.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11lower_bound17hbf2201baa7570346E(i64 noundef %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #8 personality ptr @rust_eh_personality {
   %4 = add i64 %0, %1
   %5 = lshr i64 %4, 1
@@ -16731,7 +16731,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h49dc8b5f1c42aae6E.exit.i.i.i2
   ret { i64, i64 } %114
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11lower_bound17hd3a1804fe3e28184E(i64 noundef %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = add i64 %0, %1
   %5 = lshr i64 %4, 1
@@ -16937,7 +16937,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hcd6583360113fd90E.exit.i.i.i1
   ret i64 %.sroa.0.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11lower_bound17hdd126a6055af5399E(i64 noundef %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #8 personality ptr @rust_eh_personality {
   %4 = add i64 %0, %1
   %5 = lshr i64 %4, 1
@@ -35168,7 +35168,7 @@ define hidden { ptr, ptr } @_ZN12polars_arrow5array5Array16sliced_unchecked17hf5
   resume { ptr, i32 } %7
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef zeroext i1 @_ZN12polars_arrow5array5Array17is_null_unchecked17h3d0ca4a04bfc420cE(ptr noundef nonnull readonly align 8 captures(none) %0, i64 noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !noundef !4
@@ -35200,7 +35200,7 @@ define internal noundef zeroext i1 @_ZN12polars_arrow5array5Array17is_null_unche
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef zeroext i1 @_ZN12polars_arrow5array5Array17is_null_unchecked17h4162f5b7eb915f17E(ptr noundef nonnull readonly align 8 captures(none) %0, i64 noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !noundef !4
@@ -35232,7 +35232,7 @@ define internal noundef zeroext i1 @_ZN12polars_arrow5array5Array17is_null_unche
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef zeroext i1 @_ZN12polars_arrow5array5Array17is_null_unchecked17h49dc8b5f1c42aae6E(ptr noundef nonnull readonly align 8 captures(none) %0, i64 noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !noundef !4
@@ -35264,7 +35264,7 @@ define internal noundef zeroext i1 @_ZN12polars_arrow5array5Array17is_null_unche
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef zeroext i1 @_ZN12polars_arrow5array5Array17is_null_unchecked17h68184c8873dc2ea1E(ptr noundef nonnull readonly align 8 captures(none) %0, i64 noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !noundef !4
@@ -35296,7 +35296,7 @@ define internal noundef zeroext i1 @_ZN12polars_arrow5array5Array17is_null_unche
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef zeroext i1 @_ZN12polars_arrow5array5Array17is_null_unchecked17h7f0d6abab5a4b498E(ptr noundef nonnull readonly align 8 captures(none) %0, i64 noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !noundef !4
@@ -35328,7 +35328,7 @@ define internal noundef zeroext i1 @_ZN12polars_arrow5array5Array17is_null_unche
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef zeroext i1 @_ZN12polars_arrow5array5Array17is_null_unchecked17h8ba6a5b40b0b55c4E(ptr noundef nonnull readonly align 8 captures(none) %0, i64 noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !noundef !4
@@ -35360,7 +35360,7 @@ define internal noundef zeroext i1 @_ZN12polars_arrow5array5Array17is_null_unche
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef zeroext i1 @_ZN12polars_arrow5array5Array17is_null_unchecked17h8e43c6ea38d36e90E(ptr noundef nonnull readonly align 8 captures(none) %0, i64 noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !noundef !4
@@ -35392,7 +35392,7 @@ define internal noundef zeroext i1 @_ZN12polars_arrow5array5Array17is_null_unche
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef zeroext i1 @_ZN12polars_arrow5array5Array17is_null_unchecked17ha14423e84c15783bE(ptr noundef nonnull readonly align 8 captures(none) %0, i64 noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !noundef !4
@@ -35424,7 +35424,7 @@ define internal noundef zeroext i1 @_ZN12polars_arrow5array5Array17is_null_unche
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef zeroext i1 @_ZN12polars_arrow5array5Array17is_null_unchecked17hb03e83c8cd57f17eE(ptr noundef nonnull readonly align 8 captures(none) %0, i64 noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !noundef !4
@@ -35456,7 +35456,7 @@ define internal noundef zeroext i1 @_ZN12polars_arrow5array5Array17is_null_unche
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef zeroext i1 @_ZN12polars_arrow5array5Array17is_null_unchecked17hcd6583360113fd90E(ptr noundef nonnull readonly align 8 captures(none) %0, i64 noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !noundef !4
@@ -35488,7 +35488,7 @@ define internal noundef zeroext i1 @_ZN12polars_arrow5array5Array17is_null_unche
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef zeroext i1 @_ZN12polars_arrow5array5Array17is_null_unchecked17hd03042daf9d27417E(ptr noundef nonnull readonly align 8 captures(none) %0, i64 noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !noundef !4
@@ -35520,7 +35520,7 @@ define internal noundef zeroext i1 @_ZN12polars_arrow5array5Array17is_null_unche
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef zeroext i1 @_ZN12polars_arrow5array5Array17is_null_unchecked17heb469b45176250c4E(ptr noundef nonnull readonly align 8 captures(none) %0, i64 noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !noundef !4
@@ -124698,7 +124698,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   ret i1 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h413159dc6ae062a5E"(ptr noalias noundef readnone align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #12 {
   %.val = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 48
@@ -124847,7 +124847,7 @@ define hidden noundef range(i8 1, 8) i8 @"_ZN4core3ops8function5impls79_$LT$impl
   ret i8 %8
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb081154a25926d7cE"(ptr noalias noundef readnone align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 1 %1, i64 %2) unnamed_addr #8 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %"_ZN10polars_ops13chunked_array7strings9namespace19StringNameSpaceImpl11strip_chars28_$u7b$$u7b$closure$u7d$$u7d$17hbaed96f1acc492c8E.exit", label %4
@@ -124866,7 +124866,7 @@ define hidden { ptr, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..op
   ret { ptr, i64 } %9
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb801d4b1e019d30bE"(ptr noalias noundef readnone align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #12 {
   %.val = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 48
@@ -124875,7 +124875,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   ret i1 %5
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbf2169fb1c7e8ee7E"(ptr noalias noundef readnone align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 1 %1, i64 %2) unnamed_addr #8 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %"_ZN10polars_ops13chunked_array7strings9namespace19StringNameSpaceImpl17strip_chars_start28_$u7b$$u7b$closure$u7d$$u7d$17h84a4c50eadf193abE.exit", label %4
@@ -124894,7 +124894,7 @@ define hidden { ptr, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..op
   ret { ptr, i64 } %9
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hc097248641f88c1cE"(ptr noalias noundef readnone align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 1 %1, i64 %2) unnamed_addr #8 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %"_ZN10polars_ops13chunked_array7strings9namespace19StringNameSpaceImpl15strip_chars_end28_$u7b$$u7b$closure$u7d$$u7d$17h0877f16fe6ae9c1fE.exit", label %4
@@ -128420,7 +128420,7 @@ define internal fastcc void @"_ZN4core3ptr95drop_in_place$LT$core..result..Resul
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h9e32ae8d2cdb6511E"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %4 = icmp samesign eq i64 %1, 0
@@ -128692,7 +128692,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   ret { ptr, i64 } %147
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_matches17h7741d6d3c5df0f37E"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = icmp samesign eq i64 %1, 0
   br i1 %3, label %.loopexit, label %.lr.ph.i.i.preheader
@@ -128837,7 +128837,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   ret { ptr, i64 } %76
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_matches17h274b8c504114b095E"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %4 = icmp samesign eq i64 %1, 0
@@ -129742,7 +129742,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i.i.i: ; preds = %20
   ret void
 }
 
-; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h3a616b0d547020d3E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #15 personality ptr @rust_eh_personality {
   %.idx = shl nuw nsw i64 %2, 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
@@ -168023,17 +168023,17 @@ attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "tar
 attributes #2 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { cold inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #7 = { nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #8 = { nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #7 = { nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #8 = { nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #10 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #10 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #11 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #14 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #15 = { nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #15 = { nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #16 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #17 = { alwaysinline nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #18 = { nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

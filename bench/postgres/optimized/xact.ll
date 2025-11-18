@@ -211,7 +211,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.ShowTransactionStateRec = private unnamed_addr constant [20 x ptr] [ptr @.str.48, ptr @.str.82, ptr @.str.83, ptr @.str.50, ptr @.str.84, ptr @.str.85, ptr @.str.86, ptr @.str.52, ptr @.str.87, ptr @.str.88, ptr @.str.53, ptr @.str.89, ptr @.str.90, ptr @.str.91, ptr @.str.92, ptr @.str.93, ptr @.str.94, ptr @.str.95, ptr @.str.96, ptr @.str.97], align 8
 @switch.table.PopTransaction = private unnamed_addr constant [6 x ptr] [ptr @.str.48, ptr @.str.49, ptr @.str.50, ptr @.str.51, ptr @.str.52, ptr @.str.53], align 8
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local zeroext i1 @IsTransactionState() local_unnamed_addr #0 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -220,7 +220,7 @@ define dso_local zeroext i1 @IsTransactionState() local_unnamed_addr #0 {
   ret i1 %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local zeroext i1 @IsAbortedTransactionBlockState() local_unnamed_addr #0 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -417,7 +417,7 @@ GetTopTransactionId.exit:                         ; preds = %65, %68
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i32 @GetTopTransactionIdIfAny() local_unnamed_addr #2 {
   %1 = load i64, ptr @XactTopFullTransactionId.0, align 8
   %2 = trunc i64 %1 to i32
@@ -443,7 +443,7 @@ define dso_local i32 @GetCurrentTransactionId() local_unnamed_addr #1 {
   ret i32 %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i32 @GetCurrentTransactionIdIfAny() local_unnamed_addr #0 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = load i64, ptr %1, align 8
@@ -471,7 +471,7 @@ define dso_local i64 @GetTopFullTransactionId() local_unnamed_addr #1 {
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i64 @GetTopFullTransactionIdIfAny() local_unnamed_addr #2 {
   %.sroa.0.0.copyload = load i64, ptr @XactTopFullTransactionId.0, align 8
   ret i64 %.sroa.0.0.copyload
@@ -495,14 +495,14 @@ define dso_local i64 @GetCurrentFullTransactionId() local_unnamed_addr #1 {
   ret i64 %.sroa.0.0.copyload
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i64 @GetCurrentFullTransactionIdIfAny() local_unnamed_addr #0 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   ret i64 %.sroa.0.0.copyload
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @MarkCurrentTransactionIdLoggedIfAny() local_unnamed_addr #4 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = load i64, ptr %1, align 8
@@ -519,7 +519,7 @@ define dso_local void @MarkCurrentTransactionIdLoggedIfAny() local_unnamed_addr 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local zeroext i1 @IsSubxactTopXidLogPending() local_unnamed_addr #0 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 106
@@ -553,7 +553,7 @@ define dso_local zeroext i1 @IsSubxactTopXidLogPending() local_unnamed_addr #0 {
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local zeroext i1 @IsSubTransaction() local_unnamed_addr #0 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -562,7 +562,7 @@ define dso_local zeroext i1 @IsSubTransaction() local_unnamed_addr #0 {
   ret i1 %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @MarkSubxactTopXidLogged() local_unnamed_addr #5 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 106
@@ -602,7 +602,7 @@ define dso_local i32 @GetStableLatestTransactionId() local_unnamed_addr #1 {
   ret i32 %12
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i32 @GetCurrentSubTransactionId() local_unnamed_addr #0 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -610,7 +610,7 @@ define dso_local i32 @GetCurrentSubTransactionId() local_unnamed_addr #0 {
   ret i32 %3
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @SubTransactionIsActive(i32 noundef %0) local_unnamed_addr #6 {
   %.06 = load ptr, ptr @CurrentTransactionState, align 8
   %.not7.not = icmp eq ptr %.06, null
@@ -676,20 +676,20 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #8
 
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @SetParallelStartTimestamps(i64 noundef %0, i64 noundef %1) local_unnamed_addr #9 {
   store i64 %0, ptr @xactStartTimestamp, align 8
   store i64 %1, ptr @stmtStartTimestamp, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i64 @GetCurrentTransactionStartTimestamp() local_unnamed_addr #2 {
   %1 = load i64, ptr @xactStartTimestamp, align 8
   ret i64 %1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i64 @GetCurrentStatementStartTimestamp() local_unnamed_addr #2 {
   %1 = load i64, ptr @stmtStartTimestamp, align 8
   ret i64 %1
@@ -728,7 +728,7 @@ define dso_local void @SetCurrentStatementStartTimestamp() local_unnamed_addr #1
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i32 @GetCurrentTransactionNestLevel() local_unnamed_addr #0 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -846,7 +846,7 @@ define dso_local noundef zeroext i1 @TransactionIdIsCurrentTransactionId(i32 nou
 
 declare zeroext i1 @TransactionIdPrecedes(i32 noundef, i32 noundef) local_unnamed_addr #8
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local zeroext i1 @TransactionStartedDuringRecovery() local_unnamed_addr #0 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 97
@@ -855,7 +855,7 @@ define dso_local zeroext i1 @TransactionStartedDuringRecovery() local_unnamed_ad
   ret i1 %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @EnterParallelMode() local_unnamed_addr #4 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 100
@@ -865,7 +865,7 @@ define dso_local void @EnterParallelMode() local_unnamed_addr #4 {
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @ExitParallelMode() local_unnamed_addr #4 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 100
@@ -875,7 +875,7 @@ define dso_local void @ExitParallelMode() local_unnamed_addr #4 {
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local zeroext i1 @IsInParallelMode() local_unnamed_addr #0 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 100
@@ -950,7 +950,7 @@ IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMod
 
 declare void @SnapshotSetCommandId(i32 noundef) local_unnamed_addr #8
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @ForceSyncCommit() local_unnamed_addr #9 {
   store i1 true, ptr @forceSyncCommit, align 1
   ret void
@@ -1160,7 +1160,7 @@ switch.lookup:                                    ; preds = %1
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @SaveTransactionCharacteristics(ptr noundef writeonly captures(none) initializes((0, 6)) %0) local_unnamed_addr #11 {
   %2 = load i32, ptr @XactIsoLevel, align 4
   store i32 %2, ptr %0, align 4
@@ -1173,7 +1173,7 @@ define dso_local void @SaveTransactionCharacteristics(ptr noundef writeonly capt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @RestoreTransactionCharacteristics(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load i32, ptr %0, align 4
   store i32 %2, ptr @XactIsoLevel, align 4
@@ -1566,7 +1566,7 @@ define dso_local void @PreventInTransactionBlock(i1 noundef zeroext %0, ptr noun
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local zeroext i1 @IsTransactionBlock() local_unnamed_addr #0 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1630,7 +1630,7 @@ CheckTransactionBlock.exit:                       ; preds = %2, %6
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local zeroext i1 @IsInTransactionBlock(i1 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @CurrentTransactionState, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -2221,7 +2221,7 @@ define dso_local void @UserAbortTransactionBlock(i1 noundef zeroext %0) local_un
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @BeginImplicitTransactionBlock() local_unnamed_addr #4 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -2237,7 +2237,7 @@ define dso_local void @BeginImplicitTransactionBlock() local_unnamed_addr #4 {
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @EndImplicitTransactionBlock() local_unnamed_addr #4 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -3843,7 +3843,7 @@ declare void @AtAbort_Portals() local_unnamed_addr #8
 
 declare void @AtSubAbort_Portals(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local zeroext i1 @IsTransactionOrTransactionBlock() local_unnamed_addr #0 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -4520,7 +4520,7 @@ CallXactCallbacks.exit38:                         ; preds = %.lr.ph.i35, %156
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i32 @xactGetCommittedChildren(ptr noundef writeonly captures(none) initializes((0, 8)) %0) local_unnamed_addr #14 {
   %2 = load ptr, ptr @CurrentTransactionState, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 80
@@ -6330,21 +6330,21 @@ declare i32 @llvm.smin.i32(i32, i32) #17
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }

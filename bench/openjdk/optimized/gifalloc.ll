@@ -25,7 +25,7 @@ define hidden range(i32 1, 10) i32 @GifBitSize(i32 noundef %0) local_unnamed_add
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noalias noundef ptr @GifMakeMapObject(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   br label %3
 
@@ -43,20 +43,20 @@ GifBitSize.exit:                                  ; preds = %3
   br i1 %.not, label %7, label %25
 
 7:                                                ; preds = %GifBitSize.exit
-  %8 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #12
+  %8 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #13
   %9 = icmp eq ptr %8, null
   br i1 %9, label %25, label %10
 
 10:                                               ; preds = %7
   %11 = zext nneg i32 %0 to i64
-  %12 = tail call noalias ptr @calloc(i64 noundef %11, i64 noundef 3) #13
+  %12 = tail call noalias ptr @calloc(i64 noundef %11, i64 noundef 3) #14
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %12, ptr %13, align 8
   %14 = icmp eq ptr %12, null
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %10
-  tail call void @free(ptr noundef nonnull %8) #14
+  tail call void @free(ptr noundef nonnull %8) #15
   br label %25
 
 16:                                               ; preds = %10
@@ -102,7 +102,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @GifFreeMapObject(ptr noundef captures(address_is_null) %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
@@ -110,8 +110,8 @@ define hidden void @GifFreeMapObject(ptr noundef captures(address_is_null) %0) l
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  tail call void @free(ptr noundef %4) #14
-  tail call void @free(ptr noundef nonnull %0) #14
+  tail call void @free(ptr noundef %4) #15
+  tail call void @free(ptr noundef nonnull %0) #15
   br label %5
 
 5:                                                ; preds = %2, %1
@@ -119,7 +119,7 @@ define hidden void @GifFreeMapObject(ptr noundef captures(address_is_null) %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @GifUnionColorMap(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
+define hidden noalias noundef ptr @GifUnionColorMap(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #7 {
   %4 = load i32, ptr %0, align 8
   %5 = load i32, ptr %1, align 8
   %. = tail call i32 @llvm.smax.i32(i32 %4, i32 %5)
@@ -140,20 +140,20 @@ GifBitSize.exit.i:                                ; preds = %7
   br i1 %.not.i, label %11, label %GifMakeMapObject.exit.thread
 
 11:                                               ; preds = %GifBitSize.exit.i
-  %12 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #12
+  %12 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #13
   %13 = icmp eq ptr %12, null
   br i1 %13, label %GifMakeMapObject.exit.thread, label %14
 
 14:                                               ; preds = %11
   %15 = zext nneg i32 %6 to i64
-  %16 = tail call noalias ptr @calloc(i64 noundef %15, i64 noundef 3) #13
+  %16 = tail call noalias ptr @calloc(i64 noundef %15, i64 noundef 3) #14
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %16, ptr %17, align 8
   %18 = icmp eq ptr %16, null
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %14
-  tail call void @free(ptr noundef nonnull %12) #14
+  tail call void @free(ptr noundef nonnull %12) #15
   br label %GifMakeMapObject.exit.thread
 
 20:                                               ; preds = %14
@@ -301,8 +301,8 @@ GifMakeMapObject.exit..preheader91_crit_edge:     ; preds = %GifMakeMapObject.ex
   br i1 %78, label %GifFreeMapObject.exit, label %.preheader
 
 GifFreeMapObject.exit:                            ; preds = %._crit_edge108
-  tail call void @free(ptr noundef %16) #14
-  tail call void @free(ptr noundef nonnull %12) #14
+  tail call void @free(ptr noundef %16) #15
+  tail call void @free(ptr noundef nonnull %12) #15
   br label %GifMakeMapObject.exit.thread
 
 .preheader:                                       ; preds = %._crit_edge108, %.preheader
@@ -340,13 +340,13 @@ GifBitSize.exit:                                  ; preds = %.preheader
 
 92:                                               ; preds = %._crit_edge113
   %93 = zext nneg i32 %80 to i64
-  %94 = tail call ptr @openbsd_reallocarray(ptr noundef nonnull %16, i64 noundef %93, i64 noundef 3) #14
+  %94 = tail call ptr @openbsd_reallocarray(ptr noundef nonnull %16, i64 noundef %93, i64 noundef 3) #15
   %95 = icmp eq ptr %94, null
   br i1 %95, label %GifFreeMapObject.exit88, label %96
 
 GifFreeMapObject.exit88:                          ; preds = %92
-  tail call void @free(ptr noundef nonnull %16) #14
-  tail call void @free(ptr noundef nonnull %12) #14
+  tail call void @free(ptr noundef nonnull %16) #15
+  tail call void @free(ptr noundef nonnull %12) #15
   br label %GifMakeMapObject.exit.thread
 
 96:                                               ; preds = %92
@@ -363,10 +363,10 @@ GifMakeMapObject.exit.thread:                     ; preds = %11, %GifBitSize.exi
   ret ptr %.0
 }
 
-declare ptr @openbsd_reallocarray(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
+declare ptr @openbsd_reallocarray(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @GifApplyTranslation(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define hidden void @GifApplyTranslation(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -398,7 +398,7 @@ define hidden void @GifApplyTranslation(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @GifAddExtensionBlock(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @GifAddExtensionBlock(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #7 {
   %6 = load ptr, ptr %1, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %14, label %8
@@ -407,7 +407,7 @@ define hidden range(i32 0, 2) i32 @GifAddExtensionBlock(ptr noundef captures(non
   %9 = load i32, ptr %0, align 4
   %10 = add nsw i32 %9, 1
   %11 = sext i32 %10 to i64
-  %12 = tail call ptr @openbsd_reallocarray(ptr noundef nonnull %6, i64 noundef %11, i64 noundef 24) #14
+  %12 = tail call ptr @openbsd_reallocarray(ptr noundef nonnull %6, i64 noundef %11, i64 noundef 24) #15
   %13 = icmp eq ptr %12, null
   br i1 %13, label %30, label %.thread
 
@@ -416,7 +416,7 @@ define hidden range(i32 0, 2) i32 @GifAddExtensionBlock(ptr noundef captures(non
   br label %17
 
 14:                                               ; preds = %5
-  %15 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #12
+  %15 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #13
   store ptr %15, ptr %1, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %30, label %17
@@ -432,7 +432,7 @@ define hidden range(i32 0, 2) i32 @GifAddExtensionBlock(ptr noundef captures(non
   store i32 %2, ptr %22, align 8
   store i32 %3, ptr %21, align 8
   %23 = sext i32 %3 to i64
-  %24 = tail call noalias ptr @malloc(i64 noundef %23) #12
+  %24 = tail call noalias ptr @malloc(i64 noundef %23) #13
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %24, ptr %25, align 8
   %26 = icmp eq ptr %24, null
@@ -452,7 +452,7 @@ define hidden range(i32 0, 2) i32 @GifAddExtensionBlock(ptr noundef captures(non
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @GifFreeExtensions(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, null
@@ -467,7 +467,7 @@ define hidden void @GifFreeExtensions(ptr noundef captures(none) %0, ptr noundef
   %.011 = phi ptr [ %9, %.lr.ph ], [ %3, %.preheader ]
   %7 = getelementptr inbounds nuw i8, ptr %.011, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void @free(ptr noundef %8) #14
+  tail call void @free(ptr noundef %8) #15
   %9 = getelementptr inbounds nuw i8, ptr %.011, i64 24
   %10 = load ptr, ptr %1, align 8
   %11 = load i32, ptr %0, align 4
@@ -478,7 +478,7 @@ define hidden void @GifFreeExtensions(ptr noundef captures(none) %0, ptr noundef
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.lcssa = phi ptr [ %3, %.preheader ], [ %10, %.lr.ph ]
-  tail call void @free(ptr noundef %.lcssa) #14
+  tail call void @free(ptr noundef %.lcssa) #15
   store ptr null, ptr %1, align 8
   store i32 0, ptr %0, align 4
   br label %15
@@ -487,7 +487,7 @@ define hidden void @GifFreeExtensions(ptr noundef captures(none) %0, ptr noundef
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @FreeLastSavedImage(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %GifFreeExtensions.exit, label %3
@@ -513,8 +513,8 @@ define hidden void @FreeLastSavedImage(ptr noundef captures(address_is_null) %0)
 GifFreeMapObject.exit:                            ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
-  tail call void @free(ptr noundef %16) #14
-  tail call void @free(ptr noundef nonnull %14) #14
+  tail call void @free(ptr noundef %16) #15
+  tail call void @free(ptr noundef nonnull %14) #15
   store ptr null, ptr %13, align 8
   br label %17
 
@@ -525,7 +525,7 @@ GifFreeMapObject.exit:                            ; preds = %7
   br i1 %.not14, label %21, label %20
 
 20:                                               ; preds = %17
-  tail call void @free(ptr noundef nonnull %19) #14
+  tail call void @free(ptr noundef nonnull %19) #15
   br label %21
 
 21:                                               ; preds = %20, %17
@@ -544,7 +544,7 @@ GifFreeMapObject.exit:                            ; preds = %7
   %.011.i = phi ptr [ %30, %.lr.ph.i ], [ %24, %.preheader.i ]
   %28 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %29 = load ptr, ptr %28, align 8
-  tail call void @free(ptr noundef %29) #14
+  tail call void @free(ptr noundef %29) #15
   %30 = getelementptr inbounds nuw i8, ptr %.011.i, i64 24
   %31 = load ptr, ptr %23, align 8
   %32 = load i32, ptr %22, align 8
@@ -555,7 +555,7 @@ GifFreeMapObject.exit:                            ; preds = %7
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %.lcssa.i = phi ptr [ %24, %.preheader.i ], [ %31, %.lr.ph.i ]
-  tail call void @free(ptr noundef %.lcssa.i) #14
+  tail call void @free(ptr noundef %.lcssa.i) #15
   store ptr null, ptr %23, align 8
   store i32 0, ptr %22, align 8
   br label %GifFreeExtensions.exit
@@ -565,7 +565,7 @@ GifFreeExtensions.exit:                           ; preds = %._crit_edge.i, %21,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @GifMakeSavedImage(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
+define hidden ptr @GifMakeSavedImage(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -576,7 +576,7 @@ define hidden ptr @GifMakeSavedImage(ptr noundef captures(address_is_null) %0, p
   %8 = load i32, ptr %7, align 8
   %9 = add nsw i32 %8, 1
   %10 = sext i32 %9 to i64
-  %11 = tail call ptr @openbsd_reallocarray(ptr noundef nonnull %4, i64 noundef %10, i64 noundef 56) #14
+  %11 = tail call ptr @openbsd_reallocarray(ptr noundef nonnull %4, i64 noundef %10, i64 noundef 56) #15
   %12 = icmp eq ptr %11, null
   br i1 %12, label %89, label %.thread
 
@@ -585,7 +585,7 @@ define hidden ptr @GifMakeSavedImage(ptr noundef captures(address_is_null) %0, p
   br label %16
 
 13:                                               ; preds = %2
-  %14 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #12
+  %14 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #13
   store ptr %14, ptr %3, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %89, label %16
@@ -628,20 +628,20 @@ GifBitSize.exit.i:                                ; preds = %29
   br i1 %.not.i, label %33, label %52
 
 33:                                               ; preds = %GifBitSize.exit.i
-  %34 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #12
+  %34 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #13
   %35 = icmp eq ptr %34, null
   br i1 %35, label %52, label %36
 
 36:                                               ; preds = %33
   %37 = zext nneg i32 %26 to i64
-  %38 = tail call noalias ptr @calloc(i64 noundef %37, i64 noundef 3) #13
+  %38 = tail call noalias ptr @calloc(i64 noundef %37, i64 noundef 3) #14
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %38, ptr %39, align 8
   %40 = icmp eq ptr %38, null
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %36
-  tail call void @free(ptr noundef nonnull %34) #14
+  tail call void @free(ptr noundef nonnull %34) #15
   br label %52
 
 42:                                               ; preds = %36
@@ -688,7 +688,7 @@ GifMakeMapObject.exit:                            ; preds = %GifBitSize.exit24.i
   %58 = load i32, ptr %57, align 8
   %59 = mul nsw i32 %58, %56
   %60 = sext i32 %59 to i64
-  %61 = tail call ptr @openbsd_reallocarray(ptr noundef null, i64 noundef %60, i64 noundef 1) #14
+  %61 = tail call ptr @openbsd_reallocarray(ptr noundef null, i64 noundef %60, i64 noundef 1) #15
   %62 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr %61, ptr %62, align 8
   %63 = icmp eq ptr %61, null
@@ -716,7 +716,7 @@ GifMakeMapObject.exit:                            ; preds = %GifBitSize.exit24.i
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %77 = load i32, ptr %76, align 8
   %78 = sext i32 %77 to i64
-  %79 = tail call ptr @openbsd_reallocarray(ptr noundef null, i64 noundef %78, i64 noundef 24) #14
+  %79 = tail call ptr @openbsd_reallocarray(ptr noundef null, i64 noundef %78, i64 noundef 24) #15
   %80 = getelementptr inbounds nuw i8, ptr %21, i64 48
   store ptr %79, ptr %80, align 8
   %81 = icmp eq ptr %79, null
@@ -744,9 +744,9 @@ GifMakeMapObject.exit:                            ; preds = %GifBitSize.exit24.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @GifFreeSavedImages(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %39, label %3
@@ -773,8 +773,8 @@ define hidden void @GifFreeSavedImages(ptr noundef captures(address_is_null) %0)
 GifFreeMapObject.exit:                            ; preds = %.lr.ph
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  tail call void @free(ptr noundef %13) #14
-  tail call void @free(ptr noundef nonnull %11) #14
+  tail call void @free(ptr noundef %13) #15
+  tail call void @free(ptr noundef nonnull %11) #15
   store ptr null, ptr %10, align 8
   br label %14
 
@@ -785,7 +785,7 @@ GifFreeMapObject.exit:                            ; preds = %.lr.ph
   br i1 %.not20, label %18, label %17
 
 17:                                               ; preds = %14
-  tail call void @free(ptr noundef nonnull %16) #14
+  tail call void @free(ptr noundef nonnull %16) #15
   br label %18
 
 18:                                               ; preds = %17, %14
@@ -804,7 +804,7 @@ GifFreeMapObject.exit:                            ; preds = %.lr.ph
   %.011.i = phi ptr [ %27, %.lr.ph.i ], [ %21, %.preheader.i ]
   %25 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %26 = load ptr, ptr %25, align 8
-  tail call void @free(ptr noundef %26) #14
+  tail call void @free(ptr noundef %26) #15
   %27 = getelementptr inbounds nuw i8, ptr %.011.i, i64 24
   %28 = load ptr, ptr %20, align 8
   %29 = load i32, ptr %19, align 8
@@ -815,7 +815,7 @@ GifFreeMapObject.exit:                            ; preds = %.lr.ph
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %.lcssa.i = phi ptr [ %21, %.preheader.i ], [ %28, %.lr.ph.i ]
-  tail call void @free(ptr noundef %.lcssa.i) #14
+  tail call void @free(ptr noundef %.lcssa.i) #15
   store ptr null, ptr %20, align 8
   store i32 0, ptr %19, align 8
   br label %GifFreeExtensions.exit
@@ -831,7 +831,7 @@ GifFreeExtensions.exit:                           ; preds = %18, %._crit_edge.i
 
 ._crit_edge:                                      ; preds = %GifFreeExtensions.exit, %.preheader
   %.lcssa21 = phi ptr [ %5, %.preheader ], [ %34, %GifFreeExtensions.exit ]
-  tail call void @free(ptr noundef %.lcssa21) #14
+  tail call void @free(ptr noundef %.lcssa21) #15
   store ptr null, ptr %4, align 8
   br label %39
 
@@ -840,26 +840,27 @@ GifFreeExtensions.exit:                           ; preds = %18, %._crit_edge.i
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
+declare i32 @llvm.smax.i32(i32, i32) #12
 
 attributes #0 = { nofree norecurse nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind allocsize(0) }
-attributes #13 = { nounwind allocsize(0,1) }
-attributes #14 = { nounwind }
+attributes #6 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nounwind allocsize(0) }
+attributes #14 = { nounwind allocsize(0,1) }
+attributes #15 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

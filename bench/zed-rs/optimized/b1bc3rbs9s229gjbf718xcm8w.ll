@@ -4784,7 +4784,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h0b
   ret i64 %25
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read) uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h0da327608b40d710E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !940)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -5418,7 +5418,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h16
   ret i64 %108
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read) uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h16a03119a9440b48E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1000)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7273,7 +7273,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h3f
   ret i64 %28
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read) uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h40fad4b1157cbc8dE(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1200)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7417,7 +7417,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h42
   ret i64 %11
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h43a9b37b7d645a95E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1209)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8060,7 +8060,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h4d
   ret i64 %28
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h4f030c3334610e67E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1249)
   %2 = load i64, ptr %0, align 8, !range !17, !alias.scope !1249, !noundef !13
@@ -9508,7 +9508,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h68
   ret i64 %24
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read) uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h68cda5e1fbb8ae6fE(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1411)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -14818,7 +14818,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hb8
   ret i64 %41
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hb9303bf0ede2cd92E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1942)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -19042,7 +19042,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hf1
   ret i64 %11
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hf195ff3f2d869846E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2400)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -26577,7 +26577,7 @@ define void @_ZN6remote11ssh_session15SshRemoteClient8ssh_args17hbf4f28932420dbf
   resume { ptr, i32 } %eh.lpad-body
 }
 
-; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define { ptr, ptr } @_ZN6remote11ssh_session15SshRemoteClient15to_proto_client17h3d835efc6bbc4cd8E(ptr noundef nonnull readonly align 8 captures(none) %0) unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !nonnull !13, !noundef !13
@@ -28461,14 +28461,14 @@ attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "tar
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #4 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #4 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #7 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #7 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { cold inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #11 = { nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #11 = { nounwind nonlazybind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #13 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

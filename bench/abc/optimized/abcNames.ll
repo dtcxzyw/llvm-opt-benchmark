@@ -28,7 +28,7 @@ define ptr @Abc_ObjName(ptr noundef readonly captures(none) %0) local_unnamed_ad
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8, !tbaa !27
-  %7 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %4, i32 noundef %6) #15
+  %7 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %4, i32 noundef %6) #17
   ret ptr %7
 }
 
@@ -44,7 +44,7 @@ define ptr @Abc_ObjAssignName(ptr noundef readonly captures(none) %0, ptr nounde
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 15
-  %12 = tail call ptr @Nm_ManStoreIdName(ptr noundef %6, i32 noundef %8, i32 noundef %11, ptr noundef %1, ptr noundef %2) #15
+  %12 = tail call ptr @Nm_ManStoreIdName(ptr noundef %6, i32 noundef %8, i32 noundef %11, ptr noundef %1, ptr noundef %2) #17
   ret ptr %12
 }
 
@@ -57,8 +57,8 @@ define noundef nonnull ptr @Abc_ObjNamePrefix(ptr noundef readonly captures(none
   %5 = load ptr, ptr %4, align 8, !tbaa !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8, !tbaa !27
-  %8 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %5, i32 noundef %7) #15
-  %9 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_ObjNamePrefix.Buffer, ptr noundef nonnull dereferenceable(1) @.str, ptr noundef %1, ptr noundef %8) #15
+  %8 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %5, i32 noundef %7) #17
+  %9 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_ObjNamePrefix.Buffer, ptr noundef nonnull dereferenceable(1) @.str, ptr noundef %1, ptr noundef %8) #17
   ret ptr @Abc_ObjNamePrefix.Buffer
 }
 
@@ -72,14 +72,14 @@ define noundef nonnull ptr @Abc_ObjNameSuffix(ptr noundef readonly captures(none
   %5 = load ptr, ptr %4, align 8, !tbaa !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8, !tbaa !27
-  %8 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %5, i32 noundef %7) #15
-  %9 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_ObjNameSuffix.Buffer, ptr noundef nonnull dereferenceable(1) @.str, ptr noundef %8, ptr noundef %1) #15
+  %8 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %5, i32 noundef %7) #17
+  %9 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_ObjNameSuffix.Buffer, ptr noundef nonnull dereferenceable(1) @.str, ptr noundef %8, ptr noundef %1) #17
   ret ptr @Abc_ObjNameSuffix.Buffer
 }
 
 ; Function Attrs: nofree nounwind uwtable
 define noundef nonnull ptr @Abc_ObjNameDummy(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
-  %4 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_ObjNameDummy.Buffer, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %0, i32 noundef %2, i32 noundef %1) #15
+  %4 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_ObjNameDummy.Buffer, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %0, i32 noundef %2, i32 noundef %1) #17
   ret ptr @Abc_ObjNameDummy.Buffer
 }
 
@@ -135,7 +135,7 @@ Abc_ObjFanout0Ntk.exit:                           ; preds = %.lr.ph, %15
   %25 = load ptr, ptr %24, align 8, !tbaa !13
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %27 = load i32, ptr %26, align 8, !tbaa !27
-  %28 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %25, i32 noundef %27) #15
+  %28 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %25, i32 noundef %27) #17
   %29 = load ptr, ptr %13, align 8, !tbaa !3
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !13
@@ -144,7 +144,7 @@ Abc_ObjFanout0Ntk.exit:                           ; preds = %.lr.ph, %15
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %35, 15
-  %37 = tail call ptr @Nm_ManStoreIdName(ptr noundef %31, i32 noundef %33, i32 noundef %36, ptr noundef %28, ptr noundef null) #15
+  %37 = tail call ptr @Nm_ManStoreIdName(ptr noundef %31, i32 noundef %33, i32 noundef %36, ptr noundef %28, ptr noundef null) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val24 = load ptr, ptr %3, align 8, !tbaa !28
   %38 = getelementptr i8, ptr %.val24, i64 4
@@ -196,7 +196,7 @@ Abc_ObjFanin0Ntk.exit:                            ; preds = %.lr.ph43, %51
   %61 = load ptr, ptr %60, align 8, !tbaa !13
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %63 = load i32, ptr %62, align 8, !tbaa !27
-  %64 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %61, i32 noundef %63) #15
+  %64 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %61, i32 noundef %63) #17
   %65 = load ptr, ptr %49, align 8, !tbaa !3
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %67 = load ptr, ptr %66, align 8, !tbaa !13
@@ -205,7 +205,7 @@ Abc_ObjFanin0Ntk.exit:                            ; preds = %.lr.ph43, %51
   %70 = getelementptr inbounds nuw i8, ptr %49, i64 20
   %71 = load i32, ptr %70, align 4
   %72 = and i32 %71, 15
-  %73 = tail call ptr @Nm_ManStoreIdName(ptr noundef %67, i32 noundef %69, i32 noundef %72, ptr noundef %64, ptr noundef null) #15
+  %73 = tail call ptr @Nm_ManStoreIdName(ptr noundef %67, i32 noundef %69, i32 noundef %72, ptr noundef %64, ptr noundef null) #17
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %.val26 = load ptr, ptr %6, align 8, !tbaa !31
   %74 = getelementptr i8, ptr %.val26, i64 4
@@ -228,7 +228,7 @@ Abc_ObjFanin0Ntk.exit:                            ; preds = %.lr.ph43, %51
   %85 = load ptr, ptr %84, align 8, !tbaa !13
   %86 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %87 = load i32, ptr %86, align 8, !tbaa !27
-  %88 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %85, i32 noundef %87) #15
+  %88 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %85, i32 noundef %87) #17
   %89 = load ptr, ptr %82, align 8, !tbaa !3
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 24
   %91 = load ptr, ptr %90, align 8, !tbaa !13
@@ -237,7 +237,7 @@ Abc_ObjFanin0Ntk.exit:                            ; preds = %.lr.ph43, %51
   %94 = getelementptr inbounds nuw i8, ptr %82, i64 20
   %95 = load i32, ptr %94, align 4
   %96 = and i32 %95, 15
-  %97 = tail call ptr @Nm_ManStoreIdName(ptr noundef %91, i32 noundef %93, i32 noundef %96, ptr noundef %88, ptr noundef null) #15
+  %97 = tail call ptr @Nm_ManStoreIdName(ptr noundef %91, i32 noundef %93, i32 noundef %96, ptr noundef %88, ptr noundef null) #17
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %98 = load ptr, ptr %41, align 8, !tbaa !41
   %99 = getelementptr i8, ptr %98, i64 4
@@ -325,7 +325,7 @@ Abc_ObjFanout0Ntk.exit:                           ; preds = %23, %26
   %36 = load ptr, ptr %35, align 8, !tbaa !13
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %38 = load i32, ptr %37, align 8, !tbaa !27
-  %39 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %36, i32 noundef %38) #15
+  %39 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %36, i32 noundef %38) #17
   %40 = load ptr, ptr %25, align 8, !tbaa !3
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !13
@@ -334,7 +334,7 @@ Abc_ObjFanout0Ntk.exit:                           ; preds = %23, %26
   %45 = getelementptr inbounds nuw i8, ptr %25, i64 20
   %46 = load i32, ptr %45, align 4
   %47 = and i32 %46, 15
-  %48 = tail call ptr @Nm_ManStoreIdName(ptr noundef %42, i32 noundef %44, i32 noundef %47, ptr noundef %39, ptr noundef null) #15
+  %48 = tail call ptr @Nm_ManStoreIdName(ptr noundef %42, i32 noundef %44, i32 noundef %47, ptr noundef %39, ptr noundef null) #17
   %.val31.pre = load ptr, ptr %3, align 8, !tbaa !28
   br label %49
 
@@ -413,7 +413,7 @@ Abc_ObjFanin0Ntk.exit:                            ; preds = %71, %74
   %84 = load ptr, ptr %83, align 8, !tbaa !13
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %86 = load i32, ptr %85, align 8, !tbaa !27
-  %87 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %84, i32 noundef %86) #15
+  %87 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %84, i32 noundef %86) #17
   %88 = load ptr, ptr %73, align 8, !tbaa !3
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %90 = load ptr, ptr %89, align 8, !tbaa !13
@@ -422,7 +422,7 @@ Abc_ObjFanin0Ntk.exit:                            ; preds = %71, %74
   %93 = getelementptr inbounds nuw i8, ptr %73, i64 20
   %94 = load i32, ptr %93, align 4
   %95 = and i32 %94, 15
-  %96 = tail call ptr @Nm_ManStoreIdName(ptr noundef %90, i32 noundef %92, i32 noundef %95, ptr noundef %87, ptr noundef null) #15
+  %96 = tail call ptr @Nm_ManStoreIdName(ptr noundef %90, i32 noundef %92, i32 noundef %95, ptr noundef %87, ptr noundef null) #17
   %.val35.pre = load ptr, ptr %6, align 8, !tbaa !31
   br label %.critedge
 
@@ -456,7 +456,7 @@ Abc_ObjFanin0Ntk.exit:                            ; preds = %71, %74
   %111 = load ptr, ptr %110, align 8, !tbaa !13
   %112 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %113 = load i32, ptr %112, align 8, !tbaa !27
-  %114 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %111, i32 noundef %113) #15
+  %114 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %111, i32 noundef %113) #17
   %115 = load ptr, ptr %108, align 8, !tbaa !3
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 24
   %117 = load ptr, ptr %116, align 8, !tbaa !13
@@ -465,7 +465,7 @@ Abc_ObjFanin0Ntk.exit:                            ; preds = %71, %74
   %120 = getelementptr inbounds nuw i8, ptr %108, i64 20
   %121 = load i32, ptr %120, align 4
   %122 = and i32 %121, 15
-  %123 = tail call ptr @Nm_ManStoreIdName(ptr noundef %117, i32 noundef %119, i32 noundef %122, ptr noundef %114, ptr noundef null) #15
+  %123 = tail call ptr @Nm_ManStoreIdName(ptr noundef %117, i32 noundef %119, i32 noundef %122, ptr noundef %114, ptr noundef null) #17
   %.pre79 = load ptr, ptr %53, align 8, !tbaa !41
   br label %.critedge2
 
@@ -484,11 +484,11 @@ Abc_ObjFanin0Ntk.exit:                            ; preds = %71, %74
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Abc_NodeGetFaninNames(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
+  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %3, align 4, !tbaa !29
   store i32 100, ptr %2, align 8, !tbaa !50
-  %4 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #16
+  %4 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #18
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8, !tbaa !32
   %6 = getelementptr i8, ptr %0, i64 28
@@ -520,15 +520,15 @@ define noalias noundef ptr @Abc_NodeGetFaninNames(ptr noundef readonly captures(
   %21 = load ptr, ptr %20, align 8, !tbaa !13
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %23 = load i32, ptr %22, align 8, !tbaa !27
-  %24 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %21, i32 noundef %23) #15
+  %24 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %21, i32 noundef %23) #17
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %25
 
 25:                                               ; preds = %9
-  %26 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %24) #17
+  %26 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %24) #19
   %27 = add i64 %26, 1
-  %28 = tail call noalias ptr @malloc(i64 noundef %27) #16
-  %29 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull readonly dereferenceable(1) %24) #15
+  %28 = tail call noalias ptr @malloc(i64 noundef %27) #18
+  %29 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull readonly dereferenceable(1) %24) #17
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %9, %25
@@ -550,11 +550,11 @@ Abc_UtilStrsav.exit:                              ; preds = %9, %25
   br i1 %.not9.i.i, label %38, label %36
 
 36:                                               ; preds = %34
-  %37 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %35, i64 noundef 128) #18
+  %37 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %35, i64 noundef 128) #20
   br label %Vec_PtrGrow.exit.i
 
 38:                                               ; preds = %34
-  %39 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #16
+  %39 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #18
   br label %Vec_PtrGrow.exit.i
 
 Vec_PtrGrow.exit.i:                               ; preds = %38, %36
@@ -572,11 +572,11 @@ Vec_PtrGrow.exit.i:                               ; preds = %38, %36
   br i1 %.not9.i10.i, label %48, label %46
 
 46:                                               ; preds = %41
-  %47 = tail call ptr @realloc(ptr noundef nonnull %43, i64 noundef %45) #18
+  %47 = tail call ptr @realloc(ptr noundef nonnull %43, i64 noundef %45) #20
   br label %50
 
 48:                                               ; preds = %41
-  %49 = tail call noalias ptr @malloc(i64 noundef %45) #16
+  %49 = tail call noalias ptr @malloc(i64 noundef %45) #18
   br label %50
 
 50:                                               ; preds = %48, %46
@@ -607,7 +607,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 define noalias noundef ptr @Abc_NodeGetFakeNames(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca [5 x i8], align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
+  %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %4 = add i32 %0, -1
   %or.cond.i = icmp ult i32 %4, 7
   %spec.store.select.i = select i1 %or.cond.i, i32 8, i32 %0
@@ -620,7 +620,7 @@ define noalias noundef ptr @Abc_NodeGetFakeNames(i32 noundef %0) local_unnamed_a
 6:                                                ; preds = %1
   %7 = sext i32 %spec.store.select.i to i64
   %8 = shl nsw i64 %7, 3
-  %9 = tail call noalias ptr @malloc(i64 noundef %8) #16
+  %9 = tail call noalias ptr @malloc(i64 noundef %8) #18
   br label %Vec_PtrAlloc.exit
 
 Vec_PtrAlloc.exit:                                ; preds = %1, %6
@@ -644,7 +644,7 @@ Vec_PtrAlloc.exit:                                ; preds = %1, %6
   %19 = add i8 %18, 97
   store i8 %19, ptr %2, align 1, !tbaa !34
   store i8 0, ptr %14, align 1, !tbaa !34
-  %20 = call ptr @Extra_UtilStrsav(ptr noundef nonnull %2) #15
+  %20 = call ptr @Extra_UtilStrsav(ptr noundef nonnull %2) #17
   %21 = icmp eq i32 %17, %16
   br i1 %21, label %22, label %.Vec_PtrGrow.exit11_crit_edge.i.us
 
@@ -665,11 +665,11 @@ Vec_PtrAlloc.exit:                                ; preds = %1, %6
   br i1 %.not9.i10.i.us, label %31, label %29
 
 29:                                               ; preds = %24
-  %30 = call ptr @realloc(ptr noundef nonnull %26, i64 noundef %28) #18
+  %30 = call ptr @realloc(ptr noundef nonnull %26, i64 noundef %28) #20
   br label %33
 
 31:                                               ; preds = %24
-  %32 = call noalias ptr @malloc(i64 noundef %28) #16
+  %32 = call noalias ptr @malloc(i64 noundef %28) #18
   br label %33
 
 33:                                               ; preds = %31, %29
@@ -684,11 +684,11 @@ Vec_PtrAlloc.exit:                                ; preds = %1, %6
   br i1 %.not9.i.i.us, label %39, label %37
 
 37:                                               ; preds = %35
-  %38 = call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %36, i64 noundef 128) #18
+  %38 = call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %36, i64 noundef 128) #20
   br label %Vec_PtrGrow.exit.i.us
 
 39:                                               ; preds = %35
-  %40 = call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #16
+  %40 = call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #18
   br label %Vec_PtrGrow.exit.i.us
 
 Vec_PtrGrow.exit.i.us:                            ; preds = %39, %37
@@ -722,7 +722,7 @@ Vec_PtrPush.exit.us:                              ; preds = %Vec_PtrGrow.exit.i.
   %55 = add i8 %54, 48
   store i8 %55, ptr %14, align 1, !tbaa !34
   store i8 0, ptr %15, align 1, !tbaa !34
-  %56 = call ptr @Extra_UtilStrsav(ptr noundef nonnull %2) #15
+  %56 = call ptr @Extra_UtilStrsav(ptr noundef nonnull %2) #17
   %57 = icmp eq i32 %49, %48
   br i1 %57, label %58, label %.Vec_PtrGrow.exit11_crit_edge.i
 
@@ -740,11 +740,11 @@ Vec_PtrPush.exit.us:                              ; preds = %Vec_PtrGrow.exit.i.
   br i1 %.not9.i.i, label %64, label %62
 
 62:                                               ; preds = %60
-  %63 = call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %61, i64 noundef 128) #18
+  %63 = call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %61, i64 noundef 128) #20
   br label %Vec_PtrGrow.exit.i
 
 64:                                               ; preds = %60
-  %65 = call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #16
+  %65 = call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #18
   br label %Vec_PtrGrow.exit.i
 
 Vec_PtrGrow.exit.i:                               ; preds = %64, %62
@@ -762,11 +762,11 @@ Vec_PtrGrow.exit.i:                               ; preds = %64, %62
   br i1 %.not9.i10.i, label %74, label %72
 
 72:                                               ; preds = %67
-  %73 = call ptr @realloc(ptr noundef nonnull %69, i64 noundef %71) #18
+  %73 = call ptr @realloc(ptr noundef nonnull %69, i64 noundef %71) #20
   br label %76
 
 74:                                               ; preds = %67
-  %75 = call noalias ptr @malloc(i64 noundef %71) #16
+  %75 = call noalias ptr @malloc(i64 noundef %71) #18
   br label %76
 
 76:                                               ; preds = %74, %72
@@ -794,8 +794,8 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 declare ptr @Extra_UtilStrsav(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
-define void @Abc_NodeFreeNames(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define void @Abc_NodeFreeNames(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %22, label %.preheader
 
@@ -819,7 +819,7 @@ define void @Abc_NodeFreeNames(ptr noundef captures(address_is_null) %0) local_u
   br i1 %.not, label %15, label %12
 
 12:                                               ; preds = %7
-  tail call void @free(ptr noundef nonnull %11) #15
+  tail call void @free(ptr noundef nonnull %11) #17
   %13 = load ptr, ptr %6, align 8, !tbaa !32
   %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   store ptr null, ptr %14, align 8, !tbaa !33
@@ -840,11 +840,11 @@ define void @Abc_NodeFreeNames(ptr noundef captures(address_is_null) %0) local_u
   br i1 %.not.i, label %Vec_PtrFree.exit, label %21
 
 21:                                               ; preds = %._crit_edge
-  tail call void @free(ptr noundef nonnull %20) #15
+  tail call void @free(ptr noundef nonnull %20) #17
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %._crit_edge, %21
-  tail call void @free(ptr noundef nonnull %0) #15
+  tail call void @free(ptr noundef nonnull %0) #17
   br label %22
 
 22:                                               ; preds = %1, %Vec_PtrFree.exit
@@ -852,7 +852,7 @@ Vec_PtrFree.exit:                                 ; preds = %._crit_edge, %21
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Abc_NtkCollectCioNames(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -866,7 +866,7 @@ define noalias noundef ptr @Abc_NtkCollectCioNames(ptr noundef readonly captures
   %.val25.val = load i32, ptr %5, align 4, !tbaa !29
   %6 = sext i32 %.val25.val to i64
   %7 = shl nsw i64 %6, 3
-  %8 = tail call noalias ptr @malloc(i64 noundef %7) #16
+  %8 = tail call noalias ptr @malloc(i64 noundef %7) #18
   %9 = icmp sgt i32 %.val25.val, 0
   br i1 %9, label %.lr.ph, label %.critedge
 
@@ -882,7 +882,7 @@ define noalias noundef ptr @Abc_NtkCollectCioNames(ptr noundef readonly captures
   %15 = load ptr, ptr %14, align 8, !tbaa !13
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %17 = load i32, ptr %16, align 8, !tbaa !27
-  %18 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %15, i32 noundef %17) #15
+  %18 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %15, i32 noundef %17) #17
   %19 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   store ptr %18, ptr %19, align 8, !tbaa !54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -900,7 +900,7 @@ define noalias noundef ptr @Abc_NtkCollectCioNames(ptr noundef readonly captures
   %.val22.val = load i32, ptr %25, align 4, !tbaa !29
   %26 = sext i32 %.val22.val to i64
   %27 = shl nsw i64 %26, 3
-  %28 = tail call noalias ptr @malloc(i64 noundef %27) #16
+  %28 = tail call noalias ptr @malloc(i64 noundef %27) #18
   %29 = icmp sgt i32 %.val22.val, 0
   br i1 %29, label %.lr.ph36, label %.critedge
 
@@ -916,7 +916,7 @@ define noalias noundef ptr @Abc_NtkCollectCioNames(ptr noundef readonly captures
   %35 = load ptr, ptr %34, align 8, !tbaa !13
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %37 = load i32, ptr %36, align 8, !tbaa !27
-  %38 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %35, i32 noundef %37) #15
+  %38 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %35, i32 noundef %37) #17
   %39 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv39
   store ptr %38, ptr %39, align 8, !tbaa !54
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
@@ -933,17 +933,17 @@ define noalias noundef ptr @Abc_NtkCollectCioNames(ptr noundef readonly captures
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -1, 2) i32 @Abc_NodeCompareNames(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define range(i32 -1, 2) i32 @Abc_NodeCompareNames(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = load ptr, ptr %0, align 8, !tbaa !57
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8, !tbaa !34
   %6 = load ptr, ptr %1, align 8, !tbaa !57
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8, !tbaa !34
-  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %8) #17
+  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %8) #19
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %19, label %11
 
@@ -970,7 +970,7 @@ define range(i32 -1, 2) i32 @Abc_NodeCompareNames(ptr noundef readonly captures(
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define void @Abc_NtkOrderObjsByName(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1001,7 +1001,7 @@ define void @Abc_NtkOrderObjsByName(ptr noundef %0, i32 noundef %1) local_unname
   %14 = load ptr, ptr %13, align 8, !tbaa !13
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %16 = load i32, ptr %15, align 8, !tbaa !27
-  %17 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %14, i32 noundef %16) #15
+  %17 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %14, i32 noundef %16) #17
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store ptr %17, ptr %18, align 8, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1032,7 +1032,7 @@ define void @Abc_NtkOrderObjsByName(ptr noundef %0, i32 noundef %1) local_unname
   %31 = load ptr, ptr %30, align 8, !tbaa !13
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %33 = load i32, ptr %32, align 8, !tbaa !27
-  %34 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %31, i32 noundef %33) #15
+  %34 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %31, i32 noundef %33) #17
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 64
   store ptr %34, ptr %35, align 8, !tbaa !34
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
@@ -1066,7 +1066,7 @@ define void @Abc_NtkOrderObjsByName(ptr noundef %0, i32 noundef %1) local_unname
   %51 = load ptr, ptr %50, align 8, !tbaa !13
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %53 = load i32, ptr %52, align 8, !tbaa !27
-  %54 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %51, i32 noundef %53) #15
+  %54 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %51, i32 noundef %53) #17
   %55 = getelementptr inbounds nuw i8, ptr %42, i64 64
   store ptr %54, ptr %55, align 8, !tbaa !34
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
@@ -1084,14 +1084,14 @@ define void @Abc_NtkOrderObjsByName(ptr noundef %0, i32 noundef %1) local_unname
   %62 = getelementptr i8, ptr %60, i64 4
   %.val58 = load i32, ptr %62, align 4, !tbaa !29
   %63 = sext i32 %.val58 to i64
-  tail call void @qsort(ptr noundef %.val72, i64 noundef %63, i64 noundef 8, ptr noundef nonnull @Abc_NodeCompareNames) #15
+  tail call void @qsort(ptr noundef %.val72, i64 noundef %63, i64 noundef 8, ptr noundef nonnull @Abc_NodeCompareNames) #17
   %64 = load ptr, ptr %6, align 8, !tbaa !59
   %65 = getelementptr i8, ptr %64, i64 8
   %.val73 = load ptr, ptr %65, align 8, !tbaa !32
   %66 = getelementptr i8, ptr %64, i64 4
   %.val57 = load i32, ptr %66, align 4, !tbaa !29
   %67 = sext i32 %.val57 to i64
-  tail call void @qsort(ptr noundef %.val73, i64 noundef %67, i64 noundef 8, ptr noundef nonnull @Abc_NodeCompareNames) #15
+  tail call void @qsort(ptr noundef %.val73, i64 noundef %67, i64 noundef 8, ptr noundef nonnull @Abc_NodeCompareNames) #17
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %73, label %68
 
@@ -1102,11 +1102,11 @@ define void @Abc_NtkOrderObjsByName(ptr noundef %0, i32 noundef %1) local_unname
   %71 = getelementptr i8, ptr %69, i64 4
   %.val56 = load i32, ptr %71, align 4, !tbaa !29
   %72 = sext i32 %.val56 to i64
-  tail call void @qsort(ptr noundef %.val74, i64 noundef %72, i64 noundef 8, ptr noundef nonnull @Abc_NodeCompareNames) #15
+  tail call void @qsort(ptr noundef %.val74, i64 noundef %72, i64 noundef 8, ptr noundef nonnull @Abc_NodeCompareNames) #17
   br label %73
 
 73:                                               ; preds = %68, %.critedge4
-  tail call void @Abc_NtkOrderCisCos(ptr noundef nonnull %0) #15
+  tail call void @Abc_NtkOrderCisCos(ptr noundef nonnull %0) #17
   %.val6589 = load ptr, ptr %3, align 8, !tbaa !58
   %74 = getelementptr i8, ptr %.val6589, i64 4
   %.val65.val90 = load i32, ptr %74, align 4, !tbaa !29
@@ -1183,7 +1183,7 @@ define void @Abc_NtkOrderObjsByName(ptr noundef %0, i32 noundef %1) local_unname
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @Abc_NtkOrderCisCos(ptr noundef) local_unnamed_addr #1
 
@@ -1197,7 +1197,7 @@ define ptr @Abc_NtkNameMan(ptr noundef readonly captures(none) %0, i32 noundef %
   %.val26 = load ptr, ptr %4, align 8, !tbaa !31
   %5 = getelementptr i8, ptr %.val26, i64 4
   %.val26.val = load i32, ptr %5, align 4, !tbaa !29
-  %6 = tail call ptr @Abc_NamStart(i32 noundef %.val26.val, i32 noundef 24) #15
+  %6 = tail call ptr @Abc_NamStart(i32 noundef %.val26.val, i32 noundef 24) #17
   %.val2529 = load ptr, ptr %4, align 8, !tbaa !31
   %7 = getelementptr i8, ptr %.val2529, i64 4
   %.val25.val30 = load i32, ptr %7, align 4, !tbaa !29
@@ -1216,8 +1216,8 @@ define ptr @Abc_NtkNameMan(ptr noundef readonly captures(none) %0, i32 noundef %
   %14 = load ptr, ptr %13, align 8, !tbaa !13
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %16 = load i32, ptr %15, align 8, !tbaa !27
-  %17 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %14, i32 noundef %16) #15
-  %18 = tail call i32 @Abc_NamStrFindOrAdd(ptr noundef %6, ptr noundef %17, ptr noundef null) #15
+  %17 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %14, i32 noundef %16) #17
+  %18 = tail call i32 @Abc_NamStrFindOrAdd(ptr noundef %6, ptr noundef %17, ptr noundef null) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val25 = load ptr, ptr %4, align 8, !tbaa !31
   %19 = getelementptr i8, ptr %.val25, i64 4
@@ -1231,7 +1231,7 @@ define ptr @Abc_NtkNameMan(ptr noundef readonly captures(none) %0, i32 noundef %
   %.val23 = load ptr, ptr %23, align 8, !tbaa !28
   %24 = getelementptr i8, ptr %.val23, i64 4
   %.val23.val = load i32, ptr %24, align 4, !tbaa !29
-  %25 = tail call ptr @Abc_NamStart(i32 noundef %.val23.val, i32 noundef 24) #15
+  %25 = tail call ptr @Abc_NamStart(i32 noundef %.val23.val, i32 noundef 24) #17
   %.val33 = load ptr, ptr %23, align 8, !tbaa !28
   %26 = getelementptr i8, ptr %.val33, i64 4
   %.val.val34 = load i32, ptr %26, align 4, !tbaa !29
@@ -1250,8 +1250,8 @@ define ptr @Abc_NtkNameMan(ptr noundef readonly captures(none) %0, i32 noundef %
   %33 = load ptr, ptr %32, align 8, !tbaa !13
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %35 = load i32, ptr %34, align 8, !tbaa !27
-  %36 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %33, i32 noundef %35) #15
-  %37 = tail call i32 @Abc_NamStrFindOrAdd(ptr noundef %25, ptr noundef %36, ptr noundef null) #15
+  %36 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %33, i32 noundef %35) #17
+  %37 = tail call i32 @Abc_NamStrFindOrAdd(ptr noundef %25, ptr noundef %36, ptr noundef null) #17
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %.val = load ptr, ptr %23, align 8, !tbaa !28
   %38 = getelementptr i8, ptr %.val, i64 4
@@ -1269,8 +1269,8 @@ declare ptr @Abc_NamStart(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @Abc_NamStrFindOrAdd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -1, 2) i32 @Abc_NodeCompareIndexes(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define range(i32 -1, 2) i32 @Abc_NodeCompareIndexes(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #10 {
   %3 = load ptr, ptr %0, align 8, !tbaa !57
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load i32, ptr %4, align 8, !tbaa !34
@@ -1287,7 +1287,7 @@ define void @Abc_NtkTransferOrder(ptr noundef readonly captures(none) %0, ptr no
   %.val23.i = load ptr, ptr %3, align 8, !tbaa !28
   %4 = getelementptr i8, ptr %.val23.i, i64 4
   %.val23.val.i = load i32, ptr %4, align 4, !tbaa !29
-  %5 = tail call ptr @Abc_NamStart(i32 noundef %.val23.val.i, i32 noundef 24) #15
+  %5 = tail call ptr @Abc_NamStart(i32 noundef %.val23.val.i, i32 noundef 24) #17
   %.val33.i = load ptr, ptr %3, align 8, !tbaa !28
   %6 = getelementptr i8, ptr %.val33.i, i64 4
   %.val.val34.i = load i32, ptr %6, align 4, !tbaa !29
@@ -1306,8 +1306,8 @@ define void @Abc_NtkTransferOrder(ptr noundef readonly captures(none) %0, ptr no
   %13 = load ptr, ptr %12, align 8, !tbaa !13
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %15 = load i32, ptr %14, align 8, !tbaa !27
-  %16 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %13, i32 noundef %15) #15
-  %17 = tail call i32 @Abc_NamStrFindOrAdd(ptr noundef %5, ptr noundef %16, ptr noundef null) #15
+  %16 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %13, i32 noundef %15) #17
+  %17 = tail call i32 @Abc_NamStrFindOrAdd(ptr noundef %5, ptr noundef %16, ptr noundef null) #17
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %.val.i = load ptr, ptr %3, align 8, !tbaa !28
   %18 = getelementptr i8, ptr %.val.i, i64 4
@@ -1321,7 +1321,7 @@ Abc_NtkNameMan.exit:                              ; preds = %.lr.ph37.i, %2
   %.val26.i = load ptr, ptr %21, align 8, !tbaa !31
   %22 = getelementptr i8, ptr %.val26.i, i64 4
   %.val26.val.i = load i32, ptr %22, align 4, !tbaa !29
-  %23 = tail call ptr @Abc_NamStart(i32 noundef %.val26.val.i, i32 noundef 24) #15
+  %23 = tail call ptr @Abc_NamStart(i32 noundef %.val26.val.i, i32 noundef 24) #17
   %.val2529.i = load ptr, ptr %21, align 8, !tbaa !31
   %24 = getelementptr i8, ptr %.val2529.i, i64 4
   %.val25.val30.i = load i32, ptr %24, align 4, !tbaa !29
@@ -1340,8 +1340,8 @@ Abc_NtkNameMan.exit:                              ; preds = %.lr.ph37.i, %2
   %31 = load ptr, ptr %30, align 8, !tbaa !13
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %33 = load i32, ptr %32, align 8, !tbaa !27
-  %34 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %31, i32 noundef %33) #15
-  %35 = tail call i32 @Abc_NamStrFindOrAdd(ptr noundef %23, ptr noundef %34, ptr noundef null) #15
+  %34 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %31, i32 noundef %33) #17
+  %35 = tail call i32 @Abc_NamStrFindOrAdd(ptr noundef %23, ptr noundef %34, ptr noundef null) #17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.val25.i = load ptr, ptr %21, align 8, !tbaa !31
   %36 = getelementptr i8, ptr %.val25.i, i64 4
@@ -1378,8 +1378,8 @@ Abc_NtkNameMan.exit60:                            ; preds = %.lr.ph.i, %Abc_NtkN
   %50 = load ptr, ptr %49, align 8, !tbaa !13
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %52 = load i32, ptr %51, align 8, !tbaa !27
-  %53 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %50, i32 noundef %52) #15
-  %54 = tail call i32 @Abc_NamStrFind(ptr noundef %5, ptr noundef %53) #15
+  %53 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %50, i32 noundef %52) #17
+  %54 = tail call i32 @Abc_NamStrFind(ptr noundef %5, ptr noundef %53) #17
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 64
   store i32 %54, ptr %55, align 8, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1402,8 +1402,8 @@ Abc_NtkNameMan.exit60:                            ; preds = %.lr.ph.i, %Abc_NtkN
   %64 = load ptr, ptr %63, align 8, !tbaa !13
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %66 = load i32, ptr %65, align 8, !tbaa !27
-  %67 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %64, i32 noundef %66) #15
-  %68 = tail call i32 @Abc_NamStrFind(ptr noundef %23, ptr noundef %67) #15
+  %67 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %64, i32 noundef %66) #17
+  %68 = tail call i32 @Abc_NamStrFind(ptr noundef %23, ptr noundef %67) #17
   %69 = getelementptr inbounds nuw i8, ptr %61, i64 64
   store i32 %68, ptr %69, align 8, !tbaa !34
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
@@ -1415,8 +1415,8 @@ Abc_NtkNameMan.exit60:                            ; preds = %.lr.ph.i, %Abc_NtkN
   br i1 %72, label %.critedge, label %.critedge2, !llvm.loop !69
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
-  tail call void @Abc_NamDeref(ptr noundef %5) #15
-  tail call void @Abc_NamDeref(ptr noundef %23) #15
+  tail call void @Abc_NamDeref(ptr noundef %5) #17
+  tail call void @Abc_NamDeref(ptr noundef %23) #17
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %74 = load ptr, ptr %73, align 8, !tbaa !58
   %75 = getelementptr i8, ptr %74, i64 8
@@ -1424,7 +1424,7 @@ Abc_NtkNameMan.exit60:                            ; preds = %.lr.ph.i, %Abc_NtkN
   %76 = getelementptr i8, ptr %74, i64 4
   %.val47 = load i32, ptr %76, align 4, !tbaa !29
   %77 = sext i32 %.val47 to i64
-  tail call void @qsort(ptr noundef %.val59, i64 noundef %77, i64 noundef 8, ptr noundef nonnull @Abc_NodeCompareIndexes) #15
+  tail call void @qsort(ptr noundef %.val59, i64 noundef %77, i64 noundef 8, ptr noundef nonnull @Abc_NodeCompareIndexes) #17
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %79 = load ptr, ptr %78, align 8, !tbaa !59
   %80 = getelementptr i8, ptr %79, i64 8
@@ -1432,21 +1432,21 @@ Abc_NtkNameMan.exit60:                            ; preds = %.lr.ph.i, %Abc_NtkN
   %81 = getelementptr i8, ptr %79, i64 4
   %.val46 = load i32, ptr %81, align 4, !tbaa !29
   %82 = sext i32 %.val46 to i64
-  tail call void @qsort(ptr noundef %.val58, i64 noundef %82, i64 noundef 8, ptr noundef nonnull @Abc_NodeCompareIndexes) #15
+  tail call void @qsort(ptr noundef %.val58, i64 noundef %82, i64 noundef 8, ptr noundef nonnull @Abc_NodeCompareIndexes) #17
   %83 = load ptr, ptr %39, align 8, !tbaa !28
   %84 = getelementptr i8, ptr %83, i64 8
   %.val57 = load ptr, ptr %84, align 8, !tbaa !32
   %85 = getelementptr i8, ptr %83, i64 4
   %.val45 = load i32, ptr %85, align 4, !tbaa !29
   %86 = sext i32 %.val45 to i64
-  tail call void @qsort(ptr noundef %.val57, i64 noundef %86, i64 noundef 8, ptr noundef nonnull @Abc_NodeCompareIndexes) #15
+  tail call void @qsort(ptr noundef %.val57, i64 noundef %86, i64 noundef 8, ptr noundef nonnull @Abc_NodeCompareIndexes) #17
   %87 = load ptr, ptr %42, align 8, !tbaa !31
   %88 = getelementptr i8, ptr %87, i64 8
   %.val56 = load ptr, ptr %88, align 8, !tbaa !32
   %89 = getelementptr i8, ptr %87, i64 4
   %.val = load i32, ptr %89, align 4, !tbaa !29
   %90 = sext i32 %.val to i64
-  tail call void @qsort(ptr noundef %.val56, i64 noundef %90, i64 noundef 8, ptr noundef nonnull @Abc_NodeCompareIndexes) #15
+  tail call void @qsort(ptr noundef %.val56, i64 noundef %90, i64 noundef 8, ptr noundef nonnull @Abc_NodeCompareIndexes) #17
   %.val4871 = load ptr, ptr %39, align 8, !tbaa !28
   %91 = getelementptr i8, ptr %.val4871, i64 4
   %.val48.val72 = load i32, ptr %91, align 4, !tbaa !29
@@ -1580,7 +1580,7 @@ define range(i32 0, 2) i32 @Abc_NodeCompareCiCo(ptr noundef readonly captures(no
   %33 = load ptr, ptr %32, align 8, !tbaa !13
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %35 = load i32, ptr %34, align 8, !tbaa !27
-  %36 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %33, i32 noundef %35) #15
+  %36 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %33, i32 noundef %35) #17
   %.val25 = load ptr, ptr %18, align 8, !tbaa !28
   %37 = getelementptr i8, ptr %.val25, i64 8
   %.val25.val = load ptr, ptr %37, align 8, !tbaa !32
@@ -1591,8 +1591,8 @@ define range(i32 0, 2) i32 @Abc_NodeCompareCiCo(ptr noundef readonly captures(no
   %42 = load ptr, ptr %41, align 8, !tbaa !13
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %44 = load i32, ptr %43, align 8, !tbaa !27
-  %45 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %42, i32 noundef %44) #15
-  %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(1) %45) #17
+  %45 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %42, i32 noundef %44) #17
+  %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(1) %45) #19
   %.not24 = icmp eq i32 %46, 0
   br i1 %.not24, label %19, label %.loopexit
 
@@ -1617,7 +1617,7 @@ define range(i32 0, 2) i32 @Abc_NodeCompareCiCo(ptr noundef readonly captures(no
   %57 = load ptr, ptr %56, align 8, !tbaa !13
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %59 = load i32, ptr %58, align 8, !tbaa !27
-  %60 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %57, i32 noundef %59) #15
+  %60 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %57, i32 noundef %59) #17
   %.val28 = load ptr, ptr %26, align 8, !tbaa !31
   %61 = getelementptr i8, ptr %.val28, i64 8
   %.val28.val = load ptr, ptr %61, align 8, !tbaa !32
@@ -1628,8 +1628,8 @@ define range(i32 0, 2) i32 @Abc_NodeCompareCiCo(ptr noundef readonly captures(no
   %66 = load ptr, ptr %65, align 8, !tbaa !13
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %68 = load i32, ptr %67, align 8, !tbaa !27
-  %69 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %66, i32 noundef %68) #15
-  %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(1) %69) #17
+  %69 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %66, i32 noundef %68) #17
+  %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(1) %69) #19
   %.not23 = icmp eq i32 %70, 0
   br i1 %.not23, label %47, label %.loopexit
 
@@ -1672,7 +1672,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %1
   %10 = getelementptr inbounds nuw ptr, ptr %.val9.val, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !33
   %12 = trunc nuw nsw i64 %indvars.iv to i32
-  %13 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_ObjNameDummy.Buffer, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull @.str.2, i32 noundef %.09.i, i32 noundef %12) #15
+  %13 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_ObjNameDummy.Buffer, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull @.str.2, i32 noundef %.09.i, i32 noundef %12) #17
   %14 = load ptr, ptr %11, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !13
@@ -1681,7 +1681,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %1
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, 15
-  %22 = tail call ptr @Nm_ManStoreIdName(ptr noundef %16, i32 noundef %18, i32 noundef %21, ptr noundef nonnull @Abc_ObjNameDummy.Buffer, ptr noundef null) #15
+  %22 = tail call ptr @Nm_ManStoreIdName(ptr noundef %16, i32 noundef %18, i32 noundef %21, ptr noundef nonnull @Abc_ObjNameDummy.Buffer, ptr noundef null) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load ptr, ptr %2, align 8, !tbaa !58
   %23 = getelementptr i8, ptr %.val, i64 4
@@ -1728,7 +1728,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %1
   %10 = getelementptr inbounds nuw ptr, ptr %.val9.val, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !33
   %12 = trunc nuw nsw i64 %indvars.iv to i32
-  %13 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_ObjNameDummy.Buffer, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull @.str.3, i32 noundef %.09.i, i32 noundef %12) #15
+  %13 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_ObjNameDummy.Buffer, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull @.str.3, i32 noundef %.09.i, i32 noundef %12) #17
   %14 = load ptr, ptr %11, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !13
@@ -1737,7 +1737,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %1
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, 15
-  %22 = tail call ptr @Nm_ManStoreIdName(ptr noundef %16, i32 noundef %18, i32 noundef %21, ptr noundef nonnull @Abc_ObjNameDummy.Buffer, ptr noundef null) #15
+  %22 = tail call ptr @Nm_ManStoreIdName(ptr noundef %16, i32 noundef %18, i32 noundef %21, ptr noundef nonnull @Abc_ObjNameDummy.Buffer, ptr noundef null) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load ptr, ptr %2, align 8, !tbaa !59
   %23 = getelementptr i8, ptr %.val, i64 4
@@ -1785,7 +1785,7 @@ define void @Abc_NtkAddDummyBoxNames(ptr noundef readonly captures(none) %0) loc
   %15 = load ptr, ptr %14, align 8, !tbaa !13
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %17 = load i32, ptr %16, align 8, !tbaa !27
-  %18 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %15, i32 noundef %17) #15
+  %18 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %15, i32 noundef %17) #17
   %19 = load i8, ptr %18, align 1, !tbaa !34
   %cond80 = icmp eq i8 %19, 108
   br i1 %cond80, label %.lr.ph, label %._crit_edge
@@ -1826,7 +1826,7 @@ define void @Abc_NtkAddDummyBoxNames(ptr noundef readonly captures(none) %0) loc
   %31 = load ptr, ptr %30, align 8, !tbaa !13
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %33 = load i32, ptr %32, align 8, !tbaa !27
-  %34 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %31, i32 noundef %33) #15
+  %34 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %31, i32 noundef %33) #17
   %35 = load i8, ptr %34, align 1, !tbaa !34
   %cond6791 = icmp eq i8 %35, 108
   br i1 %cond6791, label %.lr.ph95, label %.critedge
@@ -1910,7 +1910,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %.critedg
 
 64:                                               ; preds = %.lr.ph111
   %65 = trunc nuw nsw i64 %indvars.iv139 to i32
-  %66 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_ObjNameDummy.Buffer, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull @.str.4, i32 noundef %.09.i, i32 noundef %65) #15
+  %66 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_ObjNameDummy.Buffer, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull @.str.4, i32 noundef %.09.i, i32 noundef %65) #17
   %67 = load ptr, ptr %61, align 8, !tbaa !3
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %69 = load ptr, ptr %68, align 8, !tbaa !13
@@ -1918,7 +1918,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %.critedg
   %71 = load i32, ptr %70, align 8, !tbaa !27
   %72 = load i32, ptr %62, align 4
   %73 = and i32 %72, 15
-  %74 = call ptr @Nm_ManStoreIdName(ptr noundef %69, i32 noundef %71, i32 noundef %73, ptr noundef nonnull @Abc_ObjNameDummy.Buffer, ptr noundef null) #15
+  %74 = call ptr @Nm_ManStoreIdName(ptr noundef %69, i32 noundef %71, i32 noundef %73, ptr noundef nonnull @Abc_ObjNameDummy.Buffer, ptr noundef null) #17
   %.val70 = load ptr, ptr %61, align 8, !tbaa !3
   %75 = getelementptr i8, ptr %61, i64 32
   %.val71 = load ptr, ptr %75, align 8, !tbaa !42
@@ -1930,7 +1930,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %.critedg
   %78 = sext i32 %.val71.val to i64
   %79 = getelementptr inbounds ptr, ptr %.val70.val.val, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !33
-  %81 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_ObjNameDummy.Buffer, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %2, i32 noundef %.09.i, i32 noundef %65) #15
+  %81 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_ObjNameDummy.Buffer, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %2, i32 noundef %.09.i, i32 noundef %65) #17
   %82 = load ptr, ptr %80, align 8, !tbaa !3
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %84 = load ptr, ptr %83, align 8, !tbaa !13
@@ -1939,7 +1939,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %.critedg
   %87 = getelementptr inbounds nuw i8, ptr %80, i64 20
   %88 = load i32, ptr %87, align 4
   %89 = and i32 %88, 15
-  %90 = call ptr @Nm_ManStoreIdName(ptr noundef %84, i32 noundef %86, i32 noundef %89, ptr noundef nonnull @Abc_ObjNameDummy.Buffer, ptr noundef null) #15
+  %90 = call ptr @Nm_ManStoreIdName(ptr noundef %84, i32 noundef %86, i32 noundef %89, ptr noundef nonnull @Abc_ObjNameDummy.Buffer, ptr noundef null) #17
   %.val68 = load ptr, ptr %61, align 8, !tbaa !3
   %91 = getelementptr i8, ptr %61, i64 48
   %.val69 = load ptr, ptr %91, align 8, !tbaa !36
@@ -1951,7 +1951,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %.critedg
   %94 = sext i32 %.val69.val to i64
   %95 = getelementptr inbounds ptr, ptr %.val68.val.val, i64 %94
   %96 = load ptr, ptr %95, align 8, !tbaa !33
-  %97 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_ObjNameDummy.Buffer, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %3, i32 noundef %.09.i, i32 noundef %65) #15
+  %97 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_ObjNameDummy.Buffer, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %3, i32 noundef %.09.i, i32 noundef %65) #17
   %98 = load ptr, ptr %96, align 8, !tbaa !3
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
   %100 = load ptr, ptr %99, align 8, !tbaa !13
@@ -1960,7 +1960,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %.critedg
   %103 = getelementptr inbounds nuw i8, ptr %96, i64 20
   %104 = load i32, ptr %103, align 4
   %105 = and i32 %104, 15
-  %106 = call ptr @Nm_ManStoreIdName(ptr noundef %100, i32 noundef %102, i32 noundef %105, ptr noundef nonnull @Abc_ObjNameDummy.Buffer, ptr noundef null) #15
+  %106 = call ptr @Nm_ManStoreIdName(ptr noundef %100, i32 noundef %102, i32 noundef %105, ptr noundef nonnull @Abc_ObjNameDummy.Buffer, ptr noundef null) #17
   %.pre = load ptr, ptr %54, align 8, !tbaa !41
   br label %107
 
@@ -1983,7 +1983,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %.critedg
 define void @Abc_NtkShortNames(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !13
-  tail call void @Nm_ManFree(ptr noundef %3) #15
+  tail call void @Nm_ManFree(ptr noundef %3) #17
   %4 = getelementptr i8, ptr %0, i64 56
   %.val = load ptr, ptr %4, align 8, !tbaa !28
   %5 = getelementptr i8, ptr %.val, i64 4
@@ -1998,7 +1998,7 @@ define void @Abc_NtkShortNames(ptr noundef captures(none) %0) local_unnamed_addr
   %10 = getelementptr i8, ptr %.val9, i64 4
   %.val9.val = load i32, ptr %10, align 4, !tbaa !29
   %11 = add nsw i32 %8, %.val9.val
-  %12 = tail call ptr @Nm_ManCreate(i32 noundef %11) #15
+  %12 = tail call ptr @Nm_ManCreate(i32 noundef %11) #17
   store ptr %12, ptr %2, align 8, !tbaa !13
   %13 = getelementptr i8, ptr %0, i64 40
   %.val8.i = load ptr, ptr %13, align 8, !tbaa !58
@@ -2032,7 +2032,7 @@ Abc_Base10Log.exit.i:                             ; preds = %.lr.ph.i.i, %1
   %21 = getelementptr inbounds nuw ptr, ptr %.val9.val.i, i64 %indvars.iv.i
   %22 = load ptr, ptr %21, align 8, !tbaa !33
   %23 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %24 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_ObjNameDummy.Buffer, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull @.str.2, i32 noundef %.09.i.i, i32 noundef %23) #15
+  %24 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_ObjNameDummy.Buffer, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull @.str.2, i32 noundef %.09.i.i, i32 noundef %23) #17
   %25 = load ptr, ptr %22, align 8, !tbaa !3
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8, !tbaa !13
@@ -2041,7 +2041,7 @@ Abc_Base10Log.exit.i:                             ; preds = %.lr.ph.i.i, %1
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 20
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, 15
-  %33 = tail call ptr @Nm_ManStoreIdName(ptr noundef %27, i32 noundef %29, i32 noundef %32, ptr noundef nonnull @Abc_ObjNameDummy.Buffer, ptr noundef null) #15
+  %33 = tail call ptr @Nm_ManStoreIdName(ptr noundef %27, i32 noundef %29, i32 noundef %32, ptr noundef nonnull @Abc_ObjNameDummy.Buffer, ptr noundef null) #17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.val.i = load ptr, ptr %13, align 8, !tbaa !58
   %34 = getelementptr i8, ptr %.val.i, i64 4
@@ -2083,7 +2083,7 @@ Abc_Base10Log.exit.i17:                           ; preds = %.lr.ph.i.i13, %Abc_
   %45 = getelementptr inbounds nuw ptr, ptr %.val9.val.i22, i64 %indvars.iv.i20
   %46 = load ptr, ptr %45, align 8, !tbaa !33
   %47 = trunc nuw nsw i64 %indvars.iv.i20 to i32
-  %48 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_ObjNameDummy.Buffer, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull @.str.3, i32 noundef %.09.i.i18, i32 noundef %47) #15
+  %48 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_ObjNameDummy.Buffer, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull @.str.3, i32 noundef %.09.i.i18, i32 noundef %47) #17
   %49 = load ptr, ptr %46, align 8, !tbaa !3
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %51 = load ptr, ptr %50, align 8, !tbaa !13
@@ -2092,7 +2092,7 @@ Abc_Base10Log.exit.i17:                           ; preds = %.lr.ph.i.i13, %Abc_
   %54 = getelementptr inbounds nuw i8, ptr %46, i64 20
   %55 = load i32, ptr %54, align 4
   %56 = and i32 %55, 15
-  %57 = tail call ptr @Nm_ManStoreIdName(ptr noundef %51, i32 noundef %53, i32 noundef %56, ptr noundef nonnull @Abc_ObjNameDummy.Buffer, ptr noundef null) #15
+  %57 = tail call ptr @Nm_ManStoreIdName(ptr noundef %51, i32 noundef %53, i32 noundef %56, ptr noundef nonnull @Abc_ObjNameDummy.Buffer, ptr noundef null) #17
   %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i20, 1
   %.val.i24 = load ptr, ptr %37, align 8, !tbaa !59
   %58 = getelementptr i8, ptr %.val.i24, i64 4
@@ -2126,7 +2126,7 @@ define void @Abc_NtkCleanNames(ptr noundef captures(none) %0) local_unnamed_addr
   %8 = getelementptr i8, ptr %.val30, i64 4
   %.val30.val = load i32, ptr %8, align 4, !tbaa !29
   %9 = add nsw i32 %6, %.val30.val
-  %10 = tail call ptr @Nm_ManCreate(i32 noundef %9) #15
+  %10 = tail call ptr @Nm_ManCreate(i32 noundef %9) #17
   %.val31 = load ptr, ptr %2, align 8, !tbaa !28
   %11 = getelementptr i8, ptr %.val31, i64 4
   %.val.val32 = load i32, ptr %11, align 4, !tbaa !29
@@ -2155,8 +2155,8 @@ define void @Abc_NtkCleanNames(ptr noundef captures(none) %0) local_unnamed_addr
   %23 = load ptr, ptr %17, align 8, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !13
-  %26 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %25, i32 noundef %19) #15
-  %27 = tail call ptr @Nm_ManStoreIdName(ptr noundef %10, i32 noundef %19, i32 noundef %22, ptr noundef %26, ptr noundef null) #15
+  %26 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %25, i32 noundef %19) #17
+  %27 = tail call ptr @Nm_ManStoreIdName(ptr noundef %10, i32 noundef %19, i32 noundef %22, ptr noundef %26, ptr noundef null) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load ptr, ptr %2, align 8, !tbaa !28
   %28 = getelementptr i8, ptr %.val, i64 4
@@ -2180,8 +2180,8 @@ define void @Abc_NtkCleanNames(ptr noundef captures(none) %0) local_unnamed_addr
   %39 = load ptr, ptr %33, align 8, !tbaa !3
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load ptr, ptr %40, align 8, !tbaa !13
-  %42 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %41, i32 noundef %35) #15
-  %43 = tail call ptr @Nm_ManStoreIdName(ptr noundef %10, i32 noundef %35, i32 noundef %38, ptr noundef %42, ptr noundef null) #15
+  %42 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %41, i32 noundef %35) #17
+  %43 = tail call ptr @Nm_ManStoreIdName(ptr noundef %10, i32 noundef %35, i32 noundef %38, ptr noundef %42, ptr noundef null) #17
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %.val27 = load ptr, ptr %4, align 8, !tbaa !31
   %44 = getelementptr i8, ptr %.val27, i64 4
@@ -2193,7 +2193,7 @@ define void @Abc_NtkCleanNames(ptr noundef captures(none) %0) local_unnamed_addr
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %48 = load ptr, ptr %47, align 8, !tbaa !13
-  tail call void @Nm_ManFree(ptr noundef %48) #15
+  tail call void @Nm_ManFree(ptr noundef %48) #17
   store ptr %10, ptr %47, align 8, !tbaa !13
   ret void
 }
@@ -2226,8 +2226,8 @@ define void @Abc_NtkRedirectCiCo(ptr noundef readonly captures(none) %0) local_u
   %14 = load ptr, ptr %13, align 8, !tbaa !13
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %16 = load i32, ptr %15, align 8, !tbaa !27
-  %17 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %14, i32 noundef %16) #15
-  %18 = tail call i32 @Nm_ManFindIdByNameTwoTypes(ptr noundef %11, ptr noundef %17, i32 noundef 2, i32 noundef 5) #15
+  %17 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %14, i32 noundef %16) #17
+  %18 = tail call i32 @Nm_ManFindIdByNameTwoTypes(ptr noundef %11, ptr noundef %17, i32 noundef 2, i32 noundef 5) #17
   %19 = icmp eq i32 %18, -1
   br i1 %19, label %38, label %20
 
@@ -2253,14 +2253,14 @@ define void @Abc_NtkRedirectCiCo(ptr noundef readonly captures(none) %0) local_u
   br i1 %31, label %38, label %32
 
 32:                                               ; preds = %20
-  tail call void @Abc_ObjPatchFanin(ptr noundef nonnull %10, ptr noundef %30, ptr noundef %24) #15
+  tail call void @Abc_ObjPatchFanin(ptr noundef nonnull %10, ptr noundef %30, ptr noundef %24) #17
   %33 = getelementptr i8, ptr %30, i64 44
   %.val27 = load i32, ptr %33, align 4, !tbaa !47
   %34 = icmp eq i32 %.val27, 0
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %32
-  tail call void @Abc_NtkDeleteObj(ptr noundef nonnull %30) #15
+  tail call void @Abc_NtkDeleteObj(ptr noundef nonnull %30) #17
   br label %36
 
 36:                                               ; preds = %35, %32
@@ -2302,7 +2302,7 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 define void @Abc_NtkMoveNames(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !13
-  tail call void @Nm_ManFree(ptr noundef %4) #15
+  tail call void @Nm_ManFree(ptr noundef %4) #17
   %5 = getelementptr i8, ptr %0, i64 56
   %.val37 = load ptr, ptr %5, align 8, !tbaa !28
   %6 = getelementptr i8, ptr %.val37, i64 4
@@ -2317,7 +2317,7 @@ define void @Abc_NtkMoveNames(ptr noundef captures(none) %0, ptr noundef readonl
   %11 = getelementptr i8, ptr %.val57, i64 4
   %.val57.val = load i32, ptr %11, align 4, !tbaa !29
   %12 = add nsw i32 %9, %.val57.val
-  %13 = tail call ptr @Nm_ManCreate(i32 noundef %12) #15
+  %13 = tail call ptr @Nm_ManCreate(i32 noundef %12) #17
   store ptr %13, ptr %3, align 8, !tbaa !13
   %14 = getelementptr i8, ptr %0, i64 40
   %.val5158 = load ptr, ptr %14, align 8, !tbaa !58
@@ -2359,7 +2359,7 @@ define void @Abc_NtkMoveNames(ptr noundef captures(none) %0, ptr noundef readonl
   %31 = load ptr, ptr %30, align 8, !tbaa !13
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %33 = load i32, ptr %32, align 8, !tbaa !27
-  %34 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %31, i32 noundef %33) #15
+  %34 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %31, i32 noundef %33) #17
   %35 = load ptr, ptr %25, align 8, !tbaa !3
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8, !tbaa !13
@@ -2368,7 +2368,7 @@ define void @Abc_NtkMoveNames(ptr noundef captures(none) %0, ptr noundef readonl
   %40 = getelementptr inbounds nuw i8, ptr %25, i64 20
   %41 = load i32, ptr %40, align 4
   %42 = and i32 %41, 15
-  %43 = tail call ptr @Nm_ManStoreIdName(ptr noundef %37, i32 noundef %39, i32 noundef %42, ptr noundef %34, ptr noundef null) #15
+  %43 = tail call ptr @Nm_ManStoreIdName(ptr noundef %37, i32 noundef %39, i32 noundef %42, ptr noundef %34, ptr noundef null) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val51 = load ptr, ptr %14, align 8, !tbaa !58
   %44 = getelementptr i8, ptr %.val51, i64 4
@@ -2405,7 +2405,7 @@ define void @Abc_NtkMoveNames(ptr noundef captures(none) %0, ptr noundef readonl
   %59 = load ptr, ptr %58, align 8, !tbaa !13
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %61 = load i32, ptr %60, align 8, !tbaa !27
-  %62 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %59, i32 noundef %61) #15
+  %62 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %59, i32 noundef %61) #17
   %63 = load ptr, ptr %53, align 8, !tbaa !3
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %65 = load ptr, ptr %64, align 8, !tbaa !13
@@ -2414,7 +2414,7 @@ define void @Abc_NtkMoveNames(ptr noundef captures(none) %0, ptr noundef readonl
   %68 = getelementptr inbounds nuw i8, ptr %53, i64 20
   %69 = load i32, ptr %68, align 4
   %70 = and i32 %69, 15
-  %71 = tail call ptr @Nm_ManStoreIdName(ptr noundef %65, i32 noundef %67, i32 noundef %70, ptr noundef %62, ptr noundef null) #15
+  %71 = tail call ptr @Nm_ManStoreIdName(ptr noundef %65, i32 noundef %67, i32 noundef %70, ptr noundef %62, ptr noundef null) #17
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %.val54 = load ptr, ptr %18, align 8, !tbaa !59
   %72 = getelementptr i8, ptr %.val54, i64 4
@@ -2469,7 +2469,7 @@ define void @Abc_NtkMoveNames(ptr noundef captures(none) %0, ptr noundef readonl
   %100 = load ptr, ptr %99, align 8, !tbaa !13
   %101 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %102 = load i32, ptr %101, align 8, !tbaa !27
-  %103 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %100, i32 noundef %102) #15
+  %103 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %100, i32 noundef %102) #17
   %104 = load ptr, ptr %88, align 8, !tbaa !3
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %106 = load ptr, ptr %105, align 8, !tbaa !13
@@ -2478,7 +2478,7 @@ define void @Abc_NtkMoveNames(ptr noundef captures(none) %0, ptr noundef readonl
   %109 = getelementptr inbounds nuw i8, ptr %88, i64 20
   %110 = load i32, ptr %109, align 4
   %111 = and i32 %110, 15
-  %112 = tail call ptr @Nm_ManStoreIdName(ptr noundef %106, i32 noundef %108, i32 noundef %111, ptr noundef %103, ptr noundef null) #15
+  %112 = tail call ptr @Nm_ManStoreIdName(ptr noundef %106, i32 noundef %108, i32 noundef %111, ptr noundef %103, ptr noundef null) #17
   %.val40 = load ptr, ptr %79, align 8, !tbaa !3
   %113 = getelementptr i8, ptr %79, i64 48
   %.val41 = load ptr, ptr %113, align 8, !tbaa !36
@@ -2511,7 +2511,7 @@ define void @Abc_NtkMoveNames(ptr noundef captures(none) %0, ptr noundef readonl
   %130 = load ptr, ptr %129, align 8, !tbaa !13
   %131 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %132 = load i32, ptr %131, align 8, !tbaa !27
-  %133 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %130, i32 noundef %132) #15
+  %133 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %130, i32 noundef %132) #17
   %134 = load ptr, ptr %118, align 8, !tbaa !3
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 24
   %136 = load ptr, ptr %135, align 8, !tbaa !13
@@ -2520,7 +2520,7 @@ define void @Abc_NtkMoveNames(ptr noundef captures(none) %0, ptr noundef readonl
   %139 = getelementptr inbounds nuw i8, ptr %118, i64 20
   %140 = load i32, ptr %139, align 4
   %141 = and i32 %140, 15
-  %142 = tail call ptr @Nm_ManStoreIdName(ptr noundef %136, i32 noundef %138, i32 noundef %141, ptr noundef %133, ptr noundef null) #15
+  %142 = tail call ptr @Nm_ManStoreIdName(ptr noundef %136, i32 noundef %138, i32 noundef %141, ptr noundef %133, ptr noundef null) #17
   %.pre = load ptr, ptr %10, align 8, !tbaa !41
   br label %.critedge2
 
@@ -2544,16 +2544,16 @@ define void @Abc_NtkStartNameIds(ptr noundef initializes((440, 448)) %0) local_u
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !88
-  %5 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %4, ptr noundef nonnull @.str.7) #15
+  %5 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %4, ptr noundef nonnull @.str.7) #17
   %6 = load ptr, ptr %3, align 8, !tbaa !88
-  %7 = tail call ptr @Extra_FileNameExtension(ptr noundef %6) #15
-  %8 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef %5, ptr noundef %7) #15
+  %7 = tail call ptr @Extra_FileNameExtension(ptr noundef %6) #17
+  %8 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef %5, ptr noundef %7) #17
   %9 = call noalias ptr @fopen(ptr noundef nonnull %2, ptr noundef nonnull @.str.8)
   %10 = getelementptr i8, ptr %0, i64 32
   %.val85 = load ptr, ptr %10, align 8, !tbaa !37
   %11 = getelementptr i8, ptr %.val85, i64 4
   %.val85.val = load i32, ptr %11, align 4, !tbaa !29
-  %12 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
+  %12 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %13 = add i32 %.val85.val, -1
   %or.cond.i.i = icmp ult i32 %13, 15
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 16, i32 %.val85.val
@@ -2571,7 +2571,7 @@ Vec_IntAlloc.exit.thread.i:                       ; preds = %1
 Vec_IntAlloc.exit.i:                              ; preds = %1
   %16 = sext i32 %spec.store.select.i.i to i64
   %17 = shl nsw i64 %16, 2
-  %18 = tail call noalias ptr @malloc(i64 noundef %17) #16
+  %18 = tail call noalias ptr @malloc(i64 noundef %17) #18
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %18, ptr %19, align 8, !tbaa !90
   store i32 %.val85.val, ptr %14, align 4, !tbaa !91
@@ -2628,8 +2628,8 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %42 = load ptr, ptr %41, align 8, !tbaa !13
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %44 = load i32, ptr %43, align 8, !tbaa !27
-  %45 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %42, i32 noundef %44) #15
-  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.9, ptr noundef %45) #15
+  %45 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %42, i32 noundef %44) #17
+  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.9, ptr noundef %45) #17
   %47 = load ptr, ptr %23, align 8, !tbaa !92
   %48 = getelementptr i8, ptr %33, i64 16
   %.val86 = load i32, ptr %48, align 8, !tbaa !27
@@ -2706,8 +2706,8 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %87 = load ptr, ptr %86, align 8, !tbaa !13
   %88 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %89 = load i32, ptr %88, align 8, !tbaa !27
-  %90 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %87, i32 noundef %89) #15
-  %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.9, ptr noundef %90) #15
+  %90 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %87, i32 noundef %89) #17
+  %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.9, ptr noundef %90) #17
   %92 = load ptr, ptr %23, align 8, !tbaa !92
   %.val88 = load i32, ptr %73, align 8, !tbaa !27
   %93 = add nsw i32 %.1111, 1
@@ -2733,7 +2733,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
   %.1.lcssa = phi i32 [ %.0.lcssa, %.critedge.preheader ], [ %.2, %.critedge ]
-  %102 = tail call ptr @Abc_NtkDfs(ptr noundef nonnull %0, i32 noundef 1) #15
+  %102 = tail call ptr @Abc_NtkDfs(ptr noundef nonnull %0, i32 noundef 1) #17
   %103 = getelementptr i8, ptr %102, i64 4
   %.val115 = load i32, ptr %103, align 4, !tbaa !29
   %104 = icmp sgt i32 %.val115, 0
@@ -2779,8 +2779,8 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %124 = load ptr, ptr %123, align 8, !tbaa !13
   %125 = getelementptr inbounds nuw i8, ptr %121, i64 16
   %126 = load i32, ptr %125, align 8, !tbaa !27
-  %127 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %124, i32 noundef %126) #15
-  %128 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.9, ptr noundef %127) #15
+  %127 = tail call ptr @Nm_ManCreateUniqueName(ptr noundef %124, i32 noundef %126) #17
+  %128 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.9, ptr noundef %127) #17
   %129 = load ptr, ptr %23, align 8, !tbaa !92
   %.val90 = load i32, ptr %110, align 8, !tbaa !27
   %130 = add nsw i32 %.3117, 1
@@ -2809,11 +2809,11 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   br i1 %.not.i102, label %Vec_PtrFree.exit, label %141
 
 141:                                              ; preds = %.critedge4
-  tail call void @free(ptr noundef nonnull %140) #15
+  tail call void @free(ptr noundef nonnull %140) #17
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge4, %141
-  tail call void @free(ptr noundef nonnull %102) #15
+  tail call void @free(ptr noundef nonnull %102) #17
   %142 = tail call i32 @fclose(ptr noundef %9)
   %.val73 = load ptr, ptr %28, align 8, !tbaa !31
   %143 = getelementptr i8, ptr %.val73, i64 4
@@ -2895,13 +2895,13 @@ declare ptr @Abc_NtkDfs(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
-; Function Attrs: nofree nounwind uwtable
-define void @Abc_NtkTransferNameIds(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((440, 448)) %1) local_unnamed_addr #3 {
+; Function Attrs: nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define void @Abc_NtkTransferNameIds(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((440, 448)) %1) local_unnamed_addr #11 {
   %3 = getelementptr i8, ptr %1, i64 32
   %.val25 = load ptr, ptr %3, align 8, !tbaa !37
   %4 = getelementptr i8, ptr %.val25, i64 4
   %.val25.val = load i32, ptr %4, align 4, !tbaa !29
-  %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
+  %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %6 = add i32 %.val25.val, -1
   %or.cond.i.i = icmp ult i32 %6, 15
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 16, i32 %.val25.val
@@ -2919,7 +2919,7 @@ Vec_IntAlloc.exit.thread.i:                       ; preds = %2
 Vec_IntAlloc.exit.i:                              ; preds = %2
   %9 = sext i32 %spec.store.select.i.i to i64
   %10 = shl nsw i64 %9, 2
-  %11 = tail call noalias ptr @malloc(i64 noundef %10) #16
+  %11 = tail call noalias ptr @malloc(i64 noundef %10) #18
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %11, ptr %12, align 8, !tbaa !90
   store i32 %.val25.val, ptr %7, align 4, !tbaa !91
@@ -3030,15 +3030,15 @@ Vec_IntPush.exit:
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !88
-  %4 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %3, ptr noundef nonnull @.str.7) #15
+  %4 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %3, ptr noundef nonnull @.str.7) #17
   %5 = load ptr, ptr %2, align 8, !tbaa !88
-  %6 = tail call ptr @Extra_FileNameExtension(ptr noundef %5) #15
-  %7 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef %4, ptr noundef %6) #15
+  %6 = tail call ptr @Extra_FileNameExtension(ptr noundef %5) #17
+  %7 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef %4, ptr noundef %6) #17
   %8 = call noalias ptr @fopen(ptr noundef nonnull %1, ptr noundef nonnull @.str.10)
-  %9 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
+  %9 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 1000, ptr %9, align 8, !tbaa !89
-  %11 = tail call noalias dereferenceable_or_null(4000) ptr @malloc(i64 noundef 4000) #16
+  %11 = tail call noalias dereferenceable_or_null(4000) ptr @malloc(i64 noundef 4000) #18
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %11, ptr %12, align 8, !tbaa !90
   store i32 1, ptr %10, align 4, !tbaa !91
@@ -3086,11 +3086,11 @@ Vec_IntPush.exit:
   br i1 %.not9.i.i56, label %34, label %32
 
 32:                                               ; preds = %31
-  %33 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %20, i64 noundef 64) #18
+  %33 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %20, i64 noundef 64) #20
   br label %Vec_IntPush.exit58.sink.split
 
 34:                                               ; preds = %31
-  %35 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #16
+  %35 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #18
   br label %Vec_IntPush.exit58.sink.split
 
 36:                                               ; preds = %29
@@ -3101,11 +3101,11 @@ Vec_IntPush.exit:
   br i1 %.not9.i9.i55, label %42, label %40
 
 40:                                               ; preds = %36
-  %41 = tail call ptr @realloc(ptr noundef nonnull %20, i64 noundef %39) #18
+  %41 = tail call ptr @realloc(ptr noundef nonnull %20, i64 noundef %39) #20
   br label %Vec_IntPush.exit58.sink.split
 
 42:                                               ; preds = %36
-  %43 = tail call noalias ptr @malloc(i64 noundef %39) #16
+  %43 = tail call noalias ptr @malloc(i64 noundef %39) #18
   br label %Vec_IntPush.exit58.sink.split
 
 Vec_IntPush.exit58.sink.split:                    ; preds = %40, %42, %32, %34
@@ -3175,7 +3175,7 @@ Vec_IntPush.exit58:                               ; preds = %Vec_IntPush.exit58.
   %.not44 = icmp eq i32 %68, 0
   %74 = select i1 %.not44, ptr @.str.7, ptr @.str.12
   %75 = trunc nuw nsw i64 %indvars.iv to i32
-  %76 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.11, ptr noundef nonnull %74, i32 noundef %75) #15
+  %76 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.11, ptr noundef nonnull %74, i32 noundef %75) #17
   %.pre = load ptr, ptr %15, align 8, !tbaa !37
   br label %.critedge
 
@@ -3197,11 +3197,11 @@ Vec_IntPush.exit58:                               ; preds = %Vec_IntPush.exit58.
   br i1 %.not.i, label %Vec_IntFree.exit, label %84
 
 84:                                               ; preds = %.critedge3
-  call void @free(ptr noundef nonnull %14) #15
+  call void @free(ptr noundef nonnull %14) #17
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %.critedge3, %84
-  call void @free(ptr noundef nonnull %9) #15
+  call void @free(ptr noundef nonnull %9) #17
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %86 = load ptr, ptr %85, align 8, !tbaa !100
   %87 = icmp eq ptr %86, null
@@ -3214,7 +3214,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge3, %84
   br i1 %.not.i59, label %93, label %.thread.i
 
 .thread.i:                                        ; preds = %88
-  call void @free(ptr noundef nonnull %90) #15
+  call void @free(ptr noundef nonnull %90) #17
   %91 = load ptr, ptr %85, align 8, !tbaa !100
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store ptr null, ptr %92, align 8, !tbaa !90
@@ -3222,7 +3222,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge3, %84
 
 93:                                               ; preds = %.thread.i, %88
   %94 = phi ptr [ %91, %.thread.i ], [ %86, %88 ]
-  call void @free(ptr noundef nonnull %94) #15
+  call void @free(ptr noundef nonnull %94) #17
   store ptr null, ptr %85, align 8, !tbaa !100
   br label %Vec_IntFreeP.exit
 
@@ -3238,48 +3238,50 @@ declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #2
 declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #10
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #11
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #14
+declare i32 @llvm.smax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #14
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #16
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nounwind }
-attributes #16 = { nounwind allocsize(0) }
-attributes #17 = { nounwind willreturn memory(read) }
-attributes #18 = { nounwind allocsize(1) }
+attributes #4 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nounwind }
+attributes #18 = { nounwind allocsize(0) }
+attributes #19 = { nounwind willreturn memory(read) }
+attributes #20 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

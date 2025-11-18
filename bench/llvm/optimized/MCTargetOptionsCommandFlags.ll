@@ -321,14 +321,14 @@ $_ZTVN4llvm2cl11OptionValueIiEE = comdat any
 
 @_ZN4llvm2mc28RegisterMCTargetOptionsFlagsC1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm2mc28RegisterMCTargetOptionsFlagsC2Ev
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm2mc11getRelaxAllEv() local_unnamed_addr #0 {
   %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm2mc28RegisterMCTargetOptionsFlagsC1EvE8RelaxAll, i64 120), align 8, !tbaa !3, !range !12, !noundef !13
   %2 = trunc nuw i8 %1 to i1
   ret i1 %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local range(i16 0, 258) i16 @_ZN4llvm2mc19getExplicitRelaxAllEv() local_unnamed_addr #0 {
   %1 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm2mc28RegisterMCTargetOptionsFlagsC1EvE8RelaxAll, i64 8), align 8, !tbaa !14
   %.not = icmp eq i16 %1, 0
@@ -339,110 +339,110 @@ define dso_local range(i16 0, 258) i16 @_ZN4llvm2mc19getExplicitRelaxAllEv() loc
   ret i16 %.sroa.2.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm2mc30getIncrementalLinkerCompatibleEv() local_unnamed_addr #0 {
   %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm2mc28RegisterMCTargetOptionsFlagsC1EvE27IncrementalLinkerCompatible, i64 120), align 8, !tbaa !3, !range !12, !noundef !13
   %2 = trunc nuw i8 %1 to i1
   ret i1 %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm2mc8getFDPICEv() local_unnamed_addr #0 {
   %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm2mc28RegisterMCTargetOptionsFlagsC1EvE5FDPIC, i64 120), align 8, !tbaa !3, !range !12, !noundef !13
   %2 = trunc nuw i8 %1 to i1
   ret i1 %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef i32 @_ZN4llvm2mc15getDwarfVersionEv() local_unnamed_addr #0 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm2mc28RegisterMCTargetOptionsFlagsC1EvE12DwarfVersion, i64 120), align 8, !tbaa !31
   ret i32 %1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm2mc10getDwarf64Ev() local_unnamed_addr #0 {
   %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm2mc28RegisterMCTargetOptionsFlagsC1EvE7Dwarf64, i64 120), align 8, !tbaa !3, !range !12, !noundef !13
   %2 = trunc nuw i8 %1 to i1
   ret i1 %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef i32 @_ZN4llvm2mc18getEmitDwarfUnwindEv() local_unnamed_addr #0 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm2mc28RegisterMCTargetOptionsFlagsC1EvE15EmitDwarfUnwind, i64 120), align 8, !tbaa !36
   ret i32 %1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm2mc32getEmitCompactUnwindNonCanonicalEv() local_unnamed_addr #0 {
   %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm2mc28RegisterMCTargetOptionsFlagsC1EvE29EmitCompactUnwindNonCanonical, i64 120), align 8, !tbaa !3, !range !12, !noundef !13
   %2 = trunc nuw i8 %1 to i1
   ret i1 %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm2mc13getShowMCInstEv() local_unnamed_addr #0 {
   %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm2mc28RegisterMCTargetOptionsFlagsC1EvE10ShowMCInst, i64 120), align 8, !tbaa !3, !range !12, !noundef !13
   %2 = trunc nuw i8 %1 to i1
   ret i1 %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm2mc16getFatalWarningsEv() local_unnamed_addr #0 {
   %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm2mc28RegisterMCTargetOptionsFlagsC1EvE13FatalWarnings, i64 120), align 8, !tbaa !3, !range !12, !noundef !13
   %2 = trunc nuw i8 %1 to i1
   ret i1 %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm2mc9getNoWarnEv() local_unnamed_addr #0 {
   %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm2mc28RegisterMCTargetOptionsFlagsC1EvE6NoWarn, i64 120), align 8, !tbaa !3, !range !12, !noundef !13
   %2 = trunc nuw i8 %1 to i1
   ret i1 %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm2mc19getNoDeprecatedWarnEv() local_unnamed_addr #0 {
   %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm2mc28RegisterMCTargetOptionsFlagsC1EvE16NoDeprecatedWarn, i64 120), align 8, !tbaa !3, !range !12, !noundef !13
   %2 = trunc nuw i8 %1 to i1
   ret i1 %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm2mc14getNoTypeCheckEv() local_unnamed_addr #0 {
   %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm2mc28RegisterMCTargetOptionsFlagsC1EvE11NoTypeCheck, i64 120), align 8, !tbaa !3, !range !12, !noundef !13
   %2 = trunc nuw i8 %1 to i1
   ret i1 %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm2mc17getSaveTempLabelsEv() local_unnamed_addr #0 {
   %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm2mc28RegisterMCTargetOptionsFlagsC1EvE14SaveTempLabels, i64 120), align 8, !tbaa !3, !range !12, !noundef !13
   %2 = trunc nuw i8 %1 to i1
   ret i1 %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm2mc7getCrelEv() local_unnamed_addr #0 {
   %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm2mc28RegisterMCTargetOptionsFlagsC1EvE4Crel, i64 120), align 8, !tbaa !3, !range !12, !noundef !13
   %2 = trunc nuw i8 %1 to i1
   ret i1 %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm2mc18getImplicitMapSymsEv() local_unnamed_addr #0 {
   %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm2mc28RegisterMCTargetOptionsFlagsC1EvE15ImplicitMapSyms, i64 120), align 8, !tbaa !3, !range !12, !noundef !13
   %2 = trunc nuw i8 %1 to i1
   ret i1 %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm2mc22getX86RelaxRelocationsEv() local_unnamed_addr #0 {
   %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm2mc28RegisterMCTargetOptionsFlagsC1EvE19X86RelaxRelocations, i64 120), align 8, !tbaa !3, !range !12, !noundef !13
   %2 = trunc nuw i8 %1 to i1
   ret i1 %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm2mc13getX86Sse2AvxEv() local_unnamed_addr #0 {
   %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm2mc28RegisterMCTargetOptionsFlagsC1EvE10X86Sse2Avx, i64 120), align 8, !tbaa !3, !range !12, !noundef !13
   %2 = trunc nuw i8 %1 to i1
@@ -4169,7 +4169,7 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

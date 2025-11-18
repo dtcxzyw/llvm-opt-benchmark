@@ -68,7 +68,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @archive_read_support_format_rar5(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 14594245, i32 noundef 1, ptr noundef nonnull @.str.3) #15
+  %2 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 14594245, i32 noundef 1, ptr noundef nonnull @.str.3) #16
   %.not.i.not = icmp eq i32 %2, -30
   br i1 %.not.i.not, label %15, label %3
 
@@ -78,27 +78,27 @@ define dso_local i32 @archive_read_support_format_rar5(ptr noundef %0) local_unn
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str) #15
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str) #16
   br label %15
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %calloc, i64 19260
   store i16 8191, ptr %7, align 4, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %calloc, i64 19264
-  %9 = tail call noalias dereferenceable_or_null(65536) ptr @malloc(i64 noundef 65536) #16
+  %9 = tail call noalias dereferenceable_or_null(65536) ptr @malloc(i64 noundef 65536) #17
   store ptr %9, ptr %8, align 8, !tbaa !11
   %.not.i.not.i = icmp eq ptr %9, null
   br i1 %.not.i.not.i, label %rar5_init.exit, label %10
 
 rar5_init.exit:                                   ; preds = %6
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.1) #15
-  tail call void @free(ptr noundef nonnull %calloc) #15
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.1) #16
+  tail call void @free(ptr noundef nonnull %calloc) #16
   br label %15
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %calloc, i64 21292
   store i32 -1, ptr %11, align 4, !tbaa !12
-  %12 = tail call i32 @__archive_read_register_format(ptr noundef %0, ptr noundef nonnull %calloc, ptr noundef nonnull @.str.2, ptr noundef nonnull @rar5_bid, ptr noundef nonnull @rar5_options, ptr noundef nonnull @rar5_read_header, ptr noundef nonnull @rar5_read_data, ptr noundef nonnull @rar5_read_data_skip, ptr noundef nonnull @rar5_seek_data, ptr noundef nonnull @rar5_cleanup, ptr noundef nonnull @rar5_capabilities, ptr noundef nonnull @rar5_has_encrypted_entries) #15
+  %12 = tail call i32 @__archive_read_register_format(ptr noundef %0, ptr noundef nonnull %calloc, ptr noundef nonnull @.str.2, ptr noundef nonnull @rar5_bid, ptr noundef nonnull @rar5_options, ptr noundef nonnull @rar5_read_header, ptr noundef nonnull @rar5_read_data, ptr noundef nonnull @rar5_read_data_skip, ptr noundef nonnull @rar5_seek_data, ptr noundef nonnull @rar5_cleanup, ptr noundef nonnull @rar5_capabilities, ptr noundef nonnull @rar5_has_encrypted_entries) #16
   %.not11 = icmp eq i32 %12, 0
   br i1 %.not11, label %15, label %13
 
@@ -148,7 +148,7 @@ define internal range(i32 -1, 31) i32 @rar5_bid(ptr noundef %0, i32 noundef %1) 
 rar5_signature.exit.i:                            ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 -1, ptr %5, align 8, !tbaa !29
-  %15 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %5) #15
+  %15 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %5) #16
   %.not2.i = icmp eq ptr %15, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not2.i, label %17, label %16
@@ -164,7 +164,7 @@ bid_standard.exit:                                ; preds = %16
 
 17:                                               ; preds = %rar5_signature.exit.i, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %18 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 7, ptr noundef null) #15
+  %18 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 7, ptr noundef null) #16
   %19 = icmp eq ptr %18, null
   br i1 %19, label %bid_sfx.exit, label %20
 
@@ -204,7 +204,7 @@ rar5_signature.exit.preheader.i:                  ; preds = %30, %rar5_signature
   %36 = phi i64 [ %56, %rar5_signature.exit.i13 ], [ 69632, %30 ]
   %.02247.i = phi i64 [ %.123.i, %rar5_signature.exit.i13 ], [ 4096, %30 ]
   %.02446.i = phi i64 [ %.125.i, %rar5_signature.exit.i13 ], [ 65536, %30 ]
-  %37 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %36, ptr noundef nonnull %4) #15
+  %37 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %36, ptr noundef nonnull %4) #16
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %42
 
@@ -289,7 +289,7 @@ define internal range(i32 -9, -10) i32 @rar5_read_header(ptr noundef %0, ptr nou
   store i32 1048576, ptr %14, align 8, !tbaa !49
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @.str.5, ptr %15, align 8, !tbaa !50
-  %16 = tail call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef 7, ptr noundef null) #15
+  %16 = tail call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef 7, ptr noundef null) #16
   %17 = icmp eq ptr %16, null
   br i1 %17, label %61, label %18
 
@@ -337,7 +337,7 @@ rar5_signature.exit.i:                            ; preds = %39, %rar5_signature
   br i1 %35, label %36, label %.loopexit.i
 
 36:                                               ; preds = %rar5_signature.exit.i
-  %37 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef %.0.i, ptr noundef nonnull %4) #15
+  %37 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef %.0.i, ptr noundef nonnull %4) #16
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %42
 
@@ -365,7 +365,7 @@ rar5_signature.exit.i:                            ; preds = %39, %rar5_signature
   %48 = ptrtoint ptr %.03147.i to i64
   %49 = ptrtoint ptr %37 to i64
   %50 = sub i64 %48, %49
-  %51 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %50) #15
+  %51 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %50) #16
   br label %.loopexit.i
 
 52:                                               ; preds = %.lr.ph.i
@@ -378,7 +378,7 @@ rar5_signature.exit.i:                            ; preds = %39, %rar5_signature
   %56 = ptrtoint ptr %53 to i64
   %57 = ptrtoint ptr %37 to i64
   %58 = sub i64 %56, %57
-  %59 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %58) #15
+  %59 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %58) #16
   %60 = add i64 %58, %.029.ph.i
   br label %rar5_signature.exit.outer.i, !llvm.loop !51
 
@@ -390,7 +390,7 @@ rar5_signature.exit.i:                            ; preds = %39, %rar5_signature
 try_skip_sfx.exit:                                ; preds = %42, %39
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.6) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.6) #16
   br label %.loopexit
 
 61:                                               ; preds = %13, %.loopexit.i, %25
@@ -404,7 +404,7 @@ try_skip_sfx.exit:                                ; preds = %42, %39
   br i1 %65, label %66, label %70
 
 66:                                               ; preds = %62
-  %67 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef 8) #15
+  %67 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef 8) #16
   %68 = icmp eq i64 %67, 8
   br i1 %68, label %69, label %.loopexit
 
@@ -473,7 +473,7 @@ define internal i32 @rar5_read_data(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not37, label %20, label %19
 
 19:                                               ; preds = %15, %12
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.33) #15
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.33) #16
   br label %83
 
 20:                                               ; preds = %15
@@ -485,7 +485,7 @@ define internal i32 @rar5_read_data(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not38, label %26, label %25
 
 25:                                               ; preds = %20
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.34) #15
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.34) #16
   br label %83
 
 26:                                               ; preds = %20
@@ -503,7 +503,7 @@ define internal i32 @rar5_read_data(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %29
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.35) #15
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.35) #16
   br label %83
 
 36:                                               ; preds = %29, %26
@@ -599,7 +599,7 @@ use_data.exit:                                    ; preds = %38
   br label %do_unpack.exit
 
 do_unpack.exit.thread:                            ; preds = %59
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.36, i32 noundef %61) #15
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.36, i32 noundef %61) #16
   br label %83
 
 do_unpack.exit:                                   ; preds = %57, %62, %68
@@ -676,7 +676,7 @@ define internal range(i32 -2147483648, 2) i32 @rar5_read_data_skip(ptr noundef %
 24:                                               ; preds = %6, %1
   %25 = getelementptr inbounds nuw i8, ptr %.val.val, i64 19368
   %26 = load i64, ptr %25, align 8, !tbaa !67
-  %27 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %26) #15
+  %27 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %26) #16
   %28 = icmp eq i64 %26, %27
   br i1 %28, label %29, label %.thread
 
@@ -694,22 +694,22 @@ define internal noundef i64 @rar5_seek_data(ptr readnone captures(none) %0, i64 
   ret i64 -30
 }
 
-; Function Attrs: nounwind uwtable
-define internal noundef i32 @rar5_cleanup(ptr noundef readonly captures(none) %0) #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal noundef i32 @rar5_cleanup(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr i8, ptr %0, i64 2072
   %.val = load ptr, ptr %2, align 8, !tbaa !31
   %.val.val = load ptr, ptr %.val, align 8, !tbaa !46
   %3 = getelementptr inbounds nuw i8, ptr %.val.val, i64 80
   %4 = load ptr, ptr %3, align 8, !tbaa !69
-  tail call void @free(ptr noundef %4) #15
+  tail call void @free(ptr noundef %4) #16
   %5 = getelementptr inbounds nuw i8, ptr %.val.val, i64 88
   %6 = load ptr, ptr %5, align 8, !tbaa !70
-  tail call void @free(ptr noundef %6) #15
+  tail call void @free(ptr noundef %6) #16
   %7 = getelementptr inbounds nuw i8, ptr %.val.val, i64 19304
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %.val.val, i64 21280
   %9 = load ptr, ptr %8, align 8, !tbaa !71
-  tail call void @free(ptr noundef %9) #15
+  tail call void @free(ptr noundef %9) #16
   %10 = getelementptr inbounds nuw i8, ptr %.val.val, i64 19256
   %11 = getelementptr i8, ptr %.val.val, i64 19262
   %.val9.i = load i16, ptr %11, align 2, !tbaa !72
@@ -735,7 +735,7 @@ cdeque_pop_front.exit.i:                          ; preds = %cdeque_pop_front.ex
   store i16 %22, ptr %10, align 8, !tbaa !73
   %23 = add i16 %.val11.i, -1
   store i16 %23, ptr %11, align 2, !tbaa !72
-  tail call void @free(ptr noundef %19) #15
+  tail call void @free(ptr noundef %19) #16
   %.val.i = load i16, ptr %11, align 2, !tbaa !72
   %.not.i = icmp eq i16 %.val.i, 0
   br i1 %.not.i, label %free_filters.exit, label %cdeque_pop_front.exit.i, !llvm.loop !74
@@ -753,11 +753,11 @@ free_filters.exit:                                ; preds = %cdeque_pop_front.ex
   br i1 %.not8.i, label %cdeque_free.exit, label %28
 
 28:                                               ; preds = %free_filters.exit
-  tail call void @free(ptr noundef nonnull %27) #15
+  tail call void @free(ptr noundef nonnull %27) #16
   br label %cdeque_free.exit
 
 cdeque_free.exit:                                 ; preds = %free_filters.exit, %28
-  tail call void @free(ptr noundef nonnull %.val.val) #15
+  tail call void @free(ptr noundef nonnull %.val.val) #16
   %29 = load ptr, ptr %2, align 8, !tbaa !31
   store ptr null, ptr %29, align 8, !tbaa !46
   ret i32 0
@@ -768,8 +768,8 @@ define internal noundef i32 @rar5_capabilities(ptr readnone captures(none) %0) #
   ret i32 3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @rar5_has_encrypted_entries(ptr noundef readonly captures(address_is_null) %0) #5 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal i32 @rar5_has_encrypted_entries(ptr noundef readonly captures(address_is_null) %0) #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %2
 
@@ -797,7 +797,7 @@ define internal i32 @rar5_has_encrypted_entries(ptr noundef readonly captures(ad
 declare i32 @__archive_check_magic(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare ptr @__archive_read_ahead(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -827,7 +827,7 @@ define internal fastcc i32 @process_base_block(ptr noundef %0, ptr noundef %1) u
   br i1 %.not14.i, label %17, label %14
 
 14:                                               ; preds = %11
-  %15 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %10) #15
+  %15 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %10) #16
   %16 = icmp eq i64 %10, %15
   br i1 %16, label %skip_unprocessed_bytes.exit.thread.sink.split, label %read_var_sized.exit
 
@@ -868,7 +868,7 @@ define internal fastcc i32 @process_base_block(ptr noundef %0, ptr noundef %1) u
   br i1 %or.cond.i, label %rar5_read_data_skip.exit, label %27, !llvm.loop !68
 
 38:                                               ; preds = %21, %17
-  %39 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %10) #15
+  %39 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %10) #16
   %40 = icmp eq i64 %10, %39
   br i1 %40, label %skip_unprocessed_bytes.exit.thread.sink.split, label %read_var_sized.exit
 
@@ -883,21 +883,21 @@ skip_unprocessed_bytes.exit.thread.sink.split:    ; preds = %38, %14
 skip_unprocessed_bytes.exit.thread:               ; preds = %27, %skip_unprocessed_bytes.exit.thread.sink.split, %rar5_read_data_skip.exit, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 -1, ptr %5, align 8, !tbaa !29
-  %41 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 4, ptr noundef nonnull %5) #15
+  %41 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 4, ptr noundef nonnull %5) #16
   %.not3.i = icmp eq ptr %41, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not3.i, label %read_var_sized.exit, label %read_u32.exit
 
 read_u32.exit:                                    ; preds = %skip_unprocessed_bytes.exit.thread
   %42 = load i32, ptr %41, align 1
-  %43 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 4) #15
+  %43 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 4) #16
   %.not = icmp eq i64 %43, 4
   br i1 %.not, label %44, label %read_var_sized.exit
 
 44:                                               ; preds = %read_u32.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 -1, ptr %4, align 8, !tbaa !29
-  %45 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %4) #15
+  %45 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %4) #16
   %.not35.i.i = icmp eq ptr %45, null
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not35.i.i, label %read_var_sized.exit, label %.preheader.i.i
@@ -928,7 +928,7 @@ read_u32.exit:                                    ; preds = %skip_unprocessed_by
   br i1 %57, label %58, label %59
 
 58:                                               ; preds = %.loopexit
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.7) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.7) #16
   br label %read_var_sized.exit
 
 59:                                               ; preds = %.loopexit
@@ -938,30 +938,30 @@ read_u32.exit:                                    ; preds = %skip_unprocessed_by
   br i1 %or.cond3, label %62, label %63
 
 62:                                               ; preds = %59
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.8, i64 noundef %51) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.8, i64 noundef %51) #16
   br label %read_var_sized.exit
 
 63:                                               ; preds = %59
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 -1, ptr %3, align 8, !tbaa !29
-  %64 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %56, ptr noundef nonnull %3) #15
+  %64 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %56, ptr noundef nonnull %3) #16
   %.not97 = icmp eq ptr %64, null
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not97, label %read_var_sized.exit, label %65
 
 65:                                               ; preds = %63
   %66 = trunc nuw nsw i64 %56 to i32
-  %67 = call i64 @cm_zlib_crc32(i64 noundef 0, ptr noundef nonnull %64, i32 noundef %66) #15
+  %67 = call i64 @cm_zlib_crc32(i64 noundef 0, ptr noundef nonnull %64, i32 noundef %66) #16
   %68 = trunc i64 %67 to i32
   %.not60 = icmp eq i32 %42, %68
   br i1 %.not60, label %70, label %69
 
 69:                                               ; preds = %65
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.9) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.9) #16
   br label %read_var_sized.exit
 
 70:                                               ; preds = %65
-  %71 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.02529.i.ph) #15
+  %71 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.02529.i.ph) #16
   %72 = icmp eq i64 %.02529.i.ph, %71
   br i1 %72, label %73, label %read_var_sized.exit
 
@@ -1022,13 +1022,13 @@ read_u32.exit:                                    ; preds = %skip_unprocessed_by
   br label %read_var_sized.exit
 
 103:                                              ; preds = %77
-  call void @archive_entry_set_is_metadata_encrypted(ptr noundef %1, i8 noundef signext 1) #15
-  call void @archive_entry_set_is_data_encrypted(ptr noundef %1, i8 noundef signext 1) #15
+  call void @archive_entry_set_is_metadata_encrypted(ptr noundef %1, i8 noundef signext 1) #16
+  call void @archive_entry_set_is_data_encrypted(ptr noundef %1, i8 noundef signext 1) #16
   %104 = getelementptr inbounds nuw i8, ptr %.val.val, i64 21292
   store i32 1, ptr %104, align 4, !tbaa !12
   %105 = getelementptr inbounds nuw i8, ptr %.val.val, i64 21296
   store i32 1, ptr %105, align 8, !tbaa !55
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.10) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.10) #16
   br label %read_var_sized.exit
 
 106:                                              ; preds = %77
@@ -1046,7 +1046,7 @@ read_u32.exit:                                    ; preds = %skip_unprocessed_by
   br i1 %112, label %113, label %114
 
 113:                                              ; preds = %109
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.11) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.11) #16
   br label %read_var_sized.exit
 
 114:                                              ; preds = %109
@@ -1062,7 +1062,7 @@ read_u32.exit:                                    ; preds = %skip_unprocessed_by
   br i1 %120, label %121, label %read_var_sized.exit
 
 121:                                              ; preds = %118
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.12) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.12) #16
   br label %read_var_sized.exit
 
 read_var_sized.exit:                              ; preds = %rar5_read_data_skip.exit, %14, %skip_unprocessed_bytes.exit.thread, %38, %44, %118, %77, %106, %96, %75, %73, %70, %63, %read_u32.exit, %121, %114, %113, %103, %101, %99, %69, %62, %58
@@ -1079,7 +1079,7 @@ define internal fastcc range(i32 0, 2) i32 @read_u32(ptr noundef %0, ptr noundef
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 -1, ptr %3, align 8, !tbaa !29
-  %4 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 4, ptr noundef nonnull %3) #15
+  %4 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 4, ptr noundef nonnull %3) #16
   %.not3 = icmp eq ptr %4, null
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not3, label %10, label %5
@@ -1087,7 +1087,7 @@ define internal fastcc range(i32 0, 2) i32 @read_u32(ptr noundef %0, ptr noundef
 5:                                                ; preds = %2
   %6 = load i32, ptr %4, align 1
   store i32 %6, ptr %1, align 4, !tbaa !82
-  %7 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 4) #15
+  %7 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 4) #16
   %8 = icmp eq i64 %7, 4
   %9 = zext i1 %8 to i32
   br label %10
@@ -1107,7 +1107,7 @@ define internal fastcc range(i32 0, 2) i32 @read_var_sized(ptr noundef %0, ptr n
 6:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 -1, ptr %5, align 8, !tbaa !29
-  %7 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %5) #15
+  %7 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %5) #16
   %.not35.i = icmp eq ptr %7, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not35.i, label %read_var.exit.thread.thread27, label %.preheader.i
@@ -1134,7 +1134,7 @@ define internal fastcc range(i32 0, 2) i32 @read_var_sized(ptr noundef %0, ptr n
 18:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 -1, ptr %4, align 8, !tbaa !29
-  %19 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %4) #15
+  %19 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %4) #16
   %.not35.i11 = icmp eq ptr %19, null
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not35.i11, label %read_var.exit.thread.thread, label %.preheader.i12
@@ -1154,7 +1154,7 @@ define internal fastcc range(i32 0, 2) i32 @read_var_sized(ptr noundef %0, ptr n
   br i1 %26, label %28, label %31
 
 28:                                               ; preds = %.preheader.i12
-  %29 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %27) #15
+  %29 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %27) #16
   %30 = icmp eq i64 %27, %29
   br i1 %30, label %read_var.exit, label %read_var.exit.thread
 
@@ -1164,7 +1164,7 @@ define internal fastcc range(i32 0, 2) i32 @read_var_sized(ptr noundef %0, ptr n
   br i1 %exitcond.not.i16, label %33, label %.preheader.i12, !llvm.loop !77
 
 33:                                               ; preds = %31
-  %34 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #15
+  %34 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #16
   %35 = icmp eq i64 %34, 9
   br i1 %35, label %read_var.exit, label %read_var.exit.thread
 
@@ -1206,7 +1206,7 @@ define internal fastcc range(i32 -30, 2) i32 @process_head_main(ptr noundef %0, 
 10:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 -1, ptr %8, align 8, !tbaa !29
-  %11 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %8) #15
+  %11 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %8) #16
   %.not35.i = icmp eq ptr %11, null
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.not35.i, label %read_var.exit.thread, label %.preheader.i
@@ -1226,7 +1226,7 @@ define internal fastcc range(i32 -30, 2) i32 @process_head_main(ptr noundef %0, 
   br i1 %18, label %20, label %23
 
 20:                                               ; preds = %.preheader.i
-  %21 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %19) #15
+  %21 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %19) #16
   %22 = icmp eq i64 %19, %21
   br i1 %22, label %read_var.exit, label %read_var.exit.thread
 
@@ -1236,7 +1236,7 @@ define internal fastcc range(i32 -30, 2) i32 @process_head_main(ptr noundef %0, 
   br i1 %exitcond.not.i, label %25, label %.preheader.i, !llvm.loop !77
 
 25:                                               ; preds = %23
-  %26 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #15
+  %26 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #16
   %27 = icmp eq i64 %26, 9
   br i1 %27, label %read_var.exit, label %read_var.exit.thread
 
@@ -1244,7 +1244,7 @@ read_var.exit:                                    ; preds = %25, %20, %3
   %.115 = phi i64 [ 0, %3 ], [ %17, %20 ], [ %17, %25 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 -1, ptr %7, align 8, !tbaa !29
-  %28 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %7) #15
+  %28 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %7) #16
   %.not35.i11.i = icmp eq ptr %28, null
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not35.i11.i, label %read_var.exit.thread, label %.preheader.i12.i
@@ -1263,7 +1263,7 @@ read_var.exit:                                    ; preds = %25, %20, %3
   br i1 %34, label %36, label %39
 
 36:                                               ; preds = %.preheader.i12.i
-  %37 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %35) #15
+  %37 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %35) #16
   %38 = icmp eq i64 %35, %37
   br i1 %38, label %read_var_sized.exit, label %read_var.exit.thread
 
@@ -1273,7 +1273,7 @@ read_var.exit:                                    ; preds = %25, %20, %3
   br i1 %exitcond.not.i16.i, label %41, label %.preheader.i12.i, !llvm.loop !77
 
 41:                                               ; preds = %39
-  %42 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #15
+  %42 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #16
   %43 = icmp eq i64 %42, 9
   br i1 %43, label %read_var_sized.exit, label %read_var.exit.thread
 
@@ -1296,7 +1296,7 @@ read_var_sized.exit:                              ; preds = %41, %36
 55:                                               ; preds = %read_var_sized.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 -1, ptr %6, align 8, !tbaa !29
-  %56 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %6) #15
+  %56 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %6) #16
   %.not35.i11.i37 = icmp eq ptr %56, null
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not35.i11.i37, label %read_var.exit.thread, label %.preheader.i12.i38
@@ -1316,7 +1316,7 @@ read_var_sized.exit:                              ; preds = %41, %36
   br i1 %63, label %65, label %68
 
 65:                                               ; preds = %.preheader.i12.i38
-  %66 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %64) #15
+  %66 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %64) #16
   %67 = icmp eq i64 %64, %66
   br i1 %67, label %read_var_sized.exit46, label %read_var.exit.thread
 
@@ -1326,7 +1326,7 @@ read_var_sized.exit:                              ; preds = %41, %36
   br i1 %exitcond.not.i16.i42, label %70, label %.preheader.i12.i38, !llvm.loop !77
 
 70:                                               ; preds = %68
-  %71 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #15
+  %71 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #16
   %72 = icmp eq i64 %71, 9
   br i1 %72, label %read_var_sized.exit46, label %read_var.exit.thread
 
@@ -1335,7 +1335,7 @@ read_var_sized.exit46:                            ; preds = %70, %65
   br i1 %73, label %74, label %75
 
 74:                                               ; preds = %read_var_sized.exit46
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.13) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.13) #16
   br label %read_var.exit.thread
 
 75:                                               ; preds = %read_var_sized.exit46
@@ -1360,7 +1360,7 @@ read_var_sized.exit46:                            ; preds = %70, %65
 83:                                               ; preds = %81
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 -1, ptr %5, align 8, !tbaa !29
-  %84 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %5) #15
+  %84 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %5) #16
   %.not35.i11.i47 = icmp eq ptr %84, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not35.i11.i47, label %read_var.exit.thread, label %.preheader.i12.i48
@@ -1380,7 +1380,7 @@ read_var_sized.exit46:                            ; preds = %70, %65
   br i1 %91, label %93, label %96
 
 93:                                               ; preds = %.preheader.i12.i48
-  %94 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %92) #15
+  %94 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %92) #16
   %95 = icmp eq i64 %92, %94
   br i1 %95, label %read_var_sized.exit56, label %read_var.exit.thread
 
@@ -1390,14 +1390,14 @@ read_var_sized.exit46:                            ; preds = %70, %65
   br i1 %exitcond.not.i16.i52, label %98, label %.preheader.i12.i48, !llvm.loop !77
 
 98:                                               ; preds = %96
-  %99 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #15
+  %99 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #16
   %100 = icmp eq i64 %99, 9
   br i1 %100, label %read_var_sized.exit56, label %read_var.exit.thread
 
 read_var_sized.exit56:                            ; preds = %98, %93
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 -1, ptr %4, align 8, !tbaa !29
-  %101 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %4) #15
+  %101 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %4) #16
   %.not35.i11.i57 = icmp eq ptr %101, null
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not35.i11.i57, label %read_var.exit.thread, label %.preheader.i12.i58
@@ -1417,7 +1417,7 @@ read_var_sized.exit56:                            ; preds = %98, %93
   br i1 %108, label %110, label %113
 
 110:                                              ; preds = %.preheader.i12.i58
-  %111 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %109) #15
+  %111 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %109) #16
   %112 = icmp eq i64 %109, %111
   br i1 %112, label %read_var_sized.exit66, label %read_var.exit.thread
 
@@ -1427,7 +1427,7 @@ read_var_sized.exit56:                            ; preds = %98, %93
   br i1 %exitcond.not.i16.i62, label %115, label %.preheader.i12.i58, !llvm.loop !77
 
 115:                                              ; preds = %113
-  %116 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #15
+  %116 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #16
   %117 = icmp eq i64 %116, 9
   br i1 %117, label %read_var_sized.exit66, label %read_var.exit.thread
 
@@ -1436,7 +1436,7 @@ read_var_sized.exit66:                            ; preds = %115, %110
   br i1 %118, label %119, label %120
 
 119:                                              ; preds = %read_var_sized.exit66
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.14) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.14) #16
   br label %read_var.exit.thread
 
 120:                                              ; preds = %read_var_sized.exit66
@@ -1449,7 +1449,7 @@ read_var_sized.exit66:                            ; preds = %115, %110
 
 123:                                              ; preds = %120
   %124 = trunc i64 %107 to i32
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.15, i32 noundef %124) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.15, i32 noundef %124) #16
   br label %read_var.exit.thread
 
 read_var.exit.thread:                             ; preds = %77, %115, %110, %read_var_sized.exit56, %98, %93, %83, %70, %65, %55, %74, %41, %36, %read_var.exit, %25, %20, %10, %121, %81, %123, %119
@@ -1511,7 +1511,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @process_head_service(ptr n
 32:                                               ; preds = %14, %6
   %33 = getelementptr inbounds nuw i8, ptr %.val.val.i, i64 19368
   %34 = load i64, ptr %33, align 8, !tbaa !67
-  %35 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %34) #15
+  %35 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %34) #16
   %36 = icmp eq i64 %34, %35
   br i1 %36, label %37, label %rar5_read_data_skip.exit.thread17
 
@@ -1554,7 +1554,7 @@ define internal fastcc range(i32 -30, 2) i32 @process_head_file(ptr noundef %0, 
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4, !tbaa !82
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %17 = tail call ptr @archive_entry_clear(ptr noundef %2) #15
+  %17 = tail call ptr @archive_entry_clear(ptr noundef %2) #16
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %19 = load i8, ptr %18, align 8
   %20 = and i8 %19, 4
@@ -1565,7 +1565,7 @@ define internal fastcc range(i32 -30, 2) i32 @process_head_file(ptr noundef %0, 
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 19368
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1896) %22, i8 0, i64 1896, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 19480
-  %24 = tail call i32 @blake2sp_init(ptr noundef nonnull %23, i64 noundef 32) #15
+  %24 = tail call i32 @blake2sp_init(ptr noundef nonnull %23, i64 noundef 32) #16
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %26 = load i8, ptr %25, align 4
   %27 = and i8 %26, 1
@@ -1616,7 +1616,7 @@ cdeque_pop_front.exit.i.i:                        ; preds = %cdeque_pop_front.ex
   store i16 %51, ptr %39, align 8, !tbaa !73
   %52 = add i16 %.val11.i.i, -1
   store i16 %52, ptr %40, align 2, !tbaa !72
-  tail call void @free(ptr noundef %48) #15
+  tail call void @free(ptr noundef %48) #16
   %.val.i.i = load i16, ptr %40, align 2, !tbaa !72
   %.not.i.i = icmp eq i16 %.val.i.i, 0
   br i1 %.not.i.i, label %reset_file_context.exit, label %cdeque_pop_front.exit.i.i, !llvm.loop !74
@@ -1638,7 +1638,7 @@ reset_file_context.exit:                          ; preds = %cdeque_pop_front.ex
 57:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 -1, ptr %11, align 8, !tbaa !29
-  %58 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %11) #15
+  %58 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %11) #16
   %.not35.i = icmp eq ptr %58, null
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.not35.i, label %read_var.exit.thread, label %.preheader.i
@@ -1658,7 +1658,7 @@ reset_file_context.exit:                          ; preds = %cdeque_pop_front.ex
   br i1 %65, label %67, label %70
 
 67:                                               ; preds = %.preheader.i
-  %68 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %66) #15
+  %68 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %66) #16
   %69 = icmp eq i64 %66, %68
   br i1 %69, label %read_var.exit, label %read_var.exit.thread
 
@@ -1668,7 +1668,7 @@ reset_file_context.exit:                          ; preds = %cdeque_pop_front.ex
   br i1 %exitcond.not.i, label %72, label %.preheader.i, !llvm.loop !77
 
 72:                                               ; preds = %70
-  %73 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #15
+  %73 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #16
   %74 = icmp eq i64 %73, 9
   br i1 %74, label %read_var.exit, label %read_var.exit.thread
 
@@ -1681,7 +1681,7 @@ read_var.exit:                                    ; preds = %67, %72, %55
 76:                                               ; preds = %read_var.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 -1, ptr %10, align 8, !tbaa !29
-  %77 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %10) #15
+  %77 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %10) #16
   %.not35.i11.i = icmp eq ptr %77, null
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %.not35.i11.i, label %read_var.exit.thread, label %.preheader.i12.i
@@ -1701,7 +1701,7 @@ read_var.exit:                                    ; preds = %67, %72, %55
   br i1 %84, label %86, label %89
 
 86:                                               ; preds = %.preheader.i12.i
-  %87 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %85) #15
+  %87 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %85) #16
   %88 = icmp eq i64 %85, %87
   br i1 %88, label %read_var_sized.exit, label %read_var.exit.thread
 
@@ -1711,7 +1711,7 @@ read_var.exit:                                    ; preds = %67, %72, %55
   br i1 %exitcond.not.i16.i, label %91, label %.preheader.i12.i, !llvm.loop !77
 
 91:                                               ; preds = %89
-  %92 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #15
+  %92 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #16
   %93 = icmp eq i64 %92, 9
   br i1 %93, label %read_var_sized.exit, label %read_var.exit.thread
 
@@ -1720,7 +1720,7 @@ read_var_sized.exit:                              ; preds = %91, %86
   store i64 %83, ptr %94, align 8, !tbaa !67
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 -1, ptr %9, align 8, !tbaa !29
-  %95 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %9) #15
+  %95 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %9) #16
   %.not35.i11.i158 = icmp eq ptr %95, null
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.not35.i11.i158, label %read_var.exit.thread, label %.preheader.i12.i159
@@ -1739,7 +1739,7 @@ read_var_sized.exit:                              ; preds = %91, %86
   br i1 %101, label %103, label %106
 
 103:                                              ; preds = %.preheader.i12.i159
-  %104 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %102) #15
+  %104 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %102) #16
   %105 = icmp eq i64 %102, %104
   br i1 %105, label %read_var_sized.exit167, label %read_var.exit.thread
 
@@ -1749,20 +1749,20 @@ read_var_sized.exit:                              ; preds = %91, %86
   br i1 %exitcond.not.i16.i163, label %108, label %.preheader.i12.i159, !llvm.loop !77
 
 108:                                              ; preds = %106
-  %109 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #15
+  %109 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #16
   %110 = icmp eq i64 %109, 9
   br i1 %110, label %read_var_sized.exit167, label %read_var.exit.thread
 
 111:                                              ; preds = %read_var.exit
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 19368
   store i64 0, ptr %112, align 8, !tbaa !67
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.16) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.16) #16
   br label %read_var.exit.thread
 
 read_var_sized.exit167:                           ; preds = %108, %103
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 -1, ptr %8, align 8, !tbaa !29
-  %113 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %8) #15
+  %113 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %8) #16
   %.not35.i168 = icmp eq ptr %113, null
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.not35.i168, label %read_var.exit.thread, label %.preheader.i169
@@ -1782,7 +1782,7 @@ read_var_sized.exit167:                           ; preds = %108, %103
   br i1 %120, label %122, label %125
 
 122:                                              ; preds = %.preheader.i169
-  %123 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %121) #15
+  %123 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %121) #16
   %124 = icmp eq i64 %121, %123
   br i1 %124, label %read_var.exit175, label %read_var.exit.thread
 
@@ -1792,7 +1792,7 @@ read_var_sized.exit167:                           ; preds = %108, %103
   br i1 %exitcond.not.i173, label %127, label %.preheader.i169, !llvm.loop !77
 
 127:                                              ; preds = %125
-  %128 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #15
+  %128 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #16
   %129 = icmp eq i64 %128, 9
   br i1 %129, label %read_var.exit175, label %read_var.exit.thread
 
@@ -1802,7 +1802,7 @@ read_var.exit175:                                 ; preds = %127, %122
   br i1 %.not124, label %132, label %131
 
 131:                                              ; preds = %read_var.exit175
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.17) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.17) #16
   br label %read_var.exit.thread
 
 132:                                              ; preds = %read_var.exit175
@@ -1816,7 +1816,7 @@ read_var.exit175:                                 ; preds = %127, %122
   store i8 %139, ptr %134, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 -1, ptr %7, align 8, !tbaa !29
-  %140 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %7) #15
+  %140 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %7) #16
   %.not35.i11.i176 = icmp eq ptr %140, null
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not35.i11.i176, label %read_var.exit.thread, label %.preheader.i12.i177
@@ -1836,7 +1836,7 @@ read_var.exit175:                                 ; preds = %127, %122
   br i1 %147, label %149, label %152
 
 149:                                              ; preds = %.preheader.i12.i177
-  %150 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %148) #15
+  %150 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %148) #16
   %151 = icmp eq i64 %148, %150
   br i1 %151, label %read_var_sized.exit185, label %read_var.exit.thread
 
@@ -1846,7 +1846,7 @@ read_var.exit175:                                 ; preds = %127, %122
   br i1 %exitcond.not.i16.i181, label %154, label %.preheader.i12.i177, !llvm.loop !77
 
 154:                                              ; preds = %152
-  %155 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #15
+  %155 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #16
   %156 = icmp eq i64 %155, 9
   br i1 %156, label %read_var_sized.exit185, label %read_var.exit.thread
 
@@ -1873,7 +1873,7 @@ read_var_sized.exit185:                           ; preds = %154, %149
 164:                                              ; preds = %162, %160
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 -1, ptr %6, align 8, !tbaa !29
-  %165 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %6) #15
+  %165 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %6) #16
   %.not35.i11.i186 = icmp eq ptr %165, null
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not35.i11.i186, label %read_var.exit.thread, label %.preheader.i12.i187
@@ -1893,7 +1893,7 @@ read_var_sized.exit185:                           ; preds = %154, %149
   br i1 %172, label %174, label %177
 
 174:                                              ; preds = %.preheader.i12.i187
-  %175 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %173) #15
+  %175 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %173) #16
   %176 = icmp eq i64 %173, %175
   br i1 %176, label %read_var_sized.exit195, label %read_var.exit.thread
 
@@ -1903,7 +1903,7 @@ read_var_sized.exit185:                           ; preds = %154, %149
   br i1 %exitcond.not.i16.i191, label %179, label %.preheader.i12.i187, !llvm.loop !77
 
 179:                                              ; preds = %177
-  %180 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #15
+  %180 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #16
   %181 = icmp eq i64 %180, 9
   br i1 %181, label %read_var_sized.exit195, label %read_var.exit.thread
 
@@ -1946,7 +1946,7 @@ read_var_sized.exit195:                           ; preds = %179, %174
   br i1 %207, label %208, label %209
 
 208:                                              ; preds = %204
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.18) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.18) #16
   br label %read_var.exit.thread
 
 209:                                              ; preds = %204, %200
@@ -1958,7 +1958,7 @@ read_var_sized.exit195:                           ; preds = %179, %174
   br i1 %211, label %212, label %.thread293
 
 212:                                              ; preds = %.thread292, %209
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.19) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.19) #16
   br label %read_var.exit.thread
 
 213:                                              ; preds = %209
@@ -1970,7 +1970,7 @@ read_var_sized.exit195:                           ; preds = %179, %174
   br i1 %or.cond154, label %220, label %217
 
 217:                                              ; preds = %213
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.20) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.20) #16
   br label %read_var.exit.thread
 
 .thread293:                                       ; preds = %.thread292
@@ -1994,12 +1994,12 @@ read_var_sized.exit195:                           ; preds = %179, %174
 227:                                              ; preds = %224
   %228 = getelementptr inbounds nuw i8, ptr %1, i64 19304
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %228, i8 0, i64 64, i1 false)
-  %229 = call ptr @realloc(ptr noundef nonnull %226, i64 noundef %191) #17
+  %229 = call ptr @realloc(ptr noundef nonnull %226, i64 noundef %191) #18
   %.not135.not = icmp eq ptr %229, null
   br i1 %.not135.not, label %.thread, label %230
 
 .thread:                                          ; preds = %227
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.21) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.21) #16
   br label %read_var.exit.thread
 
 230:                                              ; preds = %227
@@ -2049,13 +2049,13 @@ read_var_sized.exit195:                           ; preds = %179, %174
   %. = select i1 %.not139, i32 16877, i32 16749
   %.155 = select i1 %.not139, i32 33188, i32 33060
   %.0108 = select i1 %.not138, i32 %.155, i32 %.
-  call void @archive_entry_set_mode(ptr noundef %2, i32 noundef %.0108) #15
+  call void @archive_entry_set_mode(ptr noundef %2, i32 noundef %.0108) #16
   %248 = and i64 %146, 7
   %.not141 = icmp eq i64 %248, 0
   br i1 %.not141, label %273, label %249
 
 249:                                              ; preds = %245
-  %250 = call noalias dereferenceable_or_null(22) ptr @malloc(i64 noundef 22) #16
+  %250 = call noalias dereferenceable_or_null(22) ptr @malloc(i64 noundef 22) #17
   %.not142 = icmp eq ptr %250, null
   br i1 %.not142, label %273, label %251
 
@@ -2098,21 +2098,21 @@ read_var_sized.exit195:                           ; preds = %179, %174
 
 265:                                              ; preds = %263
   %266 = getelementptr inbounds nuw i8, ptr %250, i64 1
-  %267 = call ptr @archive_entry_copy_fflags_text(ptr noundef %2, ptr noundef nonnull %266) #15
+  %267 = call ptr @archive_entry_copy_fflags_text(ptr noundef %2, ptr noundef nonnull %266) #16
   br label %268
 
 268:                                              ; preds = %265, %263
-  call void @free(ptr noundef nonnull %250) #15
+  call void @free(ptr noundef nonnull %250) #16
   br label %273
 
 269:                                              ; preds = %243
   %270 = trunc i64 %146 to i32
-  call void @archive_entry_set_mode(ptr noundef %2, i32 noundef %270) #15
+  call void @archive_entry_set_mode(ptr noundef %2, i32 noundef %270) #16
   br label %273
 
 271:                                              ; preds = %243
   %272 = trunc i64 %244 to i32
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.25, i32 noundef %272) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.25, i32 noundef %272) #16
   br label %read_var.exit.thread
 
 273:                                              ; preds = %245, %268, %249, %269
@@ -2126,7 +2126,7 @@ read_var_sized.exit195:                           ; preds = %179, %174
   br i1 %277, label %278, label %279
 
 278:                                              ; preds = %275
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.26) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.26) #16
   br label %read_var.exit.thread
 
 279:                                              ; preds = %275
@@ -2134,13 +2134,13 @@ read_var_sized.exit195:                           ; preds = %179, %174
   br i1 %280, label %281, label %282
 
 281:                                              ; preds = %279
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.27) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.27) #16
   br label %read_var.exit.thread
 
 282:                                              ; preds = %279
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 -1, ptr %5, align 8, !tbaa !29
-  %283 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %276, ptr noundef nonnull %5) #15
+  %283 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %276, ptr noundef nonnull %5) #16
   %.not239 = icmp eq ptr %283, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not239, label %read_var.exit.thread, label %284
@@ -2149,12 +2149,12 @@ read_var_sized.exit195:                           ; preds = %179, %174
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %16, ptr nonnull align 1 %283, i64 %276, i1 false)
   %285 = getelementptr inbounds nuw i8, ptr %16, i64 %276
   store i8 0, ptr %285, align 1, !tbaa !26
-  %286 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %276) #15
+  %286 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %276) #16
   %287 = icmp eq i64 %276, %286
   br i1 %287, label %288, label %read_var.exit.thread
 
 288:                                              ; preds = %284
-  %289 = call i32 @archive_entry_update_pathname_utf8(ptr noundef %2, ptr noundef nonnull %16) #15
+  %289 = call i32 @archive_entry_update_pathname_utf8(ptr noundef %2, ptr noundef nonnull %16) #16
   %290 = icmp sgt i64 %.0106, 0
   br i1 %290, label %291, label %293
 
@@ -2172,7 +2172,7 @@ read_var_sized.exit195:                           ; preds = %179, %174
   br i1 %297, label %298, label %299
 
 298:                                              ; preds = %293
-  call void @archive_entry_set_size(ptr noundef %2, i64 noundef %119) #15
+  call void @archive_entry_set_size(ptr noundef %2, i64 noundef %119) #16
   br label %299
 
 299:                                              ; preds = %293, %298
@@ -2181,7 +2181,7 @@ read_var_sized.exit195:                           ; preds = %179, %174
 300:                                              ; preds = %299
   %301 = load i32, ptr %14, align 4, !tbaa !82
   %302 = zext i32 %301 to i64
-  call void @archive_entry_set_mtime(ptr noundef %2, i64 noundef %302, i64 noundef 0) #15
+  call void @archive_entry_set_mtime(ptr noundef %2, i64 noundef %302, i64 noundef 0) #16
   br label %303
 
 303:                                              ; preds = %300, %299
@@ -2248,7 +2248,7 @@ define internal fastcc void @scan_for_signature(ptr noundef %0) unnamed_addr #0 
 rar5_signature.exit.preheader:                    ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 -1, ptr %2, align 8, !tbaa !29
-  %10 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 512, ptr noundef nonnull %2) #15
+  %10 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 512, ptr noundef nonnull %2) #16
   %.not811 = icmp eq ptr %10, null
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not811, label %.loopexit, label %.preheader
@@ -2266,7 +2266,7 @@ rar5_signature.exit.preheader:                    ; preds = %4
 
 15:                                               ; preds = %12
   %16 = add nuw nsw i64 %.010, 8
-  %17 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %16) #15
+  %17 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %16) #16
   br label %.loopexit
 
 18:                                               ; preds = %12
@@ -2275,10 +2275,10 @@ rar5_signature.exit.preheader:                    ; preds = %4
   br i1 %exitcond.not, label %rar5_signature.exit, label %12, !llvm.loop !91
 
 rar5_signature.exit:                              ; preds = %18
-  %20 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 512) #15
+  %20 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 512) #16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 -1, ptr %2, align 8, !tbaa !29
-  %21 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 512, ptr noundef nonnull %2) #15
+  %21 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 512, ptr noundef nonnull %2) #16
   %.not8 = icmp eq ptr %21, null
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not8, label %.loopexit, label %.preheader
@@ -2295,7 +2295,7 @@ define internal fastcc range(i32 0, 2) i32 @process_main_locator_extra_block(ptr
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 -1, ptr %5, align 8, !tbaa !29
-  %6 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %5) #15
+  %6 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %5) #16
   %.not35.i = icmp eq ptr %6, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not35.i, label %read_var.exit24, label %.preheader.i
@@ -2314,7 +2314,7 @@ define internal fastcc range(i32 0, 2) i32 @process_main_locator_extra_block(ptr
   br i1 %12, label %14, label %17
 
 14:                                               ; preds = %.preheader.i
-  %15 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %13) #15
+  %15 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %13) #16
   %16 = icmp eq i64 %13, %15
   br i1 %16, label %read_var.exit, label %read_var.exit24
 
@@ -2324,7 +2324,7 @@ define internal fastcc range(i32 0, 2) i32 @process_main_locator_extra_block(ptr
   br i1 %exitcond.not.i, label %19, label %.preheader.i, !llvm.loop !77
 
 19:                                               ; preds = %17
-  %20 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #15
+  %20 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #16
   %21 = icmp eq i64 %20, 9
   br i1 %21, label %read_var.exit, label %read_var.exit24
 
@@ -2337,7 +2337,7 @@ read_var.exit:                                    ; preds = %19, %14
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 -1, ptr %4, align 8, !tbaa !29
-  %25 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %4) #15
+  %25 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %4) #16
   %.not35.i9 = icmp eq ptr %25, null
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not35.i9, label %read_var.exit24, label %.preheader.i10
@@ -2358,7 +2358,7 @@ read_var.exit:                                    ; preds = %19, %14
 33:                                               ; preds = %.preheader.i10
   store i64 %31, ptr %24, align 8, !tbaa !29
   %34 = add nuw nsw i64 %.02340.i11, 1
-  %35 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %34) #15
+  %35 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %34) #16
   %36 = icmp eq i64 %34, %35
   br i1 %36, label %read_var.exit16, label %read_var.exit24
 
@@ -2370,7 +2370,7 @@ read_var.exit:                                    ; preds = %19, %14
 
 40:                                               ; preds = %37
   store i64 %31, ptr %24, align 8, !tbaa !29
-  %41 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #15
+  %41 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #16
   %42 = icmp eq i64 %41, 9
   br i1 %42, label %read_var.exit16, label %read_var.exit24
 
@@ -2383,7 +2383,7 @@ read_var.exit16:                                  ; preds = %40, %33, %read_var.
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 -1, ptr %3, align 8, !tbaa !29
-  %46 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %3) #15
+  %46 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %3) #16
   %.not35.i17 = icmp eq ptr %46, null
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not35.i17, label %read_var.exit24.thread, label %.preheader.i18
@@ -2404,7 +2404,7 @@ read_var.exit16:                                  ; preds = %40, %33, %read_var.
 54:                                               ; preds = %.preheader.i18
   store i64 %52, ptr %45, align 8, !tbaa !29
   %55 = add nuw nsw i64 %.02340.i19, 1
-  %56 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %55) #15
+  %56 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %55) #16
   %57 = icmp eq i64 %55, %56
   br i1 %57, label %read_var.exit24, label %read_var.exit24.thread
 
@@ -2416,7 +2416,7 @@ read_var.exit16:                                  ; preds = %40, %33, %read_var.
 
 61:                                               ; preds = %58
   store i64 %52, ptr %45, align 8, !tbaa !29
-  %62 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #15
+  %62 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #16
   %63 = icmp eq i64 %62, 9
   br i1 %63, label %read_var.exit24, label %read_var.exit24.thread
 
@@ -2431,14 +2431,14 @@ read_var.exit24:                                  ; preds = %61, %54, %40, %33, 
 declare ptr @archive_entry_clear(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 declare void @archive_entry_set_mode(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare ptr @archive_entry_copy_fflags_text(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare i32 @archive_entry_update_pathname_utf8(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2490,7 +2490,7 @@ define internal fastcc range(i32 -30, 2) i32 @process_head_file_extra(ptr nounde
   %.0133191 = phi i64 [ %3, %4 ], [ %.1134, %parse_file_extra_hash.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i64 -1, ptr %33, align 8, !tbaa !29
-  %45 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %33) #15
+  %45 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %33) #16
   %.not35.i = icmp eq ptr %45, null
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br i1 %.not35.i, label %read_var.exit, label %.preheader.i
@@ -2516,14 +2516,14 @@ define internal fastcc range(i32 -30, 2) i32 @process_head_file_extra(ptr nounde
 
 .loopexit151:                                     ; preds = %54, %.preheader.i
   %.1128.ph = phi i64 [ %53, %.preheader.i ], [ 9, %54 ]
-  %56 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.1128.ph) #15
+  %56 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.1128.ph) #16
   %57 = icmp eq i64 %.1128.ph, %56
   br i1 %57, label %58, label %read_var.exit
 
 58:                                               ; preds = %.loopexit151
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i64 -1, ptr %32, align 8, !tbaa !29
-  %59 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %32) #15
+  %59 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %32) #16
   %.not35.i28 = icmp eq ptr %59, null
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br i1 %.not35.i28, label %read_var.exit, label %.preheader.i29
@@ -2552,7 +2552,7 @@ define internal fastcc range(i32 -30, 2) i32 @process_head_file_extra(ptr nounde
   %70 = sub i64 %51, %.2.ph
   %71 = add i64 %.1128.ph, %.2.ph
   %72 = sub i64 %.0133191, %71
-  %73 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.2.ph) #15
+  %73 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.2.ph) #16
   %74 = icmp eq i64 %.2.ph, %73
   br i1 %74, label %75, label %read_var.exit
 
@@ -2569,7 +2569,7 @@ define internal fastcc range(i32 -30, 2) i32 @process_head_file_extra(ptr nounde
 76:                                               ; preds = %75
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i64 -1, ptr %31, align 8, !tbaa !29
-  %77 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %31) #15
+  %77 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %31) #16
   %.not35.i.i.i = icmp eq ptr %77, null
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br i1 %.not35.i.i.i, label %parse_file_extra_hash.exit, label %.preheader.i.i.i
@@ -2596,7 +2596,7 @@ define internal fastcc range(i32 -30, 2) i32 @process_head_file_extra(ptr nounde
 .loopexit.i:                                      ; preds = %86, %.preheader.i.i.i
   %.02529.i.ph.i = phi i64 [ %85, %.preheader.i.i.i ], [ 9, %86 ]
   %88 = sub i64 %72, %.02529.i.ph.i
-  %89 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.02529.i.ph.i) #15
+  %89 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.02529.i.ph.i) #16
   %90 = icmp eq i64 %.02529.i.ph.i, %89
   br i1 %90, label %91, label %parse_file_extra_hash.exit
 
@@ -2607,7 +2607,7 @@ define internal fastcc range(i32 -30, 2) i32 @process_head_file_extra(ptr nounde
 93:                                               ; preds = %91
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i64 -1, ptr %30, align 8, !tbaa !29
-  %94 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 32, ptr noundef nonnull %30) #15
+  %94 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 32, ptr noundef nonnull %30) #16
   %.not.i = icmp eq ptr %94, null
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br i1 %.not.i, label %parse_file_extra_hash.exit, label %95
@@ -2615,7 +2615,7 @@ define internal fastcc range(i32 -30, 2) i32 @process_head_file_extra(ptr nounde
 95:                                               ; preds = %93
   store i8 1, ptr %42, align 8, !tbaa !92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %43, ptr noundef nonnull align 1 dereferenceable(32) %94, i64 32, i1 false)
-  %96 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 32) #15
+  %96 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 32) #16
   %97 = icmp ne i64 %96, 32
   %98 = add nsw i64 %88, -32
   %spec.select = select i1 %97, i64 %88, i64 %98
@@ -2624,13 +2624,13 @@ define internal fastcc range(i32 -30, 2) i32 @process_head_file_extra(ptr nounde
 
 99:                                               ; preds = %91
   %100 = trunc i64 %83 to i32
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.28, i32 noundef %100) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.28, i32 noundef %100) #16
   br label %parse_file_extra_hash.exit
 
 101:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i64 -1, ptr %29, align 8, !tbaa !29
-  %102 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %29) #15
+  %102 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %29) #16
   %.not35.i.i.i37 = icmp eq ptr %102, null
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br i1 %.not35.i.i.i37, label %parse_file_extra_hash.exit, label %.preheader.i.i.i38
@@ -2656,7 +2656,7 @@ define internal fastcc range(i32 -30, 2) i32 @process_head_file_extra(ptr nounde
 .loopexit.i43:                                    ; preds = %110, %.preheader.i.i.i38
   %.02529.i.ph.i44 = phi i64 [ %109, %.preheader.i.i.i38 ], [ 9, %110 ]
   %112 = sub i64 %72, %.02529.i.ph.i44
-  %113 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.02529.i.ph.i44) #15
+  %113 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.02529.i.ph.i44) #16
   %114 = icmp eq i64 %.02529.i.ph.i44, %113
   br i1 %114, label %115, label %parse_file_extra_hash.exit
 
@@ -2674,14 +2674,14 @@ define internal fastcc range(i32 -30, 2) i32 @process_head_file_extra(ptr nounde
 120:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 -1, ptr %6, align 8, !tbaa !29
-  %121 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 4, ptr noundef nonnull %6) #15
+  %121 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 4, ptr noundef nonnull %6) #16
   %.not3.i.i89 = icmp eq ptr %121, null
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not3.i.i89, label %parse_htime_item.exit97, label %read_u32.exit.i90
 
 read_u32.exit.i90:                                ; preds = %120
   %122 = load i32, ptr %121, align 1
-  %123 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 4) #15
+  %123 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 4) #16
   %.not29.i91 = icmp eq i64 %123, 4
   br i1 %.not29.i91, label %124, label %parse_htime_item.exit97
 
@@ -2694,14 +2694,14 @@ read_u32.exit.i90:                                ; preds = %120
 127:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 -1, ptr %5, align 8, !tbaa !29
-  %128 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %5) #15
+  %128 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %5) #16
   %.not4.i.i93 = icmp eq ptr %128, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not4.i.i93, label %parse_htime_item.exit97, label %read_u64.exit.i94
 
 read_u64.exit.i94:                                ; preds = %127
   %.val.i.i95 = load i64, ptr %128, align 1
-  %129 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 8) #15
+  %129 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 8) #16
   %.not30.i96 = icmp eq i64 %129, 8
   br i1 %.not30.i96, label %130, label %parse_htime_item.exit97
 
@@ -2715,7 +2715,7 @@ read_u64.exit.i94:                                ; preds = %127
 parse_htime_item.exit97:                          ; preds = %120, %read_u32.exit.i90, %124, %127, %read_u64.exit.i94, %130
   %.15 = phi i64 [ %112, %127 ], [ %133, %130 ], [ %112, %read_u64.exit.i94 ], [ %112, %120 ], [ %125, %124 ], [ %112, %read_u32.exit.i90 ]
   %134 = load i64, ptr %38, align 8, !tbaa !93
-  call void @archive_entry_set_mtime(ptr noundef %1, i64 noundef %134, i64 noundef 0) #15
+  call void @archive_entry_set_mtime(ptr noundef %1, i64 noundef %134, i64 noundef 0) #16
   br label %135
 
 135:                                              ; preds = %parse_htime_item.exit97, %115
@@ -2731,14 +2731,14 @@ parse_htime_item.exit97:                          ; preds = %120, %read_u32.exit
 138:                                              ; preds = %137
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 -1, ptr %8, align 8, !tbaa !29
-  %139 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 4, ptr noundef nonnull %8) #15
+  %139 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 4, ptr noundef nonnull %8) #16
   %.not3.i.i79 = icmp eq ptr %139, null
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.not3.i.i79, label %parse_htime_item.exit87, label %read_u32.exit.i80
 
 read_u32.exit.i80:                                ; preds = %138
   %140 = load i32, ptr %139, align 1
-  %141 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 4) #15
+  %141 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 4) #16
   %.not29.i81 = icmp eq i64 %141, 4
   br i1 %.not29.i81, label %142, label %parse_htime_item.exit87
 
@@ -2751,14 +2751,14 @@ read_u32.exit.i80:                                ; preds = %138
 145:                                              ; preds = %137
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 -1, ptr %7, align 8, !tbaa !29
-  %146 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %7) #15
+  %146 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %7) #16
   %.not4.i.i83 = icmp eq ptr %146, null
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not4.i.i83, label %parse_htime_item.exit87, label %read_u64.exit.i84
 
 read_u64.exit.i84:                                ; preds = %145
   %.val.i.i85 = load i64, ptr %146, align 1
-  %147 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 8) #15
+  %147 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 8) #16
   %.not30.i86 = icmp eq i64 %147, 8
   br i1 %.not30.i86, label %148, label %parse_htime_item.exit87
 
@@ -2772,7 +2772,7 @@ read_u64.exit.i84:                                ; preds = %145
 parse_htime_item.exit87:                          ; preds = %138, %read_u32.exit.i80, %142, %145, %read_u64.exit.i84, %148
   %.14 = phi i64 [ %.3, %145 ], [ %151, %148 ], [ %.3, %read_u64.exit.i84 ], [ %.3, %138 ], [ %143, %142 ], [ %.3, %read_u32.exit.i80 ]
   %152 = load i64, ptr %39, align 8, !tbaa !94
-  call void @archive_entry_set_ctime(ptr noundef %1, i64 noundef %152, i64 noundef 0) #15
+  call void @archive_entry_set_ctime(ptr noundef %1, i64 noundef %152, i64 noundef 0) #16
   br label %153
 
 153:                                              ; preds = %parse_htime_item.exit87, %135
@@ -2788,14 +2788,14 @@ parse_htime_item.exit87:                          ; preds = %138, %read_u32.exit
 156:                                              ; preds = %155
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 -1, ptr %10, align 8, !tbaa !29
-  %157 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 4, ptr noundef nonnull %10) #15
+  %157 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 4, ptr noundef nonnull %10) #16
   %.not3.i.i75 = icmp eq ptr %157, null
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %.not3.i.i75, label %parse_htime_item.exit, label %read_u32.exit.i76
 
 read_u32.exit.i76:                                ; preds = %156
   %158 = load i32, ptr %157, align 1
-  %159 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 4) #15
+  %159 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 4) #16
   %.not29.i77 = icmp eq i64 %159, 4
   br i1 %.not29.i77, label %160, label %parse_htime_item.exit
 
@@ -2808,14 +2808,14 @@ read_u32.exit.i76:                                ; preds = %156
 163:                                              ; preds = %155
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 -1, ptr %9, align 8, !tbaa !29
-  %164 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %9) #15
+  %164 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %9) #16
   %.not4.i.i = icmp eq ptr %164, null
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.not4.i.i, label %parse_htime_item.exit, label %read_u64.exit.i
 
 read_u64.exit.i:                                  ; preds = %163
   %.val.i.i = load i64, ptr %164, align 1
-  %165 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 8) #15
+  %165 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 8) #16
   %.not30.i = icmp eq i64 %165, 8
   br i1 %.not30.i, label %166, label %parse_htime_item.exit
 
@@ -2829,7 +2829,7 @@ read_u64.exit.i:                                  ; preds = %163
 parse_htime_item.exit:                            ; preds = %156, %read_u32.exit.i76, %160, %163, %read_u64.exit.i, %166
   %.13 = phi i64 [ %.4, %163 ], [ %169, %166 ], [ %.4, %read_u64.exit.i ], [ %.4, %156 ], [ %161, %160 ], [ %.4, %read_u32.exit.i76 ]
   %170 = load i64, ptr %40, align 8, !tbaa !95
-  call void @archive_entry_set_atime(ptr noundef %1, i64 noundef %170, i64 noundef 0) #15
+  call void @archive_entry_set_atime(ptr noundef %1, i64 noundef %170, i64 noundef 0) #16
   br label %171
 
 171:                                              ; preds = %parse_htime_item.exit, %153
@@ -2841,7 +2841,7 @@ parse_htime_item.exit:                            ; preds = %156, %read_u32.exit
 173:                                              ; preds = %171
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store i64 -1, ptr %28, align 8, !tbaa !29
-  %174 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 4, ptr noundef nonnull %28) #15
+  %174 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 4, ptr noundef nonnull %28) #16
   %.not3.i.i = icmp eq ptr %174, null
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br i1 %.not3.i.i, label %parse_file_extra_hash.exit, label %read_u32.exit.i
@@ -2849,7 +2849,7 @@ parse_htime_item.exit:                            ; preds = %156, %read_u32.exit
 read_u32.exit.i:                                  ; preds = %173
   %175 = load i32, ptr %174, align 1
   store i32 %175, ptr %41, align 4, !tbaa !82
-  %176 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 4) #15
+  %176 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 4) #16
   %.not.i46 = icmp ne i64 %176, 4
   %177 = add nsw i64 %.5, -4
   %spec.select149 = select i1 %.not.i46, i64 %.5, i64 %177
@@ -2860,7 +2860,7 @@ read_u32.exit.i:                                  ; preds = %173
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i64 -1, ptr %26, align 8, !tbaa !29
-  %179 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %26) #15
+  %179 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %26) #16
   %.not35.i.i = icmp eq ptr %179, null
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br i1 %.not35.i.i, label %parse_file_extra_redir.exit, label %.preheader.i.i
@@ -2895,7 +2895,7 @@ read_u32.exit.i:                                  ; preds = %173
 
 193:                                              ; preds = %192, %187
   %.045.ph.i = phi i64 [ 9, %192 ], [ %188, %187 ]
-  %194 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.045.ph.i) #15
+  %194 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.045.ph.i) #16
   %195 = icmp eq i64 %.045.ph.i, %194
   br i1 %195, label %196, label %parse_file_extra_redir.exit
 
@@ -2903,7 +2903,7 @@ read_u32.exit.i:                                  ; preds = %173
   %197 = sub i64 %72, %.045.ph.i
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i64 -1, ptr %25, align 8, !tbaa !29
-  %198 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %25) #15
+  %198 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %25) #16
   %.not35.i30.i = icmp eq ptr %198, null
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br i1 %.not35.i30.i, label %parse_file_extra_redir.exit, label %.preheader.i31.i
@@ -2938,7 +2938,7 @@ read_u32.exit.i:                                  ; preds = %173
 
 212:                                              ; preds = %211, %206
   %.1.ph.i = phi i64 [ 9, %211 ], [ %207, %206 ]
-  %213 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.1.ph.i) #15
+  %213 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.1.ph.i) #16
   %214 = icmp eq i64 %.1.ph.i, %213
   br i1 %214, label %215, label %parse_file_extra_redir.exit
 
@@ -2946,7 +2946,7 @@ read_u32.exit.i:                                  ; preds = %173
   %216 = sub i64 %197, %.1.ph.i
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i64 -1, ptr %24, align 8, !tbaa !29
-  %217 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %24) #15
+  %217 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %24) #16
   %.not35.i11.i.i = icmp eq ptr %217, null
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br i1 %.not35.i11.i.i, label %parse_file_extra_redir.exit, label %.preheader.i12.i.i
@@ -2966,7 +2966,7 @@ read_u32.exit.i:                                  ; preds = %173
   br i1 %224, label %226, label %229
 
 226:                                              ; preds = %.preheader.i12.i.i
-  %227 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %225) #15
+  %227 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %225) #16
   %228 = icmp eq i64 %225, %227
   br i1 %228, label %read_var_sized.exit.i, label %parse_file_extra_redir.exit
 
@@ -2976,7 +2976,7 @@ read_u32.exit.i:                                  ; preds = %173
   br i1 %exitcond.not.i16.i.i, label %231, label %.preheader.i12.i.i, !llvm.loop !77
 
 231:                                              ; preds = %229
-  %232 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #15
+  %232 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #16
   %233 = icmp eq i64 %232, 9
   br i1 %233, label %read_var_sized.exit.i, label %parse_file_extra_redir.exit
 
@@ -2987,7 +2987,7 @@ read_var_sized.exit.i:                            ; preds = %231, %226
   br i1 %235, label %236, label %237
 
 236:                                              ; preds = %read_var_sized.exit.i
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.29) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.29) #16
   br label %parse_file_extra_redir.exit
 
 237:                                              ; preds = %read_var_sized.exit.i
@@ -2995,13 +2995,13 @@ read_var_sized.exit.i:                            ; preds = %231, %226
   br i1 %238, label %239, label %240
 
 239:                                              ; preds = %237
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.30) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.30) #16
   br label %parse_file_extra_redir.exit
 
 240:                                              ; preds = %237
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i64 -1, ptr %23, align 8, !tbaa !29
-  %241 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %223, ptr noundef nonnull %23) #15
+  %241 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %223, ptr noundef nonnull %23) #16
   %.not.i48 = icmp eq ptr %241, null
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br i1 %.not.i48, label %parse_file_extra_redir.exit, label %242
@@ -3010,7 +3010,7 @@ read_var_sized.exit.i:                            ; preds = %231, %226
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %27, ptr nonnull align 1 %241, i64 %223, i1 false)
   %243 = getelementptr inbounds nuw i8, ptr %27, i64 %223
   store i8 0, ptr %243, align 1, !tbaa !26
-  %244 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %223) #15
+  %244 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %223) #16
   %245 = icmp eq i64 %223, %244
   br i1 %245, label %246, label %parse_file_extra_redir.exit
 
@@ -3023,24 +3023,24 @@ read_var_sized.exit.i:                            ; preds = %231, %226
   ]
 
 248:                                              ; preds = %246, %246
-  call void @archive_entry_set_filetype(ptr noundef %1, i32 noundef 40960) #15
-  %249 = call i32 @archive_entry_update_symlink_utf8(ptr noundef %1, ptr noundef nonnull %27) #15
+  call void @archive_entry_set_filetype(ptr noundef %1, i32 noundef 40960) #16
+  %249 = call i32 @archive_entry_update_symlink_utf8(ptr noundef %1, ptr noundef nonnull %27) #16
   %250 = load i64, ptr %37, align 8, !tbaa !96
   %251 = and i64 %250, 1
   %.not29.i = icmp eq i64 %251, 0
   br i1 %.not29.i, label %253, label %252
 
 252:                                              ; preds = %248
-  call void @archive_entry_set_symlink_type(ptr noundef %1, i32 noundef 2) #15
+  call void @archive_entry_set_symlink_type(ptr noundef %1, i32 noundef 2) #16
   br label %parse_file_extra_redir.exit
 
 253:                                              ; preds = %248
-  call void @archive_entry_set_symlink_type(ptr noundef %1, i32 noundef 1) #15
+  call void @archive_entry_set_symlink_type(ptr noundef %1, i32 noundef 1) #16
   br label %parse_file_extra_redir.exit
 
 254:                                              ; preds = %246
-  call void @archive_entry_set_filetype(ptr noundef %1, i32 noundef 32768) #15
-  %255 = call i32 @archive_entry_update_hardlink_utf8(ptr noundef %1, ptr noundef nonnull %27) #15
+  call void @archive_entry_set_filetype(ptr noundef %1, i32 noundef 32768) #16
+  %255 = call i32 @archive_entry_update_hardlink_utf8(ptr noundef %1, ptr noundef nonnull %27) #16
   br label %parse_file_extra_redir.exit
 
 parse_file_extra_redir.exit:                      ; preds = %178, %193, %196, %212, %215, %226, %231, %236, %239, %240, %242, %246, %252, %253, %254
@@ -3053,7 +3053,7 @@ parse_file_extra_redir.exit:                      ; preds = %178, %193, %196, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i64 -1, ptr %21, align 8, !tbaa !29
-  %257 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %21) #15
+  %257 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %21) #16
   %.not35.i.i49 = icmp eq ptr %257, null
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br i1 %.not35.i.i49, label %parse_file_extra_owner.exit, label %.preheader.i.i50
@@ -3078,7 +3078,7 @@ parse_file_extra_redir.exit:                      ; preds = %178, %193, %196, %2
 
 .loopexit124.i:                                   ; preds = %265, %.preheader.i.i50
   %.196.ph.i = phi i64 [ %264, %.preheader.i.i50 ], [ 9, %265 ]
-  %267 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.196.ph.i) #15
+  %267 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.196.ph.i) #16
   %268 = icmp eq i64 %.196.ph.i, %267
   br i1 %268, label %269, label %parse_file_extra_owner.exit
 
@@ -3091,7 +3091,7 @@ parse_file_extra_redir.exit:                      ; preds = %178, %193, %196, %2
 272:                                              ; preds = %269
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i64 -1, ptr %20, align 8, !tbaa !29
-  %273 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %20) #15
+  %273 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %20) #16
   %.not35.i11.i.i56 = icmp eq ptr %273, null
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br i1 %.not35.i11.i.i56, label %parse_file_extra_owner.exit, label %.preheader.i12.i.i57
@@ -3111,7 +3111,7 @@ parse_file_extra_redir.exit:                      ; preds = %178, %193, %196, %2
   br i1 %280, label %282, label %285
 
 282:                                              ; preds = %.preheader.i12.i.i57
-  %283 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %281) #15
+  %283 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %281) #16
   %284 = icmp eq i64 %281, %283
   br i1 %284, label %read_var_sized.exit.i62, label %parse_file_extra_owner.exit
 
@@ -3121,7 +3121,7 @@ parse_file_extra_redir.exit:                      ; preds = %178, %193, %196, %2
   br i1 %exitcond.not.i16.i.i61, label %287, label %.preheader.i12.i.i57, !llvm.loop !77
 
 287:                                              ; preds = %285
-  %288 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #15
+  %288 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #16
   %289 = icmp eq i64 %288, 9
   br i1 %289, label %read_var_sized.exit.i62, label %parse_file_extra_owner.exit
 
@@ -3130,7 +3130,7 @@ read_var_sized.exit.i62:                          ; preds = %287, %282
   %290 = add i64 %270, %.neg.i63
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i64 -1, ptr %19, align 8, !tbaa !29
-  %291 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %279, ptr noundef nonnull %19) #15
+  %291 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %279, ptr noundef nonnull %19) #16
   %.not.i64 = icmp eq ptr %291, null
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br i1 %.not.i64, label %parse_file_extra_owner.exit, label %292
@@ -3140,12 +3140,12 @@ read_var_sized.exit.i62:                          ; preds = %287, %282
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %22, ptr nonnull align 1 %291, i64 %..i, i1 false)
   %293 = getelementptr inbounds nuw i8, ptr %22, i64 %..i
   store i8 0, ptr %293, align 1, !tbaa !26
-  %294 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %279) #15
+  %294 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %279) #16
   %295 = icmp eq i64 %279, %294
   br i1 %295, label %296, label %parse_file_extra_owner.exit
 
 296:                                              ; preds = %292
-  call void @archive_entry_set_uname(ptr noundef %1, ptr noundef nonnull %22) #15
+  call void @archive_entry_set_uname(ptr noundef %1, ptr noundef nonnull %22) #16
   br label %297
 
 297:                                              ; preds = %296, %269
@@ -3157,7 +3157,7 @@ read_var_sized.exit.i62:                          ; preds = %287, %282
 299:                                              ; preds = %297
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 -1, ptr %18, align 8, !tbaa !29
-  %300 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %18) #15
+  %300 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %18) #16
   %.not35.i11.i47.i = icmp eq ptr %300, null
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br i1 %.not35.i11.i47.i, label %parse_file_extra_owner.exit, label %.preheader.i12.i48.i
@@ -3177,7 +3177,7 @@ read_var_sized.exit.i62:                          ; preds = %287, %282
   br i1 %307, label %309, label %312
 
 309:                                              ; preds = %.preheader.i12.i48.i
-  %310 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %308) #15
+  %310 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %308) #16
   %311 = icmp eq i64 %308, %310
   br i1 %311, label %read_var_sized.exit56.i, label %parse_file_extra_owner.exit
 
@@ -3187,7 +3187,7 @@ read_var_sized.exit.i62:                          ; preds = %287, %282
   br i1 %exitcond.not.i16.i52.i, label %314, label %.preheader.i12.i48.i, !llvm.loop !77
 
 314:                                              ; preds = %312
-  %315 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #15
+  %315 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #16
   %316 = icmp eq i64 %315, 9
   br i1 %316, label %read_var_sized.exit56.i, label %parse_file_extra_owner.exit
 
@@ -3196,7 +3196,7 @@ read_var_sized.exit56.i:                          ; preds = %314, %309
   %317 = add i64 %.8, %.neg35.i
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 -1, ptr %17, align 8, !tbaa !29
-  %318 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %306, ptr noundef nonnull %17) #15
+  %318 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %306, ptr noundef nonnull %17) #16
   %.not122.i = icmp eq ptr %318, null
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br i1 %.not122.i, label %parse_file_extra_owner.exit, label %319
@@ -3206,12 +3206,12 @@ read_var_sized.exit56.i:                          ; preds = %314, %309
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %22, ptr nonnull align 1 %318, i64 %.44.i, i1 false)
   %320 = getelementptr inbounds nuw i8, ptr %22, i64 %.44.i
   store i8 0, ptr %320, align 1, !tbaa !26
-  %321 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %306) #15
+  %321 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %306) #16
   %322 = icmp eq i64 %306, %321
   br i1 %322, label %323, label %parse_file_extra_owner.exit
 
 323:                                              ; preds = %319
-  call void @archive_entry_set_gname(ptr noundef %1, ptr noundef nonnull %22) #15
+  call void @archive_entry_set_gname(ptr noundef %1, ptr noundef nonnull %22) #16
   br label %324
 
 324:                                              ; preds = %323, %297
@@ -3223,7 +3223,7 @@ read_var_sized.exit56.i:                          ; preds = %314, %309
 326:                                              ; preds = %324
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 -1, ptr %16, align 8, !tbaa !29
-  %327 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %16) #15
+  %327 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %16) #16
   %.not35.i58.i = icmp eq ptr %327, null
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br i1 %.not35.i58.i, label %parse_file_extra_owner.exit, label %.preheader.i59.i
@@ -3249,13 +3249,13 @@ read_var_sized.exit56.i:                          ; preds = %314, %309
 
 .loopexit123.i:                                   ; preds = %336, %.preheader.i59.i
   %.297.ph.i = phi i64 [ %335, %.preheader.i59.i ], [ 9, %336 ]
-  %338 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.297.ph.i) #15
+  %338 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.297.ph.i) #16
   %339 = icmp eq i64 %.297.ph.i, %338
   br i1 %339, label %340, label %parse_file_extra_owner.exit
 
 340:                                              ; preds = %.loopexit123.i
   %341 = sub i64 %.9, %.297.ph.i
-  call void @archive_entry_set_uid(ptr noundef %1, i64 noundef %333) #15
+  call void @archive_entry_set_uid(ptr noundef %1, i64 noundef %333) #16
   br label %342
 
 342:                                              ; preds = %340, %324
@@ -3267,7 +3267,7 @@ read_var_sized.exit56.i:                          ; preds = %314, %309
 344:                                              ; preds = %342
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 -1, ptr %15, align 8, !tbaa !29
-  %345 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %15) #15
+  %345 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %15) #16
   %.not35.i66.i = icmp eq ptr %345, null
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %.not35.i66.i, label %parse_file_extra_owner.exit, label %.preheader.i67.i
@@ -3293,13 +3293,13 @@ read_var_sized.exit56.i:                          ; preds = %314, %309
 
 .loopexit.i65:                                    ; preds = %354, %.preheader.i67.i
   %.398.ph.i = phi i64 [ %353, %.preheader.i67.i ], [ 9, %354 ]
-  %356 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.398.ph.i) #15
+  %356 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.398.ph.i) #16
   %357 = icmp eq i64 %.398.ph.i, %356
   br i1 %357, label %358, label %parse_file_extra_owner.exit
 
 358:                                              ; preds = %.loopexit.i65
   %359 = sub i64 %.10, %.398.ph.i
-  call void @archive_entry_set_gid(ptr noundef %1, i64 noundef %351) #15
+  call void @archive_entry_set_gid(ptr noundef %1, i64 noundef %351) #16
   br label %parse_file_extra_owner.exit
 
 parse_file_extra_owner.exit:                      ; preds = %256, %.loopexit124.i, %272, %282, %287, %read_var_sized.exit.i62, %292, %299, %309, %314, %read_var_sized.exit56.i, %319, %326, %.loopexit123.i, %342, %344, %.loopexit.i65, %358
@@ -3313,7 +3313,7 @@ parse_file_extra_owner.exit:                      ; preds = %256, %.loopexit124.
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 -1, ptr %12, align 8, !tbaa !29
-  %361 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %12) #15
+  %361 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %12) #16
   %.not35.i.i.i66 = icmp eq ptr %361, null
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %.not35.i.i.i66, label %parse_file_extra_version.exit, label %.preheader.i.i.i67
@@ -3333,14 +3333,14 @@ parse_file_extra_owner.exit:                      ; preds = %256, %.loopexit124.
 .loopexit36.i:                                    ; preds = %366, %.preheader.i.i.i67
   %.02529.i.ph.i70 = phi i64 [ %365, %.preheader.i.i.i67 ], [ 9, %366 ]
   %367 = sub i64 %72, %.02529.i.ph.i70
-  %368 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.02529.i.ph.i70) #15
+  %368 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.02529.i.ph.i70) #16
   %369 = icmp eq i64 %.02529.i.ph.i70, %368
   br i1 %369, label %370, label %parse_file_extra_version.exit
 
 370:                                              ; preds = %.loopexit36.i
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 -1, ptr %11, align 8, !tbaa !29
-  %371 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %11) #15
+  %371 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %11) #16
   %.not35.i.i15.i = icmp eq ptr %371, null
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.not35.i.i15.i, label %parse_file_extra_version.exit, label %.preheader.i.i16.i
@@ -3367,30 +3367,30 @@ parse_file_extra_owner.exit:                      ; preds = %256, %.loopexit124.
 .loopexit.i73:                                    ; preds = %380, %.preheader.i.i16.i
   %.02529.i23.ph.i = phi i64 [ %379, %.preheader.i.i16.i ], [ 9, %380 ]
   %382 = sub i64 %367, %.02529.i23.ph.i
-  %383 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.02529.i23.ph.i) #15
+  %383 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.02529.i23.ph.i) #16
   %384 = icmp eq i64 %.02529.i23.ph.i, %383
   br i1 %384, label %385, label %parse_file_extra_version.exit
 
 385:                                              ; preds = %.loopexit.i73
-  %386 = call ptr @archive_entry_pathname_utf8(ptr noundef %1) #15
+  %386 = call ptr @archive_entry_pathname_utf8(ptr noundef %1) #16
   %387 = icmp eq ptr %386, null
   br i1 %387, label %388, label %389
 
 388:                                              ; preds = %385
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.31) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.31) #16
   br label %parse_file_extra_version.exit
 
 389:                                              ; preds = %385
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
-  call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.32, i64 noundef %377) #15
-  %390 = call ptr @archive_strcat(ptr noundef nonnull %14, ptr noundef nonnull %386) #15
+  call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.32, i64 noundef %377) #16
+  %390 = call ptr @archive_strcat(ptr noundef nonnull %14, ptr noundef nonnull %386) #16
   %391 = load ptr, ptr %13, align 8, !tbaa !97
-  %392 = call ptr @archive_strcat(ptr noundef nonnull %14, ptr noundef %391) #15
+  %392 = call ptr @archive_strcat(ptr noundef nonnull %14, ptr noundef %391) #16
   %393 = load ptr, ptr %14, align 8, !tbaa !97
-  %394 = call i32 @archive_entry_update_pathname_utf8(ptr noundef %1, ptr noundef %393) #15
-  call void @archive_string_free(ptr noundef nonnull %13) #15
-  call void @archive_string_free(ptr noundef nonnull %14) #15
+  %394 = call i32 @archive_entry_update_pathname_utf8(ptr noundef %1, ptr noundef %393) #16
+  call void @archive_string_free(ptr noundef nonnull %13) #16
+  call void @archive_string_free(ptr noundef nonnull %14) #16
   br label %parse_file_extra_version.exit
 
 parse_file_extra_version.exit:                    ; preds = %360, %.loopexit36.i, %370, %.loopexit.i73, %388, %389
@@ -3401,7 +3401,7 @@ parse_file_extra_version.exit:                    ; preds = %360, %.loopexit36.i
   br label %parse_file_extra_hash.exit
 
 395:                                              ; preds = %75
-  call void @archive_entry_set_is_data_encrypted(ptr noundef %1, i8 noundef signext 1) #15
+  call void @archive_entry_set_is_data_encrypted(ptr noundef %1, i8 noundef signext 1) #16
   store i32 1, ptr %34, align 4, !tbaa !12
   %396 = load i8, ptr %35, align 8
   %397 = or i8 %396, 16
@@ -3410,7 +3410,7 @@ parse_file_extra_version.exit:                    ; preds = %360, %.loopexit36.i
 
 398:                                              ; preds = %395, %75
   %399 = sub i64 %72, %70
-  %400 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %70) #15
+  %400 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %70) #16
   %401 = icmp eq i64 %70, %400
   br i1 %401, label %parse_file_extra_hash.exit, label %read_var.exit
 
@@ -3483,7 +3483,7 @@ define internal fastcc range(i32 -30, 1) i32 @verify_global_checksums(ptr nounde
   br i1 %.not16.i, label %13, label %12
 
 12:                                               ; preds = %9
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.65) #15
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.65) #16
   br label %verify_checksums.exit
 
 13:                                               ; preds = %9, %6
@@ -3495,14 +3495,14 @@ define internal fastcc range(i32 -30, 1) i32 @verify_global_checksums(ptr nounde
 17:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %18 = getelementptr inbounds nuw i8, ptr %.val.val.i, i64 19480
-  %19 = call i32 @blake2sp_final(ptr noundef nonnull %18, ptr noundef nonnull %2, i64 noundef 32) #15
+  %19 = call i32 @blake2sp_final(ptr noundef nonnull %18, ptr noundef nonnull %2, i64 noundef 32) #16
   %20 = getelementptr inbounds nuw i8, ptr %.val.val.i, i64 19444
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %20, ptr noundef nonnull dereferenceable(32) %2, i64 32)
   %.not17.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not17.i, label %.critedge.i, label %21
 
 21:                                               ; preds = %17
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.66) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.66) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %verify_checksums.exit
 
@@ -3561,9 +3561,9 @@ define internal fastcc i32 @do_unstore_file(ptr noundef %0, ptr noundef %1, ptr 
   store i8 %26, ptr %23, align 4
   %.val.i49103 = load ptr, ptr %22, align 8, !tbaa !31
   %.val.val.i50104 = load ptr, ptr %.val.i49103, align 8, !tbaa !46
-  %27 = tail call ptr @archive_entry_new() #15
+  %27 = tail call ptr @archive_entry_new() #16
   %28 = tail call fastcc i32 @process_base_block(ptr noundef nonnull %0, ptr noundef %27)
-  tail call void @archive_entry_free(ptr noundef %27) #15
+  tail call void @archive_entry_free(ptr noundef %27) #16
   %29 = icmp eq i32 %28, -30
   br i1 %29, label %advance_multivolume.exit.thread73, label %.lr.ph106
 
@@ -3591,9 +3591,9 @@ define internal fastcc i32 @do_unstore_file(ptr noundef %0, ptr noundef %1, ptr 
 skip_base_block.exit54.thread57:                  ; preds = %38, %38
   %.val.i49 = load ptr, ptr %22, align 8, !tbaa !31
   %.val.val.i50 = load ptr, ptr %.val.i49, align 8, !tbaa !46
-  %39 = tail call ptr @archive_entry_new() #15
+  %39 = tail call ptr @archive_entry_new() #16
   %40 = tail call fastcc i32 @process_base_block(ptr noundef nonnull %0, ptr noundef %39)
-  tail call void @archive_entry_free(ptr noundef %39) #15
+  tail call void @archive_entry_free(ptr noundef %39) #16
   %41 = icmp eq i32 %40, -30
   br i1 %41, label %advance_multivolume.exit.thread73, label %.lr.ph106, !llvm.loop !100
 
@@ -3607,9 +3607,9 @@ advance_multivolume.exit.thread73:                ; preds = %skip_base_block.exi
 .lr.ph:                                           ; preds = %18, %.backedge
   %.val.i45 = load ptr, ptr %22, align 8, !tbaa !31
   %.val.val.i46 = load ptr, ptr %.val.i45, align 8, !tbaa !46
-  %44 = tail call ptr @archive_entry_new() #15
+  %44 = tail call ptr @archive_entry_new() #16
   %45 = tail call fastcc i32 @process_base_block(ptr noundef nonnull %0, ptr noundef %44)
-  tail call void @archive_entry_free(ptr noundef %44) #15
+  tail call void @archive_entry_free(ptr noundef %44) #16
   %46 = icmp eq i32 %45, -30
   br i1 %46, label %advance_multivolume.exit.thread, label %47
 
@@ -3677,17 +3677,17 @@ advance_multivolume.exit:                         ; preds = %skip_base_block.exi
   %spec.select98 = phi i64 [ %spec.select97, %.thread ], [ %spec.select, %66 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 -1, ptr %6, align 8, !tbaa !29
-  %69 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %spec.select98, ptr noundef nonnull %6) #15
+  %69 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %spec.select98, ptr noundef nonnull %6) #16
   %.not77 = icmp eq ptr %69, null
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not77, label %70, label %71
 
 70:                                               ; preds = %68
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.37) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.37) #16
   br label %update_crc.exit
 
 71:                                               ; preds = %68
-  %72 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %spec.select98) #15
+  %72 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %spec.select98) #16
   %73 = icmp eq i64 %spec.select98, %72
   br i1 %73, label %74, label %update_crc.exit
 
@@ -3740,7 +3740,7 @@ advance_multivolume.exit:                         ; preds = %skip_base_block.exi
   %91 = load i32, ptr %90, align 8, !tbaa !99
   %92 = zext i32 %91 to i64
   %93 = trunc i64 %spec.select98 to i32
-  %94 = call i64 @cm_zlib_crc32(i64 noundef %92, ptr noundef nonnull %69, i32 noundef %93) #15
+  %94 = call i64 @cm_zlib_crc32(i64 noundef %92, ptr noundef nonnull %69, i32 noundef %93) #16
   %95 = trunc i64 %94 to i32
   store i32 %95, ptr %90, align 8, !tbaa !99
   br label %96
@@ -3753,7 +3753,7 @@ advance_multivolume.exit:                         ; preds = %skip_base_block.exi
 
 100:                                              ; preds = %96
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 19480
-  %102 = call i32 @blake2sp_update(ptr noundef nonnull %101, ptr noundef nonnull %69, i64 noundef %spec.select98) #15
+  %102 = call i32 @blake2sp_update(ptr noundef nonnull %101, ptr noundef nonnull %69, i64 noundef %spec.select98) #16
   br label %update_crc.exit
 
 update_crc.exit:                                  ; preds = %advance_multivolume.exit.thread73, %100, %96, %._crit_edge86, %advance_multivolume.exit.thread, %71, %66, %advance_multivolume.exit, %70
@@ -3815,17 +3815,17 @@ define internal fastcc noundef range(i32 -30, 2) i32 @uncompress_file(ptr nounde
   %32 = getelementptr inbounds nuw i8, ptr %.val.val.i, i64 104
   store i64 %spec.select.i.i23, ptr %32, align 8, !tbaa !88
   %33 = getelementptr inbounds nuw i8, ptr %.val.val.i, i64 80
-  call void @free(ptr noundef %28) #15
+  call void @free(ptr noundef %28) #16
   %34 = getelementptr inbounds nuw i8, ptr %.val.val.i, i64 88
   %35 = load ptr, ptr %34, align 8, !tbaa !70
-  call void @free(ptr noundef %35) #15
+  call void @free(ptr noundef %35) #16
   %36 = load i64, ptr %30, align 8, !tbaa !87
   %37 = icmp sgt i64 %36, 0
   br i1 %37, label %38, label %init_unpack.exit
 
 38:                                               ; preds = %._crit_edge525
-  %39 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %36) #18
-  %40 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %36) #18
+  %39 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %36) #19
+  %40 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %36) #19
   br label %init_unpack.exit
 
 init_unpack.exit:                                 ; preds = %._crit_edge525, %38
@@ -3856,7 +3856,7 @@ init_unpack.exit:                                 ; preds = %._crit_edge525, %38
   br i1 %51, label %52, label %53
 
 52:                                               ; preds = %47
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.38) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.38) #16
   br label %do_uncompress_file.exit.thread
 
 53:                                               ; preds = %47
@@ -3896,9 +3896,9 @@ init_unpack.exit:                                 ; preds = %._crit_edge525, %38
   store i8 %67, ptr %59, align 4
   %.val.i61855 = load ptr, ptr %15, align 8, !tbaa !31
   %.val.val.i62856 = load ptr, ptr %.val.i61855, align 8, !tbaa !46
-  %68 = call ptr @archive_entry_new() #15
+  %68 = call ptr @archive_entry_new() #16
   %69 = call fastcc i32 @process_base_block(ptr noundef %0, ptr noundef %68)
-  call void @archive_entry_free(ptr noundef %68) #15
+  call void @archive_entry_free(ptr noundef %68) #16
   %70 = icmp eq i32 %69, -30
   br i1 %70, label %do_uncompress_file.exit.thread, label %.lr.ph858
 
@@ -3926,18 +3926,18 @@ init_unpack.exit:                                 ; preds = %._crit_edge525, %38
 skip_base_block.exit66.thread101:                 ; preds = %79, %79
   %.val.i61 = load ptr, ptr %15, align 8, !tbaa !31
   %.val.val.i62 = load ptr, ptr %.val.i61, align 8, !tbaa !46
-  %80 = call ptr @archive_entry_new() #15
+  %80 = call ptr @archive_entry_new() #16
   %81 = call fastcc i32 @process_base_block(ptr noundef %0, ptr noundef %80)
-  call void @archive_entry_free(ptr noundef %80) #15
+  call void @archive_entry_free(ptr noundef %80) #16
   %82 = icmp eq i32 %81, -30
   br i1 %82, label %do_uncompress_file.exit.thread, label %.lr.ph858, !llvm.loop !100
 
 .lr.ph:                                           ; preds = %.preheader, %.backedge241
   %.val.i56 = load ptr, ptr %15, align 8, !tbaa !31
   %.val.val.i57 = load ptr, ptr %.val.i56, align 8, !tbaa !46
-  %83 = call ptr @archive_entry_new() #15
+  %83 = call ptr @archive_entry_new() #16
   %84 = call fastcc i32 @process_base_block(ptr noundef nonnull %0, ptr noundef %83)
-  call void @archive_entry_free(ptr noundef %83) #15
+  call void @archive_entry_free(ptr noundef %83) #16
   %85 = icmp eq i32 %84, -30
   br i1 %85, label %do_uncompress_file.exit.thread, label %86
 
@@ -3990,7 +3990,7 @@ advance_multivolume.exit.i.thread113:             ; preds = %75, %skip_base_bloc
 105:                                              ; preds = %advance_multivolume.exit.i.thread113
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 -1, ptr %12, align 8, !tbaa !29
-  %106 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 6, ptr noundef nonnull %12) #15
+  %106 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 6, ptr noundef nonnull %12) #16
   %.not228 = icmp eq ptr %106, null
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %.not228, label %do_uncompress_file.exit.thread, label %107
@@ -4009,7 +4009,7 @@ advance_multivolume.exit.i.thread113:             ; preds = %75, %skip_base_bloc
 
 116:                                              ; preds = %107
   %117 = zext nneg i8 %112 to i32
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.40, i32 noundef %117) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.40, i32 noundef %117) #16
   br label %do_uncompress_file.exit.thread
 
 118:                                              ; preds = %107
@@ -4051,7 +4051,7 @@ advance_multivolume.exit.i.thread113:             ; preds = %75, %skip_base_bloc
   br i1 %.not.i78.i, label %parse_block_header.exit.i, label %139
 
 139:                                              ; preds = %129
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.41, i32 noundef %115, i32 noundef %138) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.41, i32 noundef %115, i32 noundef %138) #16
   br label %do_uncompress_file.exit.thread
 
 default.unreachable:                              ; preds = %118
@@ -4060,7 +4060,7 @@ default.unreachable:                              ; preds = %118
 parse_block_header.exit.i:                        ; preds = %129
   %narrow.i = add nuw nsw i8 %112, 3
   %140 = zext nneg i8 %narrow.i to i64
-  %141 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %140) #15
+  %141 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %140) #16
   %142 = icmp eq i64 %141, %140
   br i1 %142, label %143, label %do_uncompress_file.exit.thread
 
@@ -4081,7 +4081,7 @@ parse_block_header.exit.i:                        ; preds = %129
   br i1 %.not.i42, label %152, label %151
 
 151:                                              ; preds = %148
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.42) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.42) #16
   br label %do_uncompress_file.exit.thread
 
 152:                                              ; preds = %148
@@ -4095,18 +4095,18 @@ parse_block_header.exit.i:                        ; preds = %129
   br i1 %.not54.i, label %159, label %158
 
 158:                                              ; preds = %152
-  call void @free(ptr noundef nonnull %157) #15
+  call void @free(ptr noundef nonnull %157) #16
   br label %159
 
 159:                                              ; preds = %158, %152
   %160 = add nuw nsw i64 %.sink.i.i, 8
-  %161 = call noalias ptr @malloc(i64 noundef %160) #16
+  %161 = call noalias ptr @malloc(i64 noundef %160) #17
   store ptr %161, ptr %156, align 8, !tbaa !71
   %.not55.i = icmp eq ptr %161, null
   br i1 %.not55.i, label %162, label %.split
 
 162:                                              ; preds = %159
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.43) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.43) #16
   br label %do_uncompress_file.exit.thread
 
 .split:                                           ; preds = %159
@@ -4119,7 +4119,7 @@ parse_block_header.exit.i:                        ; preds = %129
   br i1 %166, label %.split._crit_edge, label %.lr.ph419
 
 .split._crit_edge:                                ; preds = %.split, %226
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.44) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.44) #16
   br label %do_uncompress_file.exit.thread
 
 .lr.ph419:                                        ; preds = %.split, %226
@@ -4127,7 +4127,7 @@ parse_block_header.exit.i:                        ; preds = %129
   %.045.i417 = phi i64 [ %169, %226 ], [ 0, %.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 -1, ptr %2, align 8, !tbaa !29
-  %167 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %..i44418, ptr noundef nonnull %2) #15
+  %167 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %..i44418, ptr noundef nonnull %2) #16
   %.not230 = icmp eq ptr %167, null
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not230, label %do_uncompress_file.exit.thread, label %168
@@ -4137,7 +4137,7 @@ parse_block_header.exit.i:                        ; preds = %129
   %170 = load ptr, ptr %156, align 8, !tbaa !71
   %171 = getelementptr inbounds i8, ptr %170, i64 %.045.i417
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %171, ptr noundef nonnull align 1 dereferenceable(1) %167, i64 %..i44418, i1 false)
-  %172 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %..i44418) #15
+  %172 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %..i44418) #16
   %173 = icmp eq i64 %..i44418, %172
   br i1 %173, label %174, label %do_uncompress_file.exit.thread
 
@@ -4170,9 +4170,9 @@ parse_block_header.exit.i:                        ; preds = %129
   store i8 %186, ptr %183, align 4
   %.val.i63.i859 = load ptr, ptr %15, align 8, !tbaa !31
   %.val.val.i64.i860 = load ptr, ptr %.val.i63.i859, align 8, !tbaa !46
-  %187 = call ptr @archive_entry_new() #15
+  %187 = call ptr @archive_entry_new() #16
   %188 = call fastcc i32 @process_base_block(ptr noundef %0, ptr noundef %187)
-  call void @archive_entry_free(ptr noundef %187) #15
+  call void @archive_entry_free(ptr noundef %187) #16
   %189 = icmp eq i32 %188, -30
   br i1 %189, label %advance_multivolume.exit.i54.thread199, label %.lr.ph862
 
@@ -4200,9 +4200,9 @@ parse_block_header.exit.i:                        ; preds = %129
 skip_base_block.exit68.i.thread121:               ; preds = %198, %198
   %.val.i63.i = load ptr, ptr %15, align 8, !tbaa !31
   %.val.val.i64.i = load ptr, ptr %.val.i63.i, align 8, !tbaa !46
-  %199 = call ptr @archive_entry_new() #15
+  %199 = call ptr @archive_entry_new() #16
   %200 = call fastcc i32 @process_base_block(ptr noundef %0, ptr noundef %199)
-  call void @archive_entry_free(ptr noundef %199) #15
+  call void @archive_entry_free(ptr noundef %199) #16
   %201 = icmp eq i32 %200, -30
   br i1 %201, label %advance_multivolume.exit.i54.thread199, label %.lr.ph862, !llvm.loop !100
 
@@ -4216,9 +4216,9 @@ advance_multivolume.exit.i54.thread199:           ; preds = %._crit_edge413, %sk
 .lr.ph412:                                        ; preds = %180, %.backedge
   %.val.i59.i = load ptr, ptr %15, align 8, !tbaa !31
   %.val.val.i60.i = load ptr, ptr %.val.i59.i, align 8, !tbaa !46
-  %204 = call ptr @archive_entry_new() #15
+  %204 = call ptr @archive_entry_new() #16
   %205 = call fastcc i32 @process_base_block(ptr noundef %0, ptr noundef %204)
-  call void @archive_entry_free(ptr noundef %204) #15
+  call void @archive_entry_free(ptr noundef %204) #16
   %206 = icmp eq i32 %205, -30
   br i1 %206, label %advance_multivolume.exit.i54.thread, label %207
 
@@ -4294,7 +4294,7 @@ advance_multivolume.exit.i54:                     ; preds = %skip_base_block.exi
   %235 = add nuw nsw i64 %.sink.i.i, 4
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 -1, ptr %11, align 8, !tbaa !29
-  %236 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %235, ptr noundef nonnull %11) #15
+  %236 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %235, ptr noundef nonnull %11) #16
   %.not229 = icmp eq ptr %236, null
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.not229, label %do_uncompress_file.exit.thread, label %237
@@ -4331,7 +4331,7 @@ advance_multivolume.exit.i54:                     ; preds = %skip_base_block.exi
   br i1 %.not117.i, label %248, label %247
 
 247:                                              ; preds = %245
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.46) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.46) #16
   br label %parse_tables.exit.thread
 
 248:                                              ; preds = %245
@@ -4418,7 +4418,7 @@ advance_multivolume.exit.i54:                     ; preds = %skip_base_block.exi
   br i1 %.not.i33, label %295, label %294
 
 294:                                              ; preds = %292
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.47) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.47) #16
   br label %.thread159.i
 
 295:                                              ; preds = %292
@@ -4446,7 +4446,7 @@ advance_multivolume.exit.i54:                     ; preds = %skip_base_block.exi
   br i1 %.not.i.i34, label %309, label %read_bits_16.exit.i37
 
 read_bits_16.exit.i37:                            ; preds = %308
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.53) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.53) #16
   br label %.thread159.i
 
 309:                                              ; preds = %308
@@ -4504,7 +4504,7 @@ read_bits_16.exit.i37:                            ; preds = %308
   br i1 %335, label %.lr.ph184.i, label %.thread153.loopexit.i, !llvm.loop !109
 
 336:                                              ; preds = %309
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.48) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.48) #16
   br label %.thread159.i
 
 337:                                              ; preds = %303
@@ -4558,7 +4558,7 @@ read_bits_16.exit.i37:                            ; preds = %308
   br label %.thread153.i
 
 368:                                              ; preds = %337
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.53) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.53) #16
   br label %.thread159.i
 
 .thread159.i:                                     ; preds = %368, %336, %read_bits_16.exit.i37, %294
@@ -4765,7 +4765,7 @@ parse_tables.exit:                                ; preds = %.thread153.i, %.thr
   br label %494
 
 decode_number.exit:                               ; preds = %426
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.53) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.53) #16
   br label %do_uncompress_file.exit.thread
 
 494:                                              ; preds = %457, %.preheader._crit_edge.i
@@ -4828,7 +4828,7 @@ decode_code_length.exit.thread187.i.i:            ; preds = %513
   br i1 %.not.i.i.i.i.i, label %decode_code_length.exit.i.i, label %read_bits_16.exit.i.i.i.i
 
 read_bits_16.exit.i.i.i.i:                        ; preds = %524
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.53) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.53) #16
   br label %decode_code_length.exit.thread.i.i
 
 decode_code_length.exit.i.i:                      ; preds = %524
@@ -4864,7 +4864,7 @@ decode_code_length.exit.i.i:                      ; preds = %524
   br i1 %552, label %decode_code_length.exit.thread.i.i, label %553
 
 decode_code_length.exit.thread.i.i:               ; preds = %decode_code_length.exit.i.i, %517, %read_bits_16.exit.i.i.i.i
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.54) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.54) #16
   br label %.thread214.i.i
 
 553:                                              ; preds = %decode_code_length.exit.i.i, %decode_code_length.exit.thread187.i.i
@@ -4874,7 +4874,7 @@ decode_code_length.exit.thread.i.i:               ; preds = %decode_code_length.
   br i1 %.not129.i.i, label %556, label %555
 
 555:                                              ; preds = %553
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.55) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.55) #16
   br label %.thread214.i.i
 
 556:                                              ; preds = %553
@@ -4910,7 +4910,7 @@ decode_code_length.exit.thread.i.i:               ; preds = %decode_code_length.
   br i1 %.not.i.i.i17, label %572, label %read_bits_32.exit.i.i
 
 read_bits_32.exit.i.i:                            ; preds = %568
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.57) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.57) #16
   br label %.thread199.i.i
 
 572:                                              ; preds = %568
@@ -4962,7 +4962,7 @@ read_bits_32.exit.i.i:                            ; preds = %568
   br i1 %.not133.i.i, label %613, label %612
 
 612:                                              ; preds = %610
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.55) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.55) #16
   br label %.thread199.i.i
 
 613:                                              ; preds = %610
@@ -4973,7 +4973,7 @@ read_bits_32.exit.i.i:                            ; preds = %568
   br i1 %.not134.i.i, label %618, label %617
 
 617:                                              ; preds = %613
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.56) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.56) #16
   br label %.thread199.i.i
 
 .thread199.i.i:                                   ; preds = %617, %612, %read_bits_32.exit.i.i
@@ -5024,7 +5024,7 @@ read_consume_bits.exit.thread.i.i:                ; preds = %620
   br label %650
 
 read_consume_bits.exit.i.i:                       ; preds = %620
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.53) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.53) #16
   br label %.thread214.i.i
 
 650:                                              ; preds = %read_consume_bits.exit.thread.i.i, %618
@@ -5138,7 +5138,7 @@ read_consume_bits.exit.i.i:                       ; preds = %620
   br i1 %.not.i.i144.i.i, label %695, label %read_bits_16.exit.i145.i.i
 
 read_bits_16.exit.i145.i.i:                       ; preds = %691
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.53) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.53) #16
   br label %parse_filter.exit.thread.i.i
 
 695:                                              ; preds = %691
@@ -5196,11 +5196,11 @@ is_valid_filter_block_start.exit.i.i.i:           ; preds = %723
   br i1 %.not.i46.not.i.i.i, label %736, label %is_valid_filter_block_start.exit.thread.i.i.i
 
 736:                                              ; preds = %is_valid_filter_block_start.exit.i.i.i, %695
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.58) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.58) #16
   br label %parse_filter.exit.thread.i.i
 
 is_valid_filter_block_start.exit.thread.i.i.i:    ; preds = %is_valid_filter_block_start.exit.i.i.i, %723
-  %737 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #18
+  %737 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #19
   %.not.i26 = icmp eq ptr %737, null
   br i1 %.not.i26, label %add_new_filter.exit, label %738
 
@@ -5232,7 +5232,7 @@ is_valid_filter_block_start.exit.thread.i.i.i:    ; preds = %is_valid_filter_blo
   br label %758
 
 add_new_filter.exit:                              ; preds = %is_valid_filter_block_start.exit.thread.i.i.i
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.59) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.59) #16
   br label %parse_filter.exit.thread.i.i
 
 758:                                              ; preds = %738, %747
@@ -5286,7 +5286,7 @@ add_new_filter.exit:                              ; preds = %is_valid_filter_blo
   br label %parse_filter.exit.i.i
 
 .critedge.i.i.i:                                  ; preds = %768
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.53) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.53) #16
   br label %parse_filter.exit.thread.i.i
 
 parse_filter.exit.thread.i.i:                     ; preds = %689, %687, %.critedge.i.i.i, %add_new_filter.exit, %736, %read_bits_16.exit.i145.i.i
@@ -5402,7 +5402,7 @@ decode_code_length.exit168.thread227.i.i:         ; preds = %828
   br i1 %.not.i.i.i163.i.i, label %decode_code_length.exit168.i.i, label %read_bits_16.exit.i.i164.i.i
 
 read_bits_16.exit.i.i164.i.i:                     ; preds = %839
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.53) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.53) #16
   br label %.thread231.i.i
 
 decode_code_length.exit168.i.i:                   ; preds = %839
@@ -5511,7 +5511,7 @@ do_uncompress_block.exit.i:                       ; preds = %.backedge.i.i, %378
   br i1 %900, label %901, label %process_block.exit.thread
 
 901:                                              ; preds = %897
-  %902 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %899) #15
+  %902 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %899) #16
   %903 = icmp eq i64 %899, %902
   br i1 %903, label %904, label %do_uncompress_file.exit.thread
 
@@ -5604,15 +5604,15 @@ process_block.exit.thread:                        ; preds = %skip_base_block.exi
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %949, i8 0, i64 64, i1 false)
   %950 = getelementptr inbounds nuw i8, ptr %.val.val.i.i, i64 88
   %951 = load ptr, ptr %950, align 8, !tbaa !70
-  call void @free(ptr noundef %951) #15
+  call void @free(ptr noundef %951) #16
   %952 = load i64, ptr %944, align 8, !tbaa !121
-  %953 = call noalias ptr @malloc(i64 noundef %952) #16
+  %953 = call noalias ptr @malloc(i64 noundef %952) #17
   store ptr %953, ptr %950, align 8, !tbaa !70
   %.not.i20.i = icmp eq ptr %953, null
   br i1 %.not.i20.i, label %954, label %955
 
 954:                                              ; preds = %948
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.60) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.60) #16
   br label %do_uncompress_file.exit.thread
 
 955:                                              ; preds = %948
@@ -5907,7 +5907,7 @@ read_filter_data.exit.i35.i.i:                    ; preds = %1105, %1100
   br i1 %1118, label %.lr.ph.i34.i.i, label %run_delta_filter.exit.i.i, !llvm.loop !126
 
 1119:                                             ; preds = %955
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.61, i32 noundef %956) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.61, i32 noundef %956) #16
   br label %do_uncompress_file.exit.thread
 
 run_delta_filter.exit.i.i:                        ; preds = %1114, %1056, %._crit_edge.i.i.i, %circular_memcpy.exit.i32.i.i, %circular_memcpy.exit.i.i.i, %957
@@ -5920,7 +5920,7 @@ run_delta_filter.exit.i.i:                        ; preds = %1114, %1056, %._cri
   br i1 %.not28.i.i, label %1126, label %1125
 
 1125:                                             ; preds = %run_delta_filter.exit.i.i
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.62) #15
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.62) #16
   br label %do_uncompress_file.exit.thread
 
 1126:                                             ; preds = %run_delta_filter.exit.i.i
@@ -5950,7 +5950,7 @@ run_delta_filter.exit.i.i:                        ; preds = %1114, %1056, %._cri
 
 cdeque_pop_front.exit.i:                          ; preds = %1132, %1126
   %.1.i8 = phi ptr [ %930, %1126 ], [ %1138, %1132 ]
-  call void @free(ptr noundef %.1.i8) #15
+  call void @free(ptr noundef %.1.i8) #16
   br label %do_uncompress_file.exit.thread
 
 1144:                                             ; preds = %940
@@ -6085,10 +6085,10 @@ declare void @archive_entry_free(ptr noundef) local_unnamed_addr #2
 declare i32 @blake2sp_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @create_decode_tables(ptr noundef nonnull readonly captures(none) %0, ptr noundef captures(none) initializes((0, 4), (132, 136), (3208, 3820)) %1, i32 noundef range(i32 16, 307) %2) unnamed_addr #10 {
+define internal fastcc void @create_decode_tables(ptr noundef nonnull readonly captures(none) %0, ptr noundef captures(none) initializes((0, 4), (132, 136), (3208, 3820)) %1, i32 noundef range(i32 16, 307) %2) unnamed_addr #11 {
   %4 = alloca [16 x i32], align 16
   %5 = alloca [16 x i32], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -6263,7 +6263,7 @@ define internal fastcc range(i32 -30, 1) i32 @decode_number(ptr noundef %0, ptr 
   br i1 %.not.i, label %11, label %read_bits_16.exit
 
 read_bits_16.exit:                                ; preds = %4
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.53) #15
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.53) #16
   br label %81
 
 11:                                               ; preds = %4
@@ -6375,7 +6375,7 @@ define internal fastcc range(i32 -30, 1) i32 @parse_filter_data(ptr noundef %0, 
   br i1 %.not.i.i, label %10, label %read_consume_bits.exit
 
 read_consume_bits.exit:                           ; preds = %4
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.53) #15
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.53) #16
   br label %57
 
 10:                                               ; preds = %4
@@ -6415,7 +6415,7 @@ read_consume_bits.exit:                           ; preds = %4
   br i1 %.not.i, label %38, label %37
 
 37:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.53) #15
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.53) #16
   br label %57
 
 38:                                               ; preds = %34
@@ -6471,7 +6471,7 @@ define internal fastcc range(i32 -30, 1) i32 @push_data_ready(ptr noundef %0, pt
   br label %.critedge
 
 15:                                               ; preds = %8
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.63) #15
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.63) #16
   br label %update_crc.exit
 
 16:                                               ; preds = %.critedge
@@ -6505,7 +6505,7 @@ define internal fastcc range(i32 -30, 1) i32 @push_data_ready(ptr noundef %0, pt
   %28 = load i32, ptr %27, align 8, !tbaa !99
   %29 = zext i32 %28 to i64
   %30 = trunc i64 %3 to i32
-  %31 = tail call i64 @cm_zlib_crc32(i64 noundef %29, ptr noundef %2, i32 noundef %30) #15
+  %31 = tail call i64 @cm_zlib_crc32(i64 noundef %29, ptr noundef %2, i32 noundef %30) #16
   %32 = trunc i64 %31 to i32
   store i32 %32, ptr %27, align 8, !tbaa !99
   br label %33
@@ -6518,11 +6518,11 @@ define internal fastcc range(i32 -30, 1) i32 @push_data_ready(ptr noundef %0, pt
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 19480
-  %39 = tail call i32 @blake2sp_update(ptr noundef nonnull %38, ptr noundef %2, i64 noundef %3) #15
+  %39 = tail call i32 @blake2sp_update(ptr noundef nonnull %38, ptr noundef %2, i64 noundef %3) #16
   br label %update_crc.exit
 
 40:                                               ; preds = %16
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.64) #15
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.64) #16
   br label %update_crc.exit
 
 update_crc.exit:                                  ; preds = %37, %33, %5, %40, %15
@@ -6533,51 +6533,52 @@ update_crc.exit:                                  ; preds = %37, %33, %5, %40, %
 declare i32 @blake2sp_final(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #13
+declare i64 @llvm.usub.sat.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #13
+declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #13
+declare i64 @llvm.smax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #13
+declare i32 @llvm.umin.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #14
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #13
+declare i64 @llvm.smin.i64(i64, i64) #14
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nounwind }
-attributes #16 = { nounwind allocsize(0) }
-attributes #17 = { nounwind allocsize(1) }
-attributes #18 = { nounwind allocsize(0,1) }
+attributes #5 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #14 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nounwind }
+attributes #17 = { nounwind allocsize(0) }
+attributes #18 = { nounwind allocsize(1) }
+attributes #19 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

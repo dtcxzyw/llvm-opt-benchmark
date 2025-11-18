@@ -2553,7 +2553,7 @@ _ZN4core5slice4sort11insert_tail17h7eefa4670721c97cE.exit.i: ; preds = %.thread.
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h14f5e9e6915736d6E"(ptr readonly captures(address_is_null) %.0.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(8) %2) unnamed_addr #1 {
   %4 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %4)
@@ -2783,7 +2783,7 @@ _ZN4core3ops8function5FnMut8call_mut17h0b4be3ee5151b7caE.exit.i14: ; preds = %"_
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h685c96b8e6f3eb88E"(ptr readonly captures(address_is_null) %.0.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(8) %2) unnamed_addr #1 {
   %4 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %4)
@@ -24295,7 +24295,7 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #13
 declare i8 @llvm.umin.i8(i8, i8) #13
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

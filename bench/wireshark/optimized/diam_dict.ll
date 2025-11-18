@@ -445,7 +445,7 @@ define hidden noundef i32 @DiamDict_lex(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit.backedge
 
 127:                                              ; preds = %121
-  %128 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc(i64 noundef 32) #29
+  %128 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc(i64 noundef 32) #30
   %129 = load ptr, ptr %0, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 104
   store ptr %128, ptr %130, align 8
@@ -537,7 +537,7 @@ define hidden noundef i32 @DiamDict_lex(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit.backedge
 
 181:                                              ; preds = %121
-  %182 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #29
+  %182 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #30
   %183 = load ptr, ptr %58, align 8
   %184 = tail call noalias ptr @g_strdup(ptr noundef %183)
   store ptr %184, ptr %182, align 8
@@ -580,7 +580,7 @@ define hidden noundef i32 @DiamDict_lex(ptr noundef %0) local_unnamed_addr #0 {
   %204 = getelementptr inbounds nuw i8, ptr %199, i64 32
   %205 = load i32, ptr %204, align 8
   %206 = zext i32 %205 to i64
-  %207 = tail call noalias ptr @g_malloc(i64 noundef %206) #29
+  %207 = tail call noalias ptr @g_malloc(i64 noundef %206) #30
   store ptr %207, ptr %200, align 8
   %208 = getelementptr inbounds nuw i8, ptr %199, i64 16
   store ptr %207, ptr %208, align 8
@@ -633,7 +633,7 @@ append_to_buffer.exit:                            ; preds = %210, %217
   %235 = getelementptr inbounds nuw i8, ptr %230, i64 32
   %236 = load i32, ptr %235, align 8
   %237 = zext i32 %236 to i64
-  %238 = tail call noalias ptr @g_malloc(i64 noundef %237) #29
+  %238 = tail call noalias ptr @g_malloc(i64 noundef %237) #30
   store ptr %238, ptr %231, align 8
   %239 = getelementptr inbounds nuw i8, ptr %230, i64 16
   store ptr %238, ptr %239, align 8
@@ -686,7 +686,7 @@ append_to_buffer.exit560:                         ; preds = %241, %248
   %266 = getelementptr inbounds nuw i8, ptr %261, i64 32
   %267 = load i32, ptr %266, align 8
   %268 = zext i32 %267 to i64
-  %269 = tail call noalias ptr @g_malloc(i64 noundef %268) #29
+  %269 = tail call noalias ptr @g_malloc(i64 noundef %268) #30
   store ptr %269, ptr %262, align 8
   %270 = getelementptr inbounds nuw i8, ptr %261, i64 16
   store ptr %269, ptr %270, align 8
@@ -722,7 +722,7 @@ append_to_buffer.exit563:                         ; preds = %272, %279
   %287 = getelementptr i8, ptr %285, i64 %286
   %288 = getelementptr inbounds nuw i8, ptr %261, i64 8
   store ptr %287, ptr %288, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(3) %287, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 noundef 3, i1 noundef false) #30
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(3) %287, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 noundef 3, i1 noundef false) #31
   %289 = load i32, ptr %274, align 4
   %290 = add i32 %289, 2
   store i32 %290, ptr %274, align 4
@@ -739,7 +739,7 @@ append_to_buffer.exit563:                         ; preds = %272, %279
   %297 = getelementptr inbounds nuw i8, ptr %292, i64 32
   %298 = load i32, ptr %297, align 8
   %299 = zext i32 %298 to i64
-  %300 = tail call noalias ptr @g_malloc(i64 noundef %299) #29
+  %300 = tail call noalias ptr @g_malloc(i64 noundef %299) #30
   store ptr %300, ptr %293, align 8
   %301 = getelementptr inbounds nuw i8, ptr %292, i64 16
   store ptr %300, ptr %301, align 8
@@ -775,7 +775,7 @@ append_to_buffer.exit566:                         ; preds = %303, %310
   %318 = getelementptr i8, ptr %316, i64 %317
   %319 = getelementptr inbounds nuw i8, ptr %292, i64 8
   store ptr %318, ptr %319, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(3) %318, ptr noundef nonnull align 1 dereferenceable(3) @.str.3, i64 noundef 3, i1 noundef false) #30
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(3) %318, ptr noundef nonnull align 1 dereferenceable(3) @.str.3, i64 noundef 3, i1 noundef false) #31
   %320 = load i32, ptr %305, align 4
   %321 = add i32 %320, 2
   store i32 %321, ptr %305, align 4
@@ -792,7 +792,7 @@ append_to_buffer.exit566:                         ; preds = %303, %310
   %328 = getelementptr inbounds nuw i8, ptr %323, i64 32
   %329 = load i32, ptr %328, align 8
   %330 = zext i32 %329 to i64
-  %331 = tail call noalias ptr @g_malloc(i64 noundef %330) #29
+  %331 = tail call noalias ptr @g_malloc(i64 noundef %330) #30
   store ptr %331, ptr %324, align 8
   %332 = getelementptr inbounds nuw i8, ptr %323, i64 16
   store ptr %331, ptr %332, align 8
@@ -847,7 +847,7 @@ append_to_buffer.exit569:                         ; preds = %334, %341
   %361 = getelementptr inbounds nuw i8, ptr %356, i64 32
   %362 = load i32, ptr %361, align 8
   %363 = zext i32 %362 to i64
-  %364 = tail call noalias ptr @g_malloc(i64 noundef %363) #29
+  %364 = tail call noalias ptr @g_malloc(i64 noundef %363) #30
   store ptr %364, ptr %357, align 8
   %365 = getelementptr inbounds nuw i8, ptr %356, i64 16
   store ptr %364, ptr %365, align 8
@@ -885,7 +885,7 @@ append_to_buffer.exit572:                         ; preds = %367, %374
   store ptr %382, ptr %383, align 8
   %384 = add i32 %355, 1
   %385 = zext i32 %384 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %382, ptr noundef readonly align 1 %354, i64 noundef %385, i1 noundef false) #30
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %382, ptr noundef readonly align 1 %354, i64 noundef %385, i1 noundef false) #31
   %386 = load i32, ptr %369, align 4
   %387 = add i32 %386, %355
   store i32 %387, ptr %369, align 4
@@ -902,7 +902,7 @@ append_to_buffer.exit572:                         ; preds = %367, %374
   %394 = getelementptr inbounds nuw i8, ptr %389, i64 32
   %395 = load i32, ptr %394, align 8
   %396 = zext i32 %395 to i64
-  %397 = tail call noalias ptr @g_malloc(i64 noundef %396) #29
+  %397 = tail call noalias ptr @g_malloc(i64 noundef %396) #30
   store ptr %397, ptr %390, align 8
   %398 = getelementptr inbounds nuw i8, ptr %389, i64 16
   store ptr %397, ptr %398, align 8
@@ -957,7 +957,7 @@ append_to_buffer.exit575:                         ; preds = %400, %407
   %427 = getelementptr inbounds nuw i8, ptr %422, i64 32
   %428 = load i32, ptr %427, align 8
   %429 = zext i32 %428 to i64
-  %430 = tail call noalias ptr @g_malloc(i64 noundef %429) #29
+  %430 = tail call noalias ptr @g_malloc(i64 noundef %429) #30
   store ptr %430, ptr %423, align 8
   %431 = getelementptr inbounds nuw i8, ptr %422, i64 16
   store ptr %430, ptr %431, align 8
@@ -995,7 +995,7 @@ append_to_buffer.exit578:                         ; preds = %433, %440
   store ptr %448, ptr %449, align 8
   %450 = add i32 %421, 1
   %451 = zext i32 %450 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %448, ptr noundef readonly align 1 %420, i64 noundef %451, i1 noundef false) #30
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %448, ptr noundef readonly align 1 %420, i64 noundef %451, i1 noundef false) #31
   %452 = load i32, ptr %435, align 4
   %453 = add i32 %452, %421
   store i32 %453, ptr %435, align 4
@@ -1039,7 +1039,7 @@ append_to_buffer.exit578:                         ; preds = %433, %440
 .lr.ph1196:                                       ; preds = %469, %549
   %.05191194 = phi ptr [ %.0519, %549 ], [ %.05191192, %469 ]
   %471 = load ptr, ptr %.05191194, align 8
-  %472 = tail call i32 @strcmp(ptr noundef %471, ptr noundef %.pre1406) #31
+  %472 = tail call i32 @strcmp(ptr noundef %471, ptr noundef %.pre1406) #32
   %473 = icmp eq i32 %472, 0
   br i1 %473, label %474, label %549
 
@@ -1072,7 +1072,7 @@ ddict_open.exit:                                  ; preds = %478, %480
   br i1 %.not554, label %486, label %496
 
 486:                                              ; preds = %ddict_open.exit
-  %487 = tail call ptr @__errno_location() #32
+  %487 = tail call ptr @__errno_location() #33
   %488 = load i32, ptr %487, align 4
   %.not555 = icmp eq i32 %488, 0
   %489 = load ptr, ptr @stderr, align 8
@@ -1080,7 +1080,7 @@ ddict_open.exit:                                  ; preds = %478, %480
   br i1 %.not555, label %494, label %491
 
 491:                                              ; preds = %486
-  %492 = tail call ptr @g_strerror(i32 noundef %488) #32
+  %492 = tail call ptr @g_strerror(i32 noundef %488) #33
   %493 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %489, i32 noundef 2, ptr noundef nonnull @.str.9, ptr noundef %490, ptr noundef %492)
   br label %.thread
 
@@ -1243,11 +1243,11 @@ ddict_open.exit:                                  ; preds = %478, %480
 579:                                              ; preds = %.critedge.i
   %580 = getelementptr inbounds nuw i8, ptr %576, i64 8
   %581 = load ptr, ptr %580, align 8
-  tail call void @free(ptr noundef %581) #30
+  tail call void @free(ptr noundef %581) #31
   br label %582
 
 582:                                              ; preds = %579, %.critedge.i
-  tail call void @free(ptr noundef nonnull %576) #30
+  tail call void @free(ptr noundef nonnull %576) #31
   br label %DiamDict__delete_buffer.exit
 
 DiamDict__delete_buffer.exit:                     ; preds = %571, %573, %582
@@ -1345,7 +1345,7 @@ DiamDict__switch_to_buffer.exit587:               ; preds = %591, %.thread.i584,
 
 638:                                              ; preds = %121
   %639 = load ptr, ptr %58, align 8
-  %640 = tail call i64 @strtoul(ptr noundef captures(none) %639, ptr noundef null, i32 noundef 10) #30
+  %640 = tail call i64 @strtoul(ptr noundef captures(none) %639, ptr noundef null, i32 noundef 10) #31
   %641 = trunc i64 %640 to i32
   %642 = load ptr, ptr %0, align 8
   %643 = getelementptr inbounds nuw i8, ptr %642, i64 192
@@ -1367,7 +1367,7 @@ DiamDict__switch_to_buffer.exit587:               ; preds = %591, %.thread.i584,
   br i1 %651, label %652, label %yy_pop_state.exit
 
 652:                                              ; preds = %648
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.76) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.76) #34
   unreachable
 
 yy_pop_state.exit:                                ; preds = %648
@@ -1395,7 +1395,7 @@ yy_pop_state.exit:                                ; preds = %648
   br i1 %665, label %666, label %yy_pop_state.exit588
 
 666:                                              ; preds = %661
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.76) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.76) #34
   unreachable
 
 yy_pop_state.exit588:                             ; preds = %661
@@ -1420,7 +1420,7 @@ yy_pop_state.exit588:                             ; preds = %661
 
 675:                                              ; preds = %121
   tail call void (ptr, ...) @ddict_debug(ptr noundef nonnull @.str.19)
-  %676 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #29
+  %676 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #30
   %677 = load ptr, ptr %0, align 8
   %678 = getelementptr inbounds nuw i8, ptr %677, i64 48
   store ptr %676, ptr %678, align 8
@@ -1491,11 +1491,11 @@ yy_pop_state.exit588:                             ; preds = %661
   br i1 %.not18.i, label %716, label %718
 
 716:                                              ; preds = %711
-  %717 = tail call noalias ptr @malloc(i64 noundef %714) #34
+  %717 = tail call noalias ptr @malloc(i64 noundef %714) #35
   br label %720
 
 718:                                              ; preds = %711
-  %719 = tail call ptr @realloc(ptr noundef nonnull %715, i64 noundef %714) #35
+  %719 = tail call ptr @realloc(ptr noundef nonnull %715, i64 noundef %714) #36
   br label %720
 
 720:                                              ; preds = %718, %716
@@ -1509,7 +1509,7 @@ yy_pop_state.exit588:                             ; preds = %661
   br label %yy_push_state.exit
 
 721:                                              ; preds = %720
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #34
   unreachable
 
 yy_push_state.exit:                               ; preds = %._crit_edge.i, %._crit_edge20.i
@@ -1553,11 +1553,11 @@ yy_push_state.exit:                               ; preds = %._crit_edge.i, %._c
   br i1 %.not18.i592, label %743, label %745
 
 743:                                              ; preds = %738
-  %744 = tail call noalias ptr @malloc(i64 noundef %741) #34
+  %744 = tail call noalias ptr @malloc(i64 noundef %741) #35
   br label %747
 
 745:                                              ; preds = %738
-  %746 = tail call ptr @realloc(ptr noundef nonnull %742, i64 noundef %741) #35
+  %746 = tail call ptr @realloc(ptr noundef nonnull %742, i64 noundef %741) #36
   br label %747
 
 747:                                              ; preds = %745, %743
@@ -1571,7 +1571,7 @@ yy_push_state.exit:                               ; preds = %._crit_edge.i, %._c
   br label %yy_push_state.exit600
 
 748:                                              ; preds = %747
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #34
   unreachable
 
 yy_push_state.exit600:                            ; preds = %._crit_edge.i597, %._crit_edge20.i595
@@ -1598,7 +1598,7 @@ yy_push_state.exit600:                            ; preds = %._crit_edge.i597, %
 
 759:                                              ; preds = %121
   tail call void (ptr, ...) @ddict_debug(ptr noundef nonnull @.str.22)
-  %760 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc(i64 noundef 32) #29
+  %760 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc(i64 noundef 32) #30
   %761 = load ptr, ptr %0, align 8
   %762 = getelementptr inbounds nuw i8, ptr %761, i64 88
   store ptr %760, ptr %762, align 8
@@ -1675,11 +1675,11 @@ yy_push_state.exit600:                            ; preds = %._crit_edge.i597, %
   br i1 %.not18.i602, label %805, label %807
 
 805:                                              ; preds = %800
-  %806 = tail call noalias ptr @malloc(i64 noundef %803) #34
+  %806 = tail call noalias ptr @malloc(i64 noundef %803) #35
   br label %809
 
 807:                                              ; preds = %800
-  %808 = tail call ptr @realloc(ptr noundef nonnull %804, i64 noundef %803) #35
+  %808 = tail call ptr @realloc(ptr noundef nonnull %804, i64 noundef %803) #36
   br label %809
 
 809:                                              ; preds = %807, %805
@@ -1693,7 +1693,7 @@ yy_push_state.exit600:                            ; preds = %._crit_edge.i597, %
   br label %yy_push_state.exit610
 
 810:                                              ; preds = %809
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #34
   unreachable
 
 yy_push_state.exit610:                            ; preds = %._crit_edge.i607, %._crit_edge20.i605
@@ -1737,11 +1737,11 @@ yy_push_state.exit610:                            ; preds = %._crit_edge.i607, %
   br i1 %.not18.i612, label %832, label %834
 
 832:                                              ; preds = %827
-  %833 = tail call noalias ptr @malloc(i64 noundef %830) #34
+  %833 = tail call noalias ptr @malloc(i64 noundef %830) #35
   br label %836
 
 834:                                              ; preds = %827
-  %835 = tail call ptr @realloc(ptr noundef nonnull %831, i64 noundef %830) #35
+  %835 = tail call ptr @realloc(ptr noundef nonnull %831, i64 noundef %830) #36
   br label %836
 
 836:                                              ; preds = %834, %832
@@ -1755,7 +1755,7 @@ yy_push_state.exit610:                            ; preds = %._crit_edge.i607, %
   br label %yy_push_state.exit620
 
 837:                                              ; preds = %836
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #34
   unreachable
 
 yy_push_state.exit620:                            ; preds = %._crit_edge.i617, %._crit_edge20.i615
@@ -1799,11 +1799,11 @@ yy_push_state.exit620:                            ; preds = %._crit_edge.i617, %
   br i1 %.not18.i622, label %859, label %861
 
 859:                                              ; preds = %854
-  %860 = tail call noalias ptr @malloc(i64 noundef %857) #34
+  %860 = tail call noalias ptr @malloc(i64 noundef %857) #35
   br label %863
 
 861:                                              ; preds = %854
-  %862 = tail call ptr @realloc(ptr noundef nonnull %858, i64 noundef %857) #35
+  %862 = tail call ptr @realloc(ptr noundef nonnull %858, i64 noundef %857) #36
   br label %863
 
 863:                                              ; preds = %861, %859
@@ -1817,7 +1817,7 @@ yy_push_state.exit620:                            ; preds = %._crit_edge.i617, %
   br label %yy_push_state.exit630
 
 864:                                              ; preds = %863
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #34
   unreachable
 
 yy_push_state.exit630:                            ; preds = %._crit_edge.i627, %._crit_edge20.i625
@@ -1840,7 +1840,7 @@ yy_push_state.exit630:                            ; preds = %._crit_edge.i627, %
 
 874:                                              ; preds = %121
   tail call void (ptr, ...) @ddict_debug(ptr noundef nonnull @.str.26)
-  %875 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc(i64 noundef 32) #29
+  %875 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc(i64 noundef 32) #30
   %876 = load ptr, ptr %0, align 8
   %877 = getelementptr inbounds nuw i8, ptr %876, i64 96
   store ptr %875, ptr %877, align 8
@@ -1913,11 +1913,11 @@ yy_push_state.exit630:                            ; preds = %._crit_edge.i627, %
   br i1 %.not18.i632, label %917, label %919
 
 917:                                              ; preds = %912
-  %918 = tail call noalias ptr @malloc(i64 noundef %915) #34
+  %918 = tail call noalias ptr @malloc(i64 noundef %915) #35
   br label %921
 
 919:                                              ; preds = %912
-  %920 = tail call ptr @realloc(ptr noundef nonnull %916, i64 noundef %915) #35
+  %920 = tail call ptr @realloc(ptr noundef nonnull %916, i64 noundef %915) #36
   br label %921
 
 921:                                              ; preds = %919, %917
@@ -1931,7 +1931,7 @@ yy_push_state.exit630:                            ; preds = %._crit_edge.i627, %
   br label %yy_push_state.exit640
 
 922:                                              ; preds = %921
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #34
   unreachable
 
 yy_push_state.exit640:                            ; preds = %._crit_edge.i637, %._crit_edge20.i635
@@ -1974,11 +1974,11 @@ yy_push_state.exit640:                            ; preds = %._crit_edge.i637, %
   br i1 %.not18.i642, label %943, label %945
 
 943:                                              ; preds = %938
-  %944 = tail call noalias ptr @malloc(i64 noundef %941) #34
+  %944 = tail call noalias ptr @malloc(i64 noundef %941) #35
   br label %947
 
 945:                                              ; preds = %938
-  %946 = tail call ptr @realloc(ptr noundef nonnull %942, i64 noundef %941) #35
+  %946 = tail call ptr @realloc(ptr noundef nonnull %942, i64 noundef %941) #36
   br label %947
 
 947:                                              ; preds = %945, %943
@@ -1992,7 +1992,7 @@ yy_push_state.exit640:                            ; preds = %._crit_edge.i637, %
   br label %yy_push_state.exit650
 
 948:                                              ; preds = %947
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #34
   unreachable
 
 yy_push_state.exit650:                            ; preds = %._crit_edge.i647, %._crit_edge20.i645
@@ -2036,11 +2036,11 @@ yy_push_state.exit650:                            ; preds = %._crit_edge.i647, %
   br i1 %.not18.i652, label %970, label %972
 
 970:                                              ; preds = %965
-  %971 = tail call noalias ptr @malloc(i64 noundef %968) #34
+  %971 = tail call noalias ptr @malloc(i64 noundef %968) #35
   br label %974
 
 972:                                              ; preds = %965
-  %973 = tail call ptr @realloc(ptr noundef nonnull %969, i64 noundef %968) #35
+  %973 = tail call ptr @realloc(ptr noundef nonnull %969, i64 noundef %968) #36
   br label %974
 
 974:                                              ; preds = %972, %970
@@ -2054,7 +2054,7 @@ yy_push_state.exit650:                            ; preds = %._crit_edge.i647, %
   br label %yy_push_state.exit660
 
 975:                                              ; preds = %974
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #34
   unreachable
 
 yy_push_state.exit660:                            ; preds = %._crit_edge.i657, %._crit_edge20.i655
@@ -2081,7 +2081,7 @@ yy_push_state.exit660:                            ; preds = %._crit_edge.i657, %
 
 986:                                              ; preds = %121
   tail call void (ptr, ...) @ddict_debug(ptr noundef nonnull @.str.30)
-  %987 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #29
+  %987 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #30
   %988 = load ptr, ptr %0, align 8
   %989 = getelementptr inbounds nuw i8, ptr %988, i64 80
   store ptr %987, ptr %989, align 8
@@ -2153,11 +2153,11 @@ yy_push_state.exit660:                            ; preds = %._crit_edge.i657, %
   br i1 %.not18.i662, label %1028, label %1030
 
 1028:                                             ; preds = %1023
-  %1029 = tail call noalias ptr @malloc(i64 noundef %1026) #34
+  %1029 = tail call noalias ptr @malloc(i64 noundef %1026) #35
   br label %1032
 
 1030:                                             ; preds = %1023
-  %1031 = tail call ptr @realloc(ptr noundef nonnull %1027, i64 noundef %1026) #35
+  %1031 = tail call ptr @realloc(ptr noundef nonnull %1027, i64 noundef %1026) #36
   br label %1032
 
 1032:                                             ; preds = %1030, %1028
@@ -2171,7 +2171,7 @@ yy_push_state.exit660:                            ; preds = %._crit_edge.i657, %
   br label %yy_push_state.exit670
 
 1033:                                             ; preds = %1032
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #34
   unreachable
 
 yy_push_state.exit670:                            ; preds = %._crit_edge.i667, %._crit_edge20.i665
@@ -2215,11 +2215,11 @@ yy_push_state.exit670:                            ; preds = %._crit_edge.i667, %
   br i1 %.not18.i672, label %1055, label %1057
 
 1055:                                             ; preds = %1050
-  %1056 = tail call noalias ptr @malloc(i64 noundef %1053) #34
+  %1056 = tail call noalias ptr @malloc(i64 noundef %1053) #35
   br label %1059
 
 1057:                                             ; preds = %1050
-  %1058 = tail call ptr @realloc(ptr noundef nonnull %1054, i64 noundef %1053) #35
+  %1058 = tail call ptr @realloc(ptr noundef nonnull %1054, i64 noundef %1053) #36
   br label %1059
 
 1059:                                             ; preds = %1057, %1055
@@ -2233,7 +2233,7 @@ yy_push_state.exit670:                            ; preds = %._crit_edge.i667, %
   br label %yy_push_state.exit680
 
 1060:                                             ; preds = %1059
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #34
   unreachable
 
 yy_push_state.exit680:                            ; preds = %._crit_edge.i677, %._crit_edge20.i675
@@ -2256,7 +2256,7 @@ yy_push_state.exit680:                            ; preds = %._crit_edge.i677, %
 
 1070:                                             ; preds = %121
   tail call void (ptr, ...) @ddict_debug(ptr noundef nonnull @.str.33)
-  %1071 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc(i64 noundef 64) #29
+  %1071 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc(i64 noundef 64) #30
   %1072 = load ptr, ptr %0, align 8
   %1073 = getelementptr inbounds nuw i8, ptr %1072, i64 56
   store ptr %1071, ptr %1073, align 8
@@ -2353,11 +2353,11 @@ yy_push_state.exit680:                            ; preds = %._crit_edge.i677, %
   br i1 %.not18.i682, label %1132, label %1134
 
 1132:                                             ; preds = %1127
-  %1133 = tail call noalias ptr @malloc(i64 noundef %1130) #34
+  %1133 = tail call noalias ptr @malloc(i64 noundef %1130) #35
   br label %1136
 
 1134:                                             ; preds = %1127
-  %1135 = tail call ptr @realloc(ptr noundef nonnull %1131, i64 noundef %1130) #35
+  %1135 = tail call ptr @realloc(ptr noundef nonnull %1131, i64 noundef %1130) #36
   br label %1136
 
 1136:                                             ; preds = %1134, %1132
@@ -2371,7 +2371,7 @@ yy_push_state.exit680:                            ; preds = %._crit_edge.i677, %
   br label %yy_push_state.exit690
 
 1137:                                             ; preds = %1136
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #34
   unreachable
 
 yy_push_state.exit690:                            ; preds = %._crit_edge.i687, %._crit_edge20.i685
@@ -2415,11 +2415,11 @@ yy_push_state.exit690:                            ; preds = %._crit_edge.i687, %
   br i1 %.not18.i692, label %1159, label %1161
 
 1159:                                             ; preds = %1154
-  %1160 = tail call noalias ptr @malloc(i64 noundef %1157) #34
+  %1160 = tail call noalias ptr @malloc(i64 noundef %1157) #35
   br label %1163
 
 1161:                                             ; preds = %1154
-  %1162 = tail call ptr @realloc(ptr noundef nonnull %1158, i64 noundef %1157) #35
+  %1162 = tail call ptr @realloc(ptr noundef nonnull %1158, i64 noundef %1157) #36
   br label %1163
 
 1163:                                             ; preds = %1161, %1159
@@ -2433,7 +2433,7 @@ yy_push_state.exit690:                            ; preds = %._crit_edge.i687, %
   br label %yy_push_state.exit700
 
 1164:                                             ; preds = %1163
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #34
   unreachable
 
 yy_push_state.exit700:                            ; preds = %._crit_edge.i697, %._crit_edge20.i695
@@ -2477,11 +2477,11 @@ yy_push_state.exit700:                            ; preds = %._crit_edge.i697, %
   br i1 %.not18.i702, label %1186, label %1188
 
 1186:                                             ; preds = %1181
-  %1187 = tail call noalias ptr @malloc(i64 noundef %1184) #34
+  %1187 = tail call noalias ptr @malloc(i64 noundef %1184) #35
   br label %1190
 
 1188:                                             ; preds = %1181
-  %1189 = tail call ptr @realloc(ptr noundef nonnull %1185, i64 noundef %1184) #35
+  %1189 = tail call ptr @realloc(ptr noundef nonnull %1185, i64 noundef %1184) #36
   br label %1190
 
 1190:                                             ; preds = %1188, %1186
@@ -2495,7 +2495,7 @@ yy_push_state.exit700:                            ; preds = %._crit_edge.i697, %
   br label %yy_push_state.exit710
 
 1191:                                             ; preds = %1190
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #34
   unreachable
 
 yy_push_state.exit710:                            ; preds = %._crit_edge.i707, %._crit_edge20.i705
@@ -2539,11 +2539,11 @@ yy_push_state.exit710:                            ; preds = %._crit_edge.i707, %
   br i1 %.not18.i712, label %1213, label %1215
 
 1213:                                             ; preds = %1208
-  %1214 = tail call noalias ptr @malloc(i64 noundef %1211) #34
+  %1214 = tail call noalias ptr @malloc(i64 noundef %1211) #35
   br label %1217
 
 1215:                                             ; preds = %1208
-  %1216 = tail call ptr @realloc(ptr noundef nonnull %1212, i64 noundef %1211) #35
+  %1216 = tail call ptr @realloc(ptr noundef nonnull %1212, i64 noundef %1211) #36
   br label %1217
 
 1217:                                             ; preds = %1215, %1213
@@ -2557,7 +2557,7 @@ yy_push_state.exit710:                            ; preds = %._crit_edge.i707, %
   br label %yy_push_state.exit720
 
 1218:                                             ; preds = %1217
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #34
   unreachable
 
 yy_push_state.exit720:                            ; preds = %._crit_edge.i717, %._crit_edge20.i715
@@ -2622,11 +2622,11 @@ yy_push_state.exit720:                            ; preds = %._crit_edge.i717, %
   br i1 %.not18.i722, label %1249, label %1251
 
 1249:                                             ; preds = %1244
-  %1250 = tail call noalias ptr @malloc(i64 noundef %1247) #34
+  %1250 = tail call noalias ptr @malloc(i64 noundef %1247) #35
   br label %1253
 
 1251:                                             ; preds = %1244
-  %1252 = tail call ptr @realloc(ptr noundef nonnull %1248, i64 noundef %1247) #35
+  %1252 = tail call ptr @realloc(ptr noundef nonnull %1248, i64 noundef %1247) #36
   br label %1253
 
 1253:                                             ; preds = %1251, %1249
@@ -2640,7 +2640,7 @@ yy_push_state.exit720:                            ; preds = %._crit_edge.i717, %
   br label %yy_push_state.exit730
 
 1254:                                             ; preds = %1253
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #34
   unreachable
 
 yy_push_state.exit730:                            ; preds = %._crit_edge.i727, %._crit_edge20.i725
@@ -2659,7 +2659,7 @@ yy_push_state.exit730:                            ; preds = %._crit_edge.i727, %
 
 1263:                                             ; preds = %121
   tail call void (ptr, ...) @ddict_debug(ptr noundef nonnull @.str.40)
-  %1264 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #29
+  %1264 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #30
   %1265 = load ptr, ptr %0, align 8
   %1266 = getelementptr inbounds nuw i8, ptr %1265, i64 72
   store ptr %1264, ptr %1266, align 8
@@ -2731,11 +2731,11 @@ yy_push_state.exit730:                            ; preds = %._crit_edge.i727, %
   br i1 %.not18.i732, label %1305, label %1307
 
 1305:                                             ; preds = %1300
-  %1306 = tail call noalias ptr @malloc(i64 noundef %1303) #34
+  %1306 = tail call noalias ptr @malloc(i64 noundef %1303) #35
   br label %1309
 
 1307:                                             ; preds = %1300
-  %1308 = tail call ptr @realloc(ptr noundef nonnull %1304, i64 noundef %1303) #35
+  %1308 = tail call ptr @realloc(ptr noundef nonnull %1304, i64 noundef %1303) #36
   br label %1309
 
 1309:                                             ; preds = %1307, %1305
@@ -2749,7 +2749,7 @@ yy_push_state.exit730:                            ; preds = %._crit_edge.i727, %
   br label %yy_push_state.exit740
 
 1310:                                             ; preds = %1309
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #34
   unreachable
 
 yy_push_state.exit740:                            ; preds = %._crit_edge.i737, %._crit_edge20.i735
@@ -2768,7 +2768,7 @@ yy_push_state.exit740:                            ; preds = %._crit_edge.i737, %
 
 1319:                                             ; preds = %121
   tail call void (ptr, ...) @ddict_debug(ptr noundef nonnull @.str.42)
-  %1320 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #29
+  %1320 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #30
   %1321 = load ptr, ptr %0, align 8
   %1322 = getelementptr inbounds nuw i8, ptr %1321, i64 64
   store ptr %1320, ptr %1322, align 8
@@ -2840,11 +2840,11 @@ yy_push_state.exit740:                            ; preds = %._crit_edge.i737, %
   br i1 %.not18.i742, label %1361, label %1363
 
 1361:                                             ; preds = %1356
-  %1362 = tail call noalias ptr @malloc(i64 noundef %1359) #34
+  %1362 = tail call noalias ptr @malloc(i64 noundef %1359) #35
   br label %1365
 
 1363:                                             ; preds = %1356
-  %1364 = tail call ptr @realloc(ptr noundef nonnull %1360, i64 noundef %1359) #35
+  %1364 = tail call ptr @realloc(ptr noundef nonnull %1360, i64 noundef %1359) #36
   br label %1365
 
 1365:                                             ; preds = %1363, %1361
@@ -2858,7 +2858,7 @@ yy_push_state.exit740:                            ; preds = %._crit_edge.i737, %
   br label %yy_push_state.exit750
 
 1366:                                             ; preds = %1365
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #34
   unreachable
 
 yy_push_state.exit750:                            ; preds = %._crit_edge.i747, %._crit_edge20.i745
@@ -2902,11 +2902,11 @@ yy_push_state.exit750:                            ; preds = %._crit_edge.i747, %
   br i1 %.not18.i752, label %1388, label %1390
 
 1388:                                             ; preds = %1383
-  %1389 = tail call noalias ptr @malloc(i64 noundef %1386) #34
+  %1389 = tail call noalias ptr @malloc(i64 noundef %1386) #35
   br label %1392
 
 1390:                                             ; preds = %1383
-  %1391 = tail call ptr @realloc(ptr noundef nonnull %1387, i64 noundef %1386) #35
+  %1391 = tail call ptr @realloc(ptr noundef nonnull %1387, i64 noundef %1386) #36
   br label %1392
 
 1392:                                             ; preds = %1390, %1388
@@ -2920,7 +2920,7 @@ yy_push_state.exit750:                            ; preds = %._crit_edge.i747, %
   br label %yy_push_state.exit760
 
 1393:                                             ; preds = %1392
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #34
   unreachable
 
 yy_push_state.exit760:                            ; preds = %._crit_edge.i757, %._crit_edge20.i755
@@ -2992,11 +2992,11 @@ yy_push_state.exit760:                            ; preds = %._crit_edge.i757, %
   br i1 %.not18.i762, label %1418, label %1420
 
 1418:                                             ; preds = %1413
-  %1419 = tail call noalias ptr @malloc(i64 noundef %1416) #34
+  %1419 = tail call noalias ptr @malloc(i64 noundef %1416) #35
   br label %1422
 
 1420:                                             ; preds = %1413
-  %1421 = tail call ptr @realloc(ptr noundef nonnull %1417, i64 noundef %1416) #35
+  %1421 = tail call ptr @realloc(ptr noundef nonnull %1417, i64 noundef %1416) #36
   br label %1422
 
 1422:                                             ; preds = %1420, %1418
@@ -3010,7 +3010,7 @@ yy_push_state.exit760:                            ; preds = %._crit_edge.i757, %
   br label %yy_push_state.exit770
 
 1423:                                             ; preds = %1422
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #34
   unreachable
 
 yy_push_state.exit770:                            ; preds = %._crit_edge.i767, %._crit_edge20.i765
@@ -3232,7 +3232,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i775, %1517
   br i1 %1545, label %1546, label %1547
 
 1546:                                             ; preds = %1540
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.71) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.71) #34
   unreachable
 
 1547:                                             ; preds = %1540
@@ -3334,13 +3334,13 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i775, %1517
   store i32 %storemerge108.i, ptr %1587, align 8
   %1594 = add i32 %storemerge108.i, 2
   %1595 = sext i32 %1594 to i64
-  %1596 = tail call ptr @realloc(ptr noundef %1580, i64 noundef %1595) #35
+  %1596 = tail call ptr @realloc(ptr noundef %1580, i64 noundef %1595) #36
   store ptr %1596, ptr %1579, align 8
   %.not109.i = icmp eq ptr %1596, null
   br i1 %.not109.i, label %.loopexit.i, label %1597
 
 .loopexit.i:                                      ; preds = %1593, %.thread.i782
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.72) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.72) #34
   unreachable
 
 1597:                                             ; preds = %1593
@@ -3426,7 +3426,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i775, %1517
   %1647 = getelementptr inbounds nuw i8, ptr %1640, i64 8
   %1648 = load ptr, ptr %1647, align 8
   %1649 = sext i32 %1646 to i64
-  %1650 = tail call ptr @realloc(ptr noundef %1648, i64 noundef %1649) #35
+  %1650 = tail call ptr @realloc(ptr noundef %1648, i64 noundef %1649) #36
   %1651 = load ptr, ptr %60, align 8
   %1652 = load i64, ptr %61, align 8
   %1653 = getelementptr ptr, ptr %1651, i64 %1652
@@ -3443,7 +3443,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i775, %1517
   br i1 %.not111.i, label %1662, label %1663
 
 1662:                                             ; preds = %1644
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.73) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.73) #34
   unreachable
 
 1663:                                             ; preds = %1644
@@ -3690,7 +3690,7 @@ yy_get_previous_state.exit801:                    ; preds = %yy_get_next_buffer.
   br label %121
 
 1792:                                             ; preds = %121
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.51) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.51) #34
   unreachable
 
 .thread:                                          ; preds = %554, %121, %491, %494, %.critedge, %466, %570
@@ -3711,13 +3711,13 @@ define internal fastcc void @DiamDict_ensure_buffer_stack(ptr noundef captures(n
   br i1 %.not, label %4, label %10
 
 4:                                                ; preds = %1
-  %5 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #34
+  %5 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #35
   store ptr %5, ptr %2, align 8
   %.not26 = icmp eq ptr %5, null
   br i1 %.not26, label %6, label %7
 
 6:                                                ; preds = %4
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.74) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.74) #34
   unreachable
 
 7:                                                ; preds = %4
@@ -3740,13 +3740,13 @@ define internal fastcc void @DiamDict_ensure_buffer_stack(ptr noundef captures(n
 16:                                               ; preds = %10
   %17 = add i64 %14, 8
   %18 = shl i64 %17, 3
-  %19 = tail call ptr @realloc(ptr noundef nonnull %3, i64 noundef %18) #35
+  %19 = tail call ptr @realloc(ptr noundef nonnull %3, i64 noundef %18) #36
   store ptr %19, ptr %2, align 8
   %.not28 = icmp eq ptr %19, null
   br i1 %.not28, label %20, label %21
 
 20:                                               ; preds = %16
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.74) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.74) #34
   unreachable
 
 21:                                               ; preds = %16
@@ -3754,7 +3754,7 @@ define internal fastcc void @DiamDict_ensure_buffer_stack(ptr noundef captures(n
   %.idx = shl i64 %22, 3
   %23 = getelementptr ptr, ptr %19, i64 %22
   %24 = tail call i64 @llvm.usub.sat.i64(i64 %18, i64 %.idx)
-  %25 = tail call ptr @__memset_chk(ptr noundef %23, i32 noundef 0, i64 noundef 64, i64 noundef %24) #30
+  %25 = tail call ptr @__memset_chk(ptr noundef %23, i32 noundef 0, i64 noundef 64, i64 noundef %24) #31
   store i64 %17, ptr %13, align 8
   br label %26
 
@@ -3764,12 +3764,12 @@ define internal fastcc void @DiamDict_ensure_buffer_stack(ptr noundef captures(n
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden nonnull ptr @DiamDict__create_buffer(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
-  %4 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #34
+  %4 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #35
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.52) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.52) #34
   unreachable
 
 6:                                                ; preds = %3
@@ -3777,20 +3777,20 @@ define hidden nonnull ptr @DiamDict__create_buffer(ptr noundef %0, i32 noundef %
   store i32 %1, ptr %7, align 8
   %8 = add i32 %1, 2
   %9 = sext i32 %8 to i64
-  %10 = tail call noalias ptr @malloc(i64 noundef %9) #34
+  %10 = tail call noalias ptr @malloc(i64 noundef %9) #35
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %11, align 8
   %.not12 = icmp eq ptr %10, null
   br i1 %.not12, label %12, label %13
 
 12:                                               ; preds = %6
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.52) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.52) #34
   unreachable
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 1, ptr %14, align 8
-  %15 = tail call ptr @__errno_location() #32
+  %15 = tail call ptr @__errno_location() #33
   %16 = load i32, ptr %15, align 4
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 0, ptr %17, align 4
@@ -3885,7 +3885,7 @@ define internal void @ddict_debug(ptr noundef %0, ...) unnamed_addr #4 {
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @stderr, align 8
-  %6 = call i32 @__vfprintf_chk(ptr noundef %5, i32 noundef 2, ptr noundef %0, ptr noundef nonnull %2) #30
+  %6 = call i32 @__vfprintf_chk(ptr noundef %5, i32 noundef 2, ptr noundef %0, ptr noundef nonnull %2) #31
   br label %7
 
 7:                                                ; preds = %4, %1
@@ -3992,7 +3992,7 @@ define hidden void @DiamDict__switch_to_buffer(ptr noundef %0, ptr noundef captu
   ret void
 }
 
-; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong willreturn uwtable
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @DiamDict__delete_buffer(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %3
@@ -4024,11 +4024,11 @@ define hidden void @DiamDict__delete_buffer(ptr noundef captures(address) %0, pt
 15:                                               ; preds = %.critedge
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
-  tail call void @free(ptr noundef %17) #30
+  tail call void @free(ptr noundef %17) #31
   br label %18
 
 18:                                               ; preds = %15, %.critedge
-  tail call void @free(ptr noundef nonnull %0) #30
+  tail call void @free(ptr noundef nonnull %0) #31
   br label %19
 
 19:                                               ; preds = %2, %18
@@ -4042,7 +4042,7 @@ declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 nound
 define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #9 {
   %2 = load ptr, ptr @stderr, align 8
   %3 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %2, i32 noundef 2, ptr noundef nonnull @.str.14, ptr noundef %0)
-  tail call void @exit(i32 noundef 2) #36
+  tail call void @exit(i32 noundef 2) #37
   unreachable
 }
 
@@ -4076,7 +4076,7 @@ define hidden void @DiamDict_restart(ptr noundef %0, ptr noundef captures(none) 
   br i1 %.not17, label %.thread, label %.thread25
 
 .thread:                                          ; preds = %10
-  %18 = tail call ptr @__errno_location() #32
+  %18 = tail call ptr @__errno_location() #33
   %19 = load i32, ptr %18, align 4
   br label %DiamDict__flush_buffer.exit.i
 
@@ -4086,7 +4086,7 @@ define hidden void @DiamDict_restart(ptr noundef %0, ptr noundef captures(none) 
   %22 = load i64, ptr %21, align 8
   %23 = getelementptr ptr, ptr %20, i64 %22
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call ptr @__errno_location() #32
+  %25 = tail call ptr @__errno_location() #33
   %26 = load i32, ptr %25, align 4
   %.not.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i, label %DiamDict__flush_buffer.exit.i, label %27
@@ -4205,7 +4205,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 ; Function Attrs: mustprogress nounwind null_pointer_is_valid willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @DiamDict__flush_buffer(ptr noundef captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %3
@@ -4358,7 +4358,7 @@ define hidden void @DiamDict_push_buffer_state(ptr noundef %0, ptr noundef captu
   ret void
 }
 
-; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong willreturn uwtable
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @DiamDict_pop_buffer_state(ptr noundef captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -4383,11 +4383,11 @@ define hidden void @DiamDict_pop_buffer_state(ptr noundef captures(none) %0) loc
 11:                                               ; preds = %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load ptr, ptr %12, align 8
-  tail call void @free(ptr noundef %13) #30
+  tail call void @free(ptr noundef %13) #31
   br label %DiamDict__delete_buffer.exit
 
 DiamDict__delete_buffer.exit:                     ; preds = %.critedge.i, %11
-  tail call void @free(ptr noundef nonnull %8) #30
+  tail call void @free(ptr noundef nonnull %8) #31
   %14 = load ptr, ptr %2, align 8
   %15 = load i64, ptr %5, align 8
   %16 = getelementptr ptr, ptr %14, i64 %15
@@ -4460,12 +4460,12 @@ define hidden noundef ptr @DiamDict__scan_buffer(ptr noundef %0, i64 noundef %1,
   br i1 %.not25, label %13, label %DiamDict__switch_to_buffer.exit
 
 13:                                               ; preds = %9
-  %14 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #34
+  %14 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #35
   %.not26 = icmp eq ptr %14, null
   br i1 %.not26, label %15, label %16
 
 15:                                               ; preds = %13
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.53) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.53) #34
   unreachable
 
 16:                                               ; preds = %13
@@ -4570,11 +4570,11 @@ DiamDict__switch_to_buffer.exit:                  ; preds = %53, %.thread.i, %3,
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden nonnull ptr @DiamDict__scan_string(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
-  %3 = tail call i64 @strlen(ptr noundef %0) #31
+  %3 = tail call i64 @strlen(ptr noundef %0) #32
   %4 = shl i64 %3, 32
   %sext = add i64 %4, 8589934592
   %5 = ashr exact i64 %sext, 32
-  %6 = tail call noalias ptr @malloc(i64 noundef %5) #34
+  %6 = tail call noalias ptr @malloc(i64 noundef %5) #35
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %10, label %.preheader.i
 
@@ -4589,7 +4589,7 @@ define hidden nonnull ptr @DiamDict__scan_string(ptr noundef readonly captures(n
   br label %._crit_edge.i
 
 10:                                               ; preds = %2
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.54) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.54) #34
   unreachable
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %.preheader.i
@@ -4605,7 +4605,7 @@ define hidden nonnull ptr @DiamDict__scan_string(ptr noundef readonly captures(n
   br i1 %.not24.i, label %16, label %DiamDict__scan_bytes.exit
 
 16:                                               ; preds = %._crit_edge.i
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.55) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.55) #34
   unreachable
 
 DiamDict__scan_bytes.exit:                        ; preds = %._crit_edge.i
@@ -4618,7 +4618,7 @@ DiamDict__scan_bytes.exit:                        ; preds = %._crit_edge.i
 define hidden nonnull ptr @DiamDict__scan_bytes(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = add i32 %1, 2
   %5 = sext i32 %4 to i64
-  %6 = tail call noalias ptr @malloc(i64 noundef %5) #34
+  %6 = tail call noalias ptr @malloc(i64 noundef %5) #35
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %.preheader
 
@@ -4632,7 +4632,7 @@ define hidden nonnull ptr @DiamDict__scan_bytes(ptr noundef readonly captures(no
   br label %._crit_edge
 
 9:                                                ; preds = %3
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.54) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.54) #34
   unreachable
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %.preheader
@@ -4648,7 +4648,7 @@ define hidden nonnull ptr @DiamDict__scan_bytes(ptr noundef readonly captures(no
   br i1 %.not24, label %16, label %17
 
 16:                                               ; preds = %._crit_edge
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.55) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.55) #34
   unreachable
 
 17:                                               ; preds = %._crit_edge
@@ -4660,7 +4660,7 @@ define hidden nonnull ptr @DiamDict__scan_bytes(ptr noundef readonly captures(no
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden i32 @DiamDict_get_lineno(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -4685,7 +4685,7 @@ define hidden i32 @DiamDict_get_lineno(ptr noundef readonly captures(none) %0) l
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden i32 @DiamDict_get_column(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -4760,7 +4760,7 @@ define hidden void @DiamDict_set_lineno(i32 noundef %0, ptr noundef readonly cap
   br i1 %.not8, label %10, label %11
 
 10:                                               ; preds = %2, %5
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.56) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.56) #34
   unreachable
 
 11:                                               ; preds = %5
@@ -4785,7 +4785,7 @@ define hidden void @DiamDict_set_column(i32 noundef %0, ptr noundef readonly cap
   br i1 %.not8, label %10, label %11
 
 10:                                               ; preds = %2, %5
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.57) #33
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.57) #34
   unreachable
 
 11:                                               ; preds = %5
@@ -4822,7 +4822,7 @@ define hidden void @DiamDict_set_debug(i32 noundef %0, ptr noundef writeonly cap
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid sspstrong willreturn memory(write, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid sspstrong willreturn memory(write, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden range(i32 0, 2) i32 @DiamDict_lex_init(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #15 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
@@ -4835,7 +4835,7 @@ define hidden range(i32 0, 2) i32 @DiamDict_lex_init(ptr noundef writeonly captu
 
 .sink.split:                                      ; preds = %3, %1
   %.sink = phi i32 [ 22, %1 ], [ 12, %3 ]
-  %5 = tail call ptr @__errno_location() #32
+  %5 = tail call ptr @__errno_location() #33
   store i32 %.sink, ptr %5, align 4
   br label %6
 
@@ -4844,13 +4844,13 @@ define hidden range(i32 0, 2) i32 @DiamDict_lex_init(ptr noundef writeonly captu
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid sspstrong willreturn memory(write, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid sspstrong willreturn memory(write, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden range(i32 0, 2) i32 @DiamDict_lex_init_extra(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @__errno_location() #32
+  %5 = tail call ptr @__errno_location() #33
   store i32 22, ptr %5, align 4
   br label %11
 
@@ -4861,7 +4861,7 @@ define hidden range(i32 0, 2) i32 @DiamDict_lex_init_extra(ptr noundef %0, ptr n
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call ptr @__errno_location() #32
+  %9 = tail call ptr @__errno_location() #33
   store i32 12, ptr %9, align 4
   br label %11
 
@@ -4874,8 +4874,8 @@ define hidden range(i32 0, 2) i32 @DiamDict_lex_init_extra(ptr noundef %0, ptr n
   ret i32 %.0
 }
 
-; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
-define hidden noundef i32 @DiamDict_lex_destroy(ptr noundef captures(none) %0) local_unnamed_addr #4 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define hidden noundef i32 @DiamDict_lex_destroy(ptr noundef captures(none) %0) local_unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -4907,11 +4907,11 @@ define hidden noundef i32 @DiamDict_lex_destroy(ptr noundef captures(none) %0) l
 19:                                               ; preds = %.critedge.i
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %21 = load ptr, ptr %20, align 8
-  tail call void @free(ptr noundef %21) #30
+  tail call void @free(ptr noundef %21) #31
   br label %DiamDict__delete_buffer.exit
 
 DiamDict__delete_buffer.exit:                     ; preds = %.critedge.i, %19
-  tail call void @free(ptr noundef nonnull %15) #30
+  tail call void @free(ptr noundef nonnull %15) #31
   %22 = load ptr, ptr %3, align 8
   %23 = load i64, ptr %2, align 8
   %24 = getelementptr ptr, ptr %22, i64 %23
@@ -4937,11 +4937,11 @@ DiamDict__delete_buffer.exit:                     ; preds = %.critedge.i, %19
 32:                                               ; preds = %.critedge.i.i
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %34 = load ptr, ptr %33, align 8
-  tail call void @free(ptr noundef %34) #30
+  tail call void @free(ptr noundef %34) #31
   br label %DiamDict__delete_buffer.exit.i
 
 DiamDict__delete_buffer.exit.i:                   ; preds = %32, %.critedge.i.i
-  tail call void @free(ptr noundef nonnull %29) #30
+  tail call void @free(ptr noundef nonnull %29) #31
   %35 = load ptr, ptr %3, align 8
   %36 = load i64, ptr %2, align 8
   %37 = getelementptr ptr, ptr %35, i64 %36
@@ -4994,17 +4994,17 @@ DiamDict_pop_buffer_state.exit:                   ; preds = %26, %44, %47
 
 .critedge:                                        ; preds = %DiamDict_pop_buffer_state.exit, %DiamDict__delete_buffer.exit, %41, %.lr.ph, %1
   %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %41 ], [ null, %DiamDict__delete_buffer.exit ], [ %56, %DiamDict_pop_buffer_state.exit ]
-  tail call void @free(ptr noundef %.lcssa) #30
+  tail call void @free(ptr noundef %.lcssa) #31
   store ptr null, ptr %3, align 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %62 = load ptr, ptr %61, align 8
-  tail call void @free(ptr noundef %62) #30
-  tail call void @free(ptr noundef %0) #30
+  tail call void @free(ptr noundef %62) #31
+  tail call void @free(ptr noundef %0) #31
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define hidden void @ddict_unused(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 {
+define hidden void @ddict_unused(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
   ret void
 }
 
@@ -5021,7 +5021,7 @@ define hidden ptr @ddict_scan(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   store i32 8192, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 0, ptr %8, align 4
-  %9 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc(i64 noundef 48) #29
+  %9 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc(i64 noundef 48) #30
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %9, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -5054,9 +5054,9 @@ ddict_open.exit:                                  ; preds = %16, %18
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %ddict_open.exit
-  %23 = tail call ptr @__errno_location() #32
+  %23 = tail call ptr @__errno_location() #33
   %24 = load i32, ptr %23, align 4
-  %25 = tail call ptr @g_strerror(i32 noundef %24) #32
+  %25 = tail call ptr @g_strerror(i32 noundef %24) #33
   tail call void (ptr, ...) @ddict_debug(ptr noundef nonnull @.str.58, ptr noundef %1, ptr noundef %25)
   tail call void @g_free(ptr noundef %9)
   br label %56
@@ -5067,9 +5067,9 @@ ddict_open.exit:                                  ; preds = %16, %18
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %26
-  %29 = tail call ptr @__errno_location() #32
+  %29 = tail call ptr @__errno_location() #33
   store i32 12, ptr %29, align 4
-  %30 = tail call ptr @g_strerror(i32 noundef 12) #32
+  %30 = tail call ptr @g_strerror(i32 noundef 12) #33
   tail call void (ptr, ...) @ddict_debug(ptr noundef nonnull @.str.59, ptr noundef %30)
   %31 = tail call i32 @fclose(ptr noundef nonnull %20)
   tail call void @g_free(ptr noundef %9)
@@ -5093,9 +5093,9 @@ ddict_open.exit:                                  ; preds = %16, %18
   br i1 %39, label %40, label %45
 
 40:                                               ; preds = %32
-  %41 = tail call ptr @__errno_location() #32
+  %41 = tail call ptr @__errno_location() #33
   store i32 12, ptr %41, align 4
-  %42 = call ptr @g_strerror(i32 noundef 12) #32
+  %42 = call ptr @g_strerror(i32 noundef 12) #33
   call void (ptr, ...) @ddict_debug(ptr noundef nonnull @.str.59, ptr noundef %42)
   %43 = load ptr, ptr %10, align 8
   call void @g_free(ptr noundef %43)
@@ -5147,13 +5147,13 @@ fread.inline.exit:
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef i32 @fclose(ptr noundef captures(none)) #17
+declare noundef i32 @fclose(ptr noundef captures(none)) #18
 
 ; Function Attrs: null_pointer_is_valid
 declare void @g_free(ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nofree norecurse nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @string_input(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #18 {
+; Function Attrs: nofree norecurse nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal noundef i64 @string_input(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #19 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -5169,7 +5169,7 @@ define internal noundef i64 @string_input(ptr noundef %0, i64 noundef %1, ptr no
   %13 = ptrtoint ptr %6 to i64
   %14 = sub i64 %12, %13
   %.014 = select i1 %11, i64 %14, i64 %1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %0, ptr noundef align 1 %6, i64 noundef %.014, i1 noundef false) #30
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %0, ptr noundef align 1 %6, i64 noundef %.014, i1 noundef false) #31
   %15 = load ptr, ptr %5, align 8
   %16 = getelementptr i8, ptr %15, i64 %.014
   store ptr %16, ptr %5, align 8
@@ -5181,7 +5181,7 @@ define internal noundef i64 @string_input(ptr noundef %0, i64 noundef %1, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @string_close(ptr readnone captures(none) %0) #16 {
+define internal noundef i32 @string_close(ptr readnone captures(none) %0) #17 {
   ret i32 0
 }
 
@@ -5492,22 +5492,22 @@ define hidden void @ddict_print(ptr noundef %0, ptr noundef readonly captures(no
 }
 
 ; Function Attrs: mustprogress nounwind null_pointer_is_valid willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #19
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nofree noreturn nounwind null_pointer_is_valid
-declare void @exit(i32 noundef) local_unnamed_addr #20
+declare void @exit(i32 noundef) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
-declare ptr @__memset_chk(ptr noundef writeonly, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #21
+declare ptr @__memset_chk(ptr noundef writeonly, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #22
+declare void @llvm.va_start.p0(ptr) #23
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #22
+declare void @llvm.va_end.p0(ptr) #23
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #17
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @__vfprintf_chk(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -5519,31 +5519,31 @@ declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #17
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: alwaysinline nobuiltin null_pointer_is_valid sspstrong uwtable
-declare i64 @fread(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #23
+declare i64 @fread(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #24
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #25
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #25
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #25
+declare i64 @llvm.usub.sat.i64(i64, i64) #26
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #26
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #27
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #25
+declare i32 @llvm.umin.i32(i32, i32) #26
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #27
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #28
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #28
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #29
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5552,36 +5552,37 @@ attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 attributes #4 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind null_pointer_is_valid sspstrong willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { cold noreturn null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nounwind null_pointer_is_valid willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nounwind null_pointer_is_valid willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind null_pointer_is_valid sspstrong willreturn memory(write, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nofree norecurse nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nounwind null_pointer_is_valid willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nofree noreturn nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #23 = { alwaysinline nobuiltin null_pointer_is_valid sspstrong uwtable "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #25 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #26 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #27 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #28 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #29 = { allocsize(0) }
-attributes #30 = { nounwind }
-attributes #31 = { nounwind willreturn memory(read) }
-attributes #32 = { nounwind willreturn memory(none) }
-attributes #33 = { noreturn }
-attributes #34 = { nounwind allocsize(0) }
-attributes #35 = { nounwind allocsize(1) }
-attributes #36 = { cold noreturn nounwind }
+attributes #15 = { mustprogress nofree nounwind null_pointer_is_valid sspstrong willreturn memory(write, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nounwind null_pointer_is_valid sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nofree norecurse nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nounwind null_pointer_is_valid willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nofree noreturn nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #24 = { alwaysinline nobuiltin null_pointer_is_valid sspstrong uwtable "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #26 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #27 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #28 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #29 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #30 = { allocsize(0) }
+attributes #31 = { nounwind }
+attributes #32 = { nounwind willreturn memory(read) }
+attributes #33 = { nounwind willreturn memory(none) }
+attributes #34 = { noreturn }
+attributes #35 = { nounwind allocsize(0) }
+attributes #36 = { nounwind allocsize(1) }
+attributes #37 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

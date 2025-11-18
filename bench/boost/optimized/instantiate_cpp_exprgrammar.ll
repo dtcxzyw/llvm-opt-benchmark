@@ -2529,7 +2529,7 @@ _ZN5boost6system6detail30generic_error_category_messageEiPcm.exit: ; preds = %6,
   ret ptr %.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @__cxx_global_var_init.49() #13 section ".text.startup" comdat($_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) {
   %1 = load i8, ptr @_ZGVN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, align 8
   %2 = icmp eq i8 %1, 0
@@ -2543,7 +2543,7 @@ define internal void @__cxx_global_var_init.49() #13 section ".text.startup" com
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @__cxx_global_var_init.50() #13 section ".text.startup" comdat($_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE13create_objectE) {
   %1 = load i8, ptr @_ZGVN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE13create_objectE, align 8
   %2 = icmp eq i8 %1, 0
@@ -2568,7 +2568,7 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @__cxx_global_var_init.51() #13 section ".text.startup" comdat($_ZN5boost6spirit7classic7static_INS_19thread_specific_ptrINS_8weak_ptrINS1_4impl14grammar_helperINS1_7grammarINS_4wave8grammars18expression_grammarENS1_15closure_contextINS9_8closures16cpp_expr_closureEEEEESA_NS1_7scannerISt20_List_const_iteratorINS8_8cpplexer9lex_tokenINS8_4util13file_positionINSK_11flex_stringIcSt11char_traitsIcESaIcENSK_9CowStringINSK_22AllocatorStringStorageIcSP_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS11_INS1_5chlitINS8_8token_idEEES14_EES14_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEEEEEENS5_30get_definition_static_data_tagEE5data_E) {
   %1 = load i8, ptr @_ZGVN5boost6spirit7classic7static_INS_19thread_specific_ptrINS_8weak_ptrINS1_4impl14grammar_helperINS1_7grammarINS_4wave8grammars18expression_grammarENS1_15closure_contextINS9_8closures16cpp_expr_closureEEEEESA_NS1_7scannerISt20_List_const_iteratorINS8_8cpplexer9lex_tokenINS8_4util13file_positionINSK_11flex_stringIcSt11char_traitsIcESaIcENSK_9CowStringINSK_22AllocatorStringStorageIcSP_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS11_INS1_5chlitINS8_8token_idEEES14_EES14_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEEEEEENS5_30get_definition_static_data_tagEE5data_E, align 8
   %2 = icmp eq i8 %1, 0
@@ -2582,7 +2582,7 @@ define internal void @__cxx_global_var_init.51() #13 section ".text.startup" com
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @__cxx_global_var_init.52() #13 section ".text.startup" comdat($_ZN5boost4wave4util19SimpleStringStorageIcSaIcEE12emptyString_E) {
   %1 = load i8, ptr @_ZGVN5boost4wave4util19SimpleStringStorageIcSaIcEE12emptyString_E, align 8
   %2 = icmp eq i8 %1, 0
@@ -24515,7 +24515,7 @@ attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #10 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree nosync nounwind memory(none) }
 attributes #12 = { mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #15 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

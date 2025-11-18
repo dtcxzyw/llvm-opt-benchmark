@@ -129,7 +129,7 @@ _RNCNvMs3_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB7_8PeekableINtNtB9
   ret ptr %14
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_RNtNtCseG2FYMysgNb_3wax5token5TokenEE18get_or_insert_withNCNvMs3_NtNtNtB5_4iter8adapters8peekableINtB1P_8PeekableINtNtB1R_4fuse4FuseINtNtB1R_6copied6CopiedINtNtNtB5_5slice4iter4IterBM_EEEE4peek0EBR_.llvm.2038835765883349039(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !4, !noundef !5
   %trunc = trunc nuw i64 %3 to i1
@@ -368,7 +368,7 @@ _RNvXsc_NtNtCsapf13pIxsjn_3std4sync5mutexINtB5_10MutexGuardINtNtCs68wO5nsWeTG_5a
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_RNCINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB8_3VecNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE14extend_trustedINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters5chain5ChainIB1W_INtNtNtNtBa_11collections9vec_deque9into_iter8IntoIterBI_EB2S_EB2S_EE0BO_.llvm.2038835765883349039(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !noundef !5
@@ -529,7 +529,7 @@ define hidden noundef zeroext i1 @_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6trai
   ret i1 %4
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator8for_each4callNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNCINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB2k_3VecB1f_E14extend_trustedINtNtNtBc_8adapters5chain5ChainIB3h_INtNtNtNtB2m_11collections9vec_deque9into_iter8IntoIterB1f_EB3Q_EB3Q_EE0E0B1l_.llvm.2038835765883349039(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #7 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -543,7 +543,7 @@ define hidden void @_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8It
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef align 8 dereferenceable_or_null(64) ptr @_RNCNvMs3_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB7_8PeekableINtNtB9_4fuse4FuseINtNtB9_6copied6CopiedINtNtNtBd_5slice4iter4IterRNtNtCseG2FYMysgNb_3wax5token5TokenEEEE4peek0B2h_.llvm.2038835765883349039(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !77)
@@ -1388,7 +1388,7 @@ define noundef zeroext i1 @_RNvXs1_NtNtNtCs1LoaDTb72WA_4core3ops8function5implsQ
   ret i1 %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @_RNvXs1_NtNtNtCs1LoaDTb72WA_4core3ops8function5implsQNCINvNvNtNtNtNtBb_4iter6traits8iterator8Iterator8for_each4callNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNCINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB2T_3VecB1O_E14extend_trustedINtNtNtB11_8adapters5chain5ChainIB3Q_INtNtNtNtB2V_11collections9vec_deque9into_iter8IntoIterB1O_EB4q_EB4q_EE0E0INtB7_5FnMutTuB1O_EE8call_mutB1U_(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #9 {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !19, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !202)
@@ -1404,7 +1404,7 @@ define void @_RNvXs1_NtNtNtCs1LoaDTb72WA_4core3ops8function5implsQNCINvNvNtNtNtN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @_RNvXs1_NtNtNtCs1LoaDTb72WA_4core3ops8function5implsQQNCINvNvNtNtNtNtBb_4iter6traits8iterator8Iterator8for_each4callNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNCINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB2U_3VecB1P_E14extend_trustedINtNtNtB12_8adapters5chain5ChainIB3R_INtNtNtNtB2W_11collections9vec_deque9into_iter8IntoIterB1P_EB4r_EB4r_EE0E0INtB7_5FnMutTuB1P_EE8call_mutB1V_(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #9 {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !19, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !212)
@@ -1422,7 +1422,7 @@ define void @_RNvXs1_NtNtNtCs1LoaDTb72WA_4core3ops8function5implsQQNCINvNvNtNtNt
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef align 8 dereferenceable_or_null(64) ptr @_RNvXs1_NtNtNtCs1LoaDTb72WA_4core4iter8adapters4fuseINtB5_4FuseINtNtB7_6copied6CopiedINtNtNtBb_5slice4iter4IterRNtNtCseG2FYMysgNb_3wax5token5TokenEEENtNtNtB9_6traits8iterator8Iterator4nextB1P_.llvm.2038835765883349039(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !228)
   %2 = load ptr, ptr %0, align 8, !alias.scope !228, !noundef !5
@@ -1558,7 +1558,7 @@ define noundef align 8 dereferenceable_or_null(64) ptr @_RNvXs3_NtCslyFhtC9DD08_
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_RNvXs3_NtCslyFhtC9DD08_9itertools18peeking_take_whileINtB5_16PeekingTakeWhileINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekable8PeekableIB1e_INtNtNtB1m_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEEENCNCNCINvB2J_10componentsTjjEB2b_E000ENtNtNtB1k_6traits8iterator8Iterator9size_hintB2L_(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #10 {
   %3 = load ptr, ptr %1, align 8, !nonnull !5, !align !19, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -1620,7 +1620,7 @@ define noundef align 8 dereferenceable_or_null(48) ptr @_RNvXs3_NtCslyFhtC9DD08_
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_RNvXs3_NtCslyFhtC9DD08_9itertools18peeking_take_whileINtB5_16PeekingTakeWhileINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekable8PeekableINtNtB1m_6option8IntoIterRINtNtCseG2FYMysgNb_3wax5token5TokenuEEENCNCNCINvB2E_10componentsuINtB2e_6OptionB2A_EE000ENtNtNtB1k_6traits8iterator8Iterator9size_hintB2G_(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #10 {
   %3 = load ptr, ptr %1, align 8, !nonnull !5, !align !19, !noundef !5
   %4 = load i64, ptr %3, align 8, !range !4, !alias.scope !269, !noalias !272, !noundef !5
@@ -1792,7 +1792,7 @@ define noundef align 8 dereferenceable_or_null(64) ptr @_RNvXs3_NtCslyFhtC9DD08_
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_RNvXs3_NtCslyFhtC9DD08_9itertools18peeking_take_whileINtB5_16PeekingTakeWhileINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekable8PeekableINtNtNtB1m_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEENCNCNCINvB2E_10componentsTjjERINtNtCs68wO5nsWeTG_5alloc3vec3VecB2C_EE000ENtNtNtB1k_6traits8iterator8Iterator9size_hintB2G_(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #10 {
   %3 = load ptr, ptr %1, align 8, !nonnull !5, !align !19, !noundef !5
   %4 = load i64, ptr %3, align 8, !range !4, !alias.scope !328, !noalias !331, !noundef !5
@@ -1836,7 +1836,7 @@ define noundef align 8 dereferenceable_or_null(64) ptr @_RNvXs3_NtCslyFhtC9DD08_
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_RNvXs3_NtCslyFhtC9DD08_9itertools18peeking_take_whileINtB5_16PeekingTakeWhileINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekable8PeekableINtNtNtB1m_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEENCNCNCINvB2E_10componentsTjjERSB2C_E000ENtNtNtB1k_6traits8iterator8Iterator9size_hintB2G_(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #10 {
   %3 = load ptr, ptr %1, align 8, !nonnull !5, !align !19, !noundef !5
   %4 = load i64, ptr %3, align 8, !range !4, !alias.scope !333, !noalias !336, !noundef !5
@@ -1872,7 +1872,7 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableINtNtNtBa_
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef align 8 dereferenceable_or_null(64) ptr @_RNvXs9_NtNtNtCs1LoaDTb72WA_4core4iter8adapters4fuseINtB5_4FuseINtNtB7_6copied6CopiedINtNtNtBb_5slice4iter4IterRNtNtCseG2FYMysgNb_3wax5token5TokenEEEINtB5_8FuseImplBY_E4nextB1P_.llvm.2038835765883349039(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !noundef !5
   %3 = icmp eq ptr %2, null
@@ -2352,7 +2352,7 @@ _RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_RNtNtCseG2FYMysgNb_3wax5token
   br label %_RNvXs9_NtNtNtCs1LoaDTb72WA_4core4iter8adapters4fuseINtB5_4FuseINtNtNtBb_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEEINtB5_8FuseImplBY_E4nextB1s_.llvm.2038835765883349039.exit.thread
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define { i8, ptr } @_RNvXs_NtCslyFhtC9DD08_9itertools13with_positionINtB4_12WithPositionINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied6CopiedINtNtNtB1c_5slice4iter4IterRNtNtCseG2FYMysgNb_3wax5token5TokenEEENtNtNtB1a_6traits8iterator8Iterator4nextB2t_(ptr noalias noundef align 8 captures(none) dereferenceable(40) %0) unnamed_addr #12 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !4, !noundef !5
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5265,17 +5265,17 @@ declare i32 @llvm.umin.i32(i32, i32) #31
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #2 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #2 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #5 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #5 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #7 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #7 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #14 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #15 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

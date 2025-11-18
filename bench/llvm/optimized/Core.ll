@@ -2806,7 +2806,7 @@ define dso_local range(i32 0, 2) i32 @LLVMIsFunctionVarArg(ptr noundef readonly 
   ret i32 %5
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local ptr @LLVMGetReturnType(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !185
@@ -2822,7 +2822,7 @@ define dso_local i32 @LLVMCountParamTypes(ptr noundef readonly captures(none) %0
   ret i32 %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @LLVMGetParamTypes(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !185
@@ -2939,7 +2939,7 @@ define dso_local i32 @LLVMCountStructElementTypes(ptr noundef readonly captures(
   ret i32 %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @LLVMGetStructElementTypes(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !185
@@ -2965,7 +2965,7 @@ define dso_local void @LLVMGetStructElementTypes(ptr noundef readonly captures(n
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local ptr @LLVMStructGetTypeAtIndex(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !185
@@ -3036,7 +3036,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %2, %3
   ret ptr %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @LLVMGetSubtypes(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !185
@@ -3299,7 +3299,7 @@ define dso_local i32 @LLVMGetTargetExtTypeNumTypeParams(ptr noundef readonly cap
   ret i32 %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local ptr @LLVMGetTargetExtTypeTypeParam(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !185
@@ -3317,7 +3317,7 @@ define dso_local range(i32 0, 16777216) i32 @LLVMGetTargetExtTypeNumIntParams(pt
   ret i32 %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i32 @LLVMGetTargetExtTypeIntParam(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !203
@@ -4281,7 +4281,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8CallInstENS_5ValueEEEDaPT0_.exit: ; preds = %1, %
   ret ptr %.0.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local ptr @LLVMIsAIntrinsicInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #14 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_13IntrinsicInstENS_5ValueEEEDaPT0_.exit, label %2
@@ -4323,7 +4323,7 @@ _ZN4llvm16dyn_cast_or_nullINS_13IntrinsicInstENS_5ValueEEEDaPT0_.exit: ; preds =
   ret ptr %.0.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local ptr @LLVMIsADbgInfoIntrinsic(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #14 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_16DbgInfoIntrinsicENS_5ValueEEEDaPT0_.exit, label %2
@@ -4372,7 +4372,7 @@ _ZN4llvm16dyn_cast_or_nullINS_16DbgInfoIntrinsicENS_5ValueEEEDaPT0_.exit: ; pred
   ret ptr %.0.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef ptr @LLVMIsADbgVariableIntrinsic(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #14 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_20DbgVariableIntrinsicENS_5ValueEEEDaPT0_.exit, label %2
@@ -4425,7 +4425,7 @@ _ZN4llvm16dyn_cast_or_nullINS_20DbgVariableIntrinsicENS_5ValueEEEDaPT0_.exit: ; 
   ret ptr %.0.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local ptr @LLVMIsADbgDeclareInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #14 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_14DbgDeclareInstENS_5ValueEEEDaPT0_.exit, label %2
@@ -4473,7 +4473,7 @@ _ZN4llvm16dyn_cast_or_nullINS_14DbgDeclareInstENS_5ValueEEEDaPT0_.exit: ; preds 
   ret ptr %.0.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local ptr @LLVMIsADbgLabelInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #14 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_12DbgLabelInstENS_5ValueEEEDaPT0_.exit, label %2
@@ -4521,7 +4521,7 @@ _ZN4llvm16dyn_cast_or_nullINS_12DbgLabelInstENS_5ValueEEEDaPT0_.exit: ; preds = 
   ret ptr %.0.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef ptr @LLVMIsAMemIntrinsic(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #14 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_12MemIntrinsicENS_5ValueEEEDaPT0_.exit, label %2
@@ -4576,7 +4576,7 @@ _ZN4llvm16dyn_cast_or_nullINS_12MemIntrinsicENS_5ValueEEEDaPT0_.exit: ; preds = 
   ret ptr %.0.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef ptr @LLVMIsAMemCpyInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #14 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_10MemCpyInstENS_5ValueEEEDaPT0_.exit, label %2
@@ -4628,7 +4628,7 @@ _ZN4llvm16dyn_cast_or_nullINS_10MemCpyInstENS_5ValueEEEDaPT0_.exit: ; preds = %1
   ret ptr %.0.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local ptr @LLVMIsAMemMoveInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #14 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_11MemMoveInstENS_5ValueEEEDaPT0_.exit, label %2
@@ -4676,7 +4676,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11MemMoveInstENS_5ValueEEEDaPT0_.exit: ; preds = %
   ret ptr %.0.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local ptr @LLVMIsAMemSetInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #14 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_10MemSetInstENS_5ValueEEEDaPT0_.exit, label %2
@@ -5530,7 +5530,7 @@ _ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_5ValueEEEDaPT0_.exit: ; preds = %1, 
   ret ptr %.0.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local ptr @LLVMIsAMDNode(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #14 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %.critedge, label %2
@@ -5557,7 +5557,7 @@ _ZN4llvm16dyn_cast_or_nullINS_15MetadataAsValueENS_5ValueEEEDaPT0_.exit: ; preds
   ret ptr %10
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef ptr @LLVMIsAValueAsMetadata(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #14 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_15MetadataAsValueENS_5ValueEEEDaPT0_.exit.thread, label %2
@@ -5583,7 +5583,7 @@ _ZN4llvm16dyn_cast_or_nullINS_15MetadataAsValueENS_5ValueEEEDaPT0_.exit.thread: 
   ret ptr %10
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef ptr @LLVMIsAMDString(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #14 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_15MetadataAsValueENS_5ValueEEEDaPT0_.exit.thread, label %2
@@ -5755,7 +5755,7 @@ _ZN4llvm4User13getOperandUseEj.exit:              ; preds = %6, %9
   ret ptr %16
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @LLVMSetOperand(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -5825,7 +5825,7 @@ _ZN4llvm4User10setOperandEjPNS_5ValueE.exit:      ; preds = %_ZN4llvm3Use14remov
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i32 @LLVMGetNumOperands(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 {
   %2 = load i8, ptr %0, align 8, !tbaa !207
   %3 = icmp eq i8 %2, 24
@@ -5868,7 +5868,7 @@ LLVMGetMDNodeNumOperands.exit:                    ; preds = %17, %13, %4, %20
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i32 @LLVMGetMDNodeNumOperands(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !214
@@ -6258,7 +6258,7 @@ define dso_local ptr @LLVMGetNextNamedMetadata(ptr noundef readonly captures(non
   ret ptr %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local ptr @LLVMGetPreviousNamedMetadata(ptr noundef readonly captures(address) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !267
@@ -7344,7 +7344,7 @@ define dso_local noundef ptr @LLVMConstRealOfStringAndSize(ptr noundef %0, ptr n
   ret ptr %5
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i64 @LLVMConstIntGetZExtValue(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -7356,7 +7356,7 @@ define dso_local i64 @LLVMConstIntGetZExtValue(ptr noundef readonly captures(non
   ret i64 %.0.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i64 @LLVMConstIntGetSExtValue(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -8867,7 +8867,7 @@ define dso_local ptr @LLVMGetNextGlobal(ptr noundef readonly captures(none) %0) 
   ret ptr %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local ptr @LLVMGetPreviousGlobal(ptr noundef readonly captures(address) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -9122,7 +9122,7 @@ define dso_local ptr @LLVMGetNextGlobalAlias(ptr noundef readonly captures(none)
   ret ptr %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local ptr @LLVMGetPreviousGlobalAlias(ptr noundef readonly captures(address) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -9248,7 +9248,7 @@ define dso_local ptr @LLVMGetNextFunction(ptr noundef readonly captures(none) %0
   ret ptr %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local ptr @LLVMGetPreviousFunction(ptr noundef readonly captures(address) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -10043,7 +10043,7 @@ define dso_local ptr @LLVMGetNextGlobalIFunc(ptr noundef readonly captures(none)
   ret ptr %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local ptr @LLVMGetPreviousGlobalIFunc(ptr noundef readonly captures(address) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -10072,7 +10072,7 @@ define dso_local ptr @LLVMGetGlobalIFuncResolver(ptr noundef readonly captures(n
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @LLVMSetGlobalIFuncResolver(ptr noundef %0, ptr noundef %1) local_unnamed_addr #19 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -32
   %4 = load ptr, ptr %3, align 8, !tbaa !196
@@ -10306,7 +10306,7 @@ define dso_local i32 @LLVMGetNumOperandBundleArgs(ptr noundef readonly captures(
   ret i32 %10
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local ptr @LLVMGetOperandBundleArgAtIndex(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !323
@@ -10348,7 +10348,7 @@ define dso_local ptr @LLVMGetBasicBlockParent(ptr noundef readonly captures(none
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local ptr @LLVMGetBasicBlockTerminator(ptr noundef readonly captures(address) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !337
@@ -10368,7 +10368,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %1, %5
   ret ptr %.0.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i32 @LLVMCountBasicBlocks(ptr noundef readonly captures(address) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -10390,7 +10390,7 @@ _ZNK4llvm8Function4sizeEv.exit:                   ; preds = %.lr.ph.i.i.i.i, %1
   ret i32 %.0.lcssa.i.i.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @LLVMGetBasicBlocks(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -10463,7 +10463,7 @@ define dso_local ptr @LLVMGetNextBasicBlock(ptr noundef readonly captures(none) 
   ret ptr %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local ptr @LLVMGetPreviousBasicBlock(ptr noundef readonly captures(address) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -10766,7 +10766,7 @@ define dso_local ptr @LLVMGetNextInstruction(ptr noundef readonly captures(none)
   ret ptr %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local ptr @LLVMGetPreviousInstruction(ptr noundef readonly captures(address) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -10893,7 +10893,7 @@ define dso_local ptr @LLVMIsATerminatorInst(ptr noundef readonly captures(ret: a
   ret ptr %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local ptr @LLVMGetFirstDbgRecord(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !360
@@ -10905,7 +10905,7 @@ define dso_local ptr @LLVMGetFirstDbgRecord(ptr noundef readonly captures(none) 
   ret ptr %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local ptr @LLVMGetLastDbgRecord(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !360
@@ -11411,7 +11411,7 @@ define dso_local ptr @LLVMGetNormalDest(ptr noundef readonly captures(none) %0) 
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local ptr @LLVMGetUnwindDest(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 {
   %2 = load i8, ptr %0, align 8, !tbaa !207
   switch i8 %2, label %_ZNK4llvm17CleanupReturnInst13getUnwindDestEv.exit [
@@ -11461,7 +11461,7 @@ _ZNK4llvm17CleanupReturnInst13getUnwindDestEv.exit.thread: ; preds = %20, %16, %
   ret ptr %.2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @LLVMSetNormalDest(ptr noundef %0, ptr noundef %1) local_unnamed_addr #19 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -96
   %4 = load ptr, ptr %3, align 8, !tbaa !196
@@ -11510,7 +11510,7 @@ _ZN4llvm10InvokeInst13setNormalDestEPNS_10BasicBlockE.exit: ; preds = %_ZN4llvm3
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @LLVMSetUnwindDest(ptr noundef %0, ptr noundef %1) local_unnamed_addr #16 {
   %3 = load i8, ptr %0, align 8, !tbaa !207
   switch i8 %3, label %_ZN4llvm17CleanupReturnInst13setUnwindDestEPNS_10BasicBlockE.exit [
@@ -11738,7 +11738,7 @@ define dso_local ptr @LLVMGetCondition(ptr noundef readonly captures(none) %0) l
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @LLVMSetCondition(ptr noundef %0, ptr noundef %1) local_unnamed_addr #19 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -96
   %4 = load ptr, ptr %3, align 8, !tbaa !196
@@ -11787,7 +11787,7 @@ _ZN4llvm10BranchInst12setConditionEPNS_5ValueE.exit: ; preds = %_ZN4llvm3Use14re
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local ptr @LLVMGetSwitchDefaultDest(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   %3 = load ptr, ptr %2, align 8, !tbaa !263
@@ -11963,7 +11963,7 @@ define dso_local range(i32 0, 134217728) i32 @LLVMCountIncoming(ptr noundef read
   ret i32 %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local ptr @LLVMGetIncomingValue(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -8
   %4 = load ptr, ptr %3, align 8, !tbaa !263
@@ -11973,7 +11973,7 @@ define dso_local ptr @LLVMGetIncomingValue(ptr noundef readonly captures(none) %
   ret ptr %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local ptr @LLVMGetIncomingBlock(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -8
   %4 = load ptr, ptr %3, align 8, !tbaa !263
@@ -14145,7 +14145,7 @@ define dso_local range(i32 0, 134217728) i32 @LLVMGetNumClauses(ptr noundef read
   ret i32 %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local ptr @LLVMGetClause(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -14224,7 +14224,7 @@ define dso_local range(i32 -2, 134217727) i32 @LLVMGetNumHandlers(ptr noundef re
   ret i32 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @LLVMGetHandlers(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -8
   %4 = load ptr, ptr %3, align 8, !tbaa !263, !noalias !410
@@ -14266,7 +14266,7 @@ define dso_local ptr @LLVMGetParentCatchSwitch(ptr noundef readonly captures(non
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @LLVMSetParentCatchSwitch(ptr noundef %0, ptr noundef %1) local_unnamed_addr #19 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -32
   %4 = load ptr, ptr %3, align 8, !tbaa !196
@@ -14329,7 +14329,7 @@ define dso_local ptr @LLVMGetArgOperand(ptr noundef readonly captures(none) %0, 
   ret ptr %11
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @LLVMSetArgOperand(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #19 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -19678,7 +19678,7 @@ define dso_local i32 @LLVMGetNumMaskElements(ptr noundef readonly captures(none)
   ret i32 %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i32 @LLVMGetMaskValue(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = zext i32 %1 to i64
@@ -22376,12 +22376,12 @@ attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nofree nounwind willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

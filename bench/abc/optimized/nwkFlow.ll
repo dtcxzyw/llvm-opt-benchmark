@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @stdout = external local_unnamed_addr global ptr, align 8
 @str = private unnamed_addr constant [67 x i8] c"Nwk_ManRetimeVerifyCutForward(): Internal cut verification failed.\00", align 1
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @Nwk_ManMarkTfiCone_rec(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
@@ -54,7 +54,7 @@ define void @Nwk_ManMarkTfiCone_rec(ptr noundef captures(none) %0) local_unnamed
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @Nwk_ManMarkTfoCone_rec(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
@@ -97,7 +97,7 @@ define void @Nwk_ManMarkTfoCone_rec(ptr noundef captures(none) %0) local_unnamed
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @Nwk_ManPushForwardFast_rec(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.val = load ptr, ptr %0, align 8, !tbaa !20
   %3 = getelementptr i8, ptr %0, i64 40
@@ -170,7 +170,7 @@ define range(i32 0, 2) i32 @Nwk_ManPushForwardFast_rec(ptr noundef %0, ptr nound
   ret i32 %.018
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @Nwk_ManPushBackwardFast_rec(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.val = load ptr, ptr %0, align 8, !tbaa !20
   %3 = getelementptr i8, ptr %0, i64 40
@@ -240,7 +240,7 @@ define range(i32 0, 2) i32 @Nwk_ManPushBackwardFast_rec(ptr noundef %0, ptr noun
   ret i32 %.017
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @Nwk_ManVerifyCut_rec(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
@@ -787,7 +787,7 @@ Abc_Clock.exit106:                                ; preds = %168, %172
   ret ptr %105
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 2) i32 @Nwk_ManPushForwardBot_rec(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %.val28 = load ptr, ptr %0, align 8, !tbaa !20
   %3 = getelementptr i8, ptr %0, i64 40
@@ -1511,7 +1511,7 @@ Abc_Clock.exit154:                                ; preds = %241, %245
 ; Function Attrs: nounwind
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #6
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 2) i32 @Nwk_ManPushForwardTop_rec(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %.val28 = load ptr, ptr %0, align 8, !tbaa !20
   %3 = getelementptr i8, ptr %0, i64 40
@@ -1637,7 +1637,7 @@ declare void @llvm.va_end.p0(ptr) #9
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 2) i32 @Nwk_ManPushBackwardTop_rec(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %.val42 = load ptr, ptr %0, align 8, !tbaa !20
   %3 = getelementptr i8, ptr %0, i64 40
@@ -1865,7 +1865,7 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #13
 
-attributes #0 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

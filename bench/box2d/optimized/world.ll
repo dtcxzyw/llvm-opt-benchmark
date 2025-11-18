@@ -513,7 +513,7 @@ define hidden nonnull ptr @b2GetWorld(i32 noundef %0) local_unnamed_addr #3 {
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden ptr @b2GetWorldLocked(i32 noundef %0) local_unnamed_addr #4 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds %struct.b2World, ptr @b2_worlds, i64 %2
@@ -3567,7 +3567,7 @@ declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 
 
 declare { <2 x float>, <2 x float> } @b2GetBodyTransformQuick(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { ptr, i32 } @b2World_GetBodyEvents(i32 %0) local_unnamed_addr #4 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
@@ -3592,7 +3592,7 @@ define { ptr, i32 } @b2World_GetBodyEvents(i32 %0) local_unnamed_addr #4 {
   ret { ptr, i32 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @b2World_GetSensorEvents(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2SensorEvents) align 8 captures(none) initializes((0, 24)) %0, i32 %1) local_unnamed_addr #9 {
   %3 = and i32 %1, 65535
   %4 = zext nneg i32 %3 to i64
@@ -3633,7 +3633,7 @@ define void @b2World_GetSensorEvents(ptr dead_on_unwind noalias writable writeon
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @b2World_GetContactEvents(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2ContactEvents) align 8 captures(none) initializes((0, 40)) %0, i32 %1) local_unnamed_addr #9 {
   %3 = and i32 %1, 65535
   %4 = zext nneg i32 %3 to i64
@@ -3684,7 +3684,7 @@ define void @b2World_GetContactEvents(ptr dead_on_unwind noalias writable writeo
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @b2World_IsValid(i32 %0) local_unnamed_addr #4 {
   %.sroa.5.0.extract.shift = lshr i32 %0, 16
   %2 = and i32 %0, 65535
@@ -3714,7 +3714,7 @@ define zeroext i1 @b2World_IsValid(i32 %0) local_unnamed_addr #4 {
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @b2Body_IsValid(i64 %0) local_unnamed_addr #10 {
   %.sroa.0.0.extract.trunc = trunc i64 %0 to i32
   %.sroa.8.0.extract.shift = lshr i64 %0, 48
@@ -3763,7 +3763,7 @@ define zeroext i1 @b2Body_IsValid(i64 %0) local_unnamed_addr #10 {
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @b2Shape_IsValid(i64 %0) local_unnamed_addr #10 {
   %.sroa.0.0.extract.trunc = trunc i64 %0 to i32
   %.sroa.5.0.extract.shift = lshr i64 %0, 48
@@ -3813,7 +3813,7 @@ define zeroext i1 @b2Shape_IsValid(i64 %0) local_unnamed_addr #10 {
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @b2Chain_IsValid(i64 %0) local_unnamed_addr #10 {
   %.sroa.0.0.extract.trunc = trunc i64 %0 to i32
   %.sroa.6.0.extract.shift = lshr i64 %0, 48
@@ -3863,7 +3863,7 @@ define zeroext i1 @b2Chain_IsValid(i64 %0) local_unnamed_addr #10 {
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @b2Joint_IsValid(i64 %0) local_unnamed_addr #10 {
   %.sroa.0.0.extract.trunc = trunc i64 %0 to i32
   %.sroa.6.0.extract.shift = lshr i64 %0, 48
@@ -3972,7 +3972,7 @@ define void @b2World_EnableSleeping(i32 %0, i1 noundef zeroext %1) local_unnamed
 
 declare void @b2WakeSolverSet(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @b2World_IsSleepingEnabled(i32 %0) local_unnamed_addr #4 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
@@ -3983,7 +3983,7 @@ define zeroext i1 @b2World_IsSleepingEnabled(i32 %0) local_unnamed_addr #4 {
   ret i1 %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @b2World_EnableWarmStarting(i32 %0, i1 noundef zeroext %1) local_unnamed_addr #11 {
   %3 = and i32 %0, 65535
   %4 = zext nneg i32 %3 to i64
@@ -4003,7 +4003,7 @@ define void @b2World_EnableWarmStarting(i32 %0, i1 noundef zeroext %1) local_unn
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @b2World_IsWarmStartingEnabled(i32 %0) local_unnamed_addr #4 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
@@ -4014,7 +4014,7 @@ define zeroext i1 @b2World_IsWarmStartingEnabled(i32 %0) local_unnamed_addr #4 {
   ret i1 %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @b2World_GetAwakeBodyCount(i32 %0) local_unnamed_addr #10 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
@@ -4026,7 +4026,7 @@ define i32 @b2World_GetAwakeBodyCount(i32 %0) local_unnamed_addr #10 {
   ret i32 %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @b2World_EnableContinuous(i32 %0, i1 noundef zeroext %1) local_unnamed_addr #11 {
   %3 = and i32 %0, 65535
   %4 = zext nneg i32 %3 to i64
@@ -4046,7 +4046,7 @@ define void @b2World_EnableContinuous(i32 %0, i1 noundef zeroext %1) local_unnam
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @b2World_IsContinuousEnabled(i32 %0) local_unnamed_addr #4 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
@@ -4057,7 +4057,7 @@ define zeroext i1 @b2World_IsContinuousEnabled(i32 %0) local_unnamed_addr #4 {
   ret i1 %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @b2World_SetRestitutionThreshold(i32 %0, float noundef %1) local_unnamed_addr #11 {
   %3 = and i32 %0, 65535
   %4 = zext nneg i32 %3 to i64
@@ -4080,7 +4080,7 @@ define void @b2World_SetRestitutionThreshold(i32 %0, float noundef %1) local_unn
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define float @b2World_GetRestitutionThreshold(i32 %0) local_unnamed_addr #4 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
@@ -4090,7 +4090,7 @@ define float @b2World_GetRestitutionThreshold(i32 %0) local_unnamed_addr #4 {
   ret float %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @b2World_SetHitEventThreshold(i32 %0, float noundef %1) local_unnamed_addr #11 {
   %3 = and i32 %0, 65535
   %4 = zext nneg i32 %3 to i64
@@ -4113,7 +4113,7 @@ define void @b2World_SetHitEventThreshold(i32 %0, float noundef %1) local_unname
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define float @b2World_GetHitEventThreshold(i32 %0) local_unnamed_addr #4 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
@@ -4123,7 +4123,7 @@ define float @b2World_GetHitEventThreshold(i32 %0) local_unnamed_addr #4 {
   ret float %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @b2World_SetContactTuning(i32 %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #11 {
   %5 = and i32 %0, 65535
   %6 = zext nneg i32 %5 to i64
@@ -4158,7 +4158,7 @@ define void @b2World_SetContactTuning(i32 %0, float noundef %1, float noundef %2
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @b2World_SetJointTuning(i32 %0, float noundef %1, float noundef %2) local_unnamed_addr #11 {
   %4 = and i32 %0, 65535
   %5 = zext nneg i32 %4 to i64
@@ -4187,7 +4187,7 @@ define void @b2World_SetJointTuning(i32 %0, float noundef %1, float noundef %2) 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @b2World_SetMaximumLinearSpeed(i32 %0, float noundef %1) local_unnamed_addr #11 {
   %3 = and i32 %0, 65535
   %4 = zext nneg i32 %3 to i64
@@ -4206,7 +4206,7 @@ define void @b2World_SetMaximumLinearSpeed(i32 %0, float noundef %1) local_unnam
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define float @b2World_GetMaximumLinearSpeed(i32 %0) local_unnamed_addr #4 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
@@ -4216,7 +4216,7 @@ define float @b2World_GetMaximumLinearSpeed(i32 %0) local_unnamed_addr #4 {
   ret float %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @b2World_GetProfile(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2Profile) align 4 captures(none) initializes((0, 88)) %0, i32 %1) local_unnamed_addr #12 {
   %3 = and i32 %1, 65535
   %4 = zext nneg i32 %3 to i64
@@ -4317,7 +4317,7 @@ declare i32 @b2GetMaxArenaAllocation(ptr noundef) local_unnamed_addr #2
 
 declare i32 @b2GetByteCount() local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @b2World_SetUserData(i32 %0, ptr noundef %1) local_unnamed_addr #13 {
   %3 = and i32 %0, 65535
   %4 = zext nneg i32 %3 to i64
@@ -4327,7 +4327,7 @@ define void @b2World_SetUserData(i32 %0, ptr noundef %1) local_unnamed_addr #13 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @b2World_GetUserData(i32 %0) local_unnamed_addr #4 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
@@ -4337,7 +4337,7 @@ define ptr @b2World_GetUserData(i32 %0) local_unnamed_addr #4 {
   ret ptr %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @b2World_SetFrictionCallback(i32 %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = and i32 %0, 65535
   %4 = zext nneg i32 %3 to i64
@@ -4358,7 +4358,7 @@ define void @b2World_SetFrictionCallback(i32 %0, ptr noundef %1) local_unnamed_a
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @b2World_SetRestitutionCallback(i32 %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = and i32 %0, 65535
   %4 = zext nneg i32 %3 to i64
@@ -5747,7 +5747,7 @@ define i64 @b2World_CastPolygon(i32 %0, ptr noundef readonly captures(none) %1, 
   ret i64 %.sroa.024.0.insert.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @b2World_SetCustomFilterCallback(i32 %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #13 {
   %4 = and i32 %0, 65535
   %5 = zext nneg i32 %4 to i64
@@ -5759,7 +5759,7 @@ define void @b2World_SetCustomFilterCallback(i32 %0, ptr noundef %1, ptr noundef
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @b2World_SetPreSolveCallback(i32 %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #13 {
   %4 = and i32 %0, 65535
   %5 = zext nneg i32 %4 to i64
@@ -5771,7 +5771,7 @@ define void @b2World_SetPreSolveCallback(i32 %0, ptr noundef %1, ptr noundef %2)
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @b2World_SetGravity(i32 %0, <2 x float> %1) local_unnamed_addr #15 {
   %3 = and i32 %0, 65535
   %4 = zext nneg i32 %3 to i64
@@ -5781,7 +5781,7 @@ define void @b2World_SetGravity(i32 %0, <2 x float> %1) local_unnamed_addr #15 {
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define <2 x float> @b2World_GetGravity(i32 %0) local_unnamed_addr #16 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
@@ -6066,7 +6066,7 @@ define void @b2World_RebuildStaticTree(i32 %0) local_unnamed_addr #0 {
 
 declare i32 @b2DynamicTree_Rebuild(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @b2World_EnableSpeculative(i32 %0, i1 noundef zeroext %1) local_unnamed_addr #13 {
   %3 = zext i1 %1 to i8
   %4 = and i32 %0, 65535
@@ -6520,19 +6520,19 @@ attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

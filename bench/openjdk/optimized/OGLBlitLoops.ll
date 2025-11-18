@@ -66,7 +66,7 @@ define hidden void @OGLBlitLoops_IsoBlit(ptr noundef readnone captures(none) %0,
   %35 = load i32, ptr %34, align 4
   %36 = getelementptr inbounds nuw i8, ptr %18, i64 96
   %37 = load i32, ptr %36, align 8
-  call void @SurfaceData_IntersectBoundsXYXY(ptr noundef nonnull %17, i32 noundef 0, i32 noundef 0, i32 noundef %35, i32 noundef %37) #6
+  call void @SurfaceData_IntersectBoundsXYXY(ptr noundef nonnull %17, i32 noundef 0, i32 noundef 0, i32 noundef %35, i32 noundef %37) #7
   %38 = load i32, ptr %32, align 8
   %39 = load i32, ptr %17, align 8
   %40 = icmp sgt i32 %38, %39
@@ -143,7 +143,7 @@ define hidden void @OGLBlitLoops_IsoBlit(ptr noundef readnone captures(none) %0,
   %76 = select i1 %75, i32 9729, i32 9728
   %77 = getelementptr inbounds nuw i8, ptr %18, i64 112
   %78 = load i32, ptr %77, align 8
-  call void @OGLRenderQueue_CheckPreviousOp(i32 noundef %78) #6
+  call void @OGLRenderQueue_CheckPreviousOp(i32 noundef %78) #7
   %.not.i = icmp eq i8 %7, 0
   br i1 %.not.i, label %83, label %79
 
@@ -191,7 +191,7 @@ define hidden void @OGLBlitLoops_IsoBlit(ptr noundef readnone captures(none) %0,
   %106 = load ptr, ptr @j2d_glBindTexture, align 8
   %107 = getelementptr inbounds nuw i8, ptr %18, i64 100
   %108 = load i32, ptr %107, align 4
-  call void %106(i32 noundef %84, i32 noundef %108) #6
+  call void %106(i32 noundef %84, i32 noundef %108) #7
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %110 = load i32, ptr %109, align 4
   %.not51.i = icmp eq i32 %110, 8448
@@ -199,7 +199,7 @@ define hidden void @OGLBlitLoops_IsoBlit(ptr noundef readnone captures(none) %0,
 
 111:                                              ; preds = %105
   %112 = load ptr, ptr @j2d_glTexEnvi, align 8
-  call void %112(i32 noundef 8960, i32 noundef 8704, i32 noundef 8448) #6
+  call void %112(i32 noundef 8960, i32 noundef 8704, i32 noundef 8448) #7
   store i32 8448, ptr %109, align 4
   br label %113
 
@@ -212,34 +212,34 @@ define hidden void @OGLBlitLoops_IsoBlit(ptr noundef readnone captures(none) %0,
 116:                                              ; preds = %113
   %117 = load ptr, ptr @j2d_glTexParameteri, align 8
   %118 = load i32, ptr %77, align 8
-  call void %117(i32 noundef %118, i32 noundef 10240, i32 noundef range(i32 9728, 9730) %76) #6
+  call void %117(i32 noundef %118, i32 noundef 10240, i32 noundef range(i32 9728, 9730) %76) #7
   %119 = load ptr, ptr @j2d_glTexParameteri, align 8
   %120 = load i32, ptr %77, align 8
-  call void %119(i32 noundef %120, i32 noundef 10241, i32 noundef range(i32 9728, 9730) %76) #6
+  call void %119(i32 noundef %120, i32 noundef 10241, i32 noundef range(i32 9728, 9730) %76) #7
   store i32 %76, ptr %114, align 4
   br label %OGLBlitTextureToSurface.exit
 
 OGLBlitTextureToSurface.exit:                     ; preds = %113, %116
   %121 = load ptr, ptr @j2d_glBegin, align 8
-  call void %121(i32 noundef 7) #6
+  call void %121(i32 noundef 7) #7
   %122 = load ptr, ptr @j2d_glTexCoord2d, align 8
-  call void %122(double noundef %.047.i, double noundef %.046.i) #6
+  call void %122(double noundef %.047.i, double noundef %.046.i) #7
   %123 = load ptr, ptr @j2d_glVertex2d, align 8
-  call void %123(double noundef %.0108, double noundef %.0109) #6
+  call void %123(double noundef %.0108, double noundef %.0109) #7
   %124 = load ptr, ptr @j2d_glTexCoord2d, align 8
-  call void %124(double noundef %.045.i, double noundef %.046.i) #6
+  call void %124(double noundef %.045.i, double noundef %.046.i) #7
   %125 = load ptr, ptr @j2d_glVertex2d, align 8
-  call void %125(double noundef %.0110, double noundef %.0109) #6
+  call void %125(double noundef %.0110, double noundef %.0109) #7
   %126 = load ptr, ptr @j2d_glTexCoord2d, align 8
-  call void %126(double noundef %.045.i, double noundef %.0.i) #6
+  call void %126(double noundef %.045.i, double noundef %.0.i) #7
   %127 = load ptr, ptr @j2d_glVertex2d, align 8
-  call void %127(double noundef %.0110, double noundef %.0111) #6
+  call void %127(double noundef %.0110, double noundef %.0111) #7
   %128 = load ptr, ptr @j2d_glTexCoord2d, align 8
-  call void %128(double noundef %.047.i, double noundef %.0.i) #6
+  call void %128(double noundef %.047.i, double noundef %.0.i) #7
   %129 = load ptr, ptr @j2d_glVertex2d, align 8
-  call void %129(double noundef %.0108, double noundef %.0111) #6
+  call void %129(double noundef %.0108, double noundef %.0111) #7
   %130 = load ptr, ptr @j2d_glEnd, align 8
-  call void %130() #6
+  call void %130() #7
   br label %155
 
 131:                                              ; preds = %73
@@ -274,18 +274,18 @@ OGLBlitTextureToSurface.exit:                     ; preds = %113, %116
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %147 = load float, ptr %146, align 8
   %148 = fcmp oeq float %147, 1.000000e+00
-  call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #6
+  call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #7
   br i1 %148, label %154, label %153
 
 149:                                              ; preds = %141
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %151 = load float, ptr %150, align 8
   %152 = fcmp oeq float %151, 1.000000e+00
-  call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #6
+  call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #7
   br i1 %152, label %154, label %153
 
 .critedge:                                        ; preds = %137, %141, %131
-  call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #6
+  call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #7
   br label %153
 
 153:                                              ; preds = %145, %.critedge, %149
@@ -293,7 +293,7 @@ OGLBlitTextureToSurface.exit:                     ; preds = %113, %116
   br label %155
 
 .critedge134:                                     ; preds = %132
-  call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #6
+  call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #7
   br label %154
 
 154:                                              ; preds = %145, %.critedge134, %149
@@ -332,12 +332,12 @@ define internal fastcc void @OGLBlitToSurfaceViaTexture(ptr noundef %0, ptr noun
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %20
-  %25 = tail call zeroext i8 @OGLContext_InitBlitTileTexture(ptr noundef nonnull %0) #6
+  %25 = tail call zeroext i8 @OGLContext_InitBlitTileTexture(ptr noundef nonnull %0) #7
   %.not147 = icmp eq i8 %25, 0
   br i1 %.not147, label %26, label %27
 
 26:                                               ; preds = %24
-  tail call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str) #6
+  tail call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str) #7
   br label %178
 
 27:                                               ; preds = %24, %20
@@ -352,10 +352,10 @@ define internal fastcc void @OGLBlitToSurfaceViaTexture(ptr noundef %0, ptr noun
   %36 = fmul double %35, 7.812500e-03
   %37 = fdiv double %33, %36
   %38 = load ptr, ptr @j2d_glEnable, align 8
-  tail call void %38(i32 noundef 3553) #6
+  tail call void %38(i32 noundef 3553) #7
   %39 = load ptr, ptr @j2d_glBindTexture, align 8
   %40 = load i32, ptr %21, align 8
-  tail call void %39(i32 noundef 3553, i32 noundef %40) #6
+  tail call void %39(i32 noundef 3553, i32 noundef %40) #7
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %42 = load i32, ptr %41, align 4
   %.not148 = icmp eq i32 %42, 8448
@@ -363,22 +363,22 @@ define internal fastcc void @OGLBlitToSurfaceViaTexture(ptr noundef %0, ptr noun
 
 43:                                               ; preds = %27
   %44 = load ptr, ptr @j2d_glTexEnvi, align 8
-  tail call void %44(i32 noundef 8960, i32 noundef 8704, i32 noundef 8448) #6
+  tail call void %44(i32 noundef 8960, i32 noundef 8704, i32 noundef 8448) #7
   store i32 8448, ptr %41, align 4
   br label %45
 
 45:                                               ; preds = %27, %43
   %46 = load ptr, ptr @j2d_glTexParameteri, align 8
-  tail call void %46(i32 noundef 3553, i32 noundef 10240, i32 noundef %16) #6
+  tail call void %46(i32 noundef 3553, i32 noundef 10240, i32 noundef %16) #7
   %47 = load ptr, ptr @j2d_glTexParameteri, align 8
-  tail call void %47(i32 noundef 3553, i32 noundef 10241, i32 noundef %16) #6
+  tail call void %47(i32 noundef 3553, i32 noundef 10241, i32 noundef %16) #7
   br i1 %.not149, label %51, label %48
 
 48:                                               ; preds = %45
   %49 = load ptr, ptr @j2d_glPixelTransferf, align 8
-  tail call void %49(i32 noundef 3356, float noundef 0.000000e+00) #6
+  tail call void %49(i32 noundef 3356, float noundef 0.000000e+00) #7
   %50 = load ptr, ptr @j2d_glPixelTransferf, align 8
-  tail call void %50(i32 noundef 3357, float noundef 1.000000e+00) #6
+  tail call void %50(i32 noundef 3357, float noundef 1.000000e+00) #7
   br label %51
 
 51:                                               ; preds = %48, %45
@@ -448,28 +448,28 @@ define internal fastcc void @OGLBlitToSurfaceViaTexture(ptr noundef %0, ptr noun
   %95 = sub i32 %93, %78
   %96 = add i32 %95, %94
   %97 = load ptr, ptr @j2d_glCopyTexSubImage2D, align 8
-  tail call void %97(i32 noundef 3553, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %92, i32 noundef %96, i32 noundef %84, i32 noundef %71) #6
+  tail call void %97(i32 noundef 3553, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %92, i32 noundef %96, i32 noundef %84, i32 noundef %71) #7
   %98 = load ptr, ptr @j2d_glBegin, align 8
-  tail call void %98(i32 noundef 7) #6
+  tail call void %98(i32 noundef 7) #7
   %99 = load ptr, ptr @j2d_glTexCoord2d, align 8
-  tail call void %99(double noundef 0.000000e+00, double noundef %77) #6
+  tail call void %99(double noundef 0.000000e+00, double noundef %77) #7
   %100 = load ptr, ptr @j2d_glVertex2d, align 8
-  tail call void %100(double noundef %.0157.us.us.us, double noundef %.0138160.us.us) #6
+  tail call void %100(double noundef %.0157.us.us.us, double noundef %.0138160.us.us) #7
   %101 = load ptr, ptr @j2d_glTexCoord2d, align 8
-  tail call void %101(double noundef %90, double noundef %77) #6
+  tail call void %101(double noundef %90, double noundef %77) #7
   %102 = load ptr, ptr @j2d_glVertex2d, align 8
   %103 = fadd double %.0157.us.us.us, %88
-  tail call void %102(double noundef %103, double noundef %.0138160.us.us) #6
+  tail call void %102(double noundef %103, double noundef %.0138160.us.us) #7
   %104 = load ptr, ptr @j2d_glTexCoord2d, align 8
-  tail call void %104(double noundef %90, double noundef 0.000000e+00) #6
+  tail call void %104(double noundef %90, double noundef 0.000000e+00) #7
   %105 = load ptr, ptr @j2d_glVertex2d, align 8
-  tail call void %105(double noundef %103, double noundef %79) #6
+  tail call void %105(double noundef %103, double noundef %79) #7
   %106 = load ptr, ptr @j2d_glTexCoord2d, align 8
-  tail call void %106(double noundef 0.000000e+00, double noundef 0.000000e+00) #6
+  tail call void %106(double noundef 0.000000e+00, double noundef 0.000000e+00) #7
   %107 = load ptr, ptr @j2d_glVertex2d, align 8
-  tail call void %107(double noundef %.0157.us.us.us, double noundef %79) #6
+  tail call void %107(double noundef %.0157.us.us.us, double noundef %79) #7
   %108 = load ptr, ptr @j2d_glEnd, align 8
-  tail call void %108() #6
+  tail call void %108() #7
   %109 = icmp slt i32 %81, %8
   br i1 %109, label %80, label %..loopexit153_crit_edge.split.us.us.us, !llvm.loop !6
 
@@ -529,7 +529,7 @@ define internal fastcc void @OGLBlitToSurfaceViaTexture(ptr noundef %0, ptr noun
   %146 = sub nuw nsw i32 %114, %.0139155.us
   %147 = load i32, ptr %2, align 4
   %148 = load i32, ptr %60, align 4
-  tail call void %145(i32 noundef 3553, i32 noundef 0, i32 noundef 0, i32 noundef %146, i32 noundef %127, i32 noundef 1, i32 noundef %147, i32 noundef %148, ptr noundef %.0140154.us) #6
+  tail call void %145(i32 noundef 3553, i32 noundef 0, i32 noundef 0, i32 noundef %146, i32 noundef %127, i32 noundef 1, i32 noundef %147, i32 noundef %148, ptr noundef %.0140154.us) #7
   %149 = ptrtoint ptr %.0140154.us to i64
   %150 = load i32, ptr %52, align 8
   %151 = sext i32 %150 to i64
@@ -543,31 +543,31 @@ define internal fastcc void @OGLBlitToSurfaceViaTexture(ptr noundef %0, ptr noun
   %157 = load ptr, ptr @j2d_glTexSubImage2D, align 8
   %158 = load i32, ptr %2, align 4
   %159 = load i32, ptr %60, align 4
-  tail call void %157(i32 noundef 3553, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %127, i32 noundef %114, i32 noundef %158, i32 noundef %159, ptr noundef %144) #6
+  tail call void %157(i32 noundef 3553, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %127, i32 noundef %114, i32 noundef %158, i32 noundef %159, ptr noundef %144) #7
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %.lr.ph.us, %.preheader.us, %156
   %160 = load ptr, ptr @j2d_glBegin, align 8
-  tail call void %160(i32 noundef 7) #6
+  tail call void %160(i32 noundef 7) #7
   %161 = load ptr, ptr @j2d_glTexCoord2d, align 8
-  tail call void %161(double noundef 0.000000e+00, double noundef 0.000000e+00) #6
+  tail call void %161(double noundef 0.000000e+00, double noundef 0.000000e+00) #7
   %162 = load ptr, ptr @j2d_glVertex2d, align 8
-  tail call void %162(double noundef %.0157.us162, double noundef %.0138160.us) #6
+  tail call void %162(double noundef %.0157.us162, double noundef %.0138160.us) #7
   %163 = load ptr, ptr @j2d_glTexCoord2d, align 8
-  tail call void %163(double noundef %133, double noundef 0.000000e+00) #6
+  tail call void %163(double noundef %133, double noundef 0.000000e+00) #7
   %164 = load ptr, ptr @j2d_glVertex2d, align 8
   %165 = fadd double %.0157.us162, %131
-  tail call void %164(double noundef %165, double noundef %.0138160.us) #6
+  tail call void %164(double noundef %165, double noundef %.0138160.us) #7
   %166 = load ptr, ptr @j2d_glTexCoord2d, align 8
-  tail call void %166(double noundef %133, double noundef %120) #6
+  tail call void %166(double noundef %133, double noundef %120) #7
   %167 = load ptr, ptr @j2d_glVertex2d, align 8
-  tail call void %167(double noundef %165, double noundef %122) #6
+  tail call void %167(double noundef %165, double noundef %122) #7
   %168 = load ptr, ptr @j2d_glTexCoord2d, align 8
-  tail call void %168(double noundef 0.000000e+00, double noundef %120) #6
+  tail call void %168(double noundef 0.000000e+00, double noundef %120) #7
   %169 = load ptr, ptr @j2d_glVertex2d, align 8
-  tail call void %169(double noundef %.0157.us162, double noundef %122) #6
+  tail call void %169(double noundef %.0157.us162, double noundef %122) #7
   %170 = load ptr, ptr @j2d_glEnd, align 8
-  tail call void %170() #6
+  tail call void %170() #7
   %171 = icmp slt i64 %indvars.iv.next, %65
   br i1 %171, label %123, label %..loopexit153_crit_edge.split.us164, !llvm.loop !6
 
@@ -583,14 +583,14 @@ define internal fastcc void @OGLBlitToSurfaceViaTexture(ptr noundef %0, ptr noun
 
 173:                                              ; preds = %._crit_edge
   %174 = load ptr, ptr @j2d_glPixelTransferf, align 8
-  tail call void %174(i32 noundef 3356, float noundef 1.000000e+00) #6
+  tail call void %174(i32 noundef 3356, float noundef 1.000000e+00) #7
   %175 = load ptr, ptr @j2d_glPixelTransferf, align 8
-  tail call void %175(i32 noundef 3357, float noundef 0.000000e+00) #6
+  tail call void %175(i32 noundef 3357, float noundef 0.000000e+00) #7
   br label %176
 
 176:                                              ; preds = %173, %._crit_edge
   %177 = load ptr, ptr @j2d_glDisable, align 8
-  tail call void %177(i32 noundef 3553) #6
+  tail call void %177(i32 noundef 3553) #7
   br label %178
 
 178:                                              ; preds = %176, %26
@@ -624,17 +624,17 @@ define internal fastcc void @OGLBlitSurfaceToSurface(ptr noundef readonly captur
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %10
-  tail call void @OGLContext_SetExtraAlpha(float noundef %31) #6
+  tail call void @OGLContext_SetExtraAlpha(float noundef %31) #7
   br label %34
 
 34:                                               ; preds = %33, %10
   %35 = load ptr, ptr @j2d_glRasterPos2i, align 8
-  tail call void %35(i32 noundef 0, i32 noundef 0) #6
+  tail call void %35(i32 noundef 0, i32 noundef 0) #7
   %36 = load ptr, ptr @j2d_glBitmap, align 8
   %37 = fptrunc double %6 to float
   %38 = fptrunc double %9 to float
   %39 = fneg float %38
-  tail call void %36(i32 noundef 0, i32 noundef 0, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %37, float noundef %39, ptr noundef null) #6
+  tail call void %36(i32 noundef 0, i32 noundef 0, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %37, float noundef %39, ptr noundef null) #7
   %40 = fcmp oeq float %16, 1.000000e+00
   %41 = fcmp oeq float %20, 1.000000e+00
   %or.cond = select i1 %40, i1 %41, i1 false
@@ -642,16 +642,16 @@ define internal fastcc void @OGLBlitSurfaceToSurface(ptr noundef readonly captur
 
 42:                                               ; preds = %34
   %43 = load ptr, ptr @j2d_glCopyPixels, align 8
-  tail call void %43(i32 noundef %23, i32 noundef %29, i32 noundef %11, i32 noundef %12, i32 noundef 6144) #6
+  tail call void %43(i32 noundef %23, i32 noundef %29, i32 noundef %11, i32 noundef %12, i32 noundef 6144) #7
   br label %48
 
 44:                                               ; preds = %34
   %45 = load ptr, ptr @j2d_glPixelZoom, align 8
-  tail call void %45(float noundef %16, float noundef %20) #6
+  tail call void %45(float noundef %16, float noundef %20) #7
   %46 = load ptr, ptr @j2d_glCopyPixels, align 8
-  tail call void %46(i32 noundef %23, i32 noundef %29, i32 noundef %11, i32 noundef %12, i32 noundef 6144) #6
+  tail call void %46(i32 noundef %23, i32 noundef %29, i32 noundef %11, i32 noundef %12, i32 noundef 6144) #7
   %47 = load ptr, ptr @j2d_glPixelZoom, align 8
-  tail call void %47(float noundef 1.000000e+00, float noundef 1.000000e+00) #6
+  tail call void %47(float noundef 1.000000e+00, float noundef 1.000000e+00) #7
   br label %48
 
 48:                                               ; preds = %44, %42
@@ -660,7 +660,7 @@ define internal fastcc void @OGLBlitSurfaceToSurface(ptr noundef readonly captur
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %48
-  tail call void @OGLContext_SetExtraAlpha(float noundef 1.000000e+00) #6
+  tail call void @OGLContext_SetExtraAlpha(float noundef 1.000000e+00) #7
   br label %52
 
 52:                                               ; preds = %51, %48
@@ -698,7 +698,7 @@ define hidden void @OGLBlitLoops_Blit(ptr noundef %0, ptr noundef %1, i64 nounde
   br i1 %or.cond13, label %132, label %35
 
 35:                                               ; preds = %16
-  tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #6
+  tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #7
   store i32 %8, ptr %17, align 8
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %9, ptr %36, align 4
@@ -707,7 +707,7 @@ define hidden void @OGLBlitLoops_Blit(ptr noundef %0, ptr noundef %1, i64 nounde
   %38 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 %11, ptr %38, align 4
   %39 = load ptr, ptr %19, align 8
-  %40 = call i32 %39(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %17, i32 noundef 1) #6
+  %40 = call i32 %39(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %17, i32 noundef 1) #7
   %.not = icmp eq i32 %40, 0
   br i1 %.not, label %41, label %132
 
@@ -726,7 +726,7 @@ define hidden void @OGLBlitLoops_Blit(ptr noundef %0, ptr noundef %1, i64 nounde
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %51 = load ptr, ptr %50, align 8
-  call void %51(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %17) #6
+  call void %51(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %17) #7
   %52 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %53 = load ptr, ptr %52, align 8
   %.not128 = icmp eq ptr %53, null
@@ -794,20 +794,20 @@ define hidden void @OGLBlitLoops_Blit(ptr noundef %0, ptr noundef %1, i64 nounde
   %.0112 = phi double [ %85, %80 ], [ %15, %78 ]
   %.0109 = phi i32 [ %79, %80 ], [ %11, %78 ]
   %87 = load ptr, ptr @j2d_glPixelStorei, align 8
-  call void %87(i32 noundef 3316, i32 noundef 0) #6
+  call void %87(i32 noundef 3316, i32 noundef 0) #7
   %88 = load ptr, ptr @j2d_glPixelStorei, align 8
-  call void %88(i32 noundef 3315, i32 noundef 0) #6
+  call void %88(i32 noundef 3315, i32 noundef 0) #7
   %89 = load ptr, ptr @j2d_glPixelStorei, align 8
   %90 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %91 = load i32, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %17, i64 28
   %93 = load i32, ptr %92, align 4
   %94 = sdiv i32 %91, %93
-  call void %89(i32 noundef 3314, i32 noundef %94) #6
+  call void %89(i32 noundef 3314, i32 noundef %94) #7
   %95 = load ptr, ptr @j2d_glPixelStorei, align 8
   %96 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %97 = load i32, ptr %96, align 4
-  call void %95(i32 noundef 3317, i32 noundef %97) #6
+  call void %95(i32 noundef 3317, i32 noundef %97) #7
   %.not133 = icmp eq i8 %7, 0
   br i1 %.not133, label %103, label %98
 
@@ -863,9 +863,9 @@ define hidden void @OGLBlitLoops_Blit(ptr noundef %0, ptr noundef %1, i64 nounde
 
 121:                                              ; preds = %.critedge141, %.critedge, %98
   %122 = load ptr, ptr @j2d_glPixelStorei, align 8
-  call void %122(i32 noundef 3314, i32 noundef 0) #6
+  call void %122(i32 noundef 3314, i32 noundef 0) #7
   %123 = load ptr, ptr @j2d_glPixelStorei, align 8
-  call void %123(i32 noundef 3317, i32 noundef 4) #6
+  call void %123(i32 noundef 3317, i32 noundef 4) #7
   br label %124
 
 124:                                              ; preds = %49, %121
@@ -875,7 +875,7 @@ define hidden void @OGLBlitLoops_Blit(ptr noundef %0, ptr noundef %1, i64 nounde
   br i1 %.not138, label %128, label %127
 
 127:                                              ; preds = %124
-  call void %126(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %17) #6
+  call void %126(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %17) #7
   br label %128
 
 128:                                              ; preds = %41, %45, %124, %127
@@ -885,7 +885,7 @@ define hidden void @OGLBlitLoops_Blit(ptr noundef %0, ptr noundef %1, i64 nounde
   br i1 %.not139, label %132, label %131
 
 131:                                              ; preds = %128
-  call void %130(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %17) #6
+  call void %130(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %17) #7
   br label %132
 
 132:                                              ; preds = %128, %131, %35, %16
@@ -905,14 +905,14 @@ define internal fastcc void @OGLBlitSwToTexture(ptr noundef nonnull readonly cap
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 100
   %14 = load i32, ptr %13, align 4
-  tail call void %10(i32 noundef %12, i32 noundef %14) #6
+  tail call void %10(i32 noundef %12, i32 noundef %14) #7
   br i1 %.not, label %15, label %18
 
 15:                                               ; preds = %7
   %16 = load ptr, ptr @j2d_glPixelTransferf, align 8
-  tail call void %16(i32 noundef 3356, float noundef 0.000000e+00) #6
+  tail call void %16(i32 noundef 3356, float noundef 0.000000e+00) #7
   %17 = load ptr, ptr @j2d_glPixelTransferf, align 8
-  tail call void %17(i32 noundef 3357, float noundef 1.000000e+00) #6
+  tail call void %17(i32 noundef 3357, float noundef 1.000000e+00) #7
   br label %18
 
 18:                                               ; preds = %15, %7
@@ -944,7 +944,7 @@ define internal fastcc void @OGLBlitSwToTexture(ptr noundef nonnull readonly cap
   %34 = sub nsw i32 %6, %.03437
   %35 = load i32, ptr %1, align 4
   %36 = load i32, ptr %30, align 4
-  tail call void %32(i32 noundef %33, i32 noundef 0, i32 noundef %3, i32 noundef %34, i32 noundef %25, i32 noundef 1, i32 noundef %35, i32 noundef %36, ptr noundef %.038) #6
+  tail call void %32(i32 noundef %33, i32 noundef 0, i32 noundef %3, i32 noundef %34, i32 noundef %25, i32 noundef 1, i32 noundef %35, i32 noundef %36, ptr noundef %.038) #7
   %37 = ptrtoint ptr %.038 to i64
   %38 = load i32, ptr %19, align 8
   %39 = sext i32 %38 to i64
@@ -964,7 +964,7 @@ define internal fastcc void @OGLBlitSwToTexture(ptr noundef nonnull readonly cap
   %51 = load i32, ptr %50, align 4
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load ptr, ptr %52, align 8
-  tail call void %45(i32 noundef %46, i32 noundef 0, i32 noundef %3, i32 noundef %4, i32 noundef %47, i32 noundef %48, i32 noundef %49, i32 noundef %51, ptr noundef %53) #6
+  tail call void %45(i32 noundef %46, i32 noundef 0, i32 noundef %3, i32 noundef %4, i32 noundef %47, i32 noundef %48, i32 noundef %49, i32 noundef %51, ptr noundef %53) #7
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %24, %44
@@ -972,9 +972,9 @@ define internal fastcc void @OGLBlitSwToTexture(ptr noundef nonnull readonly cap
 
 54:                                               ; preds = %.loopexit
   %55 = load ptr, ptr @j2d_glPixelTransferf, align 8
-  tail call void %55(i32 noundef 3356, float noundef 1.000000e+00) #6
+  tail call void %55(i32 noundef 3356, float noundef 1.000000e+00) #7
   %56 = load ptr, ptr @j2d_glPixelTransferf, align 8
-  tail call void %56(i32 noundef 3357, float noundef 0.000000e+00) #6
+  tail call void %56(i32 noundef 3357, float noundef 0.000000e+00) #7
   br label %57
 
 57:                                               ; preds = %54, %.loopexit
@@ -998,7 +998,7 @@ define internal fastcc void @OGLBlitSwToSurface(ptr noundef readonly captures(no
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %11
-  tail call void @OGLContext_SetExtraAlpha(float noundef %22) #6
+  tail call void @OGLContext_SetExtraAlpha(float noundef %22) #7
   br label %25
 
 25:                                               ; preds = %24, %11
@@ -1009,24 +1009,24 @@ define internal fastcc void @OGLBlitSwToSurface(ptr noundef readonly captures(no
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr @j2d_glPixelTransferf, align 8
-  tail call void %29(i32 noundef 3356, float noundef 0.000000e+00) #6
+  tail call void %29(i32 noundef 3356, float noundef 0.000000e+00) #7
   %30 = load ptr, ptr @j2d_glPixelTransferf, align 8
   %31 = load float, ptr %21, align 8
-  tail call void %30(i32 noundef 3357, float noundef %31) #6
+  tail call void %30(i32 noundef 3357, float noundef %31) #7
   br label %32
 
 32:                                               ; preds = %28, %25
   %33 = load ptr, ptr @j2d_glRasterPos2i, align 8
-  tail call void %33(i32 noundef 0, i32 noundef 0) #6
+  tail call void %33(i32 noundef 0, i32 noundef 0) #7
   %34 = load ptr, ptr @j2d_glBitmap, align 8
   %35 = fptrunc double %7 to float
   %36 = fptrunc double %8 to float
   %37 = fneg float %36
-  tail call void %34(i32 noundef 0, i32 noundef 0, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %35, float noundef %37, ptr noundef null) #6
+  tail call void %34(i32 noundef 0, i32 noundef 0, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %35, float noundef %37, ptr noundef null) #7
   %38 = load ptr, ptr @j2d_glPixelZoom, align 8
   %39 = fneg float %18
   %40 = fdiv float %39, %20
-  tail call void %38(float noundef %16, float noundef %40) #6
+  tail call void %38(float noundef %16, float noundef %40) #7
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = ptrtoint ptr %42 to i64
@@ -1061,9 +1061,9 @@ define internal fastcc void @OGLBlitSwToSurface(ptr noundef readonly captures(no
   %61 = load ptr, ptr @j2d_glDrawPixels, align 8
   %62 = load i32, ptr %2, align 4
   %63 = load i32, ptr %59, align 4
-  tail call void %61(i32 noundef %14, i32 noundef 1, i32 noundef %62, i32 noundef %63, ptr noundef %.04448) #6
+  tail call void %61(i32 noundef %14, i32 noundef 1, i32 noundef %62, i32 noundef %63, ptr noundef %.04448) #7
   %64 = load ptr, ptr @j2d_glBitmap, align 8
-  tail call void %64(i32 noundef 0, i32 noundef 0, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %40, ptr noundef null) #6
+  tail call void %64(i32 noundef 0, i32 noundef 0, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %40, ptr noundef null) #7
   %65 = ptrtoint ptr %.04448 to i64
   %66 = load i32, ptr %45, align 8
   %67 = sext i32 %66 to i64
@@ -1078,18 +1078,18 @@ define internal fastcc void @OGLBlitSwToSurface(ptr noundef readonly captures(no
   %74 = load i32, ptr %2, align 4
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %76 = load i32, ptr %75, align 4
-  tail call void %73(i32 noundef %14, i32 noundef %19, i32 noundef %74, i32 noundef %76, ptr noundef %56) #6
+  tail call void %73(i32 noundef %14, i32 noundef %19, i32 noundef %74, i32 noundef %76, ptr noundef %56) #7
   br label %.loopexit
 
 .loopexit:                                        ; preds = %60, %.preheader, %72
   %77 = load ptr, ptr @j2d_glPixelZoom, align 8
-  tail call void %77(float noundef 1.000000e+00, float noundef 1.000000e+00) #6
+  tail call void %77(float noundef 1.000000e+00, float noundef 1.000000e+00) #7
   %78 = load float, ptr %21, align 8
   %79 = fcmp une float %78, 1.000000e+00
   br i1 %79, label %80, label %81
 
 80:                                               ; preds = %.loopexit
-  tail call void @OGLContext_SetExtraAlpha(float noundef 1.000000e+00) #6
+  tail call void @OGLContext_SetExtraAlpha(float noundef 1.000000e+00) #7
   br label %81
 
 81:                                               ; preds = %80, %.loopexit
@@ -1099,17 +1099,17 @@ define internal fastcc void @OGLBlitSwToSurface(ptr noundef readonly captures(no
 
 83:                                               ; preds = %81
   %84 = load ptr, ptr @j2d_glPixelTransferf, align 8
-  tail call void %84(i32 noundef 3356, float noundef 1.000000e+00) #6
+  tail call void %84(i32 noundef 3356, float noundef 1.000000e+00) #7
   %85 = load ptr, ptr @j2d_glPixelTransferf, align 8
-  tail call void %85(i32 noundef 3357, float noundef 0.000000e+00) #6
+  tail call void %85(i32 noundef 3357, float noundef 0.000000e+00) #7
   br label %86
 
 86:                                               ; preds = %83, %81
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @flip(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define hidden void @flip(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #4 {
   %6 = shl i32 %1, 2
   %7 = zext i32 %6 to i64
   %8 = icmp ult i32 %2, 2
@@ -1118,7 +1118,7 @@ define hidden void @flip(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
   br i1 %or.cond, label %.thread, label %.lr.ph138
 
 .lr.ph138:                                        ; preds = %5
-  %10 = tail call noalias ptr @malloc(i64 noundef %7) #7
+  %10 = tail call noalias ptr @malloc(i64 noundef %7) #8
   %11 = lshr i32 %2, 1
   %12 = ptrtoint ptr %0 to i64
   %13 = sext i32 %3 to i64
@@ -1368,7 +1368,7 @@ define hidden void @flip(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
   br i1 %exitcond180.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit.thread:                                 ; preds = %.lr.ph138.split
-  tail call void @free(ptr noundef nonnull %10) #6
+  tail call void @free(ptr noundef nonnull %10) #7
   br label %.loopexit
 
 .loopexit:                                        ; preds = %153, %._crit_edge, %117, %.loopexit.thread
@@ -1376,10 +1376,10 @@ define hidden void @flip(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define hidden void @OGLBlitLoops_SurfaceToSwBlit(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #0 {
@@ -1408,7 +1408,7 @@ define hidden void @OGLBlitLoops_SurfaceToSwBlit(ptr noundef %0, ptr noundef rea
   br i1 %or.cond7, label %106, label %23
 
 23:                                               ; preds = %11
-  tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #6
+  tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #7
   store i32 %5, ptr %12, align 8
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %6, ptr %24, align 4
@@ -1428,7 +1428,7 @@ define hidden void @OGLBlitLoops_SurfaceToSwBlit(ptr noundef %0, ptr noundef rea
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 %32, ptr %33, align 4
   %34 = load ptr, ptr %15, align 8
-  %35 = call i32 %34(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %13, i32 noundef 2) #6
+  %35 = call i32 %34(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %13, i32 noundef 2) #7
   %.not = icmp eq i32 %35, 0
   br i1 %.not, label %36, label %106
 
@@ -1437,10 +1437,10 @@ define hidden void @OGLBlitLoops_SurfaceToSwBlit(ptr noundef %0, ptr noundef rea
   %38 = load i32, ptr %37, align 4
   %39 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %40 = load i32, ptr %39, align 8
-  call void @SurfaceData_IntersectBoundsXYXY(ptr noundef nonnull %12, i32 noundef 0, i32 noundef 0, i32 noundef %38, i32 noundef %40) #6
+  call void @SurfaceData_IntersectBoundsXYXY(ptr noundef nonnull %12, i32 noundef 0, i32 noundef 0, i32 noundef %38, i32 noundef %40) #7
   %41 = sub nsw i32 %5, %7
   %42 = sub nsw i32 %6, %8
-  call void @SurfaceData_IntersectBlitBounds(ptr noundef nonnull %13, ptr noundef nonnull %12, i32 noundef %41, i32 noundef %42) #6
+  call void @SurfaceData_IntersectBlitBounds(ptr noundef nonnull %13, ptr noundef nonnull %12, i32 noundef %41, i32 noundef %42) #7
   %43 = load i32, ptr %26, align 8
   %44 = load i32, ptr %12, align 8
   %45 = icmp sgt i32 %43, %44
@@ -1455,7 +1455,7 @@ define hidden void @OGLBlitLoops_SurfaceToSwBlit(ptr noundef %0, ptr noundef rea
 50:                                               ; preds = %46
   %51 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %52 = load ptr, ptr %51, align 8
-  call void %52(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %13) #6
+  call void %52(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %13) #7
   %53 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %54 = load ptr, ptr %53, align 8
   %.not72 = icmp eq ptr %54, null
@@ -1485,9 +1485,9 @@ define hidden void @OGLBlitLoops_SurfaceToSwBlit(ptr noundef %0, ptr noundef rea
   %76 = inttoptr i64 %75 to ptr
   %77 = load ptr, ptr @j2d_glPixelStorei, align 8
   %78 = sdiv i32 %72, %66
-  call void %77(i32 noundef 3330, i32 noundef %78) #6
+  call void %77(i32 noundef 3330, i32 noundef %78) #7
   %79 = load ptr, ptr @j2d_glPixelStorei, align 8
-  call void %79(i32 noundef 3333, i32 noundef %.sroa.3.0.copyload) #6
+  call void %79(i32 noundef 3333, i32 noundef %.sroa.3.0.copyload) #7
   %80 = getelementptr inbounds nuw i8, ptr %14, i64 84
   %81 = load i32, ptr %80, align 4
   %82 = add nsw i32 %81, %56
@@ -1497,7 +1497,7 @@ define hidden void @OGLBlitLoops_SurfaceToSwBlit(ptr noundef %0, ptr noundef rea
   %86 = sub i32 %84, %62
   %87 = add i32 %86, %85
   %88 = load ptr, ptr @j2d_glReadPixels, align 8
-  call void %88(i32 noundef %82, i32 noundef %87, i32 noundef %61, i32 noundef %63, i32 noundef %.sroa.0.0.copyload, i32 noundef %.sroa.2.0.copyload, ptr noundef %76) #6
+  call void %88(i32 noundef %82, i32 noundef %87, i32 noundef %61, i32 noundef %63, i32 noundef %.sroa.0.0.copyload, i32 noundef %.sroa.2.0.copyload, ptr noundef %76) #7
   %89 = load i32, ptr %71, align 8
   %.not73 = icmp eq i8 %.sroa.411.0.copyload, 0
   br i1 %.not73, label %90, label %94
@@ -1513,9 +1513,9 @@ define hidden void @OGLBlitLoops_SurfaceToSwBlit(ptr noundef %0, ptr noundef rea
   %95 = phi i8 [ 0, %55 ], [ %93, %90 ]
   call void @flip(ptr noundef %76, i32 noundef %61, i32 noundef %63, i32 noundef %89, i8 noundef zeroext %95)
   %96 = load ptr, ptr @j2d_glPixelStorei, align 8
-  call void %96(i32 noundef 3330, i32 noundef 0) #6
+  call void %96(i32 noundef 3330, i32 noundef 0) #7
   %97 = load ptr, ptr @j2d_glPixelStorei, align 8
-  call void %97(i32 noundef 3333, i32 noundef 4) #6
+  call void %97(i32 noundef 3333, i32 noundef 4) #7
   br label %98
 
 98:                                               ; preds = %50, %94
@@ -1525,7 +1525,7 @@ define hidden void @OGLBlitLoops_SurfaceToSwBlit(ptr noundef %0, ptr noundef rea
   br i1 %.not75, label %102, label %101
 
 101:                                              ; preds = %98
-  call void %100(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %13) #6
+  call void %100(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %13) #7
   br label %102
 
 102:                                              ; preds = %36, %46, %98, %101
@@ -1535,7 +1535,7 @@ define hidden void @OGLBlitLoops_SurfaceToSwBlit(ptr noundef %0, ptr noundef rea
   br i1 %.not76, label %106, label %105
 
 105:                                              ; preds = %102
-  call void %104(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %13) #6
+  call void %104(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %13) #7
   br label %106
 
 106:                                              ; preds = %102, %105, %23, %11
@@ -1554,7 +1554,7 @@ define hidden void @OGLBlitLoops_CopyArea(ptr noundef readnone captures(none) %0
   br i1 %or.cond, label %51, label %14
 
 14:                                               ; preds = %9
-  tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #6
+  tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #7
   store i32 %3, ptr %10, align 4
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %4, ptr %15, align 4
@@ -1579,13 +1579,13 @@ define hidden void @OGLBlitLoops_CopyArea(ptr noundef readnone captures(none) %0
   %28 = load i32, ptr %27, align 4
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %30 = load i32, ptr %29, align 8
-  call void @SurfaceData_IntersectBoundsXYXY(ptr noundef nonnull %10, i32 noundef 0, i32 noundef 0, i32 noundef %28, i32 noundef %30) #6
+  call void @SurfaceData_IntersectBoundsXYXY(ptr noundef nonnull %10, i32 noundef 0, i32 noundef 0, i32 noundef %28, i32 noundef %30) #7
   %31 = load i32, ptr %27, align 4
   %32 = load i32, ptr %29, align 8
-  call void @SurfaceData_IntersectBoundsXYXY(ptr noundef nonnull %11, i32 noundef 0, i32 noundef 0, i32 noundef %31, i32 noundef %32) #6
+  call void @SurfaceData_IntersectBoundsXYXY(ptr noundef nonnull %11, i32 noundef 0, i32 noundef 0, i32 noundef %31, i32 noundef %32) #7
   %33 = sub nsw i32 0, %7
   %34 = sub nsw i32 0, %8
-  call void @SurfaceData_IntersectBlitBounds(ptr noundef nonnull %11, ptr noundef nonnull %10, i32 noundef %33, i32 noundef %34) #6
+  call void @SurfaceData_IntersectBlitBounds(ptr noundef nonnull %11, ptr noundef nonnull %10, i32 noundef %33, i32 noundef %34) #7
   %35 = load i32, ptr %11, align 4
   %36 = load i32, ptr %24, align 4
   %37 = icmp slt i32 %35, %36
@@ -1623,10 +1623,11 @@ attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind allocsize(0) }
+attributes #4 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -355,7 +355,7 @@ _ZN16ruff_source_file10line_index9LineIndex10line_start17hed7e8a2147d8d2d5E.exit
   br label %50
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i64 @_ZN16ruff_source_file10line_index9LineIndex10line_count17hbecb2d0066eb3ff8E(ptr readonly align 8 captures(none) %0) unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -363,7 +363,7 @@ define i64 @_ZN16ruff_source_file10line_index9LineIndex10line_count17hbecb2d0066
   ret i64 %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @_ZN16ruff_source_file10line_index9LineIndex8is_ascii17h46bf7250df2140f6E(ptr readonly align 8 captures(none) %0) unnamed_addr #1 {
   %.val = load ptr, ptr %0, align 8
   %2 = getelementptr i8, ptr %.val, i64 40
@@ -761,7 +761,7 @@ define i32 @_ZN16ruff_source_file10line_index9LineIndex6offset17h55759554f3d0e49
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { ptr, i64 } @_ZN16ruff_source_file10line_index9LineIndex11line_starts17ha49c27ca1201b843E(ptr readonly align 8 captures(none) %0) unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -773,7 +773,7 @@ define { ptr, i64 } @_ZN16ruff_source_file10line_index9LineIndex11line_starts17h
   ret { ptr, i64 } %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { ptr, i64 } @"_ZN83_$LT$ruff_source_file..line_index..LineIndex$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc13bab9a06785ac9E"(ptr readonly align 8 captures(none) %0) unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -1001,7 +1001,7 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

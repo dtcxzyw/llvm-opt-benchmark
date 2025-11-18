@@ -729,7 +729,7 @@ define dso_local noundef zeroext i1 @_ZN4onnx15Version_IsValidEi(i32 noundef %0)
   ret i1 %switch
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN4onnx14AttributeProto21InitAsDefaultInstanceEv() local_unnamed_addr #5 align 2 {
   store ptr @_ZN4onnx30_TensorProto_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN4onnx33_AttributeProto_default_instance_E, i64 160), align 8, !tbaa !15
   store ptr @_ZN4onnx29_GraphProto_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN4onnx33_AttributeProto_default_instance_E, i64 168), align 8, !tbaa !36
@@ -6783,7 +6783,7 @@ define dso_local { ptr, ptr } @_ZNK4onnx14AttributeProto11GetMetadataEv(ptr nonn
   ret { ptr, ptr } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN4onnx14ValueInfoProto21InitAsDefaultInstanceEv() local_unnamed_addr #5 align 2 {
   store ptr @_ZN4onnx28_TypeProto_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN4onnx33_ValueInfoProto_default_instance_E, i64 40), align 8, !tbaa !61
   ret void
@@ -11008,7 +11008,7 @@ define dso_local { ptr, ptr } @_ZNK4onnx9NodeProto11GetMetadataEv(ptr nonnull re
   ret { ptr, ptr } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN4onnx10ModelProto21InitAsDefaultInstanceEv() local_unnamed_addr #5 align 2 {
   store ptr @_ZN4onnx29_GraphProto_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN4onnx29_ModelProto_default_instance_E, i64 104), align 8, !tbaa !37
   ret void
@@ -21567,7 +21567,7 @@ define dso_local { ptr, ptr } @_ZNK4onnx19TensorProto_Segment11GetMetadataEv(ptr
   ret { ptr, ptr } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN4onnx11TensorProto21InitAsDefaultInstanceEv() local_unnamed_addr #5 align 2 {
   store ptr @_ZN4onnx38_TensorProto_Segment_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN4onnx30_TensorProto_default_instance_E, i64 232), align 8, !tbaa !44
   ret void
@@ -25397,7 +25397,7 @@ define dso_local { ptr, ptr } @_ZNK4onnx11TensorProto11GetMetadataEv(ptr nonnull
   ret { ptr, ptr } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN4onnx26TensorShapeProto_Dimension21InitAsDefaultInstanceEv() local_unnamed_addr #5 align 2 {
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4onnx45_TensorShapeProto_Dimension_default_instance_E, i64 48), align 8, !tbaa !51
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds nuw (i8, ptr @_ZN4onnx45_TensorShapeProto_Dimension_default_instance_E, i64 56), align 8, !tbaa !12
@@ -28007,7 +28007,7 @@ define dso_local { ptr, ptr } @_ZNK4onnx16TensorShapeProto11GetMetadataEv(ptr no
   ret { ptr, ptr } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN4onnx16TypeProto_Tensor21InitAsDefaultInstanceEv() local_unnamed_addr #5 align 2 {
   store ptr @_ZN4onnx35_TensorShapeProto_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN4onnx35_TypeProto_Tensor_default_instance_E, i64 24), align 8, !tbaa !58
   ret void
@@ -29239,7 +29239,7 @@ define dso_local { ptr, ptr } @_ZNK4onnx16TypeProto_Tensor11GetMetadataEv(ptr no
   ret { ptr, ptr } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN4onnx9TypeProto21InitAsDefaultInstanceEv() local_unnamed_addr #5 align 2 {
   store ptr @_ZN4onnx35_TypeProto_Tensor_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN4onnx28_TypeProto_default_instance_E, i64 48), align 8, !tbaa !54
   ret void
@@ -33110,7 +33110,7 @@ attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

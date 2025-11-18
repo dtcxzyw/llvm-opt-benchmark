@@ -6661,7 +6661,7 @@ define internal noundef ptr @_ZN4core3ops8function6FnOnce9call_once17h30815daf8d
   ret ptr %.sroa.0.0.i.i
 }
 
-; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden void @"_ZN98_$LT$prometheus_client..metrics..family..Family$LT$S$C$M$C$C$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h029e398b5fe122ceE"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
   %4 = atomicrmw add ptr %3, i64 1 monotonic, align 8
@@ -6685,7 +6685,7 @@ define hidden void @"_ZN98_$LT$prometheus_client..metrics..family..Family$LT$S$C
   ret void
 }
 
-; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden void @"_ZN98_$LT$prometheus_client..metrics..family..Family$LT$S$C$M$C$C$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h06bde2397becf9bdE"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
   %4 = atomicrmw add ptr %3, i64 1 monotonic, align 8
@@ -6709,7 +6709,7 @@ define hidden void @"_ZN98_$LT$prometheus_client..metrics..family..Family$LT$S$C
   ret void
 }
 
-; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, ptr } @"_ZN98_$LT$prometheus_client..metrics..family..Family$LT$S$C$M$C$C$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h20e1ac7fa4304d84E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !6, !noundef !6
   %3 = atomicrmw add ptr %2, i64 1 monotonic, align 8
@@ -6728,7 +6728,7 @@ define hidden { ptr, ptr } @"_ZN98_$LT$prometheus_client..metrics..family..Famil
   ret { ptr, ptr } %9
 }
 
-; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, ptr } @"_ZN98_$LT$prometheus_client..metrics..family..Family$LT$S$C$M$C$C$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4bc59b2ad37d36c7E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !6, !noundef !6
   %3 = atomicrmw add ptr %2, i64 1 monotonic, align 8
@@ -6747,7 +6747,7 @@ define hidden { ptr, ptr } @"_ZN98_$LT$prometheus_client..metrics..family..Famil
   ret { ptr, ptr } %9
 }
 
-; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, ptr } @"_ZN98_$LT$prometheus_client..metrics..family..Family$LT$S$C$M$C$C$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h5a5cfc17a2ab3e2aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !6, !noundef !6
   %3 = atomicrmw add ptr %2, i64 1 monotonic, align 8
@@ -6766,7 +6766,7 @@ define hidden { ptr, ptr } @"_ZN98_$LT$prometheus_client..metrics..family..Famil
   ret { ptr, ptr } %9
 }
 
-; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, ptr } @"_ZN98_$LT$prometheus_client..metrics..family..Family$LT$S$C$M$C$C$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h5cf191abaafb1f18E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !6, !noundef !6
   %3 = atomicrmw add ptr %2, i64 1 monotonic, align 8
@@ -6785,7 +6785,7 @@ define hidden { ptr, ptr } @"_ZN98_$LT$prometheus_client..metrics..family..Famil
   ret { ptr, ptr } %9
 }
 
-; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden void @"_ZN98_$LT$prometheus_client..metrics..family..Family$LT$S$C$M$C$C$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h805378fcc0a3c1c4E"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
   %4 = atomicrmw add ptr %3, i64 1 monotonic, align 8
@@ -6809,7 +6809,7 @@ define hidden void @"_ZN98_$LT$prometheus_client..metrics..family..Family$LT$S$C
   ret void
 }
 
-; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, ptr } @"_ZN98_$LT$prometheus_client..metrics..family..Family$LT$S$C$M$C$C$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h807fe5c3cd73eacfE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !6, !noundef !6
   %3 = atomicrmw add ptr %2, i64 1 monotonic, align 8
@@ -6828,7 +6828,7 @@ define hidden { ptr, ptr } @"_ZN98_$LT$prometheus_client..metrics..family..Famil
   ret { ptr, ptr } %9
 }
 
-; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, ptr } @"_ZN98_$LT$prometheus_client..metrics..family..Family$LT$S$C$M$C$C$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h838a255e390e3602E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !6, !noundef !6
   %3 = atomicrmw add ptr %2, i64 1 monotonic, align 8
@@ -6847,7 +6847,7 @@ define hidden { ptr, ptr } @"_ZN98_$LT$prometheus_client..metrics..family..Famil
   ret { ptr, ptr } %9
 }
 
-; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, ptr } @"_ZN98_$LT$prometheus_client..metrics..family..Family$LT$S$C$M$C$C$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8c567f65cbb866e1E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !6, !noundef !6
   %3 = atomicrmw add ptr %2, i64 1 monotonic, align 8
@@ -6866,7 +6866,7 @@ define hidden { ptr, ptr } @"_ZN98_$LT$prometheus_client..metrics..family..Famil
   ret { ptr, ptr } %9
 }
 
-; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, ptr } @"_ZN98_$LT$prometheus_client..metrics..family..Family$LT$S$C$M$C$C$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d6d763bf87b6a61E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !6, !noundef !6
   %3 = atomicrmw add ptr %2, i64 1 monotonic, align 8
@@ -6885,7 +6885,7 @@ define hidden { ptr, ptr } @"_ZN98_$LT$prometheus_client..metrics..family..Famil
   ret { ptr, ptr } %9
 }
 
-; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, ptr } @"_ZN98_$LT$prometheus_client..metrics..family..Family$LT$S$C$M$C$C$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha702d29f3710343aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !6, !noundef !6
   %3 = atomicrmw add ptr %2, i64 1 monotonic, align 8
@@ -6904,7 +6904,7 @@ define hidden { ptr, ptr } @"_ZN98_$LT$prometheus_client..metrics..family..Famil
   ret { ptr, ptr } %9
 }
 
-; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, ptr } @"_ZN98_$LT$prometheus_client..metrics..family..Family$LT$S$C$M$C$C$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he242928f40f48bb9E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !6, !noundef !6
   %3 = atomicrmw add ptr %2, i64 1 monotonic, align 8
@@ -6923,7 +6923,7 @@ define hidden { ptr, ptr } @"_ZN98_$LT$prometheus_client..metrics..family..Famil
   ret { ptr, ptr } %9
 }
 
-; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, ptr } @"_ZN98_$LT$prometheus_client..metrics..family..Family$LT$S$C$M$C$C$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf1efa07263a7eebbE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !6, !noundef !6
   %3 = atomicrmw add ptr %2, i64 1 monotonic, align 8
@@ -7998,7 +7998,7 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #2 = { nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #2 = { nounwind nonlazybind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { cold minsize noreturn nounwind nonlazybind optsize uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

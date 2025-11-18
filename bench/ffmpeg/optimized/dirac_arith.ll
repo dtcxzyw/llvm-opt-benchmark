@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @dirac_prob = internal unnamed_addr constant [256 x i16] [i16 0, i16 2, i16 5, i16 8, i16 11, i16 15, i16 20, i16 24, i16 29, i16 35, i16 41, i16 47, i16 53, i16 60, i16 67, i16 74, i16 82, i16 89, i16 97, i16 106, i16 114, i16 123, i16 132, i16 141, i16 150, i16 160, i16 170, i16 180, i16 190, i16 201, i16 211, i16 222, i16 233, i16 244, i16 256, i16 267, i16 279, i16 291, i16 303, i16 315, i16 327, i16 340, i16 353, i16 366, i16 379, i16 392, i16 405, i16 419, i16 433, i16 447, i16 461, i16 475, i16 489, i16 504, i16 518, i16 533, i16 548, i16 563, i16 578, i16 593, i16 609, i16 624, i16 640, i16 656, i16 672, i16 688, i16 705, i16 721, i16 738, i16 754, i16 771, i16 788, i16 805, i16 822, i16 840, i16 857, i16 875, i16 892, i16 910, i16 928, i16 946, i16 964, i16 983, i16 1001, i16 1020, i16 1038, i16 1057, i16 1076, i16 1095, i16 1114, i16 1133, i16 1153, i16 1172, i16 1192, i16 1211, i16 1231, i16 1251, i16 1271, i16 1291, i16 1311, i16 1332, i16 1352, i16 1373, i16 1393, i16 1414, i16 1435, i16 1456, i16 1477, i16 1498, i16 1520, i16 1541, i16 1562, i16 1584, i16 1606, i16 1628, i16 1649, i16 1671, i16 1694, i16 1716, i16 1738, i16 1760, i16 1783, i16 1806, i16 1828, i16 1851, i16 1874, i16 1897, i16 1920, i16 1935, i16 1942, i16 1949, i16 1955, i16 1961, i16 1968, i16 1974, i16 1980, i16 1985, i16 1991, i16 1996, i16 2001, i16 2006, i16 2011, i16 2016, i16 2021, i16 2025, i16 2029, i16 2033, i16 2037, i16 2040, i16 2044, i16 2047, i16 2050, i16 2053, i16 2056, i16 2058, i16 2061, i16 2063, i16 2065, i16 2066, i16 2068, i16 2069, i16 2070, i16 2071, i16 2072, i16 2072, i16 2072, i16 2072, i16 2072, i16 2072, i16 2071, i16 2070, i16 2069, i16 2068, i16 2066, i16 2065, i16 2063, i16 2060, i16 2058, i16 2055, i16 2052, i16 2049, i16 2045, i16 2042, i16 2038, i16 2033, i16 2029, i16 2024, i16 2019, i16 2013, i16 2008, i16 2002, i16 1996, i16 1989, i16 1982, i16 1975, i16 1968, i16 1960, i16 1952, i16 1943, i16 1934, i16 1925, i16 1916, i16 1906, i16 1896, i16 1885, i16 1874, i16 1863, i16 1851, i16 1839, i16 1827, i16 1814, i16 1800, i16 1786, i16 1772, i16 1757, i16 1742, i16 1727, i16 1710, i16 1694, i16 1676, i16 1659, i16 1640, i16 1622, i16 1602, i16 1582, i16 1561, i16 1540, i16 1518, i16 1495, i16 1471, i16 1447, i16 1422, i16 1396, i16 1369, i16 1341, i16 1312, i16 1282, i16 1251, i16 1219, i16 1186, i16 1151, i16 1114, i16 1077, i16 1037, i16 995, i16 952, i16 906, i16 857, i16 805, i16 750, i16 690, i16 625, i16 553, i16 471, i16 376, i16 255], align 16
 @ff_dirac_prob_branchless = local_unnamed_addr global [256 x [2 x i16]] zeroinitializer, align 16
 
-; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @ff_dirac_init_arith_tables() local_unnamed_addr #0 {
   br label %1
 
@@ -31,7 +31,7 @@ define void @ff_dirac_init_arith_tables() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @ff_dirac_init_arith_decoder(ptr noundef writeonly captures(none) initializes((0, 4), (8, 24)) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr i8, ptr %1, i64 16
   %.val.i = load i32, ptr %4, align 8, !tbaa !10
@@ -130,8 +130,8 @@ declare i32 @llvm.umin.i32(i32, i32) #2
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #2
 
-attributes #0 = { cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

@@ -135,7 +135,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCseG2FYMysgNb_3wax5token8vari
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNCINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtBP_3VecNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE14extend_trustedINtNtNtNtB4_4iter8adapters3map3MapINtNtNtNtBR_11collections9vec_deque9into_iter8IntoIterB1p_ENvMsk_B1r_B1p_10into_ownedEE0EB1v_.llvm.11100904734654111133(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
@@ -146,7 +146,7 @@ define hidden void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNCINvMsi_NtCs68
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNCINvNtNtNtB4_4iter8adapters3map8map_foldNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentB1l_uNvMsk_B1n_B1l_10into_ownedNCINvNvNtNtNtBP_6traits8iterator8Iterator8for_each4callB1l_NCINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB3S_3VecB1l_E14extend_trustedINtBL_3MapINtNtNtNtB3U_11collections9vec_deque9into_iter8IntoIterB1l_EB2m_EE0E0E0EB1r_.llvm.11100904734654111133(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
@@ -159,7 +159,7 @@ define hidden void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNCINvNtNtNtB4_4
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNCINvNvNtNtNtNtB4_4iter6traits8iterator8Iterator8for_each4callNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNCINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB2L_3VecB1G_E14extend_trustedINtNtNtBT_8adapters3map3MapINtNtNtNtB2N_11collections9vec_deque9into_iter8IntoIterB1G_ENvMsk_B1I_B1G_10into_ownedEE0E0EB1M_.llvm.11100904734654111133(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
@@ -171,7 +171,7 @@ define hidden void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNCINvNvNtNtNtNt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCs68wO5nsWeTG_5alloc3vec15set_len_on_drop12SetLenOnDropECseG2FYMysgNb_3wax.llvm.11100904734654111133(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #1 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -928,7 +928,7 @@ _RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterINtNtCs68wO5nsWeTG_5alloc3vec3Ve
   ret i1 %.not.not.not.i.not.not.not.not.not
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(write, argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(write, argmem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @_RINvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB6_3MapINtNtNtBc_5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENCNvXsQ_B1q_INtB1q_4WalkuEINtNtBc_7convert4FromRINtNtCs68wO5nsWeTG_5alloc3vec3VecB1n_EE4from0ENtNtNtBa_6traits8iterator8Iterator4folduNCINvNvB3v_8for_each4callTNtB1q_8PositionRB1n_ENCINvMsi_B2O_IB2M_B4y_E14extend_trustedBN_E0E0EB1s_(ptr noundef nonnull %0, ptr noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -968,7 +968,7 @@ _RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterINtNtCseG2FYMysgNb_3wax5t
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define void @_RINvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB6_3MapINtNtNtBc_5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENCNvXsR_B1q_INtB1q_4WalkuENtNtNtBa_6traits8iterator8Iterator4nexts_0EB2p_4folduNCINvNvXs_NtB8_9enumerateINtB3q_9EnumeratepEB2p_4fold9enumerateTNtB1q_8PositionRB1n_EuNCINvNvB2p_8for_each4callTjB4h_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5j_8VecDequeB4h_E10write_iterBN_E0E0E0EB1s_(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1025,7 +1025,7 @@ _RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterINtNtCseG2FYMysgNb_3wax5t
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_RINvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB6_3MapINtNtNtBc_5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENCNvXsR_B1q_INtB1q_4WalkuENtNtNtBa_6traits8iterator8Iterator4nexts_0EB2p_8try_folduNCINvNvXs_NtB8_4takeINtB3u_4TakepEB2p_8try_fold5checkTNtB1q_8PositionRB1n_EuINtNtNtBc_3ops9try_trait17NeverShortCircuituENCINvMB4B_B4y_10wrap_mut_2uB4b_NCINvNvXs_NtB8_9enumerateINtB5W_9EnumeratepEB2p_4fold9enumerateB4b_uNCINvNvB2p_8for_each4callTjB4b_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB7x_8VecDequeB4b_E10write_iterIB3F_INtNtB8_12by_ref_sized10ByRefSizedBN_EEE0E0E0E0E0INtNtB4D_12control_flow11ControlFlowB4y_EEB1s_(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8
@@ -1127,7 +1127,7 @@ _RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterINtNtCseG2FYMysgNb_3wax5t
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(write, argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(write, argmem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @_RINvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB6_3MapINtNtNtBc_5slice4iter4IterNtNtCseG2FYMysgNb_3wax11diagnostics13CompositeSpanENCNvMs6_B1r_NtB1r_10BuildError9locationss_0ENtNtNtBa_6traits8iterator8Iterator4folduNCINvNvB2U_8for_each4callRDNtB1p_12LocatedErrorEL_NCINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB4v_3VecB3X_E14extend_trustedBN_E0E0EB1r_(ptr noundef nonnull %0, ptr noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1167,7 +1167,7 @@ _RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterNtNtCseG2FYMysgNb_3wax11d
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(write, argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(write, argmem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @_RINvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB6_3MapINtNtNtBc_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenENCNvXsQ_B1p_INtB1p_4WalkTjjEEINtNtBc_7convert4FromRINtNtCs68wO5nsWeTG_5alloc3vec3VecB1n_EE4from0ENtNtNtBa_6traits8iterator8Iterator4folduNCINvNvB3v_8for_each4callTNtB1p_8PositionRB1n_ENCINvMsi_B2O_IB2M_B4y_E14extend_trustedBN_E0E0EB1r_(ptr noundef nonnull %0, ptr noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1207,7 +1207,7 @@ _RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterNtNtCseG2FYMysgNb_3wax5to
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define void @_RINvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB6_3MapINtNtNtBc_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenENCNvXsR_B1p_INtB1p_4WalkTjjEENtNtNtBa_6traits8iterator8Iterator4nexts_0EB2p_4folduNCINvNvXs_NtB8_9enumerateINtB3q_9EnumeratepEB2p_4fold9enumerateTNtB1p_8PositionRB1n_EuNCINvNvB2p_8for_each4callTjB4h_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5j_8VecDequeB4h_E10write_iterBN_E0E0E0EB1r_(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1264,7 +1264,7 @@ _RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterNtNtCseG2FYMysgNb_3wax5to
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_RINvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB6_3MapINtNtNtBc_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenENCNvXsR_B1p_INtB1p_4WalkTjjEENtNtNtBa_6traits8iterator8Iterator4nexts_0EB2p_8try_folduNCINvNvXs_NtB8_4takeINtB3u_4TakepEB2p_8try_fold5checkTNtB1p_8PositionRB1n_EuINtNtNtBc_3ops9try_trait17NeverShortCircuituENCINvMB4B_B4y_10wrap_mut_2uB4b_NCINvNvXs_NtB8_9enumerateINtB5W_9EnumeratepEB2p_4fold9enumerateB4b_uNCINvNvB2p_8for_each4callTjB4b_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB7x_8VecDequeB4b_E10write_iterIB3F_INtNtB8_12by_ref_sized10ByRefSizedBN_EEE0E0E0E0E0INtNtB4D_12control_flow11ControlFlowB4y_EEB1r_(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8
@@ -1412,7 +1412,7 @@ _RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterNtNtCseG2FYMysgNb_3wax5to
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_RINvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB6_3MapINtNtNtBc_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token9ArchetypeENvYRB1n_INtNtB1p_8variance12UnitVarianceNtB2b_13InvariantSizeE13unit_varianceENtNtNtBa_6traits8iterator8Iterator8try_folduNCINvNvB3g_3all5checkINtB2b_8VarianceB2E_ENCNvYBX_INtB2b_19DisjunctiveVarianceB2E_E20disjunctive_variances_0E0INtNtNtBc_3ops12control_flow11ControlFlowuEEB1r_(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !423)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !426)
@@ -1570,7 +1570,7 @@ _RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token9Arc
   ret i1 %.not.not.not.i.not.not.not.not.not
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(write, argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(write, argmem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @_RINvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB6_3MapINtNtNtBc_5slice4iter4IterNtNtNtCseG2FYMysgNb_3wax5token5parse10ErrorEntryENCNvMs6_B1t_NtB1t_10BuildError9locations0ENtNtNtBa_6traits8iterator8Iterator4folduNCINvNvB2Q_8for_each4callRDNtNtB1t_11diagnostics12LocatedErrorEL_NCINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB4G_3VecB3T_E14extend_trustedBN_E0E0EB1t_(ptr noundef nonnull %0, ptr noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2218,7 +2218,7 @@ _RNvYNvYRINtNtCseG2FYMysgNb_3wax5token5TokenuEINtNtB9_8variance12UnitVarianceNtB
   ret void
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(write, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENtNtNtNtBb_4iter6traits8iterator8Iterator4folduNCINvNtNtB1y_8adapters3map8map_foldRBQ_TNtBT_8PositionB2M_EuNCNvXsQ_BT_INtBT_4WalkuEINtNtBb_7convert4FromRINtNtCs68wO5nsWeTG_5alloc3vec3VecBQ_EE4from0NCINvNvB1s_8for_each4callB2Q_NCINvMsi_B3Y_IB3W_B2Q_E14extend_trustedINtB2i_3MapBF_B3b_EE0E0E0EBV_.llvm.11100904734654111133(ptr noundef nonnull %0, ptr noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -2269,7 +2269,7 @@ define hidden void @_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterINtNt
   ret void
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENtNtNtNtBb_4iter6traits8iterator8Iterator4folduNCINvNtNtB1y_8adapters3map8map_foldRBQ_TNtBT_8PositionB2M_EuNCNvXsR_BT_INtBT_4WalkuEB1s_4nexts_0NCINvNvXs_NtB2k_9enumerateINtB3V_9EnumeratepEB1s_4fold9enumerateB2Q_uNCINvNvB1s_8for_each4callTjB2Q_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5x_8VecDequeB2Q_E10write_iterINtB2i_3MapBF_B3b_EE0E0E0E0EBV_.llvm.11100904734654111133(ptr noundef nonnull %0, ptr noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(40) %2) unnamed_addr #8 personality ptr @rust_eh_personality {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -2330,7 +2330,7 @@ define hidden void @_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterINtNt
   ret void
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(write, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterNtNtCseG2FYMysgNb_3wax11diagnostics13CompositeSpanENtNtNtNtBb_4iter6traits8iterator8Iterator4folduNCINvNtNtB1L_8adapters3map8map_foldRBQ_RDNtBS_12LocatedErrorEL_uNCNvMs6_BU_NtBU_10BuildError9locationss_0NCINvNvB1F_8for_each4callB33_NCINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB4J_3VecB33_E14extend_trustedINtB2v_3MapBF_B3s_EE0E0E0EBU_.llvm.11100904734654111133(ptr noundef nonnull %0, ptr noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -2501,7 +2501,7 @@ _RNvYNvYRNtNtCseG2FYMysgNb_3wax5token5TokenINtNtB8_8variance12UnitVarianceNtBH_1
   ret void
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(write, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtNtBb_4iter6traits8iterator8Iterator4folduNCINvNtNtB1v_8adapters3map8map_foldRBQ_TNtBS_8PositionB2J_EuNCNvXsQ_BS_INtBS_4WalkTjjEEINtNtBb_7convert4FromRINtNtCs68wO5nsWeTG_5alloc3vec3VecBQ_EE4from0NCINvNvB1p_8for_each4callB2N_NCINvMsi_B3Y_IB3W_B2N_E14extend_trustedINtB2f_3MapBF_B38_EE0E0E0EBU_.llvm.11100904734654111133(ptr noundef nonnull %0, ptr noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -2552,7 +2552,7 @@ define hidden void @_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterNtNtC
   ret void
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtNtBb_4iter6traits8iterator8Iterator4folduNCINvNtNtB1v_8adapters3map8map_foldRBQ_TNtBS_8PositionB2J_EuNCNvXsR_BS_INtBS_4WalkTjjEEB1p_4nexts_0NCINvNvXs_NtB2h_9enumerateINtB3V_9EnumeratepEB1p_4fold9enumerateB2N_uNCINvNvB1p_8for_each4callTjB2N_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5x_8VecDequeB2N_E10write_iterINtB2f_3MapBF_B38_EE0E0E0E0EBU_.llvm.11100904734654111133(ptr noundef nonnull %0, ptr noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(40) %2) unnamed_addr #8 personality ptr @rust_eh_personality {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -2613,7 +2613,7 @@ define hidden void @_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterNtNtC
   ret void
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(write, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterNtNtNtCseG2FYMysgNb_3wax5token5parse10ErrorEntryENtNtNtNtBb_4iter6traits8iterator8Iterator4folduNCINvNtNtB1J_8adapters3map8map_foldRBQ_RDNtNtBW_11diagnostics12LocatedErrorEL_uNCNvMs6_BW_NtBW_10BuildError9locations0NCINvNvB1D_8for_each4callB31_NCINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB4U_3VecB31_E14extend_trustedINtB2t_3MapBF_B3F_EE0E0E0EBW_.llvm.11100904734654111133(ptr noundef nonnull %0, ptr noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -3376,7 +3376,7 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterINtNtCs68wO5nsWeTG_5alloc3
   ret i1 %16
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1r_8adapters3map12map_try_foldRBJ_TNtBM_8PositionB2O_EuINtNtNtBa_3ops12control_flow11ControlFlowINtNtB3i_9try_trait17NeverShortCircuituEENCNvXsR_BM_INtBM_4WalkuEB1l_4nexts_0NCINvNvXs_NtB2h_4takeINtB5h_4TakepEB1l_8try_fold5checkB2S_uB3S_NCINvMB3V_B3S_10wrap_mut_2uB2S_NCINvNvXs_NtB2h_9enumerateINtB6N_9EnumeratepEB1l_4fold9enumerateB2S_uNCINvNvB1l_8for_each4callTjB2S_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB8p_8VecDequeB2S_E10write_iterIB5t_INtNtB2h_12by_ref_sized10ByRefSizedINtB2f_3MapB3_B4x_EEEE0E0E0E0E0E0B3d_EBO_.llvm.11100904734654111133(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !1112, !nonnull !5, !noundef !5
@@ -3438,7 +3438,7 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterINtNtCseG2FYMysgNb_3wax5to
   ret i1 %.not9.not.not.not.not
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1o_8adapters3map12map_try_foldRBJ_TNtBL_8PositionB2L_EuINtNtNtBa_3ops12control_flow11ControlFlowINtNtB3f_9try_trait17NeverShortCircuituEENCNvXsR_BL_INtBL_4WalkTjjEEB1i_4nexts_0NCINvNvXs_NtB2e_4takeINtB5h_4TakepEB1i_8try_fold5checkB2P_uB3P_NCINvMB3S_B3P_10wrap_mut_2uB2P_NCINvNvXs_NtB2e_9enumerateINtB6N_9EnumeratepEB1i_4fold9enumerateB2P_uNCINvNvB1i_8for_each4callTjB2P_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB8p_8VecDequeB2P_E10write_iterIB5t_INtNtB2e_12by_ref_sized10ByRefSizedINtB2c_3MapB3_B4u_EEEE0E0E0E0E0E0B3a_EBN_.llvm.11100904734654111133(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !1151, !nonnull !5, !noundef !5
@@ -3500,7 +3500,7 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterNtNtCseG2FYMysgNb_3wax5tok
   ret i1 %.not9.not.not.not.not
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token9ArchetypeENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduNCINvNtNtB1s_8adapters3map12map_try_foldRBJ_INtNtBL_8variance8VarianceNtB2W_13InvariantSizeEuINtNtNtBa_3ops12control_flow11ControlFlowuENvYB2P_INtB2W_12UnitVarianceB3j_E13unit_varianceNCINvNvB1m_3all5checkB2T_NCNvYB3_INtB2W_19DisjunctiveVarianceB3j_E20disjunctive_variances_0E0E0B3G_EBN_.llvm.11100904734654111133(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef nonnull readnone align 1 captures(none) %2) unnamed_addr #9 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !alias.scope !1190, !nonnull !5, !noundef !5
@@ -3687,7 +3687,7 @@ define hidden { ptr, ptr } @_RINvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map
   ret { ptr, ptr } %4
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_RNCINvMNtNtCs1LoaDTb72WA_4core3ops9try_traitINtB5_17NeverShortCircuituE10wrap_mut_2uTNtNtCseG2FYMysgNb_3wax5token8PositionRINtB1n_5TokenuEENCINvNvXs_NtNtNtB9_4iter8adapters9enumerateINtB2n_9EnumeratepENtNtNtB2r_6traits8iterator8Iterator4fold9enumerateB1k_uNCINvNvB3d_8for_each4callTjB1k_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB4L_8VecDequeB1k_E10write_iterINtNtB2p_4take4TakeINtNtB2p_12by_ref_sized10ByRefSizedINtNtB2p_3map3MapINtNtNtB9_5slice4iter4IterB1X_ENCNvXsR_B1n_INtB1n_4WalkuEB3d_4nexts_0EEEE0E0E0E0B1p_.llvm.11100904734654111133(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #11 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1262)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3713,7 +3713,7 @@ define hidden void @_RNCINvMNtNtCs1LoaDTb72WA_4core3ops9try_traitINtB5_17NeverSh
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_RNCINvMNtNtCs1LoaDTb72WA_4core3ops9try_traitINtB5_17NeverShortCircuituE10wrap_mut_2uTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1n_5TokenENCINvNvXs_NtNtNtB9_4iter8adapters9enumerateINtB2k_9EnumeratepENtNtNtB2o_6traits8iterator8Iterator4fold9enumerateB1k_uNCINvNvB3a_8for_each4callTjB1k_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB4I_8VecDequeB1k_E10write_iterINtNtB2m_4take4TakeINtNtB2m_12by_ref_sized10ByRefSizedINtNtB2m_3map3MapINtNtNtB9_5slice4iter4IterB1X_ENCNvXsR_B1n_INtB1n_4WalkTjjEEB3a_4nexts_0EEEE0E0E0E0B1p_.llvm.11100904734654111133(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #11 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1279)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3739,7 +3739,7 @@ define hidden void @_RNCINvMNtNtCs1LoaDTb72WA_4core3ops9try_traitINtB5_17NeverSh
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_RNCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB8_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE10write_iterINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters6cloned6ClonedINtNtB8_4iter4IterB18_EEE0B1e_.llvm.11100904734654111133(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #12 {
   %3 = load i64, ptr %1, align 8, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4048,7 +4048,7 @@ _RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator3all5checkINtN
   ret i1 %.sroa.0.0.i
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map12map_try_foldRINtNtCseG2FYMysgNb_3wax5token5TokenuETNtB13_8PositionBZ_EuINtNtNtBa_3ops12control_flow11ControlFlowINtNtB21_9try_trait17NeverShortCircuituEENCNvXsR_B13_INtB13_4WalkuENtNtNtB8_6traits8iterator8Iterator4nexts_0NCINvNvXs_NtB6_4takeINtB4w_4TakepEB3G_8try_fold5checkB1B_uB2B_NCINvMB2E_B2B_10wrap_mut_2uB1B_NCINvNvXs_NtB6_9enumerateINtB61_9EnumeratepEB3G_4fold9enumerateB1B_uNCINvNvB3G_8for_each4callTjB1B_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB7C_8VecDequeB1B_E10write_iterIB4H_INtNtB6_12by_ref_sized10ByRefSizedINtB4_3MapINtNtNtBa_5slice4iter4IterB10_EB3g_EEEE0E0E0E0E0E0B15_.llvm.11100904734654111133(ptr noalias noundef align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #11 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !nonnull !5, !align !31, !noundef !5
@@ -4094,7 +4094,7 @@ define hidden noundef zeroext i1 @_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters
   ret i1 %27
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map12map_try_foldRNtNtCseG2FYMysgNb_3wax5token5TokenTNtB12_8PositionBZ_EuINtNtNtBa_3ops12control_flow11ControlFlowINtNtB1Y_9try_trait17NeverShortCircuituEENCNvXsR_B12_INtB12_4WalkTjjEENtNtNtB8_6traits8iterator8Iterator4nexts_0NCINvNvXs_NtB6_4takeINtB4w_4TakepEB3G_8try_fold5checkB1y_uB2y_NCINvMB2B_B2y_10wrap_mut_2uB1y_NCINvNvXs_NtB6_9enumerateINtB61_9EnumeratepEB3G_4fold9enumerateB1y_uNCINvNvB3G_8for_each4callTjB1y_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB7C_8VecDequeB1y_E10write_iterIB4H_INtNtB6_12by_ref_sized10ByRefSizedINtB4_3MapINtNtNtBa_5slice4iter4IterB10_EB3d_EEEE0E0E0E0E0E0B14_.llvm.11100904734654111133(ptr noalias noundef align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #11 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !nonnull !5, !align !31, !noundef !5
@@ -4140,7 +4140,7 @@ define hidden noundef zeroext i1 @_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters
   ret i1 %27
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map12map_try_foldRNtNtCseG2FYMysgNb_3wax5token9ArchetypeINtNtB12_8variance8VarianceNtB1F_13InvariantSizeEuINtNtNtBa_3ops12control_flow11ControlFlowuENvYBZ_INtB1F_12UnitVarianceB23_E13unit_varianceNCINvNvNtNtNtB8_6traits8iterator8Iterator3all5checkB1C_NCNvYINtNtNtBa_5slice4iter4IterB10_EINtB1F_19DisjunctiveVarianceB23_E20disjunctive_variances_0E0E0B14_.llvm.11100904734654111133(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %1) unnamed_addr #13 personality ptr @rust_eh_personality {
 _RNvYNvYRNtNtCseG2FYMysgNb_3wax5token9ArchetypeINtNtB8_8variance12UnitVarianceNtBL_13InvariantSizeE13unit_varianceINtNtNtCs1LoaDTb72WA_4core3ops8function5FnMutTB5_EE8call_mutBa_.llvm.11100904734654111133.exit:
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -4955,7 +4955,7 @@ _RNCINvNvXsx_NtNtNtCs1LoaDTb72WA_4core4iter8adapters7flattenINtBa_13FlattenCompa
   ret i1 %.not.not.not.not.i.not.not.not.i.not.not.not.not.not
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator3all5checkINtNtNtCseG2FYMysgNb_3wax5token8variance8VarianceNtB1e_13InvariantSizeENCNvYINtNtNtBe_5slice4iter4IterNtB1g_9ArchetypeEINtB1e_19DisjunctiveVarianceB1Y_E20disjunctive_variances_0E0B1i_.llvm.11100904734654111133(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #13 personality ptr @rust_eh_personality {
   %.sroa.0.0.copyload = load i8, ptr %1, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -5004,7 +5004,7 @@ define hidden noundef zeroext i1 @_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6trai
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator8for_each4callTjNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB2n_8VecDequeB1h_E10write_iterINtNtNtBc_8adapters6cloned6ClonedINtNtB2n_4iter4IterB1h_EEE0E0B1n_.llvm.11100904734654111133(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #11 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5208,7 +5208,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option6OptionNtNtCs68wO5ns
   ret i1 %.not
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_RNCINvNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters4takeINtB9_4TakepENtNtNtBd_6traits8iterator8Iterator8try_fold5checkTNtNtCseG2FYMysgNb_3wax5token8PositionRINtB1U_5TokenuEEuINtNtNtBf_3ops9try_trait17NeverShortCircuituENCINvMB2O_B2L_10wrap_mut_2uB1R_NCINvNvXs_NtBb_9enumerateINtB49_9EnumeratepEB14_4fold9enumerateB1R_uNCINvNvB14_8for_each4callTjB1R_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5K_8VecDequeB1R_E10write_iterIBS_INtNtBb_12by_ref_sized10ByRefSizedINtNtBb_3map3MapINtNtNtBf_5slice4iter4IterB2u_ENCNvXsR_B1U_INtB1U_4WalkuEB14_4nexts_0EEEE0E0E0E0E0B1W_.llvm.11100904734654111133(ptr noalias noundef align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #11 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !31, !noundef !5
   %4 = load i64, ptr %3, align 8, !noundef !5
@@ -5242,7 +5242,7 @@ define hidden noundef zeroext i1 @_RNCINvNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8ada
   ret i1 %23
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_RNCINvNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters4takeINtB9_4TakepENtNtNtBd_6traits8iterator8Iterator8try_fold5checkTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1U_5TokenEuINtNtNtBf_3ops9try_trait17NeverShortCircuituENCINvMB2L_B2I_10wrap_mut_2uB1R_NCINvNvXs_NtBb_9enumerateINtB46_9EnumeratepEB14_4fold9enumerateB1R_uNCINvNvB14_8for_each4callTjB1R_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5H_8VecDequeB1R_E10write_iterIBS_INtNtBb_12by_ref_sized10ByRefSizedINtNtBb_3map3MapINtNtNtBf_5slice4iter4IterB2u_ENCNvXsR_B1U_INtB1U_4WalkTjjEEB14_4nexts_0EEEE0E0E0E0E0B1W_.llvm.11100904734654111133(ptr noalias noundef align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #11 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !31, !noundef !5
   %4 = load i64, ptr %3, align 8, !noundef !5
@@ -5276,7 +5276,7 @@ define hidden noundef zeroext i1 @_RNCINvNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8ada
   ret i1 %23
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_RNCINvNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB9_9EnumeratepENtNtNtBd_6traits8iterator8Iterator4fold9enumerateNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentuNCINvNvB1e_8for_each4callTjB21_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB3D_8VecDequeB21_E10write_iterINtNtBb_6cloned6ClonedINtNtB3D_4iter4IterB21_EEE0E0E0B27_.llvm.11100904734654111133(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #11 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !noundef !5
@@ -5301,7 +5301,7 @@ define hidden void @_RNCINvNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerat
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_RNCINvNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB9_9EnumeratepENtNtNtBd_6traits8iterator8Iterator4fold9enumerateTNtNtCseG2FYMysgNb_3wax5token8PositionRINtB24_5TokenuEEuNCINvNvB1e_8for_each4callTjB21_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB3A_8VecDequeB21_E10write_iterINtNtBb_4take4TakeINtNtBb_12by_ref_sized10ByRefSizedINtNtBb_3map3MapINtNtNtBf_5slice4iter4IterB2E_ENCNvXsR_B24_INtB24_4WalkuEB1e_4nexts_0EEEE0E0E0B26_.llvm.11100904734654111133(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #11 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !noundef !5
@@ -5326,7 +5326,7 @@ define hidden void @_RNCINvNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerat
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_RNCINvNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB9_9EnumeratepENtNtNtBd_6traits8iterator8Iterator4fold9enumerateTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB24_5TokenEuNCINvNvB1e_8for_each4callTjB21_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB3x_8VecDequeB21_E10write_iterINtNtBb_4take4TakeINtNtBb_12by_ref_sized10ByRefSizedINtNtBb_3map3MapINtNtNtBf_5slice4iter4IterB2E_ENCNvXsR_B24_INtB24_4WalkTjjEEB1e_4nexts_0EEEE0E0E0B26_.llvm.11100904734654111133(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #11 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !noundef !5
@@ -7142,7 +7142,7 @@ define hidden void @"_ZN71_$LT$alloc..borrow..Cow$LT$str$GT$$u20$as$u20$core..op
   resume { ptr, i32 } %5
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @"_ZN83_$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$u20$as$u20$core..ops..drop..Drop$GT$4drop17h81f85c2652cbe684E.llvm.11100904734654111133"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #19 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -8015,7 +8015,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCseG2FYMysgNb_3wax5token8var
   unreachable
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_RNCNvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token9ArchetypeEINtNtBM_8variance19DisjunctiveVarianceNtB1q_13InvariantSizeE20disjunctive_variances_0BO_.llvm.11100904734654111133(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #13 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !31, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2493)
@@ -9082,7 +9082,7 @@ _RNvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5Tok
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_RNCNvXsR_NtCseG2FYMysgNb_3wax5tokenINtB7_4WalkTjjEENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4nexts_0B9_.llvm.11100904734654111133(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 16), (24, 32)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1, ptr noalias noundef readonly align 8 dereferenceable(64) %2) unnamed_addr #20 {
   %4 = load ptr, ptr %1, align 8, !nonnull !5, !align !31, !noundef !5
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -9096,7 +9096,7 @@ define hidden void @_RNCNvXsR_NtCseG2FYMysgNb_3wax5tokenINtB7_4WalkTjjEENtNtNtNt
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_RNCNvXsR_NtCseG2FYMysgNb_3wax5tokenINtB7_4WalkuENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4nexts_0B9_.llvm.11100904734654111133(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 16), (24, 32)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1, ptr noalias noundef readonly align 8 dereferenceable(48) %2) unnamed_addr #20 {
   %4 = load ptr, ptr %1, align 8, !nonnull !5, !align !31, !noundef !5
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -9827,26 +9827,26 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #29
 declare void @llvm.experimental.noalias.scope.decl(metadata) #30
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #2 = { nofree norecurse nosync nounwind nonlazybind memory(write, argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #3 = { nofree norecurse nosync nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #4 = { nofree norecurse nosync nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #5 = { nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #2 = { nofree norecurse nosync nounwind nonlazybind memory(write, argmem: readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #3 = { nofree norecurse nosync nounwind nonlazybind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #4 = { nofree norecurse nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #5 = { nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #7 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #8 = { inlinehint nofree norecurse nosync nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #9 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #7 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(write, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #8 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #9 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #10 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #11 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #12 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #13 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #11 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #12 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #13 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #14 = { cold inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #15 = { inlinehint mustprogress nofree norecurse noreturn nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #16 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #17 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #18 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #19 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #20 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #19 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #20 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #22 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

@@ -47,19 +47,19 @@ $_ZN9LogPrefixILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.6, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }]
 @llvm.used = appending global [1 x ptr] [ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE], section "llvm.metadata"
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN11StringDedup6Config18initial_table_sizeEv() local_unnamed_addr #0 align 2 {
   %1 = load i64, ptr @_ZN11StringDedup6Config19_initial_table_sizeE, align 8
   ret i64 %1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN11StringDedup6Config13age_thresholdEv() local_unnamed_addr #0 align 2 {
   %1 = load i32, ptr @_ZN11StringDedup6Config14_age_thresholdE, align 4
   ret i32 %1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZN11StringDedup6Config20should_cleanup_tableEmm(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load i64, ptr @_ZN11StringDedup6Config25_minimum_dead_for_cleanupE, align 8
   %4 = icmp ugt i64 %1, %3
@@ -78,7 +78,7 @@ define hidden noundef zeroext i1 @_ZN11StringDedup6Config20should_cleanup_tableE
   ret i1 %12
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN11StringDedup6Config9hash_seedEv() local_unnamed_addr #0 align 2 {
   %1 = load i64, ptr @_ZN11StringDedup6Config10_hash_seedE, align 8
   ret i64 %1
@@ -105,7 +105,7 @@ define hidden noundef i64 @_ZN11StringDedup6Config9good_sizeEm(i64 noundef %0) l
   ret i64 %.06
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN11StringDedup6Config14grow_thresholdEm(i64 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = icmp ult i64 %0, 1572864001
   %3 = uitofp nneg i64 %0 to double
@@ -116,7 +116,7 @@ define hidden noundef i64 @_ZN11StringDedup6Config14grow_thresholdEm(i64 noundef
   ret i64 %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN11StringDedup6Config16shrink_thresholdEm(i64 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = icmp ugt i64 %0, 503
   %3 = uitofp i64 %0 to double
@@ -127,7 +127,7 @@ define hidden noundef i64 @_ZN11StringDedup6Config16shrink_thresholdEm(i64 nound
   ret i64 %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZN11StringDedup6Config17should_grow_tableEmm(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = icmp ult i64 %0, 1572864001
   %4 = uitofp nneg i64 %0 to double
@@ -139,7 +139,7 @@ define hidden noundef zeroext i1 @_ZN11StringDedup6Config17should_grow_tableEmm(
   ret i1 %9
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZN11StringDedup6Config19should_shrink_tableEmm(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = icmp ugt i64 %0, 503
   %4 = uitofp i64 %0 to double
@@ -151,7 +151,7 @@ define hidden noundef zeroext i1 @_ZN11StringDedup6Config19should_shrink_tableEm
   ret i1 %9
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN11StringDedup6Config18desired_table_sizeEm(i64 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = uitofp i64 %0 to double
   %3 = load double, ptr @_ZN11StringDedup6Config19_load_factor_targetE, align 8
@@ -341,7 +341,7 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

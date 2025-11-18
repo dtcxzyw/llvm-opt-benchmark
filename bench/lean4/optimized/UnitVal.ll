@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_G_initialized = internal unnamed_addr global i1 false, align 1
 @.str = private unnamed_addr constant [2 x i8] c"-\00", align 1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Std_Time_Internal_instInhabitedUnitVal(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @l_Std_Time_Internal_instInhabitedUnitVal___closed__1, align 8, !tbaa !4
   ret ptr %2
@@ -3144,7 +3144,7 @@ lean_dec.exit:                                    ; preds = %10, %9, %7, %1
   ret ptr inttoptr (i64 1 to ptr)
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Std_Time_Internal_UnitVal_instAdd(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @l_Std_Time_Internal_UnitVal_instAdd___closed__1, align 8, !tbaa !4
   ret ptr %2
@@ -3180,7 +3180,7 @@ lean_dec.exit:                                    ; preds = %11, %10, %8, %1
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Std_Time_Internal_UnitVal_instSub(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @l_Std_Time_Internal_UnitVal_instSub___closed__1, align 8, !tbaa !4
   ret ptr %2
@@ -3932,7 +3932,7 @@ declare void @lean_dec_ref_cold(ptr noundef) local_unnamed_addr #3
 
 declare ptr @lean_mk_string_unchecked(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

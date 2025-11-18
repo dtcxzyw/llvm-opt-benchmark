@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.b2JointSimArray = type { ptr, i32, i32 }
 %union.anon = type { ptr }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @b2PrepareOverflowContacts(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.b2Softness, align 4
   %3 = alloca %struct.b2Softness, align 4
@@ -282,7 +282,7 @@ define hidden void @b2PrepareOverflowContacts(ptr noundef readonly captures(none
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @b2WarmStartOverflowContacts(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %.sroa.0 = alloca %struct.b2Vec2, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -455,7 +455,7 @@ define hidden void @b2WarmStartOverflowContacts(ptr noundef readonly captures(no
   br i1 %exitcond.not, label %._crit_edge, label %47, !llvm.loop !140
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @b2SolveOverflowContacts(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %.sroa.0 = alloca %struct.b2Vec2, align 8
   %.sroa.7345 = alloca %struct.b2Vec2, align 8
@@ -840,7 +840,7 @@ define hidden void @b2SolveOverflowContacts(ptr noundef readonly captures(none) 
   br i1 %exitcond389.not, label %._crit_edge, label %167, !llvm.loop !145
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @b2ApplyOverflowRestitution(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %.sroa.0 = alloca %struct.b2Vec2, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1055,7 +1055,7 @@ define hidden void @b2ApplyOverflowRestitution(ptr noundef readonly captures(non
   br i1 %exitcond172.not, label %._crit_edge166, label %17, !llvm.loop !148
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @b2StoreOverflowImpulses(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !23
@@ -1129,7 +1129,7 @@ define hidden noundef i32 @b2GetContactConstraintSIMDByteCount() local_unnamed_a
   ret i32 624
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %5 = load ptr, ptr %4, align 8, !tbaa !3
@@ -1619,7 +1619,7 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
   br i1 %exitcond.not, label %59, label %60, !llvm.loop !158
 }
 
-; Function Attrs: nofree norecurse nosync nounwind uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @b2WarmStartContactsTask(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %6 = load ptr, ptr %5, align 8, !tbaa !34
@@ -1960,7 +1960,7 @@ b2ScatterBodies.exit85:                           ; preds = %210, %212
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !189
 }
 
-; Function Attrs: nofree norecurse nosync nounwind uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @b2SolveContactsTask(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #4 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %7 = load ptr, ptr %6, align 8, !tbaa !34
@@ -2586,7 +2586,7 @@ b2ScatterBodies.exit300:                          ; preds = %469, %471
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !222
 }
 
-; Function Attrs: nofree norecurse nosync nounwind uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @b2ApplyRestitutionTask(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %6 = load ptr, ptr %5, align 8, !tbaa !34
@@ -2986,7 +2986,7 @@ b2ScatterBodies.exit135:                          ; preds = %262, %264
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !255
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @b2StoreImpulsesTask(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %5 = load ptr, ptr %4, align 8, !tbaa !153
@@ -3091,11 +3091,11 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #7
 
-attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

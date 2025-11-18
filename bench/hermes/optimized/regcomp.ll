@@ -164,12 +164,12 @@ if.end8:                                          ; preds = %if.then6
   br label %if.end10
 
 if.else:                                          ; preds = %if.end
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pattern) #15
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pattern) #16
   br label %if.end10
 
 if.end10:                                         ; preds = %if.else, %if.end8
   %len.0 = phi i64 [ %sub.ptr.sub, %if.end8 ], [ %call, %if.else ]
-  %call11 = tail call noalias dereferenceable_or_null(399) ptr @malloc(i64 noundef 399) #16
+  %call11 = tail call noalias dereferenceable_or_null(399) ptr @malloc(i64 noundef 399) #17
   %cmp12 = icmp eq ptr %call11, null
   br i1 %cmp12, label %return, label %if.end14
 
@@ -179,7 +179,7 @@ if.end14:                                         ; preds = %if.end10
   %add = add i64 %mul, 1
   %ssize = getelementptr inbounds nuw i8, ptr %pa, i64 32
   store i64 %add, ptr %ssize, align 8
-  %call16 = tail call noalias ptr @calloc(i64 noundef %add, i64 noundef 8) #17
+  %call16 = tail call noalias ptr @calloc(i64 noundef %add, i64 noundef 8) #18
   %strip = getelementptr inbounds nuw i8, ptr %pa, i64 24
   store ptr %call16, ptr %strip, align 8
   %slen = getelementptr inbounds nuw i8, ptr %pa, i64 40
@@ -188,7 +188,7 @@ if.end14:                                         ; preds = %if.end10
   br i1 %cmp18, label %if.then19, label %if.end20
 
 if.then19:                                        ; preds = %if.end14
-  tail call void @free(ptr noundef nonnull %call11) #18
+  tail call void @free(ptr noundef nonnull %call11) #19
   br label %return
 
 if.end20:                                         ; preds = %if.end14
@@ -254,7 +254,7 @@ seterr.exit.i.i:                                  ; preds = %if.end.i.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i
   %mul.i.i = mul i64 %div.i, 24
-  %call4.i.i = tail call ptr @realloc(ptr noundef nonnull %call16, i64 noundef %mul.i.i) #19
+  %call4.i.i = tail call ptr @realloc(ptr noundef nonnull %call16, i64 noundef %mul.i.i) #20
   %cmp5.i.i = icmp eq ptr %call4.i.i, null
   br i1 %cmp5.i.i, label %seterr.exit14.i.i, label %if.end8.i.i
 
@@ -356,7 +356,7 @@ seterr.exit.i.i105:                               ; preds = %if.end.i.i92
 if.end3.i.i94:                                    ; preds = %if.end.i.i92
   %12 = load ptr, ptr %strip, align 8
   %mul.i.i96 = mul i64 %div.i85, 24
-  %call4.i.i97 = call ptr @realloc(ptr noundef %12, i64 noundef %mul.i.i96) #19
+  %call4.i.i97 = call ptr @realloc(ptr noundef %12, i64 noundef %mul.i.i96) #20
   %cmp5.i.i98 = icmp eq ptr %call4.i.i97, null
   br i1 %cmp5.i.i98, label %if.then6.i.i100, label %if.end8.i.i99
 
@@ -520,7 +520,7 @@ seterr.exit.i:                                    ; preds = %if.then.i.i119, %if
 
 if.end.i115:                                      ; preds = %categorize.exit
   %mul.i116 = shl nuw i64 %30, 3
-  %call5.i = call ptr @realloc(ptr noundef %31, i64 noundef %mul.i116) #19
+  %call5.i = call ptr @realloc(ptr noundef %31, i64 noundef %mul.i116) #20
   %strip6.i = getelementptr inbounds nuw i8, ptr %call11, i64 8
   store ptr %call5.i, ptr %strip6.i, align 8
   %cmp8.i = icmp eq ptr %call5.i, null
@@ -632,7 +632,7 @@ do.end34.i:                                       ; preds = %do.cond30.i
 if.end39.i:                                       ; preds = %do.end34.i
   %conv41.i = sext i32 %41 to i64
   %add.i125 = add nsw i64 %conv41.i, 1
-  %call.i = call noalias ptr @malloc(i64 noundef %add.i125) #16
+  %call.i = call noalias ptr @malloc(i64 noundef %add.i125) #17
   store ptr %call.i, ptr %must, align 8
   %cmp43.i = icmp eq ptr %call.i, null
   br i1 %cmp43.i, label %if.then45.i, label %for.cond.preheader.i126
@@ -748,7 +748,7 @@ if.end49:                                         ; preds = %pluscount.exit
   br i1 %cmp51.not, label %return, label %if.then52
 
 if.then52:                                        ; preds = %if.end49.thread, %if.end49
-  call void @llvh_regfree(ptr noundef nonnull %preg) #18
+  call void @llvh_regfree(ptr noundef nonnull %preg) #19
   %.pre165 = load i32, ptr %error, align 8
   br label %return
 
@@ -900,7 +900,7 @@ seterr.exit.i.i698:                               ; preds = %if.end.i.i685
 if.end3.i.i687:                                   ; preds = %if.end.i.i685
   %19 = load ptr, ptr %strip.i.i493, align 8
   %mul.i.i689 = mul i64 %div.i677, 24
-  %call4.i.i690 = call ptr @realloc(ptr noundef %19, i64 noundef %mul.i.i689) #19
+  %call4.i.i690 = call ptr @realloc(ptr noundef %19, i64 noundef %mul.i.i689) #20
   %cmp5.i.i691 = icmp eq ptr %call4.i.i690, null
   br i1 %cmp5.i.i691, label %if.then6.i.i693, label %if.end8.i.i692
 
@@ -988,7 +988,7 @@ seterr.exit.i.i666:                               ; preds = %if.end.i.i653
 if.end3.i.i655:                                   ; preds = %if.end.i.i653
   %30 = load ptr, ptr %strip.i.i493, align 8
   %mul.i.i657 = mul i64 %div.i645, 24
-  %call4.i.i658 = call ptr @realloc(ptr noundef %30, i64 noundef %mul.i.i657) #19
+  %call4.i.i658 = call ptr @realloc(ptr noundef %30, i64 noundef %mul.i.i657) #20
   %cmp5.i.i659 = icmp eq ptr %call4.i.i658, null
   br i1 %cmp5.i.i659, label %if.then6.i.i661, label %if.end8.i.i660
 
@@ -1092,7 +1092,7 @@ seterr.exit.i.i622:                               ; preds = %if.end.i.i609
 if.end3.i.i611:                                   ; preds = %if.end.i.i609
   %41 = load ptr, ptr %strip.i.i493, align 8
   %mul.i.i613 = mul i64 %div.i602, 24
-  %call4.i.i614 = call ptr @realloc(ptr noundef %41, i64 noundef %mul.i.i613) #19
+  %call4.i.i614 = call ptr @realloc(ptr noundef %41, i64 noundef %mul.i.i613) #20
   %cmp5.i.i615 = icmp eq ptr %call4.i.i614, null
   br i1 %cmp5.i.i615, label %if.then6.i.i617, label %if.end8.i.i616
 
@@ -1167,7 +1167,7 @@ seterr.exit.i.i591:                               ; preds = %if.end.i.i578
 if.end3.i.i580:                                   ; preds = %if.end.i.i578
   %51 = load ptr, ptr %strip.i.i493, align 8
   %mul.i.i582 = mul i64 %div.i571, 24
-  %call4.i.i583 = call ptr @realloc(ptr noundef %51, i64 noundef %mul.i.i582) #19
+  %call4.i.i583 = call ptr @realloc(ptr noundef %51, i64 noundef %mul.i.i582) #20
   %cmp5.i.i584 = icmp eq ptr %call4.i.i583, null
   br i1 %cmp5.i.i584, label %if.then6.i.i586, label %if.end8.i.i585
 
@@ -1292,7 +1292,7 @@ seterr.exit.i.i546:                               ; preds = %if.end.i.i533
 if.end3.i.i535:                                   ; preds = %if.end.i.i533
   %65 = load ptr, ptr %strip.i.i493, align 8
   %mul.i.i537 = mul i64 %div.i526, 24
-  %call4.i.i538 = call ptr @realloc(ptr noundef %65, i64 noundef %mul.i.i537) #19
+  %call4.i.i538 = call ptr @realloc(ptr noundef %65, i64 noundef %mul.i.i537) #20
   %cmp5.i.i539 = icmp eq ptr %call4.i.i538, null
   br i1 %cmp5.i.i539, label %if.then6.i.i541, label %if.end8.i.i540
 
@@ -1405,7 +1405,7 @@ seterr.exit.i.i503:                               ; preds = %if.end.i.i490
 if.end3.i.i492:                                   ; preds = %if.end.i.i490
   %76 = load ptr, ptr %strip.i.i493, align 8
   %mul.i.i494 = mul i64 %div.i482, 24
-  %call4.i.i495 = call ptr @realloc(ptr noundef %76, i64 noundef %mul.i.i494) #19
+  %call4.i.i495 = call ptr @realloc(ptr noundef %76, i64 noundef %mul.i.i494) #20
   %cmp5.i.i496 = icmp eq ptr %call4.i.i495, null
   br i1 %cmp5.i.i496, label %if.then6.i.i498, label %if.end8.i.i497
 
@@ -1475,7 +1475,7 @@ seterr.exit.i.i472:                               ; preds = %if.then.i.i.i, %if.
 if.end3.i.i461:                                   ; preds = %if.end.i.i459
   %84 = load ptr, ptr %strip.i.i493, align 8
   %mul.i.i463 = shl nuw i64 %add.i454, 3
-  %call4.i.i464 = call ptr @realloc(ptr noundef %84, i64 noundef %mul.i.i463) #19
+  %call4.i.i464 = call ptr @realloc(ptr noundef %84, i64 noundef %mul.i.i463) #20
   %cmp5.i.i465 = icmp eq ptr %call4.i.i464, null
   br i1 %cmp5.i.i465, label %if.then6.i.i467, label %if.end8.i.i466
 
@@ -1541,7 +1541,7 @@ seterr.exit.i.i446:                               ; preds = %if.end.i.i433
 if.end3.i.i435:                                   ; preds = %if.end.i.i433
   %92 = load ptr, ptr %strip.i.i493, align 8
   %mul.i.i437 = mul i64 %div.i425, 24
-  %call4.i.i438 = call ptr @realloc(ptr noundef %92, i64 noundef %mul.i.i437) #19
+  %call4.i.i438 = call ptr @realloc(ptr noundef %92, i64 noundef %mul.i.i437) #20
   %cmp5.i.i439 = icmp eq ptr %call4.i.i438, null
   br i1 %cmp5.i.i439, label %if.then6.i.i441, label %if.end8.i.i440
 
@@ -1589,7 +1589,7 @@ sw.bb102.i:                                       ; preds = %while.body
   br i1 %cmp105.i, label %lor.lhs.false.i, label %sw.default.i
 
 lor.lhs.false.i:                                  ; preds = %sw.bb102.i
-  %call107.i = tail call ptr @__ctype_b_loc() #20
+  %call107.i = tail call ptr @__ctype_b_loc() #21
   %97 = load ptr, ptr %call107.i, align 8
   %98 = load i8, ptr %incdec.ptr.i, align 1
   %idxprom110.i = zext i8 %98 to i64
@@ -1639,7 +1639,7 @@ land.lhs.true143.i:                               ; preds = %if.end126.i
   br i1 %cmp146.i, label %land.lhs.true148.i, label %p_ere_exp.exit
 
 land.lhs.true148.i:                               ; preds = %land.lhs.true143.i
-  %call149.i = tail call ptr @__ctype_b_loc() #20
+  %call149.i = tail call ptr @__ctype_b_loc() #21
   %105 = load ptr, ptr %call149.i, align 8
   %106 = load i8, ptr %add.ptr.i, align 1
   %idxprom153.i = zext i8 %106 to i64
@@ -1714,7 +1714,7 @@ seterr.exit.i.i402:                               ; preds = %if.end.i.i389
 if.end3.i.i391:                                   ; preds = %if.end.i.i389
   %115 = load ptr, ptr %strip.i.i493, align 8
   %mul.i.i393 = mul i64 %div.i381, 24
-  %call4.i.i394 = call ptr @realloc(ptr noundef %115, i64 noundef %mul.i.i393) #19
+  %call4.i.i394 = call ptr @realloc(ptr noundef %115, i64 noundef %mul.i.i393) #20
   %cmp5.i.i395 = icmp eq ptr %call4.i.i394, null
   br i1 %cmp5.i.i395, label %if.then6.i.i397, label %if.end8.i.i396
 
@@ -1784,7 +1784,7 @@ seterr.exit.i.i370:                               ; preds = %if.end.i.i357
 if.end3.i.i359:                                   ; preds = %if.end.i.i357
   %122 = load ptr, ptr %strip.i.i493, align 8
   %mul.i.i361 = mul i64 %div.i349, 24
-  %call4.i.i362 = call ptr @realloc(ptr noundef %122, i64 noundef %mul.i.i361) #19
+  %call4.i.i362 = call ptr @realloc(ptr noundef %122, i64 noundef %mul.i.i361) #20
   %cmp5.i.i363 = icmp eq ptr %call4.i.i362, null
   br i1 %cmp5.i.i363, label %if.then6.i.i365, label %if.end8.i.i364
 
@@ -1853,7 +1853,7 @@ seterr.exit.i.i338:                               ; preds = %if.end.i.i325
 if.end3.i.i327:                                   ; preds = %if.end.i.i325
   %130 = load ptr, ptr %strip.i.i493, align 8
   %mul.i.i329 = mul i64 %div.i317, 24
-  %call4.i.i330 = call ptr @realloc(ptr noundef %130, i64 noundef %mul.i.i329) #19
+  %call4.i.i330 = call ptr @realloc(ptr noundef %130, i64 noundef %mul.i.i329) #20
   %cmp5.i.i331 = icmp eq ptr %call4.i.i330, null
   br i1 %cmp5.i.i331, label %if.then6.i.i333, label %if.end8.i.i332
 
@@ -1922,7 +1922,7 @@ seterr.exit.i.i306:                               ; preds = %if.end.i.i293
 if.end3.i.i295:                                   ; preds = %if.end.i.i293
   %138 = load ptr, ptr %strip.i.i493, align 8
   %mul.i.i297 = mul i64 %div.i285, 24
-  %call4.i.i298 = call ptr @realloc(ptr noundef %138, i64 noundef %mul.i.i297) #19
+  %call4.i.i298 = call ptr @realloc(ptr noundef %138, i64 noundef %mul.i.i297) #20
   %cmp5.i.i299 = icmp eq ptr %call4.i.i298, null
   br i1 %cmp5.i.i299, label %if.then6.i.i301, label %if.end8.i.i300
 
@@ -1996,7 +1996,7 @@ seterr.exit.i.i266:                               ; preds = %if.end.i.i253
 if.end3.i.i255:                                   ; preds = %if.end.i.i253
   %147 = load ptr, ptr %strip.i.i493, align 8
   %mul.i.i257 = mul i64 %div.i246, 24
-  %call4.i.i258 = call ptr @realloc(ptr noundef %147, i64 noundef %mul.i.i257) #19
+  %call4.i.i258 = call ptr @realloc(ptr noundef %147, i64 noundef %mul.i.i257) #20
   %cmp5.i.i259 = icmp eq ptr %call4.i.i258, null
   br i1 %cmp5.i.i259, label %if.then6.i.i261, label %if.end8.i.i260
 
@@ -2069,7 +2069,7 @@ seterr.exit.i.i227:                               ; preds = %if.end.i.i214
 if.end3.i.i216:                                   ; preds = %if.end.i.i214
   %157 = load ptr, ptr %strip.i.i493, align 8
   %mul.i.i218 = mul i64 %div.i207, 24
-  %call4.i.i219 = call ptr @realloc(ptr noundef %157, i64 noundef %mul.i.i218) #19
+  %call4.i.i219 = call ptr @realloc(ptr noundef %157, i64 noundef %mul.i.i218) #20
   %cmp5.i.i220 = icmp eq ptr %call4.i.i219, null
   br i1 %cmp5.i.i220, label %if.then6.i.i222, label %if.end8.i.i221
 
@@ -2106,7 +2106,7 @@ sw.bb204.i:                                       ; preds = %lor.end166.i
   br i1 %cmp11.i165, label %land.lhs.true.lr.ph.i174, label %lor.rhs.i166
 
 land.lhs.true.lr.ph.i174:                         ; preds = %sw.bb204.i
-  %call.i175 = tail call ptr @__ctype_b_loc() #20
+  %call.i175 = tail call ptr @__ctype_b_loc() #21
   br label %land.lhs.true.i176
 
 land.lhs.true.i176:                               ; preds = %while.body.i190, %land.lhs.true.lr.ph.i174
@@ -2163,7 +2163,7 @@ land.lhs.true210.i:                               ; preds = %p_count.exit198
 cond.true.i:                                      ; preds = %land.lhs.true210.i
   %incdec.ptr216.i = getelementptr inbounds nuw i8, ptr %166, i64 1
   store ptr %incdec.ptr216.i, ptr %p, align 8
-  %call218.i = tail call ptr @__ctype_b_loc() #20
+  %call218.i = tail call ptr @__ctype_b_loc() #21
   %170 = load ptr, ptr %call218.i, align 8
   %171 = load i8, ptr %incdec.ptr216.i, align 1
   %idxprom221.i = zext i8 %171 to i64
@@ -2322,7 +2322,7 @@ land.lhs.true297.i:                               ; preds = %if.end280.i
   br i1 %cmp301.i, label %land.lhs.true303.i, label %p_ere_exp.exit
 
 land.lhs.true303.i:                               ; preds = %land.lhs.true297.i
-  %call304.i = tail call ptr @__ctype_b_loc() #20
+  %call304.i = tail call ptr @__ctype_b_loc() #21
   %190 = load ptr, ptr %call304.i, align 8
   %191 = load i8, ptr %add.ptr299.i, align 1
   %idxprom308.i = zext i8 %191 to i64
@@ -2438,7 +2438,7 @@ seterr.exit.i.i:                                  ; preds = %if.end.i.i
 if.end3.i.i:                                      ; preds = %if.end.i.i
   %208 = load ptr, ptr %strip.i.i493, align 8
   %mul.i.i = mul i64 %div.i, 24
-  %call4.i.i = call ptr @realloc(ptr noundef %208, i64 noundef %mul.i.i) #19
+  %call4.i.i = call ptr @realloc(ptr noundef %208, i64 noundef %mul.i.i) #20
   %cmp5.i.i = icmp eq ptr %call4.i.i, null
   br i1 %cmp5.i.i, label %if.then6.i.i, label %if.end8.i.i
 
@@ -2512,7 +2512,7 @@ seterr.exit.i.i80:                                ; preds = %if.end.i.i67
 if.end3.i.i69:                                    ; preds = %if.end.i.i67
   %217 = load ptr, ptr %strip.i.i493, align 8
   %mul.i.i71 = mul i64 %div.i60, 24
-  %call4.i.i72 = call ptr @realloc(ptr noundef %217, i64 noundef %mul.i.i71) #19
+  %call4.i.i72 = call ptr @realloc(ptr noundef %217, i64 noundef %mul.i.i71) #20
   %cmp5.i.i73 = icmp eq ptr %call4.i.i72, null
   br i1 %cmp5.i.i73, label %if.then6.i.i75, label %if.end8.i.i74
 
@@ -2605,7 +2605,7 @@ seterr.exit.i.i120:                               ; preds = %if.end.i.i107
 if.end3.i.i109:                                   ; preds = %if.end.i.i107
   %231 = load ptr, ptr %strip.i.i493, align 8
   %mul.i.i111 = mul i64 %div.i99, 24
-  %call4.i.i112 = call ptr @realloc(ptr noundef %231, i64 noundef %mul.i.i111) #19
+  %call4.i.i112 = call ptr @realloc(ptr noundef %231, i64 noundef %mul.i.i111) #20
   %cmp5.i.i113 = icmp eq ptr %call4.i.i112, null
   br i1 %cmp5.i.i113, label %if.then6.i.i115, label %if.end8.i.i114
 
@@ -2694,7 +2694,7 @@ if.end3.i.i:                                      ; preds = %if.end.i.i
   %strip.i.i = getelementptr inbounds nuw i8, ptr %p, i64 24
   %6 = load ptr, ptr %strip.i.i, align 8
   %mul.i.i = mul i64 %div.i, 24
-  %call4.i.i = tail call ptr @realloc(ptr noundef %6, i64 noundef %mul.i.i) #19
+  %call4.i.i = tail call ptr @realloc(ptr noundef %6, i64 noundef %mul.i.i) #20
   %cmp5.i.i = icmp eq ptr %call4.i.i, null
   br i1 %cmp5.i.i, label %if.then6.i.i, label %if.end8.i.i
 
@@ -2898,7 +2898,7 @@ seterr.exit.i.i409:                               ; preds = %if.end.i.i396
 if.end3.i.i398:                                   ; preds = %if.end.i.i396
   %36 = load ptr, ptr %strip.i.i286, align 8
   %mul.i.i400 = mul i64 %div.i389, 24
-  %call4.i.i401 = call ptr @realloc(ptr noundef %36, i64 noundef %mul.i.i400) #19
+  %call4.i.i401 = call ptr @realloc(ptr noundef %36, i64 noundef %mul.i.i400) #20
   %cmp5.i.i402 = icmp eq ptr %call4.i.i401, null
   br i1 %cmp5.i.i402, label %if.then6.i.i404, label %if.end8.i.i403
 
@@ -2997,7 +2997,7 @@ seterr.exit.i.i372:                               ; preds = %if.end.i.i359
 if.end3.i.i361:                                   ; preds = %if.end.i.i359
   %49 = load ptr, ptr %strip.i.i286, align 8
   %mul.i.i363 = mul i64 %div.i351, 24
-  %call4.i.i364 = call ptr @realloc(ptr noundef %49, i64 noundef %mul.i.i363) #19
+  %call4.i.i364 = call ptr @realloc(ptr noundef %49, i64 noundef %mul.i.i363) #20
   %cmp5.i.i365 = icmp eq ptr %call4.i.i364, null
   br i1 %cmp5.i.i365, label %if.then6.i.i367, label %if.end8.i.i366
 
@@ -3095,7 +3095,7 @@ seterr.exit.i.i340:                               ; preds = %if.end.i.i327
 if.end3.i.i329:                                   ; preds = %if.end.i.i327
   %61 = load ptr, ptr %strip.i.i286, align 8
   %mul.i.i331 = mul i64 %div.i319, 24
-  %call4.i.i332 = call ptr @realloc(ptr noundef %61, i64 noundef %mul.i.i331) #19
+  %call4.i.i332 = call ptr @realloc(ptr noundef %61, i64 noundef %mul.i.i331) #20
   %cmp5.i.i333 = icmp eq ptr %call4.i.i332, null
   br i1 %cmp5.i.i333, label %if.then6.i.i335, label %if.end8.i.i334
 
@@ -3221,7 +3221,7 @@ seterr.exit.i.i296:                               ; preds = %if.end.i.i283
 if.end3.i.i285:                                   ; preds = %if.end.i.i283
   %74 = load ptr, ptr %strip.i.i286, align 8
   %mul.i.i287 = mul i64 %div.i275, 24
-  %call4.i.i288 = call ptr @realloc(ptr noundef %74, i64 noundef %mul.i.i287) #19
+  %call4.i.i288 = call ptr @realloc(ptr noundef %74, i64 noundef %mul.i.i287) #20
   %cmp5.i.i289 = icmp eq ptr %call4.i.i288, null
   br i1 %cmp5.i.i289, label %if.then6.i.i291, label %if.end8.i.i290
 
@@ -3291,7 +3291,7 @@ seterr.exit.i.i265:                               ; preds = %if.then.i.i.i, %if.
 if.end3.i.i254:                                   ; preds = %if.end.i.i252
   %82 = load ptr, ptr %strip.i.i286, align 8
   %mul.i.i256 = shl nuw i64 %add.i247, 3
-  %call4.i.i257 = call ptr @realloc(ptr noundef %82, i64 noundef %mul.i.i256) #19
+  %call4.i.i257 = call ptr @realloc(ptr noundef %82, i64 noundef %mul.i.i256) #20
   %cmp5.i.i258 = icmp eq ptr %call4.i.i257, null
   br i1 %cmp5.i.i258, label %if.then6.i.i260, label %if.end8.i.i259
 
@@ -3357,7 +3357,7 @@ seterr.exit.i.i239:                               ; preds = %if.end.i.i226
 if.end3.i.i228:                                   ; preds = %if.end.i.i226
   %90 = load ptr, ptr %strip.i.i286, align 8
   %mul.i.i230 = mul i64 %div.i218, 24
-  %call4.i.i231 = call ptr @realloc(ptr noundef %90, i64 noundef %mul.i.i230) #19
+  %call4.i.i231 = call ptr @realloc(ptr noundef %90, i64 noundef %mul.i.i230) #20
   %cmp5.i.i232 = icmp eq ptr %call4.i.i231, null
   br i1 %cmp5.i.i232, label %if.then6.i.i234, label %if.end8.i.i233
 
@@ -3480,7 +3480,7 @@ seterr.exit.i.i195:                               ; preds = %if.end.i.i182
 if.end3.i.i184:                                   ; preds = %if.end.i.i182
   %103 = load ptr, ptr %strip.i.i286, align 8
   %mul.i.i186 = mul i64 %div.i174, 24
-  %call4.i.i187 = call ptr @realloc(ptr noundef %103, i64 noundef %mul.i.i186) #19
+  %call4.i.i187 = call ptr @realloc(ptr noundef %103, i64 noundef %mul.i.i186) #20
   %cmp5.i.i188 = icmp eq ptr %call4.i.i187, null
   br i1 %cmp5.i.i188, label %if.then6.i.i190, label %if.end8.i.i189
 
@@ -3550,7 +3550,7 @@ seterr.exit.i.i163:                               ; preds = %if.end.i.i150
 if.end3.i.i152:                                   ; preds = %if.end.i.i150
   %110 = load ptr, ptr %strip.i.i286, align 8
   %mul.i.i154 = mul i64 %div.i142, 24
-  %call4.i.i155 = call ptr @realloc(ptr noundef %110, i64 noundef %mul.i.i154) #19
+  %call4.i.i155 = call ptr @realloc(ptr noundef %110, i64 noundef %mul.i.i154) #20
   %cmp5.i.i156 = icmp eq ptr %call4.i.i155, null
   br i1 %cmp5.i.i156, label %if.then6.i.i158, label %if.end8.i.i157
 
@@ -3601,7 +3601,7 @@ cond.true160.i:                                   ; preds = %land.lhs.true154.i
   br i1 %cmp11.i100, label %land.lhs.true.lr.ph.i109, label %lor.rhs.i101
 
 land.lhs.true.lr.ph.i109:                         ; preds = %cond.true160.i
-  %call.i110 = tail call ptr @__ctype_b_loc() #20
+  %call.i110 = tail call ptr @__ctype_b_loc() #21
   br label %land.lhs.true.i111
 
 land.lhs.true.i111:                               ; preds = %while.body.i125, %land.lhs.true.lr.ph.i109
@@ -3662,7 +3662,7 @@ cond.true175.i:                                   ; preds = %land.lhs.true170.i
   br i1 %cmp182.i, label %land.lhs.true184.i, label %if.end205.i
 
 land.lhs.true184.i:                               ; preds = %cond.true175.i
-  %call185.i = tail call ptr @__ctype_b_loc() #20
+  %call185.i = tail call ptr @__ctype_b_loc() #21
   %124 = load ptr, ptr %call185.i, align 8
   %125 = load i8, ptr %incdec.ptr177.i, align 1
   %idxprom188.i = zext i8 %125 to i64
@@ -3873,7 +3873,7 @@ if.end3.i.i47:                                    ; preds = %if.end.i.i45
   %strip.i.i48 = getelementptr inbounds nuw i8, ptr %p, i64 24
   %149 = load ptr, ptr %strip.i.i48, align 8
   %mul.i.i49 = mul i64 %div.i38, 24
-  %call4.i.i50 = call ptr @realloc(ptr noundef %149, i64 noundef %mul.i.i49) #19
+  %call4.i.i50 = call ptr @realloc(ptr noundef %149, i64 noundef %mul.i.i49) #20
   %cmp5.i.i51 = icmp eq ptr %call4.i.i50, null
   br i1 %cmp5.i.i51, label %if.then6.i.i53, label %if.end8.i.i52
 
@@ -3950,8 +3950,8 @@ lor.end:                                          ; preds = %seterr.exit, %if.en
 
 declare void @llvh_regfree(ptr noundef) local_unnamed_addr #6
 
-; Function Attrs: nounwind uwtable
-define internal fastcc void @doinsert(ptr noundef nonnull captures(none) %p, i64 noundef range(i64 1207959552, 2013265921) %op, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %opnd, i64 noundef %pos) unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc void @doinsert(ptr noundef nonnull captures(none) %p, i64 noundef range(i64 1207959552, 2013265921) %op, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %opnd, i64 noundef %pos) unnamed_addr #7 {
 entry:
   %error = getelementptr inbounds nuw i8, ptr %p, i64 16
   %0 = load i32, ptr %error, align 8
@@ -3988,7 +3988,7 @@ if.end3.i.i:                                      ; preds = %if.end.i.i
   %strip.i.i = getelementptr inbounds nuw i8, ptr %p, i64 24
   %3 = load ptr, ptr %strip.i.i, align 8
   %mul.i.i = mul i64 %div.i, 24
-  %call4.i.i = tail call ptr @realloc(ptr noundef %3, i64 noundef %mul.i.i) #19
+  %call4.i.i = tail call ptr @realloc(ptr noundef %3, i64 noundef %mul.i.i) #20
   %cmp5.i.i = icmp eq ptr %call4.i.i, null
   br i1 %cmp5.i.i, label %if.then6.i.i, label %if.end8.i.i
 
@@ -4084,7 +4084,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end16
 
 land.lhs.true:                                    ; preds = %entry
-  %call = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str, i64 noundef 6) #15
+  %call = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str, i64 noundef 6) #16
   %cmp2 = icmp eq i32 %call, 0
   br i1 %cmp2, label %if.then, label %land.lhs.true9
 
@@ -4123,7 +4123,7 @@ if.end3.i.i:                                      ; preds = %if.end.i.i
   %strip.i.i = getelementptr inbounds nuw i8, ptr %p, i64 24
   %5 = load ptr, ptr %strip.i.i, align 8
   %mul.i.i = mul i64 %div.i, 24
-  %call4.i.i = tail call ptr @realloc(ptr noundef %5, i64 noundef %mul.i.i) #19
+  %call4.i.i = tail call ptr @realloc(ptr noundef %5, i64 noundef %mul.i.i) #20
   %cmp5.i.i = icmp eq ptr %call4.i.i, null
   br i1 %cmp5.i.i, label %if.then6.i.i, label %if.end8.i.i
 
@@ -4164,7 +4164,7 @@ doemit.exit:                                      ; preds = %if.then, %if.end4.i
   br label %if.end278
 
 land.lhs.true9:                                   ; preds = %land.lhs.true
-  %call11 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.1, i64 noundef 6) #15
+  %call11 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.1, i64 noundef 6) #16
   %cmp12 = icmp eq i32 %call11, 0
   br i1 %cmp12, label %if.then13, label %if.end16
 
@@ -4203,7 +4203,7 @@ if.end3.i.i133:                                   ; preds = %if.end.i.i131
   %strip.i.i134 = getelementptr inbounds nuw i8, ptr %p, i64 24
   %13 = load ptr, ptr %strip.i.i134, align 8
   %mul.i.i135 = mul i64 %div.i124, 24
-  %call4.i.i136 = tail call ptr @realloc(ptr noundef %13, i64 noundef %mul.i.i135) #19
+  %call4.i.i136 = tail call ptr @realloc(ptr noundef %13, i64 noundef %mul.i.i135) #20
   %cmp5.i.i137 = icmp eq ptr %call4.i.i136, null
   br i1 %cmp5.i.i137, label %if.then6.i.i139, label %if.end8.i.i138
 
@@ -4272,7 +4272,7 @@ if.end.i150:                                      ; preds = %if.then.i
   %sets.i = getelementptr inbounds nuw i8, ptr %20, i64 24
   %23 = load ptr, ptr %sets.i, align 8
   %mul10.i = shl nuw nsw i64 %conv5.i, 5
-  %call.i = tail call ptr @realloc(ptr noundef %23, i64 noundef %mul10.i) #19
+  %call.i = tail call ptr @realloc(ptr noundef %23, i64 noundef %mul10.i) #20
   %cmp11.i = icmp eq ptr %call.i, null
   %.pre53.i = load ptr, ptr %g.i, align 8
   br i1 %cmp11.i, label %nomem.i, label %if.end14.i
@@ -4283,7 +4283,7 @@ if.end14.i:                                       ; preds = %if.end.i150
   %24 = load ptr, ptr %g.i, align 8
   %setbits.i = getelementptr inbounds nuw i8, ptr %24, i64 32
   %25 = load ptr, ptr %setbits.i, align 8
-  %call18.i = tail call ptr @realloc(ptr noundef %25, i64 noundef %mul.i151) #19
+  %call18.i = tail call ptr @realloc(ptr noundef %25, i64 noundef %mul.i151) #20
   %cmp19.i = icmp eq ptr %call18.i, null
   %.pre52.i = load ptr, ptr %g.i, align 8
   br i1 %cmp19.i, label %nomem.i, label %if.end22.i
@@ -4342,14 +4342,14 @@ nomem.i:                                          ; preds = %lor.lhs.false.i, %i
   %34 = phi ptr [ %31, %if.end39.i ], [ %31, %lor.lhs.false.i ], [ %.pre52.i, %if.end14.i ], [ %.pre53.i, %if.end.i150 ], [ %20, %if.then.i ]
   %sets63.i = getelementptr inbounds nuw i8, ptr %34, i64 24
   %35 = load ptr, ptr %sets63.i, align 8
-  tail call void @free(ptr noundef %35) #18
+  tail call void @free(ptr noundef %35) #19
   %36 = load ptr, ptr %g.i, align 8
   %sets65.i = getelementptr inbounds nuw i8, ptr %36, i64 24
   store ptr null, ptr %sets65.i, align 8
   %37 = load ptr, ptr %g.i, align 8
   %setbits67.i = getelementptr inbounds nuw i8, ptr %37, i64 32
   %38 = load ptr, ptr %setbits67.i, align 8
-  tail call void @free(ptr noundef %38) #18
+  tail call void @free(ptr noundef %38) #19
   %39 = load ptr, ptr %g.i, align 8
   %setbits69.i = getelementptr inbounds nuw i8, ptr %39, i64 32
   store ptr null, ptr %setbits69.i, align 8
@@ -4531,7 +4531,7 @@ lor.end34.i:                                      ; preds = %lor.end.i
 
 land.rhs.lr.ph.i.i:                               ; preds = %lor.end34.i
   %64 = ptrtoint ptr %59 to i64
-  %call.i.i = tail call ptr @__ctype_b_loc() #20
+  %call.i.i = tail call ptr @__ctype_b_loc() #21
   %65 = sub i64 %64, %63
   %scevgep.i.i = getelementptr i8, ptr %60, i64 %65
   br label %land.rhs.i.i
@@ -4568,7 +4568,7 @@ while.end.i.i:                                    ; preds = %while.end.loopexit.
 for.body.i.i:                                     ; preds = %for.inc.i.i, %while.end.i.i
   %72 = phi ptr [ @.str.2, %while.end.i.i ], [ %74, %for.inc.i.i ]
   %cp.033.i.i = phi ptr [ @cclasses, %while.end.i.i ], [ %incdec.ptr17.i.i, %for.inc.i.i ]
-  %call9.i.i = tail call i32 @strncmp(ptr noundef nonnull %72, ptr noundef nonnull %71, i64 noundef %sub.ptr.sub.i.i) #15
+  %call9.i.i = tail call i32 @strncmp(ptr noundef nonnull %72, ptr noundef nonnull %71, i64 noundef %sub.ptr.sub.i.i) #16
   %cmp10.i.i = icmp eq i32 %call9.i.i, 0
   br i1 %cmp10.i.i, label %land.lhs.true.i.i, label %for.inc.i.i
 
@@ -4633,12 +4633,12 @@ while.end38.i.i:                                  ; preds = %while.body29.i.i, %
 for.body43.i.i:                                   ; preds = %while.end38.i.i, %mcadd.exit.i.i
   %u.137.i.i = phi ptr [ %add.ptr.i.i, %mcadd.exit.i.i ], [ %84, %while.end38.i.i ]
   %86 = load i64, ptr %smultis.i, align 8
-  %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %u.137.i.i) #15
+  %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %u.137.i.i) #16
   %add.i.i.i = add i64 %86, 1
   %add2.i.i.i = add i64 %add.i.i.i, %call.i.i.i
   store i64 %add2.i.i.i, ptr %smultis.i, align 8
   %87 = load ptr, ptr %multis.i.i.i, align 8
-  %call4.i.i.i = tail call ptr @realloc(ptr noundef %87, i64 noundef %add2.i.i.i) #19
+  %call4.i.i.i = tail call ptr @realloc(ptr noundef %87, i64 noundef %add2.i.i.i) #20
   %cmp.i26.i.i = icmp eq ptr %call4.i.i.i, null
   br i1 %cmp.i26.i.i, label %if.then.i27.i.i, label %if.end10.i.i.i
 
@@ -4648,7 +4648,7 @@ if.then.i27.i.i:                                  ; preds = %for.body43.i.i
   br i1 %tobool.not.i.i.i, label %if.end.i.i.i, label %if.then6.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.then.i27.i.i
-  tail call void @free(ptr noundef nonnull %88) #18
+  tail call void @free(ptr noundef nonnull %88) #19
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then6.i.i.i, %if.then.i27.i.i
@@ -4673,11 +4673,11 @@ if.end10.i.i.i:                                   ; preds = %for.body43.i.i
   %90 = load i64, ptr %smultis.i, align 8
   %reass.sub = sub i64 %90, %86
   %add15.i.i.i = add i64 %reass.sub, 1
-  %call16.i.i.i = tail call i64 @llvh_strlcpy(ptr noundef nonnull %add.ptr13.i.i.i, ptr noundef nonnull %u.137.i.i, i64 noundef %add15.i.i.i) #18
+  %call16.i.i.i = tail call i64 @llvh_strlcpy(ptr noundef nonnull %add.ptr13.i.i.i, ptr noundef nonnull %u.137.i.i, i64 noundef %add15.i.i.i) #19
   br label %mcadd.exit.i.i
 
 mcadd.exit.i.i:                                   ; preds = %if.end10.i.i.i, %seterr.exit.i.i.i
-  %call45.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %u.137.i.i) #15
+  %call45.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %u.137.i.i) #16
   %91 = getelementptr i8, ptr %u.137.i.i, i64 %call45.i.i
   %add.ptr.i.i = getelementptr i8, ptr %91, i64 1
   %92 = load i8, ptr %add.ptr.i.i, align 1
@@ -4803,12 +4803,12 @@ if.end.i.i121.i:                                  ; preds = %land.rhs12.i.i.i
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %if.end.i.i121.i
   %106 = phi ptr [ @.str.27, %if.end.i.i121.i ], [ %108, %for.inc.i.i.i ]
   %cp.038.i.i.i = phi ptr [ @cnames, %if.end.i.i121.i ], [ %incdec.ptr38.i.i.i, %for.inc.i.i.i ]
-  %call28.i.i.i = tail call i32 @strncmp(ptr noundef nonnull %106, ptr noundef nonnull %100, i64 noundef %sub.ptr.sub.i.i.i) #15
+  %call28.i.i.i = tail call i32 @strncmp(ptr noundef nonnull %106, ptr noundef nonnull %100, i64 noundef %sub.ptr.sub.i.i.i) #16
   %cmp29.i.i.i = icmp eq i32 %call28.i.i.i, 0
   br i1 %cmp29.i.i.i, label %land.lhs.true31.i.i.i, label %for.inc.i.i.i
 
 land.lhs.true31.i.i.i:                            ; preds = %for.body.i.i.i
-  %call33.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %106) #15
+  %call33.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %106) #16
   %cmp34.i.i.i = icmp eq i64 %call33.i.i.i, %sub.ptr.sub.i.i.i
   br i1 %cmp34.i.i.i, label %if.then36.i.i.i, label %for.inc.i.i.i
 
@@ -5107,7 +5107,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool161.not, label %for.inc, label %land.lhs.true162
 
 land.lhs.true162:                                 ; preds = %for.body
-  %call163 = tail call ptr @__ctype_b_loc() #20
+  %call163 = tail call ptr @__ctype_b_loc() #21
   %163 = load ptr, ptr %call163, align 8
   %arrayidx165 = getelementptr inbounds nuw i16, ptr %163, i64 %indvars.iv.next
   %164 = load i16, ptr %arrayidx165, align 2
@@ -5124,7 +5124,7 @@ if.then169:                                       ; preds = %land.lhs.true162
   br i1 %tobool.not.i, label %if.else.i193, label %if.then.i191
 
 if.then.i191:                                     ; preds = %if.then169
-  %call3.i = tail call i32 @tolower(i32 noundef %160) #15
+  %call3.i = tail call i32 @tolower(i32 noundef %160) #16
   br label %othercase.exit
 
 if.else.i193:                                     ; preds = %if.then169
@@ -5133,7 +5133,7 @@ if.else.i193:                                     ; preds = %if.then169
   br i1 %tobool10.not.i, label %othercase.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.else.i193
-  %call12.i = tail call i32 @toupper(i32 noundef %160) #15
+  %call12.i = tail call i32 @toupper(i32 noundef %160) #16
   br label %othercase.exit
 
 othercase.exit:                                   ; preds = %if.then.i191, %if.else.i193, %if.then11.i
@@ -5303,7 +5303,7 @@ firstch.exit.if.else.i228_crit_edge:              ; preds = %firstch.exit
   br label %if.else.i228
 
 land.lhs.true.i:                                  ; preds = %firstch.exit
-  %call.i221 = tail call ptr @__ctype_b_loc() #20
+  %call.i221 = tail call ptr @__ctype_b_loc() #21
   %192 = load ptr, ptr %call.i221, align 8
   %conv2.i222 = and i32 %retval.0.i215, 255
   %idxprom.i223 = zext nneg i32 %conv2.i222 to i64
@@ -5358,7 +5358,7 @@ if.end3.i.i323:                                   ; preds = %if.end.i.i321
   %strip.i.i324 = getelementptr inbounds nuw i8, ptr %p, i64 24
   %198 = load ptr, ptr %strip.i.i324, align 8
   %mul.i.i325 = mul i64 %div.i313, 24
-  %call4.i.i326 = tail call ptr @realloc(ptr noundef %198, i64 noundef %mul.i.i325) #19
+  %call4.i.i326 = tail call ptr @realloc(ptr noundef %198, i64 noundef %mul.i.i325) #20
   %cmp5.i.i327 = icmp eq ptr %call4.i.i326, null
   br i1 %cmp5.i.i327, label %if.then6.i.i329, label %if.end8.i.i328
 
@@ -5622,7 +5622,7 @@ if.end3.i.i291:                                   ; preds = %if.end.i.i289
   %strip.i.i292 = getelementptr inbounds nuw i8, ptr %p, i64 24
   %243 = load ptr, ptr %strip.i.i292, align 8
   %mul.i.i293 = mul i64 %div.i282, 24
-  %call4.i.i294 = tail call ptr @realloc(ptr noundef %243, i64 noundef %mul.i.i293) #19
+  %call4.i.i294 = tail call ptr @realloc(ptr noundef %243, i64 noundef %mul.i.i293) #20
   %cmp5.i.i295 = icmp eq ptr %call4.i.i294, null
   br i1 %cmp5.i.i295, label %if.then6.i.i297, label %if.end8.i.i296
 
@@ -5679,7 +5679,7 @@ entry.if.else_crit_edge:                          ; preds = %entry
   br label %if.else
 
 land.lhs.true:                                    ; preds = %entry
-  %call = tail call ptr @__ctype_b_loc() #20
+  %call = tail call ptr @__ctype_b_loc() #21
   %3 = load ptr, ptr %call, align 8
   %conv2 = and i32 %ch, 255
   %idxprom = zext nneg i32 %conv2 to i64
@@ -5696,7 +5696,7 @@ land.lhs.true6:                                   ; preds = %land.lhs.true
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true6
-  %call3.i = tail call i32 @tolower(i32 noundef %conv2) #15
+  %call3.i = tail call i32 @tolower(i32 noundef %conv2) #16
   br label %othercase.exit
 
 if.else.i:                                        ; preds = %land.lhs.true6
@@ -5705,7 +5705,7 @@ if.else.i:                                        ; preds = %land.lhs.true6
   br i1 %tobool10.not.i, label %othercase.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.else.i
-  %call12.i = tail call i32 @toupper(i32 noundef %conv2) #15
+  %call12.i = tail call i32 @toupper(i32 noundef %conv2) #16
   br label %othercase.exit
 
 othercase.exit:                                   ; preds = %if.then.i, %if.else.i, %if.then11.i
@@ -5728,7 +5728,7 @@ if.then:                                          ; preds = %othercase.exit
   %arrayidx6.i = getelementptr inbounds nuw i8, ptr %bracket.i, i64 1
   store i8 93, ptr %arrayidx6.i, align 1
   store i8 0, ptr %add.ptr.i, align 1
-  call fastcc void @p_bracket(ptr noundef nonnull %p) #21
+  call fastcc void @p_bracket(ptr noundef nonnull %p) #22
   store ptr %6, ptr %p, align 8
   store ptr %7, ptr %end.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %bracket.i)
@@ -5771,7 +5771,7 @@ if.end3.i.i:                                      ; preds = %if.end.i.i
   %strip.i.i = getelementptr inbounds nuw i8, ptr %p, i64 24
   %11 = load ptr, ptr %strip.i.i, align 8
   %mul.i.i = mul i64 %div.i, 24
-  %call4.i.i = tail call ptr @realloc(ptr noundef %11, i64 noundef %mul.i.i) #19
+  %call4.i.i = tail call ptr @realloc(ptr noundef %11, i64 noundef %mul.i.i) #20
   %cmp5.i.i = icmp eq ptr %call4.i.i, null
   br i1 %cmp5.i.i, label %if.then6.i.i, label %if.end8.i.i
 
@@ -5829,10 +5829,10 @@ if.end22:                                         ; preds = %doemit.exit, %if.th
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #7
+declare ptr @__ctype_b_loc() local_unnamed_addr #8
 
-; Function Attrs: nounwind uwtable
-define internal fastcc void @repeat(ptr noundef nonnull %p, i64 noundef %start, i32 noundef %from, i32 noundef %to) unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc void @repeat(ptr noundef nonnull %p, i64 noundef %start, i32 noundef %from, i32 noundef %to) unnamed_addr #7 {
 entry:
   %slen = getelementptr inbounds nuw i8, ptr %p, i64 40
   %error = getelementptr inbounds nuw i8, ptr %p, i64 16
@@ -5926,7 +5926,7 @@ seterr.exit.i.i:                                  ; preds = %if.end.i.i
 if.end3.i.i:                                      ; preds = %if.end.i.i
   %4 = load ptr, ptr %strip.i.i365, align 8
   %mul.i.i = mul i64 %div.i, 24
-  %call4.i.i = tail call ptr @realloc(ptr noundef %4, i64 noundef %mul.i.i) #19
+  %call4.i.i = tail call ptr @realloc(ptr noundef %4, i64 noundef %mul.i.i) #20
   %cmp5.i.i = icmp eq ptr %call4.i.i, null
   br i1 %cmp5.i.i, label %if.then6.i.i, label %if.end8.i.i
 
@@ -6000,7 +6000,7 @@ seterr.exit.i.i109:                               ; preds = %if.end.i.i96
 if.end3.i.i98:                                    ; preds = %if.end.i.i96
   %13 = load ptr, ptr %strip.i.i365, align 8
   %mul.i.i100 = mul i64 %div.i89, 24
-  %call4.i.i101 = tail call ptr @realloc(ptr noundef %13, i64 noundef %mul.i.i100) #19
+  %call4.i.i101 = tail call ptr @realloc(ptr noundef %13, i64 noundef %mul.i.i100) #20
   %cmp5.i.i102 = icmp eq ptr %call4.i.i101, null
   br i1 %cmp5.i.i102, label %if.then6.i.i104, label %if.end8.i.i103
 
@@ -6073,7 +6073,7 @@ seterr.exit.i.i148:                               ; preds = %if.end.i.i135
 if.end3.i.i137:                                   ; preds = %if.end.i.i135
   %23 = load ptr, ptr %strip.i.i365, align 8
   %mul.i.i139 = mul i64 %div.i128, 24
-  %call4.i.i140 = tail call ptr @realloc(ptr noundef %23, i64 noundef %mul.i.i139) #19
+  %call4.i.i140 = tail call ptr @realloc(ptr noundef %23, i64 noundef %mul.i.i139) #20
   %cmp5.i.i141 = icmp eq ptr %call4.i.i140, null
   br i1 %cmp5.i.i141, label %if.then6.i.i143, label %if.end8.i.i142
 
@@ -6140,7 +6140,7 @@ seterr.exit.i.i180:                               ; preds = %if.end.i.i167
 if.end3.i.i169:                                   ; preds = %if.end.i.i167
   %30 = load ptr, ptr %strip.i.i365, align 8
   %mul.i.i171 = mul i64 %div.i159, 24
-  %call4.i.i172 = tail call ptr @realloc(ptr noundef %30, i64 noundef %mul.i.i171) #19
+  %call4.i.i172 = tail call ptr @realloc(ptr noundef %30, i64 noundef %mul.i.i171) #20
   %cmp5.i.i173 = icmp eq ptr %call4.i.i172, null
   br i1 %cmp5.i.i173, label %if.then6.i.i175, label %if.end8.i.i174
 
@@ -6214,7 +6214,7 @@ seterr.exit.i.i219:                               ; preds = %if.end.i.i206
 if.end3.i.i208:                                   ; preds = %if.end.i.i206
   %37 = load ptr, ptr %strip.i.i365, align 8
   %mul.i.i210 = mul i64 %div.i199, 24
-  %call4.i.i211 = tail call ptr @realloc(ptr noundef %37, i64 noundef %mul.i.i210) #19
+  %call4.i.i211 = tail call ptr @realloc(ptr noundef %37, i64 noundef %mul.i.i210) #20
   %cmp5.i.i212 = icmp eq ptr %call4.i.i211, null
   br i1 %cmp5.i.i212, label %if.then6.i.i214, label %if.end8.i.i213
 
@@ -6287,7 +6287,7 @@ seterr.exit.i.i258:                               ; preds = %if.end.i.i245
 if.end3.i.i247:                                   ; preds = %if.end.i.i245
   %45 = load ptr, ptr %strip.i.i365, align 8
   %mul.i.i249 = mul i64 %div.i238, 24
-  %call4.i.i250 = tail call ptr @realloc(ptr noundef %45, i64 noundef %mul.i.i249) #19
+  %call4.i.i250 = tail call ptr @realloc(ptr noundef %45, i64 noundef %mul.i.i249) #20
   %cmp5.i.i251 = icmp eq ptr %call4.i.i250, null
   br i1 %cmp5.i.i251, label %if.then6.i.i253, label %if.end8.i.i252
 
@@ -6352,7 +6352,7 @@ seterr.exit.i.i281:                               ; preds = %if.then.i.i.i, %if.
 if.end3.i.i270:                                   ; preds = %if.end.i.i268
   %52 = load ptr, ptr %strip.i.i365, align 8
   %mul.i.i272 = shl nuw i64 %add.i264, 3
-  %call4.i.i273 = tail call ptr @realloc(ptr noundef %52, i64 noundef %mul.i.i272) #19
+  %call4.i.i273 = tail call ptr @realloc(ptr noundef %52, i64 noundef %mul.i.i272) #20
   %cmp5.i.i274 = icmp eq ptr %call4.i.i273, null
   br i1 %cmp5.i.i274, label %if.then6.i.i276, label %if.end8.i.i275
 
@@ -6432,7 +6432,7 @@ seterr.exit.i.i312:                               ; preds = %if.end.i.i299
 if.end3.i.i301:                                   ; preds = %if.end.i.i299
   %62 = load ptr, ptr %strip.i.i365, align 8
   %mul.i.i303 = mul i64 %div.i291, 24
-  %call4.i.i304 = tail call ptr @realloc(ptr noundef %62, i64 noundef %mul.i.i303) #19
+  %call4.i.i304 = tail call ptr @realloc(ptr noundef %62, i64 noundef %mul.i.i303) #20
   %cmp5.i.i305 = icmp eq ptr %call4.i.i304, null
   br i1 %cmp5.i.i305, label %if.then6.i.i307, label %if.end8.i.i306
 
@@ -6489,7 +6489,7 @@ seterr.exit.i.i345:                               ; preds = %if.end.i.i328
 if.end3.i.i330:                                   ; preds = %if.end.i.i328
   %67 = load ptr, ptr %strip.i.i365, align 8
   %mul.i.i332 = shl nuw i64 %add.i320, 3
-  %call4.i.i333 = tail call ptr @realloc(ptr noundef %67, i64 noundef %mul.i.i332) #19
+  %call4.i.i333 = tail call ptr @realloc(ptr noundef %67, i64 noundef %mul.i.i332) #20
   %cmp5.i.i334 = icmp eq ptr %call4.i.i333, null
   br i1 %cmp5.i.i334, label %if.then6.i.i336, label %if.end8.i.i335
 
@@ -6553,7 +6553,7 @@ seterr.exit.i.i379:                               ; preds = %if.end.i.i362
 if.end3.i.i364:                                   ; preds = %if.end.i.i362
   %73 = load ptr, ptr %strip.i.i365, align 8
   %mul.i.i366 = shl nuw i64 %add.i354, 3
-  %call4.i.i367 = tail call ptr @realloc(ptr noundef %73, i64 noundef %mul.i.i366) #19
+  %call4.i.i367 = tail call ptr @realloc(ptr noundef %73, i64 noundef %mul.i.i366) #20
   %cmp5.i.i368 = icmp eq ptr %call4.i.i367, null
   br i1 %cmp5.i.i368, label %if.then6.i.i370, label %if.end8.i.i369
 
@@ -6609,10 +6609,10 @@ sw.epilog:                                        ; preds = %tailrecurse.outer.b
 declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc signext i8 @othercase(i32 noundef %ch) unnamed_addr #8 {
+define internal fastcc signext i8 @othercase(i32 noundef %ch) unnamed_addr #9 {
 entry:
   %conv1 = and i32 %ch, 255
-  %call = tail call ptr @__ctype_b_loc() #20
+  %call = tail call ptr @__ctype_b_loc() #21
   %0 = load ptr, ptr %call, align 8
   %idxprom = zext nneg i32 %conv1 to i64
   %arrayidx = getelementptr inbounds nuw i16, ptr %0, i64 %idxprom
@@ -6623,7 +6623,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call3 = tail call i32 @tolower(i32 noundef %conv1) #15
+  %call3 = tail call i32 @tolower(i32 noundef %conv1) #16
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -6632,7 +6632,7 @@ if.else:                                          ; preds = %entry
   br i1 %tobool10.not, label %return, label %if.then11
 
 if.then11:                                        ; preds = %if.else
-  %call12 = tail call i32 @toupper(i32 noundef %conv1) #15
+  %call12 = tail call i32 @toupper(i32 noundef %conv1) #16
   br label %return
 
 return:                                           ; preds = %if.else, %if.then11, %if.then
@@ -6642,10 +6642,10 @@ return:                                           ; preds = %if.else, %if.then11
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
-; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc signext i8 @p_b_symbol(ptr noundef nonnull captures(none) %p) unnamed_addr #10 {
+; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc signext i8 @p_b_symbol(ptr noundef nonnull captures(none) %p) unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %p, align 8
   %end = getelementptr inbounds nuw i8, ptr %p, i64 8
@@ -6728,12 +6728,12 @@ if.end.i:                                         ; preds = %land.rhs12.i
 for.body.i:                                       ; preds = %for.inc.i, %if.end.i
   %9 = phi ptr [ @.str.27, %if.end.i ], [ %10, %for.inc.i ]
   %cp.038.i = phi ptr [ @cnames, %if.end.i ], [ %incdec.ptr38.i, %for.inc.i ]
-  %call28.i = tail call i32 @strncmp(ptr noundef nonnull %9, ptr noundef nonnull %add.ptr18, i64 noundef %sub.ptr.sub.i) #15
+  %call28.i = tail call i32 @strncmp(ptr noundef nonnull %9, ptr noundef nonnull %add.ptr18, i64 noundef %sub.ptr.sub.i) #16
   %cmp29.i = icmp eq i32 %call28.i, 0
   br i1 %cmp29.i, label %land.lhs.true31.i, label %for.inc.i
 
 land.lhs.true31.i:                                ; preds = %for.body.i
-  %call33.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #15
+  %call33.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #16
   %cmp34.i = icmp eq i64 %call33.i, %sub.ptr.sub.i
   br i1 %cmp34.i, label %if.then36.i, label %for.inc.i
 
@@ -6818,13 +6818,13 @@ return:                                           ; preds = %seterr.exit30, %con
 declare i64 @llvh_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @tolower(i32 noundef) local_unnamed_addr #11
+declare i32 @tolower(i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @toupper(i32 noundef) local_unnamed_addr #11
+declare i32 @toupper(i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @bothcases(ptr noundef nonnull %p, i32 noundef %ch) unnamed_addr #0 {
@@ -6848,13 +6848,13 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #14
+declare i64 @llvm.smax.i64(i64, i64) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6863,21 +6863,22 @@ attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroe
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nounwind willreturn memory(read) }
-attributes #16 = { nounwind allocsize(0) }
-attributes #17 = { nounwind allocsize(0,1) }
-attributes #18 = { nounwind }
-attributes #19 = { nounwind allocsize(1) }
-attributes #20 = { nounwind willreturn memory(none) }
-attributes #21 = { "function-inline-cost-multiplier"="2" }
+attributes #7 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nounwind willreturn memory(read) }
+attributes #17 = { nounwind allocsize(0) }
+attributes #18 = { nounwind allocsize(0,1) }
+attributes #19 = { nounwind }
+attributes #20 = { nounwind allocsize(1) }
+attributes #21 = { nounwind willreturn memory(none) }
+attributes #22 = { "function-inline-cost-multiplier"="2" }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

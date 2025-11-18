@@ -14,13 +14,13 @@ define hidden range(i32 0, 2) i32 @FLAC__ogg_decoder_aspect_init(ptr noundef %0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !3
   %5 = trunc i64 %4 to i32
-  %6 = tail call i32 @ogg_stream_init(ptr noundef nonnull %2, i32 noundef %5) #15
+  %6 = tail call i32 @ogg_stream_init(ptr noundef nonnull %2, i32 noundef %5) #16
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %30
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %9 = tail call i32 @ogg_sync_init(ptr noundef nonnull %8) #15
+  %9 = tail call i32 @ogg_sync_init(ptr noundef nonnull %8) #16
   %.not20 = icmp eq i32 %9, 0
   br i1 %.not20, label %10, label %30
 
@@ -75,9 +75,9 @@ declare i32 @ogg_sync_init(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @FLAC__ogg_decoder_aspect_finish(ptr noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %3 = tail call i32 @ogg_sync_clear(ptr noundef nonnull %2) #15
+  %3 = tail call i32 @ogg_sync_clear(ptr noundef nonnull %2) #16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = tail call i32 @ogg_stream_clear(ptr noundef nonnull %4) #15
+  %5 = tail call i32 @ogg_stream_clear(ptr noundef nonnull %4) #16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %7 = load ptr, ptr %6, align 8, !tbaa !27
   %.not = icmp eq ptr %7, null
@@ -95,7 +95,7 @@ define hidden void @FLAC__ogg_decoder_aspect_finish(ptr noundef %0) local_unname
   %11 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %10, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !29
-  tail call void @free(ptr noundef %13) #15
+  tail call void @free(ptr noundef %13) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i32, ptr %8, align 8, !tbaa !28
   %15 = zext i32 %14 to i64
@@ -108,7 +108,7 @@ define hidden void @FLAC__ogg_decoder_aspect_finish(ptr noundef %0) local_unname
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %17 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %7, %.preheader ]
-  tail call void @free(ptr noundef %17) #15
+  tail call void @free(ptr noundef %17) #16
   br label %18
 
 18:                                               ; preds = %._crit_edge, %1
@@ -142,9 +142,9 @@ define hidden void @FLAC__ogg_decoder_aspect_set_defaults(ptr noundef writeonly 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @FLAC__ogg_decoder_aspect_flush(ptr noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = tail call i32 @ogg_stream_reset(ptr noundef nonnull %2) #15
+  %3 = tail call i32 @ogg_stream_reset(ptr noundef nonnull %2) #16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %5 = tail call i32 @ogg_sync_reset(ptr noundef nonnull %4) #15
+  %5 = tail call i32 @ogg_sync_reset(ptr noundef nonnull %4) #16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 476
   store i32 0, ptr %6, align 4, !tbaa !24
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -161,9 +161,9 @@ declare i32 @ogg_sync_reset(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @FLAC__ogg_decoder_aspect_reset(ptr noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = tail call i32 @ogg_stream_reset(ptr noundef nonnull %2) #15
+  %3 = tail call i32 @ogg_stream_reset(ptr noundef nonnull %2) #16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %5 = tail call i32 @ogg_sync_reset(ptr noundef nonnull %4) #15
+  %5 = tail call i32 @ogg_sync_reset(ptr noundef nonnull %4) #16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 476
   store i32 0, ptr %6, align 4, !tbaa !24
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -226,7 +226,7 @@ define hidden i32 @FLAC__ogg_decoder_aspect_get_decode_chained_stream(ptr nounde
   ret i32 %3
 }
 
-; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef ptr @FLAC__ogg_decoder_aspect_get_target_link(ptr noundef captures(ret: address, provenance) %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 644
   %4 = load i32, ptr %3, align 4, !tbaa !37
@@ -301,7 +301,7 @@ define hidden void @FLAC__ogg_decoder_aspect_set_seek_parameters(ptr noundef %0,
   store i64 %10, ptr %11, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = trunc i64 %10 to i32
-  %14 = tail call i32 @ogg_stream_reset_serialno(ptr noundef nonnull %12, i32 noundef %13) #15
+  %14 = tail call i32 @ogg_stream_reset_serialno(ptr noundef nonnull %12, i32 noundef %13) #16
   br label %15
 
 15:                                               ; preds = %2, %4
@@ -389,7 +389,7 @@ define hidden range(i32 0, 9) i32 @FLAC__ogg_decoder_aspect_read_callback_wrappe
   br i1 %.not142, label %106, label %50
 
 50:                                               ; preds = %46
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.0113172, ptr noundef nonnull align 1 %49, i64 noundef %48, i1 noundef false) #15
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.0113172, ptr noundef nonnull align 1 %49, i64 noundef %48, i1 noundef false) #16
   %51 = load i64, ptr %2, align 8, !tbaa !52
   %52 = add i64 %51, %48
   store i64 %52, ptr %2, align 8, !tbaa !52
@@ -424,7 +424,7 @@ define hidden range(i32 0, 9) i32 @FLAC__ogg_decoder_aspect_read_callback_wrappe
   %64 = shl i32 %61, 1
   %65 = zext i32 %64 to i64
   %66 = mul nuw nsw i64 %65, 56
-  %67 = call noalias noundef ptr @realloc(ptr noundef %63, i64 noundef %66) #16
+  %67 = call noalias noundef ptr @realloc(ptr noundef %63, i64 noundef %66) #17
   %68 = icmp eq ptr %67, null
   br i1 %68, label %check_size_of_link_allocation_.exit, label %.thread.i
 
@@ -434,7 +434,7 @@ define hidden range(i32 0, 9) i32 @FLAC__ogg_decoder_aspect_read_callback_wrappe
   %70 = zext i32 %69 to i64
   %71 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %67, i64 %70
   %72 = mul nuw nsw i64 %70, 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %71, i8 noundef 0, i64 noundef range(i64 0, 240518168521) %72, i1 noundef false) #15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %71, i8 noundef 0, i64 noundef range(i64 0, 240518168521) %72, i1 noundef false) #16
   %73 = shl i32 %69, 1
   store i32 %73, ptr %21, align 8, !tbaa !28
   %.pre180 = load i32, ptr %19, align 4, !tbaa !33
@@ -457,7 +457,7 @@ define hidden range(i32 0, 9) i32 @FLAC__ogg_decoder_aspect_read_callback_wrappe
   br i1 %.not147, label %99, label %83
 
 83:                                               ; preds = %77
-  %84 = call i32 %4(ptr noundef %5, ptr noundef nonnull %9, ptr noundef %6) #15
+  %84 = call i32 %4(ptr noundef %5, ptr noundef nonnull %9, ptr noundef %6) #16
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %86, label %99
 
@@ -499,7 +499,7 @@ define hidden range(i32 0, 9) i32 @FLAC__ogg_decoder_aspect_read_callback_wrappe
   br label %check_size_of_link_allocation_.exit.thread155
 
 106:                                              ; preds = %46
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.0113172, ptr noundef nonnull align 1 %49, i64 noundef %47, i1 noundef false) #15
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.0113172, ptr noundef nonnull align 1 %49, i64 noundef %47, i1 noundef false) #16
   %107 = load i64, ptr %2, align 8, !tbaa !52
   %108 = add i64 %107, %47
   store i64 %108, ptr %2, align 8, !tbaa !52
@@ -513,7 +513,7 @@ define hidden range(i32 0, 9) i32 @FLAC__ogg_decoder_aspect_read_callback_wrappe
   br label %check_size_of_link_allocation_.exit.thread155
 
 114:                                              ; preds = %44
-  %115 = call i32 @ogg_stream_packetout(ptr noundef nonnull %29, ptr noundef nonnull %15) #15
+  %115 = call i32 @ogg_stream_packetout(ptr noundef nonnull %29, ptr noundef nonnull %15) #16
   %116 = icmp sgt i32 %115, 0
   br i1 %116, label %117, label %138
 
@@ -567,7 +567,7 @@ define hidden range(i32 0, 9) i32 @FLAC__ogg_decoder_aspect_read_callback_wrappe
   br label %check_size_of_link_allocation_.exit.thread155
 
 .thread:                                          ; preds = %41, %43
-  %141 = call i32 @ogg_sync_pageout(ptr noundef nonnull %34, ptr noundef nonnull %35) #15
+  %141 = call i32 @ogg_sync_pageout(ptr noundef nonnull %34, ptr noundef nonnull %35) #16
   %142 = icmp sgt i32 %141, 0
   br i1 %142, label %143, label %145
 
@@ -584,14 +584,14 @@ define hidden range(i32 0, 9) i32 @FLAC__ogg_decoder_aspect_read_callback_wrappe
   %148 = load i64, ptr %2, align 8, !tbaa !52
   %149 = sub i64 %10, %148
   %150 = call i64 @llvm.umax.i64(i64 %149, i64 8192)
-  %151 = call ptr @ogg_sync_buffer(ptr noundef nonnull %34, i64 noundef %150) #15
+  %151 = call ptr @ogg_sync_buffer(ptr noundef nonnull %34, i64 noundef %150) #16
   %152 = icmp eq ptr %151, null
   br i1 %152, label %check_size_of_link_allocation_.exit, label %153
 
 153:                                              ; preds = %147
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %150, ptr %8, align 8, !tbaa !52
-  %154 = call i32 %3(ptr noundef %5, ptr noundef nonnull %151, ptr noundef nonnull %8, ptr noundef %6) #15
+  %154 = call i32 %3(ptr noundef %5, ptr noundef nonnull %151, ptr noundef nonnull %8, ptr noundef %6) #16
   switch i32 %154, label %156 [
     i32 6, label %.thread.i151
     i32 1, label %155
@@ -607,7 +607,7 @@ define hidden range(i32 0, 9) i32 @FLAC__ogg_decoder_aspect_read_callback_wrappe
 
 156:                                              ; preds = %155, %153
   %157 = load i64, ptr %8, align 8, !tbaa !52
-  %158 = call i32 @ogg_sync_wrote(ptr noundef nonnull %34, i64 noundef %157) #15
+  %158 = call i32 @ogg_sync_wrote(ptr noundef nonnull %34, i64 noundef %157) #16
   %.fr.i = freeze i32 %158
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.inv.i = icmp slt i32 %.fr.i, 0
@@ -648,8 +648,8 @@ check_size_of_link_allocation_.exit:              ; preds = %156, %147, %145, %1
   ret i32 %.1
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @check_size_of_link_allocation_(ptr noundef captures(none) %0) unnamed_addr #0 {
+; Function Attrs: nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @check_size_of_link_allocation_(ptr noundef captures(none) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 652
   %3 = load i32, ptr %2, align 4, !tbaa !33
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 648
@@ -669,7 +669,7 @@ define internal fastcc range(i32 0, 2) i32 @check_size_of_link_allocation_(ptr n
   %12 = shl i32 %5, 1
   %13 = zext i32 %12 to i64
   %14 = mul nuw nsw i64 %13, 56
-  %15 = tail call noalias noundef ptr @realloc(ptr noundef %11, i64 noundef %14) #16
+  %15 = tail call noalias noundef ptr @realloc(ptr noundef %11, i64 noundef %14) #17
   %16 = icmp eq ptr %15, null
   br i1 %16, label %22, label %.thread
 
@@ -679,7 +679,7 @@ define internal fastcc range(i32 0, 2) i32 @check_size_of_link_allocation_(ptr n
   %18 = zext i32 %17 to i64
   %19 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %15, i64 %18
   %20 = mul nuw nsw i64 %18, 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %19, i8 noundef 0, i64 noundef range(i64 0, 240518168521) %20, i1 noundef false) #15
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %19, i8 noundef 0, i64 noundef range(i64 0, 240518168521) %20, i1 noundef false) #16
   %21 = shl i32 %17, 1
   store i32 %21, ptr %4, align 8, !tbaa !28
   br label %22
@@ -725,12 +725,12 @@ define internal fastcc range(i32 0, 9) i32 @process_page_(ptr noundef %0, ptr no
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 472
   store i32 1, ptr %22, align 8, !tbaa !36
-  %23 = tail call i32 @ogg_page_serialno(ptr noundef nonnull %9) #15
+  %23 = tail call i32 @ogg_page_serialno(ptr noundef nonnull %9) #16
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %24, ptr %25, align 8, !tbaa !3
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = tail call i32 @ogg_stream_reset_serialno(ptr noundef nonnull %26, i32 noundef %23) #15
+  %27 = tail call i32 @ogg_stream_reset_serialno(ptr noundef nonnull %26, i32 noundef %23) #16
   store i32 0, ptr %6, align 8, !tbaa !23
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %29 = load i32, ptr %28, align 8, !tbaa !34
@@ -753,7 +753,7 @@ define internal fastcc range(i32 0, 9) i32 @process_page_(ptr noundef %0, ptr no
   br i1 %.not60, label %62, label %39
 
 39:                                               ; preds = %32
-  %40 = call i32 %1(ptr noundef %2, ptr noundef nonnull %5, ptr noundef %3) #15
+  %40 = call i32 %1(ptr noundef %2, ptr noundef nonnull %5, ptr noundef %3) #16
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %62
 
@@ -798,7 +798,7 @@ define internal fastcc range(i32 0, 9) i32 @process_page_(ptr noundef %0, ptr no
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %71 = call i32 @ogg_page_bos(ptr noundef nonnull %70) #15
+  %71 = call i32 @ogg_page_bos(ptr noundef nonnull %70) #16
   %.not63 = icmp eq i32 %71, 0
   br i1 %.not63, label %72, label %73
 
@@ -809,7 +809,7 @@ define internal fastcc range(i32 0, 9) i32 @process_page_(ptr noundef %0, ptr no
 73:                                               ; preds = %66, %69, %72, %63
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %76 = call i32 @ogg_stream_pagein(ptr noundef nonnull %74, ptr noundef nonnull %75) #15
+  %76 = call i32 @ogg_stream_pagein(ptr noundef nonnull %74, ptr noundef nonnull %75) #16
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %78, label %81
 
@@ -826,7 +826,7 @@ define internal fastcc range(i32 0, 9) i32 @process_page_(ptr noundef %0, ptr no
   br i1 %.not64, label %.critedge, label %83
 
 83:                                               ; preds = %81
-  %84 = call i32 @ogg_page_bos(ptr noundef nonnull %75) #15
+  %84 = call i32 @ogg_page_bos(ptr noundef nonnull %75) #16
   %.not65 = icmp eq i32 %84, 0
   br i1 %.not65, label %.critedge, label %85
 
@@ -857,7 +857,7 @@ define internal fastcc range(i32 0, 9) i32 @process_page_(ptr noundef %0, ptr no
   %103 = add i32 %97, 4
   %104 = zext i32 %103 to i64
   %105 = shl nuw nsw i64 %104, 3
-  %106 = call noalias noundef ptr @realloc(ptr noundef %102, i64 noundef %105) #16
+  %106 = call noalias noundef ptr @realloc(ptr noundef %102, i64 noundef %105) #17
   %.not67 = icmp eq ptr %106, null
   br i1 %.not67, label %.critedge, label %107
 
@@ -866,7 +866,7 @@ define internal fastcc range(i32 0, 9) i32 @process_page_(ptr noundef %0, ptr no
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %91, %107
-  %108 = call i32 @ogg_page_serialno(ptr noundef nonnull %75) #15
+  %108 = call i32 @ogg_page_serialno(ptr noundef nonnull %75) #16
   %109 = sext i32 %108 to i64
   %110 = getelementptr inbounds nuw i8, ptr %95, i64 40
   %111 = load ptr, ptr %110, align 8, !tbaa !29
@@ -916,7 +916,7 @@ define hidden range(i32 0, 10) i32 @FLAC__ogg_decoder_aspect_skip_link(ptr nound
   %26 = shl i32 %19, 1
   %27 = zext i32 %26 to i64
   %28 = mul nuw nsw i64 %27, 56
-  %29 = tail call noalias noundef ptr @realloc(ptr noundef %25, i64 noundef %28) #16
+  %29 = tail call noalias noundef ptr @realloc(ptr noundef %25, i64 noundef %28) #17
   %30 = icmp eq ptr %29, null
   br i1 %30, label %check_size_of_link_allocation_.exit, label %.thread.i
 
@@ -926,7 +926,7 @@ define hidden range(i32 0, 10) i32 @FLAC__ogg_decoder_aspect_skip_link(ptr nound
   %32 = zext i32 %31 to i64
   %33 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %29, i64 %32
   %34 = mul nuw nsw i64 %32, 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %33, i8 noundef 0, i64 noundef range(i64 0, 240518168521) %34, i1 noundef false) #15
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %33, i8 noundef 0, i64 noundef range(i64 0, 240518168521) %34, i1 noundef false) #16
   %35 = shl i32 %31, 1
   store i32 %35, ptr %18, align 8, !tbaa !28
   %.pre = load i32, ptr %16, align 4, !tbaa !33
@@ -952,7 +952,7 @@ define hidden range(i32 0, 10) i32 @FLAC__ogg_decoder_aspect_skip_link(ptr nound
 48:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8, !tbaa !52
-  %49 = call i32 %4(ptr noundef %5, ptr noundef nonnull %9, ptr noundef %6) #15
+  %49 = call i32 %4(ptr noundef %5, ptr noundef nonnull %9, ptr noundef %6) #16
   switch i32 %49, label %51 [
     i32 2, label %54
     i32 1, label %50
@@ -963,7 +963,7 @@ define hidden range(i32 0, 10) i32 @FLAC__ogg_decoder_aspect_skip_link(ptr nound
 
 51:                                               ; preds = %48
   %52 = load i64, ptr %9, align 8, !tbaa !52
-  %53 = call i32 %2(ptr noundef %5, i64 noundef %52, ptr noundef %6) #15
+  %53 = call i32 %2(ptr noundef %5, i64 noundef %52, ptr noundef %6) #16
   %switch.selectcmp = icmp eq i32 %53, 1
   %switch.select = select i1 %switch.selectcmp, i32 7, i32 1
   %switch.selectcmp256 = icmp eq i32 %53, 2
@@ -978,7 +978,7 @@ define hidden range(i32 0, 10) i32 @FLAC__ogg_decoder_aspect_skip_link(ptr nound
 55:                                               ; preds = %41
   %56 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %57 = load i64, ptr %56, align 8, !tbaa !44
-  %58 = tail call i32 %2(ptr noundef %5, i64 noundef %57, ptr noundef %6) #15
+  %58 = tail call i32 %2(ptr noundef %5, i64 noundef %57, ptr noundef %6) #16
   switch i32 %58, label %60 [
     i32 2, label %check_size_of_link_allocation_.exit
     i32 1, label %59
@@ -1016,7 +1016,7 @@ define hidden range(i32 0, 10) i32 @FLAC__ogg_decoder_aspect_skip_link(ptr nound
   store i64 0, ptr %11, align 8, !tbaa !52
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %72 = load i32, ptr %71, align 8, !tbaa !23
-  %73 = call i32 %4(ptr noundef %5, ptr noundef nonnull %10, ptr noundef %6) #15
+  %73 = call i32 %4(ptr noundef %5, ptr noundef nonnull %10, ptr noundef %6) #16
   switch i32 %73, label %75 [
     i32 2, label %.thread
     i32 1, label %74
@@ -1026,7 +1026,7 @@ define hidden range(i32 0, 10) i32 @FLAC__ogg_decoder_aspect_skip_link(ptr nound
   br label %.thread
 
 75:                                               ; preds = %70
-  %76 = call i32 %3(ptr noundef %5, ptr noundef nonnull %11, ptr noundef %6) #15
+  %76 = call i32 %3(ptr noundef %5, ptr noundef nonnull %11, ptr noundef %6) #16
   switch i32 %76, label %78 [
     i32 2, label %.thread
     i32 1, label %77
@@ -1108,15 +1108,15 @@ define hidden range(i32 0, 10) i32 @FLAC__ogg_decoder_aspect_skip_link(ptr nound
   %121 = icmp ult i64 %101, 130614
   %or.cond253 = or i1 %.not229, %121
   %.1169 = select i1 %or.cond253, i64 %.0173324, i64 %105
-  %122 = call i32 %2(ptr noundef %5, i64 noundef %.1169, ptr noundef %6) #15
+  %122 = call i32 %2(ptr noundef %5, i64 noundef %.1169, ptr noundef %6) #16
   %.not230 = icmp eq i32 %122, 0
   br i1 %.not230, label %123, label %.thread
 
 123:                                              ; preds = %120
   %.3193 = zext i1 %or.cond253 to i32
   store i64 %.1169, ptr %11, align 8, !tbaa !52
-  %124 = call i32 @ogg_stream_reset(ptr noundef nonnull %91) #15
-  %125 = call i32 @ogg_sync_reset(ptr noundef nonnull %80) #15
+  %124 = call i32 @ogg_stream_reset(ptr noundef nonnull %91) #16
+  %125 = call i32 @ogg_sync_reset(ptr noundef nonnull %80) #16
   br label %126
 
 126:                                              ; preds = %.thread269, %109, %103, %123
@@ -1124,7 +1124,7 @@ define hidden range(i32 0, 10) i32 @FLAC__ogg_decoder_aspect_skip_link(ptr nound
   %.2199 = phi i32 [ 0, %123 ], [ %.0197320, %103 ], [ %.0197320, %109 ], [ %.0197320, %.thread269 ]
   %.2192 = phi i32 [ %.3193, %123 ], [ 1, %103 ], [ 0, %109 ], [ 0, %.thread269 ]
   %.0168 = phi i64 [ %.1169, %123 ], [ %105, %103 ], [ %105, %109 ], [ %105, %.thread269 ]
-  %127 = call i64 @ogg_sync_pageseek(ptr noundef nonnull %80, ptr noundef nonnull %92) #15
+  %127 = call i64 @ogg_sync_pageseek(ptr noundef nonnull %80, ptr noundef nonnull %92) #16
   %128 = trunc i64 %127 to i32
   %129 = icmp slt i32 %128, 1
   br i1 %129, label %.lr.ph, label %.critedge
@@ -1149,14 +1149,14 @@ define hidden range(i32 0, 10) i32 @FLAC__ogg_decoder_aspect_skip_link(ptr nound
   br label %read_more_data_.exit
 
 139:                                              ; preds = %133
-  %140 = call ptr @ogg_sync_buffer(ptr noundef nonnull %80, i64 noundef 8192) #15
+  %140 = call ptr @ogg_sync_buffer(ptr noundef nonnull %80, i64 noundef 8192) #16
   %141 = icmp eq ptr %140, null
   br i1 %141, label %.thread, label %142
 
 142:                                              ; preds = %139
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 8192, ptr %8, align 8, !tbaa !52
-  %143 = call i32 %1(ptr noundef %5, ptr noundef nonnull %140, ptr noundef nonnull %8, ptr noundef %6) #15
+  %143 = call i32 %1(ptr noundef %5, ptr noundef nonnull %140, ptr noundef nonnull %8, ptr noundef %6) #16
   switch i32 %143, label %145 [
     i32 6, label %.thread.i259
     i32 1, label %144
@@ -1172,14 +1172,14 @@ define hidden range(i32 0, 10) i32 @FLAC__ogg_decoder_aspect_skip_link(ptr nound
 
 145:                                              ; preds = %144, %142
   %146 = load i64, ptr %8, align 8, !tbaa !52
-  %147 = call i32 @ogg_sync_wrote(ptr noundef nonnull %80, i64 noundef %146) #15
+  %147 = call i32 @ogg_sync_wrote(ptr noundef nonnull %80, i64 noundef %146) #16
   %.fr.i = freeze i32 %147
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.inv.i = icmp slt i32 %.fr.i, 0
   br i1 %.inv.i, label %.thread, label %read_more_data_.exit
 
 read_more_data_.exit:                             ; preds = %145, %135
-  %148 = call i64 @ogg_sync_pageseek(ptr noundef nonnull %80, ptr noundef nonnull %92) #15
+  %148 = call i64 @ogg_sync_pageseek(ptr noundef nonnull %80, ptr noundef nonnull %92) #16
   %149 = trunc i64 %148 to i32
   %150 = icmp slt i32 %149, 1
   br i1 %150, label %.lr.ph, label %.critedge, !llvm.loop !69
@@ -1201,7 +1201,7 @@ read_more_data_.exit:                             ; preds = %145, %135
   br i1 %.not236, label %159, label %232
 
 159:                                              ; preds = %157
-  %160 = call i32 @ogg_page_serialno(ptr noundef nonnull %92) #15
+  %160 = call i32 @ogg_page_serialno(ptr noundef nonnull %92) #16
   %161 = sext i32 %160 to i64
   %162 = load ptr, ptr %97, align 8, !tbaa !27
   %163 = load i32, ptr %16, align 4, !tbaa !33
@@ -1234,7 +1234,7 @@ read_more_data_.exit:                             ; preds = %145, %135
 
 ._crit_edge:                                      ; preds = %172, %159
   %.1171.lcssa = phi i32 [ %spec.select, %159 ], [ %spec.select254, %172 ]
-  %176 = call i32 @ogg_page_serialno(ptr noundef nonnull %92) #15
+  %176 = call i32 @ogg_page_serialno(ptr noundef nonnull %92) #16
   %177 = sext i32 %176 to i64
   %178 = load ptr, ptr %97, align 8, !tbaa !27
   %179 = load i32, ptr %16, align 4, !tbaa !33
@@ -1245,7 +1245,7 @@ read_more_data_.exit:                             ; preds = %145, %135
   br i1 %183, label %184, label %215
 
 184:                                              ; preds = %._crit_edge
-  %185 = call i32 @ogg_page_eos(ptr noundef nonnull %92) #15
+  %185 = call i32 @ogg_page_eos(ptr noundef nonnull %92) #16
   %.not237 = icmp eq i32 %185, 0
   br i1 %.not237, label %215, label %186
 
@@ -1257,7 +1257,7 @@ read_more_data_.exit:                             ; preds = %145, %135
   %191 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %188, i64 %190
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 16
   store i64 %187, ptr %192, align 8, !tbaa !44
-  %193 = call i64 @ogg_page_granulepos(ptr noundef nonnull %92) #15
+  %193 = call i64 @ogg_page_granulepos(ptr noundef nonnull %92) #16
   %194 = load ptr, ptr %97, align 8, !tbaa !27
   %195 = load i32, ptr %16, align 4, !tbaa !33
   %196 = zext i32 %195 to i64
@@ -1279,7 +1279,7 @@ read_more_data_.exit:                             ; preds = %145, %135
   %204 = shl i32 %202, 1
   %205 = zext i32 %204 to i64
   %206 = mul nuw nsw i64 %205, 56
-  %207 = call noalias noundef ptr @realloc(ptr noundef nonnull %194, i64 noundef %206) #16
+  %207 = call noalias noundef ptr @realloc(ptr noundef nonnull %194, i64 noundef %206) #17
   %208 = icmp eq ptr %207, null
   br i1 %208, label %.thread, label %.thread.i261
 
@@ -1289,7 +1289,7 @@ read_more_data_.exit:                             ; preds = %145, %135
   %210 = zext i32 %209 to i64
   %211 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %207, i64 %210
   %212 = mul nuw nsw i64 %210, 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %211, i8 noundef 0, i64 noundef range(i64 0, 240518168521) %212, i1 noundef false) #15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %211, i8 noundef 0, i64 noundef range(i64 0, 240518168521) %212, i1 noundef false) #16
   %213 = shl i32 %209, 1
   store i32 %213, ptr %18, align 8, !tbaa !28
   %.pre346 = load i32, ptr %16, align 4, !tbaa !33
@@ -1310,7 +1310,7 @@ read_more_data_.exit:                             ; preds = %145, %135
   br i1 %.not238, label %227, label %216
 
 216:                                              ; preds = %215
-  %217 = call i32 @ogg_page_serialno(ptr noundef nonnull %92) #15
+  %217 = call i32 @ogg_page_serialno(ptr noundef nonnull %92) #16
   %218 = sext i32 %217 to i64
   %219 = load ptr, ptr %97, align 8, !tbaa !27
   %220 = load i32, ptr %16, align 4, !tbaa !33
@@ -1449,7 +1449,7 @@ declare i32 @ogg_page_eos(ptr noundef) local_unnamed_addr #1
 declare i64 @ogg_page_granulepos(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 declare i32 @ogg_page_bos(ptr noundef) local_unnamed_addr #1
 
@@ -1460,28 +1460,28 @@ declare ptr @ogg_sync_buffer(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @ogg_sync_wrote(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #11
+declare i64 @llvm.umax.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #13
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #11
+declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="false" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1490,16 +1490,17 @@ attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argm
 attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nounwind }
-attributes #16 = { nounwind allocsize(1) }
+attributes #7 = { nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="false" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nounwind }
+attributes #17 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -327,7 +327,7 @@ logAPIs.exit:                                     ; preds = %2
   ret i32 0
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, argmem: read, inaccessiblemem: read) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(readwrite, argmem: read, inaccessiblemem: read, target_mem0: read, target_mem1: read) uwtable
 define hidden zeroext i1 @logAPIs() local_unnamed_addr #1 {
   %.b = load i1, ptr @_ZZ7logAPIsE7checked, align 1
   br i1 %.b, label %._crit_edge, label %2
@@ -1668,7 +1668,7 @@ define dso_local void @__unw_remove_dynamic_eh_frame_section(i64 noundef %0) loc
 ; Function Attrs: nofree nounwind memory(read)
 declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, argmem: read, inaccessiblemem: read) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(readwrite, argmem: read, inaccessiblemem: read, target_mem0: read, target_mem1: read) uwtable
 define hidden zeroext i1 @logUnwinding() local_unnamed_addr #1 {
   %.b = load i1, ptr @_ZZ12logUnwindingE7checked, align 1
   br i1 %.b, label %._crit_edge, label %2
@@ -1691,7 +1691,7 @@ define hidden zeroext i1 @logUnwinding() local_unnamed_addr #1 {
   ret i1 %7
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, argmem: read, inaccessiblemem: read) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(readwrite, argmem: read, inaccessiblemem: read, target_mem0: read, target_mem1: read) uwtable
 define hidden zeroext i1 @logDWARF() local_unnamed_addr #1 {
   %.b = load i1, ptr @_ZZ8logDWARFE7checked, align 1
   br i1 %.b, label %._crit_edge, label %2
@@ -7809,7 +7809,7 @@ declare i32 @llvm.cttz.i32(i32, i1 immarg) #15
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #16
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind memory(readwrite, argmem: read, inaccessiblemem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind memory(readwrite, argmem: read, inaccessiblemem: read, target_mem0: read, target_mem1: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

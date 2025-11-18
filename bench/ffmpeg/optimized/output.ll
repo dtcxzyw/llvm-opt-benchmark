@@ -1444,7 +1444,7 @@ yuv2p01xl1_c.exit:                                ; preds = %.lr.ph.split.us.i, 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2p010lX_BE_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph36.i, label %yuv2p01xlX_c.exit
@@ -1502,7 +1502,7 @@ yuv2p01xlX_c.exit:                                ; preds = %._crit_edge.us43.i,
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2p010lX_LE_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph36.i, label %yuv2p01xlX_c.exit
@@ -1559,7 +1559,7 @@ yuv2p01xlX_c.exit:                                ; preds = %._crit_edge.us.us.i
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2p010cX_BE_c(i32 %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(none) %6, i32 noundef %7) #3 {
   %9 = icmp sgt i32 %7, 0
   br i1 %9, label %.lr.ph7.i, label %yuv2p01xcX_c.exit
@@ -1633,7 +1633,7 @@ yuv2p01xcX_c.exit:                                ; preds = %._crit_edge.us16.i,
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2p010cX_LE_c(i32 %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(none) %6, i32 noundef %7) #3 {
   %9 = icmp sgt i32 %7, 0
   br i1 %9, label %.lr.ph7.i, label %yuv2p01xcX_c.exit
@@ -1766,7 +1766,7 @@ yuv2p01xl1_c.exit:                                ; preds = %.lr.ph.split.us.i, 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2p012lX_BE_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph36.i, label %yuv2p01xlX_c.exit
@@ -1824,7 +1824,7 @@ yuv2p01xlX_c.exit:                                ; preds = %._crit_edge.us43.i,
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2p012lX_LE_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph36.i, label %yuv2p01xlX_c.exit
@@ -1881,7 +1881,7 @@ yuv2p01xlX_c.exit:                                ; preds = %._crit_edge.us.us.i
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2p012cX_BE_c(i32 %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(none) %6, i32 noundef %7) #3 {
   %9 = icmp sgt i32 %7, 0
   br i1 %9, label %.lr.ph7.i, label %yuv2p01xcX_c.exit
@@ -1955,7 +1955,7 @@ yuv2p01xcX_c.exit:                                ; preds = %._crit_edge.us16.i,
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2p012cX_LE_c(i32 %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(none) %6, i32 noundef %7) #3 {
   %9 = icmp sgt i32 %7, 0
   br i1 %9, label %.lr.ph7.i, label %yuv2p01xcX_c.exit
@@ -2091,7 +2091,7 @@ yuv2p01xl1_c.exit:                                ; preds = %.lr.ph.split.us.i, 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2nv20lX_BE_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph36.i, label %yuv2p01xlX_c.exit
@@ -2148,7 +2148,7 @@ yuv2p01xlX_c.exit:                                ; preds = %._crit_edge.us43.i,
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2nv20lX_LE_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph36.i, label %yuv2p01xlX_c.exit
@@ -2204,7 +2204,7 @@ yuv2p01xlX_c.exit:                                ; preds = %._crit_edge.us.us.i
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2nv20cX_BE_c(i32 %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(none) %6, i32 noundef %7) #3 {
   %9 = icmp sgt i32 %7, 0
   br i1 %9, label %.lr.ph7.i, label %yuv2p01xcX_c.exit
@@ -2276,7 +2276,7 @@ yuv2p01xcX_c.exit:                                ; preds = %._crit_edge.us16.i,
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2nv20cX_LE_c(i32 %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(none) %6, i32 noundef %7) #3 {
   %9 = icmp sgt i32 %7, 0
   br i1 %9, label %.lr.ph7.i, label %yuv2p01xcX_c.exit
@@ -2346,7 +2346,7 @@ yuv2p01xcX_c.exit:                                ; preds = %._crit_edge.us.us.i
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2planeX_16BE_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.preheader.lr.ph, label %yuv2planeX_16_c_template.exit
@@ -2403,7 +2403,7 @@ yuv2planeX_16_c_template.exit:                    ; preds = %._crit_edge.us, %.p
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2planeX_16LE_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.preheader.lr.ph, label %yuv2planeX_16_c_template.exit
@@ -2520,7 +2520,7 @@ yuv2plane1_16_c_template.exit:                    ; preds = %.lr.ph, %5
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2nv12cX_16BE_c(i32 %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(none) %6, i32 noundef %7) #3 {
   %9 = icmp sgt i32 %7, 0
   br i1 %9, label %.preheader.lr.ph, label %yuv2nv12cX_16_c_template.exit
@@ -2592,7 +2592,7 @@ yuv2nv12cX_16_c_template.exit:                    ; preds = %._crit_edge.us, %.p
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2nv12cX_16LE_c(i32 %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(none) %6, i32 noundef %7) #3 {
   %9 = icmp sgt i32 %7, 0
   br i1 %9, label %.preheader.lr.ph, label %yuv2nv12cX_16_c_template.exit
@@ -2662,7 +2662,7 @@ yuv2nv12cX_16_c_template.exit:                    ; preds = %._crit_edge.us, %.p
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2planeX_9BE_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.preheader.lr.ph, label %yuv2planeX_10_c_template.exit
@@ -2719,7 +2719,7 @@ yuv2planeX_10_c_template.exit:                    ; preds = %._crit_edge.us, %.p
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2planeX_9LE_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.preheader.lr.ph, label %yuv2planeX_10_c_template.exit
@@ -2834,7 +2834,7 @@ yuv2plane1_10_c_template.exit:                    ; preds = %.lr.ph, %5
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2planeX_10BE_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.preheader.lr.ph, label %yuv2planeX_10_c_template.exit
@@ -2891,7 +2891,7 @@ yuv2planeX_10_c_template.exit:                    ; preds = %._crit_edge.us, %.p
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2planeX_10LE_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.preheader.lr.ph, label %yuv2planeX_10_c_template.exit
@@ -3006,7 +3006,7 @@ yuv2plane1_10_c_template.exit:                    ; preds = %.lr.ph, %5
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2planeX_12BE_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.preheader.lr.ph, label %yuv2planeX_10_c_template.exit
@@ -3063,7 +3063,7 @@ yuv2planeX_10_c_template.exit:                    ; preds = %._crit_edge.us, %.p
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2planeX_12LE_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.preheader.lr.ph, label %yuv2planeX_10_c_template.exit
@@ -3178,7 +3178,7 @@ yuv2plane1_10_c_template.exit:                    ; preds = %.lr.ph, %5
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2planeX_14BE_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.preheader.lr.ph, label %yuv2planeX_10_c_template.exit
@@ -3235,7 +3235,7 @@ yuv2planeX_10_c_template.exit:                    ; preds = %._crit_edge.us, %.p
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2planeX_14LE_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.preheader.lr.ph, label %yuv2planeX_10_c_template.exit
@@ -3350,7 +3350,7 @@ yuv2plane1_10_c_template.exit:                    ; preds = %.lr.ph, %5
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2planeX_floatBE_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.preheader.lr.ph, label %yuv2planeX_float_bswap_c_template.exit
@@ -3443,7 +3443,7 @@ yuv2plane1_float_bswap_c_template.exit:           ; preds = %.lr.ph, %5
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2planeX_floatLE_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.preheader.lr.ph, label %yuv2planeX_float_c_template.exit
@@ -3570,7 +3570,7 @@ define internal void @yuv2plane1_8_c(ptr noundef readonly captures(none) %0, ptr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2planeX_8_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph23, label %._crit_edge24
@@ -4004,7 +4004,7 @@ isSwappedChroma.exit:                             ; preds = %isSemiPlanarYUV.exi
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgba32_full_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr noundef readonly captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #6 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader11.lr.ph, label %yuv2rgb_full_X_c_template.exit
@@ -4196,7 +4196,7 @@ yuv2rgb_full_X_c_template.exit:                   ; preds = %12, %yuv2rgb_full_X
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgba32_full_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #6 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4353,7 +4353,7 @@ yuv2rgb_full_2_c_template.exit:                   ; preds = %10, %yuv2rgb_full_2
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgba32_full_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #6 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -4589,7 +4589,7 @@ yuv2rgb_full_1_c_template.exit:                   ; preds = %155, %69, %81, %.pr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgbx32_full_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #6 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader11.lr.ph, label %yuv2rgb_full_X_c_template.exit
@@ -4745,7 +4745,7 @@ yuv2rgb_full_X_c_template.exit:                   ; preds = %12, %yuv2rgb_full_X
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgbx32_full_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #6 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4880,7 +4880,7 @@ yuv2rgb_full_2_c_template.exit:                   ; preds = %10, %yuv2rgb_full_2
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgbx32_full_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #6 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -5090,7 +5090,7 @@ yuv2rgb_full_1_c_template.exit:                   ; preds = %138, %61, %72, %.pr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2argb32_full_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr noundef readonly captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #6 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader11.lr.ph, label %yuv2rgb_full_X_c_template.exit
@@ -5282,7 +5282,7 @@ yuv2rgb_full_X_c_template.exit:                   ; preds = %12, %yuv2rgb_full_X
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2argb32_full_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #6 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5439,7 +5439,7 @@ yuv2rgb_full_2_c_template.exit:                   ; preds = %10, %yuv2rgb_full_2
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2argb32_full_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #6 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -5675,7 +5675,7 @@ yuv2rgb_full_1_c_template.exit:                   ; preds = %155, %69, %81, %.pr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2xrgb32_full_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #6 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader11.lr.ph, label %yuv2rgb_full_X_c_template.exit
@@ -5831,7 +5831,7 @@ yuv2rgb_full_X_c_template.exit:                   ; preds = %12, %yuv2rgb_full_X
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2xrgb32_full_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #6 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5966,7 +5966,7 @@ yuv2rgb_full_2_c_template.exit:                   ; preds = %10, %yuv2rgb_full_2
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2xrgb32_full_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #6 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -6176,7 +6176,7 @@ yuv2rgb_full_1_c_template.exit:                   ; preds = %138, %61, %72, %.pr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgra32_full_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr noundef readonly captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #6 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader11.lr.ph, label %yuv2rgb_full_X_c_template.exit
@@ -6368,7 +6368,7 @@ yuv2rgb_full_X_c_template.exit:                   ; preds = %12, %yuv2rgb_full_X
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgra32_full_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #6 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6525,7 +6525,7 @@ yuv2rgb_full_2_c_template.exit:                   ; preds = %10, %yuv2rgb_full_2
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgra32_full_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #6 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -6761,7 +6761,7 @@ yuv2rgb_full_1_c_template.exit:                   ; preds = %155, %69, %81, %.pr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgrx32_full_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #6 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader11.lr.ph, label %yuv2rgb_full_X_c_template.exit
@@ -6917,7 +6917,7 @@ yuv2rgb_full_X_c_template.exit:                   ; preds = %12, %yuv2rgb_full_X
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgrx32_full_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #6 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7052,7 +7052,7 @@ yuv2rgb_full_2_c_template.exit:                   ; preds = %10, %yuv2rgb_full_2
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgrx32_full_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #6 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -7262,7 +7262,7 @@ yuv2rgb_full_1_c_template.exit:                   ; preds = %138, %61, %72, %.pr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2abgr32_full_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr noundef readonly captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #6 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader11.lr.ph, label %yuv2rgb_full_X_c_template.exit
@@ -7454,7 +7454,7 @@ yuv2rgb_full_X_c_template.exit:                   ; preds = %12, %yuv2rgb_full_X
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2abgr32_full_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #6 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7611,7 +7611,7 @@ yuv2rgb_full_2_c_template.exit:                   ; preds = %10, %yuv2rgb_full_2
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2abgr32_full_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #6 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -7847,7 +7847,7 @@ yuv2rgb_full_1_c_template.exit:                   ; preds = %155, %69, %81, %.pr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2xbgr32_full_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #6 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader11.lr.ph, label %yuv2rgb_full_X_c_template.exit
@@ -8003,7 +8003,7 @@ yuv2rgb_full_X_c_template.exit:                   ; preds = %12, %yuv2rgb_full_X
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2xbgr32_full_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #6 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8138,7 +8138,7 @@ yuv2rgb_full_2_c_template.exit:                   ; preds = %10, %yuv2rgb_full_2
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2xbgr32_full_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #6 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -8348,7 +8348,7 @@ yuv2rgb_full_1_c_template.exit:                   ; preds = %138, %61, %72, %.pr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgba64le_full_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr noundef readonly captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader17.lr.ph, label %yuv2rgba64_full_X_c_template.exit
@@ -8516,7 +8516,7 @@ yuv2rgba64_full_X_c_template.exit:                ; preds = %._crit_edge, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgba64le_full_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8643,7 +8643,7 @@ yuv2rgba64_full_2_c_template.exit:                ; preds = %32, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgba64le_full_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !48
   %11 = load ptr, ptr %3, align 8, !tbaa !48
@@ -8845,7 +8845,7 @@ yuv2rgba64_full_1_c_template.exit:                ; preds = %85, %20, %72, %.pre
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgbx64le_full_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader16.lr.ph, label %yuv2rgba64_full_X_c_template.exit
@@ -8979,7 +8979,7 @@ yuv2rgba64_full_X_c_template.exit:                ; preds = %._crit_edge, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgbx64le_full_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9088,7 +9088,7 @@ yuv2rgba64_full_2_c_template.exit:                ; preds = %29, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgbx64le_full_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !48
   %11 = load ptr, ptr %3, align 8, !tbaa !48
@@ -9270,7 +9270,7 @@ yuv2rgba64_full_1_c_template.exit:                ; preds = %78, %20, %65, %.pre
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgba64be_full_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr noundef readonly captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader17.lr.ph, label %yuv2rgba64_full_X_c_template.exit
@@ -9442,7 +9442,7 @@ yuv2rgba64_full_X_c_template.exit:                ; preds = %._crit_edge, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgba64be_full_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9573,7 +9573,7 @@ yuv2rgba64_full_2_c_template.exit:                ; preds = %32, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgba64be_full_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !48
   %11 = load ptr, ptr %3, align 8, !tbaa !48
@@ -9783,7 +9783,7 @@ yuv2rgba64_full_1_c_template.exit:                ; preds = %89, %20, %76, %.pre
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgbx64be_full_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader16.lr.ph, label %yuv2rgba64_full_X_c_template.exit
@@ -9920,7 +9920,7 @@ yuv2rgba64_full_X_c_template.exit:                ; preds = %._crit_edge, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgbx64be_full_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10032,7 +10032,7 @@ yuv2rgba64_full_2_c_template.exit:                ; preds = %29, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgbx64be_full_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !48
   %11 = load ptr, ptr %3, align 8, !tbaa !48
@@ -10220,7 +10220,7 @@ yuv2rgba64_full_1_c_template.exit:                ; preds = %81, %20, %68, %.pre
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgra64le_full_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr noundef readonly captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader17.lr.ph, label %yuv2rgba64_full_X_c_template.exit
@@ -10388,7 +10388,7 @@ yuv2rgba64_full_X_c_template.exit:                ; preds = %._crit_edge, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgra64le_full_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10515,7 +10515,7 @@ yuv2rgba64_full_2_c_template.exit:                ; preds = %32, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgra64le_full_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !48
   %11 = load ptr, ptr %3, align 8, !tbaa !48
@@ -10717,7 +10717,7 @@ yuv2rgba64_full_1_c_template.exit:                ; preds = %85, %20, %72, %.pre
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgrx64le_full_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader16.lr.ph, label %yuv2rgba64_full_X_c_template.exit
@@ -10851,7 +10851,7 @@ yuv2rgba64_full_X_c_template.exit:                ; preds = %._crit_edge, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgrx64le_full_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10960,7 +10960,7 @@ yuv2rgba64_full_2_c_template.exit:                ; preds = %29, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgrx64le_full_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !48
   %11 = load ptr, ptr %3, align 8, !tbaa !48
@@ -11142,7 +11142,7 @@ yuv2rgba64_full_1_c_template.exit:                ; preds = %78, %20, %65, %.pre
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgra64be_full_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr noundef readonly captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader17.lr.ph, label %yuv2rgba64_full_X_c_template.exit
@@ -11314,7 +11314,7 @@ yuv2rgba64_full_X_c_template.exit:                ; preds = %._crit_edge, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgra64be_full_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -11445,7 +11445,7 @@ yuv2rgba64_full_2_c_template.exit:                ; preds = %32, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgra64be_full_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !48
   %11 = load ptr, ptr %3, align 8, !tbaa !48
@@ -11655,7 +11655,7 @@ yuv2rgba64_full_1_c_template.exit:                ; preds = %89, %20, %76, %.pre
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgrx64be_full_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader16.lr.ph, label %yuv2rgba64_full_X_c_template.exit
@@ -11792,7 +11792,7 @@ yuv2rgba64_full_X_c_template.exit:                ; preds = %._crit_edge, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgrx64be_full_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -11904,7 +11904,7 @@ yuv2rgba64_full_2_c_template.exit:                ; preds = %29, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgrx64be_full_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !48
   %11 = load ptr, ptr %3, align 8, !tbaa !48
@@ -12092,7 +12092,7 @@ yuv2rgba64_full_1_c_template.exit:                ; preds = %81, %20, %68, %.pre
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb24_full_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #6 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader11.lr.ph, label %yuv2rgb_full_X_c_template.exit
@@ -12246,7 +12246,7 @@ yuv2rgb_full_X_c_template.exit:                   ; preds = %12, %yuv2rgb_full_X
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb24_full_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #6 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -12379,7 +12379,7 @@ yuv2rgb_full_2_c_template.exit:                   ; preds = %10, %yuv2rgb_full_2
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb24_full_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #6 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -12585,7 +12585,7 @@ yuv2rgb_full_1_c_template.exit:                   ; preds = %137, %61, %71, %.pr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgr24_full_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #6 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader11.lr.ph, label %yuv2rgb_full_X_c_template.exit
@@ -12739,7 +12739,7 @@ yuv2rgb_full_X_c_template.exit:                   ; preds = %12, %yuv2rgb_full_X
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgr24_full_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #6 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -12872,7 +12872,7 @@ yuv2rgb_full_2_c_template.exit:                   ; preds = %10, %yuv2rgb_full_2
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgr24_full_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #6 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -13078,7 +13078,7 @@ yuv2rgb_full_1_c_template.exit:                   ; preds = %137, %61, %71, %.pr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb48le_full_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader16.lr.ph, label %yuv2rgba64_full_X_c_template.exit
@@ -13210,7 +13210,7 @@ yuv2rgba64_full_X_c_template.exit:                ; preds = %._crit_edge, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb48le_full_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -13317,7 +13317,7 @@ yuv2rgba64_full_2_c_template.exit:                ; preds = %29, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb48le_full_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !48
   %11 = load ptr, ptr %3, align 8, !tbaa !48
@@ -13495,7 +13495,7 @@ yuv2rgba64_full_1_c_template.exit:                ; preds = %77, %20, %64, %.pre
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgr48le_full_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader16.lr.ph, label %yuv2rgba64_full_X_c_template.exit
@@ -13627,7 +13627,7 @@ yuv2rgba64_full_X_c_template.exit:                ; preds = %._crit_edge, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgr48le_full_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -13734,7 +13734,7 @@ yuv2rgba64_full_2_c_template.exit:                ; preds = %29, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgr48le_full_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !48
   %11 = load ptr, ptr %3, align 8, !tbaa !48
@@ -13912,7 +13912,7 @@ yuv2rgba64_full_1_c_template.exit:                ; preds = %77, %20, %64, %.pre
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb48be_full_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader16.lr.ph, label %yuv2rgba64_full_X_c_template.exit
@@ -14047,7 +14047,7 @@ yuv2rgba64_full_X_c_template.exit:                ; preds = %._crit_edge, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb48be_full_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -14157,7 +14157,7 @@ yuv2rgba64_full_2_c_template.exit:                ; preds = %29, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb48be_full_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !48
   %11 = load ptr, ptr %3, align 8, !tbaa !48
@@ -14341,7 +14341,7 @@ yuv2rgba64_full_1_c_template.exit:                ; preds = %80, %20, %67, %.pre
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgr48be_full_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader16.lr.ph, label %yuv2rgba64_full_X_c_template.exit
@@ -14476,7 +14476,7 @@ yuv2rgba64_full_X_c_template.exit:                ; preds = %._crit_edge, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgr48be_full_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -14586,7 +14586,7 @@ yuv2rgba64_full_2_c_template.exit:                ; preds = %29, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgr48be_full_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !48
   %11 = load ptr, ptr %3, align 8, !tbaa !48
@@ -14770,7 +14770,7 @@ yuv2rgba64_full_1_c_template.exit:                ; preds = %80, %20, %67, %.pre
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgr4_byte_full_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 noundef %11) #6 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader27.lr.ph, label %yuv2rgb_full_X_c_template.exit
@@ -15100,7 +15100,7 @@ yuv2rgb_full_X_c_template.exit:                   ; preds = %12, %yuv2rgb_full_X
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgr4_byte_full_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) #6 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -15409,7 +15409,7 @@ yuv2rgb_full_2_c_template.exit:                   ; preds = %10, %yuv2rgb_full_2
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgr4_byte_full_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #6 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -15964,7 +15964,7 @@ yuv2rgb_full_1_c_template.exit:                   ; preds = %398, %193, %200, %.
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb4_byte_full_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 noundef %11) #6 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader27.lr.ph, label %yuv2rgb_full_X_c_template.exit
@@ -16294,7 +16294,7 @@ yuv2rgb_full_X_c_template.exit:                   ; preds = %12, %yuv2rgb_full_X
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb4_byte_full_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) #6 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -16603,7 +16603,7 @@ yuv2rgb_full_2_c_template.exit:                   ; preds = %10, %yuv2rgb_full_2
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb4_byte_full_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #6 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -17158,7 +17158,7 @@ yuv2rgb_full_1_c_template.exit:                   ; preds = %398, %193, %200, %.
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgr8_full_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 noundef %11) #6 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader27.lr.ph, label %yuv2rgb_full_X_c_template.exit
@@ -17486,7 +17486,7 @@ yuv2rgb_full_X_c_template.exit:                   ; preds = %12, %yuv2rgb_full_X
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgr8_full_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) #6 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -17793,7 +17793,7 @@ yuv2rgb_full_2_c_template.exit:                   ; preds = %10, %yuv2rgb_full_2
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgr8_full_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #6 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -18344,7 +18344,7 @@ yuv2rgb_full_1_c_template.exit:                   ; preds = %428, %208, %215, %.
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb8_full_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 noundef %11) #6 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader27.lr.ph, label %yuv2rgb_full_X_c_template.exit
@@ -18672,7 +18672,7 @@ yuv2rgb_full_X_c_template.exit:                   ; preds = %12, %yuv2rgb_full_X
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb8_full_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) #6 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -18979,7 +18979,7 @@ yuv2rgb_full_2_c_template.exit:                   ; preds = %10, %yuv2rgb_full_2
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb8_full_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #6 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -19530,7 +19530,7 @@ yuv2rgb_full_1_c_template.exit:                   ; preds = %428, %208, %215, %.
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2x2rgb10_full_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #6 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader11.lr.ph, label %yuv2rgb_full_X_c_template.exit
@@ -19681,7 +19681,7 @@ yuv2rgb_full_X_c_template.exit:                   ; preds = %12, %yuv2rgb_full_X
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2x2rgb10_full_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #6 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -19811,7 +19811,7 @@ yuv2rgb_full_2_c_template.exit:                   ; preds = %10, %yuv2rgb_full_2
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2x2rgb10_full_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #6 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -20011,7 +20011,7 @@ yuv2rgb_full_1_c_template.exit:                   ; preds = %136, %61, %70, %.pr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2x2bgr10_full_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #6 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader11.lr.ph, label %yuv2rgb_full_X_c_template.exit
@@ -20162,7 +20162,7 @@ yuv2rgb_full_X_c_template.exit:                   ; preds = %12, %yuv2rgb_full_X
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2x2bgr10_full_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #6 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -20292,7 +20292,7 @@ yuv2rgb_full_2_c_template.exit:                   ; preds = %10, %yuv2rgb_full_2
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2x2bgr10_full_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #6 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -21338,7 +21338,7 @@ isBE.exit:                                        ; preds = %._crit_edge143
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgba64le_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !48
   %11 = load ptr, ptr %3, align 8, !tbaa !48
@@ -21644,7 +21644,7 @@ yuv2rgba64_1_c_template.exit:                     ; preds = %123, %22, %108, %.p
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgba64le_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -21833,7 +21833,7 @@ yuv2rgba64_2_c_template.exit:                     ; preds = %34, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgba64le_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr noundef readonly captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = add nsw i32 %10, 1
   %14 = ashr i32 %13, 1
@@ -22069,7 +22069,7 @@ yuv2rgba64_X_c_template.exit:                     ; preds = %._crit_edge, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgbx64le_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !48
   %11 = load ptr, ptr %3, align 8, !tbaa !48
@@ -22333,7 +22333,7 @@ yuv2rgba64_1_c_template.exit:                     ; preds = %107, %22, %92, %.pr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgbx64le_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -22489,7 +22489,7 @@ yuv2rgba64_2_c_template.exit:                     ; preds = %31, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgbx64le_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = add nsw i32 %10, 1
   %14 = ashr i32 %13, 1
@@ -22672,7 +22672,7 @@ yuv2rgba64_X_c_template.exit:                     ; preds = %._crit_edge, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgba64be_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !48
   %11 = load ptr, ptr %3, align 8, !tbaa !48
@@ -22994,7 +22994,7 @@ yuv2rgba64_1_c_template.exit:                     ; preds = %131, %22, %116, %.p
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgba64be_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -23191,7 +23191,7 @@ yuv2rgba64_2_c_template.exit:                     ; preds = %34, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgba64be_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr noundef readonly captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = add nsw i32 %10, 1
   %14 = ashr i32 %13, 1
@@ -23435,7 +23435,7 @@ yuv2rgba64_X_c_template.exit:                     ; preds = %._crit_edge, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgbx64be_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !48
   %11 = load ptr, ptr %3, align 8, !tbaa !48
@@ -23711,7 +23711,7 @@ yuv2rgba64_1_c_template.exit:                     ; preds = %113, %22, %98, %.pr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgbx64be_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -23873,7 +23873,7 @@ yuv2rgba64_2_c_template.exit:                     ; preds = %31, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgbx64be_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = add nsw i32 %10, 1
   %14 = ashr i32 %13, 1
@@ -24062,7 +24062,7 @@ yuv2rgba64_X_c_template.exit:                     ; preds = %._crit_edge, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgra64le_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !48
   %11 = load ptr, ptr %3, align 8, !tbaa !48
@@ -24368,7 +24368,7 @@ yuv2rgba64_1_c_template.exit:                     ; preds = %123, %22, %108, %.p
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgra64le_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -24557,7 +24557,7 @@ yuv2rgba64_2_c_template.exit:                     ; preds = %34, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgra64le_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr noundef readonly captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = add nsw i32 %10, 1
   %14 = ashr i32 %13, 1
@@ -24793,7 +24793,7 @@ yuv2rgba64_X_c_template.exit:                     ; preds = %._crit_edge, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgrx64le_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !48
   %11 = load ptr, ptr %3, align 8, !tbaa !48
@@ -25057,7 +25057,7 @@ yuv2rgba64_1_c_template.exit:                     ; preds = %107, %22, %92, %.pr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgrx64le_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -25213,7 +25213,7 @@ yuv2rgba64_2_c_template.exit:                     ; preds = %31, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgrx64le_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = add nsw i32 %10, 1
   %14 = ashr i32 %13, 1
@@ -25396,7 +25396,7 @@ yuv2rgba64_X_c_template.exit:                     ; preds = %._crit_edge, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgra64be_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !48
   %11 = load ptr, ptr %3, align 8, !tbaa !48
@@ -25718,7 +25718,7 @@ yuv2rgba64_1_c_template.exit:                     ; preds = %131, %22, %116, %.p
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgra64be_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -25915,7 +25915,7 @@ yuv2rgba64_2_c_template.exit:                     ; preds = %34, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgra64be_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr noundef readonly captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = add nsw i32 %10, 1
   %14 = ashr i32 %13, 1
@@ -26159,7 +26159,7 @@ yuv2rgba64_X_c_template.exit:                     ; preds = %._crit_edge, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgrx64be_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !48
   %11 = load ptr, ptr %3, align 8, !tbaa !48
@@ -26435,7 +26435,7 @@ yuv2rgba64_1_c_template.exit:                     ; preds = %113, %22, %98, %.pr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgrx64be_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -26597,7 +26597,7 @@ yuv2rgba64_2_c_template.exit:                     ; preds = %31, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgrx64be_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = add nsw i32 %10, 1
   %14 = ashr i32 %13, 1
@@ -26786,7 +26786,7 @@ yuv2rgba64_X_c_template.exit:                     ; preds = %._crit_edge, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb48le_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !48
   %11 = load ptr, ptr %3, align 8, !tbaa !48
@@ -27042,7 +27042,7 @@ yuv2rgba64_1_c_template.exit:                     ; preds = %105, %22, %90, %.pr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb48le_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -27194,7 +27194,7 @@ yuv2rgba64_2_c_template.exit:                     ; preds = %31, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb48le_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = add nsw i32 %10, 1
   %14 = ashr i32 %13, 1
@@ -27373,7 +27373,7 @@ yuv2rgba64_X_c_template.exit:                     ; preds = %._crit_edge, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb48be_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !48
   %11 = load ptr, ptr %3, align 8, !tbaa !48
@@ -27641,7 +27641,7 @@ yuv2rgba64_1_c_template.exit:                     ; preds = %111, %22, %96, %.pr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb48be_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -27799,7 +27799,7 @@ yuv2rgba64_2_c_template.exit:                     ; preds = %31, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb48be_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = add nsw i32 %10, 1
   %14 = ashr i32 %13, 1
@@ -27984,7 +27984,7 @@ yuv2rgba64_X_c_template.exit:                     ; preds = %._crit_edge, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgr48le_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !48
   %11 = load ptr, ptr %3, align 8, !tbaa !48
@@ -28240,7 +28240,7 @@ yuv2rgba64_1_c_template.exit:                     ; preds = %105, %22, %90, %.pr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgr48le_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -28392,7 +28392,7 @@ yuv2rgba64_2_c_template.exit:                     ; preds = %31, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgr48le_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = add nsw i32 %10, 1
   %14 = ashr i32 %13, 1
@@ -28571,7 +28571,7 @@ yuv2rgba64_X_c_template.exit:                     ; preds = %._crit_edge, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgr48be_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !48
   %11 = load ptr, ptr %3, align 8, !tbaa !48
@@ -28839,7 +28839,7 @@ yuv2rgba64_1_c_template.exit:                     ; preds = %111, %22, %96, %.pr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgr48be_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -28997,7 +28997,7 @@ yuv2rgba64_2_c_template.exit:                     ; preds = %31, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgr48be_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = add nsw i32 %10, 1
   %14 = ashr i32 %13, 1
@@ -29182,7 +29182,7 @@ yuv2rgba64_X_c_template.exit:                     ; preds = %._crit_edge, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgba32_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -29412,7 +29412,7 @@ yuv2rgb_1_c_template.exit:                        ; preds = %110, %20, %97, %.pr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgba32_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -29561,7 +29561,7 @@ yuv2rgb_2_c_template.exit:                        ; preds = %32, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgba32_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr noundef readonly captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = add nsw i32 %10, 1
   %14 = ashr i32 %13, 1
@@ -29760,7 +29760,7 @@ yuv2rgb_X_c_template.exit:                        ; preds = %90, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgbx32_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -29942,7 +29942,7 @@ yuv2rgb_1_c_template.exit:                        ; preds = %89, %20, %76, %.pre
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgbx32_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -30056,7 +30056,7 @@ yuv2rgb_2_c_template.exit:                        ; preds = %29, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgbx32_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = add nsw i32 %10, 1
   %14 = ashr i32 %13, 1
@@ -30363,7 +30363,7 @@ yuv2rgb_X_c_template.exit:                        ; preds = %.preheader11, %._cr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgba32_1_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -30593,7 +30593,7 @@ yuv2rgb_1_c_template.exit:                        ; preds = %110, %20, %97, %.pr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgba32_1_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -30742,7 +30742,7 @@ yuv2rgb_2_c_template.exit:                        ; preds = %32, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgba32_1_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr noundef readonly captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = add nsw i32 %10, 1
   %14 = ashr i32 %13, 1
@@ -30941,7 +30941,7 @@ yuv2rgb_X_c_template.exit:                        ; preds = %92, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgbx32_1_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -31123,7 +31123,7 @@ yuv2rgb_1_c_template.exit:                        ; preds = %89, %20, %76, %.pre
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgbx32_1_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -31237,7 +31237,7 @@ yuv2rgb_2_c_template.exit:                        ; preds = %29, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgbx32_1_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = add nsw i32 %10, 1
   %14 = ashr i32 %13, 1
@@ -31544,7 +31544,7 @@ yuv2rgb_X_c_template.exit:                        ; preds = %.preheader11, %._cr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb24_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -31736,7 +31736,7 @@ yuv2rgb_1_c_template.exit:                        ; preds = %89, %20, %76, %.pre
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb24_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -31855,7 +31855,7 @@ yuv2rgb_2_c_template.exit:                        ; preds = %29, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb24_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = add nsw i32 %10, 1
   %14 = ashr i32 %13, 1
@@ -32180,7 +32180,7 @@ yuv2rgb_X_c_template.exit:                        ; preds = %.preheader11, %._cr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgr24_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -32372,7 +32372,7 @@ yuv2rgb_1_c_template.exit:                        ; preds = %89, %20, %76, %.pre
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgr24_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -32491,7 +32491,7 @@ yuv2rgb_2_c_template.exit:                        ; preds = %29, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2bgr24_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = add nsw i32 %10, 1
   %14 = ashr i32 %13, 1
@@ -32816,7 +32816,7 @@ yuv2rgb_X_c_template.exit:                        ; preds = %.preheader11, %._cr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb16_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -33062,7 +33062,7 @@ yuv2rgb_1_c_template.exit:                        ; preds = %135, %38, %104, %.p
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb16_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -33208,7 +33208,7 @@ yuv2rgb_2_c_template.exit:                        ; preds = %47, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb16_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 noundef %11) #3 {
   %13 = add nsw i32 %10, 1
   %14 = ashr i32 %13, 1
@@ -33378,7 +33378,7 @@ yuv2rgb_X_c_template.exit:                        ; preds = %._crit_edge, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb15_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -33612,7 +33612,7 @@ yuv2rgb_1_c_template.exit:                        ; preds = %123, %32, %98, %.pr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb15_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -33752,7 +33752,7 @@ yuv2rgb_2_c_template.exit:                        ; preds = %41, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb15_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 noundef %11) #3 {
   %13 = add nsw i32 %10, 1
   %14 = ashr i32 %13, 1
@@ -33916,7 +33916,7 @@ yuv2rgb_X_c_template.exit:                        ; preds = %._crit_edge, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb12_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -34150,7 +34150,7 @@ yuv2rgb_1_c_template.exit:                        ; preds = %123, %32, %98, %.pr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb12_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -34290,7 +34290,7 @@ yuv2rgb_2_c_template.exit:                        ; preds = %41, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb12_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 noundef %11) #3 {
   %13 = add nsw i32 %10, 1
   %14 = ashr i32 %13, 1
@@ -34454,7 +34454,7 @@ yuv2rgb_X_c_template.exit:                        ; preds = %._crit_edge, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb8_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -34686,7 +34686,7 @@ yuv2rgb_1_c_template.exit:                        ; preds = %118, %24, %101, %.p
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb8_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -34825,7 +34825,7 @@ yuv2rgb_2_c_template.exit:                        ; preds = %33, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb8_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 noundef %11) #3 {
   %13 = add nsw i32 %10, 1
   %14 = ashr i32 %13, 1
@@ -34988,7 +34988,7 @@ yuv2rgb_X_c_template.exit:                        ; preds = %._crit_edge, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb4_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -35220,7 +35220,7 @@ yuv2rgb_1_c_template.exit:                        ; preds = %119, %24, %102, %.p
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb4_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -35359,7 +35359,7 @@ yuv2rgb_2_c_template.exit:                        ; preds = %33, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb4_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 noundef %11) #3 {
   %13 = add nsw i32 %10, 1
   %14 = ashr i32 %13, 1
@@ -35524,7 +35524,7 @@ yuv2rgb_X_c_template.exit:                        ; preds = %._crit_edge, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb4b_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -35756,7 +35756,7 @@ yuv2rgb_1_c_template.exit:                        ; preds = %118, %24, %101, %.p
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb4b_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -35895,7 +35895,7 @@ yuv2rgb_2_c_template.exit:                        ; preds = %33, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2rgb4b_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 noundef %11) #3 {
   %13 = add nsw i32 %10, 1
   %14 = ashr i32 %13, 1
@@ -36058,7 +36058,7 @@ yuv2rgb_X_c_template.exit:                        ; preds = %._crit_edge, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2x2rgb10_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -36240,7 +36240,7 @@ yuv2rgb_1_c_template.exit:                        ; preds = %89, %20, %76, %.pre
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2x2rgb10_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -36354,7 +36354,7 @@ yuv2rgb_2_c_template.exit:                        ; preds = %29, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2x2rgb10_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = add nsw i32 %10, 1
   %14 = ashr i32 %13, 1
@@ -36661,7 +36661,7 @@ yuv2rgb_X_c_template.exit:                        ; preds = %.preheader11, %._cr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2x2bgr10_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -36843,7 +36843,7 @@ yuv2rgb_1_c_template.exit:                        ; preds = %89, %20, %76, %.pre
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2x2bgr10_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -36957,7 +36957,7 @@ yuv2rgb_2_c_template.exit:                        ; preds = %29, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2x2bgr10_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = add nsw i32 %10, 1
   %14 = ashr i32 %13, 1
@@ -37264,7 +37264,7 @@ yuv2rgb_X_c_template.exit:                        ; preds = %.preheader11, %._cr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2monowhite_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 %7, i32 noundef %8) #6 {
   %10 = and i32 %8, 7
   %11 = zext nneg i32 %10 to i64
@@ -37486,7 +37486,7 @@ yuv2mono_1_c_template.exit:                       ; preds = %102, %.preheader8, 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2monowhite_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8, i32 noundef %9) #6 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -37769,7 +37769,7 @@ yuv2mono_2_c_template.exit:                       ; preds = %117, %.preheader9, 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2monowhite_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6, i32 %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 noundef %11) #6 {
   %13 = and i32 %11, 7
   %14 = zext nneg i32 %13 to i64
@@ -37956,7 +37956,7 @@ yuv2mono_X_c_template.exit:                       ; preds = %._crit_edge19.threa
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2monoblack_1_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 %7, i32 noundef %8) #6 {
   %10 = and i32 %8, 7
   %11 = zext nneg i32 %10 to i64
@@ -38176,7 +38176,7 @@ yuv2mono_1_c_template.exit:                       ; preds = %101, %.preheader8, 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2monoblack_2_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8, i32 noundef %9) #6 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -38457,7 +38457,7 @@ yuv2mono_2_c_template.exit:                       ; preds = %116, %.preheader9, 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2monoblack_X_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6, i32 %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 noundef %11) #6 {
   %13 = and i32 %11, 7
   %14 = zext nneg i32 %13 to i64
@@ -38642,7 +38642,7 @@ yuv2mono_X_c_template.exit:                       ; preds = %._crit_edge19.threa
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2yuyv422_1_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -38827,7 +38827,7 @@ yuv2422_1_c_template.exit:                        ; preds = %108, %49, %59, %.pr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2yuyv422_2_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -38945,7 +38945,7 @@ yuv2422_2_c_template.exit:                        ; preds = %80, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2yuyv422_X_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = add nsw i32 %10, 1
   %14 = ashr i32 %13, 1
@@ -39086,7 +39086,7 @@ yuv2422_X_c_template.exit:                        ; preds = %68, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2yvyu422_1_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -39271,7 +39271,7 @@ yuv2422_1_c_template.exit:                        ; preds = %108, %49, %59, %.pr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2yvyu422_2_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -39389,7 +39389,7 @@ yuv2422_2_c_template.exit:                        ; preds = %80, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2yvyu422_X_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = add nsw i32 %10, 1
   %14 = ashr i32 %13, 1
@@ -39530,7 +39530,7 @@ yuv2422_X_c_template.exit:                        ; preds = %68, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2uyvy422_1_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = load ptr, ptr %2, align 8, !tbaa !43
   %11 = load ptr, ptr %3, align 8, !tbaa !43
@@ -39715,7 +39715,7 @@ yuv2422_1_c_template.exit:                        ; preds = %108, %49, %59, %.pr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2uyvy422_2_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -39833,7 +39833,7 @@ yuv2422_2_c_template.exit:                        ; preds = %80, %10
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2uyvy422_X_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = add nsw i32 %10, 1
   %14 = ashr i32 %13, 1
@@ -39974,7 +39974,7 @@ yuv2422_X_c_template.exit:                        ; preds = %68, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2vyu444_1_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %10 = icmp slt i32 %7, 2048
   %11 = icmp sgt i32 %6, 0
@@ -40118,7 +40118,7 @@ define internal void @yuv2vyu444_1_c(ptr readnone captures(none) %0, ptr noundef
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2vyu444_2_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %11 = load ptr, ptr %1, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -40209,7 +40209,7 @@ define internal void @yuv2vyu444_2_c(ptr readnone captures(none) %0, ptr noundef
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2vyu444_X_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader62.lr.ph, label %._crit_edge74
@@ -40396,7 +40396,7 @@ define internal void @yuv2ya8_1_c(ptr readnone captures(none) %0, ptr noundef re
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2ya8_2_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8, i32 %9) #3 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.thread, label %11
@@ -40512,7 +40512,7 @@ define internal void @yuv2ya8_2_c(ptr readnone captures(none) %0, ptr noundef re
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2ya8_X_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6, i32 %7, ptr noundef readonly captures(address_is_null) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader46.lr.ph, label %._crit_edge56
@@ -40731,7 +40731,7 @@ yuv2ya16_1_c_template.exit:                       ; preds = %.lr.ph.split, %.lr.
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2ya16le_2_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8, i32 %9) #3 {
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %.thread, label %11
@@ -40841,7 +40841,7 @@ yuv2ya16_2_c_template.exit:                       ; preds = %.lr.ph.split.us, %.
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2ya16le_X_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6, i32 %7, ptr noundef readonly captures(address_is_null) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader16.lr.ph, label %yuv2ya16_X_c_template.exit
@@ -41058,7 +41058,7 @@ yuv2ya16_1_c_template.exit:                       ; preds = %.lr.ph.split, %.lr.
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2ya16be_2_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8, i32 %9) #3 {
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %.thread, label %11
@@ -41171,7 +41171,7 @@ yuv2ya16_2_c_template.exit:                       ; preds = %.lr.ph.split.us, %.
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2ya16be_X_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6, i32 %7, ptr noundef readonly captures(address_is_null) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader16.lr.ph, label %yuv2ya16_X_c_template.exit
@@ -41325,7 +41325,7 @@ yuv2ya16_X_c_template.exit:                       ; preds = %.preheader16, %._cr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2v30xle_X_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader11.lr.ph, label %yuv2v30_X_c_template.exit
@@ -41518,7 +41518,7 @@ yuv2v30_X_c_template.exit:                        ; preds = %.preheader11, %..pr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2ayuv64le_X_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr noundef readonly captures(address_is_null) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %.not.i = icmp eq ptr %8, null
   %13 = icmp sgt i32 %10, 0
@@ -41665,7 +41665,7 @@ yuv2ayuv64_X_c.exit:                              ; preds = %.loopexit, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2ayuv64be_X_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr noundef readonly captures(address_is_null) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %.not.i = icmp eq ptr %8, null
   %13 = icmp sgt i32 %10, 0
@@ -41816,7 +41816,7 @@ yuv2ayuv64_X_c.exit:                              ; preds = %.loopexit, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2ayuv_1_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %.not.i = icmp eq ptr %4, null
   %10 = icmp slt i32 %7, 2048
@@ -42056,7 +42056,7 @@ yuv2ayuv_1_c_template.exit:                       ; preds = %138, %.lr.ph12.spli
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2ayuv_2_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %.thread, label %11
@@ -42210,7 +42210,7 @@ yuv2ayuv_2_c_template.exit:                       ; preds = %100, %.thread16
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2ayuv_X_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr noundef readonly captures(address_is_null) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader13.lr.ph, label %yuv2ayuv_X_c_template.exit
@@ -42369,7 +42369,7 @@ yuv2ayuv_X_c_template.exit:                       ; preds = %._crit_edge27.threa
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2vuyX_1_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %.not.i = icmp eq ptr %4, null
   %10 = icmp slt i32 %7, 2048
@@ -42609,7 +42609,7 @@ yuv2ayuv_1_c_template.exit:                       ; preds = %138, %.lr.ph12.spli
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2vuyX_2_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %.thread, label %11
@@ -42763,7 +42763,7 @@ yuv2ayuv_2_c_template.exit:                       ; preds = %100, %.thread16
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2vuyX_X_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr noundef readonly captures(address_is_null) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader13.lr.ph, label %yuv2ayuv_X_c_template.exit
@@ -42922,7 +42922,7 @@ yuv2ayuv_X_c_template.exit:                       ; preds = %._crit_edge27.threa
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2uyva_1_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 %8) #3 {
   %.not.i = icmp eq ptr %4, null
   %10 = icmp slt i32 %7, 2048
@@ -43162,7 +43162,7 @@ yuv2ayuv_1_c_template.exit:                       ; preds = %138, %.lr.ph12.spli
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2uyva_2_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9) #3 {
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %.thread, label %11
@@ -43316,7 +43316,7 @@ yuv2ayuv_2_c_template.exit:                       ; preds = %100, %.thread16
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2uyva_X_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr noundef readonly captures(address_is_null) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader13.lr.ph, label %yuv2ayuv_X_c_template.exit
@@ -43475,7 +43475,7 @@ yuv2ayuv_X_c_template.exit:                       ; preds = %._crit_edge27.threa
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2xv30le_X_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader11.lr.ph, label %yuv2v30_X_c_template.exit
@@ -43666,7 +43666,7 @@ yuv2v30_X_c_template.exit:                        ; preds = %.preheader11, %..pr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2xv36le_X_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader3.lr.ph.i, label %yuv2xv36_X_c.exit
@@ -43876,7 +43876,7 @@ yuv2xv36_X_c.exit:                                ; preds = %.preheader3.us.i, %
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2xv36be_X_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.preheader3.lr.ph.i, label %yuv2xv36_X_c.exit
@@ -44088,7 +44088,7 @@ yuv2xv36_X_c.exit:                                ; preds = %.preheader3.i, %.pr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2xv48le_X_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr noundef readonly captures(address_is_null) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %.not.i = icmp eq ptr %8, null
   %13 = icmp sgt i32 %10, 0
@@ -44235,7 +44235,7 @@ yuv2ayuv64_X_c.exit:                              ; preds = %.loopexit, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2xv48be_X_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr noundef readonly captures(address_is_null) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %.not.i = icmp eq ptr %8, null
   %13 = icmp sgt i32 %10, 0
@@ -44386,7 +44386,7 @@ yuv2ayuv64_X_c.exit:                              ; preds = %.loopexit, %12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2y210le_X_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = add nsw i32 %10, 1
   %14 = ashr i32 %13, 1
@@ -44508,7 +44508,7 @@ define internal void @yuv2y210le_X_c(ptr readnone captures(none) %0, ptr noundef
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2y212le_X_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = add nsw i32 %10, 1
   %14 = ashr i32 %13, 1
@@ -44630,7 +44630,7 @@ define internal void @yuv2y212le_X_c(ptr readnone captures(none) %0, ptr noundef
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @yuv2y216le_X_c(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr readnone captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, i32 %11) #3 {
   %13 = add nsw i32 %10, 1
   %14 = ashr i32 %13, 1
@@ -44769,10 +44769,10 @@ declare i32 @llvm.umin.i32(i32, i32) #8
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }

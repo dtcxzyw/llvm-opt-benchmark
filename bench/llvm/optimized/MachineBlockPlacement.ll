@@ -18454,7 +18454,7 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_17MachineBasicBlockEE5countES3_.exit.thread30: ;
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZSt21__inplace_stable_sortIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_26getBestNonConflictingEdgesEPKN4llvm17MachineBasicBlockENS7_15MutableArrayRefINS7_11SmallVectorIS2_Lj8EEEEEE3$_0EEEvT_SH_T0_"(ptr noundef %0, ptr noundef %1) unnamed_addr #16 {
   %.sroa.5.i.i = alloca { ptr, ptr }, align 8
   %3 = alloca %"struct.(anonymous namespace)::MachineBlockPlacement::WeightedEdge", align 8
@@ -18538,7 +18538,7 @@ common.ret27:                                     ; preds = %8, %19, %20
   br label %common.ret27
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZSt22__stable_sort_adaptiveIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_26getBestNonConflictingEdgesEPKN4llvm17MachineBasicBlockENS7_15MutableArrayRefINS7_11SmallVectorIS2_Lj8EEEEEE3$_0EEEvT_SH_T0_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #16 {
   %5 = ptrtoint ptr %1 to i64
   %6 = ptrtoint ptr %0 to i64
@@ -18571,7 +18571,7 @@ define internal fastcc void @"_ZSt22__stable_sort_adaptiveIPN12_GLOBAL__N_121Mac
 ; Function Attrs: nobuiltin nounwind allocsize(0)
 declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #17
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZSt22__merge_without_bufferIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_26getBestNonConflictingEdgesEPKN4llvm17MachineBasicBlockENS7_15MutableArrayRefINS7_11SmallVectorIS2_Lj8EEEEEE3$_0EEEvT_SH_SH_T0_SI_T1_"(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #16 {
   %6 = alloca %"struct.(anonymous namespace)::MachineBlockPlacement::WeightedEdge", align 8
   %7 = alloca %"struct.(anonymous namespace)::MachineBlockPlacement::WeightedEdge", align 8
@@ -19258,7 +19258,7 @@ _ZSt4moveIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZSt16__merge_adaptiveIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_26getBestNonConflictingEdgesEPKN4llvm17MachineBasicBlockENS7_15MutableArrayRefINS7_11SmallVectorIS2_Lj8EEEEEE3$_0EEEvT_SH_SH_T0_SI_T1_SI_T2_"(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) unnamed_addr #16 {
   %8 = alloca %"struct.(anonymous namespace)::MachineBlockPlacement::WeightedEdge", align 8
   %9 = alloca %"struct.(anonymous namespace)::MachineBlockPlacement::WeightedEdge", align 8
@@ -20145,7 +20145,7 @@ _ZSt11swap_rangesIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES
   ret ptr %.041
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement19selectBestSuccessorEPKS3_RKNSA_10BlockChainEPKNS1_14SmallSetVectorISD_Lj16EEEE3$_0EEEvT_SN_T0_T1_"(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #18 {
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %0 to i64
@@ -20673,7 +20673,7 @@ tailrecurse:                                      ; preds = %"_ZSt13__upper_boun
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZSt17__merge_sort_loopIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement19selectBestSuccessorEPKS3_RKNSA_10BlockChainEPKNS1_14SmallSetVectorISD_Lj16EEEE3$_0EEEvT_SN_T0_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef range(i64 -9223372036854775808, 1152921504606846973) %3) unnamed_addr #18 {
   %5 = shl nsw i64 %3, 1
   %6 = ptrtoint ptr %1 to i64
@@ -26239,9 +26239,9 @@ attributes #12 = { mustprogress noinline nounwind uwtable "min-legal-vector-widt
 attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { nobuiltin nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #21 = { nocallback nofree nounwind willreturn memory(argmem: read) }

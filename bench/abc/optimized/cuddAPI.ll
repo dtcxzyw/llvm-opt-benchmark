@@ -90,7 +90,7 @@ define ptr @Cudd_addNewVar(ptr noundef %0) local_unnamed_addr #0 {
   %9 = load i32, ptr %2, align 8, !tbaa !3
   %10 = load ptr, ptr %6, align 8, !tbaa !25
   %11 = load ptr, ptr %7, align 8, !tbaa !26
-  %12 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %9, ptr noundef %10, ptr noundef %11) #20
+  %12 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %9, ptr noundef %10, ptr noundef %11) #21
   %13 = load i32, ptr %5, align 8, !tbaa !24
   %14 = icmp eq i32 %13, 1
   br i1 %14, label %8, label %.loopexit, !llvm.loop !27
@@ -127,13 +127,13 @@ define ptr @Cudd_addNewVarAtLevel(ptr noundef %0, i32 noundef %1) local_unnamed_
   store i32 0, ptr %9, align 8, !tbaa !24
   %13 = load ptr, ptr %10, align 8, !tbaa !25
   %14 = load ptr, ptr %11, align 8, !tbaa !26
-  %15 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %13, ptr noundef %14) #20
+  %15 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %13, ptr noundef %14) #21
   %16 = load i32, ptr %9, align 8, !tbaa !24
   %17 = icmp eq i32 %16, 1
   br i1 %17, label %12, label %Cudd_addIthVar.exit, !llvm.loop !29
 
 18:                                               ; preds = %6
-  %19 = tail call i32 @cuddInsertSubtables(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %1) #20
+  %19 = tail call i32 @cuddInsertSubtables(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %1) #21
   %.not16 = icmp eq i32 %19, 0
   br i1 %.not16, label %Cudd_addIthVar.exit, label %.preheader
 
@@ -149,7 +149,7 @@ define ptr @Cudd_addNewVarAtLevel(ptr noundef %0, i32 noundef %1) local_unnamed_
   %25 = add nsw i32 %24, -1
   %26 = load ptr, ptr %21, align 8, !tbaa !25
   %27 = load ptr, ptr %22, align 8, !tbaa !26
-  %28 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %25, ptr noundef %26, ptr noundef %27) #20
+  %28 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %25, ptr noundef %26, ptr noundef %27) #21
   %29 = load i32, ptr %20, align 8, !tbaa !24
   %30 = icmp eq i32 %29, 1
   br i1 %30, label %23, label %Cudd_addIthVar.exit, !llvm.loop !30
@@ -174,7 +174,7 @@ define ptr @Cudd_addIthVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   store i32 0, ptr %4, align 8, !tbaa !24
   %8 = load ptr, ptr %5, align 8, !tbaa !25
   %9 = load ptr, ptr %6, align 8, !tbaa !26
-  %10 = tail call ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %1, ptr noundef %8, ptr noundef %9) #20
+  %10 = tail call ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %1, ptr noundef %8, ptr noundef %9) #21
   %11 = load i32, ptr %4, align 8, !tbaa !24
   %12 = icmp eq i32 %11, 1
   br i1 %12, label %7, label %.loopexit, !llvm.loop !29
@@ -199,7 +199,7 @@ define ptr @Cudd_bddNewVar(ptr noundef %0) local_unnamed_addr #0 {
   %8 = ptrtoint ptr %7 to i64
   %9 = xor i64 %8, 1
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %3, ptr noundef %7, ptr noundef %10) #20
+  %11 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %3, ptr noundef %7, ptr noundef %10) #21
   br label %12
 
 12:                                               ; preds = %1, %5
@@ -228,11 +228,11 @@ define ptr @Cudd_bddNewVarAtLevel(ptr noundef %0, i32 noundef %1) local_unnamed_
   %12 = ptrtoint ptr %11 to i64
   %13 = xor i64 %12, 1
   %14 = inttoptr i64 %13 to ptr
-  %15 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %11, ptr noundef %14) #20
+  %15 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %11, ptr noundef %14) #21
   br label %Cudd_bddIthVar.exit
 
 16:                                               ; preds = %6
-  %17 = tail call i32 @cuddInsertSubtables(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %1) #20
+  %17 = tail call i32 @cuddInsertSubtables(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %1) #21
   %.not12 = icmp eq i32 %17, 0
   br i1 %.not12, label %Cudd_bddIthVar.exit, label %18
 
@@ -276,7 +276,7 @@ define ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %17 = ptrtoint ptr %16 to i64
   %18 = xor i64 %17, 1
   %19 = inttoptr i64 %18 to ptr
-  %20 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %16, ptr noundef %19) #20
+  %20 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %16, ptr noundef %19) #21
   br label %21
 
 21:                                               ; preds = %8, %14, %2
@@ -323,7 +323,7 @@ define ptr @Cudd_zddIthVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
 26:                                               ; preds = %26, %22
   store i32 0, ptr %24, align 8, !tbaa !24
   %27 = load ptr, ptr %25, align 8, !tbaa !26
-  %28 = tail call ptr @cuddUniqueInterZdd(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %23, ptr noundef %27) #20
+  %28 = tail call ptr @cuddUniqueInterZdd(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %23, ptr noundef %27) #21
   %29 = load i32, ptr %24, align 8, !tbaa !24
   %30 = icmp eq i32 %29, 1
   br i1 %30, label %26, label %31, !llvm.loop !37
@@ -364,7 +364,7 @@ define ptr @Cudd_zddIthVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %49 = load ptr, ptr %46, align 8, !tbaa !39
   %50 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv.next
   %51 = load i32, ptr %50, align 4, !tbaa !36
-  %52 = tail call ptr @cuddUniqueInterZdd(ptr noundef nonnull %0, i32 noundef %51, ptr noundef nonnull %.03644, ptr noundef nonnull %.03644) #20
+  %52 = tail call ptr @cuddUniqueInterZdd(ptr noundef nonnull %0, i32 noundef %51, ptr noundef nonnull %.03644, ptr noundef nonnull %.03644) #21
   %53 = load i32, ptr %24, align 8, !tbaa !24
   %54 = icmp eq i32 %53, 1
   br i1 %54, label %48, label %55, !llvm.loop !40
@@ -374,7 +374,7 @@ define ptr @Cudd_zddIthVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %55
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.03644) #20
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.03644) #21
   br label %69
 
 58:                                               ; preds = %55
@@ -385,7 +385,7 @@ define ptr @Cudd_zddIthVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %63 = load i32, ptr %62, align 4, !tbaa !38
   %64 = add i32 %63, 1
   store i32 %64, ptr %62, align 4, !tbaa !38
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.03644) #20
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.03644) #21
   %65 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %65, label %.preheader, label %._crit_edge, !llvm.loop !41
 
@@ -424,7 +424,7 @@ define range(i32 0, 2) i32 @Cudd_zddVarsFromBddVars(ptr noundef %0, i32 noundef 
 
 12:                                               ; preds = %4
   %13 = add nsw i32 %10, -1
-  %14 = tail call i32 @cuddResizeTableZdd(ptr noundef nonnull %0, i32 noundef %13) #20
+  %14 = tail call i32 @cuddResizeTableZdd(ptr noundef nonnull %0, i32 noundef %13) #21
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %.critedge, label %16
 
@@ -505,7 +505,7 @@ define range(i32 0, 2) i32 @Cudd_zddVarsFromBddVars(ptr noundef %0, i32 noundef 
   %53 = load i32, ptr %5, align 4, !tbaa !33
   %54 = sext i32 %53 to i64
   %55 = shl nsw i64 %54, 2
-  %56 = tail call noalias ptr @malloc(i64 noundef %55) #21
+  %56 = tail call noalias ptr @malloc(i64 noundef %55) #22
   %57 = icmp eq ptr %56, null
   br i1 %57, label %69, label %.preheader128
 
@@ -570,8 +570,8 @@ define range(i32 0, 2) i32 @Cudd_zddVarsFromBddVars(ptr noundef %0, i32 noundef 
   br i1 %exitcond154.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.lr.ph, %._crit_edge131
-  %76 = tail call i32 @Cudd_zddShuffleHeap(ptr noundef %0, ptr noundef nonnull %56) #20
-  tail call void @free(ptr noundef nonnull %56) #20
+  %76 = tail call i32 @Cudd_zddShuffleHeap(ptr noundef %0, ptr noundef nonnull %56) #21
+  tail call void @free(ptr noundef nonnull %56) #21
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %.critedge, label %.loopexit
 
@@ -582,7 +582,7 @@ define range(i32 0, 2) i32 @Cudd_zddVarsFromBddVars(ptr noundef %0, i32 noundef 
   br i1 %.not, label %80, label %Cudd_FreeZddTree.exit
 
 Cudd_FreeZddTree.exit:                            ; preds = %.loopexit
-  tail call void @Mtr_FreeTree(ptr noundef nonnull %79) #20
+  tail call void @Mtr_FreeTree(ptr noundef nonnull %79) #21
   store ptr null, ptr %78, align 8, !tbaa !52
   br label %80
 
@@ -593,7 +593,7 @@ Cudd_FreeZddTree.exit:                            ; preds = %.loopexit
   br i1 %.not120, label %86, label %83
 
 83:                                               ; preds = %80
-  %84 = tail call ptr @Mtr_CopyTree(ptr noundef nonnull %82, i32 noundef %1) #20
+  %84 = tail call ptr @Mtr_CopyTree(ptr noundef nonnull %82, i32 noundef %1) #21
   store ptr %84, ptr %78, align 8, !tbaa !52
   %85 = icmp eq ptr %84, null
   br i1 %85, label %.critedge, label %95
@@ -604,7 +604,7 @@ Cudd_FreeZddTree.exit:                            ; preds = %.loopexit
 
 87:                                               ; preds = %86
   %88 = load i32, ptr %5, align 4, !tbaa !33
-  %89 = tail call ptr @Mtr_InitGroupTree(i32 noundef 0, i32 noundef %88) #20
+  %89 = tail call ptr @Mtr_InitGroupTree(i32 noundef 0, i32 noundef %88) #21
   store ptr %89, ptr %78, align 8, !tbaa !52
   %90 = icmp eq ptr %89, null
   br i1 %90, label %.critedge, label %.thread
@@ -625,7 +625,7 @@ Cudd_FreeZddTree.exit:                            ; preds = %.loopexit
   %97 = phi ptr [ %89, %.thread ], [ %84, %95 ]
   %98 = load i32, ptr %8, align 8, !tbaa !3
   %99 = sext i32 %98 to i64
-  %100 = tail call noalias ptr @malloc(i64 noundef %99) #21
+  %100 = tail call noalias ptr @malloc(i64 noundef %99) #22
   %101 = icmp eq ptr %100, null
   br i1 %101, label %102, label %104
 
@@ -635,7 +635,7 @@ Cudd_FreeZddTree.exit:                            ; preds = %.loopexit
   br label %.critedge
 
 104:                                              ; preds = %96
-  %105 = tail call noalias ptr @malloc(i64 noundef %99) #21
+  %105 = tail call noalias ptr @malloc(i64 noundef %99) #22
   %106 = icmp eq ptr %105, null
   br i1 %106, label %109, label %.preheader
 
@@ -656,8 +656,8 @@ Cudd_FreeZddTree.exit:                            ; preds = %.loopexit
 
 ._crit_edge141:                                   ; preds = %.lr.ph140.preheader, %.preheader
   %111 = tail call fastcc i32 @addMultiplicityGroups(ptr noundef nonnull %0, ptr noundef nonnull %97, i32 noundef %1, ptr noundef %100, ptr noundef %105)
-  tail call void @free(ptr noundef nonnull %100) #20
-  tail call void @free(ptr noundef nonnull %105) #20
+  tail call void @free(ptr noundef nonnull %100) #21
+  tail call void @free(ptr noundef nonnull %105) #21
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge141, %86, %102, %109, %95, %87, %83, %._crit_edge, %12, %2, %69
@@ -683,7 +683,7 @@ define void @Cudd_FreeZddTree(ptr noundef captures(none) %0) local_unnamed_addr 
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @Mtr_FreeTree(ptr noundef nonnull %3) #20
+  tail call void @Mtr_FreeTree(ptr noundef nonnull %3) #21
   store ptr null, ptr %2, align 8, !tbaa !52
   br label %5
 
@@ -762,7 +762,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @addMultiplicityGroups(ptr no
 38:                                               ; preds = %.preheader
   %39 = trunc nuw i64 %indvars.iv to i32
   %40 = mul nsw i32 %2, %39
-  %41 = tail call ptr @Mtr_MakeGroup(ptr noundef nonnull %.04256, i32 noundef %40, i32 noundef %2, i32 noundef 4) #20
+  %41 = tail call ptr @Mtr_MakeGroup(ptr noundef nonnull %.04256, i32 noundef %40, i32 noundef %2, i32 noundef 4) #21
   %.not50 = icmp eq ptr %41, null
   br i1 %.not50, label %.critedge, label %42
 
@@ -798,13 +798,13 @@ define internal fastcc noundef range(i32 0, 2) i32 @addMultiplicityGroups(ptr no
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_addConst(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @cuddUniqueConst(ptr noundef %0, double noundef %1) #20
+  %3 = tail call ptr @cuddUniqueConst(ptr noundef %0, double noundef %1) #21
   ret ptr %3
 }
 
 declare ptr @cuddUniqueConst(ptr noundef, double noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @Cudd_IsNonConstant(ptr noundef %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, inttoptr (i64 1 to ptr)
   br i1 %2, label %10, label %3
@@ -836,7 +836,7 @@ define void @Cudd_AutodynEnable(ptr noundef initializes((484, 488)) %0, i32 noun
   br label %6
 
 6:                                                ; preds = %4, %2
-  tail call void @cuddClearDeathRow(ptr noundef nonnull %0) #20
+  tail call void @cuddClearDeathRow(ptr noundef nonnull %0) #21
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   store i32 1, ptr %7, align 8, !tbaa !66
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 432
@@ -857,11 +857,11 @@ define void @Cudd_AutodynEnable(ptr noundef initializes((484, 488)) %0, i32 noun
   br i1 %.not17, label %17, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call dereferenceable_or_null(8) ptr @realloc(ptr noundef nonnull %14, i64 noundef 8) #22
+  %16 = tail call dereferenceable_or_null(8) ptr @realloc(ptr noundef nonnull %14, i64 noundef 8) #23
   br label %19
 
 17:                                               ; preds = %12
-  %18 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #21
+  %18 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #22
   br label %19
 
 19:                                               ; preds = %17, %15
@@ -974,7 +974,7 @@ define ptr @Cudd_ReadOne(ptr noundef readonly captures(none) %0) local_unnamed_a
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @Cudd_ReadZddOne(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %17, label %4
@@ -1058,7 +1058,7 @@ define i32 @Cudd_ReadCacheSlots(ptr noundef readonly captures(none) %0) local_un
   ret i32 %3
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define double @Cudd_ReadCacheUsedSlots(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8, !tbaa !77
@@ -1161,7 +1161,7 @@ define void @Cudd_SetLooseUpTo(ptr noundef writeonly captures(none) initializes(
   br i1 %3, label %4, label %9
 
 4:                                                ; preds = %2
-  %5 = tail call i32 (...) @Extra_GetSoftDataLimit() #20
+  %5 = tail call i32 (...) @Extra_GetSoftDataLimit() #21
   %6 = sext i32 %5 to i64
   %7 = udiv i64 %6, 200
   %8 = trunc i64 %7 to i32
@@ -1200,7 +1200,7 @@ define void @Cudd_SetMaxCacheHard(ptr noundef writeonly captures(none) initializ
   br i1 %3, label %4, label %9
 
 4:                                                ; preds = %2
-  %5 = tail call i32 (...) @Extra_GetSoftDataLimit() #20
+  %5 = tail call i32 (...) @Extra_GetSoftDataLimit() #21
   %6 = sext i32 %5 to i64
   %7 = udiv i64 %6, 120
   %8 = trunc i64 %7 to i32
@@ -1234,7 +1234,7 @@ define i32 @Cudd_ReadSlots(ptr noundef readonly captures(none) %0) local_unnamed
   ret i32 %3
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define double @Cudd_ReadUsedSlots(ptr noundef readonly captures(address) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load i32, ptr %2, align 8, !tbaa !3
@@ -1359,7 +1359,7 @@ define double @Cudd_ReadUsedSlots(ptr noundef readonly captures(address) %0) loc
   ret double %39
 }
 
-; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none, errnomem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none, errnomem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define double @Cudd_ExpectedUsedSlots(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load i32, ptr %2, align 8, !tbaa !3
@@ -1384,7 +1384,7 @@ define double @Cudd_ExpectedUsedSlots(ptr noundef readonly captures(none) %0) lo
   %14 = uitofp i32 %13 to double
   %15 = fneg double %14
   %16 = fdiv double %15, %11
-  %17 = tail call double @exp(double noundef %16) #20, !tbaa !36
+  %17 = tail call double @exp(double noundef %16) #21, !tbaa !36
   %18 = tail call double @llvm.fmuladd.f64(double %11, double %17, double %.029)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1415,7 +1415,7 @@ define double @Cudd_ExpectedUsedSlots(ptr noundef readonly captures(none) %0) lo
   %31 = uitofp i32 %30 to double
   %32 = fneg double %31
   %33 = fdiv double %32, %28
-  %34 = tail call double @exp(double noundef %33) #20, !tbaa !36
+  %34 = tail call double @exp(double noundef %33) #21, !tbaa !36
   %35 = tail call double @llvm.fmuladd.f64(double %28, double %34, double %.131)
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count41
@@ -1431,7 +1431,7 @@ define double @Cudd_ExpectedUsedSlots(ptr noundef readonly captures(none) %0) lo
   %41 = uitofp i32 %40 to double
   %42 = fneg double %41
   %43 = fdiv double %42, %38
-  %44 = tail call double @exp(double noundef %43) #20, !tbaa !36
+  %44 = tail call double @exp(double noundef %43) #21, !tbaa !36
   %45 = tail call double @llvm.fmuladd.f64(double %38, double %44, double %.1.lcssa)
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %47 = load i32, ptr %46, align 8, !tbaa !90
@@ -1601,7 +1601,7 @@ define void @Cudd_SetTree(ptr noundef captures(none) %0, ptr noundef %1) local_u
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void @Mtr_FreeTree(ptr noundef nonnull %4) #20
+  tail call void @Mtr_FreeTree(ptr noundef nonnull %4) #21
   br label %6
 
 6:                                                ; preds = %5, %2
@@ -1623,7 +1623,7 @@ define void @Cudd_SetTree(ptr noundef captures(none) %0, ptr noundef %1) local_u
 
 declare void @Mtr_FreeTree(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @fixVarTree(ptr noundef nonnull captures(none) initializes((12, 16)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #14 {
   br label %tailrecurse
 
@@ -1672,7 +1672,7 @@ define void @Cudd_FreeTree(ptr noundef captures(none) %0) local_unnamed_addr #0 
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @Mtr_FreeTree(ptr noundef nonnull %3) #20
+  tail call void @Mtr_FreeTree(ptr noundef nonnull %3) #21
   store ptr null, ptr %2, align 8, !tbaa !53
   br label %5
 
@@ -1695,7 +1695,7 @@ define void @Cudd_SetZddTree(ptr noundef captures(none) %0, ptr noundef %1) loca
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void @Mtr_FreeTree(ptr noundef nonnull %4) #20
+  tail call void @Mtr_FreeTree(ptr noundef nonnull %4) #21
   br label %6
 
 6:                                                ; preds = %5, %2
@@ -1715,7 +1715,7 @@ define void @Cudd_SetZddTree(ptr noundef captures(none) %0, ptr noundef %1) loca
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @Cudd_NodeReadIndex(ptr noundef %0) local_unnamed_addr #4 {
   %2 = ptrtoint ptr %0 to i64
   %3 = and i64 %2, -2
@@ -1724,7 +1724,7 @@ define i32 @Cudd_NodeReadIndex(ptr noundef %0) local_unnamed_addr #4 {
   ret i32 %5
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @Cudd_ReadPerm(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq i32 %1, 2147483647
   br i1 %3, label %15, label %4
@@ -1752,7 +1752,7 @@ define i32 @Cudd_ReadPerm(ptr noundef readonly captures(none) %0, i32 noundef %1
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @Cudd_ReadPermZdd(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq i32 %1, 2147483647
   br i1 %3, label %15, label %4
@@ -1780,7 +1780,7 @@ define i32 @Cudd_ReadPermZdd(ptr noundef readonly captures(none) %0, i32 noundef
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @Cudd_ReadInvPerm(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq i32 %1, 2147483647
   br i1 %3, label %15, label %4
@@ -1808,7 +1808,7 @@ define i32 @Cudd_ReadInvPerm(ptr noundef readonly captures(none) %0, i32 noundef
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @Cudd_ReadInvPermZdd(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq i32 %1, 2147483647
   br i1 %3, label %15, label %4
@@ -1836,7 +1836,7 @@ define i32 @Cudd_ReadInvPermZdd(ptr noundef readonly captures(none) %0, i32 noun
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @Cudd_ReadVars(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %14, label %4
@@ -2011,14 +2011,14 @@ define i64 @Cudd_ReadMemoryInUse(ptr noundef readonly captures(none) %0) local_u
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Cudd_PrintInfo(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str) #20
+  %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str) #21
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %274, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %7 = load i32, ptr %6, align 4, !tbaa !89
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.1, i32 noundef %7) #20
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.1, i32 noundef %7) #21
   %9 = icmp eq i32 %8, -1
   br i1 %9, label %274, label %10
 
@@ -2030,7 +2030,7 @@ define range(i32 0, 2) i32 @Cudd_PrintInfo(ptr noundef %0, ptr noundef %1) local
   %15 = fdiv double %13, %14
   %16 = fadd double %15, 5.000000e-01
   %17 = fptoui double %16 to i32
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.2, i32 noundef %17) #20
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.2, i32 noundef %17) #21
   %19 = icmp eq i32 %18, -1
   br i1 %19, label %274, label %20
 
@@ -2039,35 +2039,35 @@ define range(i32 0, 2) i32 @Cudd_PrintInfo(ptr noundef %0, ptr noundef %1) local
   %22 = load i32, ptr %21, align 8, !tbaa !117
   %.not = icmp eq i32 %22, 0
   %23 = select i1 %.not, ptr @.str.5, ptr @.str.4
-  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull %23) #20
+  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull %23) #21
   %25 = icmp eq i32 %24, -1
   br i1 %25, label %274, label %26
 
 26:                                               ; preds = %20
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %28 = load i32, ptr %27, align 4, !tbaa !87
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.6, i32 noundef %28) #20
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.6, i32 noundef %28) #21
   %30 = icmp eq i32 %29, -1
   br i1 %30, label %274, label %31
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %33 = load i32, ptr %32, align 8, !tbaa !110
-  %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.7, i32 noundef %33) #20
+  %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.7, i32 noundef %33) #21
   %35 = icmp eq i32 %34, -1
   br i1 %35, label %274, label %36
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 460
   %38 = load i32, ptr %37, align 4, !tbaa !111
-  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.8, i32 noundef %38) #20
+  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.8, i32 noundef %38) #21
   %40 = icmp eq i32 %39, -1
   br i1 %40, label %274, label %41
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %43 = load double, ptr %42, align 8, !tbaa !112
-  %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.9, double noundef %43) #20
+  %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.9, double noundef %43) #21
   %45 = icmp eq i32 %44, -1
   br i1 %45, label %274, label %46
 
@@ -2078,12 +2078,12 @@ define range(i32 0, 2) i32 @Cudd_PrintInfo(ptr noundef %0, ptr noundef %1) local
   %50 = load i32, ptr %49, align 4, !tbaa !64
   %.not141 = icmp eq i32 %50, 0
   %51 = select i1 %.not141, ptr @.str.5, ptr @.str.4
-  %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.10, ptr noundef nonnull %51) #20
+  %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.10, ptr noundef nonnull %51) #21
   %53 = icmp eq i32 %52, -1
   br i1 %53, label %274, label %54
 
 54:                                               ; preds = %46
-  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.11, i32 noundef %48) #20
+  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.11, i32 noundef %48) #21
   %56 = icmp eq i32 %55, -1
   br i1 %56, label %274, label %57
 
@@ -2094,12 +2094,12 @@ define range(i32 0, 2) i32 @Cudd_PrintInfo(ptr noundef %0, ptr noundef %1) local
   %61 = load i32, ptr %60, align 8, !tbaa !70
   %.not142 = icmp eq i32 %61, 0
   %62 = select i1 %.not142, ptr @.str.5, ptr @.str.4
-  %63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.12, ptr noundef nonnull %62) #20
+  %63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.12, ptr noundef nonnull %62) #21
   %64 = icmp eq i32 %63, -1
   br i1 %64, label %274, label %65
 
 65:                                               ; preds = %57
-  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.13, i32 noundef %59) #20
+  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.13, i32 noundef %59) #21
   %67 = icmp eq i32 %66, -1
   br i1 %67, label %274, label %68
 
@@ -2108,7 +2108,7 @@ define range(i32 0, 2) i32 @Cudd_PrintInfo(ptr noundef %0, ptr noundef %1) local
   %70 = load i32, ptr %69, align 4, !tbaa !72
   %.not143 = icmp eq i32 %70, 0
   %71 = select i1 %.not143, ptr @.str.5, ptr @.str.4
-  %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.14, ptr noundef nonnull %71) #20
+  %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.14, ptr noundef nonnull %71) #21
   %73 = icmp eq i32 %72, -1
   br i1 %73, label %274, label %74
 
@@ -2117,7 +2117,7 @@ define range(i32 0, 2) i32 @Cudd_PrintInfo(ptr noundef %0, ptr noundef %1) local
   %76 = load i32, ptr %75, align 8, !tbaa !73
   %.not144 = icmp eq i32 %76, 0
   %77 = select i1 %.not144, ptr @.str.5, ptr @.str.4
-  %78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.15, ptr noundef nonnull %77) #20
+  %78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.15, ptr noundef nonnull %77) #21
   %79 = icmp eq i32 %78, -1
   br i1 %79, label %274, label %80
 
@@ -2126,68 +2126,68 @@ define range(i32 0, 2) i32 @Cudd_PrintInfo(ptr noundef %0, ptr noundef %1) local
   %82 = load i32, ptr %81, align 8, !tbaa !118
   %.not147 = icmp eq i32 %82, 0
   %83 = select i1 %.not147, ptr @.str.4, ptr @.str.5
-  %84 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.16, ptr noundef nonnull %83) #20
+  %84 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.16, ptr noundef nonnull %83) #21
   %85 = icmp eq i32 %84, -1
   br i1 %85, label %274, label %86
 
 86:                                               ; preds = %80
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %88 = load i32, ptr %87, align 8, !tbaa !116
-  %89 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.17, i32 noundef %88) #20
+  %89 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.17, i32 noundef %88) #21
   %90 = icmp eq i32 %89, -1
   br i1 %90, label %274, label %91
 
 91:                                               ; preds = %86
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 540
   %93 = load i32, ptr %92, align 4, !tbaa !119
-  %94 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.18, i32 noundef %93) #20
+  %94 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.18, i32 noundef %93) #21
   %95 = icmp eq i32 %94, -1
   br i1 %95, label %274, label %96
 
 96:                                               ; preds = %91
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %98 = load i32, ptr %97, align 8, !tbaa !120
-  %99 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.19, i32 noundef %98) #20
+  %99 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.19, i32 noundef %98) #21
   %100 = icmp eq i32 %99, -1
   br i1 %100, label %274, label %101
 
 101:                                              ; preds = %96
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 548
   %103 = load i32, ptr %102, align 4, !tbaa !121
-  %104 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.20, i32 noundef %103) #20
+  %104 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.20, i32 noundef %103) #21
   %105 = icmp eq i32 %104, -1
   br i1 %105, label %274, label %106
 
 106:                                              ; preds = %101
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %108 = load i32, ptr %107, align 8, !tbaa !122
-  %109 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.21, i32 noundef %108) #20
+  %109 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.21, i32 noundef %108) #21
   %110 = icmp eq i32 %109, -1
   br i1 %110, label %274, label %111
 
 111:                                              ; preds = %106
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 556
   %113 = load i32, ptr %112, align 4, !tbaa !123
-  %114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.22, i32 noundef %113) #20
+  %114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.22, i32 noundef %113) #21
   %115 = icmp eq i32 %114, -1
   br i1 %115, label %274, label %116
 
 116:                                              ; preds = %111
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 508
   %118 = load i32, ptr %117, align 4, !tbaa !125
-  %119 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.23, i32 noundef %118) #20
+  %119 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.23, i32 noundef %118) #21
   %120 = icmp eq i32 %119, -1
   br i1 %120, label %274, label %121
 
 121:                                              ; preds = %116
-  %122 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.24) #20
+  %122 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.24) #21
   %123 = icmp eq i32 %122, -1
   br i1 %123, label %274, label %124
 
 124:                                              ; preds = %121
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %126 = load i64, ptr %125, align 8, !tbaa !124
-  %127 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.25, i64 noundef %126) #20
+  %127 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.25, i64 noundef %126) #21
   %128 = icmp eq i32 %127, -1
   br i1 %128, label %274, label %129
 
@@ -2204,7 +2204,7 @@ define range(i32 0, 2) i32 @Cudd_PrintInfo(ptr noundef %0, ptr noundef %1) local
   br i1 %.not.i, label %Cudd_ReadPeakNodeCount.exit, label %131, !llvm.loop !127
 
 Cudd_ReadPeakNodeCount.exit:                      ; preds = %131
-  %133 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.26, i64 noundef %.04.i) #20
+  %133 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.26, i64 noundef %.04.i) #21
   %134 = icmp eq i32 %133, -1
   br i1 %134, label %274, label %135
 
@@ -2225,28 +2225,28 @@ Cudd_ReadPeakNodeCount.exit:                      ; preds = %131
 
 Cudd_ReadPeakLiveNodeCount.exit:                  ; preds = %135, %144
   %145 = phi i32 [ %140, %144 ], [ %142, %135 ]
-  %146 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.27, i32 noundef %145) #20
+  %146 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.27, i32 noundef %145) #21
   %147 = icmp eq i32 %146, -1
   br i1 %147, label %274, label %148
 
 148:                                              ; preds = %Cudd_ReadPeakLiveNodeCount.exit
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %150 = load i32, ptr %149, align 8, !tbaa !3
-  %151 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.28, i32 noundef %150) #20
+  %151 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.28, i32 noundef %150) #21
   %152 = icmp eq i32 %151, -1
   br i1 %152, label %274, label %153
 
 153:                                              ; preds = %148
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %155 = load i32, ptr %154, align 4, !tbaa !33
-  %156 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.29, i32 noundef %155) #20
+  %156 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.29, i32 noundef %155) #21
   %157 = icmp eq i32 %156, -1
   br i1 %157, label %274, label %158
 
 158:                                              ; preds = %153
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %160 = load i32, ptr %159, align 8, !tbaa !77
-  %161 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.30, i32 noundef %160) #20
+  %161 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.30, i32 noundef %160) #21
   %162 = icmp eq i32 %161, -1
   br i1 %162, label %274, label %163
 
@@ -2262,7 +2262,7 @@ Cudd_ReadPeakLiveNodeCount.exit:                  ; preds = %135, %144
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %173 = load double, ptr %172, align 8, !tbaa !85
   %174 = fadd double %171, %173
-  %175 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.31, double noundef %174) #20
+  %175 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.31, double noundef %174) #21
   %176 = icmp eq i32 %175, -1
   br i1 %176, label %274, label %177
 
@@ -2270,33 +2270,33 @@ Cudd_ReadPeakLiveNodeCount.exit:                  ; preds = %135, %144
   %178 = load double, ptr %164, align 8, !tbaa !82
   %179 = load double, ptr %169, align 8, !tbaa !84
   %180 = fadd double %178, %179
-  %181 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.32, double noundef %180) #20
+  %181 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.32, double noundef %180) #21
   %182 = icmp eq i32 %181, -1
   br i1 %182, label %274, label %183
 
 183:                                              ; preds = %177
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %185 = load double, ptr %184, align 8, !tbaa !129
-  %186 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.33, double noundef %185) #20
+  %186 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.33, double noundef %185) #21
   %187 = icmp eq i32 %186, -1
   br i1 %187, label %274, label %188
 
 188:                                              ; preds = %183
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %190 = load double, ptr %189, align 8, !tbaa !130
-  %191 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.34, double noundef %190) #20
+  %191 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.34, double noundef %190) #21
   %192 = icmp eq i32 %191, -1
   br i1 %192, label %274, label %193
 
 193:                                              ; preds = %188
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %195 = load double, ptr %194, align 8, !tbaa !131
-  %196 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.35, double noundef %195) #20
+  %196 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.35, double noundef %195) #21
   %197 = icmp eq i32 %196, -1
   br i1 %197, label %274, label %198
 
 198:                                              ; preds = %193
-  %199 = tail call i32 @cuddCacheProfile(ptr noundef nonnull %0, ptr noundef %1) #20
+  %199 = tail call i32 @cuddCacheProfile(ptr noundef nonnull %0, ptr noundef %1) #21
   %200 = icmp eq i32 %199, 0
   br i1 %200, label %274, label %201
 
@@ -2306,14 +2306,14 @@ Cudd_ReadPeakLiveNodeCount.exit:                  ; preds = %135, %144
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %205 = load i32, ptr %204, align 8, !tbaa !88
   %206 = add i32 %203, %205
-  %207 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.36, i32 noundef %206) #20
+  %207 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.36, i32 noundef %206) #21
   %208 = icmp eq i32 %207, -1
   br i1 %208, label %274, label %209
 
 209:                                              ; preds = %201
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %211 = load i32, ptr %210, align 8, !tbaa !90
-  %212 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.37, i32 noundef %211) #20
+  %212 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.37, i32 noundef %211) #21
   %213 = icmp eq i32 %212, -1
   br i1 %213, label %274, label %214
 
@@ -2322,33 +2322,33 @@ Cudd_ReadPeakLiveNodeCount.exit:                  ; preds = %135, %144
   %216 = fmul double %215, 1.000000e+02
   %217 = tail call double @Cudd_ExpectedUsedSlots(ptr noundef nonnull %0)
   %218 = fmul double %217, 1.000000e+02
-  %219 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.38, double noundef %216, double noundef %218) #20
+  %219 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.38, double noundef %216, double noundef %218) #21
   %220 = icmp eq i32 %219, -1
   br i1 %220, label %274, label %221
 
 221:                                              ; preds = %214
   %222 = load i32, ptr %136, align 4, !tbaa !103
-  %223 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.39, i32 noundef %222) #20
+  %223 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.39, i32 noundef %222) #21
   %224 = icmp eq i32 %223, -1
   br i1 %224, label %274, label %225
 
 225:                                              ; preds = %221
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %227 = load i32, ptr %226, align 8, !tbaa !132
-  %228 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.40, i32 noundef %227) #20
+  %228 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.40, i32 noundef %227) #21
   %229 = icmp eq i32 %228, -1
   br i1 %229, label %274, label %230
 
 230:                                              ; preds = %225
   %231 = load i32, ptr %138, align 4, !tbaa !104
-  %232 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.41, i32 noundef %231) #20
+  %232 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.41, i32 noundef %231) #21
   %233 = icmp eq i32 %232, -1
   br i1 %233, label %274, label %234
 
 234:                                              ; preds = %230
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %236 = load i32, ptr %235, align 8, !tbaa !133
-  %237 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.42, i32 noundef %236) #20
+  %237 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.42, i32 noundef %236) #21
   %238 = icmp eq i32 %237, -1
   br i1 %238, label %274, label %239
 
@@ -2356,21 +2356,21 @@ Cudd_ReadPeakLiveNodeCount.exit:                  ; preds = %135, %144
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %241 = load i64, ptr %240, align 8, !tbaa !134
   %242 = trunc i64 %241 to i32
-  %243 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.43, i32 noundef %242) #20
+  %243 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.43, i32 noundef %242) #21
   %244 = icmp eq i32 %243, -1
   br i1 %244, label %274, label %245
 
 245:                                              ; preds = %239
   %246 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %247 = load double, ptr %246, align 8, !tbaa !135
-  %248 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.44, double noundef %247) #20
+  %248 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.44, double noundef %247) #21
   %249 = icmp eq i32 %248, -1
   br i1 %249, label %274, label %250
 
 250:                                              ; preds = %245
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %252 = load i32, ptr %251, align 8, !tbaa !108
-  %253 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.45, i32 noundef %252) #20
+  %253 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.45, i32 noundef %252) #21
   %254 = icmp eq i32 %253, -1
   br i1 %254, label %274, label %255
 
@@ -2379,14 +2379,14 @@ Cudd_ReadPeakLiveNodeCount.exit:                  ; preds = %135, %144
   %257 = load i64, ptr %256, align 8, !tbaa !109
   %258 = sitofp i64 %257 to double
   %259 = fdiv double %258, 1.000000e+03
-  %260 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.46, double noundef %259) #20
+  %260 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.46, double noundef %259) #21
   %261 = icmp eq i32 %260, -1
   br i1 %261, label %274, label %262
 
 262:                                              ; preds = %255
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 452
   %264 = load i32, ptr %263, align 4, !tbaa !106
-  %265 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.47, i32 noundef %264) #20
+  %265 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.47, i32 noundef %264) #21
   %266 = icmp eq i32 %265, -1
   br i1 %266, label %274, label %267
 
@@ -2395,7 +2395,7 @@ Cudd_ReadPeakLiveNodeCount.exit:                  ; preds = %135, %144
   %269 = load i64, ptr %268, align 8, !tbaa !107
   %270 = sitofp i64 %269 to double
   %271 = fdiv double %270, 1.000000e+03
-  %272 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.48, double noundef %271) #20
+  %272 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.48, double noundef %271) #21
   %273 = icmp ne i32 %272, -1
   %. = zext i1 %273 to i32
   br label %274
@@ -2415,7 +2415,7 @@ define i32 @Cudd_ReadNextReordering(ptr noundef readonly captures(none) %0) loca
   ret i32 %3
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i64 @Cudd_ReadPeakNodeCount(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 392
   br label %3
@@ -2457,7 +2457,7 @@ declare i32 @cuddCacheProfile(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i64 @Cudd_ReadNodeCount(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @cuddClearDeathRow(ptr noundef %0) #20
+  tail call void @cuddClearDeathRow(ptr noundef %0) #21
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %3 = load i32, ptr %2, align 4, !tbaa !103
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 236
@@ -2527,7 +2527,7 @@ define range(i64 0, 4294967296) i64 @Cudd_zddReadNodeCount(ptr noundef readonly 
   ret i64 %8
 }
 
-; Function Attrs: nofree nounwind uwtable
+; Function Attrs: nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 3) i32 @Cudd_AddHook(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #16 {
   %4 = icmp ult i32 %2, 4
   br i1 %4, label %switch.lookup, label %.loopexit
@@ -2559,7 +2559,7 @@ switch.lookup:                                    ; preds = %3
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %switch.lookup
   %.1.lcssa = phi ptr [ %8, %switch.lookup ], [ %13, %._crit_edge.loopexit ]
-  %14 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
+  %14 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %18
 
@@ -2580,8 +2580,8 @@ switch.lookup:                                    ; preds = %3
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Cudd_RemoveHook(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1, i32 noundef %2) local_unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define range(i32 0, 2) i32 @Cudd_RemoveHook(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1, i32 noundef %2) local_unnamed_addr #17 {
   %4 = icmp ult i32 %2, 4
   br i1 %4, label %switch.lookup, label %.loopexit
 
@@ -2614,7 +2614,7 @@ switch.lookup:                                    ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %.022.lcssa, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !141
   store ptr %15, ptr %.121.lcssa, align 8, !tbaa !137
-  tail call void @free(ptr noundef nonnull %.022.lcssa) #20
+  tail call void @free(ptr noundef nonnull %.022.lcssa) #21
   br label %.loopexit
 
 .lr.ph30:                                         ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2629,7 +2629,7 @@ switch.lookup:                                    ; preds = %3
   ret i32 %.016
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @Cudd_IsInHook(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = icmp ult i32 %2, 4
   br i1 %4, label %switch.lookup, label %.loopexit
@@ -2665,7 +2665,7 @@ define range(i32 0, 2) i32 @Cudd_StdPreReordHook(ptr noundef %0, ptr noundef %1,
   %4 = ptrtoint ptr %2 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %6 = load ptr, ptr %5, align 8, !tbaa !144
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.49, ptr noundef %1) #20
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.49, ptr noundef %1) #21
   %8 = icmp eq i32 %7, -1
   br i1 %8, label %85, label %9
 
@@ -2696,7 +2696,7 @@ define range(i32 0, 2) i32 @Cudd_StdPreReordHook(ptr noundef %0, ptr noundef %1,
 
 11:                                               ; preds = %9, %9, %9, %9, %9, %9, %9
   %12 = load ptr, ptr %5, align 8, !tbaa !144
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.50) #20
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.50) #21
   %14 = icmp eq i32 %13, -1
   br i1 %14, label %85, label %switch.lookup
 
@@ -2737,18 +2737,18 @@ switch.lookup:                                    ; preds = %11
 25:                                               ; preds = %switch.lookup, %9, %9, %24, %23, %22, %21, %20, %19, %18, %17, %16
   %.str.60.sink = phi ptr [ @.str.60, %24 ], [ @.str.59, %23 ], [ @.str.58, %22 ], [ @.str.57, %21 ], [ @.str.56, %20 ], [ @.str.55, %19 ], [ @.str.54, %18 ], [ @.str.53, %17 ], [ @.str.52, %16 ], [ @.str.51, %9 ], [ @.str.51, %9 ], [ %switch.load, %switch.lookup ]
   %26 = load ptr, ptr %5, align 8, !tbaa !144
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull %.str.60.sink) #20
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull %.str.60.sink) #21
   %28 = icmp eq i32 %27, -1
   br i1 %28, label %85, label %29
 
 29:                                               ; preds = %25
   %30 = load ptr, ptr %5, align 8, !tbaa !144
-  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.62) #23
+  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.62) #24
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %70
 
 33:                                               ; preds = %29
-  tail call void @cuddClearDeathRow(ptr noundef nonnull %0) #20
+  tail call void @cuddClearDeathRow(ptr noundef nonnull %0) #21
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %35 = load i32, ptr %34, align 4, !tbaa !103
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 236
@@ -2817,7 +2817,7 @@ Cudd_ReadNodeCount.exit:                          ; preds = %45, %33
 
 78:                                               ; preds = %70, %Cudd_ReadNodeCount.exit
   %79 = phi i64 [ %.4.i, %Cudd_ReadNodeCount.exit ], [ %77, %70 ]
-  %80 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.61, i64 noundef %79) #20
+  %80 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.61, i64 noundef %79) #21
   %81 = icmp eq i32 %80, -1
   br i1 %81, label %85, label %82
 
@@ -2832,7 +2832,7 @@ Cudd_ReadNodeCount.exit:                          ; preds = %45, %33
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #17
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #15
@@ -2840,18 +2840,18 @@ declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #15
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Cudd_StdPostReordHook(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = ptrtoint ptr %2 to i64
-  %5 = tail call i64 (...) @Extra_CpuTime() #20
+  %5 = tail call i64 (...) @Extra_CpuTime() #21
   %6 = sub nsw i64 %5, %4
   %7 = sitofp i64 %6 to double
   %8 = fdiv double %7, 1.000000e+03
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %10 = load ptr, ptr %9, align 8, !tbaa !144
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.62) #23
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.62) #24
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %50
 
 13:                                               ; preds = %3
-  tail call void @cuddClearDeathRow(ptr noundef nonnull %0) #20
+  tail call void @cuddClearDeathRow(ptr noundef nonnull %0) #21
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %15 = load i32, ptr %14, align 4, !tbaa !103
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 236
@@ -2920,7 +2920,7 @@ Cudd_ReadNodeCount.exit:                          ; preds = %25, %13
 
 58:                                               ; preds = %50, %Cudd_ReadNodeCount.exit
   %59 = phi i64 [ %.4.i, %Cudd_ReadNodeCount.exit ], [ %57, %50 ]
-  %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.63, i64 noundef %59, double noundef %8) #20
+  %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.63, i64 noundef %59, double noundef %8) #21
   %61 = icmp eq i32 %60, -1
   br i1 %61, label %66, label %62
 
@@ -2938,7 +2938,7 @@ Cudd_ReadNodeCount.exit:                          ; preds = %25, %13
 
 declare i64 @Extra_CpuTime(...) local_unnamed_addr #1
 
-; Function Attrs: nofree nounwind uwtable
+; Function Attrs: nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @Cudd_EnableReorderingReporting(ptr noundef captures(none) %0) local_unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %.01822.i = load ptr, ptr %2, align 8, !tbaa !137
@@ -2963,7 +2963,7 @@ define range(i32 0, 2) i32 @Cudd_EnableReorderingReporting(ptr noundef captures(
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %1
   %.1.lcssa.i = phi ptr [ %2, %1 ], [ %7, %._crit_edge.i.loopexit ]
-  %8 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
+  %8 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
   %9 = icmp eq ptr %8, null
   br i1 %9, label %Cudd_AddHook.exit, label %10
 
@@ -3003,7 +3003,7 @@ Cudd_AddHook.exit:                                ; preds = %._crit_edge.i
 
 ._crit_edge.i10:                                  ; preds = %._crit_edge.i10.loopexit, %.loopexit
   %.1.lcssa.i11 = phi ptr [ %13, %.loopexit ], [ %18, %._crit_edge.i10.loopexit ]
-  %19 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
+  %19 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
   %20 = icmp eq ptr %19, null
   br i1 %20, label %23, label %21
 
@@ -3024,8 +3024,8 @@ Cudd_AddHook.exit13.thread:                       ; preds = %.lr.ph.i5, %21, %23
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Cudd_DisableReorderingReporting(ptr noundef captures(none) %0) local_unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define range(i32 0, 2) i32 @Cudd_DisableReorderingReporting(ptr noundef captures(none) %0) local_unnamed_addr #17 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %.019.i = load ptr, ptr %2, align 8, !tbaa !137
   %.not20.i = icmp eq ptr %.019.i, null
@@ -3058,7 +3058,7 @@ define range(i32 0, 2) i32 @Cudd_DisableReorderingReporting(ptr noundef captures
   %9 = getelementptr inbounds nuw i8, ptr %.022.i.lcssa, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !141
   store ptr %10, ptr %.121.i.lcssa, align 8, !tbaa !137
-  tail call void @free(ptr noundef nonnull %.022.i.lcssa) #20
+  tail call void @free(ptr noundef nonnull %.022.i.lcssa) #21
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %.019.i3 = load ptr, ptr %11, align 8, !tbaa !137
   %.not20.i4 = icmp eq ptr %.019.i3, null
@@ -3091,7 +3091,7 @@ Cudd_RemoveHook.exit11:                           ; preds = %Cudd_RemoveHook.exi
   %18 = getelementptr inbounds nuw i8, ptr %.022.i6.lcssa, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !141
   store ptr %19, ptr %.121.i7.lcssa, align 8, !tbaa !137
-  tail call void @free(ptr noundef nonnull %.022.i6.lcssa) #20
+  tail call void @free(ptr noundef nonnull %.022.i6.lcssa) #21
   br label %Cudd_RemoveHook.exit.thread
 
 Cudd_RemoveHook.exit.thread:                      ; preds = %.lr.ph, %.lr.ph24, %1, %Cudd_RemoveHook.exit11, %.lr.ph.i._crit_edge
@@ -3099,7 +3099,7 @@ Cudd_RemoveHook.exit.thread:                      ; preds = %.lr.ph, %.lr.ph24, 
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @Cudd_ReorderingReporting(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %.110.i = load ptr, ptr %2, align 8, !tbaa !137
@@ -3205,8 +3205,8 @@ define void @Cudd_SetMaxMemory(ptr noundef writeonly captures(none) initializes(
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Cudd_bddBindVar(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #18 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define range(i32 0, 2) i32 @Cudd_bddBindVar(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #19 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8, !tbaa !3
   %5 = icmp sge i32 %1, %4
@@ -3233,8 +3233,8 @@ define range(i32 0, 2) i32 @Cudd_bddBindVar(ptr noundef readonly captures(none) 
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Cudd_bddUnbindVar(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #18 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define range(i32 0, 2) i32 @Cudd_bddUnbindVar(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #19 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8, !tbaa !3
   %5 = icmp sge i32 %1, %4
@@ -3261,7 +3261,7 @@ define range(i32 0, 2) i32 @Cudd_bddUnbindVar(ptr noundef readonly captures(none
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @Cudd_bddVarIsBound(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8, !tbaa !3
@@ -3289,8 +3289,8 @@ define i32 @Cudd_bddVarIsBound(ptr noundef readonly captures(none) %0, i32 nound
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Cudd_bddSetPiVar(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #18 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define range(i32 0, 2) i32 @Cudd_bddSetPiVar(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #19 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8, !tbaa !3
   %5 = icmp sge i32 %1, %4
@@ -3317,8 +3317,8 @@ define range(i32 0, 2) i32 @Cudd_bddSetPiVar(ptr noundef readonly captures(none)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Cudd_bddSetPsVar(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #18 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define range(i32 0, 2) i32 @Cudd_bddSetPsVar(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #19 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8, !tbaa !3
   %5 = icmp sge i32 %1, %4
@@ -3345,8 +3345,8 @@ define range(i32 0, 2) i32 @Cudd_bddSetPsVar(ptr noundef readonly captures(none)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Cudd_bddSetNsVar(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #18 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define range(i32 0, 2) i32 @Cudd_bddSetNsVar(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #19 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8, !tbaa !3
   %5 = icmp sge i32 %1, %4
@@ -3373,7 +3373,7 @@ define range(i32 0, 2) i32 @Cudd_bddSetNsVar(ptr noundef readonly captures(none)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 -1, 2) i32 @Cudd_bddIsPiVar(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8, !tbaa !3
@@ -3403,7 +3403,7 @@ define range(i32 -1, 2) i32 @Cudd_bddIsPiVar(ptr noundef readonly captures(none)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 -1, 2) i32 @Cudd_bddIsPsVar(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8, !tbaa !3
@@ -3433,7 +3433,7 @@ define range(i32 -1, 2) i32 @Cudd_bddIsPsVar(ptr noundef readonly captures(none)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 -1, 2) i32 @Cudd_bddIsNsVar(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8, !tbaa !3
@@ -3463,8 +3463,8 @@ define range(i32 -1, 2) i32 @Cudd_bddIsNsVar(ptr noundef readonly captures(none)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Cudd_bddSetPairIndex(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #18 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define range(i32 0, 2) i32 @Cudd_bddSetPairIndex(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #19 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load i32, ptr %4, align 8, !tbaa !3
   %6 = icmp sge i32 %1, %5
@@ -3491,7 +3491,7 @@ define range(i32 0, 2) i32 @Cudd_bddSetPairIndex(ptr noundef readonly captures(n
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @Cudd_bddReadPairIndex(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8, !tbaa !3
@@ -3519,8 +3519,8 @@ define i32 @Cudd_bddReadPairIndex(ptr noundef readonly captures(none) %0, i32 no
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Cudd_bddSetVarToBeGrouped(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #18 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define range(i32 0, 2) i32 @Cudd_bddSetVarToBeGrouped(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #19 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8, !tbaa !3
   %5 = icmp sge i32 %1, %4
@@ -3552,8 +3552,8 @@ define range(i32 0, 2) i32 @Cudd_bddSetVarToBeGrouped(ptr noundef readonly captu
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Cudd_bddSetVarHardGroup(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #18 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define range(i32 0, 2) i32 @Cudd_bddSetVarHardGroup(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #19 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8, !tbaa !3
   %5 = icmp sge i32 %1, %4
@@ -3580,8 +3580,8 @@ define range(i32 0, 2) i32 @Cudd_bddSetVarHardGroup(ptr noundef readonly capture
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Cudd_bddResetVarToBeGrouped(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #18 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define range(i32 0, 2) i32 @Cudd_bddResetVarToBeGrouped(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #19 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8, !tbaa !3
   %5 = icmp sge i32 %1, %4
@@ -3613,7 +3613,7 @@ define range(i32 0, 2) i32 @Cudd_bddResetVarToBeGrouped(ptr noundef readonly cap
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 4, 3) i32 @Cudd_bddIsVarToBeGrouped(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8, !tbaa !3
@@ -3643,8 +3643,8 @@ define range(i32 4, 3) i32 @Cudd_bddIsVarToBeGrouped(ptr noundef readonly captur
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Cudd_bddSetVarToBeUngrouped(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #18 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define range(i32 0, 2) i32 @Cudd_bddSetVarToBeUngrouped(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #19 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8, !tbaa !3
   %5 = icmp sge i32 %1, %4
@@ -3671,7 +3671,7 @@ define range(i32 0, 2) i32 @Cudd_bddSetVarToBeUngrouped(ptr noundef readonly cap
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 -1, 2) i32 @Cudd_bddIsVarToBeUngrouped(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8, !tbaa !3
@@ -3701,7 +3701,7 @@ define range(i32 -1, 2) i32 @Cudd_bddIsVarToBeUngrouped(ptr noundef readonly cap
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 -1, 2) i32 @Cudd_bddIsVarHardGroup(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8, !tbaa !3
@@ -3734,32 +3734,33 @@ define range(i32 -1, 2) i32 @Cudd_bddIsVarHardGroup(ptr noundef readonly capture
 declare ptr @Mtr_MakeGroup(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree norecurse nounwind memory(read, inaccessiblemem: none, errnomem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree norecurse nounwind memory(read, inaccessiblemem: none, errnomem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #20 = { nounwind }
-attributes #21 = { nounwind allocsize(0) }
-attributes #22 = { nounwind allocsize(1) }
-attributes #23 = { nounwind willreturn memory(read) }
+attributes #16 = { nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #21 = { nounwind }
+attributes #22 = { nounwind allocsize(0) }
+attributes #23 = { nounwind allocsize(1) }
+attributes #24 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

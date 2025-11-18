@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Dec_Factor(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @Abc_SopIsConst0(ptr noundef %0) #7
+  %2 = tail call i32 @Abc_SopIsConst0(ptr noundef %0) #8
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
 
@@ -21,7 +21,7 @@ define noundef ptr @Dec_Factor(ptr noundef %0) local_unnamed_addr #0 {
   br label %90
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @Abc_SopIsConst1(ptr noundef %0) #7
+  %6 = tail call i32 @Abc_SopIsConst1(ptr noundef %0) #8
   %.not15 = icmp eq i32 %6, 0
   br i1 %.not15, label %8, label %7
 
@@ -31,11 +31,11 @@ define noundef ptr @Dec_Factor(ptr noundef %0) local_unnamed_addr #0 {
   br label %90
 
 8:                                                ; preds = %5
-  %9 = tail call ptr (...) @Abc_FrameReadManDec() #7
+  %9 = tail call ptr (...) @Abc_FrameReadManDec() #8
   %10 = load ptr, ptr %9, align 8, !tbaa !11
-  %11 = tail call i32 @Abc_SopGetVarNum(ptr noundef %0) #7
+  %11 = tail call i32 @Abc_SopGetVarNum(ptr noundef %0) #8
   %12 = shl nsw i32 %11, 1
-  %13 = tail call ptr @Mvc_CoverAlloc(ptr noundef %10, i32 noundef %12) #7
+  %13 = tail call ptr @Mvc_CoverAlloc(ptr noundef %10, i32 noundef %12) #8
   %14 = load i8, ptr %0, align 1, !tbaa !16
   %.not54.i = icmp eq i8 %14, 0
   br i1 %.not54.i, label %Dec_ConvertSopToMvc.exit, label %.lr.ph56.i
@@ -49,7 +49,7 @@ define noundef ptr @Dec_Factor(ptr noundef %0) local_unnamed_addr #0 {
 
 19:                                               ; preds = %.critedge.i, %.lr.ph56.i
   %.04755.i = phi ptr [ %0, %.lr.ph56.i ], [ %68, %.critedge.i ]
-  %20 = tail call ptr @Mvc_CubeAlloc(ptr noundef %13) #7
+  %20 = tail call ptr @Mvc_CubeAlloc(ptr noundef %13) #8
   %21 = load ptr, ptr %15, align 8, !tbaa !17
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %24
@@ -154,9 +154,9 @@ define noundef ptr @Dec_Factor(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %Dec_ConvertSopToMvc.exit, label %19, !llvm.loop !27
 
 Dec_ConvertSopToMvc.exit:                         ; preds = %.critedge.i, %8
-  %70 = tail call i32 @Mvc_CoverContain(ptr noundef %13) #7
-  tail call void @Mvc_CoverInverse(ptr noundef %13) #7
-  %71 = tail call i32 @Abc_SopGetVarNum(ptr noundef nonnull %0) #7
+  %70 = tail call i32 @Mvc_CoverContain(ptr noundef %13) #8
+  tail call void @Mvc_CoverInverse(ptr noundef %13) #8
+  %71 = tail call i32 @Abc_SopGetVarNum(ptr noundef nonnull %0) #8
   %calloc.i18 = tail call dereferenceable_or_null(32) ptr @calloc(i64 1, i64 32)
   %72 = getelementptr inbounds nuw i8, ptr %calloc.i18, i64 4
   store i32 %71, ptr %72, align 4, !tbaa !28
@@ -168,7 +168,7 @@ Dec_ConvertSopToMvc.exit:                         ; preds = %.critedge.i, %8
   store i32 %75, ptr %76, align 4, !tbaa !30
   %77 = sext i32 %75 to i64
   %78 = mul nsw i64 %77, 24
-  %79 = tail call noalias ptr @malloc(i64 noundef %78) #8
+  %79 = tail call noalias ptr @malloc(i64 noundef %78) #9
   %80 = getelementptr inbounds nuw i8, ptr %calloc.i18, i64 16
   store ptr %79, ptr %80, align 8, !tbaa !31
   %81 = sext i32 %71 to i64
@@ -177,7 +177,7 @@ Dec_ConvertSopToMvc.exit:                         ; preds = %.critedge.i, %8
   %83 = tail call fastcc i32 @Dec_Factor_rec(ptr noundef %calloc.i18, ptr noundef %13)
   %84 = getelementptr inbounds nuw i8, ptr %calloc.i18, i64 24
   store i32 %83, ptr %84, align 8, !tbaa !16
-  %85 = tail call i32 @Abc_SopIsComplement(ptr noundef nonnull %0) #7
+  %85 = tail call i32 @Abc_SopIsComplement(ptr noundef nonnull %0) #8
   %.not16 = icmp eq i32 %85, 0
   br i1 %.not16, label %89, label %86
 
@@ -188,7 +188,7 @@ Dec_ConvertSopToMvc.exit:                         ; preds = %.critedge.i, %8
   br label %89
 
 89:                                               ; preds = %86, %Dec_ConvertSopToMvc.exit
-  tail call void @Mvc_CoverFree(ptr noundef %13) #7
+  tail call void @Mvc_CoverFree(ptr noundef %13) #8
   br label %90
 
 90:                                               ; preds = %89, %7, %3
@@ -214,13 +214,13 @@ define internal fastcc i32 @Dec_Factor_rec(ptr noundef %0, ptr noundef %1) unnam
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = tail call ptr @Mvc_CoverDivisor(ptr noundef %1) #7
+  %6 = tail call ptr @Mvc_CoverDivisor(ptr noundef %1) #8
   store ptr %6, ptr %3, align 8, !tbaa !32
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %48
 
 8:                                                ; preds = %2
-  %9 = tail call ptr (...) @Abc_FrameReadManDec() #7
+  %9 = tail call ptr (...) @Abc_FrameReadManDec() #8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !34
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -259,11 +259,11 @@ define internal fastcc i32 @Dec_Factor_rec(ptr noundef %0, ptr noundef %1) unnam
   br i1 %.not9.i.i.i, label %26, label %24
 
 24:                                               ; preds = %22
-  %25 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %23, i64 noundef 64) #9
+  %25 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %23, i64 noundef 64) #10
   br label %Vec_IntGrow.exit.i.i
 
 26:                                               ; preds = %22
-  %27 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #8
+  %27 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #9
   br label %Vec_IntGrow.exit.i.i
 
 Vec_IntGrow.exit.i.i:                             ; preds = %26, %24
@@ -281,11 +281,11 @@ Vec_IntGrow.exit.i.i:                             ; preds = %26, %24
   br i1 %.not9.i9.i.i, label %36, label %34
 
 34:                                               ; preds = %29
-  %35 = tail call ptr @realloc(ptr noundef nonnull %31, i64 noundef %33) #9
+  %35 = tail call ptr @realloc(ptr noundef nonnull %31, i64 noundef %33) #10
   br label %38
 
 36:                                               ; preds = %29
-  %37 = tail call noalias ptr @malloc(i64 noundef %33) #8
+  %37 = tail call noalias ptr @malloc(i64 noundef %33) #9
   br label %38
 
 38:                                               ; preds = %36, %34
@@ -317,12 +317,12 @@ Dec_FactorTrivial.exit:                           ; preds = %.._crit_edge_crit_e
   br label %148
 
 48:                                               ; preds = %2
-  call void @Mvc_CoverDivideInternal(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %5) #7
-  call void @Mvc_CoverFree(ptr noundef nonnull %6) #7
+  call void @Mvc_CoverDivideInternal(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
+  call void @Mvc_CoverFree(ptr noundef nonnull %6) #8
   %49 = load ptr, ptr %5, align 8, !tbaa !32
-  call void @Mvc_CoverFree(ptr noundef %49) #7
+  call void @Mvc_CoverFree(ptr noundef %49) #8
   %50 = load ptr, ptr %4, align 8, !tbaa !32
-  %51 = call i32 @Mvc_CoverReadCubeNum(ptr noundef %50) #7
+  %51 = call i32 @Mvc_CoverReadCubeNum(ptr noundef %50) #8
   %52 = icmp eq i32 %51, 1
   %53 = load ptr, ptr %4, align 8, !tbaa !32
   br i1 %52, label %54, label %57
@@ -330,15 +330,15 @@ Dec_FactorTrivial.exit:                           ; preds = %.._crit_edge_crit_e
 54:                                               ; preds = %48
   %55 = call fastcc i32 @Dec_FactorLF_rec(ptr noundef %0, ptr noundef %1, ptr noundef %53)
   %56 = load ptr, ptr %4, align 8, !tbaa !32
-  call void @Mvc_CoverFree(ptr noundef %56) #7
+  call void @Mvc_CoverFree(ptr noundef %56) #8
   br label %148
 
 57:                                               ; preds = %48
-  call void @Mvc_CoverMakeCubeFree(ptr noundef %53) #7
+  call void @Mvc_CoverMakeCubeFree(ptr noundef %53) #8
   %58 = load ptr, ptr %4, align 8, !tbaa !32
-  call void @Mvc_CoverDivideInternal(ptr noundef %1, ptr noundef %58, ptr noundef nonnull %3, ptr noundef nonnull %5) #7
+  call void @Mvc_CoverDivideInternal(ptr noundef %1, ptr noundef %58, ptr noundef nonnull %3, ptr noundef nonnull %5) #8
   %59 = load ptr, ptr %3, align 8, !tbaa !32
-  %60 = call i32 @Mvc_CoverIsCubeFree(ptr noundef %59) #7
+  %60 = call i32 @Mvc_CoverIsCubeFree(ptr noundef %59) #8
   %.not = icmp eq i32 %60, 0
   %61 = load ptr, ptr %3, align 8, !tbaa !32
   br i1 %.not, label %142, label %62
@@ -348,9 +348,9 @@ Dec_FactorTrivial.exit:                           ; preds = %.._crit_edge_crit_e
   %64 = load ptr, ptr %4, align 8, !tbaa !32
   %65 = call fastcc i32 @Dec_Factor_rec(ptr noundef %0, ptr noundef %64)
   %66 = load ptr, ptr %3, align 8, !tbaa !32
-  call void @Mvc_CoverFree(ptr noundef %66) #7
+  call void @Mvc_CoverFree(ptr noundef %66) #8
   %67 = load ptr, ptr %4, align 8, !tbaa !32
-  call void @Mvc_CoverFree(ptr noundef %67) #7
+  call void @Mvc_CoverFree(ptr noundef %67) #8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %69 = load i32, ptr %68, align 8, !tbaa !29
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -368,14 +368,14 @@ Dec_FactorTrivial.exit:                           ; preds = %.._crit_edge_crit_e
   br i1 %.not.i.i, label %81, label %79
 
 79:                                               ; preds = %75
-  %80 = call ptr @realloc(ptr noundef nonnull %74, i64 noundef %78) #9
+  %80 = call ptr @realloc(ptr noundef nonnull %74, i64 noundef %78) #10
   %.pre.i.i28 = load i32, ptr %70, align 4, !tbaa !30
   %.pre15.pre.i.i = load i32, ptr %68, align 8, !tbaa !29
   %.pre17.i.i = shl nsw i32 %.pre.i.i28, 1
   br label %83
 
 81:                                               ; preds = %75
-  %82 = call noalias ptr @malloc(i64 noundef %78) #8
+  %82 = call noalias ptr @malloc(i64 noundef %78) #9
   br label %83
 
 83:                                               ; preds = %81, %79
@@ -410,19 +410,19 @@ Dec_GraphAddNodeAnd.exit:                         ; preds = %62, %83
   %100 = add i32 %99, 2147483646
   %101 = and i32 %100, 2147483646
   %102 = load ptr, ptr %5, align 8, !tbaa !32
-  %103 = call i32 @Mvc_CoverReadCubeNum(ptr noundef %102) #7
+  %103 = call i32 @Mvc_CoverReadCubeNum(ptr noundef %102) #8
   %104 = icmp eq i32 %103, 0
   %105 = load ptr, ptr %5, align 8, !tbaa !32
   br i1 %104, label %106, label %107
 
 106:                                              ; preds = %Dec_GraphAddNodeAnd.exit
-  call void @Mvc_CoverFree(ptr noundef %105) #7
+  call void @Mvc_CoverFree(ptr noundef %105) #8
   br label %148
 
 107:                                              ; preds = %Dec_GraphAddNodeAnd.exit
   %108 = call fastcc i32 @Dec_Factor_rec(ptr noundef nonnull %0, ptr noundef %105)
   %109 = load ptr, ptr %5, align 8, !tbaa !32
-  call void @Mvc_CoverFree(ptr noundef %109) #7
+  call void @Mvc_CoverFree(ptr noundef %109) #8
   %110 = load i32, ptr %68, align 8, !tbaa !29
   %111 = load i32, ptr %70, align 4, !tbaa !30
   %112 = icmp eq i32 %110, %111
@@ -437,14 +437,14 @@ Dec_GraphAddNodeAnd.exit:                         ; preds = %62, %83
   br i1 %.not.i.i29, label %120, label %118
 
 118:                                              ; preds = %114
-  %119 = call ptr @realloc(ptr noundef nonnull %113, i64 noundef %117) #9
+  %119 = call ptr @realloc(ptr noundef nonnull %113, i64 noundef %117) #10
   %.pre.i.i30 = load i32, ptr %70, align 4, !tbaa !30
   %.pre15.pre.i.i31 = load i32, ptr %68, align 8, !tbaa !29
   %.pre17.i.i32 = shl nsw i32 %.pre.i.i30, 1
   br label %122
 
 120:                                              ; preds = %114
-  %121 = call noalias ptr @malloc(i64 noundef %117) #8
+  %121 = call noalias ptr @malloc(i64 noundef %117) #9
   br label %122
 
 122:                                              ; preds = %120, %118
@@ -482,15 +482,15 @@ Dec_GraphAddNodeOr.exit:                          ; preds = %107, %122
   br label %148
 
 142:                                              ; preds = %57
-  %143 = call ptr @Mvc_CoverCommonCubeCover(ptr noundef %61) #7
+  %143 = call ptr @Mvc_CoverCommonCubeCover(ptr noundef %61) #8
   %144 = load ptr, ptr %3, align 8, !tbaa !32
-  call void @Mvc_CoverFree(ptr noundef %144) #7
+  call void @Mvc_CoverFree(ptr noundef %144) #8
   %145 = load ptr, ptr %4, align 8, !tbaa !32
-  call void @Mvc_CoverFree(ptr noundef %145) #7
+  call void @Mvc_CoverFree(ptr noundef %145) #8
   %146 = load ptr, ptr %5, align 8, !tbaa !32
-  call void @Mvc_CoverFree(ptr noundef %146) #7
+  call void @Mvc_CoverFree(ptr noundef %146) #8
   %147 = call fastcc i32 @Dec_FactorLF_rec(ptr noundef %0, ptr noundef %1, ptr noundef %143)
-  call void @Mvc_CoverFree(ptr noundef %143) #7
+  call void @Mvc_CoverFree(ptr noundef %143) #8
   br label %148
 
 148:                                              ; preds = %142, %Dec_GraphAddNodeOr.exit, %106, %54, %Dec_FactorTrivial.exit
@@ -521,20 +521,20 @@ declare i32 @Mvc_CoverReadCubeNum(ptr noundef) local_unnamed_addr #1
 define internal fastcc range(i32 0, -2147483648) i32 @Dec_FactorLF_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = tail call ptr (...) @Abc_FrameReadManDec() #7
+  %6 = tail call ptr (...) @Abc_FrameReadManDec() #8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !35
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %9 = tail call ptr @Mvc_CoverBestLiteralCover(ptr noundef %1, ptr noundef %2) #7
-  call void @Mvc_CoverDivideByLiteral(ptr noundef %1, ptr noundef %9, ptr noundef nonnull %4, ptr noundef nonnull %5) #7
-  %10 = call ptr @Mvc_CoverReadCubeHead(ptr noundef %9) #7
+  %9 = tail call ptr @Mvc_CoverBestLiteralCover(ptr noundef %1, ptr noundef %2) #8
+  call void @Mvc_CoverDivideByLiteral(ptr noundef %1, ptr noundef %9, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
+  %10 = call ptr @Mvc_CoverReadCubeHead(ptr noundef %9) #8
   %11 = call fastcc i32 @Dec_FactorTrivialCube(ptr noundef %0, ptr noundef %9, ptr noundef %10, ptr noundef %8)
-  call void @Mvc_CoverFree(ptr noundef %9) #7
+  call void @Mvc_CoverFree(ptr noundef %9) #8
   %12 = load ptr, ptr %4, align 8, !tbaa !32
   %13 = call fastcc i32 @Dec_Factor_rec(ptr noundef %0, ptr noundef %12)
   %14 = load ptr, ptr %4, align 8, !tbaa !32
-  call void @Mvc_CoverFree(ptr noundef %14) #7
+  call void @Mvc_CoverFree(ptr noundef %14) #8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !29
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -552,14 +552,14 @@ define internal fastcc range(i32 0, -2147483648) i32 @Dec_FactorLF_rec(ptr nound
   br i1 %.not.i.i, label %28, label %26
 
 26:                                               ; preds = %22
-  %27 = call ptr @realloc(ptr noundef nonnull %21, i64 noundef %25) #9
+  %27 = call ptr @realloc(ptr noundef nonnull %21, i64 noundef %25) #10
   %.pre.i.i = load i32, ptr %17, align 4, !tbaa !30
   %.pre15.pre.i.i = load i32, ptr %15, align 8, !tbaa !29
   %.pre17.i.i = shl nsw i32 %.pre.i.i, 1
   br label %30
 
 28:                                               ; preds = %22
-  %29 = call noalias ptr @malloc(i64 noundef %25) #8
+  %29 = call noalias ptr @malloc(i64 noundef %25) #9
   br label %30
 
 30:                                               ; preds = %28, %26
@@ -594,19 +594,19 @@ Dec_GraphAddNodeAnd.exit:                         ; preds = %3, %30
   %47 = add i32 %46, 2147483646
   %48 = and i32 %47, 2147483646
   %49 = load ptr, ptr %5, align 8, !tbaa !32
-  %50 = call i32 @Mvc_CoverReadCubeNum(ptr noundef %49) #7
+  %50 = call i32 @Mvc_CoverReadCubeNum(ptr noundef %49) #8
   %51 = icmp eq i32 %50, 0
   %52 = load ptr, ptr %5, align 8, !tbaa !32
   br i1 %51, label %53, label %54
 
 53:                                               ; preds = %Dec_GraphAddNodeAnd.exit
-  call void @Mvc_CoverFree(ptr noundef %52) #7
+  call void @Mvc_CoverFree(ptr noundef %52) #8
   br label %89
 
 54:                                               ; preds = %Dec_GraphAddNodeAnd.exit
   %55 = call fastcc i32 @Dec_Factor_rec(ptr noundef nonnull %0, ptr noundef %52)
   %56 = load ptr, ptr %5, align 8, !tbaa !32
-  call void @Mvc_CoverFree(ptr noundef %56) #7
+  call void @Mvc_CoverFree(ptr noundef %56) #8
   %57 = load i32, ptr %15, align 8, !tbaa !29
   %58 = load i32, ptr %17, align 4, !tbaa !30
   %59 = icmp eq i32 %57, %58
@@ -621,14 +621,14 @@ Dec_GraphAddNodeAnd.exit:                         ; preds = %3, %30
   br i1 %.not.i.i22, label %67, label %65
 
 65:                                               ; preds = %61
-  %66 = call ptr @realloc(ptr noundef nonnull %60, i64 noundef %64) #9
+  %66 = call ptr @realloc(ptr noundef nonnull %60, i64 noundef %64) #10
   %.pre.i.i23 = load i32, ptr %17, align 4, !tbaa !30
   %.pre15.pre.i.i24 = load i32, ptr %15, align 8, !tbaa !29
   %.pre17.i.i25 = shl nsw i32 %.pre.i.i23, 1
   br label %69
 
 67:                                               ; preds = %61
-  %68 = call noalias ptr @malloc(i64 noundef %64) #8
+  %68 = call noalias ptr @malloc(i64 noundef %64) #9
   br label %69
 
 69:                                               ; preds = %67, %65
@@ -680,8 +680,8 @@ declare ptr @Mvc_CoverCommonCubeCover(ptr noundef) local_unnamed_addr #1
 
 declare ptr @Abc_FrameReadManDec(...) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Dec_FactorTrivialCube(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) initializes((4, 8)) %3) unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc i32 @Dec_FactorTrivialCube(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) initializes((4, 8)) %3) unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4, !tbaa !36
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -727,11 +727,11 @@ define internal fastcc i32 @Dec_FactorTrivialCube(ptr noundef %0, ptr noundef re
   br i1 %.not9.i.i, label %29, label %27
 
 27:                                               ; preds = %25
-  %28 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %26, i64 noundef 64) #9
+  %28 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %26, i64 noundef 64) #10
   br label %Vec_IntGrow.exit.i
 
 29:                                               ; preds = %25
-  %30 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #8
+  %30 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #9
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %29, %27
@@ -749,11 +749,11 @@ Vec_IntGrow.exit.i:                               ; preds = %29, %27
   br i1 %.not9.i9.i, label %39, label %37
 
 37:                                               ; preds = %32
-  %38 = tail call ptr @realloc(ptr noundef nonnull %34, i64 noundef %36) #9
+  %38 = tail call ptr @realloc(ptr noundef nonnull %34, i64 noundef %36) #10
   br label %41
 
 39:                                               ; preds = %32
-  %40 = tail call noalias ptr @malloc(i64 noundef %36) #8
+  %40 = tail call noalias ptr @malloc(i64 noundef %36) #9
   br label %41
 
 41:                                               ; preds = %39, %37
@@ -791,8 +791,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   ret i32 %55
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Dec_FactorTrivialTree_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc i32 @Dec_FactorTrivialTree_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #4 {
   %5 = icmp eq i32 %2, 1
   br i1 %5, label %6, label %7
 
@@ -828,14 +828,14 @@ define internal fastcc i32 @Dec_FactorTrivialTree_rec(ptr noundef %0, ptr nounde
   br i1 %.not.i.i, label %28, label %26
 
 26:                                               ; preds = %22
-  %27 = tail call ptr @realloc(ptr noundef nonnull %20, i64 noundef %25) #9
+  %27 = tail call ptr @realloc(ptr noundef nonnull %20, i64 noundef %25) #10
   %.pre.i.i = load i32, ptr %16, align 4, !tbaa !30
   %.pre15.pre.i.i = load i32, ptr %14, align 8, !tbaa !29
   %.pre17.i.i = shl nsw i32 %.pre.i.i, 1
   br label %30
 
 28:                                               ; preds = %22
-  %29 = tail call noalias ptr @malloc(i64 noundef %25) #8
+  %29 = tail call noalias ptr @malloc(i64 noundef %25) #9
   br label %30
 
 30:                                               ; preds = %28, %26
@@ -886,14 +886,14 @@ Dec_GraphAddNodeOr.exit:                          ; preds = %21, %30
   br i1 %.not.i.i22, label %60, label %58
 
 58:                                               ; preds = %54
-  %59 = tail call ptr @realloc(ptr noundef nonnull %20, i64 noundef %57) #9
+  %59 = tail call ptr @realloc(ptr noundef nonnull %20, i64 noundef %57) #10
   %.pre.i.i23 = load i32, ptr %16, align 4, !tbaa !30
   %.pre15.pre.i.i24 = load i32, ptr %14, align 8, !tbaa !29
   %.pre17.i.i25 = shl nsw i32 %.pre.i.i23, 1
   br label %62
 
 60:                                               ; preds = %54
-  %61 = tail call noalias ptr @malloc(i64 noundef %57) #8
+  %61 = tail call noalias ptr @malloc(i64 noundef %57) #9
   br label %62
 
 62:                                               ; preds = %60, %58
@@ -935,7 +935,7 @@ Dec_GraphAddNodeAnd.exit:                         ; preds = %53, %62
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #4
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 declare ptr @Mvc_CoverBestLiteralCover(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -948,24 +948,25 @@ declare ptr @Mvc_CoverAlloc(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @Mvc_CubeAlloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind allocsize(0) }
-attributes #9 = { nounwind allocsize(1) }
+attributes #4 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind allocsize(0) }
+attributes #10 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

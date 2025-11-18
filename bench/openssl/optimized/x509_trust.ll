@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [11 x i8] c"TSA server\00", align 1
 @trstandard = internal global [8 x { i32, i32, ptr, ptr, i32, [4 x i8], ptr }] [{ i32, i32, ptr, ptr, i32, [4 x i8], ptr } { i32 1, i32 0, ptr @trust_compat, ptr @.str.1, i32 0, [4 x i8] zeroinitializer, ptr null }, { i32, i32, ptr, ptr, i32, [4 x i8], ptr } { i32 2, i32 0, ptr @trust_1oidany, ptr @.str.2, i32 130, [4 x i8] zeroinitializer, ptr null }, { i32, i32, ptr, ptr, i32, [4 x i8], ptr } { i32 3, i32 0, ptr @trust_1oidany, ptr @.str.3, i32 129, [4 x i8] zeroinitializer, ptr null }, { i32, i32, ptr, ptr, i32, [4 x i8], ptr } { i32 4, i32 0, ptr @trust_1oidany, ptr @.str.4, i32 132, [4 x i8] zeroinitializer, ptr null }, { i32, i32, ptr, ptr, i32, [4 x i8], ptr } { i32 5, i32 0, ptr @trust_1oidany, ptr @.str.5, i32 131, [4 x i8] zeroinitializer, ptr null }, { i32, i32, ptr, ptr, i32, [4 x i8], ptr } { i32 6, i32 0, ptr @trust_1oid, ptr @.str.6, i32 180, [4 x i8] zeroinitializer, ptr null }, { i32, i32, ptr, ptr, i32, [4 x i8], ptr } { i32 7, i32 0, ptr @trust_1oid, ptr @.str.7, i32 178, [4 x i8] zeroinitializer, ptr null }, { i32, i32, ptr, ptr, i32, [4 x i8], ptr } { i32 8, i32 0, ptr @trust_1oidany, ptr @.str.8, i32 133, [4 x i8] zeroinitializer, ptr null }], align 16
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @X509_TRUST_set_default(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @default_trust, align 8, !tbaa !3
   store ptr %0, ptr @default_trust, align 8, !tbaa !3
@@ -494,7 +494,7 @@ declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_
 
 declare ptr @OPENSSL_sk_new(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal i32 @tr_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load ptr, ptr %0, align 8, !tbaa !55
   %4 = load i32, ptr %3, align 8, !tbaa !9
@@ -621,10 +621,10 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }

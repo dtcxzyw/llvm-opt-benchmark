@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 @SDL_GeneratedBlitFuncTable = hidden local_unnamed_addr global [169 x %struct.SDL_BlitFuncEntry] [%struct.SDL_BlitFuncEntry { i32 370546692, i32 370546692, i32 2048, i32 0, ptr @SDL_Blit_XRGB8888_XRGB8888_Scale }, %struct.SDL_BlitFuncEntry { i32 370546692, i32 370546692, i32 1008, i32 0, ptr @SDL_Blit_XRGB8888_XRGB8888_Blend }, %struct.SDL_BlitFuncEntry { i32 370546692, i32 370546692, i32 3056, i32 0, ptr @SDL_Blit_XRGB8888_XRGB8888_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 370546692, i32 370546692, i32 3, i32 0, ptr @SDL_Blit_XRGB8888_XRGB8888_Modulate }, %struct.SDL_BlitFuncEntry { i32 370546692, i32 370546692, i32 2051, i32 0, ptr @SDL_Blit_XRGB8888_XRGB8888_Modulate_Scale }, %struct.SDL_BlitFuncEntry { i32 370546692, i32 370546692, i32 1011, i32 0, ptr @SDL_Blit_XRGB8888_XRGB8888_Modulate_Blend }, %struct.SDL_BlitFuncEntry { i32 370546692, i32 370546692, i32 3059, i32 0, ptr @SDL_Blit_XRGB8888_XRGB8888_Modulate_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 370546692, i32 374740996, i32 2048, i32 0, ptr @SDL_Blit_XRGB8888_XBGR8888_Scale }, %struct.SDL_BlitFuncEntry { i32 370546692, i32 374740996, i32 1008, i32 0, ptr @SDL_Blit_XRGB8888_XBGR8888_Blend }, %struct.SDL_BlitFuncEntry { i32 370546692, i32 374740996, i32 3056, i32 0, ptr @SDL_Blit_XRGB8888_XBGR8888_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 370546692, i32 374740996, i32 3, i32 0, ptr @SDL_Blit_XRGB8888_XBGR8888_Modulate }, %struct.SDL_BlitFuncEntry { i32 370546692, i32 374740996, i32 2051, i32 0, ptr @SDL_Blit_XRGB8888_XBGR8888_Modulate_Scale }, %struct.SDL_BlitFuncEntry { i32 370546692, i32 374740996, i32 1011, i32 0, ptr @SDL_Blit_XRGB8888_XBGR8888_Modulate_Blend }, %struct.SDL_BlitFuncEntry { i32 370546692, i32 374740996, i32 3059, i32 0, ptr @SDL_Blit_XRGB8888_XBGR8888_Modulate_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 370546692, i32 372645892, i32 2048, i32 0, ptr @SDL_Blit_XRGB8888_ARGB8888_Scale }, %struct.SDL_BlitFuncEntry { i32 370546692, i32 372645892, i32 1008, i32 0, ptr @SDL_Blit_XRGB8888_ARGB8888_Blend }, %struct.SDL_BlitFuncEntry { i32 370546692, i32 372645892, i32 3056, i32 0, ptr @SDL_Blit_XRGB8888_ARGB8888_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 370546692, i32 372645892, i32 3, i32 0, ptr @SDL_Blit_XRGB8888_ARGB8888_Modulate }, %struct.SDL_BlitFuncEntry { i32 370546692, i32 372645892, i32 2051, i32 0, ptr @SDL_Blit_XRGB8888_ARGB8888_Modulate_Scale }, %struct.SDL_BlitFuncEntry { i32 370546692, i32 372645892, i32 1011, i32 0, ptr @SDL_Blit_XRGB8888_ARGB8888_Modulate_Blend }, %struct.SDL_BlitFuncEntry { i32 370546692, i32 372645892, i32 3059, i32 0, ptr @SDL_Blit_XRGB8888_ARGB8888_Modulate_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 370546692, i32 376840196, i32 2048, i32 0, ptr @SDL_Blit_XRGB8888_ABGR8888_Scale }, %struct.SDL_BlitFuncEntry { i32 370546692, i32 376840196, i32 1008, i32 0, ptr @SDL_Blit_XRGB8888_ABGR8888_Blend }, %struct.SDL_BlitFuncEntry { i32 370546692, i32 376840196, i32 3056, i32 0, ptr @SDL_Blit_XRGB8888_ABGR8888_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 370546692, i32 376840196, i32 3, i32 0, ptr @SDL_Blit_XRGB8888_ABGR8888_Modulate }, %struct.SDL_BlitFuncEntry { i32 370546692, i32 376840196, i32 2051, i32 0, ptr @SDL_Blit_XRGB8888_ABGR8888_Modulate_Scale }, %struct.SDL_BlitFuncEntry { i32 370546692, i32 376840196, i32 1011, i32 0, ptr @SDL_Blit_XRGB8888_ABGR8888_Modulate_Blend }, %struct.SDL_BlitFuncEntry { i32 370546692, i32 376840196, i32 3059, i32 0, ptr @SDL_Blit_XRGB8888_ABGR8888_Modulate_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 374740996, i32 370546692, i32 2048, i32 0, ptr @SDL_Blit_XBGR8888_XRGB8888_Scale }, %struct.SDL_BlitFuncEntry { i32 374740996, i32 370546692, i32 1008, i32 0, ptr @SDL_Blit_XBGR8888_XRGB8888_Blend }, %struct.SDL_BlitFuncEntry { i32 374740996, i32 370546692, i32 3056, i32 0, ptr @SDL_Blit_XBGR8888_XRGB8888_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 374740996, i32 370546692, i32 3, i32 0, ptr @SDL_Blit_XBGR8888_XRGB8888_Modulate }, %struct.SDL_BlitFuncEntry { i32 374740996, i32 370546692, i32 2051, i32 0, ptr @SDL_Blit_XBGR8888_XRGB8888_Modulate_Scale }, %struct.SDL_BlitFuncEntry { i32 374740996, i32 370546692, i32 1011, i32 0, ptr @SDL_Blit_XBGR8888_XRGB8888_Modulate_Blend }, %struct.SDL_BlitFuncEntry { i32 374740996, i32 370546692, i32 3059, i32 0, ptr @SDL_Blit_XBGR8888_XRGB8888_Modulate_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 374740996, i32 374740996, i32 2048, i32 0, ptr @SDL_Blit_XBGR8888_XBGR8888_Scale }, %struct.SDL_BlitFuncEntry { i32 374740996, i32 374740996, i32 1008, i32 0, ptr @SDL_Blit_XBGR8888_XBGR8888_Blend }, %struct.SDL_BlitFuncEntry { i32 374740996, i32 374740996, i32 3056, i32 0, ptr @SDL_Blit_XBGR8888_XBGR8888_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 374740996, i32 374740996, i32 3, i32 0, ptr @SDL_Blit_XBGR8888_XBGR8888_Modulate }, %struct.SDL_BlitFuncEntry { i32 374740996, i32 374740996, i32 2051, i32 0, ptr @SDL_Blit_XBGR8888_XBGR8888_Modulate_Scale }, %struct.SDL_BlitFuncEntry { i32 374740996, i32 374740996, i32 1011, i32 0, ptr @SDL_Blit_XBGR8888_XBGR8888_Modulate_Blend }, %struct.SDL_BlitFuncEntry { i32 374740996, i32 374740996, i32 3059, i32 0, ptr @SDL_Blit_XBGR8888_XBGR8888_Modulate_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 374740996, i32 372645892, i32 2048, i32 0, ptr @SDL_Blit_XBGR8888_ARGB8888_Scale }, %struct.SDL_BlitFuncEntry { i32 374740996, i32 372645892, i32 1008, i32 0, ptr @SDL_Blit_XBGR8888_ARGB8888_Blend }, %struct.SDL_BlitFuncEntry { i32 374740996, i32 372645892, i32 3056, i32 0, ptr @SDL_Blit_XBGR8888_ARGB8888_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 374740996, i32 372645892, i32 3, i32 0, ptr @SDL_Blit_XBGR8888_ARGB8888_Modulate }, %struct.SDL_BlitFuncEntry { i32 374740996, i32 372645892, i32 2051, i32 0, ptr @SDL_Blit_XBGR8888_ARGB8888_Modulate_Scale }, %struct.SDL_BlitFuncEntry { i32 374740996, i32 372645892, i32 1011, i32 0, ptr @SDL_Blit_XBGR8888_ARGB8888_Modulate_Blend }, %struct.SDL_BlitFuncEntry { i32 374740996, i32 372645892, i32 3059, i32 0, ptr @SDL_Blit_XBGR8888_ARGB8888_Modulate_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 374740996, i32 376840196, i32 2048, i32 0, ptr @SDL_Blit_XBGR8888_ABGR8888_Scale }, %struct.SDL_BlitFuncEntry { i32 374740996, i32 376840196, i32 1008, i32 0, ptr @SDL_Blit_XBGR8888_ABGR8888_Blend }, %struct.SDL_BlitFuncEntry { i32 374740996, i32 376840196, i32 3056, i32 0, ptr @SDL_Blit_XBGR8888_ABGR8888_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 374740996, i32 376840196, i32 3, i32 0, ptr @SDL_Blit_XBGR8888_ABGR8888_Modulate }, %struct.SDL_BlitFuncEntry { i32 374740996, i32 376840196, i32 2051, i32 0, ptr @SDL_Blit_XBGR8888_ABGR8888_Modulate_Scale }, %struct.SDL_BlitFuncEntry { i32 374740996, i32 376840196, i32 1011, i32 0, ptr @SDL_Blit_XBGR8888_ABGR8888_Modulate_Blend }, %struct.SDL_BlitFuncEntry { i32 374740996, i32 376840196, i32 3059, i32 0, ptr @SDL_Blit_XBGR8888_ABGR8888_Modulate_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 372645892, i32 370546692, i32 2048, i32 0, ptr @SDL_Blit_ARGB8888_XRGB8888_Scale }, %struct.SDL_BlitFuncEntry { i32 372645892, i32 370546692, i32 1008, i32 0, ptr @SDL_Blit_ARGB8888_XRGB8888_Blend }, %struct.SDL_BlitFuncEntry { i32 372645892, i32 370546692, i32 3056, i32 0, ptr @SDL_Blit_ARGB8888_XRGB8888_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 372645892, i32 370546692, i32 3, i32 0, ptr @SDL_Blit_ARGB8888_XRGB8888_Modulate }, %struct.SDL_BlitFuncEntry { i32 372645892, i32 370546692, i32 2051, i32 0, ptr @SDL_Blit_ARGB8888_XRGB8888_Modulate_Scale }, %struct.SDL_BlitFuncEntry { i32 372645892, i32 370546692, i32 1011, i32 0, ptr @SDL_Blit_ARGB8888_XRGB8888_Modulate_Blend }, %struct.SDL_BlitFuncEntry { i32 372645892, i32 370546692, i32 3059, i32 0, ptr @SDL_Blit_ARGB8888_XRGB8888_Modulate_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 372645892, i32 374740996, i32 2048, i32 0, ptr @SDL_Blit_ARGB8888_XBGR8888_Scale }, %struct.SDL_BlitFuncEntry { i32 372645892, i32 374740996, i32 1008, i32 0, ptr @SDL_Blit_ARGB8888_XBGR8888_Blend }, %struct.SDL_BlitFuncEntry { i32 372645892, i32 374740996, i32 3056, i32 0, ptr @SDL_Blit_ARGB8888_XBGR8888_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 372645892, i32 374740996, i32 3, i32 0, ptr @SDL_Blit_ARGB8888_XBGR8888_Modulate }, %struct.SDL_BlitFuncEntry { i32 372645892, i32 374740996, i32 2051, i32 0, ptr @SDL_Blit_ARGB8888_XBGR8888_Modulate_Scale }, %struct.SDL_BlitFuncEntry { i32 372645892, i32 374740996, i32 1011, i32 0, ptr @SDL_Blit_ARGB8888_XBGR8888_Modulate_Blend }, %struct.SDL_BlitFuncEntry { i32 372645892, i32 374740996, i32 3059, i32 0, ptr @SDL_Blit_ARGB8888_XBGR8888_Modulate_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 372645892, i32 372645892, i32 2048, i32 0, ptr @SDL_Blit_ARGB8888_ARGB8888_Scale }, %struct.SDL_BlitFuncEntry { i32 372645892, i32 372645892, i32 1008, i32 0, ptr @SDL_Blit_ARGB8888_ARGB8888_Blend }, %struct.SDL_BlitFuncEntry { i32 372645892, i32 372645892, i32 3056, i32 0, ptr @SDL_Blit_ARGB8888_ARGB8888_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 372645892, i32 372645892, i32 3, i32 0, ptr @SDL_Blit_ARGB8888_ARGB8888_Modulate }, %struct.SDL_BlitFuncEntry { i32 372645892, i32 372645892, i32 2051, i32 0, ptr @SDL_Blit_ARGB8888_ARGB8888_Modulate_Scale }, %struct.SDL_BlitFuncEntry { i32 372645892, i32 372645892, i32 1011, i32 0, ptr @SDL_Blit_ARGB8888_ARGB8888_Modulate_Blend }, %struct.SDL_BlitFuncEntry { i32 372645892, i32 372645892, i32 3059, i32 0, ptr @SDL_Blit_ARGB8888_ARGB8888_Modulate_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 372645892, i32 376840196, i32 2048, i32 0, ptr @SDL_Blit_ARGB8888_ABGR8888_Scale }, %struct.SDL_BlitFuncEntry { i32 372645892, i32 376840196, i32 1008, i32 0, ptr @SDL_Blit_ARGB8888_ABGR8888_Blend }, %struct.SDL_BlitFuncEntry { i32 372645892, i32 376840196, i32 3056, i32 0, ptr @SDL_Blit_ARGB8888_ABGR8888_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 372645892, i32 376840196, i32 3, i32 0, ptr @SDL_Blit_ARGB8888_ABGR8888_Modulate }, %struct.SDL_BlitFuncEntry { i32 372645892, i32 376840196, i32 2051, i32 0, ptr @SDL_Blit_ARGB8888_ABGR8888_Modulate_Scale }, %struct.SDL_BlitFuncEntry { i32 372645892, i32 376840196, i32 1011, i32 0, ptr @SDL_Blit_ARGB8888_ABGR8888_Modulate_Blend }, %struct.SDL_BlitFuncEntry { i32 372645892, i32 376840196, i32 3059, i32 0, ptr @SDL_Blit_ARGB8888_ABGR8888_Modulate_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 373694468, i32 370546692, i32 2048, i32 0, ptr @SDL_Blit_RGBA8888_XRGB8888_Scale }, %struct.SDL_BlitFuncEntry { i32 373694468, i32 370546692, i32 1008, i32 0, ptr @SDL_Blit_RGBA8888_XRGB8888_Blend }, %struct.SDL_BlitFuncEntry { i32 373694468, i32 370546692, i32 3056, i32 0, ptr @SDL_Blit_RGBA8888_XRGB8888_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 373694468, i32 370546692, i32 3, i32 0, ptr @SDL_Blit_RGBA8888_XRGB8888_Modulate }, %struct.SDL_BlitFuncEntry { i32 373694468, i32 370546692, i32 2051, i32 0, ptr @SDL_Blit_RGBA8888_XRGB8888_Modulate_Scale }, %struct.SDL_BlitFuncEntry { i32 373694468, i32 370546692, i32 1011, i32 0, ptr @SDL_Blit_RGBA8888_XRGB8888_Modulate_Blend }, %struct.SDL_BlitFuncEntry { i32 373694468, i32 370546692, i32 3059, i32 0, ptr @SDL_Blit_RGBA8888_XRGB8888_Modulate_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 373694468, i32 374740996, i32 2048, i32 0, ptr @SDL_Blit_RGBA8888_XBGR8888_Scale }, %struct.SDL_BlitFuncEntry { i32 373694468, i32 374740996, i32 1008, i32 0, ptr @SDL_Blit_RGBA8888_XBGR8888_Blend }, %struct.SDL_BlitFuncEntry { i32 373694468, i32 374740996, i32 3056, i32 0, ptr @SDL_Blit_RGBA8888_XBGR8888_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 373694468, i32 374740996, i32 3, i32 0, ptr @SDL_Blit_RGBA8888_XBGR8888_Modulate }, %struct.SDL_BlitFuncEntry { i32 373694468, i32 374740996, i32 2051, i32 0, ptr @SDL_Blit_RGBA8888_XBGR8888_Modulate_Scale }, %struct.SDL_BlitFuncEntry { i32 373694468, i32 374740996, i32 1011, i32 0, ptr @SDL_Blit_RGBA8888_XBGR8888_Modulate_Blend }, %struct.SDL_BlitFuncEntry { i32 373694468, i32 374740996, i32 3059, i32 0, ptr @SDL_Blit_RGBA8888_XBGR8888_Modulate_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 373694468, i32 372645892, i32 2048, i32 0, ptr @SDL_Blit_RGBA8888_ARGB8888_Scale }, %struct.SDL_BlitFuncEntry { i32 373694468, i32 372645892, i32 1008, i32 0, ptr @SDL_Blit_RGBA8888_ARGB8888_Blend }, %struct.SDL_BlitFuncEntry { i32 373694468, i32 372645892, i32 3056, i32 0, ptr @SDL_Blit_RGBA8888_ARGB8888_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 373694468, i32 372645892, i32 3, i32 0, ptr @SDL_Blit_RGBA8888_ARGB8888_Modulate }, %struct.SDL_BlitFuncEntry { i32 373694468, i32 372645892, i32 2051, i32 0, ptr @SDL_Blit_RGBA8888_ARGB8888_Modulate_Scale }, %struct.SDL_BlitFuncEntry { i32 373694468, i32 372645892, i32 1011, i32 0, ptr @SDL_Blit_RGBA8888_ARGB8888_Modulate_Blend }, %struct.SDL_BlitFuncEntry { i32 373694468, i32 372645892, i32 3059, i32 0, ptr @SDL_Blit_RGBA8888_ARGB8888_Modulate_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 373694468, i32 376840196, i32 2048, i32 0, ptr @SDL_Blit_RGBA8888_ABGR8888_Scale }, %struct.SDL_BlitFuncEntry { i32 373694468, i32 376840196, i32 1008, i32 0, ptr @SDL_Blit_RGBA8888_ABGR8888_Blend }, %struct.SDL_BlitFuncEntry { i32 373694468, i32 376840196, i32 3056, i32 0, ptr @SDL_Blit_RGBA8888_ABGR8888_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 373694468, i32 376840196, i32 3, i32 0, ptr @SDL_Blit_RGBA8888_ABGR8888_Modulate }, %struct.SDL_BlitFuncEntry { i32 373694468, i32 376840196, i32 2051, i32 0, ptr @SDL_Blit_RGBA8888_ABGR8888_Modulate_Scale }, %struct.SDL_BlitFuncEntry { i32 373694468, i32 376840196, i32 1011, i32 0, ptr @SDL_Blit_RGBA8888_ABGR8888_Modulate_Blend }, %struct.SDL_BlitFuncEntry { i32 373694468, i32 376840196, i32 3059, i32 0, ptr @SDL_Blit_RGBA8888_ABGR8888_Modulate_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 376840196, i32 370546692, i32 2048, i32 0, ptr @SDL_Blit_ABGR8888_XRGB8888_Scale }, %struct.SDL_BlitFuncEntry { i32 376840196, i32 370546692, i32 1008, i32 0, ptr @SDL_Blit_ABGR8888_XRGB8888_Blend }, %struct.SDL_BlitFuncEntry { i32 376840196, i32 370546692, i32 3056, i32 0, ptr @SDL_Blit_ABGR8888_XRGB8888_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 376840196, i32 370546692, i32 3, i32 0, ptr @SDL_Blit_ABGR8888_XRGB8888_Modulate }, %struct.SDL_BlitFuncEntry { i32 376840196, i32 370546692, i32 2051, i32 0, ptr @SDL_Blit_ABGR8888_XRGB8888_Modulate_Scale }, %struct.SDL_BlitFuncEntry { i32 376840196, i32 370546692, i32 1011, i32 0, ptr @SDL_Blit_ABGR8888_XRGB8888_Modulate_Blend }, %struct.SDL_BlitFuncEntry { i32 376840196, i32 370546692, i32 3059, i32 0, ptr @SDL_Blit_ABGR8888_XRGB8888_Modulate_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 376840196, i32 374740996, i32 2048, i32 0, ptr @SDL_Blit_ABGR8888_XBGR8888_Scale }, %struct.SDL_BlitFuncEntry { i32 376840196, i32 374740996, i32 1008, i32 0, ptr @SDL_Blit_ABGR8888_XBGR8888_Blend }, %struct.SDL_BlitFuncEntry { i32 376840196, i32 374740996, i32 3056, i32 0, ptr @SDL_Blit_ABGR8888_XBGR8888_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 376840196, i32 374740996, i32 3, i32 0, ptr @SDL_Blit_ABGR8888_XBGR8888_Modulate }, %struct.SDL_BlitFuncEntry { i32 376840196, i32 374740996, i32 2051, i32 0, ptr @SDL_Blit_ABGR8888_XBGR8888_Modulate_Scale }, %struct.SDL_BlitFuncEntry { i32 376840196, i32 374740996, i32 1011, i32 0, ptr @SDL_Blit_ABGR8888_XBGR8888_Modulate_Blend }, %struct.SDL_BlitFuncEntry { i32 376840196, i32 374740996, i32 3059, i32 0, ptr @SDL_Blit_ABGR8888_XBGR8888_Modulate_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 376840196, i32 372645892, i32 2048, i32 0, ptr @SDL_Blit_ABGR8888_ARGB8888_Scale }, %struct.SDL_BlitFuncEntry { i32 376840196, i32 372645892, i32 1008, i32 0, ptr @SDL_Blit_ABGR8888_ARGB8888_Blend }, %struct.SDL_BlitFuncEntry { i32 376840196, i32 372645892, i32 3056, i32 0, ptr @SDL_Blit_ABGR8888_ARGB8888_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 376840196, i32 372645892, i32 3, i32 0, ptr @SDL_Blit_ABGR8888_ARGB8888_Modulate }, %struct.SDL_BlitFuncEntry { i32 376840196, i32 372645892, i32 2051, i32 0, ptr @SDL_Blit_ABGR8888_ARGB8888_Modulate_Scale }, %struct.SDL_BlitFuncEntry { i32 376840196, i32 372645892, i32 1011, i32 0, ptr @SDL_Blit_ABGR8888_ARGB8888_Modulate_Blend }, %struct.SDL_BlitFuncEntry { i32 376840196, i32 372645892, i32 3059, i32 0, ptr @SDL_Blit_ABGR8888_ARGB8888_Modulate_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 376840196, i32 376840196, i32 2048, i32 0, ptr @SDL_Blit_ABGR8888_ABGR8888_Scale }, %struct.SDL_BlitFuncEntry { i32 376840196, i32 376840196, i32 1008, i32 0, ptr @SDL_Blit_ABGR8888_ABGR8888_Blend }, %struct.SDL_BlitFuncEntry { i32 376840196, i32 376840196, i32 3056, i32 0, ptr @SDL_Blit_ABGR8888_ABGR8888_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 376840196, i32 376840196, i32 3, i32 0, ptr @SDL_Blit_ABGR8888_ABGR8888_Modulate }, %struct.SDL_BlitFuncEntry { i32 376840196, i32 376840196, i32 2051, i32 0, ptr @SDL_Blit_ABGR8888_ABGR8888_Modulate_Scale }, %struct.SDL_BlitFuncEntry { i32 376840196, i32 376840196, i32 1011, i32 0, ptr @SDL_Blit_ABGR8888_ABGR8888_Modulate_Blend }, %struct.SDL_BlitFuncEntry { i32 376840196, i32 376840196, i32 3059, i32 0, ptr @SDL_Blit_ABGR8888_ABGR8888_Modulate_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 377888772, i32 370546692, i32 2048, i32 0, ptr @SDL_Blit_BGRA8888_XRGB8888_Scale }, %struct.SDL_BlitFuncEntry { i32 377888772, i32 370546692, i32 1008, i32 0, ptr @SDL_Blit_BGRA8888_XRGB8888_Blend }, %struct.SDL_BlitFuncEntry { i32 377888772, i32 370546692, i32 3056, i32 0, ptr @SDL_Blit_BGRA8888_XRGB8888_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 377888772, i32 370546692, i32 3, i32 0, ptr @SDL_Blit_BGRA8888_XRGB8888_Modulate }, %struct.SDL_BlitFuncEntry { i32 377888772, i32 370546692, i32 2051, i32 0, ptr @SDL_Blit_BGRA8888_XRGB8888_Modulate_Scale }, %struct.SDL_BlitFuncEntry { i32 377888772, i32 370546692, i32 1011, i32 0, ptr @SDL_Blit_BGRA8888_XRGB8888_Modulate_Blend }, %struct.SDL_BlitFuncEntry { i32 377888772, i32 370546692, i32 3059, i32 0, ptr @SDL_Blit_BGRA8888_XRGB8888_Modulate_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 377888772, i32 374740996, i32 2048, i32 0, ptr @SDL_Blit_BGRA8888_XBGR8888_Scale }, %struct.SDL_BlitFuncEntry { i32 377888772, i32 374740996, i32 1008, i32 0, ptr @SDL_Blit_BGRA8888_XBGR8888_Blend }, %struct.SDL_BlitFuncEntry { i32 377888772, i32 374740996, i32 3056, i32 0, ptr @SDL_Blit_BGRA8888_XBGR8888_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 377888772, i32 374740996, i32 3, i32 0, ptr @SDL_Blit_BGRA8888_XBGR8888_Modulate }, %struct.SDL_BlitFuncEntry { i32 377888772, i32 374740996, i32 2051, i32 0, ptr @SDL_Blit_BGRA8888_XBGR8888_Modulate_Scale }, %struct.SDL_BlitFuncEntry { i32 377888772, i32 374740996, i32 1011, i32 0, ptr @SDL_Blit_BGRA8888_XBGR8888_Modulate_Blend }, %struct.SDL_BlitFuncEntry { i32 377888772, i32 374740996, i32 3059, i32 0, ptr @SDL_Blit_BGRA8888_XBGR8888_Modulate_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 377888772, i32 372645892, i32 2048, i32 0, ptr @SDL_Blit_BGRA8888_ARGB8888_Scale }, %struct.SDL_BlitFuncEntry { i32 377888772, i32 372645892, i32 1008, i32 0, ptr @SDL_Blit_BGRA8888_ARGB8888_Blend }, %struct.SDL_BlitFuncEntry { i32 377888772, i32 372645892, i32 3056, i32 0, ptr @SDL_Blit_BGRA8888_ARGB8888_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 377888772, i32 372645892, i32 3, i32 0, ptr @SDL_Blit_BGRA8888_ARGB8888_Modulate }, %struct.SDL_BlitFuncEntry { i32 377888772, i32 372645892, i32 2051, i32 0, ptr @SDL_Blit_BGRA8888_ARGB8888_Modulate_Scale }, %struct.SDL_BlitFuncEntry { i32 377888772, i32 372645892, i32 1011, i32 0, ptr @SDL_Blit_BGRA8888_ARGB8888_Modulate_Blend }, %struct.SDL_BlitFuncEntry { i32 377888772, i32 372645892, i32 3059, i32 0, ptr @SDL_Blit_BGRA8888_ARGB8888_Modulate_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 377888772, i32 376840196, i32 2048, i32 0, ptr @SDL_Blit_BGRA8888_ABGR8888_Scale }, %struct.SDL_BlitFuncEntry { i32 377888772, i32 376840196, i32 1008, i32 0, ptr @SDL_Blit_BGRA8888_ABGR8888_Blend }, %struct.SDL_BlitFuncEntry { i32 377888772, i32 376840196, i32 3056, i32 0, ptr @SDL_Blit_BGRA8888_ABGR8888_Blend_Scale }, %struct.SDL_BlitFuncEntry { i32 377888772, i32 376840196, i32 3, i32 0, ptr @SDL_Blit_BGRA8888_ABGR8888_Modulate }, %struct.SDL_BlitFuncEntry { i32 377888772, i32 376840196, i32 2051, i32 0, ptr @SDL_Blit_BGRA8888_ABGR8888_Modulate_Scale }, %struct.SDL_BlitFuncEntry { i32 377888772, i32 376840196, i32 1011, i32 0, ptr @SDL_Blit_BGRA8888_ABGR8888_Modulate_Blend }, %struct.SDL_BlitFuncEntry { i32 377888772, i32 376840196, i32 3059, i32 0, ptr @SDL_Blit_BGRA8888_ABGR8888_Modulate_Blend_Scale }, %struct.SDL_BlitFuncEntry zeroinitializer], align 16
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XRGB8888_XRGB8888_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
@@ -106,7 +106,7 @@ define internal void @SDL_Blit_XRGB8888_XRGB8888_Scale(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XRGB8888_XRGB8888_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -284,7 +284,7 @@ define internal void @SDL_Blit_XRGB8888_XRGB8888_Blend(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XRGB8888_XRGB8888_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -470,7 +470,7 @@ define internal void @SDL_Blit_XRGB8888_XRGB8888_Blend_Scale(ptr noundef capture
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XRGB8888_XRGB8888_Modulate(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -603,7 +603,7 @@ define internal void @SDL_Blit_XRGB8888_XRGB8888_Modulate(ptr noundef captures(n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XRGB8888_XRGB8888_Modulate_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -756,7 +756,7 @@ define internal void @SDL_Blit_XRGB8888_XRGB8888_Modulate_Scale(ptr noundef capt
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XRGB8888_XRGB8888_Modulate_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -1069,7 +1069,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XRGB8888_XRGB8888_Modulate_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -1389,7 +1389,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XRGB8888_XBGR8888_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
@@ -1495,7 +1495,7 @@ define internal void @SDL_Blit_XRGB8888_XBGR8888_Scale(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XRGB8888_XBGR8888_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -1673,7 +1673,7 @@ define internal void @SDL_Blit_XRGB8888_XBGR8888_Blend(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XRGB8888_XBGR8888_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -1859,7 +1859,7 @@ define internal void @SDL_Blit_XRGB8888_XBGR8888_Blend_Scale(ptr noundef capture
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XRGB8888_XBGR8888_Modulate(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -1998,7 +1998,7 @@ define internal void @SDL_Blit_XRGB8888_XBGR8888_Modulate(ptr noundef captures(n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XRGB8888_XBGR8888_Modulate_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -2157,7 +2157,7 @@ define internal void @SDL_Blit_XRGB8888_XBGR8888_Modulate_Scale(ptr noundef capt
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XRGB8888_XBGR8888_Modulate_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -2470,7 +2470,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XRGB8888_XBGR8888_Modulate_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -2790,7 +2790,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XRGB8888_ARGB8888_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
@@ -2890,7 +2890,7 @@ define internal void @SDL_Blit_XRGB8888_ARGB8888_Scale(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XRGB8888_ARGB8888_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -3065,7 +3065,7 @@ define internal void @SDL_Blit_XRGB8888_ARGB8888_Blend(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XRGB8888_ARGB8888_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -3247,7 +3247,7 @@ define internal void @SDL_Blit_XRGB8888_ARGB8888_Blend_Scale(ptr noundef capture
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XRGB8888_ARGB8888_Modulate(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -3389,7 +3389,7 @@ define internal void @SDL_Blit_XRGB8888_ARGB8888_Modulate(ptr noundef captures(n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XRGB8888_ARGB8888_Modulate_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -3551,7 +3551,7 @@ define internal void @SDL_Blit_XRGB8888_ARGB8888_Modulate_Scale(ptr noundef capt
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XRGB8888_ARGB8888_Modulate_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -3881,7 +3881,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XRGB8888_ARGB8888_Modulate_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -4218,7 +4218,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XRGB8888_ABGR8888_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
@@ -4324,7 +4324,7 @@ define internal void @SDL_Blit_XRGB8888_ABGR8888_Scale(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XRGB8888_ABGR8888_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -4499,7 +4499,7 @@ define internal void @SDL_Blit_XRGB8888_ABGR8888_Blend(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XRGB8888_ABGR8888_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -4681,7 +4681,7 @@ define internal void @SDL_Blit_XRGB8888_ABGR8888_Blend_Scale(ptr noundef capture
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XRGB8888_ABGR8888_Modulate(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -4829,7 +4829,7 @@ define internal void @SDL_Blit_XRGB8888_ABGR8888_Modulate(ptr noundef captures(n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XRGB8888_ABGR8888_Modulate_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -4997,7 +4997,7 @@ define internal void @SDL_Blit_XRGB8888_ABGR8888_Modulate_Scale(ptr noundef capt
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XRGB8888_ABGR8888_Modulate_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -5327,7 +5327,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XRGB8888_ABGR8888_Modulate_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -5664,7 +5664,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XBGR8888_XRGB8888_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
@@ -5770,7 +5770,7 @@ define internal void @SDL_Blit_XBGR8888_XRGB8888_Scale(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XBGR8888_XRGB8888_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -5948,7 +5948,7 @@ define internal void @SDL_Blit_XBGR8888_XRGB8888_Blend(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XBGR8888_XRGB8888_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -6134,7 +6134,7 @@ define internal void @SDL_Blit_XBGR8888_XRGB8888_Blend_Scale(ptr noundef capture
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XBGR8888_XRGB8888_Modulate(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -6273,7 +6273,7 @@ define internal void @SDL_Blit_XBGR8888_XRGB8888_Modulate(ptr noundef captures(n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XBGR8888_XRGB8888_Modulate_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -6432,7 +6432,7 @@ define internal void @SDL_Blit_XBGR8888_XRGB8888_Modulate_Scale(ptr noundef capt
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XBGR8888_XRGB8888_Modulate_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -6745,7 +6745,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XBGR8888_XRGB8888_Modulate_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -7065,7 +7065,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XBGR8888_XBGR8888_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
@@ -7164,7 +7164,7 @@ define internal void @SDL_Blit_XBGR8888_XBGR8888_Scale(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XBGR8888_XBGR8888_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -7342,7 +7342,7 @@ define internal void @SDL_Blit_XBGR8888_XBGR8888_Blend(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XBGR8888_XBGR8888_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -7528,7 +7528,7 @@ define internal void @SDL_Blit_XBGR8888_XBGR8888_Blend_Scale(ptr noundef capture
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XBGR8888_XBGR8888_Modulate(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -7661,7 +7661,7 @@ define internal void @SDL_Blit_XBGR8888_XBGR8888_Modulate(ptr noundef captures(n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XBGR8888_XBGR8888_Modulate_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -7814,7 +7814,7 @@ define internal void @SDL_Blit_XBGR8888_XBGR8888_Modulate_Scale(ptr noundef capt
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XBGR8888_XBGR8888_Modulate_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -8127,7 +8127,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XBGR8888_XBGR8888_Modulate_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -8447,7 +8447,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XBGR8888_ARGB8888_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
@@ -8553,7 +8553,7 @@ define internal void @SDL_Blit_XBGR8888_ARGB8888_Scale(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XBGR8888_ARGB8888_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -8728,7 +8728,7 @@ define internal void @SDL_Blit_XBGR8888_ARGB8888_Blend(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XBGR8888_ARGB8888_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -8910,7 +8910,7 @@ define internal void @SDL_Blit_XBGR8888_ARGB8888_Blend_Scale(ptr noundef capture
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XBGR8888_ARGB8888_Modulate(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -9058,7 +9058,7 @@ define internal void @SDL_Blit_XBGR8888_ARGB8888_Modulate(ptr noundef captures(n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XBGR8888_ARGB8888_Modulate_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -9226,7 +9226,7 @@ define internal void @SDL_Blit_XBGR8888_ARGB8888_Modulate_Scale(ptr noundef capt
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XBGR8888_ARGB8888_Modulate_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -9556,7 +9556,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XBGR8888_ARGB8888_Modulate_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -9893,7 +9893,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XBGR8888_ABGR8888_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
@@ -9993,7 +9993,7 @@ define internal void @SDL_Blit_XBGR8888_ABGR8888_Scale(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XBGR8888_ABGR8888_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -10168,7 +10168,7 @@ define internal void @SDL_Blit_XBGR8888_ABGR8888_Blend(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XBGR8888_ABGR8888_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -10350,7 +10350,7 @@ define internal void @SDL_Blit_XBGR8888_ABGR8888_Blend_Scale(ptr noundef capture
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XBGR8888_ABGR8888_Modulate(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -10492,7 +10492,7 @@ define internal void @SDL_Blit_XBGR8888_ABGR8888_Modulate(ptr noundef captures(n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XBGR8888_ABGR8888_Modulate_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -10654,7 +10654,7 @@ define internal void @SDL_Blit_XBGR8888_ABGR8888_Modulate_Scale(ptr noundef capt
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XBGR8888_ABGR8888_Modulate_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -10984,7 +10984,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_XBGR8888_ABGR8888_Modulate_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -11321,7 +11321,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ARGB8888_XRGB8888_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
@@ -11421,7 +11421,7 @@ define internal void @SDL_Blit_ARGB8888_XRGB8888_Scale(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ARGB8888_XRGB8888_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -11718,7 +11718,7 @@ default.unreachable:                              ; preds = %.split.us
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ARGB8888_XRGB8888_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -12005,7 +12005,7 @@ default.unreachable:                              ; preds = %.split.us
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ARGB8888_XRGB8888_Modulate(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -12138,7 +12138,7 @@ define internal void @SDL_Blit_ARGB8888_XRGB8888_Modulate(ptr noundef captures(n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ARGB8888_XRGB8888_Modulate_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -12291,7 +12291,7 @@ define internal void @SDL_Blit_ARGB8888_XRGB8888_Modulate_Scale(ptr noundef capt
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ARGB8888_XRGB8888_Modulate_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -12618,7 +12618,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ARGB8888_XRGB8888_Modulate_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -12952,7 +12952,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ARGB8888_XBGR8888_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
@@ -13058,7 +13058,7 @@ define internal void @SDL_Blit_ARGB8888_XBGR8888_Scale(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ARGB8888_XBGR8888_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -13355,7 +13355,7 @@ default.unreachable:                              ; preds = %.split.us
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ARGB8888_XBGR8888_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -13642,7 +13642,7 @@ default.unreachable:                              ; preds = %.split.us
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ARGB8888_XBGR8888_Modulate(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -13781,7 +13781,7 @@ define internal void @SDL_Blit_ARGB8888_XBGR8888_Modulate(ptr noundef captures(n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ARGB8888_XBGR8888_Modulate_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -13940,7 +13940,7 @@ define internal void @SDL_Blit_ARGB8888_XBGR8888_Modulate_Scale(ptr noundef capt
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ARGB8888_XBGR8888_Modulate_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -14267,7 +14267,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ARGB8888_XBGR8888_Modulate_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -14601,7 +14601,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ARGB8888_ARGB8888_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
@@ -14700,7 +14700,7 @@ define internal void @SDL_Blit_ARGB8888_ARGB8888_Scale(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ARGB8888_ARGB8888_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -14991,7 +14991,7 @@ default.unreachable:                              ; preds = %.split.us
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ARGB8888_ARGB8888_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -15290,7 +15290,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ARGB8888_ARGB8888_Modulate(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -15471,7 +15471,7 @@ define internal void @SDL_Blit_ARGB8888_ARGB8888_Modulate(ptr noundef captures(n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ARGB8888_ARGB8888_Modulate_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -15659,7 +15659,7 @@ define internal void @SDL_Blit_ARGB8888_ARGB8888_Modulate_Scale(ptr noundef capt
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ARGB8888_ARGB8888_Modulate_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -16003,7 +16003,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ARGB8888_ARGB8888_Modulate_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -16354,7 +16354,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ARGB8888_ABGR8888_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
@@ -16460,7 +16460,7 @@ define internal void @SDL_Blit_ARGB8888_ABGR8888_Scale(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ARGB8888_ABGR8888_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -16751,7 +16751,7 @@ default.unreachable:                              ; preds = %.split.us
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ARGB8888_ABGR8888_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -17050,7 +17050,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ARGB8888_ABGR8888_Modulate(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -17244,7 +17244,7 @@ define internal void @SDL_Blit_ARGB8888_ABGR8888_Modulate(ptr noundef captures(n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ARGB8888_ABGR8888_Modulate_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -17438,7 +17438,7 @@ define internal void @SDL_Blit_ARGB8888_ABGR8888_Modulate_Scale(ptr noundef capt
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ARGB8888_ABGR8888_Modulate_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -17782,7 +17782,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ARGB8888_ABGR8888_Modulate_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -18133,7 +18133,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_RGBA8888_XRGB8888_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
@@ -18233,7 +18233,7 @@ define internal void @SDL_Blit_RGBA8888_XRGB8888_Scale(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_RGBA8888_XRGB8888_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -18530,7 +18530,7 @@ default.unreachable:                              ; preds = %.split.us
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_RGBA8888_XRGB8888_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -18817,7 +18817,7 @@ default.unreachable:                              ; preds = %.split.us
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_RGBA8888_XRGB8888_Modulate(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -18950,7 +18950,7 @@ define internal void @SDL_Blit_RGBA8888_XRGB8888_Modulate(ptr noundef captures(n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_RGBA8888_XRGB8888_Modulate_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -19103,7 +19103,7 @@ define internal void @SDL_Blit_RGBA8888_XRGB8888_Modulate_Scale(ptr noundef capt
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_RGBA8888_XRGB8888_Modulate_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -19430,7 +19430,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_RGBA8888_XRGB8888_Modulate_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -19764,7 +19764,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_RGBA8888_XBGR8888_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
@@ -19870,7 +19870,7 @@ define internal void @SDL_Blit_RGBA8888_XBGR8888_Scale(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_RGBA8888_XBGR8888_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -20167,7 +20167,7 @@ default.unreachable:                              ; preds = %.split.us
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_RGBA8888_XBGR8888_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -20454,7 +20454,7 @@ default.unreachable:                              ; preds = %.split.us
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_RGBA8888_XBGR8888_Modulate(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -20593,7 +20593,7 @@ define internal void @SDL_Blit_RGBA8888_XBGR8888_Modulate(ptr noundef captures(n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_RGBA8888_XBGR8888_Modulate_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -20752,7 +20752,7 @@ define internal void @SDL_Blit_RGBA8888_XBGR8888_Modulate_Scale(ptr noundef capt
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_RGBA8888_XBGR8888_Modulate_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -21079,7 +21079,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_RGBA8888_XBGR8888_Modulate_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -21413,7 +21413,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_RGBA8888_ARGB8888_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
@@ -21513,7 +21513,7 @@ define internal void @SDL_Blit_RGBA8888_ARGB8888_Scale(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_RGBA8888_ARGB8888_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -21804,7 +21804,7 @@ default.unreachable:                              ; preds = %.split.us
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_RGBA8888_ARGB8888_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -22103,7 +22103,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_RGBA8888_ARGB8888_Modulate(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -22285,7 +22285,7 @@ define internal void @SDL_Blit_RGBA8888_ARGB8888_Modulate(ptr noundef captures(n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_RGBA8888_ARGB8888_Modulate_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -22471,7 +22471,7 @@ define internal void @SDL_Blit_RGBA8888_ARGB8888_Modulate_Scale(ptr noundef capt
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_RGBA8888_ARGB8888_Modulate_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -22815,7 +22815,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_RGBA8888_ARGB8888_Modulate_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -23166,7 +23166,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_RGBA8888_ABGR8888_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
@@ -23266,7 +23266,7 @@ define internal void @SDL_Blit_RGBA8888_ABGR8888_Scale(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_RGBA8888_ABGR8888_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -23557,7 +23557,7 @@ default.unreachable:                              ; preds = %.split.us
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_RGBA8888_ABGR8888_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -23856,7 +23856,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_RGBA8888_ABGR8888_Modulate(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -24044,7 +24044,7 @@ define internal void @SDL_Blit_RGBA8888_ABGR8888_Modulate(ptr noundef captures(n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_RGBA8888_ABGR8888_Modulate_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -24238,7 +24238,7 @@ define internal void @SDL_Blit_RGBA8888_ABGR8888_Modulate_Scale(ptr noundef capt
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_RGBA8888_ABGR8888_Modulate_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -24582,7 +24582,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_RGBA8888_ABGR8888_Modulate_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -24933,7 +24933,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ABGR8888_XRGB8888_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
@@ -25039,7 +25039,7 @@ define internal void @SDL_Blit_ABGR8888_XRGB8888_Scale(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ABGR8888_XRGB8888_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -25336,7 +25336,7 @@ default.unreachable:                              ; preds = %.split.us
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ABGR8888_XRGB8888_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -25623,7 +25623,7 @@ default.unreachable:                              ; preds = %.split.us
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ABGR8888_XRGB8888_Modulate(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -25762,7 +25762,7 @@ define internal void @SDL_Blit_ABGR8888_XRGB8888_Modulate(ptr noundef captures(n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ABGR8888_XRGB8888_Modulate_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -25921,7 +25921,7 @@ define internal void @SDL_Blit_ABGR8888_XRGB8888_Modulate_Scale(ptr noundef capt
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ABGR8888_XRGB8888_Modulate_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -26248,7 +26248,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ABGR8888_XRGB8888_Modulate_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -26582,7 +26582,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ABGR8888_XBGR8888_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
@@ -26682,7 +26682,7 @@ define internal void @SDL_Blit_ABGR8888_XBGR8888_Scale(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ABGR8888_XBGR8888_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -26979,7 +26979,7 @@ default.unreachable:                              ; preds = %.split.us
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ABGR8888_XBGR8888_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -27266,7 +27266,7 @@ default.unreachable:                              ; preds = %.split.us
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ABGR8888_XBGR8888_Modulate(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -27399,7 +27399,7 @@ define internal void @SDL_Blit_ABGR8888_XBGR8888_Modulate(ptr noundef captures(n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ABGR8888_XBGR8888_Modulate_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -27552,7 +27552,7 @@ define internal void @SDL_Blit_ABGR8888_XBGR8888_Modulate_Scale(ptr noundef capt
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ABGR8888_XBGR8888_Modulate_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -27879,7 +27879,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ABGR8888_XBGR8888_Modulate_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -28213,7 +28213,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ABGR8888_ARGB8888_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
@@ -28319,7 +28319,7 @@ define internal void @SDL_Blit_ABGR8888_ARGB8888_Scale(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ABGR8888_ARGB8888_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -28610,7 +28610,7 @@ default.unreachable:                              ; preds = %.split.us
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ABGR8888_ARGB8888_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -28909,7 +28909,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ABGR8888_ARGB8888_Modulate(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -29103,7 +29103,7 @@ define internal void @SDL_Blit_ABGR8888_ARGB8888_Modulate(ptr noundef captures(n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ABGR8888_ARGB8888_Modulate_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -29297,7 +29297,7 @@ define internal void @SDL_Blit_ABGR8888_ARGB8888_Modulate_Scale(ptr noundef capt
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ABGR8888_ARGB8888_Modulate_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -29641,7 +29641,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ABGR8888_ARGB8888_Modulate_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -29992,7 +29992,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ABGR8888_ABGR8888_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
@@ -30091,7 +30091,7 @@ define internal void @SDL_Blit_ABGR8888_ABGR8888_Scale(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ABGR8888_ABGR8888_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -30382,7 +30382,7 @@ default.unreachable:                              ; preds = %.split.us
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ABGR8888_ABGR8888_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -30681,7 +30681,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ABGR8888_ABGR8888_Modulate(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -30862,7 +30862,7 @@ define internal void @SDL_Blit_ABGR8888_ABGR8888_Modulate(ptr noundef captures(n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ABGR8888_ABGR8888_Modulate_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -31050,7 +31050,7 @@ define internal void @SDL_Blit_ABGR8888_ABGR8888_Modulate_Scale(ptr noundef capt
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ABGR8888_ABGR8888_Modulate_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -31394,7 +31394,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_ABGR8888_ABGR8888_Modulate_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -31745,7 +31745,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_BGRA8888_XRGB8888_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
@@ -31851,7 +31851,7 @@ define internal void @SDL_Blit_BGRA8888_XRGB8888_Scale(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_BGRA8888_XRGB8888_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -32148,7 +32148,7 @@ default.unreachable:                              ; preds = %.split.us
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_BGRA8888_XRGB8888_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -32435,7 +32435,7 @@ default.unreachable:                              ; preds = %.split.us
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_BGRA8888_XRGB8888_Modulate(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -32574,7 +32574,7 @@ define internal void @SDL_Blit_BGRA8888_XRGB8888_Modulate(ptr noundef captures(n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_BGRA8888_XRGB8888_Modulate_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -32733,7 +32733,7 @@ define internal void @SDL_Blit_BGRA8888_XRGB8888_Modulate_Scale(ptr noundef capt
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_BGRA8888_XRGB8888_Modulate_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -33060,7 +33060,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_BGRA8888_XRGB8888_Modulate_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -33394,7 +33394,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_BGRA8888_XBGR8888_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
@@ -33494,7 +33494,7 @@ define internal void @SDL_Blit_BGRA8888_XBGR8888_Scale(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_BGRA8888_XBGR8888_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -33791,7 +33791,7 @@ default.unreachable:                              ; preds = %.split.us
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_BGRA8888_XBGR8888_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -34078,7 +34078,7 @@ default.unreachable:                              ; preds = %.split.us
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_BGRA8888_XBGR8888_Modulate(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -34211,7 +34211,7 @@ define internal void @SDL_Blit_BGRA8888_XBGR8888_Modulate(ptr noundef captures(n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_BGRA8888_XBGR8888_Modulate_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -34364,7 +34364,7 @@ define internal void @SDL_Blit_BGRA8888_XBGR8888_Modulate_Scale(ptr noundef capt
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_BGRA8888_XBGR8888_Modulate_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -34691,7 +34691,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_BGRA8888_XBGR8888_Modulate_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -35025,7 +35025,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_BGRA8888_ARGB8888_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
@@ -35125,7 +35125,7 @@ define internal void @SDL_Blit_BGRA8888_ARGB8888_Scale(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_BGRA8888_ARGB8888_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -35416,7 +35416,7 @@ default.unreachable:                              ; preds = %.split.us
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_BGRA8888_ARGB8888_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -35715,7 +35715,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_BGRA8888_ARGB8888_Modulate(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -35903,7 +35903,7 @@ define internal void @SDL_Blit_BGRA8888_ARGB8888_Modulate(ptr noundef captures(n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_BGRA8888_ARGB8888_Modulate_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -36097,7 +36097,7 @@ define internal void @SDL_Blit_BGRA8888_ARGB8888_Modulate_Scale(ptr noundef capt
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_BGRA8888_ARGB8888_Modulate_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -36441,7 +36441,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_BGRA8888_ARGB8888_Modulate_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -36792,7 +36792,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_BGRA8888_ABGR8888_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
@@ -36892,7 +36892,7 @@ define internal void @SDL_Blit_BGRA8888_ABGR8888_Scale(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_BGRA8888_ABGR8888_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -37183,7 +37183,7 @@ default.unreachable:                              ; preds = %.split.us
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_BGRA8888_ABGR8888_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -37482,7 +37482,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_BGRA8888_ABGR8888_Modulate(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -37664,7 +37664,7 @@ define internal void @SDL_Blit_BGRA8888_ABGR8888_Modulate(ptr noundef captures(n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_BGRA8888_ABGR8888_Modulate_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -37850,7 +37850,7 @@ define internal void @SDL_Blit_BGRA8888_ABGR8888_Modulate_Scale(ptr noundef capt
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_BGRA8888_ABGR8888_Modulate_Blend(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -38194,7 +38194,7 @@ default.unreachable:                              ; preds = %.split
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SDL_Blit_BGRA8888_ABGR8888_Modulate_Blend_Scale(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
@@ -38560,7 +38560,7 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #1
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #1
 
-attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 

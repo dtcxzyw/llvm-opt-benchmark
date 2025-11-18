@@ -41,7 +41,7 @@ define noundef double @_ZN9Imath_3_27erand48EPt(ptr noundef captures(none) %0) l
   ret double %29
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef double @_ZN9Imath_3_27drand48Ev() local_unnamed_addr #1 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Imath_3_212_GLOBAL__N_111staticStateE, i64 2), align 2
   %2 = zext i32 %1 to i64
@@ -103,7 +103,7 @@ define noundef range(i64 0, 2147483648) i64 @_ZN9Imath_3_27nrand48EPt(ptr nounde
   ret i64 %21
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef range(i64 0, 2147483648) i64 @_ZN9Imath_3_27lrand48Ev() local_unnamed_addr #1 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Imath_3_212_GLOBAL__N_111staticStateE, i64 2), align 2
   %2 = zext i32 %1 to i64
@@ -129,7 +129,7 @@ define noundef range(i64 0, 2147483648) i64 @_ZN9Imath_3_27lrand48Ev() local_unn
   ret i64 %18
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN9Imath_3_27srand48El(i64 noundef %0) local_unnamed_addr #2 {
   %2 = trunc i64 %0 to i32
   store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Imath_3_212_GLOBAL__N_111staticStateE, i64 2), align 2
@@ -152,8 +152,8 @@ define noundef float @_ZN9Imath_3_26Rand325nextfEv(ptr noundef nonnull align 8 c
 }
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
 !llvm.module.flags = !{!0, !1, !2}
 

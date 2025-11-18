@@ -168,7 +168,7 @@ define dso_local range(i32 0, 2) i32 @parse_options(i32 noundef %0, ptr noundef 
   br label %6
 
 6:                                                ; preds = %.outer, %6
-  %7 = call i32 @share__getopt_long(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.59, ptr noundef nonnull @long_options_, ptr noundef nonnull %5) #18
+  %7 = call i32 @share__getopt_long(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.59, ptr noundef nonnull @long_options_, ptr noundef nonnull %5) #19
   switch i32 %7, label %6 [
     i32 -1, label %19
     i32 0, label %8
@@ -228,9 +228,9 @@ define dso_local range(i32 0, 2) i32 @parse_options(i32 noundef %0, ptr noundef 
 
 34:                                               ; preds = %31
   %35 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %36 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %35, i32 noundef 1, ptr noundef nonnull @.str.60) #18
+  %36 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %35, i32 noundef 1, ptr noundef nonnull @.str.60) #19
   %37 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %38 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %37, i32 noundef 1, ptr noundef nonnull @.str.61) #18
+  %38 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %37, i32 noundef 1, ptr noundef nonnull @.str.61) #19
   %.pre184 = load i32, ptr @share__optind, align 4, !tbaa !19
   br label %39
 
@@ -245,14 +245,14 @@ define dso_local range(i32 0, 2) i32 @parse_options(i32 noundef %0, ptr noundef 
 
 43:                                               ; preds = %39
   %44 = zext i32 %41 to i64
-  %45 = call ptr @safe_malloc_mul_2op_(i64 noundef 8, i64 noundef %44) #18
+  %45 = call ptr @safe_malloc_mul_2op_(i64 noundef 8, i64 noundef %44) #19
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store ptr %45, ptr %46, align 8, !tbaa !28
   %47 = icmp eq ptr %45, null
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %43
-  call void @die(ptr noundef nonnull @.str.62) #18
+  call void @die(ptr noundef nonnull @.str.62) #19
   br label %49
 
 49:                                               ; preds = %48, %43
@@ -268,7 +268,7 @@ define dso_local range(i32 0, 2) i32 @parse_options(i32 noundef %0, ptr noundef 
   %54 = sext i32 %52 to i64
   %55 = getelementptr inbounds ptr, ptr %1, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !22
-  %57 = call ptr @local_strdup(ptr noundef %56) #18
+  %57 = call ptr @local_strdup(ptr noundef %56) #19
   %58 = load ptr, ptr %46, align 8, !tbaa !28
   %59 = add i32 %.046172, 1
   %60 = zext i32 %.046172 to i64
@@ -309,7 +309,7 @@ define dso_local range(i32 0, 2) i32 @parse_options(i32 noundef %0, ptr noundef 
 
 76:                                               ; preds = %73
   %77 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %78 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %77, i32 noundef 1, ptr noundef nonnull @.str.65) #18
+  %78 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %77, i32 noundef 1, ptr noundef nonnull @.str.65) #19
   br label %79
 
 79:                                               ; preds = %76, %73
@@ -339,7 +339,7 @@ define dso_local range(i32 0, 2) i32 @parse_options(i32 noundef %0, ptr noundef 
 
 find_shorthand_operation.exit:                    ; preds = %85
   %89 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %90 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %89, i32 noundef 1, ptr noundef nonnull @.str.66) #18
+  %90 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %89, i32 noundef 1, ptr noundef nonnull @.str.66) #19
   %.pr.pre = load i32, ptr %80, align 8, !tbaa !33
   br label %find_shorthand_operation.exit.thread
 
@@ -368,7 +368,7 @@ find_shorthand_operation.exit.thread:             ; preds = %84, %find_shorthand
 
 find_shorthand_operation.exit81:                  ; preds = %93
   %97 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %98 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %97, i32 noundef 1, ptr noundef nonnull @.str.67) #18
+  %98 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %97, i32 noundef 1, ptr noundef nonnull @.str.67) #19
   %.pr151.pre = load i32, ptr %80, align 8, !tbaa !33
   br label %find_shorthand_operation.exit81.thread
 
@@ -397,7 +397,7 @@ find_shorthand_operation.exit81.thread:           ; preds = %92, %find_shorthand
 
 find_shorthand_operation.exit89:                  ; preds = %101
   %105 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %106 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %105, i32 noundef 1, ptr noundef nonnull @.str.68) #18
+  %106 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %105, i32 noundef 1, ptr noundef nonnull @.str.68) #19
   %.pr156.pr.pre = load i32, ptr %80, align 8, !tbaa !33
   br label %find_shorthand_operation.exit89.thread
 
@@ -456,7 +456,7 @@ find_shorthand_operation.exit105.tail:            ; preds = %find_shorthand_oper
 .thread.sink.split:                               ; preds = %find_shorthand_operation.exit105.tail, %67, %.loopexit
   %.str.64.sink = phi ptr [ @.str.63, %.loopexit ], [ @.str.64, %67 ], [ @.str.70, %find_shorthand_operation.exit105.tail ]
   %124 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %125 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %124, i32 noundef 1, ptr noundef nonnull %.str.64.sink) #18
+  %125 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %124, i32 noundef 1, ptr noundef nonnull %.str.64.sink) #19
   br label %.thread
 
 .thread:                                          ; preds = %108, %.thread.sink.split, %find_shorthand_operation.exit105, %find_shorthand_operation.exit.thread, %79, %find_shorthand_operation.exit81.thread, %find_shorthand_operation.exit89.thread, %find_shorthand_operation.exit105.tail, %70, %69
@@ -474,7 +474,7 @@ find_shorthand_operation.exit105.tail:            ; preds = %find_shorthand_oper
 
 .thread140:                                       ; preds = %128
   %131 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %132 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %131, i32 noundef 1, ptr noundef nonnull @.str.71) #18
+  %132 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %131, i32 noundef 1, ptr noundef nonnull @.str.71) #19
   br label %134
 
 133:                                              ; preds = %128, %.thread
@@ -482,7 +482,7 @@ find_shorthand_operation.exit105.tail:            ; preds = %find_shorthand_oper
   br i1 %.not69, label %136, label %134
 
 134:                                              ; preds = %.thread140, %133
-  %135 = call i32 (ptr, ...) @short_usage(ptr noundef null) #18
+  %135 = call i32 (ptr, ...) @short_usage(ptr noundef null) #19
   br label %136
 
 136:                                              ; preds = %134, %133
@@ -530,7 +530,7 @@ find_shorthand_operation.exit105.tail:            ; preds = %find_shorthand_oper
 
 .lr.ph.i123:                                      ; preds = %149
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 noundef 0, i64 noundef 48, i1 noundef false) #18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 noundef 0, i64 noundef 48, i1 noundef false) #19
   store i32 31, ptr %4, align 8, !tbaa !36
   call fastcc void @append_new_operation(ptr noundef %2, ptr noundef nonnull byval(%struct.Operation) align 8 %4)
   %153 = load i32, ptr %64, align 8, !tbaa !31
@@ -588,7 +588,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
   %13 = sext i32 %0 to i64
   %14 = getelementptr inbounds %struct.share__option, ptr @long_options_, i64 %13
   %15 = load ptr, ptr %14, align 16, !tbaa !41
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(17) @.str.1) #19
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(17) @.str.1) #20
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %19
 
@@ -597,7 +597,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
   br label %596
 
 19:                                               ; preds = %3
-  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(14) @.str.2) #19
+  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(14) @.str.2) #20
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %24
 
@@ -607,7 +607,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
   br label %596
 
 24:                                               ; preds = %19
-  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(12) @.str.3) #19
+  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(12) @.str.3) #20
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %29
 
@@ -617,7 +617,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
   br label %596
 
 29:                                               ; preds = %24
-  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(16) @.str.4) #19
+  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(16) @.str.4) #20
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %34
 
@@ -627,7 +627,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
   br label %596
 
 34:                                               ; preds = %29
-  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(17) @.str.5) #19
+  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(17) @.str.5) #20
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %39
 
@@ -637,7 +637,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
   br label %596
 
 39:                                               ; preds = %34
-  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(19) @.str.6) #19
+  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(19) @.str.6) #20
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %44
 
@@ -647,7 +647,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
   br label %596
 
 44:                                               ; preds = %39
-  %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(12) @.str) #19
+  %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(12) @.str) #20
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %47, label %49
 
@@ -657,7 +657,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
   br label %596
 
 49:                                               ; preds = %44
-  %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(12) @.str.7) #19
+  %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(12) @.str.7) #20
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %54
 
@@ -666,7 +666,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
   br label %596
 
 54:                                               ; preds = %49
-  %55 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(19) @.str.8) #19
+  %55 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(19) @.str.8) #20
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %59
 
@@ -675,7 +675,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
   br label %596
 
 59:                                               ; preds = %54
-  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(19) @.str.9) #19
+  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(19) @.str.9) #20
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %62, label %64
 
@@ -684,7 +684,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
   br label %596
 
 64:                                               ; preds = %59
-  %65 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(19) @.str.10) #19
+  %65 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(19) @.str.10) #20
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %67, label %69
 
@@ -693,7 +693,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
   br label %596
 
 69:                                               ; preds = %64
-  %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(19) @.str.11) #19
+  %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(19) @.str.11) #20
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %74
 
@@ -702,7 +702,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
   br label %596
 
 74:                                               ; preds = %69
-  %75 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(17) @.str.12) #19
+  %75 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(17) @.str.12) #20
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %77, label %79
 
@@ -711,7 +711,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
   br label %596
 
 79:                                               ; preds = %74
-  %80 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(14) @.str.13) #19
+  %80 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(14) @.str.13) #20
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %82, label %84
 
@@ -720,7 +720,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
   br label %596
 
 84:                                               ; preds = %79
-  %85 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(9) @.str.14) #19
+  %85 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(9) @.str.14) #20
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %87, label %89
 
@@ -729,7 +729,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
   br label %596
 
 89:                                               ; preds = %84
-  %90 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(19) @.str.15) #19
+  %90 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(19) @.str.15) #20
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %92, label %94
 
@@ -738,7 +738,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
   br label %596
 
 94:                                               ; preds = %89
-  %95 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(11) @.str.16) #19
+  %95 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(11) @.str.16) #20
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %97, label %106
 
@@ -751,15 +751,15 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
   br i1 %.not305, label %102, label %104
 
 102:                                              ; preds = %97
-  %103 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %101, i32 noundef 1, ptr noundef nonnull @.str.72, ptr noundef nonnull %15) #18
+  %103 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %101, i32 noundef 1, ptr noundef nonnull @.str.72, ptr noundef nonnull %15) #19
   br label %596
 
 104:                                              ; preds = %97
-  %105 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %101, i32 noundef 1, ptr noundef nonnull @.str.89, ptr noundef nonnull %15) #18
+  %105 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %101, i32 noundef 1, ptr noundef nonnull @.str.89, ptr noundef nonnull %15) #19
   br label %596
 
 106:                                              ; preds = %94
-  %107 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(18) @.str.17) #19
+  %107 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(18) @.str.17) #20
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %109, label %122
 
@@ -778,16 +778,16 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
 
 116:                                              ; preds = %113, %109
   %117 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %118 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %117, i32 noundef 1, ptr noundef nonnull @.str.73, ptr noundef nonnull %15, i32 noundef 16, i32 noundef 65535) #18
+  %118 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %117, i32 noundef 1, ptr noundef nonnull @.str.73, ptr noundef nonnull %15, i32 noundef 16, i32 noundef 65535) #19
   br label %596
 
 119:                                              ; preds = %113
   %120 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %121 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %120, i32 noundef 1, ptr noundef nonnull @.str.89, ptr noundef nonnull %15) #18
+  %121 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %120, i32 noundef 1, ptr noundef nonnull @.str.89, ptr noundef nonnull %15) #19
   br label %596
 
 122:                                              ; preds = %106
-  %123 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(18) @.str.18) #19
+  %123 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(18) @.str.18) #20
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %125, label %138
 
@@ -806,16 +806,16 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
 
 132:                                              ; preds = %129, %125
   %133 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %134 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %133, i32 noundef 1, ptr noundef nonnull @.str.73, ptr noundef nonnull %15, i32 noundef 16, i32 noundef 65535) #18
+  %134 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %133, i32 noundef 1, ptr noundef nonnull @.str.73, ptr noundef nonnull %15, i32 noundef 16, i32 noundef 65535) #19
   br label %596
 
 135:                                              ; preds = %129
   %136 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %137 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %136, i32 noundef 1, ptr noundef nonnull @.str.89, ptr noundef nonnull %15) #18
+  %137 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %136, i32 noundef 1, ptr noundef nonnull @.str.89, ptr noundef nonnull %15) #19
   br label %596
 
 138:                                              ; preds = %122
-  %139 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(18) @.str.19) #19
+  %139 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(18) @.str.19) #20
   %140 = icmp eq i32 %139, 0
   br i1 %140, label %141, label %153
 
@@ -835,16 +835,16 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
 
 147:                                              ; preds = %145, %141
   %148 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %149 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %148, i32 noundef 1, ptr noundef nonnull @.str.74, ptr noundef nonnull %15, i32 noundef %.pre358) #18
+  %149 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %148, i32 noundef 1, ptr noundef nonnull @.str.74, ptr noundef nonnull %15, i32 noundef %.pre358) #19
   br label %596
 
 150:                                              ; preds = %145
   %151 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %152 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %151, i32 noundef 1, ptr noundef nonnull @.str.89, ptr noundef nonnull %15) #18
+  %152 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %151, i32 noundef 1, ptr noundef nonnull @.str.89, ptr noundef nonnull %15) #19
   br label %596
 
 153:                                              ; preds = %138
-  %154 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(18) @.str.20) #19
+  %154 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(18) @.str.20) #20
   %155 = icmp eq i32 %154, 0
   br i1 %155, label %156, label %168
 
@@ -864,16 +864,16 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
 
 162:                                              ; preds = %160, %156
   %163 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %164 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %163, i32 noundef 1, ptr noundef nonnull @.str.74, ptr noundef nonnull %15, i32 noundef %.pre357) #18
+  %164 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %163, i32 noundef 1, ptr noundef nonnull @.str.74, ptr noundef nonnull %15, i32 noundef %.pre357) #19
   br label %596
 
 165:                                              ; preds = %160
   %166 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %167 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %166, i32 noundef 1, ptr noundef nonnull @.str.89, ptr noundef nonnull %15) #18
+  %167 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %166, i32 noundef 1, ptr noundef nonnull @.str.89, ptr noundef nonnull %15) #19
   br label %596
 
 168:                                              ; preds = %153
-  %169 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(16) @.str.21) #19
+  %169 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(16) @.str.21) #20
   %170 = icmp eq i32 %169, 0
   br i1 %170, label %171, label %184
 
@@ -886,22 +886,22 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
 
 175:                                              ; preds = %171
   %176 = load i32, ptr %173, align 8, !tbaa !38
-  %177 = tail call i32 @FLAC__format_sample_rate_is_valid(i32 noundef %176) #18
+  %177 = tail call i32 @FLAC__format_sample_rate_is_valid(i32 noundef %176) #19
   %.not296 = icmp eq i32 %177, 0
   br i1 %.not296, label %178, label %181
 
 178:                                              ; preds = %175, %171
   %179 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %180 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %179, i32 noundef 1, ptr noundef nonnull @.str.75, ptr noundef nonnull %15) #18
+  %180 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %179, i32 noundef 1, ptr noundef nonnull @.str.75, ptr noundef nonnull %15) #19
   br label %596
 
 181:                                              ; preds = %175
   %182 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %183 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %182, i32 noundef 1, ptr noundef nonnull @.str.89, ptr noundef nonnull %15) #18
+  %183 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %182, i32 noundef 1, ptr noundef nonnull @.str.89, ptr noundef nonnull %15) #19
   br label %596
 
 184:                                              ; preds = %168
-  %185 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(13) @.str.22) #19
+  %185 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(13) @.str.22) #20
   %186 = icmp eq i32 %185, 0
   br i1 %186, label %187, label %200
 
@@ -919,16 +919,16 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
 
 194:                                              ; preds = %191, %187
   %195 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %196 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %195, i32 noundef 1, ptr noundef nonnull @.str.76, ptr noundef nonnull %15, i32 noundef 8) #18
+  %196 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %195, i32 noundef 1, ptr noundef nonnull @.str.76, ptr noundef nonnull %15, i32 noundef 8) #19
   br label %596
 
 197:                                              ; preds = %191
   %198 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %199 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %198, i32 noundef 1, ptr noundef nonnull @.str.89, ptr noundef nonnull %15) #18
+  %199 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %198, i32 noundef 1, ptr noundef nonnull @.str.89, ptr noundef nonnull %15) #19
   br label %596
 
 200:                                              ; preds = %184
-  %201 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(8) @.str.23) #19
+  %201 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(8) @.str.23) #20
   %202 = icmp eq i32 %201, 0
   br i1 %202, label %203, label %216
 
@@ -947,16 +947,16 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
 
 210:                                              ; preds = %207, %203
   %211 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %212 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %211, i32 noundef 1, ptr noundef nonnull @.str.73, ptr noundef nonnull %15, i32 noundef 4, i32 noundef 32) #18
+  %212 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %211, i32 noundef 1, ptr noundef nonnull @.str.73, ptr noundef nonnull %15, i32 noundef 4, i32 noundef 32) #19
   br label %596
 
 213:                                              ; preds = %207
   %214 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %215 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %214, i32 noundef 1, ptr noundef nonnull @.str.89, ptr noundef nonnull %15) #18
+  %215 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %214, i32 noundef 1, ptr noundef nonnull @.str.89, ptr noundef nonnull %15) #19
   br label %596
 
 216:                                              ; preds = %200
-  %217 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(18) @.str.24) #19
+  %217 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(18) @.str.24) #20
   %218 = icmp eq i32 %217, 0
   br i1 %218, label %219, label %232
 
@@ -977,16 +977,16 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
 
 226:                                              ; preds = %223, %219
   %227 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %228 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %227, i32 noundef 1, ptr noundef nonnull @.str.74, ptr noundef nonnull %15, i32 noundef %.pre) #18
+  %228 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %227, i32 noundef 1, ptr noundef nonnull @.str.74, ptr noundef nonnull %15, i32 noundef %.pre) #19
   br label %596
 
 229:                                              ; preds = %223
   %230 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %231 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %230, i32 noundef 1, ptr noundef nonnull @.str.89, ptr noundef nonnull %15) #18
+  %231 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %230, i32 noundef 1, ptr noundef nonnull @.str.89, ptr noundef nonnull %15) #19
   br label %596
 
 232:                                              ; preds = %216
-  %233 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(16) @.str.25) #19
+  %233 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(16) @.str.25) #20
   %234 = icmp eq i32 %233, 0
   br i1 %234, label %235, label %237
 
@@ -995,7 +995,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
   br label %596
 
 237:                                              ; preds = %232
-  %238 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(9) @.str.27) #19
+  %238 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(9) @.str.27) #20
   %239 = icmp eq i32 %238, 0
   br i1 %239, label %240, label %249
 
@@ -1010,7 +1010,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
 244:                                              ; preds = %240
   %245 = load ptr, ptr @stderr, align 8, !tbaa !25
   %246 = load ptr, ptr %4, align 8, !tbaa !22
-  %247 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %245, i32 noundef 1, ptr noundef nonnull @.str.77, ptr noundef nonnull %15, ptr noundef %1, ptr noundef %246) #18
+  %247 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %245, i32 noundef 1, ptr noundef nonnull @.str.77, ptr noundef nonnull %15, ptr noundef %1, ptr noundef %246) #19
   br label %248
 
 248:                                              ; preds = %244, %240
@@ -1019,19 +1019,19 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
   br label %596
 
 249:                                              ; preds = %237
-  %250 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(14) @.str.26) #19
+  %250 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(14) @.str.26) #20
   %251 = icmp eq i32 %250, 0
   br i1 %251, label %252, label %256
 
 252:                                              ; preds = %249
   %253 = tail call fastcc ptr @append_shorthand_operation(ptr noundef %2, i32 noundef 26)
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 8
-  %255 = tail call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull @.str.69) #18
+  %255 = tail call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull @.str.69) #19
   store ptr %255, ptr %254, align 8, !tbaa !22
   br label %596
 
 256:                                              ; preds = %249
-  %257 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(16) @.str.28) #19
+  %257 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(16) @.str.28) #20
   %258 = icmp eq i32 %257, 0
   br i1 %258, label %259, label %261
 
@@ -1040,7 +1040,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
   br label %596
 
 261:                                              ; preds = %256
-  %262 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(23) @.str.29) #19
+  %262 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(23) @.str.29) #20
   %263 = icmp eq i32 %262, 0
   br i1 %263, label %264, label %273
 
@@ -1055,7 +1055,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
 268:                                              ; preds = %264
   %269 = load ptr, ptr @stderr, align 8, !tbaa !25
   %270 = load ptr, ptr %5, align 8, !tbaa !22
-  %271 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %269, i32 noundef 1, ptr noundef nonnull @.str.77, ptr noundef nonnull %15, ptr noundef %1, ptr noundef %270) #18
+  %271 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %269, i32 noundef 1, ptr noundef nonnull @.str.77, ptr noundef nonnull %15, ptr noundef %1, ptr noundef %270) #19
   br label %272
 
 272:                                              ; preds = %268, %264
@@ -1064,7 +1064,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
   br label %596
 
 273:                                              ; preds = %261
-  %274 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(11) @.str.30) #19
+  %274 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(11) @.str.30) #20
   %275 = icmp eq i32 %274, 0
   br i1 %275, label %276, label %285
 
@@ -1079,7 +1079,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
 280:                                              ; preds = %276
   %281 = load ptr, ptr @stderr, align 8, !tbaa !25
   %282 = load ptr, ptr %6, align 8, !tbaa !22
-  %283 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %281, i32 noundef 1, ptr noundef nonnull @.str.77, ptr noundef nonnull %15, ptr noundef %1, ptr noundef %282) #18
+  %283 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %281, i32 noundef 1, ptr noundef nonnull @.str.77, ptr noundef nonnull %15, ptr noundef %1, ptr noundef %282) #19
   br label %284
 
 284:                                              ; preds = %280, %276
@@ -1088,7 +1088,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
   br label %596
 
 285:                                              ; preds = %273
-  %286 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(17) @.str.31) #19
+  %286 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(17) @.str.31) #20
   %287 = icmp eq i32 %286, 0
   br i1 %287, label %288, label %297
 
@@ -1103,7 +1103,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
 292:                                              ; preds = %288
   %293 = load ptr, ptr @stderr, align 8, !tbaa !25
   %294 = load ptr, ptr %7, align 8, !tbaa !22
-  %295 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %293, i32 noundef 1, ptr noundef nonnull @.str.77, ptr noundef nonnull %15, ptr noundef %1, ptr noundef %294) #18
+  %295 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %293, i32 noundef 1, ptr noundef nonnull @.str.77, ptr noundef nonnull %15, ptr noundef %1, ptr noundef %294) #19
   br label %296
 
 296:                                              ; preds = %292, %288
@@ -1112,7 +1112,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
   br label %596
 
 297:                                              ; preds = %285
-  %298 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(8) @.str.32) #19
+  %298 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(8) @.str.32) #20
   %299 = icmp eq i32 %298, 0
   br i1 %299, label %300, label %313
 
@@ -1125,14 +1125,14 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
   %304 = getelementptr inbounds nuw i8, ptr %301, i64 16
   %305 = getelementptr inbounds nuw i8, ptr %301, i64 32
   %306 = getelementptr inbounds nuw i8, ptr %301, i64 24
-  %307 = call i32 @parse_vorbis_comment_field(ptr noundef %1, ptr noundef nonnull %302, ptr noundef nonnull %304, ptr noundef nonnull %305, ptr noundef nonnull %306, ptr noundef nonnull %8) #18
+  %307 = call i32 @parse_vorbis_comment_field(ptr noundef %1, ptr noundef nonnull %302, ptr noundef nonnull %304, ptr noundef nonnull %305, ptr noundef nonnull %306, ptr noundef nonnull %8) #19
   %.not286 = icmp eq i32 %307, 0
   br i1 %.not286, label %308, label %312
 
 308:                                              ; preds = %300
   %309 = load ptr, ptr @stderr, align 8, !tbaa !25
   %310 = load ptr, ptr %8, align 8, !tbaa !22
-  %311 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %309, i32 noundef 1, ptr noundef nonnull @.str.78, ptr noundef nonnull %15, ptr noundef %1, ptr noundef %310) #18
+  %311 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %309, i32 noundef 1, ptr noundef nonnull @.str.78, ptr noundef nonnull %15, ptr noundef %1, ptr noundef %310) #19
   br label %312
 
 312:                                              ; preds = %308, %300
@@ -1141,7 +1141,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
   br label %596
 
 313:                                              ; preds = %297
-  %314 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(18) @.str.33) #19
+  %314 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(18) @.str.33) #20
   %315 = icmp eq i32 %314, 0
   br i1 %315, label %316, label %329
 
@@ -1154,14 +1154,14 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
   %320 = getelementptr inbounds nuw i8, ptr %317, i64 16
   %321 = getelementptr inbounds nuw i8, ptr %317, i64 32
   %322 = getelementptr inbounds nuw i8, ptr %317, i64 24
-  %323 = call i32 @parse_vorbis_comment_field(ptr noundef %1, ptr noundef nonnull %318, ptr noundef nonnull %320, ptr noundef nonnull %321, ptr noundef nonnull %322, ptr noundef nonnull %9) #18
+  %323 = call i32 @parse_vorbis_comment_field(ptr noundef %1, ptr noundef nonnull %318, ptr noundef nonnull %320, ptr noundef nonnull %321, ptr noundef nonnull %322, ptr noundef nonnull %9) #19
   %.not285 = icmp eq i32 %323, 0
   br i1 %.not285, label %324, label %328
 
 324:                                              ; preds = %316
   %325 = load ptr, ptr @stderr, align 8, !tbaa !25
   %326 = load ptr, ptr %9, align 8, !tbaa !22
-  %327 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %325, i32 noundef 1, ptr noundef nonnull @.str.78, ptr noundef nonnull %15, ptr noundef %1, ptr noundef %326) #18
+  %327 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %325, i32 noundef 1, ptr noundef nonnull @.str.78, ptr noundef nonnull %15, ptr noundef %1, ptr noundef %326) #19
   br label %328
 
 328:                                              ; preds = %324, %316
@@ -1170,7 +1170,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
   br label %596
 
 329:                                              ; preds = %313
-  %330 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(17) @.str.34) #19
+  %330 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(17) @.str.34) #20
   %331 = icmp eq i32 %330, 0
   br i1 %331, label %332, label %342
 
@@ -1186,17 +1186,17 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
   br i1 %337, label %339, label %parse_string.exit
 
 parse_string.exit:                                ; preds = %336
-  %338 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %1) #18
+  %338 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %1) #19
   store ptr %338, ptr %334, align 8, !tbaa !22
   br label %596
 
 339:                                              ; preds = %336, %332
   %340 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %341 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %340, i32 noundef 1, ptr noundef nonnull @.str.79, ptr noundef nonnull %15) #18
+  %341 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %340, i32 noundef 1, ptr noundef nonnull @.str.79, ptr noundef nonnull %15) #19
   br label %596
 
 342:                                              ; preds = %329
-  %343 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(15) @.str.35) #19
+  %343 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(15) @.str.35) #20
   %344 = icmp eq i32 %343, 0
   br i1 %344, label %345, label %355
 
@@ -1212,17 +1212,17 @@ parse_string.exit:                                ; preds = %336
   br i1 %350, label %352, label %parse_string.exit310
 
 parse_string.exit310:                             ; preds = %349
-  %351 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %1) #18
+  %351 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %1) #19
   store ptr %351, ptr %347, align 8, !tbaa !22
   br label %596
 
 352:                                              ; preds = %349, %345
   %353 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %354 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %353, i32 noundef 1, ptr noundef nonnull @.str.79, ptr noundef nonnull %15) #18
+  %354 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %353, i32 noundef 1, ptr noundef nonnull @.str.79, ptr noundef nonnull %15) #19
   br label %596
 
 355:                                              ; preds = %342
-  %356 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(21) @.str.36) #19
+  %356 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(21) @.str.36) #20
   %357 = icmp eq i32 %356, 0
   br i1 %357, label %358, label %379
 
@@ -1252,7 +1252,7 @@ parse_string.exit310:                             ; preds = %349
 
 find_shorthand_operation.exit:                    ; preds = %364
   %368 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %369 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %368, i32 noundef 1, ptr noundef nonnull @.str.80, ptr noundef nonnull %15) #18
+  %369 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %368, i32 noundef 1, ptr noundef nonnull @.str.80, ptr noundef nonnull %15) #19
   br label %find_shorthand_operation.exit.thread
 
 find_shorthand_operation.exit.thread:             ; preds = %363, %358, %find_shorthand_operation.exit
@@ -1268,17 +1268,17 @@ find_shorthand_operation.exit.thread:             ; preds = %363, %358, %find_sh
   br i1 %374, label %376, label %parse_string.exit313
 
 parse_string.exit313:                             ; preds = %373
-  %375 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %1) #18
+  %375 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %1) #19
   store ptr %375, ptr %371, align 8, !tbaa !22
   br label %596
 
 376:                                              ; preds = %373, %find_shorthand_operation.exit.thread
   %377 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %378 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %377, i32 noundef 1, ptr noundef nonnull @.str.79, ptr noundef nonnull %15) #18
+  %378 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %377, i32 noundef 1, ptr noundef nonnull @.str.79, ptr noundef nonnull %15) #19
   br label %596
 
 379:                                              ; preds = %355
-  %380 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(19) @.str.37) #19
+  %380 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(19) @.str.37) #20
   %381 = icmp eq i32 %380, 0
   br i1 %381, label %382, label %392
 
@@ -1294,17 +1294,17 @@ parse_string.exit313:                             ; preds = %373
   br i1 %387, label %389, label %parse_string.exit316
 
 parse_string.exit316:                             ; preds = %386
-  %388 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %1) #18
+  %388 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %1) #19
   store ptr %388, ptr %384, align 8, !tbaa !22
   br label %596
 
 389:                                              ; preds = %386, %382
   %390 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %391 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %390, i32 noundef 1, ptr noundef nonnull @.str.79, ptr noundef nonnull %15) #18
+  %391 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %390, i32 noundef 1, ptr noundef nonnull @.str.79, ptr noundef nonnull %15) #19
   br label %596
 
 392:                                              ; preds = %379
-  %393 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(20) @.str.38) #19
+  %393 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(20) @.str.38) #20
   %394 = icmp eq i32 %393, 0
   br i1 %394, label %395, label %405
 
@@ -1320,17 +1320,17 @@ parse_string.exit316:                             ; preds = %386
   br i1 %400, label %402, label %parse_string.exit319
 
 parse_string.exit319:                             ; preds = %399
-  %401 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %1) #18
+  %401 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %1) #19
   store ptr %401, ptr %397, align 8, !tbaa !22
   br label %596
 
 402:                                              ; preds = %399, %395
   %403 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %404 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %403, i32 noundef 1, ptr noundef nonnull @.str.81, ptr noundef nonnull %15) #18
+  %404 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %403, i32 noundef 1, ptr noundef nonnull @.str.81, ptr noundef nonnull %15) #19
   br label %596
 
 405:                                              ; preds = %392
-  %406 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(18) @.str.39) #19
+  %406 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(18) @.str.39) #20
   %407 = icmp eq i32 %406, 0
   br i1 %407, label %408, label %431
 
@@ -1371,13 +1371,13 @@ find_argument.exit:                               ; preds = %413, %414, %408
   br i1 %422, label %424, label %parse_string.exit329
 
 parse_string.exit329:                             ; preds = %421
-  %423 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %1) #18
+  %423 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %1) #19
   store ptr %423, ptr %419, align 8, !tbaa !22
   br label %427
 
 424:                                              ; preds = %421, %find_argument.exit
   %425 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %426 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %425, i32 noundef 1, ptr noundef nonnull @.str.79, ptr noundef nonnull %15) #18
+  %426 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %425, i32 noundef 1, ptr noundef nonnull @.str.79, ptr noundef nonnull %15) #19
   br label %427
 
 427:                                              ; preds = %parse_string.exit329, %424
@@ -1390,7 +1390,7 @@ parse_string.exit329:                             ; preds = %421
   br label %596
 
 431:                                              ; preds = %405
-  %432 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(14) @.str.40) #19
+  %432 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(14) @.str.40) #20
   %433 = icmp eq i32 %432, 0
   br i1 %433, label %434, label %454
 
@@ -1404,7 +1404,7 @@ parse_string.exit329:                             ; preds = %421
 436:                                              ; preds = %434
   %437 = load ptr, ptr @stderr, align 8, !tbaa !25
   %438 = load ptr, ptr %10, align 8, !tbaa !22
-  %439 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %437, i32 noundef 1, ptr noundef nonnull @.str.82, ptr noundef nonnull %15, ptr noundef %1, ptr noundef %438) #18
+  %439 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %437, i32 noundef 1, ptr noundef nonnull @.str.82, ptr noundef nonnull %15, ptr noundef %1, ptr noundef %438) #19
   br label %453
 
 440:                                              ; preds = %434
@@ -1439,9 +1439,9 @@ find_shorthand_operation.exit337:                 ; preds = %446, %.loopexit
   %.0266 = phi ptr [ %450, %.loopexit ], [ %447, %446 ]
   %451 = getelementptr inbounds nuw i8, ptr %.0266, i64 8
   %452 = load ptr, ptr %11, align 8, !tbaa !22
-  tail call void @local_strcat(ptr noundef nonnull %451, ptr noundef %452) #18
-  tail call void @local_strcat(ptr noundef nonnull %451, ptr noundef nonnull @.str.83) #18
-  tail call void @free(ptr noundef %452) #18
+  tail call void @local_strcat(ptr noundef nonnull %451, ptr noundef %452) #19
+  tail call void @local_strcat(ptr noundef nonnull %451, ptr noundef nonnull @.str.83) #19
+  tail call void @free(ptr noundef %452) #19
   br label %453
 
 453:                                              ; preds = %find_shorthand_operation.exit337, %436
@@ -1451,7 +1451,7 @@ find_shorthand_operation.exit337:                 ; preds = %446, %.loopexit
   br label %596
 
 454:                                              ; preds = %431
-  %455 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(16) @.str.41) #19
+  %455 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(16) @.str.41) #20
   %456 = icmp eq i32 %455, 0
   br i1 %456, label %457, label %459
 
@@ -1460,7 +1460,7 @@ find_shorthand_operation.exit337:                 ; preds = %446, %.loopexit
   br label %596
 
 459:                                              ; preds = %454
-  %460 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(17) @.str.42) #19
+  %460 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(17) @.str.42) #20
   %461 = icmp eq i32 %460, 0
   br i1 %461, label %462, label %464
 
@@ -1469,7 +1469,7 @@ find_shorthand_operation.exit337:                 ; preds = %446, %.loopexit
   br label %596
 
 464:                                              ; preds = %459
-  %465 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(19) @.str.43) #19
+  %465 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(19) @.str.43) #20
   %466 = icmp eq i32 %465, 0
   br i1 %466, label %467, label %485
 
@@ -1496,7 +1496,7 @@ find_shorthand_operation.exit337:                 ; preds = %446, %.loopexit
   %478 = tail call fastcc ptr @append_shorthand_operation(ptr noundef %2, i32 noundef 22)
   %479 = getelementptr inbounds nuw ptr, ptr %12, i64 %.0355
   %480 = load ptr, ptr %479, align 8, !tbaa !22
-  %481 = tail call ptr @local_strdup(ptr noundef %480) #18
+  %481 = tail call ptr @local_strdup(ptr noundef %480) #19
   %482 = getelementptr inbounds nuw i8, ptr %478, i64 8
   store ptr %481, ptr %482, align 8, !tbaa !38
   %483 = add nuw nsw i64 %.0355, 1
@@ -1508,14 +1508,14 @@ find_shorthand_operation.exit337:                 ; preds = %446, %.loopexit
   br label %596
 
 485:                                              ; preds = %464
-  %486 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(12) @.str.44) #19
+  %486 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(12) @.str.44) #20
   %487 = icmp eq i32 %486, 0
   br i1 %487, label %488, label %497
 
 488:                                              ; preds = %485
   %489 = tail call fastcc ptr @append_shorthand_operation(ptr noundef %2, i32 noundef 34)
   %490 = getelementptr inbounds nuw i8, ptr %489, i64 8
-  %491 = tail call i64 @strtoul(ptr noundef readonly captures(none) %1, ptr noundef null, i32 noundef 10) #18
+  %491 = tail call i64 @strtoul(ptr noundef readonly captures(none) %1, ptr noundef null, i32 noundef 10) #19
   %492 = trunc i64 %491 to i32
   store i32 %492, ptr %490, align 4, !tbaa !19
   %493 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4, !tbaa !19
@@ -1525,11 +1525,11 @@ find_shorthand_operation.exit337:                 ; preds = %446, %.loopexit
 
 494:                                              ; preds = %488
   %495 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %496 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %495, i32 noundef 1, ptr noundef nonnull @.str.84, ptr noundef nonnull %15, ptr noundef %1, i32 noundef %493) #18
+  %496 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %495, i32 noundef 1, ptr noundef nonnull @.str.84, ptr noundef nonnull %15, ptr noundef %1, i32 noundef %493) #19
   br label %596
 
 497:                                              ; preds = %485
-  %498 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(5) @.str.45) #19
+  %498 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(5) @.str.45) #20
   %499 = icmp eq i32 %498, 0
   br i1 %499, label %500, label %502
 
@@ -1539,7 +1539,7 @@ find_shorthand_operation.exit337:                 ; preds = %446, %.loopexit
   br label %596
 
 502:                                              ; preds = %497
-  %503 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(8) @.str.46) #19
+  %503 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(8) @.str.46) #20
   %504 = icmp eq i32 %503, 0
   br i1 %504, label %505, label %507
 
@@ -1549,7 +1549,7 @@ find_shorthand_operation.exit337:                 ; preds = %446, %.loopexit
   br label %596
 
 507:                                              ; preds = %502
-  %508 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(5) @.str.47) #19
+  %508 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(5) @.str.47) #20
   %509 = icmp eq i32 %508, 0
   br i1 %509, label %510, label %511
 
@@ -1558,7 +1558,7 @@ find_shorthand_operation.exit337:                 ; preds = %446, %.loopexit
   br label %596
 
 511:                                              ; preds = %507
-  %512 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(7) @.str.48) #19
+  %512 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(7) @.str.48) #20
   %513 = icmp eq i32 %512, 0
   br i1 %513, label %514, label %515
 
@@ -1567,7 +1567,7 @@ find_shorthand_operation.exit337:                 ; preds = %446, %.loopexit
   br label %596
 
 515:                                              ; preds = %511
-  %516 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(7) @.str.49) #19
+  %516 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(7) @.str.49) #20
   %517 = icmp eq i32 %516, 0
   br i1 %517, label %518, label %519
 
@@ -1576,7 +1576,7 @@ find_shorthand_operation.exit337:                 ; preds = %446, %.loopexit
   br label %596
 
 519:                                              ; preds = %515
-  %520 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(11) @.str.50) #19
+  %520 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(11) @.str.50) #20
   %521 = icmp eq i32 %520, 0
   br i1 %521, label %522, label %523
 
@@ -1585,7 +1585,7 @@ find_shorthand_operation.exit337:                 ; preds = %446, %.loopexit
   br label %596
 
 523:                                              ; preds = %519
-  %524 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(14) @.str.51) #19
+  %524 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(14) @.str.51) #20
   %525 = icmp eq i32 %524, 0
   br i1 %525, label %526, label %527
 
@@ -1594,7 +1594,7 @@ find_shorthand_operation.exit337:                 ; preds = %446, %.loopexit
   br label %596
 
 527:                                              ; preds = %523
-  %528 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(13) @.str.52) #19
+  %528 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(13) @.str.52) #20
   %529 = icmp eq i32 %528, 0
   br i1 %529, label %530, label %531
 
@@ -1603,7 +1603,7 @@ find_shorthand_operation.exit337:                 ; preds = %446, %.loopexit
   br label %596
 
 531:                                              ; preds = %527
-  %532 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(13) @.str.53) #19
+  %532 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(13) @.str.53) #20
   %533 = icmp eq i32 %532, 0
   br i1 %533, label %534, label %541
 
@@ -1616,11 +1616,11 @@ find_shorthand_operation.exit337:                 ; preds = %446, %.loopexit
 
 538:                                              ; preds = %534
   %539 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %540 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %539, i32 noundef 1, ptr noundef nonnull @.str.85, ptr noundef %1) #18
+  %540 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %539, i32 noundef 1, ptr noundef nonnull @.str.85, ptr noundef %1) #19
   br label %596
 
 541:                                              ; preds = %531
-  %542 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(11) @.str.54) #19
+  %542 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(11) @.str.54) #20
   %543 = icmp eq i32 %542, 0
   br i1 %543, label %544, label %553
 
@@ -1633,7 +1633,7 @@ find_shorthand_operation.exit337:                 ; preds = %446, %.loopexit
 
 548:                                              ; preds = %544
   %549 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %550 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %549, i32 noundef 1, ptr noundef nonnull @.str.86, ptr noundef nonnull %15, ptr noundef %1) #18
+  %550 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %549, i32 noundef 1, ptr noundef nonnull @.str.86, ptr noundef nonnull %15, ptr noundef %1) #19
   br label %551
 
 551:                                              ; preds = %548, %544
@@ -1643,7 +1643,7 @@ find_shorthand_operation.exit337:                 ; preds = %446, %.loopexit
   br label %596
 
 553:                                              ; preds = %541
-  %554 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(18) @.str.55) #19
+  %554 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(18) @.str.55) #20
   %555 = icmp eq i32 %554, 0
   br i1 %555, label %556, label %565
 
@@ -1656,7 +1656,7 @@ find_shorthand_operation.exit337:                 ; preds = %446, %.loopexit
 
 560:                                              ; preds = %556
   %561 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %562 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %561, i32 noundef 1, ptr noundef nonnull @.str.86, ptr noundef nonnull %15, ptr noundef %1) #18
+  %562 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %561, i32 noundef 1, ptr noundef nonnull @.str.86, ptr noundef nonnull %15, ptr noundef %1) #19
   br label %563
 
 563:                                              ; preds = %560, %556
@@ -1666,7 +1666,7 @@ find_shorthand_operation.exit337:                 ; preds = %446, %.loopexit
   br label %596
 
 565:                                              ; preds = %553
-  %566 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(12) @.str.56) #19
+  %566 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(12) @.str.56) #20
   %567 = icmp eq i32 %566, 0
   br i1 %567, label %568, label %581
 
@@ -1679,7 +1679,7 @@ find_shorthand_operation.exit337:                 ; preds = %446, %.loopexit
 
 572:                                              ; preds = %568
   %573 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %574 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %573, i32 noundef 1, ptr noundef nonnull @.str.87, ptr noundef nonnull %15, ptr noundef %1) #18
+  %574 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %573, i32 noundef 1, ptr noundef nonnull @.str.87, ptr noundef nonnull %15, ptr noundef %1) #19
   br label %575
 
 575:                                              ; preds = %572, %568
@@ -1694,7 +1694,7 @@ find_shorthand_operation.exit337:                 ; preds = %446, %.loopexit
   br label %596
 
 581:                                              ; preds = %565
-  %582 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(24) @.str.57) #19
+  %582 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(24) @.str.57) #20
   %583 = icmp eq i32 %582, 0
   br i1 %583, label %584, label %590
 
@@ -1706,11 +1706,11 @@ find_shorthand_operation.exit337:                 ; preds = %446, %.loopexit
 
 587:                                              ; preds = %584
   %588 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %589 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %588, i32 noundef 1, ptr noundef nonnull @.str.88, ptr noundef nonnull %15, ptr noundef %1) #18
+  %589 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %588, i32 noundef 1, ptr noundef nonnull @.str.88, ptr noundef nonnull %15, ptr noundef %1) #19
   br label %596
 
 590:                                              ; preds = %581
-  %591 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(10) @.str.58) #19
+  %591 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(10) @.str.58) #20
   %592 = icmp eq i32 %591, 0
   br i1 %592, label %593, label %596
 
@@ -1742,7 +1742,7 @@ declare i32 @short_usage(ptr noundef, ...) local_unnamed_addr #2
 define internal fastcc ptr @append_shorthand_operation(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #1 {
   %3 = alloca %struct.Operation, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 noundef 0, i64 noundef 48, i1 noundef false) #18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 noundef 0, i64 noundef 48, i1 noundef false) #19
   store i32 %1, ptr %3, align 8, !tbaa !36
   tail call fastcc void @append_new_operation(ptr noundef %0, ptr noundef nonnull byval(%struct.Operation) align 8 %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1760,8 +1760,8 @@ define internal fastcc ptr @append_shorthand_operation(ptr noundef captures(none
   ret ptr %13
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @free_options(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
+; Function Attrs: nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define dso_local void @free_options(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8, !tbaa !33
@@ -1804,7 +1804,7 @@ define dso_local void @free_options(ptr noundef readonly captures(none) %0) loca
   br i1 %.not72, label %14, label %13
 
 13:                                               ; preds = %10
-  tail call void @free(ptr noundef nonnull %12) #18
+  tail call void @free(ptr noundef nonnull %12) #19
   br label %14
 
 14:                                               ; preds = %13, %10
@@ -1814,7 +1814,7 @@ define dso_local void @free_options(ptr noundef readonly captures(none) %0) loca
   br i1 %.not73, label %18, label %17
 
 17:                                               ; preds = %14
-  tail call void @free(ptr noundef nonnull %16) #18
+  tail call void @free(ptr noundef nonnull %16) #19
   br label %18
 
 18:                                               ; preds = %17, %14
@@ -1855,7 +1855,7 @@ define dso_local void @free_options(ptr noundef readonly captures(none) %0) loca
 
 .sink.split:                                      ; preds = %33, %30, %27, %24, %21, %18, %7
   %.sink = phi ptr [ %9, %7 ], [ %20, %18 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ]
-  tail call void @free(ptr noundef nonnull %.sink) #18
+  tail call void @free(ptr noundef nonnull %.sink) #19
   br label %36
 
 36:                                               ; preds = %.sink.split, %7, %18, %21, %24, %27, %30, %33, %.lr.ph
@@ -1900,7 +1900,7 @@ define dso_local void @free_options(ptr noundef readonly captures(none) %0) loca
 
 .sink.split108:                                   ; preds = %49, %46
   %.sink109 = phi ptr [ %48, %46 ], [ %51, %49 ]
-  tail call void @free(ptr noundef nonnull %.sink109) #18
+  tail call void @free(ptr noundef nonnull %.sink109) #19
   br label %52
 
 52:                                               ; preds = %.sink.split108, %46, %49, %.lr.ph81
@@ -1916,7 +1916,7 @@ define dso_local void @free_options(ptr noundef readonly captures(none) %0) loca
   br i1 %.not, label %59, label %58
 
 58:                                               ; preds = %._crit_edge82
-  tail call void @free(ptr noundef nonnull %57) #18
+  tail call void @free(ptr noundef nonnull %57) #19
   br label %59
 
 59:                                               ; preds = %58, %._crit_edge82
@@ -1925,7 +1925,7 @@ define dso_local void @free_options(ptr noundef readonly captures(none) %0) loca
   br i1 %.not62, label %62, label %61
 
 61:                                               ; preds = %59
-  tail call void @free(ptr noundef nonnull %60) #18
+  tail call void @free(ptr noundef nonnull %60) #19
   br label %62
 
 62:                                               ; preds = %61, %59
@@ -1950,7 +1950,7 @@ define dso_local void @free_options(ptr noundef readonly captures(none) %0) loca
   br i1 %.not64, label %72, label %71
 
 71:                                               ; preds = %.lr.ph84
-  tail call void @free(ptr noundef nonnull %70) #18
+  tail call void @free(ptr noundef nonnull %70) #19
   %.pre = load i32, ptr %65, align 8, !tbaa !27
   br label %72
 
@@ -1967,7 +1967,7 @@ define dso_local void @free_options(ptr noundef readonly captures(none) %0) loca
 
 ._crit_edge85:                                    ; preds = %._crit_edge85.loopexit, %.preheader
   %76 = phi ptr [ %.pre90, %._crit_edge85.loopexit ], [ %64, %.preheader ]
-  tail call void @free(ptr noundef %76) #18
+  tail call void @free(ptr noundef %76) #19
   br label %77
 
 77:                                               ; preds = %._crit_edge85, %62
@@ -1975,16 +1975,16 @@ define dso_local void @free_options(ptr noundef readonly captures(none) %0) loca
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
-; Function Attrs: nofree nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_md5(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #5 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
+; Function Attrs: nofree nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @parse_md5(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #6 {
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
   %.not = icmp eq i64 %3, 32
   br i1 %.not, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %2
-  %4 = tail call ptr @__ctype_b_loc() #20
+  %4 = tail call ptr @__ctype_b_loc() #21
   br label %5
 
 5:                                                ; preds = %.preheader, %30
@@ -2049,18 +2049,18 @@ define internal fastcc range(i32 0, 2) i32 @parse_md5(ptr noundef readonly captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_uint32(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #6 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
+define internal fastcc range(i32 0, 2) i32 @parse_uint32(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #7 {
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %10, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strspn(ptr noundef nonnull %0, ptr noundef nonnull @.str.90) #19
+  %6 = tail call i64 @strspn(ptr noundef nonnull %0, ptr noundef nonnull @.str.90) #20
   %.not = icmp eq i64 %6, %3
   br i1 %.not, label %7, label %10
 
 7:                                                ; preds = %5
-  %8 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %0, ptr noundef null, i32 noundef 10) #18
+  %8 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %0, ptr noundef null, i32 noundef 10) #19
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %1, align 4, !tbaa !19
   br label %10
@@ -2073,18 +2073,18 @@ define internal fastcc range(i32 0, 2) i32 @parse_uint32(ptr noundef readonly ca
 declare i32 @FLAC__format_sample_rate_is_valid(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_uint64(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #6 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
+define internal fastcc range(i32 0, 2) i32 @parse_uint64(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #7 {
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strspn(ptr noundef nonnull %0, ptr noundef nonnull @.str.90) #19
+  %6 = tail call i64 @strspn(ptr noundef nonnull %0, ptr noundef nonnull @.str.90) #20
   %.not = icmp eq i64 %6, %3
   br i1 %.not, label %7, label %9
 
 7:                                                ; preds = %5
-  %8 = tail call i64 @strtoull(ptr noundef nonnull captures(none) %0, ptr noundef null, i32 noundef 10) #18
+  %8 = tail call i64 @strtoull(ptr noundef nonnull captures(none) %0, ptr noundef null, i32 noundef 10) #19
   store i64 %8, ptr %1, align 8, !tbaa !58
   br label %9
 
@@ -2095,7 +2095,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_uint64(ptr noundef readonly ca
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i32 0, 2) i32 @parse_vorbis_comment_field_name(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #1 {
-  %4 = tail call ptr @local_strdup(ptr noundef %0) #18
+  %4 = tail call ptr @local_strdup(ptr noundef %0) #19
   %5 = load i8, ptr %4, align 1, !tbaa !38
   %.fr15 = freeze i8 %5
   %.not16 = icmp eq i8 %.fr15, 0
@@ -2115,7 +2115,7 @@ switch.early.test:                                ; preds = %.lr.ph
   ]
 
 7:                                                ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %.lr.ph
-  tail call void @free(ptr noundef %4) #18
+  tail call void @free(ptr noundef %4) #19
   store ptr @.str.91, ptr %2, align 8, !tbaa !22
   br label %11
 
@@ -2137,7 +2137,7 @@ switch.early.test:                                ; preds = %.lr.ph
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i32 0, 2) i32 @parse_vorbis_comment_field_names(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #1 {
-  %4 = tail call ptr @local_strdup(ptr noundef %0) #18
+  %4 = tail call ptr @local_strdup(ptr noundef %0) #19
   %5 = load i8, ptr %4, align 1, !tbaa !38
   %.not13 = icmp eq i8 %5, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph
@@ -2156,7 +2156,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_vorbis_comment_field_names(ptr
   br i1 %or.cond, label %11, label %6
 
 11:                                               ; preds = %.lr.ph
-  tail call void @free(ptr noundef %4) #18
+  tail call void @free(ptr noundef %4) #19
   store ptr @.str.91, ptr %2, align 8, !tbaa !22
   br label %12
 
@@ -2173,7 +2173,7 @@ declare i32 @parse_vorbis_comment_field(ptr noundef, ptr noundef, ptr noundef, p
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i32 0, 2) i32 @parse_add_seekpoint(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #1 {
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
   %5 = trunc i64 %4 to i32
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %8
@@ -2184,7 +2184,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_add_seekpoint(ptr noundef %0, 
 
 8:                                                ; preds = %3
   %9 = and i64 %4, 4294967295
-  %10 = tail call i64 @strspn(ptr noundef nonnull %0, ptr noundef nonnull @.str.94) #19
+  %10 = tail call i64 @strspn(ptr noundef nonnull %0, ptr noundef nonnull @.str.94) #20
   %11 = icmp ugt i64 %9, %10
   br i1 %11, label %12, label %13
 
@@ -2212,7 +2212,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_add_seekpoint(ptr noundef %0, 
   br label %34
 
 20:                                               ; preds = %13
-  %21 = tail call i64 @strspn(ptr noundef nonnull %0, ptr noundef nonnull @.str.96) #19
+  %21 = tail call i64 @strspn(ptr noundef nonnull %0, ptr noundef nonnull @.str.96) #20
   %22 = icmp ugt i64 %15, %21
   br i1 %22, label %23, label %32
 
@@ -2221,7 +2221,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_add_seekpoint(ptr noundef %0, 
   br label %34
 
 24:                                               ; preds = %13
-  %25 = tail call i64 @strspn(ptr noundef nonnull %0, ptr noundef nonnull @.str.90) #19
+  %25 = tail call i64 @strspn(ptr noundef nonnull %0, ptr noundef nonnull @.str.90) #20
   %26 = icmp ugt i64 %15, %25
   br i1 %26, label %27, label %32
 
@@ -2230,7 +2230,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_add_seekpoint(ptr noundef %0, 
   br label %34
 
 28:                                               ; preds = %13
-  %29 = tail call i64 @strspn(ptr noundef nonnull %0, ptr noundef nonnull @.str.90) #19
+  %29 = tail call i64 @strspn(ptr noundef nonnull %0, ptr noundef nonnull @.str.90) #20
   %30 = icmp ugt i64 %9, %29
   br i1 %30, label %31, label %32
 
@@ -2239,7 +2239,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_add_seekpoint(ptr noundef %0, 
   br label %34
 
 32:                                               ; preds = %20, %28, %24, %18
-  %33 = tail call ptr @local_strdup(ptr noundef nonnull %0) #18
+  %33 = tail call ptr @local_strdup(ptr noundef nonnull %0) #19
   store ptr %33, ptr %1, align 8, !tbaa !22
   br label %34
 
@@ -2254,7 +2254,7 @@ declare void @local_strcat(ptr noundef, ptr noundef) local_unnamed_addr #2
 define internal fastcc void @append_major_operation(ptr noundef captures(none) %0, i32 noundef range(i32 35, 41) %1) unnamed_addr #1 {
   %3 = alloca %struct.Operation, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 noundef 0, i64 noundef 48, i1 noundef false) #18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 noundef 0, i64 noundef 48, i1 noundef false) #19
   store i32 %1, ptr %3, align 8, !tbaa !36
   tail call fastcc void @append_new_operation(ptr noundef %0, ptr noundef nonnull byval(%struct.Operation) align 8 %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -2274,14 +2274,14 @@ define internal fastcc ptr @append_argument(ptr noundef captures(none) %0, i32 n
 
 6:                                                ; preds = %2
   store i32 50, ptr %3, align 4, !tbaa !62
-  %7 = tail call noalias dereferenceable_or_null(1200) ptr @malloc(i64 noundef 1200) #21
+  %7 = tail call noalias dereferenceable_or_null(1200) ptr @malloc(i64 noundef 1200) #22
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %7, ptr %8, align 8, !tbaa !45
   %9 = icmp eq ptr %7, null
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %6
-  tail call void @die(ptr noundef nonnull @.str.97) #18
+  tail call void @die(ptr noundef nonnull @.str.97) #19
   %.pre.i = load ptr, ptr %8, align 8, !tbaa !45
   %.pre22.i = load i32, ptr %3, align 4, !tbaa !62
   %11 = zext i32 %.pre22.i to i64
@@ -2291,7 +2291,7 @@ define internal fastcc ptr @append_argument(ptr noundef captures(none) %0, i32 n
 13:                                               ; preds = %10, %6
   %14 = phi i64 [ %12, %10 ], [ 1200, %6 ]
   %15 = phi ptr [ %.pre.i, %10 ], [ %7, %6 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %15, i8 noundef 0, i64 noundef range(i64 0, 206158430161) %14, i1 noundef false) #18
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %15, i8 noundef 0, i64 noundef range(i64 0, 206158430161) %14, i1 noundef false) #19
   %.pr.i = load i32, ptr %3, align 4, !tbaa !62
   br label %16
 
@@ -2307,7 +2307,7 @@ define internal fastcc ptr @append_argument(ptr noundef captures(none) %0, i32 n
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %20
-  tail call void @die(ptr noundef nonnull @.str.97) #18
+  tail call void @die(ptr noundef nonnull @.str.97) #19
   %.pre23.i = load i32, ptr %3, align 4, !tbaa !62
   br label %23
 
@@ -2323,7 +2323,7 @@ define internal fastcc ptr @append_argument(ptr noundef captures(none) %0, i32 n
 28:                                               ; preds = %23
   %29 = zext i32 %25 to i64
   %30 = mul nuw nsw i64 %29, 24
-  %31 = tail call ptr @realloc(ptr noundef %27, i64 noundef range(i64 24, 206158430161) %30) #22
+  %31 = tail call ptr @realloc(ptr noundef %27, i64 noundef range(i64 24, 206158430161) %30) #23
   %32 = icmp eq ptr %31, null
   br i1 %32, label %safe_realloc_mul_2op_.exit.thread.i, label %safe_realloc_mul_2op_.exit.thread20.i
 
@@ -2332,18 +2332,18 @@ safe_realloc_mul_2op_.exit.thread20.i:            ; preds = %28
   br label %36
 
 safe_realloc_mul_2op_.exit.thread.i:              ; preds = %28
-  tail call void @free(ptr noundef %27) #18
+  tail call void @free(ptr noundef %27) #19
   store ptr null, ptr %26, align 8, !tbaa !45
   br label %35
 
 safe_realloc_mul_2op_.exit.i:                     ; preds = %23
-  %33 = tail call ptr @realloc(ptr noundef %27, i64 noundef 0) #22
+  %33 = tail call ptr @realloc(ptr noundef %27, i64 noundef 0) #23
   store ptr %33, ptr %26, align 8, !tbaa !45
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %safe_realloc_mul_2op_.exit.i, %safe_realloc_mul_2op_.exit.thread.i
-  tail call void @die(ptr noundef nonnull @.str.97) #18
+  tail call void @die(ptr noundef nonnull @.str.97) #19
   %.pre24.i = load ptr, ptr %26, align 8, !tbaa !45
   br label %36
 
@@ -2355,7 +2355,7 @@ safe_realloc_mul_2op_.exit.i:                     ; preds = %23
   %41 = sub i32 %40, %17
   %42 = zext i32 %41 to i64
   %43 = mul nuw nsw i64 %42, 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %39, i8 noundef 0, i64 noundef range(i64 0, 206158430161) %43, i1 noundef false) #18
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %39, i8 noundef 0, i64 noundef range(i64 0, 206158430161) %43, i1 noundef false) #19
   %.pre25.i = load i32, ptr %18, align 8, !tbaa !44
   br label %append_new_argument.exit
 
@@ -2387,9 +2387,9 @@ define internal fastcc range(i32 0, 2) i32 @parse_block_number(ptr noundef %0, p
   br i1 %5, label %44, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @local_strdup(ptr noundef nonnull %0) #18
+  %7 = tail call ptr @local_strdup(ptr noundef nonnull %0) #19
   store i32 1, ptr %1, align 8, !tbaa !63
-  %8 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %7, i32 noundef 44) #19
+  %8 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %7, i32 noundef 44) #20
   %.not31 = icmp eq ptr %8, null
   br i1 %.not31, label %._crit_edge, label %.lr.ph
 
@@ -2399,7 +2399,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_block_number(ptr noundef %0, p
   %10 = add i32 %9, 1
   store i32 %10, ptr %1, align 8, !tbaa !63
   %11 = getelementptr inbounds nuw i8, ptr %.02232, i64 1
-  %12 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 44) #19
+  %12 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 44) #20
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !65
 
@@ -2409,24 +2409,24 @@ define internal fastcc range(i32 0, 2) i32 @parse_block_number(ptr noundef %0, p
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %6
   %14 = phi i64 [ %13, %._crit_edge.loopexit ], [ 1, %6 ]
-  %15 = tail call ptr @safe_malloc_mul_2op_(i64 noundef 4, i64 noundef %14) #18
+  %15 = tail call ptr @safe_malloc_mul_2op_(i64 noundef 4, i64 noundef %14) #19
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %15, ptr %16, align 8, !tbaa !66
   %17 = icmp eq ptr %15, null
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %._crit_edge
-  tail call void @die(ptr noundef nonnull @.str.97) #18
+  tail call void @die(ptr noundef nonnull @.str.97) #19
   br label %19
 
 19:                                               ; preds = %18, %._crit_edge
-  %20 = tail call ptr @__ctype_b_loc() #20
+  %20 = tail call ptr @__ctype_b_loc() #21
   br label %21
 
 21:                                               ; preds = %19, %38
   %.034 = phi i32 [ 0, %19 ], [ %41, %38 ]
   %.02333 = phi ptr [ %7, %19 ], [ %.1, %38 ]
-  %22 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.02333, i32 noundef 44) #19
+  %22 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.02333, i32 noundef 44) #20
   %.not28 = icmp eq ptr %22, null
   br i1 %.not28, label %25, label %23
 
@@ -2447,7 +2447,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_block_number(ptr noundef %0, p
   br i1 %.not29, label %.sink.split, label %32
 
 32:                                               ; preds = %25
-  %33 = call i64 @strtol(ptr noundef nonnull %.02333, ptr noundef nonnull %3, i32 noundef 10) #18
+  %33 = call i64 @strtol(ptr noundef nonnull %.02333, ptr noundef nonnull %3, i32 noundef 10) #19
   %34 = icmp slt i64 %33, 0
   br i1 %34, label %.sink.split, label %35
 
@@ -2469,7 +2469,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_block_number(ptr noundef %0, p
 
 .sink.split:                                      ; preds = %38, %25, %32, %35
   %.021.ph = phi i32 [ 0, %35 ], [ 0, %32 ], [ 0, %25 ], [ 1, %38 ]
-  tail call void @free(ptr noundef %7) #18
+  tail call void @free(ptr noundef %7) #19
   br label %44
 
 44:                                               ; preds = %.sink.split, %2
@@ -2485,9 +2485,9 @@ define internal fastcc range(i32 0, 2) i32 @parse_block_type(ptr noundef %0, ptr
   br i1 %4, label %112, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @local_strdup(ptr noundef nonnull %0) #18
+  %6 = tail call ptr @local_strdup(ptr noundef nonnull %0) #19
   store i32 1, ptr %1, align 8, !tbaa !68
-  %7 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 44) #19
+  %7 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 44) #20
   %.not86 = icmp eq ptr %7, null
   br i1 %.not86, label %._crit_edge, label %.lr.ph
 
@@ -2497,7 +2497,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_block_type(ptr noundef %0, ptr
   %9 = add i32 %8, 1
   store i32 %9, ptr %1, align 8, !tbaa !68
   %10 = getelementptr inbounds nuw i8, ptr %.07087, i64 1
-  %11 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %10, i32 noundef 44) #19
+  %11 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %10, i32 noundef 44) #20
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !70
 
@@ -2507,14 +2507,14 @@ define internal fastcc range(i32 0, 2) i32 @parse_block_type(ptr noundef %0, ptr
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %5
   %13 = phi i64 [ %12, %._crit_edge.loopexit ], [ 1, %5 ]
-  %14 = tail call ptr @safe_malloc_mul_2op_(i64 noundef 12, i64 noundef %13) #18
+  %14 = tail call ptr @safe_malloc_mul_2op_(i64 noundef 12, i64 noundef %13) #19
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %14, ptr %15, align 8, !tbaa !71
   %16 = icmp eq ptr %14, null
   br i1 %16, label %17, label %.preheader
 
 17:                                               ; preds = %._crit_edge
-  tail call void @die(ptr noundef nonnull @.str.97) #18
+  tail call void @die(ptr noundef nonnull @.str.97) #19
   br label %.preheader
 
 .preheader:                                       ; preds = %17, %._crit_edge
@@ -2523,7 +2523,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_block_type(ptr noundef %0, ptr
 18:                                               ; preds = %.preheader, %111
   %.06989 = phi i32 [ %.1, %111 ], [ 0, %.preheader ]
   %.07388 = phi ptr [ %.171, %111 ], [ %6, %.preheader ]
-  %19 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.07388, i32 noundef 44) #19
+  %19 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.07388, i32 noundef 44) #20
   %.not80 = icmp eq ptr %19, null
   br i1 %.not80, label %22, label %20
 
@@ -2534,20 +2534,20 @@ define internal fastcc range(i32 0, 2) i32 @parse_block_type(ptr noundef %0, ptr
 
 22:                                               ; preds = %20, %18
   %.171 = phi ptr [ %21, %20 ], [ null, %18 ]
-  %23 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.07388, i32 noundef 58) #19
+  %23 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.07388, i32 noundef 58) #20
   %.not81 = icmp ne ptr %23, null
   br i1 %.not81, label %24, label %27
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store i8 0, ptr %23, align 1, !tbaa !38
-  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07388, ptr noundef nonnull dereferenceable(12) @.str.98) #19
+  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07388, ptr noundef nonnull dereferenceable(12) @.str.98) #20
   %.not82 = icmp eq i32 %26, 0
   br i1 %.not82, label %27, label %.sink.split
 
 27:                                               ; preds = %22, %24
   %.07284 = phi ptr [ %25, %24 ], [ null, %22 ]
-  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07388, ptr noundef nonnull dereferenceable(11) @.str.99) #19
+  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07388, ptr noundef nonnull dereferenceable(11) @.str.99) #20
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %34
 
@@ -2559,7 +2559,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_block_type(ptr noundef %0, ptr
   br label %111
 
 34:                                               ; preds = %27
-  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07388, ptr noundef nonnull dereferenceable(8) @.str.100) #19
+  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07388, ptr noundef nonnull dereferenceable(8) @.str.100) #20
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %41
 
@@ -2571,7 +2571,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_block_type(ptr noundef %0, ptr
   br label %111
 
 41:                                               ; preds = %34
-  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07388, ptr noundef nonnull dereferenceable(12) @.str.98) #19
+  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07388, ptr noundef nonnull dereferenceable(12) @.str.98) #20
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %83
 
@@ -2586,7 +2586,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_block_type(ptr noundef %0, ptr
   br i1 %.not81, label %50, label %111
 
 50:                                               ; preds = %44
-  %51 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.07284) #19
+  %51 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.07284) #20
   switch i64 %51, label %.sink.split [
     i64 4, label %52
     i64 10, label %55
@@ -2599,18 +2599,18 @@ define internal fastcc range(i32 0, 2) i32 @parse_block_type(ptr noundef %0, ptr
   br label %111
 
 55:                                               ; preds = %50
-  %56 = tail call i32 @strncasecmp(ptr noundef nonnull %.07284, ptr noundef nonnull @.str.101, i64 noundef 2) #19
+  %56 = tail call i32 @strncasecmp(ptr noundef nonnull %.07284, ptr noundef nonnull @.str.101, i64 noundef 2) #20
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %.sink.split
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %.07284, i64 2
-  %60 = tail call i64 @strspn(ptr noundef nonnull %59, ptr noundef nonnull @.str.102) #19
+  %60 = tail call i64 @strspn(ptr noundef nonnull %59, ptr noundef nonnull @.str.102) #20
   %61 = icmp eq i64 %60, 8
   br i1 %61, label %62, label %.sink.split
 
 62:                                               ; preds = %58
-  %63 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %59, ptr noundef null, i32 noundef 16) #18
+  %63 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %59, ptr noundef null, i32 noundef 16) #19
   %64 = trunc i64 %63 to i8
   %65 = load ptr, ptr %15, align 8, !tbaa !71
   %66 = getelementptr inbounds nuw %struct.Argument_BlockTypeEntry, ptr %65, i64 %46
@@ -2637,7 +2637,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_block_type(ptr noundef %0, ptr
   br label %111
 
 83:                                               ; preds = %41
-  %84 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07388, ptr noundef nonnull dereferenceable(10) @.str.103) #19
+  %84 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07388, ptr noundef nonnull dereferenceable(10) @.str.103) #20
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %86, label %90
 
@@ -2649,7 +2649,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_block_type(ptr noundef %0, ptr
   br label %111
 
 90:                                               ; preds = %83
-  %91 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07388, ptr noundef nonnull dereferenceable(15) @.str.104) #19
+  %91 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07388, ptr noundef nonnull dereferenceable(15) @.str.104) #20
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %93, label %97
 
@@ -2661,7 +2661,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_block_type(ptr noundef %0, ptr
   br label %111
 
 97:                                               ; preds = %90
-  %98 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07388, ptr noundef nonnull dereferenceable(9) @.str.105) #19
+  %98 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07388, ptr noundef nonnull dereferenceable(9) @.str.105) #20
   %99 = icmp eq i32 %98, 0
   br i1 %99, label %100, label %104
 
@@ -2673,7 +2673,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_block_type(ptr noundef %0, ptr
   br label %111
 
 104:                                              ; preds = %97
-  %105 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07388, ptr noundef nonnull dereferenceable(8) @.str.106) #19
+  %105 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07388, ptr noundef nonnull dereferenceable(8) @.str.106) #20
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %107, label %.sink.split
 
@@ -2691,7 +2691,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_block_type(ptr noundef %0, ptr
 
 .sink.split:                                      ; preds = %111, %104, %55, %58, %50, %24
   %.0.ph = phi i32 [ 0, %24 ], [ 0, %50 ], [ 0, %58 ], [ 0, %55 ], [ 0, %104 ], [ 1, %111 ]
-  tail call void @free(ptr noundef %6) #18
+  tail call void @free(ptr noundef %6) #19
   br label %112
 
 112:                                              ; preds = %.sink.split, %2
@@ -2700,18 +2700,18 @@ define internal fastcc range(i32 0, 2) i32 @parse_block_type(ptr noundef %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_data_format(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #7 {
-  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(18) @.str.107) #19
+define internal fastcc range(i32 0, 2) i32 @parse_data_format(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #8 {
+  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(18) @.str.107) #20
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.sink.split, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.108) #19
+  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.108) #20
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.sink.split, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.109) #19
+  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.109) #20
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.sink.split, label %12
 
@@ -2729,13 +2729,13 @@ define internal fastcc range(i32 0, 2) i32 @parse_data_format(ptr noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_application_data_format(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #7 {
-  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.110) #19
+define internal fastcc range(i32 0, 2) i32 @parse_application_data_format(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #8 {
+  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.110) #20
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.109) #19
+  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.109) #20
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %9
 
@@ -2753,19 +2753,19 @@ define internal fastcc range(i32 0, 2) i32 @parse_application_data_format(ptr no
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #8
+declare ptr @__ctype_b_loc() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #9
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #9
+declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #10
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @append_new_operation(ptr noundef captures(none) %0, ptr noundef readonly byval(%struct.Operation) align 8 captures(none) %1) unnamed_addr #1 {
@@ -2777,13 +2777,13 @@ define internal fastcc void @append_new_operation(ptr noundef captures(none) %0,
 
 7:                                                ; preds = %2
   store i32 50, ptr %4, align 4, !tbaa !79
-  %8 = tail call noalias dereferenceable_or_null(2400) ptr @malloc(i64 noundef 2400) #21
+  %8 = tail call noalias dereferenceable_or_null(2400) ptr @malloc(i64 noundef 2400) #22
   store ptr %8, ptr %3, align 8, !tbaa !34
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %7
-  tail call void @die(ptr noundef nonnull @.str.97) #18
+  tail call void @die(ptr noundef nonnull @.str.97) #19
   %.pre = load ptr, ptr %3, align 8, !tbaa !34
   %.pre22 = load i32, ptr %4, align 4, !tbaa !79
   %11 = zext i32 %.pre22 to i64
@@ -2793,7 +2793,7 @@ define internal fastcc void @append_new_operation(ptr noundef captures(none) %0,
 13:                                               ; preds = %10, %7
   %14 = phi i64 [ %12, %10 ], [ 2400, %7 ]
   %15 = phi ptr [ %.pre, %10 ], [ %8, %7 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %15, i8 noundef 0, i64 noundef range(i64 0, 206158430161) %14, i1 noundef false) #18
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %15, i8 noundef 0, i64 noundef range(i64 0, 206158430161) %14, i1 noundef false) #19
   %.pr = load i32, ptr %4, align 4, !tbaa !79
   br label %16
 
@@ -2809,7 +2809,7 @@ define internal fastcc void @append_new_operation(ptr noundef captures(none) %0,
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %20
-  tail call void @die(ptr noundef nonnull @.str.97) #18
+  tail call void @die(ptr noundef nonnull @.str.97) #19
   %.pre23 = load i32, ptr %4, align 4, !tbaa !79
   br label %23
 
@@ -2824,7 +2824,7 @@ define internal fastcc void @append_new_operation(ptr noundef captures(none) %0,
 27:                                               ; preds = %23
   %28 = zext i32 %25 to i64
   %29 = mul nuw nsw i64 %28, 48
-  %30 = tail call ptr @realloc(ptr noundef %26, i64 noundef range(i64 24, 206158430161) %29) #22
+  %30 = tail call ptr @realloc(ptr noundef %26, i64 noundef range(i64 24, 206158430161) %29) #23
   %31 = icmp eq ptr %30, null
   br i1 %31, label %safe_realloc_mul_2op_.exit.thread, label %safe_realloc_mul_2op_.exit.thread20
 
@@ -2833,18 +2833,18 @@ safe_realloc_mul_2op_.exit.thread20:              ; preds = %27
   br label %35
 
 safe_realloc_mul_2op_.exit.thread:                ; preds = %27
-  tail call void @free(ptr noundef %26) #18
+  tail call void @free(ptr noundef %26) #19
   store ptr null, ptr %3, align 8, !tbaa !34
   br label %34
 
 safe_realloc_mul_2op_.exit:                       ; preds = %23
-  %32 = tail call ptr @realloc(ptr noundef %26, i64 noundef 0) #22
+  %32 = tail call ptr @realloc(ptr noundef %26, i64 noundef 0) #23
   store ptr %32, ptr %3, align 8, !tbaa !34
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %safe_realloc_mul_2op_.exit.thread, %safe_realloc_mul_2op_.exit
-  tail call void @die(ptr noundef nonnull @.str.97) #18
+  tail call void @die(ptr noundef nonnull @.str.97) #19
   %.pre24 = load ptr, ptr %3, align 8, !tbaa !34
   br label %35
 
@@ -2856,7 +2856,7 @@ safe_realloc_mul_2op_.exit:                       ; preds = %23
   %40 = sub i32 %39, %17
   %41 = zext i32 %40 to i64
   %42 = mul nuw nsw i64 %41, 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %38, i8 noundef 0, i64 noundef range(i64 0, 206158430161) %42, i1 noundef false) #18
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %38, i8 noundef 0, i64 noundef range(i64 0, 206158430161) %42, i1 noundef false) #19
   %.pre25 = load i32, ptr %18, align 8, !tbaa !33
   br label %43
 
@@ -2872,58 +2872,59 @@ safe_realloc_mul_2op_.exit:                       ; preds = %23
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #13
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #9
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #14
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #17
+declare void @llvm.assume(i1 noundef) #18
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nounwind sspstrong willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #18 = { nounwind }
-attributes #19 = { nounwind willreturn memory(read) }
-attributes #20 = { nounwind willreturn memory(none) }
-attributes #21 = { nounwind allocsize(0) }
-attributes #22 = { nounwind allocsize(1) }
+attributes #4 = { nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nounwind sspstrong willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #19 = { nounwind }
+attributes #20 = { nounwind willreturn memory(read) }
+attributes #21 = { nounwind willreturn memory(none) }
+attributes #22 = { nounwind allocsize(0) }
+attributes #23 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

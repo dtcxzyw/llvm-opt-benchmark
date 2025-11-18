@@ -3016,7 +3016,7 @@ _ZN10VM_Version26allocate_prefetch_distanceEb.exit: ; preds = %999, %1010, %1013
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZNK10VM_Version9CpuidInfo13feature_flagsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(672) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
@@ -3426,7 +3426,7 @@ _ZN10VM_Version28is_intel_tsc_synched_at_initEv.exit: ; preds = %239, %_ZN10VM_V
   ret i64 %.60
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef range(i32 32, 4097) i32 @_ZN10VM_Version12L1_line_sizeEv() local_unnamed_addr #3 align 2 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %1, label %13 [
@@ -3476,7 +3476,7 @@ define hidden noundef zeroext i1 @_ZN10VM_Version21os_supports_apx_egprsEv() loc
   ret i1 false
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZN10VM_Version29compute_has_intel_jcc_erratumEv() local_unnamed_addr #3 align 2 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   %2 = icmp eq i32 %1, 1970169159
@@ -3556,7 +3556,7 @@ _ZN10VM_Version20is_intel_family_coreEv.exit.thread: ; preds = %0, %10, %_ZN10VM
 
 declare i32 @jio_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef range(i32 1, 65536) i32 @_ZN10VM_Version13cores_per_cpuEv() local_unnamed_addr #3 align 2 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %1, label %34 [
@@ -3636,7 +3636,7 @@ _ZN10VM_Version27supports_processor_topologyEv.exit13: ; preds = %20
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef range(i32 1, 65536) i32 @_ZN10VM_Version16threads_per_coreEv() local_unnamed_addr #3 align 2 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   %2 = icmp eq i32 %1, 1970169159
@@ -3782,7 +3782,7 @@ declare void @_ZN19Abstract_VM_Version21insert_features_namesEPcmPPKc(ptr nounde
 
 declare noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef, i8 noundef zeroext) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZN10VM_Version23os_supports_avx_vectorsEv() local_unnamed_addr #3 align 2 {
   %1 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %2 = and i64 %1, 134217728
@@ -3831,7 +3831,7 @@ define hidden noundef zeroext i1 @_ZN10VM_Version23os_supports_avx_vectorsEv() l
   ret i1 %.016
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef range(i32 128, 513) i32 @_ZN10VM_Version26allocate_prefetch_distanceEb(i1 noundef zeroext %0) local_unnamed_addr #3 align 2 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %2, label %6 [
@@ -4036,7 +4036,7 @@ _ZN10VM_Version21is_intel_cascade_lakeEv.exit:    ; preds = %6, %_ZN10VM_Version
   ret i1 %28
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZN10VM_Version21is_intel_cascade_lakeEv() local_unnamed_addr #3 align 2 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   %2 = icmp eq i32 %1, 1970169159
@@ -7887,7 +7887,7 @@ define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_
   ret ptr %64
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef ptr @_ZN10VM_Version21cpu_model_descriptionEv() local_unnamed_addr #3 align 2 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
   %2 = lshr i32 %1, 8
@@ -8020,7 +8020,7 @@ define hidden noundef i32 @_ZN10VM_Version25cpu_extended_brand_stringEPcm(ptr no
   ret i32 0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef ptr @_ZN10VM_Version9cpu_brandEv() local_unnamed_addr #3 align 2 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 20), align 4
   %2 = and i32 %1, 255
@@ -8049,7 +8049,7 @@ define hidden noundef ptr @_ZN10VM_Version9cpu_brandEv() local_unnamed_addr #3 a
   ret ptr %.05
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZN10VM_Version12cpu_is_em64tEv() local_unnamed_addr #3 align 2 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 148), align 4
   %2 = and i32 %1, 536870912
@@ -8057,7 +8057,7 @@ define hidden noundef zeroext i1 @_ZN10VM_Version12cpu_is_em64tEv() local_unname
   ret i1 %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZN10VM_Version11is_netburstEv() local_unnamed_addr #3 align 2 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   %2 = icmp eq i32 %1, 1970169159
@@ -8078,7 +8078,7 @@ define hidden noundef zeroext i1 @_ZN10VM_Version11is_netburstEv() local_unnamed
   ret i1 %12
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZN10VM_Version19supports_tscinv_extEv() local_unnamed_addr #3 align 2 {
   %1 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %2 = and i64 %1, 65536
@@ -8111,7 +8111,7 @@ switch.edge:                                      ; preds = %3, %3, %12, %0, %_Z
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN10VM_Version31resolve_cpu_information_detailsEv() local_unnamed_addr #9 align 2 {
   %1 = load i32, ptr @_ZN2os16_processor_countE, align 4
   store i32 %1, ptr @_ZN19Abstract_VM_Version14_no_of_threadsE, align 4
@@ -8288,7 +8288,7 @@ _ZN10VM_Version13cores_per_cpuEv.exit16:          ; preds = %_ZN10VM_Version13co
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef ptr @_ZN10VM_Version22cpu_family_descriptionEv() local_unnamed_addr #3 align 2 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
   %2 = lshr i32 %1, 8
@@ -9132,7 +9132,7 @@ define hidden noundef range(i64 -195536000000000000, 87769000000000001) i64 @_ZN
   ret i64 %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZN10VM_Version28is_intel_tsc_synched_at_initEv() local_unnamed_addr #3 align 2 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   %2 = icmp eq i32 %1, 1970169159
@@ -9168,7 +9168,7 @@ _ZN10VM_Version20is_intel_family_coreEv.exit.thread: ; preds = %_ZN10VM_Version2
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZN10VM_Version22is_intrinsic_supportedE13vmIntrinsicID(i32 noundef %0) local_unnamed_addr #3 align 2 {
   %.off = add i32 %0, -67
   %switch = icmp ult i32 %.off, 2
@@ -9419,14 +9419,14 @@ declare i32 @llvm.umin.i32(i32, i32) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: read) }

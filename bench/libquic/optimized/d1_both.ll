@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [117 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/ssl/d1_both.c\00", align 1
 @dtls1_write_change_cipher_spec.kChangeCipherSpec = internal constant [1 x i8] c"\01", align 1
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @dtls1_hm_fragment_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
@@ -16,11 +16,11 @@ define hidden void @dtls1_hm_fragment_free(ptr noundef captures(address_is_null)
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !6
-  tail call void @free(ptr noundef %5) #13
+  tail call void @free(ptr noundef %5) #14
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !15
-  tail call void @free(ptr noundef %7) #13
-  tail call void @free(ptr noundef nonnull %0) #13
+  tail call void @free(ptr noundef %7) #14
+  tail call void @free(ptr noundef nonnull %0) #14
   br label %8
 
 8:                                                ; preds = %1, %3
@@ -36,13 +36,13 @@ define hidden range(i32 -2147483648, 2) i32 @dtls1_do_handshake_write(ptr nounde
   %4 = alloca i64, align 8
   tail call fastcc void @dtls1_update_mtu(ptr noundef %0)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @CBB_zero(ptr noundef nonnull %3) #13
+  call void @CBB_zero(ptr noundef nonnull %3) #14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8, !tbaa !16
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 328
   %8 = load i32, ptr %7, align 8, !tbaa !39
   %9 = zext i32 %8 to i64
-  %10 = call noalias ptr @malloc(i64 noundef %9) #14
+  %10 = call noalias ptr @malloc(i64 noundef %9) #15
   %11 = icmp eq ptr %10, null
   br i1 %11, label %113, label %12
 
@@ -70,21 +70,21 @@ define hidden range(i32 -2147483648, 2) i32 @dtls1_do_handshake_write(ptr nounde
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 328
   %26 = load i32, ptr %25, align 8, !tbaa !39
   %27 = zext i32 %26 to i64
-  %28 = call i64 @ssl_max_seal_overhead(ptr noundef nonnull %0) #13
+  %28 = call i64 @ssl_max_seal_overhead(ptr noundef nonnull %0) #14
   %.not.i = icmp ult i64 %28, %27
   br i1 %.not.i, label %dtls1_max_record_size.exit, label %dtls1_max_record_size.exit.thread
 
 dtls1_max_record_size.exit:                       ; preds = %23
   %29 = sub nuw nsw i64 %27, %28
-  %30 = call ptr @SSL_get_wbio(ptr noundef nonnull %0) #13
-  %31 = call i64 @BIO_wpending(ptr noundef %30) #13
+  %30 = call ptr @SSL_get_wbio(ptr noundef nonnull %0) #14
+  %31 = call i64 @BIO_wpending(ptr noundef %30) #14
   %.1.i = call i64 @llvm.usub.sat.i64(i64 %29, i64 %31)
   %32 = icmp samesign ult i64 %.1.i, 13
   br i1 %32, label %dtls1_max_record_size.exit.thread, label %.thread
 
 dtls1_max_record_size.exit.thread:                ; preds = %23, %dtls1_max_record_size.exit
-  %33 = call ptr @SSL_get_wbio(ptr noundef nonnull %0) #13
-  %34 = call i32 @BIO_flush(ptr noundef %33) #13
+  %33 = call ptr @SSL_get_wbio(ptr noundef nonnull %0) #14
+  %34 = call i32 @BIO_flush(ptr noundef %33) #14
   %35 = icmp slt i32 %34, 1
   br i1 %35, label %36, label %.thread
 
@@ -98,20 +98,20 @@ dtls1_max_record_size.exit.thread:                ; preds = %23, %dtls1_max_reco
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 328
   %40 = load i32, ptr %39, align 8, !tbaa !39
   %41 = zext i32 %40 to i64
-  %42 = call i64 @ssl_max_seal_overhead(ptr noundef nonnull %0) #13
+  %42 = call i64 @ssl_max_seal_overhead(ptr noundef nonnull %0) #14
   %.not.i78 = icmp ult i64 %42, %41
   br i1 %.not.i78, label %dtls1_max_record_size.exit81, label %.thread86
 
 dtls1_max_record_size.exit81:                     ; preds = %.thread
   %43 = sub nuw nsw i64 %41, %42
-  %44 = call ptr @SSL_get_wbio(ptr noundef nonnull %0) #13
-  %45 = call i64 @BIO_wpending(ptr noundef %44) #13
+  %44 = call ptr @SSL_get_wbio(ptr noundef nonnull %0) #14
+  %45 = call i64 @BIO_wpending(ptr noundef %44) #14
   %.1.i80 = call i64 @llvm.usub.sat.i64(i64 %43, i64 %45)
   %46 = icmp samesign ult i64 %.1.i80, 13
   br i1 %46, label %.thread86, label %47
 
 .thread86:                                        ; preds = %dtls1_max_record_size.exit81, %.thread
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 169, ptr noundef nonnull @.str, i32 noundef 355) #13
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 169, ptr noundef nonnull @.str, i32 noundef 355) #14
   br label %113
 
 47:                                               ; preds = %dtls1_max_record_size.exit81
@@ -125,7 +125,7 @@ dtls1_max_record_size.exit81:                     ; preds = %.thread
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 328
   %53 = load i32, ptr %52, align 8, !tbaa !39
   %54 = zext i32 %53 to i64
-  %55 = call i32 @CBB_init_fixed(ptr noundef nonnull %3, ptr noundef nonnull %10, i64 noundef %54) #13
+  %55 = call i32 @CBB_init_fixed(ptr noundef nonnull %3, ptr noundef nonnull %10, i64 noundef %54) #14
   %.not = icmp eq i32 %55, 0
   br i1 %.not, label %88, label %56
 
@@ -133,7 +133,7 @@ dtls1_max_record_size.exit81:                     ; preds = %.thread
   %57 = load ptr, ptr %5, align 8, !tbaa !16
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 332
   %59 = load i8, ptr %58, align 4, !tbaa !47
-  %60 = call i32 @CBB_add_u8(ptr noundef nonnull %3, i8 noundef zeroext %59) #13
+  %60 = call i32 @CBB_add_u8(ptr noundef nonnull %3, i8 noundef zeroext %59) #14
   %.not67 = icmp eq i32 %60, 0
   br i1 %.not67, label %88, label %61
 
@@ -141,7 +141,7 @@ dtls1_max_record_size.exit81:                     ; preds = %.thread
   %62 = load ptr, ptr %5, align 8, !tbaa !16
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 336
   %64 = load i32, ptr %63, align 4, !tbaa !48
-  %65 = call i32 @CBB_add_u24(ptr noundef nonnull %3, i32 noundef %64) #13
+  %65 = call i32 @CBB_add_u24(ptr noundef nonnull %3, i32 noundef %64) #14
   %.not68 = icmp eq i32 %65, 0
   br i1 %.not68, label %88, label %66
 
@@ -149,20 +149,20 @@ dtls1_max_record_size.exit81:                     ; preds = %.thread
   %67 = load ptr, ptr %5, align 8, !tbaa !16
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 340
   %69 = load i16, ptr %68, align 4, !tbaa !49
-  %70 = call i32 @CBB_add_u16(ptr noundef nonnull %3, i16 noundef zeroext %69) #13
+  %70 = call i32 @CBB_add_u16(ptr noundef nonnull %3, i16 noundef zeroext %69) #14
   %.not69 = icmp eq i32 %70, 0
   br i1 %.not69, label %88, label %71
 
 71:                                               ; preds = %66
   %72 = load i32, ptr %13, align 4, !tbaa !44
   %73 = add nsw i32 %72, -12
-  %74 = call i32 @CBB_add_u24(ptr noundef nonnull %3, i32 noundef %73) #13
+  %74 = call i32 @CBB_add_u24(ptr noundef nonnull %3, i32 noundef %73) #14
   %.not70 = icmp eq i32 %74, 0
   br i1 %.not70, label %88, label %75
 
 75:                                               ; preds = %71
   %76 = trunc nuw nsw i64 %spec.store.select to i32
-  %77 = call i32 @CBB_add_u24(ptr noundef nonnull %3, i32 noundef %76) #13
+  %77 = call i32 @CBB_add_u24(ptr noundef nonnull %3, i32 noundef %76) #14
   %.not71 = icmp eq i32 %77, 0
   br i1 %.not71, label %88, label %78
 
@@ -173,23 +173,23 @@ dtls1_max_record_size.exit81:                     ; preds = %.thread
   %82 = load i32, ptr %13, align 4, !tbaa !44
   %83 = sext i32 %82 to i64
   %84 = getelementptr inbounds i8, ptr %81, i64 %83
-  %85 = call i32 @CBB_add_bytes(ptr noundef nonnull %3, ptr noundef %84, i64 noundef %spec.store.select) #13
+  %85 = call i32 @CBB_add_bytes(ptr noundef nonnull %3, ptr noundef %84, i64 noundef %spec.store.select) #14
   %.not72 = icmp eq i32 %85, 0
   br i1 %.not72, label %88, label %86
 
 86:                                               ; preds = %78
-  %87 = call i32 @CBB_finish(ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %4) #13
+  %87 = call i32 @CBB_finish(ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %4) #14
   %.not73 = icmp eq i32 %87, 0
   br i1 %.not73, label %88, label %89
 
 88:                                               ; preds = %86, %78, %75, %71, %66, %61, %56, %47
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 377) #13
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 377) #14
   br label %.thread89
 
 89:                                               ; preds = %86
   %90 = load i64, ptr %4, align 8, !tbaa !53
   %91 = trunc i64 %90 to i32
-  %92 = call i32 @dtls1_write_bytes(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull %10, i32 noundef %91, i32 noundef %1) #13
+  %92 = call i32 @dtls1_write_bytes(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull %10, i32 noundef %91, i32 noundef %1) #14
   %93 = icmp slt i32 %92, 1
   br i1 %93, label %.thread89, label %94
 
@@ -224,7 +224,7 @@ dtls1_max_record_size.exit81:                     ; preds = %.thread
   %109 = sext i32 %108 to i64
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %111 = load ptr, ptr %110, align 8, !tbaa !58
-  call void %102(i32 noundef 1, i32 noundef %104, i32 noundef 22, ptr noundef %107, i64 noundef %109, ptr noundef nonnull %0, ptr noundef %111) #13
+  call void %102(i32 noundef 1, i32 noundef %104, i32 noundef 22, ptr noundef %107, i64 noundef %109, ptr noundef nonnull %0, ptr noundef %111) #14
   br label %112
 
 112:                                              ; preds = %103, %100
@@ -234,8 +234,8 @@ dtls1_max_record_size.exit81:                     ; preds = %.thread
 
 113:                                              ; preds = %.thread89, %.thread86, %36, %2, %112
   %.054 = phi i32 [ -1, %2 ], [ 1, %112 ], [ %34, %36 ], [ -1, %.thread86 ], [ %.5.ph, %.thread89 ]
-  call void @CBB_cleanup(ptr noundef nonnull %3) #13
-  call void @free(ptr noundef %10) #13
+  call void @CBB_cleanup(ptr noundef nonnull %3) #14
+  call void @free(ptr noundef %10) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.054
 }
@@ -250,14 +250,14 @@ define internal fastcc void @dtls1_update_mtu(ptr noundef %0) unnamed_addr #2 {
   br i1 %6, label %7, label %27
 
 7:                                                ; preds = %1
-  %8 = tail call i32 @SSL_get_options(ptr noundef nonnull %0) #13
+  %8 = tail call i32 @SSL_get_options(ptr noundef nonnull %0) #14
   %9 = and i32 %8, 4096
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %27
 
 10:                                               ; preds = %7
-  %11 = tail call ptr @SSL_get_wbio(ptr noundef nonnull %0) #13
-  %12 = tail call i64 @BIO_ctrl(ptr noundef %11, i32 noundef 40, i64 noundef 0, ptr noundef null) #13
+  %11 = tail call ptr @SSL_get_wbio(ptr noundef nonnull %0) #14
+  %12 = tail call i64 @BIO_ctrl(ptr noundef %11, i32 noundef 40, i64 noundef 0, ptr noundef null) #14
   %13 = add i64 %12, -228
   %or.cond12 = icmp ult i64 %13, 1073741597
   br i1 %or.cond12, label %14, label %18
@@ -273,12 +273,12 @@ define internal fastcc void @dtls1_update_mtu(ptr noundef %0) unnamed_addr #2 {
   %19 = load ptr, ptr %2, align 8, !tbaa !16
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 328
   store i32 1472, ptr %20, align 8, !tbaa !39
-  %21 = tail call ptr @SSL_get_wbio(ptr noundef nonnull %0) #13
+  %21 = tail call ptr @SSL_get_wbio(ptr noundef nonnull %0) #14
   %22 = load ptr, ptr %2, align 8, !tbaa !16
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 328
   %24 = load i32, ptr %23, align 8, !tbaa !39
   %25 = zext i32 %24 to i64
-  %26 = tail call i64 @BIO_ctrl(ptr noundef %21, i32 noundef 42, i64 noundef %25, ptr noundef null) #13
+  %26 = tail call i64 @BIO_ctrl(ptr noundef %21, i32 noundef 42, i64 noundef %25, ptr noundef null) #14
   br label %27
 
 27:                                               ; preds = %14, %18, %7, %1
@@ -356,7 +356,7 @@ define hidden range(i64 -2147483648, 2147483648) i64 @dtls1_get_message(ptr noun
   br i1 %.not86, label %38, label %37
 
 37:                                               ; preds = %34
-  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 223, ptr noundef nonnull @.str, i32 noundef 588) #13
+  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 223, ptr noundef nonnull @.str, i32 noundef 588) #14
   br label %279
 
 38:                                               ; preds = %34, %32
@@ -381,7 +381,7 @@ define hidden range(i64 -2147483648, 2147483648) i64 @dtls1_get_message(ptr noun
   %51 = load ptr, ptr %17, align 8, !tbaa !16
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 312
   %53 = load ptr, ptr %52, align 8, !tbaa !78
-  %54 = call ptr @pqueue_peek(ptr noundef %53) #13
+  %54 = call ptr @pqueue_peek(ptr noundef %53) #14
   %55 = icmp eq ptr %54, null
   br i1 %55, label %dtls1_is_next_message_complete.exit.thread, label %56
 
@@ -404,7 +404,7 @@ dtls1_is_next_message_complete.exit:              ; preds = %56
 
 dtls1_is_next_message_complete.exit.thread:       ; preds = %56, %50, %dtls1_is_next_message_complete.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %67 = call i32 @dtls1_read_bytes(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull %10, i32 noundef 12, i32 noundef 0) #13
+  %67 = call i32 @dtls1_read_bytes(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull %10, i32 noundef 12, i32 noundef 0) #14
   %68 = icmp slt i32 %67, 1
   br i1 %68, label %.loopexit.loopexit, label %69
 
@@ -413,8 +413,8 @@ dtls1_is_next_message_complete.exit.thread:       ; preds = %56, %50, %dtls1_is_
   br i1 %.not.i, label %72, label %70
 
 70:                                               ; preds = %69
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 223, ptr noundef nonnull @.str, i32 noundef 508) #13
-  %71 = call i32 @ssl3_send_alert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 10) #13
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 223, ptr noundef nonnull @.str, i32 noundef 508) #14
+  %71 = call i32 @ssl3_send_alert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 10) #14
   br label %.loopexit
 
 72:                                               ; preds = %69
@@ -481,8 +481,8 @@ dtls1_is_next_message_complete.exit.thread:       ; preds = %56, %50, %dtls1_is_
   br i1 %124, label %125, label %127
 
 125:                                              ; preds = %119, %117, %113, %72
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 150, ptr noundef nonnull @.str, i32 noundef 526) #13
-  %126 = call i32 @ssl3_send_alert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 47) #13
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 150, ptr noundef nonnull @.str, i32 noundef 526) #14
+  %126 = call i32 @ssl3_send_alert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 47) #14
   br label %.thread125
 
 127:                                              ; preds = %119
@@ -509,7 +509,7 @@ dtls1_is_next_message_complete.exit.thread:       ; preds = %56, %50, %dtls1_is_
 138:                                              ; preds = %137
   %139 = call i64 @llvm.umin.i64(i64 %.011.i, i64 256)
   %140 = trunc nuw nsw i64 %139 to i32
-  %141 = call i32 @dtls1_read_bytes(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull %8, i32 noundef %140, i32 noundef 0) #13
+  %141 = call i32 @dtls1_read_bytes(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull %8, i32 noundef %140, i32 noundef 0) #14
   %.not13.i = icmp eq i32 %141, %140
   %142 = sub i64 %.011.i, %139
   br i1 %.not13.i, label %137, label %143, !llvm.loop !87
@@ -529,7 +529,7 @@ dtls1_discard_fragment_body.exit:                 ; preds = %137
   store i8 %87, ptr %31, align 1, !tbaa !84
   %145 = getelementptr inbounds nuw i8, ptr %128, i64 312
   %146 = load ptr, ptr %145, align 8, !tbaa !78
-  %147 = call ptr @pqueue_find(ptr noundef %146, ptr noundef nonnull %9) #13
+  %147 = call ptr @pqueue_find(ptr noundef %146, ptr noundef nonnull %9) #14
   %148 = icmp eq ptr %147, null
   br i1 %148, label %149, label %164
 
@@ -554,25 +554,25 @@ dtls1_discard_fragment_body.exit:                 ; preds = %137
   store i32 %109, ptr %.sroa.12.0..sroa_idx, align 8
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %150, i64 20
   store i64 0, ptr %.sroa.13.0..sroa_idx, align 4
-  %153 = call ptr @pitem_new(ptr noundef nonnull %9, ptr noundef nonnull %150) #13
+  %153 = call ptr @pitem_new(ptr noundef nonnull %9, ptr noundef nonnull %150) #14
   %154 = icmp eq ptr %153, null
   br i1 %154, label %dtls1_hm_fragment_free.exit.i, label %159
 
 dtls1_hm_fragment_free.exit.i:                    ; preds = %152
   %155 = getelementptr inbounds nuw i8, ptr %150, i64 32
   %156 = load ptr, ptr %155, align 8, !tbaa !6
-  call void @free(ptr noundef %156) #13
+  call void @free(ptr noundef %156) #14
   %157 = getelementptr inbounds nuw i8, ptr %150, i64 40
   %158 = load ptr, ptr %157, align 8, !tbaa !15
-  call void @free(ptr noundef %158) #13
-  call void @free(ptr noundef nonnull %150) #13
+  call void @free(ptr noundef %158) #14
+  call void @free(ptr noundef nonnull %150) #14
   br label %dtls1_get_buffered_message.exit.thread
 
 159:                                              ; preds = %152
   %160 = load ptr, ptr %17, align 8, !tbaa !16
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 312
   %162 = load ptr, ptr %161, align 8, !tbaa !78
-  %163 = call ptr @pqueue_insert(ptr noundef %162, ptr noundef nonnull %153) #13
+  %163 = call ptr @pqueue_insert(ptr noundef %162, ptr noundef nonnull %153) #14
   br label %173
 
 164:                                              ; preds = %144
@@ -589,8 +589,8 @@ dtls1_hm_fragment_free.exit.i:                    ; preds = %152
   br i1 %.not25.i, label %173, label %171
 
 171:                                              ; preds = %168, %164
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 152, ptr noundef nonnull @.str, i32 noundef 478) #13
-  %172 = call i32 @ssl3_send_alert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 47) #13
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 152, ptr noundef nonnull @.str, i32 noundef 478) #14
+  %172 = call i32 @ssl3_send_alert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 47) #14
   br label %dtls1_get_buffered_message.exit.thread
 
 dtls1_get_buffered_message.exit.thread:           ; preds = %149, %dtls1_hm_fragment_free.exit.i, %171
@@ -614,13 +614,13 @@ dtls1_get_buffered_message.exit.thread:           ; preds = %149, %dtls1_hm_frag
   %180 = getelementptr inbounds nuw i8, ptr %.021.i, i64 32
   %181 = load ptr, ptr %180, align 8, !tbaa !6
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 %110
-  %183 = call i32 @dtls1_read_bytes(ptr noundef nonnull %0, i32 noundef 22, ptr noundef %182, i32 noundef %109, i32 noundef 0) #13
+  %183 = call i32 @dtls1_read_bytes(ptr noundef nonnull %0, i32 noundef 22, ptr noundef %182, i32 noundef %109, i32 noundef 0) #14
   %.not47.i = icmp eq i32 %183, %109
   br i1 %.not47.i, label %186, label %184
 
 184:                                              ; preds = %179
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 560) #13
-  %185 = call i32 @ssl3_send_alert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 80) #13
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 560) #14
+  %185 = call i32 @ssl3_send_alert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 80) #14
   br label %.thread125
 
 186:                                              ; preds = %179
@@ -649,7 +649,7 @@ dtls1_get_buffered_message.exit.thread:           ; preds = %149, %dtls1_hm_frag
 189:                                              ; preds = %dtls1_is_next_message_complete.exit
   %190 = getelementptr inbounds nuw i8, ptr %59, i64 312
   %191 = load ptr, ptr %190, align 8, !tbaa !78
-  %192 = call ptr @pqueue_pop(ptr noundef %191) #13
+  %192 = call ptr @pqueue_pop(ptr noundef %191) #14
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %194 = load ptr, ptr %193, align 8, !tbaa !79
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 4
@@ -659,17 +659,17 @@ dtls1_get_buffered_message.exit.thread:           ; preds = %149, %dtls1_hm_frag
   br i1 %198, label %199, label %200
 
 199:                                              ; preds = %189
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 150, ptr noundef nonnull @.str, i32 noundef 614) #13
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 150, ptr noundef nonnull @.str, i32 noundef 614) #14
   br label %.thread
 
 200:                                              ; preds = %189
-  call void @CBB_zero(ptr noundef nonnull %12) #13
+  call void @CBB_zero(ptr noundef nonnull %12) #14
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %202 = load ptr, ptr %201, align 8, !tbaa !50
   %203 = load i32, ptr %195, align 4, !tbaa !89
   %204 = zext i32 %203 to i64
   %205 = add nuw nsw i64 %204, 12
-  %206 = call i64 @BUF_MEM_grow(ptr noundef %202, i64 noundef %205) #13
+  %206 = call i64 @BUF_MEM_grow(ptr noundef %202, i64 noundef %205) #14
   %.not74 = icmp eq i64 %206, 0
   br i1 %.not74, label %237, label %207
 
@@ -679,37 +679,37 @@ dtls1_get_buffered_message.exit.thread:           ; preds = %149, %dtls1_hm_frag
   %210 = load ptr, ptr %209, align 8, !tbaa !51
   %211 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %212 = load i64, ptr %211, align 8, !tbaa !91
-  %213 = call i32 @CBB_init_fixed(ptr noundef nonnull %12, ptr noundef %210, i64 noundef %212) #13
+  %213 = call i32 @CBB_init_fixed(ptr noundef nonnull %12, ptr noundef %210, i64 noundef %212) #14
   %.not75 = icmp eq i32 %213, 0
   br i1 %.not75, label %237, label %214
 
 214:                                              ; preds = %207
   %215 = load i8, ptr %194, align 8, !tbaa !88
-  %216 = call i32 @CBB_add_u8(ptr noundef nonnull %12, i8 noundef zeroext %215) #13
+  %216 = call i32 @CBB_add_u8(ptr noundef nonnull %12, i8 noundef zeroext %215) #14
   %.not76 = icmp eq i32 %216, 0
   br i1 %.not76, label %237, label %217
 
 217:                                              ; preds = %214
   %218 = load i32, ptr %195, align 4, !tbaa !89
-  %219 = call i32 @CBB_add_u24(ptr noundef nonnull %12, i32 noundef %218) #13
+  %219 = call i32 @CBB_add_u24(ptr noundef nonnull %12, i32 noundef %218) #14
   %.not77 = icmp eq i32 %219, 0
   br i1 %.not77, label %237, label %220
 
 220:                                              ; preds = %217
   %221 = getelementptr inbounds nuw i8, ptr %194, i64 8
   %222 = load i16, ptr %221, align 8, !tbaa !83
-  %223 = call i32 @CBB_add_u16(ptr noundef nonnull %12, i16 noundef zeroext %222) #13
+  %223 = call i32 @CBB_add_u16(ptr noundef nonnull %12, i16 noundef zeroext %222) #14
   %.not78 = icmp eq i32 %223, 0
   br i1 %.not78, label %237, label %224
 
 224:                                              ; preds = %220
-  %225 = call i32 @CBB_add_u24(ptr noundef nonnull %12, i32 noundef 0) #13
+  %225 = call i32 @CBB_add_u24(ptr noundef nonnull %12, i32 noundef 0) #14
   %.not79 = icmp eq i32 %225, 0
   br i1 %.not79, label %237, label %226
 
 226:                                              ; preds = %224
   %227 = load i32, ptr %195, align 4, !tbaa !89
-  %228 = call i32 @CBB_add_u24(ptr noundef nonnull %12, i32 noundef %227) #13
+  %228 = call i32 @CBB_add_u24(ptr noundef nonnull %12, i32 noundef %227) #14
   %.not80 = icmp eq i32 %228, 0
   br i1 %.not80, label %237, label %229
 
@@ -718,18 +718,18 @@ dtls1_get_buffered_message.exit.thread:           ; preds = %149, %dtls1_hm_frag
   %231 = load ptr, ptr %230, align 8, !tbaa !6
   %232 = load i32, ptr %195, align 4, !tbaa !89
   %233 = zext i32 %232 to i64
-  %234 = call i32 @CBB_add_bytes(ptr noundef nonnull %12, ptr noundef %231, i64 noundef %233) #13
+  %234 = call i32 @CBB_add_bytes(ptr noundef nonnull %12, ptr noundef %231, i64 noundef %233) #14
   %.not81 = icmp eq i32 %234, 0
   br i1 %.not81, label %237, label %235
 
 235:                                              ; preds = %229
-  %236 = call i32 @CBB_finish(ptr noundef nonnull %12, ptr noundef null, ptr noundef nonnull %11) #13
+  %236 = call i32 @CBB_finish(ptr noundef nonnull %12, ptr noundef null, ptr noundef nonnull %11) #14
   %.not82 = icmp eq i32 %236, 0
   br i1 %.not82, label %237, label %238
 
 237:                                              ; preds = %235, %229, %226, %224, %220, %217, %214, %207, %200
-  call void @CBB_cleanup(ptr noundef nonnull %12) #13
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 634) #13
+  call void @CBB_cleanup(ptr noundef nonnull %12) #14
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 634) #14
   br label %.thread
 
 238:                                              ; preds = %235
@@ -761,7 +761,7 @@ dtls1_get_buffered_message.exit.thread:           ; preds = %149, %dtls1_hm_frag
   br i1 %or.cond, label %258, label %257
 
 257:                                              ; preds = %238
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 223, ptr noundef nonnull @.str, i32 noundef 650) #13
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 223, ptr noundef nonnull @.str, i32 noundef 650) #14
   br label %279
 
 258:                                              ; preds = %238
@@ -769,7 +769,7 @@ dtls1_get_buffered_message.exit.thread:           ; preds = %149, %dtls1_hm_frag
   br i1 %259, label %260, label %262
 
 260:                                              ; preds = %258
-  %261 = call i32 @ssl3_hash_current_message(ptr noundef nonnull %0) #13
+  %261 = call i32 @ssl3_hash_current_message(ptr noundef nonnull %0) #14
   %.not84 = icmp eq i32 %261, 0
   br i1 %.not84, label %.thread, label %262
 
@@ -789,11 +789,11 @@ dtls1_get_buffered_message.exit.thread:           ; preds = %149, %dtls1_hm_frag
   %272 = sext i32 %271 to i64
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %274 = load ptr, ptr %273, align 8, !tbaa !58
-  call void %264(i32 noundef 0, i32 noundef %266, i32 noundef 22, ptr noundef %269, i64 noundef %272, ptr noundef nonnull %0, ptr noundef %274) #13
+  call void %264(i32 noundef 0, i32 noundef %266, i32 noundef 22, ptr noundef %269, i64 noundef %272, ptr noundef nonnull %0, ptr noundef %274) #14
   br label %275
 
 275:                                              ; preds = %265, %262
-  call void @pitem_free(ptr noundef nonnull %192) #13
+  call void @pitem_free(ptr noundef nonnull %192) #14
   call void @dtls1_hm_fragment_free(ptr noundef nonnull %194)
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %2, ptr %276, align 4, !tbaa !92
@@ -803,14 +803,14 @@ dtls1_get_buffered_message.exit.thread:           ; preds = %149, %dtls1_hm_frag
   br label %287
 
 .thread:                                          ; preds = %199, %260, %237
-  call void @pitem_free(ptr noundef nonnull %192) #13
+  call void @pitem_free(ptr noundef nonnull %192) #14
   br label %282
 
 279:                                              ; preds = %37, %257
   %.067 = phi ptr [ null, %37 ], [ %192, %257 ]
   %.065 = phi ptr [ null, %37 ], [ %194, %257 ]
-  %280 = call i32 @ssl3_send_alert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 10) #13
-  call void @pitem_free(ptr noundef %.067) #13
+  %280 = call i32 @ssl3_send_alert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 10) #14
+  call void @pitem_free(ptr noundef %.067) #14
   %281 = icmp eq ptr %.065, null
   br i1 %281, label %dtls1_hm_fragment_free.exit, label %282
 
@@ -818,11 +818,11 @@ dtls1_get_buffered_message.exit.thread:           ; preds = %149, %dtls1_hm_frag
   %.166124 = phi ptr [ %194, %.thread ], [ %.065, %279 ]
   %283 = getelementptr inbounds nuw i8, ptr %.166124, i64 32
   %284 = load ptr, ptr %283, align 8, !tbaa !6
-  call void @free(ptr noundef %284) #13
+  call void @free(ptr noundef %284) #14
   %285 = getelementptr inbounds nuw i8, ptr %.166124, i64 40
   %286 = load ptr, ptr %285, align 8, !tbaa !15
-  call void @free(ptr noundef %286) #13
-  call void @free(ptr noundef nonnull %.166124) #13
+  call void @free(ptr noundef %286) #14
+  call void @free(ptr noundef nonnull %.166124) #14
   br label %dtls1_hm_fragment_free.exit
 
 dtls1_hm_fragment_free.exit:                      ; preds = %279, %282
@@ -850,22 +850,22 @@ define hidden i32 @dtls1_read_failed(ptr noundef %0, i32 noundef %1) local_unnam
   br i1 %3, label %12, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i32 @dtls1_is_timer_expired(ptr noundef %0) #13
+  %5 = tail call i32 @dtls1_is_timer_expired(ptr noundef %0) #14
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call i32 @SSL_in_init(ptr noundef %0) #13
+  %7 = tail call i32 @SSL_in_init(ptr noundef %0) #14
   %.not8 = icmp eq i32 %7, 0
   br i1 %.not8, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call ptr @SSL_get_rbio(ptr noundef %0) #13
-  tail call void @BIO_set_flags(ptr noundef %9, i32 noundef 1) #13
+  %9 = tail call ptr @SSL_get_rbio(ptr noundef %0) #14
+  tail call void @BIO_set_flags(ptr noundef %9, i32 noundef 1) #14
   br label %12
 
 10:                                               ; preds = %6
-  %11 = tail call i32 @DTLSv1_handle_timeout(ptr noundef %0) #13
+  %11 = tail call i32 @DTLSv1_handle_timeout(ptr noundef %0) #14
   br label %12
 
 12:                                               ; preds = %4, %2, %10, %8
@@ -891,9 +891,9 @@ define hidden range(i32 -1, 2) i32 @dtls1_retransmit_buffered_messages(ptr nound
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 320
   %6 = load ptr, ptr %5, align 8, !tbaa !93
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %7 = tail call ptr @pqueue_iterator(ptr noundef %6) #13
+  %7 = tail call ptr @pqueue_iterator(ptr noundef %6) #14
   store ptr %7, ptr %2, align 8, !tbaa !94
-  %8 = call ptr @pqueue_next(ptr noundef nonnull %2) #13
+  %8 = call ptr @pqueue_next(ptr noundef nonnull %2) #14
   %.not9 = icmp eq ptr %8, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
@@ -965,13 +965,13 @@ define hidden range(i32 -1, 2) i32 @dtls1_retransmit_buffered_messages(ptr nound
 
 dtls1_retransmit_message.exit:                    ; preds = %25, %27
   %.0.i = phi i32 [ %26, %25 ], [ %50, %27 ]
-  %51 = call ptr @SSL_get_wbio(ptr noundef nonnull %0) #13
-  %52 = call i32 @BIO_flush(ptr noundef %51) #13
+  %51 = call ptr @SSL_get_wbio(ptr noundef nonnull %0) #14
+  %52 = call i32 @BIO_flush(ptr noundef %51) #14
   %53 = icmp sgt i32 %.0.i, 0
   br i1 %53, label %54, label %._crit_edge
 
 54:                                               ; preds = %dtls1_retransmit_message.exit
-  %55 = call ptr @pqueue_next(ptr noundef nonnull %2) #13
+  %55 = call ptr @pqueue_next(ptr noundef nonnull %2) #14
   %.not = icmp eq ptr %55, null
   br i1 %.not, label %._crit_edge, label %11, !llvm.loop !104
 
@@ -1038,24 +1038,24 @@ define hidden range(i32 0, 2) i32 @dtls1_buffer_message(ptr noundef readonly cap
   %36 = trunc i16 %32 to i8
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 7
   store i8 %36, ptr %37, align 1, !tbaa !84
-  %38 = call ptr @pitem_new(ptr noundef nonnull %2, ptr noundef nonnull %6) #13
+  %38 = call ptr @pitem_new(ptr noundef nonnull %2, ptr noundef nonnull %6) #14
   %39 = icmp eq ptr %38, null
   br i1 %39, label %dtls1_hm_fragment_free.exit, label %43
 
 dtls1_hm_fragment_free.exit:                      ; preds = %7
   %40 = load ptr, ptr %8, align 8, !tbaa !6
-  call void @free(ptr noundef %40) #13
+  call void @free(ptr noundef %40) #14
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %42 = load ptr, ptr %41, align 8, !tbaa !15
-  call void @free(ptr noundef %42) #13
-  call void @free(ptr noundef nonnull %6) #13
+  call void @free(ptr noundef %42) #14
+  call void @free(ptr noundef nonnull %6) #14
   br label %48
 
 43:                                               ; preds = %7
   %44 = load ptr, ptr %16, align 8, !tbaa !16
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 320
   %46 = load ptr, ptr %45, align 8, !tbaa !93
-  %47 = call ptr @pqueue_insert(ptr noundef %46, ptr noundef nonnull %38) #13
+  %47 = call ptr @pqueue_insert(ptr noundef %46, ptr noundef nonnull %38) #14
   br label %48
 
 48:                                               ; preds = %43, %dtls1_hm_fragment_free.exit
@@ -1075,7 +1075,7 @@ define internal fastcc noalias noundef ptr @dtls1_hm_fragment_new(i64 noundef ra
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 149) #13
+  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 149) #14
   br label %.thread
 
 5:                                                ; preds = %2
@@ -1083,14 +1083,14 @@ define internal fastcc noalias noundef ptr @dtls1_hm_fragment_new(i64 noundef ra
   br i1 %.not, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call noalias ptr @malloc(i64 noundef %0) #14
+  %7 = tail call noalias ptr @malloc(i64 noundef %0) #15
   %8 = getelementptr inbounds nuw i8, ptr %calloc29, i64 32
   store ptr %7, ptr %8, align 8, !tbaa !6
   %9 = icmp eq ptr %7, null
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %6
-  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 159) #13
+  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 159) #14
   br label %dtls1_hm_fragment_free.exit
 
 11:                                               ; preds = %6
@@ -1102,7 +1102,7 @@ define internal fastcc noalias noundef ptr @dtls1_hm_fragment_new(i64 noundef ra
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %12
-  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 69, ptr noundef nonnull @.str, i32 noundef 166) #13
+  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 69, ptr noundef nonnull @.str, i32 noundef 166) #14
   br label %dtls1_hm_fragment_free.exit
 
 15:                                               ; preds = %12
@@ -1115,12 +1115,12 @@ define internal fastcc noalias noundef ptr @dtls1_hm_fragment_new(i64 noundef ra
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %15
-  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 172) #13
+  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 172) #14
   br label %dtls1_hm_fragment_free.exit
 
 dtls1_hm_fragment_free.exit:                      ; preds = %20, %14, %10
-  tail call void @free(ptr noundef %7) #13
-  tail call void @free(ptr noundef nonnull %calloc29) #13
+  tail call void @free(ptr noundef %7) #14
+  tail call void @free(ptr noundef nonnull %calloc29) #14
   br label %.thread
 
 .thread:                                          ; preds = %15, %5, %11, %dtls1_hm_fragment_free.exit, %4
@@ -1158,7 +1158,7 @@ define hidden range(i32 -2147483648, 2) i32 @dtls1_send_change_cipher_spec(ptr n
   br i1 %14, label %dtls1_hm_fragment_new.exit.thread.i, label %dtls1_hm_fragment_new.exit.i
 
 dtls1_hm_fragment_new.exit.thread.i:              ; preds = %8
-  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 149) #13
+  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 149) #14
   br label %dtls1_buffer_change_cipher_spec.exit
 
 dtls1_hm_fragment_new.exit.i:                     ; preds = %8
@@ -1179,25 +1179,25 @@ dtls1_hm_fragment_new.exit.i:                     ; preds = %8
   %24 = trunc i16 %20 to i8
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 7
   store i8 %24, ptr %25, align 1, !tbaa !84
-  %26 = call ptr @pitem_new(ptr noundef nonnull %4, ptr noundef nonnull %calloc29.i.i) #13
+  %26 = call ptr @pitem_new(ptr noundef nonnull %4, ptr noundef nonnull %calloc29.i.i) #14
   %27 = icmp eq ptr %26, null
   br i1 %27, label %dtls1_hm_fragment_free.exit.i, label %32
 
 dtls1_hm_fragment_free.exit.i:                    ; preds = %dtls1_hm_fragment_new.exit.i
   %28 = getelementptr inbounds nuw i8, ptr %calloc29.i.i, i64 32
   %29 = load ptr, ptr %28, align 8, !tbaa !6
-  call void @free(ptr noundef %29) #13
+  call void @free(ptr noundef %29) #14
   %30 = getelementptr inbounds nuw i8, ptr %calloc29.i.i, i64 40
   %31 = load ptr, ptr %30, align 8, !tbaa !15
-  call void @free(ptr noundef %31) #13
-  call void @free(ptr noundef nonnull %calloc29.i.i) #13
+  call void @free(ptr noundef %31) #14
+  call void @free(ptr noundef nonnull %calloc29.i.i) #14
   br label %37
 
 32:                                               ; preds = %dtls1_hm_fragment_new.exit.i
   %33 = load ptr, ptr %9, align 8, !tbaa !16
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 320
   %35 = load ptr, ptr %34, align 8, !tbaa !93
-  %36 = call ptr @pqueue_insert(ptr noundef %35, ptr noundef nonnull %26) #13
+  %36 = call ptr @pqueue_insert(ptr noundef %35, ptr noundef nonnull %26) #14
   br label %37
 
 37:                                               ; preds = %32, %dtls1_hm_fragment_free.exit.i
@@ -1221,20 +1221,20 @@ define internal fastcc range(i32 -2147483648, 2) i32 @dtls1_write_change_cipher_
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 328
   %6 = load i32, ptr %5, align 8, !tbaa !39
   %7 = zext i32 %6 to i64
-  %8 = tail call i64 @ssl_max_seal_overhead(ptr noundef %0) #13
+  %8 = tail call i64 @ssl_max_seal_overhead(ptr noundef %0) #14
   %.not.i = icmp ult i64 %8, %7
   br i1 %.not.i, label %dtls1_max_record_size.exit, label %dtls1_max_record_size.exit.thread
 
 dtls1_max_record_size.exit:                       ; preds = %2
   %9 = sub nuw nsw i64 %7, %8
-  %10 = tail call ptr @SSL_get_wbio(ptr noundef nonnull %0) #13
-  %11 = tail call i64 @BIO_wpending(ptr noundef %10) #13
+  %10 = tail call ptr @SSL_get_wbio(ptr noundef nonnull %0) #14
+  %11 = tail call i64 @BIO_wpending(ptr noundef %10) #14
   %.not19 = icmp ugt i64 %9, %11
   br i1 %.not19, label %.thread, label %dtls1_max_record_size.exit.thread
 
 dtls1_max_record_size.exit.thread:                ; preds = %2, %dtls1_max_record_size.exit
-  %12 = tail call ptr @SSL_get_wbio(ptr noundef nonnull %0) #13
-  %13 = tail call i32 @BIO_flush(ptr noundef %12) #13
+  %12 = tail call ptr @SSL_get_wbio(ptr noundef nonnull %0) #14
+  %13 = tail call i32 @BIO_flush(ptr noundef %12) #14
   %14 = icmp slt i32 %13, 1
   br i1 %14, label %15, label %.thread
 
@@ -1244,7 +1244,7 @@ dtls1_max_record_size.exit.thread:                ; preds = %2, %dtls1_max_recor
   br label %26
 
 .thread:                                          ; preds = %dtls1_max_record_size.exit.thread, %dtls1_max_record_size.exit
-  %17 = tail call i32 @dtls1_write_bytes(ptr noundef nonnull %0, i32 noundef 20, ptr noundef nonnull @dtls1_write_change_cipher_spec.kChangeCipherSpec, i32 noundef 1, i32 noundef %1) #13
+  %17 = tail call i32 @dtls1_write_bytes(ptr noundef nonnull %0, i32 noundef 20, ptr noundef nonnull @dtls1_write_change_cipher_spec.kChangeCipherSpec, i32 noundef 1, i32 noundef %1) #14
   %18 = icmp slt i32 %17, 1
   br i1 %18, label %26, label %19
 
@@ -1258,7 +1258,7 @@ dtls1_max_record_size.exit.thread:                ; preds = %2, %dtls1_max_recor
   %23 = load i32, ptr %0, align 8, !tbaa !57
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %25 = load ptr, ptr %24, align 8, !tbaa !58
-  tail call void %21(i32 noundef 1, i32 noundef %23, i32 noundef 20, ptr noundef nonnull @dtls1_write_change_cipher_spec.kChangeCipherSpec, i64 noundef 1, ptr noundef nonnull %0, ptr noundef %25) #13
+  tail call void %21(i32 noundef 1, i32 noundef %23, i32 noundef 20, ptr noundef nonnull @dtls1_write_change_cipher_spec.kChangeCipherSpec, i64 noundef 1, ptr noundef nonnull %0, ptr noundef %25) #14
   br label %26
 
 26:                                               ; preds = %15, %.thread, %22, %19
@@ -1272,7 +1272,7 @@ define hidden void @dtls1_clear_record_buffer(ptr noundef readonly captures(none
   %3 = load ptr, ptr %2, align 8, !tbaa !16
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 320
   %5 = load ptr, ptr %4, align 8, !tbaa !93
-  %6 = tail call ptr @pqueue_pop(ptr noundef %5) #13
+  %6 = tail call ptr @pqueue_pop(ptr noundef %5) #14
   %.not5 = icmp eq ptr %6, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
@@ -1286,19 +1286,19 @@ define hidden void @dtls1_clear_record_buffer(ptr noundef readonly captures(none
 10:                                               ; preds = %.lr.ph
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !6
-  tail call void @free(ptr noundef %12) #13
+  tail call void @free(ptr noundef %12) #14
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %14 = load ptr, ptr %13, align 8, !tbaa !15
-  tail call void @free(ptr noundef %14) #13
-  tail call void @free(ptr noundef nonnull %8) #13
+  tail call void @free(ptr noundef %14) #14
+  tail call void @free(ptr noundef nonnull %8) #14
   br label %dtls1_hm_fragment_free.exit
 
 dtls1_hm_fragment_free.exit:                      ; preds = %.lr.ph, %10
-  tail call void @pitem_free(ptr noundef nonnull %.06) #13
+  tail call void @pitem_free(ptr noundef nonnull %.06) #14
   %15 = load ptr, ptr %2, align 8, !tbaa !16
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 320
   %17 = load ptr, ptr %16, align 8, !tbaa !93
-  %18 = tail call ptr @pqueue_pop(ptr noundef %17) #13
+  %18 = tail call ptr @pqueue_pop(ptr noundef %17) #14
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !108
 
@@ -1306,7 +1306,7 @@ dtls1_hm_fragment_free.exit:                      ; preds = %.lr.ph, %10
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @dtls1_set_message_header(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, i64 noundef %2, i16 noundef zeroext %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #7 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load ptr, ptr %7, align 8, !tbaa !16
@@ -1420,7 +1420,7 @@ define internal fastcc range(i32 0, 2) i32 @dtls1_discard_fragment_body(ptr noun
 5:                                                ; preds = %4
   %6 = call i64 @llvm.umin.i64(i64 %.011, i64 256)
   %7 = trunc nuw nsw i64 %6 to i32
-  %8 = call i32 @dtls1_read_bytes(ptr noundef %0, i32 noundef 22, ptr noundef nonnull %3, i32 noundef %7, i32 noundef 0) #13
+  %8 = call i32 @dtls1_read_bytes(ptr noundef %0, i32 noundef 22, ptr noundef nonnull %3, i32 noundef %7, i32 noundef 0) #14
   %.not13 = icmp eq i32 %8, %7
   %9 = sub i64 %.011, %6
   br i1 %.not13, label %4, label %10, !llvm.loop !87
@@ -1431,8 +1431,8 @@ define internal fastcc range(i32 0, 2) i32 @dtls1_discard_fragment_body(ptr noun
   ret i32 %.2
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc void @dtls1_hm_fragment_mark(ptr noundef nonnull captures(none) %0, i64 noundef range(i64 0, 4294967296) %1, i64 noundef range(i64 0, 4294967296) %2) unnamed_addr #2 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc void @dtls1_hm_fragment_mark(ptr noundef nonnull captures(none) %0, i64 noundef range(i64 0, 4294967296) %1, i64 noundef range(i64 0, 4294967296) %2) unnamed_addr #10 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !89
   %6 = zext i32 %5 to i64
@@ -1533,7 +1533,7 @@ define internal fastcc void @dtls1_hm_fragment_mark(ptr noundef nonnull captures
   br i1 %.not45, label %53, label %.loopexit
 
 53:                                               ; preds = %48, %._crit_edge57
-  tail call void @free(ptr noundef %.pre.pre) #13
+  tail call void @free(ptr noundef %.pre.pre) #14
   store ptr null, ptr %7, align 8, !tbaa !15
   br label %.loopexit
 
@@ -1544,38 +1544,39 @@ define internal fastcc void @dtls1_hm_fragment_mark(ptr noundef nonnull captures
 declare ptr @pqueue_find(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #11
+declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #11
+declare i64 @llvm.usub.sat.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #11
+declare i32 @llvm.umax.i32(i32, i32) #12
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #12
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #13
 
-attributes #0 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind allocsize(0) }
+attributes #10 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

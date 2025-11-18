@@ -34,7 +34,7 @@ count_num_cache_opcodes.exit:
   ret i32 %7
 }
 
-; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @onig_region_clear(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !20
@@ -63,7 +63,7 @@ define dso_local void @onig_region_clear(ptr noundef readonly captures(none) %0)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
+; Function Attrs: mustprogress nounwind sspstrong willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local range(i32 -5, 1) i32 @onig_region_resize(ptr noundef captures(none) initializes((4, 8)) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4, !tbaa !20
@@ -75,21 +75,21 @@ define dso_local range(i32 -5, 1) i32 @onig_region_resize(ptr noundef captures(n
 6:                                                ; preds = %2
   %7 = zext nneg i32 %spec.store.select to i64
   %8 = shl nuw nsw i64 %7, 3
-  %9 = tail call noalias ptr @malloc(i64 noundef %8) #21
+  %9 = tail call noalias ptr @malloc(i64 noundef %8) #22
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %10, align 8, !tbaa !24
   %11 = icmp eq ptr %9, null
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %6
-  %13 = tail call noalias ptr @malloc(i64 noundef %8) #21
+  %13 = tail call noalias ptr @malloc(i64 noundef %8) #22
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %14, align 8, !tbaa !23
   %15 = icmp eq ptr %13, null
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %12
-  tail call void @free(ptr noundef nonnull %9) #22
+  tail call void @free(ptr noundef nonnull %9) #23
   br label %.thread
 
 17:                                               ; preds = %12
@@ -106,31 +106,31 @@ define dso_local range(i32 -5, 1) i32 @onig_region_resize(ptr noundef captures(n
   %22 = load ptr, ptr %21, align 8, !tbaa !24
   %23 = zext nneg i32 %spec.store.select to i64
   %24 = shl nuw nsw i64 %23, 3
-  %25 = tail call ptr @realloc(ptr noundef %22, i64 noundef %24) #23
+  %25 = tail call ptr @realloc(ptr noundef %22, i64 noundef %24) #24
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %20
   %28 = load ptr, ptr %21, align 8, !tbaa !24
-  tail call void @free(ptr noundef %28) #22
+  tail call void @free(ptr noundef %28) #23
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !23
-  tail call void @free(ptr noundef %30) #22
+  tail call void @free(ptr noundef %30) #23
   br label %.thread
 
 31:                                               ; preds = %20
   store ptr %25, ptr %21, align 8, !tbaa !24
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !23
-  %34 = tail call ptr @realloc(ptr noundef %33, i64 noundef %24) #23
+  %34 = tail call ptr @realloc(ptr noundef %33, i64 noundef %24) #24
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %31
   %37 = load ptr, ptr %21, align 8, !tbaa !24
-  tail call void @free(ptr noundef %37) #22
+  tail call void @free(ptr noundef %37) #23
   %38 = load ptr, ptr %32, align 8, !tbaa !23
-  tail call void @free(ptr noundef %38) #22
+  tail call void @free(ptr noundef %38) #23
   br label %.thread
 
 39:                                               ; preds = %31
@@ -152,7 +152,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
+; Function Attrs: mustprogress nounwind sspstrong willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local range(i32 -30, 1) i32 @onig_region_set(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = icmp slt i32 %1, 0
   br i1 %5, label %22, label %6
@@ -199,8 +199,8 @@ define dso_local noalias noundef ptr @onig_region_new() local_unnamed_addr #7 {
   ret ptr %calloc
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @onig_region_free(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+; Function Attrs: nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define dso_local void @onig_region_free(ptr noundef %0, i32 noundef %1) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %3
 
@@ -212,10 +212,10 @@ define dso_local void @onig_region_free(ptr noundef %0, i32 noundef %1) local_un
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !24
-  tail call void @free(ptr noundef %8) #22
+  tail call void @free(ptr noundef %8) #23
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !23
-  tail call void @free(ptr noundef %10) #22
+  tail call void @free(ptr noundef %10) #23
   br label %11
 
 11:                                               ; preds = %6, %3
@@ -223,19 +223,19 @@ define dso_local void @onig_region_free(ptr noundef %0, i32 noundef %1) local_un
   br i1 %.not6, label %13, label %12
 
 12:                                               ; preds = %11
-  tail call void @free(ptr noundef nonnull %0) #22
+  tail call void @free(ptr noundef nonnull %0) #23
   br label %14
 
 13:                                               ; preds = %11
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %0, i8 noundef 0, i64 noundef 24, i1 noundef false) #22
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %0, i8 noundef 0, i64 noundef 24, i1 noundef false) #23
   br label %14
 
 14:                                               ; preds = %12, %13, %2
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @onig_region_copy(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
+; Function Attrs: nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define dso_local void @onig_region_copy(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #8 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %26, label %4
 
@@ -286,14 +286,14 @@ define dso_local void @onig_region_copy(ptr noundef captures(address) %0, ptr no
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i32 @onig_get_match_stack_limit_size() local_unnamed_addr #8 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define dso_local i32 @onig_get_match_stack_limit_size() local_unnamed_addr #9 {
   %1 = load i32, ptr @MatchStackLimitSize, align 4, !tbaa !29
   ret i32 %1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @onig_set_match_stack_limit_size(i32 noundef %0) local_unnamed_addr #9 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define dso_local noundef i32 @onig_set_match_stack_limit_size(i32 noundef %0) local_unnamed_addr #10 {
   store i32 %0, ptr @MatchStackLimitSize, align 4, !tbaa !29
   ret i32 0
 }
@@ -367,7 +367,7 @@ define dso_local i64 @onig_match(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 .thread:                                          ; preds = %32, %24, %6
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %38 = load ptr, ptr %37, align 8, !tbaa !44
-  %39 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %38, ptr noundef %1, ptr noundef %3, ptr noundef %2) #22
+  %39 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %38, ptr noundef %1, ptr noundef %3, ptr noundef %2) #23
   %40 = call fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %39, ptr noundef %7)
   %.pre = load ptr, ptr %7, align 8, !tbaa !30
   br label %41
@@ -376,16 +376,16 @@ define dso_local i64 @onig_match(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %42 = phi ptr [ %.pre, %.thread ], [ null, %35 ]
   %.1 = phi i64 [ %40, %.thread ], [ %36, %35 ]
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  call void @free(ptr noundef %42) #22
+  call void @free(ptr noundef %42) #23
   %44 = load ptr, ptr %18, align 8, !tbaa !45
-  call void @free(ptr noundef %44) #22
+  call void @free(ptr noundef %44) #23
   %45 = load ptr, ptr %43, align 8, !tbaa !46
-  call void @free(ptr noundef %45) #22
+  call void @free(ptr noundef %45) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.1
 }
 
-declare ptr @onigenc_get_prev_char_head(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
+declare ptr @onigenc_get_prev_char_head(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5) unnamed_addr #0 {
@@ -437,7 +437,7 @@ define internal fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
 
 51:                                               ; preds = %6
   %52 = shl nuw nsw i64 %49, 3
-  %53 = tail call noalias ptr @malloc(i64 noundef %52) #21
+  %53 = tail call noalias ptr @malloc(i64 noundef %52) #22
   %54 = load ptr, ptr %5, align 8, !tbaa !30
   %.not2536 = icmp eq ptr %54, null
   br i1 %.not2536, label %59, label %55
@@ -742,7 +742,7 @@ define internal fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
 
 220:                                              ; preds = %216
   %221 = load ptr, ptr %115, align 8, !tbaa !62
-  %222 = call i32 %221(i32 noundef %40, ptr noundef nonnull %19, ptr noundef %.02177, ptr noundef nonnull %23, ptr noundef %38) #22
+  %222 = call i32 %221(i32 noundef %40, ptr noundef nonnull %19, ptr noundef %.02177, ptr noundef nonnull %23, ptr noundef %38) #23
   %223 = load ptr, ptr %19, align 8, !tbaa !18
   %224 = icmp ugt ptr %223, %.02177
   br i1 %224, label %is_mbc_newline_ex.exit.thread, label %.preheader3539
@@ -995,7 +995,7 @@ define internal fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
 
 352:                                              ; preds = %.lr.ph4069
   %353 = load ptr, ptr %115, align 8, !tbaa !62
-  %354 = call i32 %353(i32 noundef %40, ptr noundef nonnull %19, ptr noundef %.02177, ptr noundef nonnull %24, ptr noundef %38) #22
+  %354 = call i32 %353(i32 noundef %40, ptr noundef nonnull %19, ptr noundef %.02177, ptr noundef nonnull %24, ptr noundef %38) #23
   %355 = load ptr, ptr %19, align 8, !tbaa !18
   %356 = icmp ugt ptr %355, %.02177
   br i1 %356, label %is_mbc_newline_ex.exit.thread, label %.preheader
@@ -1350,7 +1350,7 @@ define internal fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %546
 
 544:                                              ; preds = %537
-  %545 = call i32 @onigenc_mbclen(ptr noundef nonnull %523, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %545 = call i32 @onigenc_mbclen(ptr noundef nonnull %523, ptr noundef %.02177, ptr noundef nonnull %38) #23
   %.pre4572 = load ptr, ptr %19, align 8, !tbaa !18
   br label %546
 
@@ -1365,7 +1365,7 @@ define internal fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
 
 552:                                              ; preds = %.backedge
   %553 = load ptr, ptr %19, align 8, !tbaa !18
-  %554 = call i32 @onigenc_mbclen(ptr noundef %553, ptr noundef %.02177, ptr noundef %38) #22
+  %554 = call i32 @onigenc_mbclen(ptr noundef %553, ptr noundef %.02177, ptr noundef %38) #23
   %.not2777 = icmp eq i32 %554, 1
   br i1 %.not2777, label %is_mbc_newline_ex.exit.thread, label %555
 
@@ -1391,7 +1391,7 @@ define internal fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %enclen_approx.exit
 
 567:                                              ; preds = %561
-  %568 = call i32 @onigenc_mbclen_approximate(ptr noundef %558, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %568 = call i32 @onigenc_mbclen_approximate(ptr noundef %558, ptr noundef %.02177, ptr noundef nonnull %38) #23
   %.pre4571 = load ptr, ptr %19, align 8, !tbaa !18
   br label %enclen_approx.exit
 
@@ -1406,8 +1406,8 @@ enclen_approx.exit:                               ; preds = %565, %567
 573:                                              ; preds = %enclen_approx.exit
   store ptr %571, ptr %19, align 8, !tbaa !18
   %574 = load ptr, ptr %118, align 8, !tbaa !73
-  %575 = call i32 %574(ptr noundef %569, ptr noundef %571, ptr noundef nonnull %38) #22
-  %576 = call i32 @onig_is_in_code_range(ptr noundef %557, i32 noundef %575) #22
+  %575 = call i32 %574(ptr noundef %569, ptr noundef %571, ptr noundef nonnull %38) #23
+  %576 = call i32 @onig_is_in_code_range(ptr noundef %557, i32 noundef %575) #23
   %.not2778 = icmp eq i32 %576, 0
   br i1 %.not2778, label %is_mbc_newline_ex.exit.thread, label %577
 
@@ -1424,7 +1424,7 @@ enclen_approx.exit:                               ; preds = %565, %567
   br i1 %584, label %is_mbc_newline_ex.exit.thread, label %585
 
 585:                                              ; preds = %581
-  %586 = call i32 @onigenc_mbclen(ptr noundef %582, ptr noundef %.02177, ptr noundef %38) #22
+  %586 = call i32 @onigenc_mbclen(ptr noundef %582, ptr noundef %.02177, ptr noundef %38) #23
   %.not2776 = icmp eq i32 %586, 1
   br i1 %.not2776, label %589, label %587
 
@@ -1489,7 +1489,7 @@ enclen_approx.exit:                               ; preds = %565, %567
   br label %632
 
 630:                                              ; preds = %623
-  %631 = call i32 @onigenc_mbclen(ptr noundef nonnull %610, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %631 = call i32 @onigenc_mbclen(ptr noundef nonnull %610, ptr noundef %.02177, ptr noundef nonnull %38) #23
   %.pre4570 = load ptr, ptr %19, align 8, !tbaa !18
   br label %632
 
@@ -1509,7 +1509,7 @@ enclen_approx.exit:                               ; preds = %565, %567
   br i1 %641, label %is_mbc_newline_ex.exit.thread, label %642
 
 642:                                              ; preds = %638
-  %643 = call i32 @onigenc_mbclen(ptr noundef %639, ptr noundef %.02177, ptr noundef %38) #22
+  %643 = call i32 @onigenc_mbclen(ptr noundef %639, ptr noundef %.02177, ptr noundef %38) #23
   %.not2772 = icmp eq i32 %643, 1
   br i1 %.not2772, label %644, label %648
 
@@ -1537,7 +1537,7 @@ enclen_approx.exit:                               ; preds = %565, %567
   br label %659
 
 657:                                              ; preds = %648
-  %658 = call i32 @onigenc_mbclen(ptr noundef %654, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %658 = call i32 @onigenc_mbclen(ptr noundef %654, ptr noundef %.02177, ptr noundef nonnull %38) #23
   %.pre4569 = load ptr, ptr %19, align 8, !tbaa !18
   br label %659
 
@@ -1561,8 +1561,8 @@ enclen_approx.exit:                               ; preds = %565, %567
 668:                                              ; preds = %659
   store ptr %663, ptr %19, align 8, !tbaa !18
   %669 = load ptr, ptr %118, align 8, !tbaa !73
-  %670 = call i32 %669(ptr noundef %660, ptr noundef %663, ptr noundef nonnull %38) #22
-  %671 = call i32 @onig_is_in_code_range(ptr noundef %650, i32 noundef %670) #22
+  %670 = call i32 %669(ptr noundef %660, ptr noundef %663, ptr noundef nonnull %38) #23
+  %671 = call i32 @onig_is_in_code_range(ptr noundef %650, i32 noundef %670) #23
   %.not2774 = icmp eq i32 %671, 0
   br i1 %.not2774, label %672, label %is_mbc_newline_ex.exit.thread
 
@@ -1583,7 +1583,7 @@ enclen_approx.exit:                               ; preds = %565, %567
   br i1 %681, label %is_mbc_newline_ex.exit.thread, label %682
 
 682:                                              ; preds = %678
-  %683 = call i32 @onigenc_mbclen(ptr noundef %679, ptr noundef %.02177, ptr noundef %38) #22
+  %683 = call i32 @onigenc_mbclen(ptr noundef %679, ptr noundef %.02177, ptr noundef %38) #23
   %.not2770 = icmp eq i32 %683, 1
   br i1 %.not2770, label %686, label %684
 
@@ -1634,7 +1634,7 @@ enclen_approx.exit:                               ; preds = %565, %567
   br label %enclen_approx.exit2880
 
 715:                                              ; preds = %709
-  %716 = call i32 @onigenc_mbclen_approximate(ptr noundef %706, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %716 = call i32 @onigenc_mbclen_approximate(ptr noundef %706, ptr noundef %.02177, ptr noundef nonnull %38) #23
   %.pre4568 = load ptr, ptr %19, align 8, !tbaa !18
   br label %enclen_approx.exit2880
 
@@ -1651,7 +1651,7 @@ enclen_approx.exit2880:                           ; preds = %713, %715
 
 722:                                              ; preds = %721
   %723 = load ptr, ptr %118, align 8, !tbaa !73
-  %724 = call i32 %723(ptr noundef %717, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %724 = call i32 %723(ptr noundef %717, ptr noundef %.02177, ptr noundef nonnull %38) #23
   %725 = icmp eq i32 %724, 10
   br i1 %725, label %is_mbc_newline_ex.exit.thread, label %726
 
@@ -1667,7 +1667,7 @@ enclen_approx.exit2880:                           ; preds = %713, %715
   br label %734
 
 732:                                              ; preds = %726
-  %733 = call i32 @onigenc_mbclen(ptr noundef %717, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %733 = call i32 @onigenc_mbclen(ptr noundef %717, ptr noundef %.02177, ptr noundef nonnull %38) #23
   br label %734
 
 734:                                              ; preds = %732, %730
@@ -1679,19 +1679,19 @@ enclen_approx.exit2880:                           ; preds = %713, %715
 
 739:                                              ; preds = %734
   %740 = load ptr, ptr %118, align 8, !tbaa !73
-  %741 = call i32 %740(ptr noundef %717, ptr noundef nonnull %.02177, ptr noundef nonnull %38) #22
+  %741 = call i32 %740(ptr noundef %717, ptr noundef nonnull %.02177, ptr noundef nonnull %38) #23
   %742 = icmp eq i32 %741, 13
   br i1 %742, label %743, label %is_mbc_newline_ex.exit
 
 743:                                              ; preds = %739
   %744 = load ptr, ptr %118, align 8, !tbaa !73
-  %745 = call i32 %744(ptr noundef %737, ptr noundef nonnull %.02177, ptr noundef nonnull %38) #22
+  %745 = call i32 %744(ptr noundef %737, ptr noundef nonnull %.02177, ptr noundef nonnull %38) #23
   %746 = icmp eq i32 %745, 10
   br i1 %746, label %is_mbc_newline_ex.exit.thread, label %is_mbc_newline_ex.exit
 
 is_mbc_newline_ex.exit:                           ; preds = %721, %734, %739, %743
   %747 = load ptr, ptr %120, align 8, !tbaa !74
-  %748 = call i32 %747(ptr noundef %717, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %748 = call i32 %747(ptr noundef %717, ptr noundef %.02177, ptr noundef nonnull %38) #23
   %.1.i = icmp eq i32 %748, 0
   br i1 %.1.i, label %749, label %is_mbc_newline_ex.exit.thread
 
@@ -1720,7 +1720,7 @@ is_mbc_newline_ex.exit:                           ; preds = %721, %734, %739, %7
   br label %enclen_approx.exit2884
 
 763:                                              ; preds = %757
-  %764 = call i32 @onigenc_mbclen_approximate(ptr noundef %754, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %764 = call i32 @onigenc_mbclen_approximate(ptr noundef %754, ptr noundef %.02177, ptr noundef nonnull %38) #23
   %.pre4567 = load ptr, ptr %19, align 8, !tbaa !18
   br label %enclen_approx.exit2884
 
@@ -1899,12 +1899,12 @@ check_extended_match_cache_point.exit2890:        ; preds = %836, %840
 
 862:                                              ; preds = %859
   %863 = shl i64 %856, 1
-  %864 = call noalias ptr @malloc(i64 noundef %863) #21
+  %864 = call noalias ptr @malloc(i64 noundef %863) #22
   %865 = icmp eq ptr %864, null
   br i1 %865, label %.loopexit3543, label %866
 
 866:                                              ; preds = %862
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %864, ptr noundef nonnull align 1 %.pre4565, i64 noundef %856, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %864, ptr noundef nonnull align 1 %.pre4565, i64 noundef %856, i1 noundef false) #23
   %867 = shl nsw i64 %857, 1
   br label %stack_double.exit
 
@@ -1927,7 +1927,7 @@ check_extended_match_cache_point.exit2890:        ; preds = %836, %840
 877:                                              ; preds = %874, %871, %868
   %.151.i = phi i64 [ %870, %871 ], [ %870, %868 ], [ %872, %874 ]
   %878 = mul i64 %.151.i, 48
-  %879 = call ptr @realloc(ptr noundef %.pre4565, i64 noundef %878) #23
+  %879 = call ptr @realloc(ptr noundef %.pre4565, i64 noundef %878) #24
   %880 = icmp eq ptr %879, null
   br i1 %880, label %881, label %stack_double.exit
 
@@ -1968,7 +1968,7 @@ stack_double.exit:                                ; preds = %866, %877
   br label %895
 
 895:                                              ; preds = %.loopexit3543, %888
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 896:                                              ; preds = %stack_double.exit, %847
@@ -2019,12 +2019,12 @@ stack_double.exit:                                ; preds = %866, %877
 
 925:                                              ; preds = %922
   %926 = shl i64 %919, 1
-  %927 = call noalias ptr @malloc(i64 noundef %926) #21
+  %927 = call noalias ptr @malloc(i64 noundef %926) #22
   %928 = icmp eq ptr %927, null
   br i1 %928, label %.loopexit3544, label %929
 
 929:                                              ; preds = %925
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %927, ptr noundef nonnull align 1 %917, i64 noundef %919, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %927, ptr noundef nonnull align 1 %917, i64 noundef %919, i1 noundef false) #23
   %930 = shl nsw i64 %920, 1
   br label %stack_double.exit2898
 
@@ -2047,7 +2047,7 @@ stack_double.exit:                                ; preds = %866, %877
 940:                                              ; preds = %937, %934, %931
   %.151.i2894 = phi i64 [ %933, %934 ], [ %933, %931 ], [ %935, %937 ]
   %941 = mul i64 %.151.i2894, 48
-  %942 = call ptr @realloc(ptr noundef %917, i64 noundef %941) #23
+  %942 = call ptr @realloc(ptr noundef %917, i64 noundef %941) #24
   %943 = icmp eq ptr %942, null
   br i1 %943, label %944, label %stack_double.exit2898
 
@@ -2088,7 +2088,7 @@ stack_double.exit2898:                            ; preds = %929, %940
   br label %958
 
 958:                                              ; preds = %.loopexit3544, %951
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 959:                                              ; preds = %stack_double.exit2898, %909
@@ -2129,7 +2129,7 @@ stack_double.exit2898:                            ; preds = %929, %940
   br label %enclen_approx.exit2901
 
 980:                                              ; preds = %966
-  %981 = call i32 @onigenc_mbclen_approximate(ptr noundef %970, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %981 = call i32 @onigenc_mbclen_approximate(ptr noundef %970, ptr noundef %.02177, ptr noundef nonnull %38) #23
   %.pre4566 = load ptr, ptr %19, align 8, !tbaa !18
   br label %enclen_approx.exit2901
 
@@ -2146,7 +2146,7 @@ enclen_approx.exit2901:                           ; preds = %978, %980
 
 987:                                              ; preds = %986
   %988 = load ptr, ptr %118, align 8, !tbaa !73
-  %989 = call i32 %988(ptr noundef %982, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %989 = call i32 %988(ptr noundef %982, ptr noundef %.02177, ptr noundef nonnull %38) #23
   %990 = icmp eq i32 %989, 10
   br i1 %990, label %is_mbc_newline_ex.exit.thread, label %991
 
@@ -2162,7 +2162,7 @@ enclen_approx.exit2901:                           ; preds = %978, %980
   br label %999
 
 997:                                              ; preds = %991
-  %998 = call i32 @onigenc_mbclen(ptr noundef %982, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %998 = call i32 @onigenc_mbclen(ptr noundef %982, ptr noundef %.02177, ptr noundef nonnull %38) #23
   br label %999
 
 999:                                              ; preds = %997, %995
@@ -2174,19 +2174,19 @@ enclen_approx.exit2901:                           ; preds = %978, %980
 
 1004:                                             ; preds = %999
   %1005 = load ptr, ptr %118, align 8, !tbaa !73
-  %1006 = call i32 %1005(ptr noundef %982, ptr noundef nonnull %.02177, ptr noundef nonnull %38) #22
+  %1006 = call i32 %1005(ptr noundef %982, ptr noundef nonnull %.02177, ptr noundef nonnull %38) #23
   %1007 = icmp eq i32 %1006, 13
   br i1 %1007, label %1008, label %is_mbc_newline_ex.exit2907
 
 1008:                                             ; preds = %1004
   %1009 = load ptr, ptr %118, align 8, !tbaa !73
-  %1010 = call i32 %1009(ptr noundef %1002, ptr noundef nonnull %.02177, ptr noundef nonnull %38) #22
+  %1010 = call i32 %1009(ptr noundef %1002, ptr noundef nonnull %.02177, ptr noundef nonnull %38) #23
   %1011 = icmp eq i32 %1010, 10
   br i1 %1011, label %is_mbc_newline_ex.exit.thread, label %is_mbc_newline_ex.exit2907
 
 is_mbc_newline_ex.exit2907:                       ; preds = %986, %999, %1004, %1008
   %1012 = load ptr, ptr %120, align 8, !tbaa !74
-  %1013 = call i32 %1012(ptr noundef %982, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %1013 = call i32 %1012(ptr noundef %982, ptr noundef %.02177, ptr noundef nonnull %38) #23
   %.1.i2905 = icmp eq i32 %1013, 0
   br i1 %.1.i2905, label %1014, label %is_mbc_newline_ex.exit.thread
 
@@ -2362,12 +2362,12 @@ check_extended_match_cache_point.exit2915:        ; preds = %1084, %1088
 
 1110:                                             ; preds = %1107
   %1111 = shl i64 %1104, 1
-  %1112 = call noalias ptr @malloc(i64 noundef %1111) #21
+  %1112 = call noalias ptr @malloc(i64 noundef %1111) #22
   %1113 = icmp eq ptr %1112, null
   br i1 %1113, label %.loopexit3547, label %1114
 
 1114:                                             ; preds = %1110
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %1112, ptr noundef nonnull align 1 %.pre4563, i64 noundef %1104, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %1112, ptr noundef nonnull align 1 %.pre4563, i64 noundef %1104, i1 noundef false) #23
   %1115 = shl nsw i64 %1105, 1
   br label %stack_double.exit2921
 
@@ -2390,7 +2390,7 @@ check_extended_match_cache_point.exit2915:        ; preds = %1084, %1088
 1125:                                             ; preds = %1122, %1119, %1116
   %.151.i2917 = phi i64 [ %1118, %1119 ], [ %1118, %1116 ], [ %1120, %1122 ]
   %1126 = mul i64 %.151.i2917, 48
-  %1127 = call ptr @realloc(ptr noundef %.pre4563, i64 noundef %1126) #23
+  %1127 = call ptr @realloc(ptr noundef %.pre4563, i64 noundef %1126) #24
   %1128 = icmp eq ptr %1127, null
   br i1 %1128, label %1129, label %stack_double.exit2921
 
@@ -2431,7 +2431,7 @@ stack_double.exit2921:                            ; preds = %1114, %1125
   br label %1143
 
 1143:                                             ; preds = %.loopexit3547, %1136
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 1144:                                             ; preds = %stack_double.exit2921, %1095
@@ -2482,12 +2482,12 @@ stack_double.exit2921:                            ; preds = %1114, %1125
 
 1173:                                             ; preds = %1170
   %1174 = shl i64 %1167, 1
-  %1175 = call noalias ptr @malloc(i64 noundef %1174) #21
+  %1175 = call noalias ptr @malloc(i64 noundef %1174) #22
   %1176 = icmp eq ptr %1175, null
   br i1 %1176, label %.loopexit3548, label %1177
 
 1177:                                             ; preds = %1173
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %1175, ptr noundef nonnull align 1 %1165, i64 noundef %1167, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %1175, ptr noundef nonnull align 1 %1165, i64 noundef %1167, i1 noundef false) #23
   %1178 = shl nsw i64 %1168, 1
   br label %stack_double.exit2927
 
@@ -2510,7 +2510,7 @@ stack_double.exit2921:                            ; preds = %1114, %1125
 1188:                                             ; preds = %1185, %1182, %1179
   %.151.i2923 = phi i64 [ %1181, %1182 ], [ %1181, %1179 ], [ %1183, %1185 ]
   %1189 = mul i64 %.151.i2923, 48
-  %1190 = call ptr @realloc(ptr noundef %1165, i64 noundef %1189) #23
+  %1190 = call ptr @realloc(ptr noundef %1165, i64 noundef %1189) #24
   %1191 = icmp eq ptr %1190, null
   br i1 %1191, label %1192, label %stack_double.exit2927
 
@@ -2551,7 +2551,7 @@ stack_double.exit2927:                            ; preds = %1177, %1188
   br label %1206
 
 1206:                                             ; preds = %.loopexit3548, %1199
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 1207:                                             ; preds = %stack_double.exit2927, %1157
@@ -2591,7 +2591,7 @@ stack_double.exit2927:                            ; preds = %1177, %1188
   br i1 %1227, label %enclen_approx.exit2930, label %enclen_approx.exit2930.thread
 
 1228:                                             ; preds = %1214
-  %1229 = call i32 @onigenc_mbclen_approximate(ptr noundef %1218, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %1229 = call i32 @onigenc_mbclen_approximate(ptr noundef %1218, ptr noundef %.02177, ptr noundef nonnull %38) #23
   %.pre4564.pre = load ptr, ptr %19, align 8, !tbaa !18
   br label %enclen_approx.exit2930
 
@@ -2789,12 +2789,12 @@ check_extended_match_cache_point.exit2938:        ; preds = %1306, %1310
 
 1332:                                             ; preds = %1329
   %1333 = shl i64 %1326, 1
-  %1334 = call noalias ptr @malloc(i64 noundef %1333) #21
+  %1334 = call noalias ptr @malloc(i64 noundef %1333) #22
   %1335 = icmp eq ptr %1334, null
   br i1 %1335, label %.loopexit3551, label %1336
 
 1336:                                             ; preds = %1332
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %1334, ptr noundef nonnull align 1 %.pre4559, i64 noundef %1326, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %1334, ptr noundef nonnull align 1 %.pre4559, i64 noundef %1326, i1 noundef false) #23
   %1337 = shl nsw i64 %1327, 1
   br label %stack_double.exit2944
 
@@ -2817,7 +2817,7 @@ check_extended_match_cache_point.exit2938:        ; preds = %1306, %1310
 1347:                                             ; preds = %1344, %1341, %1338
   %.151.i2940 = phi i64 [ %1340, %1341 ], [ %1340, %1338 ], [ %1342, %1344 ]
   %1348 = mul i64 %.151.i2940, 48
-  %1349 = call ptr @realloc(ptr noundef %.pre4559, i64 noundef %1348) #23
+  %1349 = call ptr @realloc(ptr noundef %.pre4559, i64 noundef %1348) #24
   %1350 = icmp eq ptr %1349, null
   br i1 %1350, label %1351, label %stack_double.exit2944
 
@@ -2858,7 +2858,7 @@ stack_double.exit2944:                            ; preds = %1336, %1347
   br label %1365
 
 1365:                                             ; preds = %.loopexit3551, %1358
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 1366:                                             ; preds = %stack_double.exit2944, %1317
@@ -2917,12 +2917,12 @@ stack_double.exit2944:                            ; preds = %1336, %1347
 
 1400:                                             ; preds = %1397
   %1401 = shl i64 %1394, 1
-  %1402 = call noalias ptr @malloc(i64 noundef %1401) #21
+  %1402 = call noalias ptr @malloc(i64 noundef %1401) #22
   %1403 = icmp eq ptr %1402, null
   br i1 %1403, label %.loopexit3552, label %1404
 
 1404:                                             ; preds = %1400
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %1402, ptr noundef nonnull align 1 %1392, i64 noundef %1394, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %1402, ptr noundef nonnull align 1 %1392, i64 noundef %1394, i1 noundef false) #23
   %1405 = shl nsw i64 %1395, 1
   br label %stack_double.exit2950
 
@@ -2945,7 +2945,7 @@ stack_double.exit2944:                            ; preds = %1336, %1347
 1415:                                             ; preds = %1412, %1409, %1406
   %.151.i2946 = phi i64 [ %1408, %1409 ], [ %1408, %1406 ], [ %1410, %1412 ]
   %1416 = mul i64 %.151.i2946, 48
-  %1417 = call ptr @realloc(ptr noundef %1392, i64 noundef %1416) #23
+  %1417 = call ptr @realloc(ptr noundef %1392, i64 noundef %1416) #24
   %1418 = icmp eq ptr %1417, null
   br i1 %1418, label %1419, label %stack_double.exit2950
 
@@ -2986,7 +2986,7 @@ stack_double.exit2950:                            ; preds = %1404, %1415
   br label %1433
 
 1433:                                             ; preds = %.loopexit3552, %1426
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 1434:                                             ; preds = %stack_double.exit2950, %1384
@@ -3037,7 +3037,7 @@ stack_double.exit2950:                            ; preds = %1404, %1415
   br label %enclen_approx.exit2953
 
 1460:                                             ; preds = %1453
-  %1461 = call i32 @onigenc_mbclen_approximate(ptr noundef %1454, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %1461 = call i32 @onigenc_mbclen_approximate(ptr noundef %1454, ptr noundef %.02177, ptr noundef nonnull %38) #23
   %.pre4562 = load ptr, ptr %19, align 8, !tbaa !18
   br label %enclen_approx.exit2953
 
@@ -3054,7 +3054,7 @@ enclen_approx.exit2953:                           ; preds = %1458, %1460
 
 1467:                                             ; preds = %1466
   %1468 = load ptr, ptr %118, align 8, !tbaa !73
-  %1469 = call i32 %1468(ptr noundef %1462, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %1469 = call i32 %1468(ptr noundef %1462, ptr noundef %.02177, ptr noundef nonnull %38) #23
   %1470 = icmp eq i32 %1469, 10
   br i1 %1470, label %is_mbc_newline_ex.exit.thread, label %1471
 
@@ -3070,7 +3070,7 @@ enclen_approx.exit2953:                           ; preds = %1458, %1460
   br label %1479
 
 1477:                                             ; preds = %1471
-  %1478 = call i32 @onigenc_mbclen(ptr noundef %1462, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %1478 = call i32 @onigenc_mbclen(ptr noundef %1462, ptr noundef %.02177, ptr noundef nonnull %38) #23
   br label %1479
 
 1479:                                             ; preds = %1477, %1475
@@ -3082,19 +3082,19 @@ enclen_approx.exit2953:                           ; preds = %1458, %1460
 
 1484:                                             ; preds = %1479
   %1485 = load ptr, ptr %118, align 8, !tbaa !73
-  %1486 = call i32 %1485(ptr noundef %1462, ptr noundef nonnull %.02177, ptr noundef nonnull %38) #22
+  %1486 = call i32 %1485(ptr noundef %1462, ptr noundef nonnull %.02177, ptr noundef nonnull %38) #23
   %1487 = icmp eq i32 %1486, 13
   br i1 %1487, label %1488, label %is_mbc_newline_ex.exit2959
 
 1488:                                             ; preds = %1484
   %1489 = load ptr, ptr %118, align 8, !tbaa !73
-  %1490 = call i32 %1489(ptr noundef %1482, ptr noundef nonnull %.02177, ptr noundef nonnull %38) #22
+  %1490 = call i32 %1489(ptr noundef %1482, ptr noundef nonnull %.02177, ptr noundef nonnull %38) #23
   %1491 = icmp eq i32 %1490, 10
   br i1 %1491, label %is_mbc_newline_ex.exit.thread, label %is_mbc_newline_ex.exit2959
 
 is_mbc_newline_ex.exit2959:                       ; preds = %1466, %1479, %1484, %1488
   %1492 = load ptr, ptr %120, align 8, !tbaa !74
-  %1493 = call i32 %1492(ptr noundef %1462, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %1493 = call i32 %1492(ptr noundef %1462, ptr noundef %.02177, ptr noundef nonnull %38) #23
   %.1.i2957 = icmp eq i32 %1493, 0
   br i1 %.1.i2957, label %1494, label %is_mbc_newline_ex.exit.thread
 
@@ -3277,12 +3277,12 @@ check_extended_match_cache_point.exit2967:        ; preds = %1566, %1570
 
 1592:                                             ; preds = %1589
   %1593 = shl i64 %1586, 1
-  %1594 = call noalias ptr @malloc(i64 noundef %1593) #21
+  %1594 = call noalias ptr @malloc(i64 noundef %1593) #22
   %1595 = icmp eq ptr %1594, null
   br i1 %1595, label %.loopexit3555, label %1596
 
 1596:                                             ; preds = %1592
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %1594, ptr noundef nonnull align 1 %.pre4555, i64 noundef %1586, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %1594, ptr noundef nonnull align 1 %.pre4555, i64 noundef %1586, i1 noundef false) #23
   %1597 = shl nsw i64 %1587, 1
   br label %stack_double.exit2973
 
@@ -3305,7 +3305,7 @@ check_extended_match_cache_point.exit2967:        ; preds = %1566, %1570
 1607:                                             ; preds = %1604, %1601, %1598
   %.151.i2969 = phi i64 [ %1600, %1601 ], [ %1600, %1598 ], [ %1602, %1604 ]
   %1608 = mul i64 %.151.i2969, 48
-  %1609 = call ptr @realloc(ptr noundef %.pre4555, i64 noundef %1608) #23
+  %1609 = call ptr @realloc(ptr noundef %.pre4555, i64 noundef %1608) #24
   %1610 = icmp eq ptr %1609, null
   br i1 %1610, label %1611, label %stack_double.exit2973
 
@@ -3346,7 +3346,7 @@ stack_double.exit2973:                            ; preds = %1596, %1607
   br label %1625
 
 1625:                                             ; preds = %.loopexit3555, %1618
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 1626:                                             ; preds = %stack_double.exit2973, %1577
@@ -3405,12 +3405,12 @@ stack_double.exit2973:                            ; preds = %1596, %1607
 
 1660:                                             ; preds = %1657
   %1661 = shl i64 %1654, 1
-  %1662 = call noalias ptr @malloc(i64 noundef %1661) #21
+  %1662 = call noalias ptr @malloc(i64 noundef %1661) #22
   %1663 = icmp eq ptr %1662, null
   br i1 %1663, label %.loopexit3556, label %1664
 
 1664:                                             ; preds = %1660
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %1662, ptr noundef nonnull align 1 %1652, i64 noundef %1654, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %1662, ptr noundef nonnull align 1 %1652, i64 noundef %1654, i1 noundef false) #23
   %1665 = shl nsw i64 %1655, 1
   br label %stack_double.exit2979
 
@@ -3433,7 +3433,7 @@ stack_double.exit2973:                            ; preds = %1596, %1607
 1675:                                             ; preds = %1672, %1669, %1666
   %.151.i2975 = phi i64 [ %1668, %1669 ], [ %1668, %1666 ], [ %1670, %1672 ]
   %1676 = mul i64 %.151.i2975, 48
-  %1677 = call ptr @realloc(ptr noundef %1652, i64 noundef %1676) #23
+  %1677 = call ptr @realloc(ptr noundef %1652, i64 noundef %1676) #24
   %1678 = icmp eq ptr %1677, null
   br i1 %1678, label %1679, label %stack_double.exit2979
 
@@ -3474,7 +3474,7 @@ stack_double.exit2979:                            ; preds = %1664, %1675
   br label %1693
 
 1693:                                             ; preds = %.loopexit3556, %1686
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 1694:                                             ; preds = %stack_double.exit2979, %1644
@@ -3524,7 +3524,7 @@ stack_double.exit2979:                            ; preds = %1664, %1675
   br i1 %1719, label %enclen_approx.exit2982, label %enclen_approx.exit2982.thread
 
 1720:                                             ; preds = %1713
-  %1721 = call i32 @onigenc_mbclen_approximate(ptr noundef %1714, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %1721 = call i32 @onigenc_mbclen_approximate(ptr noundef %1714, ptr noundef %.02177, ptr noundef nonnull %38) #23
   %.pre4558.pre = load ptr, ptr %19, align 8, !tbaa !18
   br label %enclen_approx.exit2982
 
@@ -3566,8 +3566,8 @@ enclen_approx.exit2982.thread:                    ; preds = %1718, %enclen_appro
 1737:                                             ; preds = %1733
   %1738 = load ptr, ptr %122, align 8, !tbaa !84
   %1739 = load ptr, ptr %118, align 8, !tbaa !73
-  %1740 = call i32 %1739(ptr noundef %1734, ptr noundef %.02177, ptr noundef %38) #22
-  %1741 = call i32 %1738(i32 noundef %1740, i32 noundef 12, ptr noundef %38) #22
+  %1740 = call i32 %1739(ptr noundef %1734, ptr noundef %.02177, ptr noundef %38) #23
+  %1741 = call i32 %1738(i32 noundef %1740, i32 noundef 12, ptr noundef %38) #23
   %.not2737 = icmp eq i32 %1741, 0
   br i1 %.not2737, label %is_mbc_newline_ex.exit.thread, label %1742
 
@@ -3584,7 +3584,7 @@ enclen_approx.exit2982.thread:                    ; preds = %1718, %enclen_appro
   br label %1751
 
 1749:                                             ; preds = %1742
-  %1750 = call i32 @onigenc_mbclen(ptr noundef %1746, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %1750 = call i32 @onigenc_mbclen(ptr noundef %1746, ptr noundef %.02177, ptr noundef nonnull %38) #23
   %.pre4554 = load ptr, ptr %19, align 8, !tbaa !18
   br label %1751
 
@@ -3628,8 +3628,8 @@ rb_enc_asciicompat.exit:                          ; preds = %1761
 
 rb_enc_asciicompat.exit.thread:                   ; preds = %1761, %rb_enc_asciicompat.exit
   %1773 = load ptr, ptr %118, align 8, !tbaa !73
-  %1774 = call i32 %1773(ptr noundef %1758, ptr noundef %.02177, ptr noundef nonnull %38) #22
-  %1775 = call i32 @onigenc_ascii_is_code_ctype(i32 noundef %1774, i32 noundef 12, ptr noundef nonnull %38) #22
+  %1774 = call i32 %1773(ptr noundef %1758, ptr noundef %.02177, ptr noundef nonnull %38) #23
+  %1775 = call i32 @onigenc_ascii_is_code_ctype(i32 noundef %1774, i32 noundef 12, ptr noundef nonnull %38) #23
   %.not2725 = icmp eq i32 %1775, 0
   br i1 %.not2725, label %is_mbc_newline_ex.exit.thread, label %rb_enc_asciicompat.exit.thread._crit_edge
 
@@ -3650,7 +3650,7 @@ rb_enc_asciicompat.exit.thread._crit_edge:        ; preds = %rb_enc_asciicompat.
   br label %1785
 
 1783:                                             ; preds = %1776
-  %1784 = call i32 @onigenc_mbclen(ptr noundef %1780, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %1784 = call i32 @onigenc_mbclen(ptr noundef %1780, ptr noundef %.02177, ptr noundef nonnull %38) #23
   %.pre4552 = load ptr, ptr %19, align 8, !tbaa !18
   br label %1785
 
@@ -3672,8 +3672,8 @@ rb_enc_asciicompat.exit.thread._crit_edge:        ; preds = %rb_enc_asciicompat.
 1795:                                             ; preds = %1791
   %1796 = load ptr, ptr %122, align 8, !tbaa !84
   %1797 = load ptr, ptr %118, align 8, !tbaa !73
-  %1798 = call i32 %1797(ptr noundef %1792, ptr noundef %.02177, ptr noundef %38) #22
-  %1799 = call i32 %1796(i32 noundef %1798, i32 noundef 12, ptr noundef %38) #22
+  %1798 = call i32 %1797(ptr noundef %1792, ptr noundef %.02177, ptr noundef %38) #23
+  %1799 = call i32 %1796(i32 noundef %1798, i32 noundef 12, ptr noundef %38) #23
   %.not2736 = icmp eq i32 %1799, 0
   br i1 %.not2736, label %1800, label %is_mbc_newline_ex.exit.thread
 
@@ -3690,7 +3690,7 @@ rb_enc_asciicompat.exit.thread._crit_edge:        ; preds = %rb_enc_asciicompat.
   br label %1809
 
 1807:                                             ; preds = %1800
-  %1808 = call i32 @onigenc_mbclen(ptr noundef %1804, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %1808 = call i32 @onigenc_mbclen(ptr noundef %1804, ptr noundef %.02177, ptr noundef nonnull %38) #23
   %.pre4553 = load ptr, ptr %19, align 8, !tbaa !18
   br label %1809
 
@@ -3734,8 +3734,8 @@ rb_enc_asciicompat.exit2984:                      ; preds = %1819
 
 rb_enc_asciicompat.exit2984.thread:               ; preds = %1819, %rb_enc_asciicompat.exit2984
   %1831 = load ptr, ptr %118, align 8, !tbaa !73
-  %1832 = call i32 %1831(ptr noundef %1816, ptr noundef %.02177, ptr noundef nonnull %38) #22
-  %1833 = call i32 @onigenc_ascii_is_code_ctype(i32 noundef %1832, i32 noundef 12, ptr noundef nonnull %38) #22
+  %1832 = call i32 %1831(ptr noundef %1816, ptr noundef %.02177, ptr noundef nonnull %38) #23
+  %1833 = call i32 @onigenc_ascii_is_code_ctype(i32 noundef %1832, i32 noundef 12, ptr noundef nonnull %38) #23
   %.not2722 = icmp eq i32 %1833, 0
   br i1 %.not2722, label %rb_enc_asciicompat.exit2984.thread._crit_edge, label %is_mbc_newline_ex.exit.thread
 
@@ -3756,7 +3756,7 @@ rb_enc_asciicompat.exit2984.thread._crit_edge:    ; preds = %rb_enc_asciicompat.
   br label %1843
 
 1841:                                             ; preds = %1834
-  %1842 = call i32 @onigenc_mbclen(ptr noundef %1838, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %1842 = call i32 @onigenc_mbclen(ptr noundef %1838, ptr noundef %.02177, ptr noundef nonnull %38) #23
   %.pre4550 = load ptr, ptr %19, align 8, !tbaa !18
   br label %1843
 
@@ -3782,8 +3782,8 @@ rb_enc_asciicompat.exit2984.thread._crit_edge:    ; preds = %rb_enc_asciicompat.
 1855:                                             ; preds = %1852
   %1856 = load ptr, ptr %122, align 8, !tbaa !84
   %1857 = load ptr, ptr %118, align 8, !tbaa !73
-  %1858 = call i32 %1857(ptr noundef %1850, ptr noundef %.02177, ptr noundef %38) #22
-  %1859 = call i32 %1856(i32 noundef %1858, i32 noundef 12, ptr noundef %38) #22
+  %1858 = call i32 %1857(ptr noundef %1850, ptr noundef %.02177, ptr noundef %38) #23
+  %1859 = call i32 %1856(i32 noundef %1858, i32 noundef 12, ptr noundef %38) #23
   %.not2735 = icmp eq i32 %1859, 0
   br i1 %.not2735, label %is_mbc_newline_ex.exit.thread, label %1875
 
@@ -3794,18 +3794,18 @@ rb_enc_asciicompat.exit2984.thread._crit_edge:    ; preds = %rb_enc_asciicompat.
   br i1 %1861, label %1864, label %1867
 
 1864:                                             ; preds = %1860
-  %1865 = call i32 %1863(ptr noundef %.02178, ptr noundef %.02177, ptr noundef %38) #22
-  %1866 = call i32 %1862(i32 noundef %1865, i32 noundef 12, ptr noundef %38) #22
+  %1865 = call i32 %1863(ptr noundef %.02178, ptr noundef %.02177, ptr noundef %38) #23
+  %1866 = call i32 %1862(i32 noundef %1865, i32 noundef 12, ptr noundef %38) #23
   %.not2734 = icmp eq i32 %1866, 0
   br i1 %.not2734, label %is_mbc_newline_ex.exit.thread, label %1875
 
 1867:                                             ; preds = %1860
-  %1868 = call i32 %1863(ptr noundef %1850, ptr noundef %.02177, ptr noundef %38) #22
-  %1869 = call i32 %1862(i32 noundef %1868, i32 noundef 12, ptr noundef %38) #22
+  %1868 = call i32 %1863(ptr noundef %1850, ptr noundef %.02177, ptr noundef %38) #23
+  %1869 = call i32 %1862(i32 noundef %1868, i32 noundef 12, ptr noundef %38) #23
   %1870 = load ptr, ptr %122, align 8, !tbaa !84
   %1871 = load ptr, ptr %118, align 8, !tbaa !73
-  %1872 = call i32 %1871(ptr noundef %.02178, ptr noundef %.02177, ptr noundef %38) #22
-  %1873 = call i32 %1870(i32 noundef %1872, i32 noundef 12, ptr noundef %38) #22
+  %1872 = call i32 %1871(ptr noundef %.02178, ptr noundef %.02177, ptr noundef %38) #23
+  %1873 = call i32 %1870(i32 noundef %1872, i32 noundef 12, ptr noundef %38) #23
   %1874 = icmp eq i32 %1869, %1873
   br i1 %1874, label %is_mbc_newline_ex.exit.thread, label %1875
 
@@ -3848,8 +3848,8 @@ rb_enc_asciicompat.exit2988:                      ; preds = %1883
 
 rb_enc_asciicompat.exit2988.thread:               ; preds = %1883, %rb_enc_asciicompat.exit2988
   %1895 = load ptr, ptr %118, align 8, !tbaa !73
-  %1896 = call i32 %1895(ptr noundef %1878, ptr noundef %.02177, ptr noundef nonnull %38) #22
-  %1897 = call i32 @onigenc_ascii_is_code_ctype(i32 noundef %1896, i32 noundef 12, ptr noundef nonnull %38) #22
+  %1896 = call i32 %1895(ptr noundef %1878, ptr noundef %.02177, ptr noundef nonnull %38) #23
+  %1897 = call i32 @onigenc_ascii_is_code_ctype(i32 noundef %1896, i32 noundef 12, ptr noundef nonnull %38) #23
   %.not2719 = icmp eq i32 %1897, 0
   br i1 %.not2719, label %is_mbc_newline_ex.exit.thread, label %1951
 
@@ -3882,8 +3882,8 @@ rb_enc_asciicompat.exit2992:                      ; preds = %1902
 
 rb_enc_asciicompat.exit2992.thread:               ; preds = %1902, %rb_enc_asciicompat.exit2992
   %1912 = load ptr, ptr %118, align 8, !tbaa !73
-  %1913 = call i32 %1912(ptr noundef %.02178, ptr noundef %.02177, ptr noundef nonnull %38) #22
-  %1914 = call i32 @onigenc_ascii_is_code_ctype(i32 noundef %1913, i32 noundef 12, ptr noundef nonnull %38) #22
+  %1913 = call i32 %1912(ptr noundef %.02178, ptr noundef %.02177, ptr noundef nonnull %38) #23
+  %1914 = call i32 @onigenc_ascii_is_code_ctype(i32 noundef %1913, i32 noundef 12, ptr noundef nonnull %38) #23
   %.not2716 = icmp eq i32 %1914, 0
   br i1 %.not2716, label %is_mbc_newline_ex.exit.thread, label %1951
 
@@ -3911,8 +3911,8 @@ rb_enc_asciicompat.exit2996:                      ; preds = %1915
 
 1926:                                             ; preds = %rb_enc_asciicompat.exit2996, %1915
   %1927 = load ptr, ptr %118, align 8, !tbaa !73
-  %1928 = call i32 %1927(ptr noundef %1878, ptr noundef %.02177, ptr noundef nonnull %38) #22
-  %1929 = call i32 @onigenc_ascii_is_code_ctype(i32 noundef %1928, i32 noundef 12, ptr noundef nonnull %38) #22
+  %1928 = call i32 %1927(ptr noundef %1878, ptr noundef %.02177, ptr noundef nonnull %38) #23
+  %1929 = call i32 @onigenc_ascii_is_code_ctype(i32 noundef %1928, i32 noundef 12, ptr noundef nonnull %38) #23
   %.pre4548 = load i32, ptr %102, align 4, !tbaa !72
   %1930 = icmp eq i32 %.pre4548, 1
   br i1 %1930, label %rb_enc_asciicompat.exit3000, label %rb_enc_asciicompat.exit3000.thread
@@ -3940,8 +3940,8 @@ rb_enc_asciicompat.exit3000:                      ; preds = %.thread5161, %1926
 rb_enc_asciicompat.exit3000.thread:               ; preds = %1926, %rb_enc_asciicompat.exit3000
   %1943 = phi i32 [ %1929, %1926 ], [ %1931, %rb_enc_asciicompat.exit3000 ]
   %1944 = load ptr, ptr %118, align 8, !tbaa !73
-  %1945 = call i32 %1944(ptr noundef %.02178, ptr noundef %.02177, ptr noundef nonnull %38) #22
-  %1946 = call i32 @onigenc_ascii_is_code_ctype(i32 noundef %1945, i32 noundef 12, ptr noundef nonnull %38) #22
+  %1945 = call i32 %1944(ptr noundef %.02178, ptr noundef %.02177, ptr noundef nonnull %38) #23
+  %1946 = call i32 @onigenc_ascii_is_code_ctype(i32 noundef %1945, i32 noundef 12, ptr noundef nonnull %38) #23
   br label %1947
 
 1947:                                             ; preds = %rb_enc_asciicompat.exit3000.thread, %1934
@@ -3966,8 +3966,8 @@ rb_enc_asciicompat.exit3000.thread:               ; preds = %1926, %rb_enc_ascii
 1958:                                             ; preds = %1956
   %1959 = load ptr, ptr %122, align 8, !tbaa !84
   %1960 = load ptr, ptr %118, align 8, !tbaa !73
-  %1961 = call i32 %1960(ptr noundef %1954, ptr noundef %.02177, ptr noundef %38) #22
-  %1962 = call i32 %1959(i32 noundef %1961, i32 noundef 12, ptr noundef %38) #22
+  %1961 = call i32 %1960(ptr noundef %1954, ptr noundef %.02177, ptr noundef %38) #23
+  %1962 = call i32 %1959(i32 noundef %1961, i32 noundef 12, ptr noundef %38) #23
   %.not2733 = icmp eq i32 %1962, 0
   br i1 %.not2733, label %1977, label %is_mbc_newline_ex.exit.thread
 
@@ -3978,18 +3978,18 @@ rb_enc_asciicompat.exit3000.thread:               ; preds = %1926, %rb_enc_ascii
   br i1 %1964, label %1967, label %1970
 
 1967:                                             ; preds = %1963
-  %1968 = call i32 %1966(ptr noundef %.02178, ptr noundef %.02177, ptr noundef %38) #22
-  %1969 = call i32 %1965(i32 noundef %1968, i32 noundef 12, ptr noundef %38) #22
+  %1968 = call i32 %1966(ptr noundef %.02178, ptr noundef %.02177, ptr noundef %38) #23
+  %1969 = call i32 %1965(i32 noundef %1968, i32 noundef 12, ptr noundef %38) #23
   %.not2732 = icmp eq i32 %1969, 0
   br i1 %.not2732, label %1977, label %is_mbc_newline_ex.exit.thread
 
 1970:                                             ; preds = %1963
-  %1971 = call i32 %1966(ptr noundef %1954, ptr noundef %.02177, ptr noundef %38) #22
-  %1972 = call i32 %1965(i32 noundef %1971, i32 noundef 12, ptr noundef %38) #22
+  %1971 = call i32 %1966(ptr noundef %1954, ptr noundef %.02177, ptr noundef %38) #23
+  %1972 = call i32 %1965(i32 noundef %1971, i32 noundef 12, ptr noundef %38) #23
   %1973 = load ptr, ptr %122, align 8, !tbaa !84
   %1974 = load ptr, ptr %118, align 8, !tbaa !73
-  %1975 = call i32 %1974(ptr noundef %.02178, ptr noundef %.02177, ptr noundef %38) #22
-  %1976 = call i32 %1973(i32 noundef %1975, i32 noundef 12, ptr noundef %38) #22
+  %1975 = call i32 %1974(ptr noundef %.02178, ptr noundef %.02177, ptr noundef %38) #23
+  %1976 = call i32 %1973(i32 noundef %1975, i32 noundef 12, ptr noundef %38) #23
   %.not2731 = icmp eq i32 %1972, %1976
   br i1 %.not2731, label %1977, label %is_mbc_newline_ex.exit.thread
 
@@ -4031,8 +4031,8 @@ rb_enc_asciicompat.exit3004:                      ; preds = %1984
 
 rb_enc_asciicompat.exit3004.thread:               ; preds = %1984, %rb_enc_asciicompat.exit3004
   %1996 = load ptr, ptr %118, align 8, !tbaa !73
-  %1997 = call i32 %1996(ptr noundef %1980, ptr noundef %.02177, ptr noundef nonnull %38) #22
-  %1998 = call i32 @onigenc_ascii_is_code_ctype(i32 noundef %1997, i32 noundef 12, ptr noundef nonnull %38) #22
+  %1997 = call i32 %1996(ptr noundef %1980, ptr noundef %.02177, ptr noundef nonnull %38) #23
+  %1998 = call i32 @onigenc_ascii_is_code_ctype(i32 noundef %1997, i32 noundef 12, ptr noundef nonnull %38) #23
   %.not2709 = icmp eq i32 %1998, 0
   br i1 %.not2709, label %2051, label %is_mbc_newline_ex.exit.thread
 
@@ -4065,8 +4065,8 @@ rb_enc_asciicompat.exit3008:                      ; preds = %2003
 
 rb_enc_asciicompat.exit3008.thread:               ; preds = %2003, %rb_enc_asciicompat.exit3008
   %2013 = load ptr, ptr %118, align 8, !tbaa !73
-  %2014 = call i32 %2013(ptr noundef %.02178, ptr noundef %.02177, ptr noundef nonnull %38) #22
-  %2015 = call i32 @onigenc_ascii_is_code_ctype(i32 noundef %2014, i32 noundef 12, ptr noundef nonnull %38) #22
+  %2014 = call i32 %2013(ptr noundef %.02178, ptr noundef %.02177, ptr noundef nonnull %38) #23
+  %2015 = call i32 @onigenc_ascii_is_code_ctype(i32 noundef %2014, i32 noundef 12, ptr noundef nonnull %38) #23
   %.not2706 = icmp eq i32 %2015, 0
   br i1 %.not2706, label %2051, label %is_mbc_newline_ex.exit.thread
 
@@ -4094,8 +4094,8 @@ rb_enc_asciicompat.exit3012:                      ; preds = %2016
 
 2027:                                             ; preds = %rb_enc_asciicompat.exit3012, %2016
   %2028 = load ptr, ptr %118, align 8, !tbaa !73
-  %2029 = call i32 %2028(ptr noundef %1980, ptr noundef %.02177, ptr noundef nonnull %38) #22
-  %2030 = call i32 @onigenc_ascii_is_code_ctype(i32 noundef %2029, i32 noundef 12, ptr noundef nonnull %38) #22
+  %2029 = call i32 %2028(ptr noundef %1980, ptr noundef %.02177, ptr noundef nonnull %38) #23
+  %2030 = call i32 @onigenc_ascii_is_code_ctype(i32 noundef %2029, i32 noundef 12, ptr noundef nonnull %38) #23
   %.pre4547 = load i32, ptr %102, align 4, !tbaa !72
   %2031 = icmp eq i32 %.pre4547, 1
   br i1 %2031, label %rb_enc_asciicompat.exit3016, label %rb_enc_asciicompat.exit3016.thread
@@ -4123,8 +4123,8 @@ rb_enc_asciicompat.exit3016:                      ; preds = %.thread5162, %2027
 rb_enc_asciicompat.exit3016.thread:               ; preds = %2027, %rb_enc_asciicompat.exit3016
   %2044 = phi i32 [ %2030, %2027 ], [ %2032, %rb_enc_asciicompat.exit3016 ]
   %2045 = load ptr, ptr %118, align 8, !tbaa !73
-  %2046 = call i32 %2045(ptr noundef %.02178, ptr noundef %.02177, ptr noundef nonnull %38) #22
-  %2047 = call i32 @onigenc_ascii_is_code_ctype(i32 noundef %2046, i32 noundef 12, ptr noundef nonnull %38) #22
+  %2046 = call i32 %2045(ptr noundef %.02178, ptr noundef %.02177, ptr noundef nonnull %38) #23
+  %2047 = call i32 @onigenc_ascii_is_code_ctype(i32 noundef %2046, i32 noundef 12, ptr noundef nonnull %38) #23
   br label %2048
 
 2048:                                             ; preds = %rb_enc_asciicompat.exit3016.thread, %2035
@@ -4145,8 +4145,8 @@ rb_enc_asciicompat.exit3016.thread:               ; preds = %2027, %rb_enc_ascii
 2056:                                             ; preds = %2053
   %2057 = load ptr, ptr %122, align 8, !tbaa !84
   %2058 = load ptr, ptr %118, align 8, !tbaa !73
-  %2059 = call i32 %2058(ptr noundef %2054, ptr noundef %.02177, ptr noundef %38) #22
-  %2060 = call i32 %2057(i32 noundef %2059, i32 noundef 12, ptr noundef %38) #22
+  %2059 = call i32 %2058(ptr noundef %2054, ptr noundef %.02177, ptr noundef %38) #23
+  %2060 = call i32 %2057(i32 noundef %2059, i32 noundef 12, ptr noundef %38) #23
   %.not2729 = icmp eq i32 %2060, 0
   br i1 %.not2729, label %is_mbc_newline_ex.exit.thread, label %2061
 
@@ -4158,8 +4158,8 @@ rb_enc_asciicompat.exit3016.thread:               ; preds = %2027, %rb_enc_ascii
 2064:                                             ; preds = %2061
   %2065 = load ptr, ptr %122, align 8, !tbaa !84
   %2066 = load ptr, ptr %118, align 8, !tbaa !73
-  %2067 = call i32 %2066(ptr noundef %.02178, ptr noundef %.02177, ptr noundef nonnull %38) #22
-  %2068 = call i32 %2065(i32 noundef %2067, i32 noundef 12, ptr noundef nonnull %38) #22
+  %2067 = call i32 %2066(ptr noundef %.02178, ptr noundef %.02177, ptr noundef nonnull %38) #23
+  %2068 = call i32 %2065(i32 noundef %2067, i32 noundef 12, ptr noundef nonnull %38) #23
   %.not2730 = icmp eq i32 %2068, 0
   br i1 %.not2730, label %2069, label %is_mbc_newline_ex.exit.thread
 
@@ -4197,8 +4197,8 @@ rb_enc_asciicompat.exit3020:                      ; preds = %2074
 
 rb_enc_asciicompat.exit3020.thread:               ; preds = %2074, %rb_enc_asciicompat.exit3020
   %2086 = load ptr, ptr %118, align 8, !tbaa !73
-  %2087 = call i32 %2086(ptr noundef %2072, ptr noundef %.02177, ptr noundef nonnull %38) #22
-  %2088 = call i32 @onigenc_ascii_is_code_ctype(i32 noundef %2087, i32 noundef 12, ptr noundef nonnull %38) #22
+  %2087 = call i32 %2086(ptr noundef %2072, ptr noundef %.02177, ptr noundef nonnull %38) #23
+  %2088 = call i32 @onigenc_ascii_is_code_ctype(i32 noundef %2087, i32 noundef 12, ptr noundef nonnull %38) #23
   %.not2695 = icmp eq i32 %2088, 0
   br i1 %.not2695, label %is_mbc_newline_ex.exit.thread, label %rb_enc_asciicompat.exit3020.thread._crit_edge
 
@@ -4236,8 +4236,8 @@ rb_enc_asciicompat.exit3024:                      ; preds = %2092
 
 rb_enc_asciicompat.exit3024.thread:               ; preds = %2092, %rb_enc_asciicompat.exit3024
   %2104 = load ptr, ptr %118, align 8, !tbaa !73
-  %2105 = call i32 %2104(ptr noundef %.02178, ptr noundef %.02177, ptr noundef nonnull %38) #22
-  %2106 = call i32 @onigenc_ascii_is_code_ctype(i32 noundef %2105, i32 noundef 12, ptr noundef nonnull %38) #22
+  %2105 = call i32 %2104(ptr noundef %.02178, ptr noundef %.02177, ptr noundef nonnull %38) #23
+  %2106 = call i32 @onigenc_ascii_is_code_ctype(i32 noundef %2105, i32 noundef 12, ptr noundef nonnull %38) #23
   %.not2698 = icmp eq i32 %2106, 0
   br i1 %.not2698, label %2107, label %is_mbc_newline_ex.exit.thread
 
@@ -4253,8 +4253,8 @@ rb_enc_asciicompat.exit3024.thread:               ; preds = %2092, %rb_enc_ascii
 2112:                                             ; preds = %2109
   %2113 = load ptr, ptr %122, align 8, !tbaa !84
   %2114 = load ptr, ptr %118, align 8, !tbaa !73
-  %2115 = call i32 %2114(ptr noundef %.02178, ptr noundef %.02177, ptr noundef %38) #22
-  %2116 = call i32 %2113(i32 noundef %2115, i32 noundef 12, ptr noundef %38) #22
+  %2115 = call i32 %2114(ptr noundef %.02178, ptr noundef %.02177, ptr noundef %38) #23
+  %2116 = call i32 %2113(i32 noundef %2115, i32 noundef 12, ptr noundef %38) #23
   %.not2727 = icmp eq i32 %2116, 0
   br i1 %.not2727, label %is_mbc_newline_ex.exit.thread, label %2117
 
@@ -4266,8 +4266,8 @@ rb_enc_asciicompat.exit3024.thread:               ; preds = %2092, %rb_enc_ascii
 2120:                                             ; preds = %2117
   %2121 = load ptr, ptr %122, align 8, !tbaa !84
   %2122 = load ptr, ptr %118, align 8, !tbaa !73
-  %2123 = call i32 %2122(ptr noundef %2118, ptr noundef %.02177, ptr noundef nonnull %38) #22
-  %2124 = call i32 %2121(i32 noundef %2123, i32 noundef 12, ptr noundef nonnull %38) #22
+  %2123 = call i32 %2122(ptr noundef %2118, ptr noundef %.02177, ptr noundef nonnull %38) #23
+  %2124 = call i32 %2121(i32 noundef %2123, i32 noundef 12, ptr noundef nonnull %38) #23
   %.not2728 = icmp eq i32 %2124, 0
   br i1 %.not2728, label %2125, label %is_mbc_newline_ex.exit.thread
 
@@ -4305,8 +4305,8 @@ rb_enc_asciicompat.exit3028:                      ; preds = %2130
 
 rb_enc_asciicompat.exit3028.thread:               ; preds = %2130, %rb_enc_asciicompat.exit3028
   %2142 = load ptr, ptr %118, align 8, !tbaa !73
-  %2143 = call i32 %2142(ptr noundef %.02178, ptr noundef %.02177, ptr noundef nonnull %38) #22
-  %2144 = call i32 @onigenc_ascii_is_code_ctype(i32 noundef %2143, i32 noundef 12, ptr noundef nonnull %38) #22
+  %2143 = call i32 %2142(ptr noundef %.02178, ptr noundef %.02177, ptr noundef nonnull %38) #23
+  %2144 = call i32 @onigenc_ascii_is_code_ctype(i32 noundef %2143, i32 noundef 12, ptr noundef nonnull %38) #23
   %.not2689 = icmp eq i32 %2144, 0
   br i1 %.not2689, label %is_mbc_newline_ex.exit.thread, label %rb_enc_asciicompat.exit3028.thread._crit_edge
 
@@ -4344,8 +4344,8 @@ rb_enc_asciicompat.exit3032:                      ; preds = %2148
 
 rb_enc_asciicompat.exit3032.thread:               ; preds = %2148, %rb_enc_asciicompat.exit3032
   %2160 = load ptr, ptr %118, align 8, !tbaa !73
-  %2161 = call i32 %2160(ptr noundef %2146, ptr noundef %.02177, ptr noundef nonnull %38) #22
-  %2162 = call i32 @onigenc_ascii_is_code_ctype(i32 noundef %2161, i32 noundef 12, ptr noundef nonnull %38) #22
+  %2161 = call i32 %2160(ptr noundef %2146, ptr noundef %.02177, ptr noundef nonnull %38) #23
+  %2162 = call i32 @onigenc_ascii_is_code_ctype(i32 noundef %2161, i32 noundef 12, ptr noundef nonnull %38) #23
   %.not2692 = icmp eq i32 %2162, 0
   br i1 %.not2692, label %2163, label %is_mbc_newline_ex.exit.thread
 
@@ -4400,7 +4400,7 @@ rb_enc_asciicompat.exit3032.thread:               ; preds = %2148, %rb_enc_ascii
 
 2189:                                             ; preds = %2181
   %2190 = load ptr, ptr %120, align 8, !tbaa !74
-  %2191 = call i32 %2190(ptr noundef %.02178, ptr noundef %.02177, ptr noundef %38) #22
+  %2191 = call i32 %2190(ptr noundef %.02178, ptr noundef %.02177, ptr noundef %38) #23
   %.not2683 = icmp eq i32 %2191, 0
   br i1 %.not2683, label %is_mbc_newline_ex.exit.thread, label %2192
 
@@ -4409,7 +4409,7 @@ rb_enc_asciicompat.exit3032.thread:               ; preds = %2148, %rb_enc_ascii
 
 2193:                                             ; preds = %2192
   %2194 = load ptr, ptr %118, align 8, !tbaa !73
-  %2195 = call i32 %2194(ptr noundef %.02178, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %2195 = call i32 %2194(ptr noundef %.02178, ptr noundef %.02177, ptr noundef nonnull %38) #23
   %2196 = icmp eq i32 %2195, 13
   br i1 %2196, label %2197, label %2214
 
@@ -4426,14 +4426,14 @@ rb_enc_asciicompat.exit3032.thread:               ; preds = %2148, %rb_enc_ascii
   br label %2206
 
 2204:                                             ; preds = %2197
-  %2205 = call i32 @onigenc_mbclen(ptr noundef %.02178, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %2205 = call i32 @onigenc_mbclen(ptr noundef %.02178, ptr noundef %.02177, ptr noundef nonnull %38) #23
   br label %2206
 
 2206:                                             ; preds = %2202, %2204
   %2207 = phi i32 [ %2205, %2204 ], [ %spec.select2856, %2202 ]
   %2208 = sext i32 %2207 to i64
   %2209 = getelementptr i8, ptr %.02178, i64 %2208
-  %2210 = call i32 %2198(ptr noundef %2209, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %2210 = call i32 %2198(ptr noundef %2209, ptr noundef %.02177, ptr noundef nonnull %38) #23
   %2211 = icmp eq i32 %2210, 10
   %2212 = load ptr, ptr %19, align 8
   %2213 = icmp eq ptr %2212, %.02177
@@ -4506,7 +4506,7 @@ rb_enc_asciicompat.exit3032.thread:               ; preds = %2148, %rb_enc_ascii
   br label %2248
 
 2246:                                             ; preds = %2239
-  %2247 = call i32 @onigenc_mbclen(ptr noundef %2240, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %2247 = call i32 @onigenc_mbclen(ptr noundef %2240, ptr noundef %.02177, ptr noundef nonnull %38) #23
   br label %2248
 
 2248:                                             ; preds = %2244, %2246
@@ -4526,7 +4526,7 @@ rb_enc_asciicompat.exit3032.thread:               ; preds = %2148, %rb_enc_ascii
 2256:                                             ; preds = %2255
   %2257 = load ptr, ptr %118, align 8, !tbaa !73
   %2258 = load ptr, ptr %19, align 8, !tbaa !18
-  %2259 = call i32 %2257(ptr noundef %2258, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %2259 = call i32 %2257(ptr noundef %2258, ptr noundef %.02177, ptr noundef nonnull %38) #23
   %2260 = icmp eq i32 %2259, 13
   br i1 %2260, label %2261, label %is_mbc_newline_ex.exit.thread
 
@@ -4544,14 +4544,14 @@ rb_enc_asciicompat.exit3032.thread:               ; preds = %2148, %rb_enc_ascii
   br label %2271
 
 2269:                                             ; preds = %2261
-  %2270 = call i32 @onigenc_mbclen(ptr noundef %2263, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %2270 = call i32 @onigenc_mbclen(ptr noundef %2263, ptr noundef %.02177, ptr noundef nonnull %38) #23
   br label %2271
 
 2271:                                             ; preds = %2267, %2269
   %2272 = phi i32 [ %2270, %2269 ], [ %spec.select2860, %2267 ]
   %2273 = sext i32 %2272 to i64
   %2274 = getelementptr i8, ptr %2263, i64 %2273
-  %2275 = call i32 %2262(ptr noundef %2274, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %2275 = call i32 %2262(ptr noundef %2274, ptr noundef %.02177, ptr noundef nonnull %38) #23
   %2276 = icmp eq i32 %2275, 10
   br i1 %2276, label %2277, label %is_mbc_newline_ex.exit.thread
 
@@ -4567,7 +4567,7 @@ rb_enc_asciicompat.exit3032.thread:               ; preds = %2148, %rb_enc_ascii
   br label %2285
 
 2283:                                             ; preds = %2277
-  %2284 = call i32 @onigenc_mbclen(ptr noundef %2251, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %2284 = call i32 @onigenc_mbclen(ptr noundef %2251, ptr noundef %.02177, ptr noundef nonnull %38) #23
   br label %2285
 
 2285:                                             ; preds = %2281, %2283
@@ -4617,12 +4617,12 @@ rb_enc_asciicompat.exit3032.thread:               ; preds = %2148, %rb_enc_ascii
 
 2315:                                             ; preds = %2312
   %2316 = shl i64 %2309, 1
-  %2317 = call noalias ptr @malloc(i64 noundef %2316) #21
+  %2317 = call noalias ptr @malloc(i64 noundef %2316) #22
   %2318 = icmp eq ptr %2317, null
   br i1 %2318, label %.loopexit3614, label %2319
 
 2319:                                             ; preds = %2315
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %2317, ptr noundef nonnull align 1 %2307, i64 noundef %2309, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %2317, ptr noundef nonnull align 1 %2307, i64 noundef %2309, i1 noundef false) #23
   %2320 = shl nsw i64 %2310, 1
   br label %stack_double.exit3040
 
@@ -4645,7 +4645,7 @@ rb_enc_asciicompat.exit3032.thread:               ; preds = %2148, %rb_enc_ascii
 2330:                                             ; preds = %2327, %2324, %2321
   %.151.i3036 = phi i64 [ %2323, %2324 ], [ %2323, %2321 ], [ %2325, %2327 ]
   %2331 = mul i64 %.151.i3036, 48
-  %2332 = call ptr @realloc(ptr noundef %2307, i64 noundef %2331) #23
+  %2332 = call ptr @realloc(ptr noundef %2307, i64 noundef %2331) #24
   %2333 = icmp eq ptr %2332, null
   br i1 %2333, label %2334, label %stack_double.exit3040
 
@@ -4686,7 +4686,7 @@ stack_double.exit3040:                            ; preds = %2319, %2330
   br label %2348
 
 2348:                                             ; preds = %.loopexit3614, %2341
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 2349:                                             ; preds = %stack_double.exit3040, %2297
@@ -4770,12 +4770,12 @@ stack_double.exit3040:                            ; preds = %2319, %2330
 
 2403:                                             ; preds = %2400
   %2404 = shl i64 %2397, 1
-  %2405 = call noalias ptr @malloc(i64 noundef %2404) #21
+  %2405 = call noalias ptr @malloc(i64 noundef %2404) #22
   %2406 = icmp eq ptr %2405, null
   br i1 %2406, label %.loopexit3613, label %2407
 
 2407:                                             ; preds = %2403
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %2405, ptr noundef nonnull align 1 %2395, i64 noundef %2397, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %2405, ptr noundef nonnull align 1 %2395, i64 noundef %2397, i1 noundef false) #23
   %2408 = shl nsw i64 %2398, 1
   br label %stack_double.exit3046
 
@@ -4798,7 +4798,7 @@ stack_double.exit3040:                            ; preds = %2319, %2330
 2418:                                             ; preds = %2415, %2412, %2409
   %.151.i3042 = phi i64 [ %2411, %2412 ], [ %2411, %2409 ], [ %2413, %2415 ]
   %2419 = mul i64 %.151.i3042, 48
-  %2420 = call ptr @realloc(ptr noundef %2395, i64 noundef %2419) #23
+  %2420 = call ptr @realloc(ptr noundef %2395, i64 noundef %2419) #24
   %2421 = icmp eq ptr %2420, null
   br i1 %2421, label %2422, label %stack_double.exit3046
 
@@ -4839,7 +4839,7 @@ stack_double.exit3046:                            ; preds = %2407, %2418
   br label %2436
 
 2436:                                             ; preds = %.loopexit3613, %2429
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 2437:                                             ; preds = %stack_double.exit3046, %2385
@@ -4980,12 +4980,12 @@ stack_double.exit3046:                            ; preds = %2407, %2418
 
 2520:                                             ; preds = %2517
   %2521 = shl i64 %2514, 1
-  %2522 = call noalias ptr @malloc(i64 noundef %2521) #21
+  %2522 = call noalias ptr @malloc(i64 noundef %2521) #22
   %2523 = icmp eq ptr %2522, null
   br i1 %2523, label %.loopexit3612, label %2524
 
 2524:                                             ; preds = %2520
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %2522, ptr noundef nonnull align 1 %2479, i64 noundef %2514, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %2522, ptr noundef nonnull align 1 %2479, i64 noundef %2514, i1 noundef false) #23
   %2525 = shl nsw i64 %2515, 1
   br label %stack_double.exit3052
 
@@ -5008,7 +5008,7 @@ stack_double.exit3046:                            ; preds = %2407, %2418
 2535:                                             ; preds = %2532, %2529, %2526
   %.151.i3048 = phi i64 [ %2528, %2529 ], [ %2528, %2526 ], [ %2530, %2532 ]
   %2536 = mul i64 %.151.i3048, 48
-  %2537 = call ptr @realloc(ptr noundef %2479, i64 noundef %2536) #23
+  %2537 = call ptr @realloc(ptr noundef %2479, i64 noundef %2536) #24
   %2538 = icmp eq ptr %2537, null
   br i1 %2538, label %2539, label %stack_double.exit3052
 
@@ -5049,7 +5049,7 @@ stack_double.exit3052:                            ; preds = %2524, %2535
   br label %2553
 
 2553:                                             ; preds = %.loopexit3612, %2546
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 2554:                                             ; preds = %stack_double.exit3052, %._crit_edge4020
@@ -5200,12 +5200,12 @@ stack_double.exit3052:                            ; preds = %2524, %2535
 
 2640:                                             ; preds = %2637
   %2641 = shl i64 %2634, 1
-  %2642 = call noalias ptr @malloc(i64 noundef %2641) #21
+  %2642 = call noalias ptr @malloc(i64 noundef %2641) #22
   %2643 = icmp eq ptr %2642, null
   br i1 %2643, label %.loopexit3611, label %2644
 
 2644:                                             ; preds = %2640
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %2642, ptr noundef nonnull align 1 %2587, i64 noundef %2634, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %2642, ptr noundef nonnull align 1 %2587, i64 noundef %2634, i1 noundef false) #23
   %2645 = shl nsw i64 %2635, 1
   br label %stack_double.exit3058
 
@@ -5228,7 +5228,7 @@ stack_double.exit3052:                            ; preds = %2524, %2535
 2655:                                             ; preds = %2652, %2649, %2646
   %.151.i3054 = phi i64 [ %2648, %2649 ], [ %2648, %2646 ], [ %2650, %2652 ]
   %2656 = mul i64 %.151.i3054, 48
-  %2657 = call ptr @realloc(ptr noundef %2587, i64 noundef %2656) #23
+  %2657 = call ptr @realloc(ptr noundef %2587, i64 noundef %2656) #24
   %2658 = icmp eq ptr %2657, null
   br i1 %2658, label %2659, label %stack_double.exit3058
 
@@ -5269,7 +5269,7 @@ stack_double.exit3058:                            ; preds = %2644, %2655
   br label %2673
 
 2673:                                             ; preds = %.loopexit3611, %2666
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 2674:                                             ; preds = %stack_double.exit3058, %2625
@@ -5414,7 +5414,7 @@ stack_double.exit3058:                            ; preds = %2644, %2655
   br label %enclen_approx.exit3061
 
 2752:                                             ; preds = %.preheader3558
-  %2753 = call i32 @onigenc_mbclen_approximate(ptr noundef %.8, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %2753 = call i32 @onigenc_mbclen_approximate(ptr noundef %.8, ptr noundef %.02177, ptr noundef nonnull %38) #23
   %.pre4544 = load ptr, ptr %19, align 8, !tbaa !18
   br label %enclen_approx.exit3061
 
@@ -5528,9 +5528,9 @@ enclen_approx.exit3061:                           ; preds = %2750, %2752
 
 .lr.ph28.i:                                       ; preds = %2809, %.loopexit.i
   %2814 = load ptr, ptr %115, align 8, !tbaa !62
-  %2815 = call i32 %2814(i32 noundef %40, ptr noundef nonnull %15, ptr noundef %.02177, ptr noundef nonnull %16, ptr noundef %38) #22
+  %2815 = call i32 %2814(i32 noundef %40, ptr noundef nonnull %15, ptr noundef %.02177, ptr noundef nonnull %16, ptr noundef %38) #23
   %2816 = load ptr, ptr %115, align 8, !tbaa !62
-  %2817 = call i32 %2816(i32 noundef %40, ptr noundef nonnull %18, ptr noundef %.02177, ptr noundef nonnull %17, ptr noundef %38) #22
+  %2817 = call i32 %2816(i32 noundef %40, ptr noundef nonnull %18, ptr noundef %.02177, ptr noundef nonnull %17, ptr noundef %38) #23
   %.not.i3063 = icmp eq i32 %2815, %2817
   br i1 %.not.i3063, label %.preheader.i, label %string_cmp_ic.exit.thread
 
@@ -5592,7 +5592,7 @@ string_cmp_ic.exit:                               ; preds = %2809, %._crit_edge.
   br label %enclen_approx.exit3066
 
 2834:                                             ; preds = %2827
-  %2835 = call i32 @onigenc_mbclen_approximate(ptr noundef %.9, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %2835 = call i32 @onigenc_mbclen_approximate(ptr noundef %.9, ptr noundef %.02177, ptr noundef nonnull %38) #23
   %.pre4543 = load ptr, ptr %19, align 8, !tbaa !18
   br label %enclen_approx.exit3066
 
@@ -5728,7 +5728,7 @@ enclen_approx.exit3066:                           ; preds = %2832, %2834
   br label %enclen_approx.exit3069
 
 2907:                                             ; preds = %2900
-  %2908 = call i32 @onigenc_mbclen_approximate(ptr noundef %.13, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %2908 = call i32 @onigenc_mbclen_approximate(ptr noundef %.13, ptr noundef %.02177, ptr noundef nonnull %38) #23
   %.pre4542 = load ptr, ptr %19, align 8, !tbaa !18
   br label %enclen_approx.exit3069
 
@@ -5866,9 +5866,9 @@ enclen_approx.exit3069:                           ; preds = %2905, %2907
 
 .lr.ph28.i3072:                                   ; preds = %2973, %.loopexit.i3075
   %2978 = load ptr, ptr %115, align 8, !tbaa !62
-  %2979 = call i32 %2978(i32 noundef %40, ptr noundef nonnull %11, ptr noundef %.02177, ptr noundef nonnull %12, ptr noundef %38) #22
+  %2979 = call i32 %2978(i32 noundef %40, ptr noundef nonnull %11, ptr noundef %.02177, ptr noundef nonnull %12, ptr noundef %38) #23
   %2980 = load ptr, ptr %115, align 8, !tbaa !62
-  %2981 = call i32 %2980(i32 noundef %40, ptr noundef nonnull %14, ptr noundef %.02177, ptr noundef nonnull %13, ptr noundef %38) #22
+  %2981 = call i32 %2980(i32 noundef %40, ptr noundef nonnull %14, ptr noundef %.02177, ptr noundef nonnull %13, ptr noundef %38) #23
   %.not.i3073 = icmp eq i32 %2979, %2981
   br i1 %.not.i3073, label %.preheader.i3074, label %string_cmp_ic.exit3085.thread
 
@@ -5930,7 +5930,7 @@ string_cmp_ic.exit3085.thread:                    ; preds = %.lr.ph28.i3072, %.l
   br label %2999
 
 2997:                                             ; preds = %2990
-  %2998 = call i32 @onigenc_mbclen(ptr noundef %.17, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %2998 = call i32 @onigenc_mbclen(ptr noundef %.17, ptr noundef %.02177, ptr noundef nonnull %38) #23
   %.pre4541 = load ptr, ptr %19, align 8, !tbaa !18
   br label %2999
 
@@ -6131,7 +6131,7 @@ backref_match_at_nested_level.exit:               ; preds = %.preheader.i3089, %
   br label %3084
 
 3082:                                             ; preds = %3075
-  %3083 = call i32 @onigenc_mbclen(ptr noundef %.18, ptr noundef %.02177, ptr noundef nonnull %38) #22
+  %3083 = call i32 @onigenc_mbclen(ptr noundef %.18, ptr noundef %.02177, ptr noundef nonnull %38) #23
   %.pre4540 = load ptr, ptr %19, align 8, !tbaa !18
   br label %3084
 
@@ -6176,12 +6176,12 @@ backref_match_at_nested_level.exit:               ; preds = %.preheader.i3089, %
 
 3113:                                             ; preds = %3110
   %3114 = shl i64 %3107, 1
-  %3115 = call noalias ptr @malloc(i64 noundef %3114) #21
+  %3115 = call noalias ptr @malloc(i64 noundef %3114) #22
   %3116 = icmp eq ptr %3115, null
   br i1 %3116, label %.loopexit3596, label %3117
 
 3117:                                             ; preds = %3113
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %3115, ptr noundef nonnull align 1 %3105, i64 noundef %3107, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %3115, ptr noundef nonnull align 1 %3105, i64 noundef %3107, i1 noundef false) #23
   %3118 = shl nsw i64 %3108, 1
   br label %stack_double.exit3095
 
@@ -6204,7 +6204,7 @@ backref_match_at_nested_level.exit:               ; preds = %.preheader.i3089, %
 3128:                                             ; preds = %3125, %3122, %3119
   %.151.i3091 = phi i64 [ %3121, %3122 ], [ %3121, %3119 ], [ %3123, %3125 ]
   %3129 = mul i64 %.151.i3091, 48
-  %3130 = call ptr @realloc(ptr noundef %3105, i64 noundef %3129) #23
+  %3130 = call ptr @realloc(ptr noundef %3105, i64 noundef %3129) #24
   %3131 = icmp eq ptr %3130, null
   br i1 %3131, label %3132, label %stack_double.exit3095
 
@@ -6246,7 +6246,7 @@ stack_double.exit3095:                            ; preds = %3117, %3128
   br label %3146
 
 3146:                                             ; preds = %.loopexit3596, %3139
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 3147:                                             ; preds = %stack_double.exit3095, %3095
@@ -6594,12 +6594,12 @@ stack_double.exit3095:                            ; preds = %3117, %3128
 
 3325:                                             ; preds = %3322
   %3326 = shl i64 %3319, 1
-  %3327 = call noalias ptr @malloc(i64 noundef %3326) #21
+  %3327 = call noalias ptr @malloc(i64 noundef %3326) #22
   %3328 = icmp eq ptr %3327, null
   br i1 %3328, label %.loopexit3594, label %3329
 
 3329:                                             ; preds = %3325
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %3327, ptr noundef nonnull align 1 %3250, i64 noundef %3319, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %3327, ptr noundef nonnull align 1 %3250, i64 noundef %3319, i1 noundef false) #23
   %3330 = shl nsw i64 %3320, 1
   br label %stack_double.exit3101
 
@@ -6622,7 +6622,7 @@ stack_double.exit3095:                            ; preds = %3117, %3128
 3340:                                             ; preds = %3337, %3334, %3331
   %.151.i3097 = phi i64 [ %3333, %3334 ], [ %3333, %3331 ], [ %3335, %3337 ]
   %3341 = mul i64 %.151.i3097, 48
-  %3342 = call ptr @realloc(ptr noundef %3250, i64 noundef %3341) #23
+  %3342 = call ptr @realloc(ptr noundef %3250, i64 noundef %3341) #24
   %3343 = icmp eq ptr %3342, null
   br i1 %3343, label %3344, label %stack_double.exit3101
 
@@ -6664,7 +6664,7 @@ stack_double.exit3101:                            ; preds = %3329, %3340
   br label %3358
 
 3358:                                             ; preds = %.loopexit3594, %3351
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 3359:                                             ; preds = %stack_double.exit3101, %.thread3397
@@ -6697,11 +6697,11 @@ stack_double.exit3101:                            ; preds = %3329, %3340
 
 3377:                                             ; preds = %3369
   store i32 0, ptr %112, align 8, !tbaa !38
-  %3378 = call zeroext i1 @rb_reg_timeout_p(ptr noundef nonnull %0, ptr noundef nonnull %113) #22
+  %3378 = call zeroext i1 @rb_reg_timeout_p(ptr noundef nonnull %0, ptr noundef nonnull %113) #23
   br i1 %3378, label %6440, label %3379
 
 3379:                                             ; preds = %3377
-  call void @rb_thread_check_ints() #22
+  call void @rb_thread_check_ints() #23
   br label %3380
 
 3380:                                             ; preds = %3369, %3379
@@ -6876,7 +6876,7 @@ check_extended_match_cache_point.exit3109:        ; preds = %3445, %3449
   br label %3474
 
 3474:                                             ; preds = %3465, %3467
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   %3475 = sext i32 %3464 to i64
   br label %.loopexit3615
 
@@ -6928,12 +6928,12 @@ check_extended_match_cache_point.exit3109:        ; preds = %3445, %3449
 
 3505:                                             ; preds = %3502
   %3506 = shl i64 %3499, 1
-  %3507 = call noalias ptr @malloc(i64 noundef %3506) #21
+  %3507 = call noalias ptr @malloc(i64 noundef %3506) #22
   %3508 = icmp eq ptr %3507, null
   br i1 %3508, label %.loopexit3610, label %3509
 
 3509:                                             ; preds = %3505
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %3507, ptr noundef nonnull align 1 %3497, i64 noundef %3499, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %3507, ptr noundef nonnull align 1 %3497, i64 noundef %3499, i1 noundef false) #23
   %3510 = shl nsw i64 %3500, 1
   br label %stack_double.exit3115
 
@@ -6956,7 +6956,7 @@ check_extended_match_cache_point.exit3109:        ; preds = %3445, %3449
 3520:                                             ; preds = %3517, %3514, %3511
   %.151.i3111 = phi i64 [ %3513, %3514 ], [ %3513, %3511 ], [ %3515, %3517 ]
   %3521 = mul i64 %.151.i3111, 48
-  %3522 = call ptr @realloc(ptr noundef %3497, i64 noundef %3521) #23
+  %3522 = call ptr @realloc(ptr noundef %3497, i64 noundef %3521) #24
   %3523 = icmp eq ptr %3522, null
   br i1 %3523, label %3524, label %stack_double.exit3115
 
@@ -6997,7 +6997,7 @@ stack_double.exit3115:                            ; preds = %3509, %3520
   br label %3538
 
 3538:                                             ; preds = %.loopexit3610, %3531
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 3539:                                             ; preds = %stack_double.exit3115, %3489
@@ -7210,7 +7210,7 @@ check_extended_match_cache_point.exit3123:        ; preds = %3627, %3631
   br label %3656
 
 3656:                                             ; preds = %3647, %3649
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   %3657 = sext i32 %3646 to i64
   br label %.loopexit3615
 
@@ -7270,12 +7270,12 @@ check_extended_match_cache_point.exit3123:        ; preds = %3627, %3631
 
 3693:                                             ; preds = %3690
   %3694 = shl i64 %3687, 1
-  %3695 = call noalias ptr @malloc(i64 noundef %3694) #21
+  %3695 = call noalias ptr @malloc(i64 noundef %3694) #22
   %3696 = icmp eq ptr %3695, null
   br i1 %3696, label %.loopexit3609, label %3697
 
 3697:                                             ; preds = %3693
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %3695, ptr noundef nonnull align 1 %3685, i64 noundef %3687, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %3695, ptr noundef nonnull align 1 %3685, i64 noundef %3687, i1 noundef false) #23
   %3698 = shl nsw i64 %3688, 1
   br label %stack_double.exit3129
 
@@ -7298,7 +7298,7 @@ check_extended_match_cache_point.exit3123:        ; preds = %3627, %3631
 3708:                                             ; preds = %3705, %3702, %3699
   %.151.i3125 = phi i64 [ %3701, %3702 ], [ %3701, %3699 ], [ %3703, %3705 ]
   %3709 = mul i64 %.151.i3125, 48
-  %3710 = call ptr @realloc(ptr noundef %3685, i64 noundef %3709) #23
+  %3710 = call ptr @realloc(ptr noundef %3685, i64 noundef %3709) #24
   %3711 = icmp eq ptr %3710, null
   br i1 %3711, label %3712, label %stack_double.exit3129
 
@@ -7339,7 +7339,7 @@ stack_double.exit3129:                            ; preds = %3697, %3708
   br label %3726
 
 3726:                                             ; preds = %.loopexit3609, %3719
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 3727:                                             ; preds = %stack_double.exit3129, %3677
@@ -7417,12 +7417,12 @@ stack_double.exit3129:                            ; preds = %3697, %3708
 
 3774:                                             ; preds = %3771
   %3775 = shl i64 %3768, 1
-  %3776 = call noalias ptr @malloc(i64 noundef %3775) #21
+  %3776 = call noalias ptr @malloc(i64 noundef %3775) #22
   %3777 = icmp eq ptr %3776, null
   br i1 %3777, label %.loopexit3606, label %3778
 
 3778:                                             ; preds = %3774
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %3776, ptr noundef nonnull align 1 %3761, i64 noundef %3768, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %3776, ptr noundef nonnull align 1 %3761, i64 noundef %3768, i1 noundef false) #23
   %3779 = shl nsw i64 %3769, 1
   br label %3805
 
@@ -7445,7 +7445,7 @@ stack_double.exit3129:                            ; preds = %3697, %3708
 3789:                                             ; preds = %3786, %3783, %3780
   %.151.i3131 = phi i64 [ %3782, %3783 ], [ %3782, %3780 ], [ %3784, %3786 ]
   %3790 = mul i64 %.151.i3131, 48
-  %3791 = call ptr @realloc(ptr noundef %3761, i64 noundef %3790) #23
+  %3791 = call ptr @realloc(ptr noundef %3761, i64 noundef %3790) #24
   %3792 = icmp eq ptr %3791, null
   br i1 %3792, label %3793, label %3805
 
@@ -7476,7 +7476,7 @@ stack_double.exit3129:                            ; preds = %3697, %3708
   br label %3804
 
 3804:                                             ; preds = %.loopexit3606, %3797
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 3805:                                             ; preds = %3789, %3778
@@ -7515,12 +7515,12 @@ stack_double.exit3129:                            ; preds = %3697, %3708
 
 3823:                                             ; preds = %3820
   %3824 = shl i64 %3817, 1
-  %3825 = call noalias ptr @malloc(i64 noundef %3824) #21
+  %3825 = call noalias ptr @malloc(i64 noundef %3824) #22
   %3826 = icmp eq ptr %3825, null
   br i1 %3826, label %.loopexit3607, label %3827
 
 3827:                                             ; preds = %3823
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %3825, ptr noundef nonnull align 1 %3810, i64 noundef %3817, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %3825, ptr noundef nonnull align 1 %3810, i64 noundef %3817, i1 noundef false) #23
   %3828 = shl nsw i64 %3818, 1
   br label %stack_double.exit3141
 
@@ -7543,7 +7543,7 @@ stack_double.exit3129:                            ; preds = %3697, %3708
 3838:                                             ; preds = %3835, %3832, %3829
   %.151.i3137 = phi i64 [ %3831, %3832 ], [ %3831, %3829 ], [ %3833, %3835 ]
   %3839 = mul i64 %.151.i3137, 48
-  %3840 = call ptr @realloc(ptr noundef %3810, i64 noundef %3839) #23
+  %3840 = call ptr @realloc(ptr noundef %3810, i64 noundef %3839) #24
   %3841 = icmp eq ptr %3840, null
   br i1 %3841, label %3842, label %stack_double.exit3141
 
@@ -7583,7 +7583,7 @@ stack_double.exit3141:                            ; preds = %3827, %3838
   br label %3855
 
 3855:                                             ; preds = %.loopexit3607, %3848
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 3856:                                             ; preds = %.thread5171, %stack_double.exit3141, %3805
@@ -7788,7 +7788,7 @@ check_extended_match_cache_point.exit3149:        ; preds = %3936, %3940
   br label %3965
 
 3965:                                             ; preds = %3956, %3958
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   %3966 = sext i32 %3955 to i64
   br label %.loopexit3615
 
@@ -7840,12 +7840,12 @@ check_extended_match_cache_point.exit3149:        ; preds = %3936, %3940
 
 3995:                                             ; preds = %3992
   %3996 = shl i64 %3989, 1
-  %3997 = call noalias ptr @malloc(i64 noundef %3996) #21
+  %3997 = call noalias ptr @malloc(i64 noundef %3996) #22
   %3998 = icmp eq ptr %3997, null
   br i1 %3998, label %.loopexit3608, label %3999
 
 3999:                                             ; preds = %3995
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %3997, ptr noundef nonnull align 1 %.pre4535, i64 noundef %3989, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %3997, ptr noundef nonnull align 1 %.pre4535, i64 noundef %3989, i1 noundef false) #23
   %4000 = shl nsw i64 %3990, 1
   br label %stack_double.exit3155
 
@@ -7868,7 +7868,7 @@ check_extended_match_cache_point.exit3149:        ; preds = %3936, %3940
 4010:                                             ; preds = %4007, %4004, %4001
   %.151.i3151 = phi i64 [ %4003, %4004 ], [ %4003, %4001 ], [ %4005, %4007 ]
   %4011 = mul i64 %.151.i3151, 48
-  %4012 = call ptr @realloc(ptr noundef %.pre4535, i64 noundef %4011) #23
+  %4012 = call ptr @realloc(ptr noundef %.pre4535, i64 noundef %4011) #24
   %4013 = icmp eq ptr %4012, null
   br i1 %4013, label %4014, label %stack_double.exit3155
 
@@ -7909,7 +7909,7 @@ stack_double.exit3155:                            ; preds = %3999, %4010
   br label %4028
 
 4028:                                             ; preds = %.loopexit3608, %4021
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 4029:                                             ; preds = %stack_double.exit3155, %3980
@@ -7983,12 +7983,12 @@ stack_double.exit3155:                            ; preds = %3999, %4010
 
 4073:                                             ; preds = %4070
   %4074 = shl i64 %4067, 1
-  %4075 = call noalias ptr @malloc(i64 noundef %4074) #21
+  %4075 = call noalias ptr @malloc(i64 noundef %4074) #22
   %4076 = icmp eq ptr %4075, null
   br i1 %4076, label %.loopexit3603, label %4077
 
 4077:                                             ; preds = %4073
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %4075, ptr noundef nonnull align 1 %4060, i64 noundef %4067, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %4075, ptr noundef nonnull align 1 %4060, i64 noundef %4067, i1 noundef false) #23
   %4078 = shl nsw i64 %4068, 1
   br label %4104
 
@@ -8011,7 +8011,7 @@ stack_double.exit3155:                            ; preds = %3999, %4010
 4088:                                             ; preds = %4085, %4082, %4079
   %.151.i3157 = phi i64 [ %4081, %4082 ], [ %4081, %4079 ], [ %4083, %4085 ]
   %4089 = mul i64 %.151.i3157, 48
-  %4090 = call ptr @realloc(ptr noundef %4060, i64 noundef %4089) #23
+  %4090 = call ptr @realloc(ptr noundef %4060, i64 noundef %4089) #24
   %4091 = icmp eq ptr %4090, null
   br i1 %4091, label %4092, label %4104
 
@@ -8042,7 +8042,7 @@ stack_double.exit3155:                            ; preds = %3999, %4010
   br label %4103
 
 4103:                                             ; preds = %.loopexit3603, %4096
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 4104:                                             ; preds = %4088, %4077
@@ -8081,12 +8081,12 @@ stack_double.exit3155:                            ; preds = %3999, %4010
 
 4122:                                             ; preds = %4119
   %4123 = shl i64 %4116, 1
-  %4124 = call noalias ptr @malloc(i64 noundef %4123) #21
+  %4124 = call noalias ptr @malloc(i64 noundef %4123) #22
   %4125 = icmp eq ptr %4124, null
   br i1 %4125, label %.loopexit3604, label %4126
 
 4126:                                             ; preds = %4122
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %4124, ptr noundef nonnull align 1 %4109, i64 noundef %4116, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %4124, ptr noundef nonnull align 1 %4109, i64 noundef %4116, i1 noundef false) #23
   %4127 = shl nsw i64 %4117, 1
   br label %stack_double.exit3167
 
@@ -8109,7 +8109,7 @@ stack_double.exit3155:                            ; preds = %3999, %4010
 4137:                                             ; preds = %4134, %4131, %4128
   %.151.i3163 = phi i64 [ %4130, %4131 ], [ %4130, %4128 ], [ %4132, %4134 ]
   %4138 = mul i64 %.151.i3163, 48
-  %4139 = call ptr @realloc(ptr noundef %4109, i64 noundef %4138) #23
+  %4139 = call ptr @realloc(ptr noundef %4109, i64 noundef %4138) #24
   %4140 = icmp eq ptr %4139, null
   br i1 %4140, label %4141, label %stack_double.exit3167
 
@@ -8149,7 +8149,7 @@ stack_double.exit3167:                            ; preds = %4126, %4137
   br label %4154
 
 4154:                                             ; preds = %.loopexit3604, %4147
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 4155:                                             ; preds = %.thread5175, %stack_double.exit3167, %4104
@@ -8354,7 +8354,7 @@ check_extended_match_cache_point.exit3175:        ; preds = %4235, %4239
   br label %4264
 
 4264:                                             ; preds = %4255, %4257
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   %4265 = sext i32 %4254 to i64
   br label %.loopexit3615
 
@@ -8406,12 +8406,12 @@ check_extended_match_cache_point.exit3175:        ; preds = %4235, %4239
 
 4294:                                             ; preds = %4291
   %4295 = shl i64 %4288, 1
-  %4296 = call noalias ptr @malloc(i64 noundef %4295) #21
+  %4296 = call noalias ptr @malloc(i64 noundef %4295) #22
   %4297 = icmp eq ptr %4296, null
   br i1 %4297, label %.loopexit3605, label %4298
 
 4298:                                             ; preds = %4294
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %4296, ptr noundef nonnull align 1 %.pre4530, i64 noundef %4288, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %4296, ptr noundef nonnull align 1 %.pre4530, i64 noundef %4288, i1 noundef false) #23
   %4299 = shl nsw i64 %4289, 1
   br label %stack_double.exit3181
 
@@ -8434,7 +8434,7 @@ check_extended_match_cache_point.exit3175:        ; preds = %4235, %4239
 4309:                                             ; preds = %4306, %4303, %4300
   %.151.i3177 = phi i64 [ %4302, %4303 ], [ %4302, %4300 ], [ %4304, %4306 ]
   %4310 = mul i64 %.151.i3177, 48
-  %4311 = call ptr @realloc(ptr noundef %.pre4530, i64 noundef %4310) #23
+  %4311 = call ptr @realloc(ptr noundef %.pre4530, i64 noundef %4310) #24
   %4312 = icmp eq ptr %4311, null
   br i1 %4312, label %4313, label %stack_double.exit3181
 
@@ -8475,7 +8475,7 @@ stack_double.exit3181:                            ; preds = %4298, %4309
   br label %4327
 
 4327:                                             ; preds = %.loopexit3605, %4320
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 4328:                                             ; preds = %stack_double.exit3181, %4279
@@ -8726,7 +8726,7 @@ check_extended_match_cache_point.exit3189:        ; preds = %4434, %4438
   br label %4464
 
 4464:                                             ; preds = %4455, %4457
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   %4465 = sext i32 %4454 to i64
   br label %.loopexit3615
 
@@ -8778,12 +8778,12 @@ check_extended_match_cache_point.exit3189:        ; preds = %4434, %4438
 
 4494:                                             ; preds = %4491
   %4495 = shl i64 %4488, 1
-  %4496 = call noalias ptr @malloc(i64 noundef %4495) #21
+  %4496 = call noalias ptr @malloc(i64 noundef %4495) #22
   %4497 = icmp eq ptr %4496, null
   br i1 %4497, label %.loopexit3601, label %4498
 
 4498:                                             ; preds = %4494
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %4496, ptr noundef nonnull align 1 %.pre4525, i64 noundef %4488, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %4496, ptr noundef nonnull align 1 %.pre4525, i64 noundef %4488, i1 noundef false) #23
   %4499 = shl nsw i64 %4489, 1
   br label %stack_double.exit3195
 
@@ -8806,7 +8806,7 @@ check_extended_match_cache_point.exit3189:        ; preds = %4434, %4438
 4509:                                             ; preds = %4506, %4503, %4500
   %.151.i3191 = phi i64 [ %4502, %4503 ], [ %4502, %4500 ], [ %4504, %4506 ]
   %4510 = mul i64 %.151.i3191, 48
-  %4511 = call ptr @realloc(ptr noundef %.pre4525, i64 noundef %4510) #23
+  %4511 = call ptr @realloc(ptr noundef %.pre4525, i64 noundef %4510) #24
   %4512 = icmp eq ptr %4511, null
   br i1 %4512, label %4513, label %stack_double.exit3195
 
@@ -8847,7 +8847,7 @@ stack_double.exit3195:                            ; preds = %4498, %4509
   br label %4527
 
 4527:                                             ; preds = %.loopexit3601, %4520
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 4528:                                             ; preds = %stack_double.exit3195, %4479
@@ -8912,12 +8912,12 @@ stack_double.exit3195:                            ; preds = %4498, %4509
 
 4563:                                             ; preds = %4560
   %4564 = shl i64 %4557, 1
-  %4565 = call noalias ptr @malloc(i64 noundef %4564) #21
+  %4565 = call noalias ptr @malloc(i64 noundef %4564) #22
   %4566 = icmp eq ptr %4565, null
   br i1 %4566, label %.loopexit3602, label %4567
 
 4567:                                             ; preds = %4563
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %4565, ptr noundef nonnull align 1 %4548, i64 noundef %4557, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %4565, ptr noundef nonnull align 1 %4548, i64 noundef %4557, i1 noundef false) #23
   %4568 = shl nsw i64 %4558, 1
   br label %stack_double.exit3201
 
@@ -8940,7 +8940,7 @@ stack_double.exit3195:                            ; preds = %4498, %4509
 4578:                                             ; preds = %4575, %4572, %4569
   %.151.i3197 = phi i64 [ %4571, %4572 ], [ %4571, %4569 ], [ %4573, %4575 ]
   %4579 = mul i64 %.151.i3197, 48
-  %4580 = call ptr @realloc(ptr noundef %4548, i64 noundef %4579) #23
+  %4580 = call ptr @realloc(ptr noundef %4548, i64 noundef %4579) #24
   %4581 = icmp eq ptr %4580, null
   br i1 %4581, label %4582, label %stack_double.exit3201
 
@@ -8981,7 +8981,7 @@ stack_double.exit3201:                            ; preds = %4567, %4578
   br label %4596
 
 4596:                                             ; preds = %.loopexit3602, %4589
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 4597:                                             ; preds = %stack_double.exit3201, %4547
@@ -9012,11 +9012,11 @@ stack_double.exit3201:                            ; preds = %4567, %4578
 
 4612:                                             ; preds = %4604
   store i32 0, ptr %112, align 8, !tbaa !38
-  %4613 = call zeroext i1 @rb_reg_timeout_p(ptr noundef nonnull %0, ptr noundef nonnull %113) #22
+  %4613 = call zeroext i1 @rb_reg_timeout_p(ptr noundef nonnull %0, ptr noundef nonnull %113) #23
   br i1 %4613, label %6440, label %4614
 
 4614:                                             ; preds = %4612
-  call void @rb_thread_check_ints() #22
+  call void @rb_thread_check_ints() #23
   br label %4615
 
 4615:                                             ; preds = %4604, %4614
@@ -9134,12 +9134,12 @@ stack_double.exit3201:                            ; preds = %4567, %4578
 
 4676:                                             ; preds = %4673
   %4677 = shl i64 %4670, 1
-  %4678 = call noalias ptr @malloc(i64 noundef %4677) #21
+  %4678 = call noalias ptr @malloc(i64 noundef %4677) #22
   %4679 = icmp eq ptr %4678, null
   br i1 %4679, label %.loopexit3598, label %4680
 
 4680:                                             ; preds = %4676
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %4678, ptr noundef nonnull align 1 %4648, i64 noundef %4670, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %4678, ptr noundef nonnull align 1 %4648, i64 noundef %4670, i1 noundef false) #23
   %4681 = shl nsw i64 %4671, 1
   br label %stack_double.exit3207
 
@@ -9162,7 +9162,7 @@ stack_double.exit3201:                            ; preds = %4567, %4578
 4691:                                             ; preds = %4688, %4685, %4682
   %.151.i3203 = phi i64 [ %4684, %4685 ], [ %4684, %4682 ], [ %4686, %4688 ]
   %4692 = mul i64 %.151.i3203, 48
-  %4693 = call ptr @realloc(ptr noundef %4648, i64 noundef %4692) #23
+  %4693 = call ptr @realloc(ptr noundef %4648, i64 noundef %4692) #24
   %4694 = icmp eq ptr %4693, null
   br i1 %4694, label %4695, label %stack_double.exit3207
 
@@ -9203,7 +9203,7 @@ stack_double.exit3207:                            ; preds = %4680, %4691
   br label %4709
 
 4709:                                             ; preds = %.loopexit3598, %4702
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 4710:                                             ; preds = %stack_double.exit3207, %4667
@@ -9400,7 +9400,7 @@ check_extended_match_cache_point.exit3215:        ; preds = %4784, %4788
   br label %4813
 
 4813:                                             ; preds = %4804, %4806
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   %4814 = sext i32 %4803 to i64
   br label %.loopexit3615
 
@@ -9452,12 +9452,12 @@ check_extended_match_cache_point.exit3215:        ; preds = %4784, %4788
 
 4843:                                             ; preds = %4840
   %4844 = shl i64 %4837, 1
-  %4845 = call noalias ptr @malloc(i64 noundef %4844) #21
+  %4845 = call noalias ptr @malloc(i64 noundef %4844) #22
   %4846 = icmp eq ptr %4845, null
   br i1 %4846, label %.loopexit3599, label %4847
 
 4847:                                             ; preds = %4843
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %4845, ptr noundef nonnull align 1 %.pre4520, i64 noundef %4837, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %4845, ptr noundef nonnull align 1 %.pre4520, i64 noundef %4837, i1 noundef false) #23
   %4848 = shl nsw i64 %4838, 1
   br label %stack_double.exit3221
 
@@ -9480,7 +9480,7 @@ check_extended_match_cache_point.exit3215:        ; preds = %4784, %4788
 4858:                                             ; preds = %4855, %4852, %4849
   %.151.i3217 = phi i64 [ %4851, %4852 ], [ %4851, %4849 ], [ %4853, %4855 ]
   %4859 = mul i64 %.151.i3217, 48
-  %4860 = call ptr @realloc(ptr noundef %.pre4520, i64 noundef %4859) #23
+  %4860 = call ptr @realloc(ptr noundef %.pre4520, i64 noundef %4859) #24
   %4861 = icmp eq ptr %4860, null
   br i1 %4861, label %4862, label %stack_double.exit3221
 
@@ -9521,7 +9521,7 @@ stack_double.exit3221:                            ; preds = %4847, %4858
   br label %4876
 
 4876:                                             ; preds = %.loopexit3599, %4869
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 4877:                                             ; preds = %stack_double.exit3221, %4828
@@ -9568,12 +9568,12 @@ stack_double.exit3221:                            ; preds = %4847, %4858
 
 4901:                                             ; preds = %4898
   %4902 = shl i64 %4895, 1
-  %4903 = call noalias ptr @malloc(i64 noundef %4902) #21
+  %4903 = call noalias ptr @malloc(i64 noundef %4902) #22
   %4904 = icmp eq ptr %4903, null
   br i1 %4904, label %.loopexit3600, label %4905
 
 4905:                                             ; preds = %4901
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %4903, ptr noundef nonnull align 1 %4648, i64 noundef %4895, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %4903, ptr noundef nonnull align 1 %4648, i64 noundef %4895, i1 noundef false) #23
   %4906 = shl nsw i64 %4896, 1
   br label %stack_double.exit3227
 
@@ -9596,7 +9596,7 @@ stack_double.exit3221:                            ; preds = %4847, %4858
 4916:                                             ; preds = %4913, %4910, %4907
   %.151.i3223 = phi i64 [ %4909, %4910 ], [ %4909, %4907 ], [ %4911, %4913 ]
   %4917 = mul i64 %.151.i3223, 48
-  %4918 = call ptr @realloc(ptr noundef %4648, i64 noundef %4917) #23
+  %4918 = call ptr @realloc(ptr noundef %4648, i64 noundef %4917) #24
   %4919 = icmp eq ptr %4918, null
   br i1 %4919, label %4920, label %stack_double.exit3227
 
@@ -9637,7 +9637,7 @@ stack_double.exit3227:                            ; preds = %4905, %4916
   br label %4934
 
 4934:                                             ; preds = %.loopexit3600, %4927
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 4935:                                             ; preds = %stack_double.exit3227, %4892
@@ -9687,12 +9687,12 @@ stack_double.exit3227:                            ; preds = %4905, %4916
 
 4963:                                             ; preds = %4960
   %4964 = shl i64 %4957, 1
-  %4965 = call noalias ptr @malloc(i64 noundef %4964) #21
+  %4965 = call noalias ptr @malloc(i64 noundef %4964) #22
   %4966 = icmp eq ptr %4965, null
   br i1 %4966, label %.loopexit3597, label %4967
 
 4967:                                             ; preds = %4963
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %4965, ptr noundef nonnull align 1 %4648, i64 noundef %4957, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %4965, ptr noundef nonnull align 1 %4648, i64 noundef %4957, i1 noundef false) #23
   %4968 = shl nsw i64 %4958, 1
   br label %stack_double.exit3233
 
@@ -9715,7 +9715,7 @@ stack_double.exit3227:                            ; preds = %4905, %4916
 4978:                                             ; preds = %4975, %4972, %4969
   %.151.i3229 = phi i64 [ %4971, %4972 ], [ %4971, %4969 ], [ %4973, %4975 ]
   %4979 = mul i64 %.151.i3229, 48
-  %4980 = call ptr @realloc(ptr noundef %4648, i64 noundef %4979) #23
+  %4980 = call ptr @realloc(ptr noundef %4648, i64 noundef %4979) #24
   %4981 = icmp eq ptr %4980, null
   br i1 %4981, label %4982, label %stack_double.exit3233
 
@@ -9756,7 +9756,7 @@ stack_double.exit3233:                            ; preds = %4967, %4978
   br label %4996
 
 4996:                                             ; preds = %.loopexit3597, %4989
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 4997:                                             ; preds = %stack_double.exit3233, %4948
@@ -9796,11 +9796,11 @@ stack_double.exit3233:                            ; preds = %4967, %4978
 
 5013:                                             ; preds = %5009
   store i32 0, ptr %112, align 8, !tbaa !38
-  %5014 = call zeroext i1 @rb_reg_timeout_p(ptr noundef nonnull %0, ptr noundef nonnull %113) #22
+  %5014 = call zeroext i1 @rb_reg_timeout_p(ptr noundef nonnull %0, ptr noundef nonnull %113) #23
   br i1 %5014, label %6440, label %5015
 
 5015:                                             ; preds = %5013
-  call void @rb_thread_check_ints() #22
+  call void @rb_thread_check_ints() #23
   br label %5016
 
 5016:                                             ; preds = %5009, %5015
@@ -9886,12 +9886,12 @@ stack_double.exit3233:                            ; preds = %4967, %4978
 
 5057:                                             ; preds = %5054
   %5058 = shl i64 %5051, 1
-  %5059 = call noalias ptr @malloc(i64 noundef %5058) #21
+  %5059 = call noalias ptr @malloc(i64 noundef %5058) #22
   %5060 = icmp eq ptr %5059, null
   br i1 %5060, label %.loopexit3593, label %5061
 
 5061:                                             ; preds = %5057
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %5059, ptr noundef nonnull align 1 %5049, i64 noundef %5051, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %5059, ptr noundef nonnull align 1 %5049, i64 noundef %5051, i1 noundef false) #23
   %5062 = shl nsw i64 %5052, 1
   br label %stack_double.exit3239
 
@@ -9914,7 +9914,7 @@ stack_double.exit3233:                            ; preds = %4967, %4978
 5072:                                             ; preds = %5069, %5066, %5063
   %.151.i3235 = phi i64 [ %5065, %5066 ], [ %5065, %5063 ], [ %5067, %5069 ]
   %5073 = mul i64 %.151.i3235, 48
-  %5074 = call ptr @realloc(ptr noundef %5049, i64 noundef %5073) #23
+  %5074 = call ptr @realloc(ptr noundef %5049, i64 noundef %5073) #24
   %5075 = icmp eq ptr %5074, null
   br i1 %5075, label %5076, label %stack_double.exit3239
 
@@ -9955,7 +9955,7 @@ stack_double.exit3239:                            ; preds = %5061, %5072
   br label %5090
 
 5090:                                             ; preds = %.loopexit3593, %5083
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 5091:                                             ; preds = %stack_double.exit3239, %5041
@@ -10079,12 +10079,12 @@ memoize_extended_match_cache_point.exit3241.backedge: ; preds = %5115, %5135, %5
 
 5156:                                             ; preds = %5153
   %5157 = shl i64 %5150, 1
-  %5158 = call noalias ptr @malloc(i64 noundef %5157) #21
+  %5158 = call noalias ptr @malloc(i64 noundef %5157) #22
   %5159 = icmp eq ptr %5158, null
   br i1 %5159, label %.loopexit3592, label %5160
 
 5160:                                             ; preds = %5156
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %5158, ptr noundef nonnull align 1 %5148, i64 noundef %5150, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %5158, ptr noundef nonnull align 1 %5148, i64 noundef %5150, i1 noundef false) #23
   %5161 = shl nsw i64 %5151, 1
   br label %stack_double.exit3247
 
@@ -10107,7 +10107,7 @@ memoize_extended_match_cache_point.exit3241.backedge: ; preds = %5115, %5135, %5
 5171:                                             ; preds = %5168, %5165, %5162
   %.151.i3243 = phi i64 [ %5164, %5165 ], [ %5164, %5162 ], [ %5166, %5168 ]
   %5172 = mul i64 %.151.i3243, 48
-  %5173 = call ptr @realloc(ptr noundef %5148, i64 noundef %5172) #23
+  %5173 = call ptr @realloc(ptr noundef %5148, i64 noundef %5172) #24
   %5174 = icmp eq ptr %5173, null
   br i1 %5174, label %5175, label %stack_double.exit3247
 
@@ -10148,7 +10148,7 @@ stack_double.exit3247:                            ; preds = %5160, %5171
   br label %5189
 
 5189:                                             ; preds = %.loopexit3592, %5182
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 5190:                                             ; preds = %stack_double.exit3247, %5138
@@ -10310,12 +10310,12 @@ memoize_extended_match_cache_point.exit3249:      ; preds = %5251, %5264, %5268,
 
 5287:                                             ; preds = %5284
   %5288 = shl i64 %5281, 1
-  %5289 = call noalias ptr @malloc(i64 noundef %5288) #21
+  %5289 = call noalias ptr @malloc(i64 noundef %5288) #22
   %5290 = icmp eq ptr %5289, null
   br i1 %5290, label %.loopexit3591, label %5291
 
 5291:                                             ; preds = %5287
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %5289, ptr noundef nonnull align 1 %5279, i64 noundef %5281, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %5289, ptr noundef nonnull align 1 %5279, i64 noundef %5281, i1 noundef false) #23
   %5292 = shl nsw i64 %5282, 1
   br label %stack_double.exit3255
 
@@ -10338,7 +10338,7 @@ memoize_extended_match_cache_point.exit3249:      ; preds = %5251, %5264, %5268,
 5302:                                             ; preds = %5299, %5296, %5293
   %.151.i3251 = phi i64 [ %5295, %5296 ], [ %5295, %5293 ], [ %5297, %5299 ]
   %5303 = mul i64 %.151.i3251, 48
-  %5304 = call ptr @realloc(ptr noundef %5279, i64 noundef %5303) #23
+  %5304 = call ptr @realloc(ptr noundef %5279, i64 noundef %5303) #24
   %5305 = icmp eq ptr %5304, null
   br i1 %5305, label %5306, label %stack_double.exit3255
 
@@ -10379,7 +10379,7 @@ stack_double.exit3255:                            ; preds = %5291, %5302
   br label %5320
 
 5320:                                             ; preds = %.loopexit3591, %5313
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 5321:                                             ; preds = %stack_double.exit3255, %5271
@@ -10443,14 +10443,14 @@ stack_double.exit3255:                            ; preds = %5291, %5302
 5345:                                             ; preds = %.backedge
   %5346 = load i32, ptr %.02204, align 4, !tbaa !29
   %5347 = load ptr, ptr %19, align 8, !tbaa !18
-  %5348 = call ptr @onigenc_step_back(ptr noundef %38, ptr noundef %1, ptr noundef %5347, ptr noundef %.02177, i32 noundef %5346) #22
+  %5348 = call ptr @onigenc_step_back(ptr noundef %38, ptr noundef %1, ptr noundef %5347, ptr noundef %.02177, i32 noundef %5346) #23
   store ptr %5348, ptr %19, align 8, !tbaa !18
   %5349 = icmp eq ptr %5348, null
   br i1 %5349, label %is_mbc_newline_ex.exit.thread, label %5350
 
 5350:                                             ; preds = %5345
   %5351 = getelementptr i8, ptr %.02204, i64 4
-  %5352 = call ptr @onigenc_get_prev_char_head(ptr noundef %38, ptr noundef %1, ptr noundef nonnull %5348, ptr noundef %.02177) #22
+  %5352 = call ptr @onigenc_get_prev_char_head(ptr noundef %38, ptr noundef %1, ptr noundef nonnull %5348, ptr noundef %.02177) #23
   %5353 = getelementptr i8, ptr %.02204, i64 5
   br label %.backedge.backedge
 
@@ -10460,7 +10460,7 @@ stack_double.exit3255:                            ; preds = %5291, %5302
   %5357 = load i32, ptr %5356, align 4, !tbaa !29
   %5358 = getelementptr i8, ptr %.02204, i64 8
   %5359 = load ptr, ptr %19, align 8, !tbaa !18
-  %5360 = call ptr @onigenc_step_back(ptr noundef %38, ptr noundef %1, ptr noundef %5359, ptr noundef %.02177, i32 noundef %5357) #22
+  %5360 = call ptr @onigenc_step_back(ptr noundef %38, ptr noundef %1, ptr noundef %5359, ptr noundef %.02177, i32 noundef %5357) #23
   %5361 = icmp eq ptr %5360, null
   br i1 %5361, label %5362, label %5365
 
@@ -10493,12 +10493,12 @@ stack_double.exit3255:                            ; preds = %5291, %5302
 
 5380:                                             ; preds = %5377
   %5381 = shl i64 %5374, 1
-  %5382 = call noalias ptr @malloc(i64 noundef %5381) #21
+  %5382 = call noalias ptr @malloc(i64 noundef %5381) #22
   %5383 = icmp eq ptr %5382, null
   br i1 %5383, label %.loopexit3590, label %5384
 
 5384:                                             ; preds = %5380
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %5382, ptr noundef nonnull align 1 %.pre4512, i64 noundef %5374, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %5382, ptr noundef nonnull align 1 %.pre4512, i64 noundef %5374, i1 noundef false) #23
   %5385 = shl nsw i64 %5375, 1
   br label %stack_double.exit3261
 
@@ -10521,7 +10521,7 @@ stack_double.exit3255:                            ; preds = %5291, %5302
 5395:                                             ; preds = %5392, %5389, %5386
   %.151.i3257 = phi i64 [ %5388, %5389 ], [ %5388, %5386 ], [ %5390, %5392 ]
   %5396 = mul i64 %.151.i3257, 48
-  %5397 = call ptr @realloc(ptr noundef %.pre4512, i64 noundef %5396) #23
+  %5397 = call ptr @realloc(ptr noundef %.pre4512, i64 noundef %5396) #24
   %5398 = icmp eq ptr %5397, null
   br i1 %5398, label %5399, label %stack_double.exit3261
 
@@ -10562,7 +10562,7 @@ stack_double.exit3261:                            ; preds = %5384, %5395
   br label %5413
 
 5413:                                             ; preds = %.loopexit3590, %5406
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 5414:                                             ; preds = %stack_double.exit3261, %5365
@@ -10595,7 +10595,7 @@ stack_double.exit3261:                            ; preds = %5384, %5395
   %5431 = getelementptr i8, ptr %5416, i64 48
   store ptr %5431, ptr %21, align 8, !tbaa !50
   store ptr %5360, ptr %19, align 8, !tbaa !18
-  %5432 = call ptr @onigenc_get_prev_char_head(ptr noundef %38, ptr noundef %1, ptr noundef nonnull %5360, ptr noundef %.02177) #22
+  %5432 = call ptr @onigenc_get_prev_char_head(ptr noundef %38, ptr noundef %1, ptr noundef nonnull %5360, ptr noundef %.02177) #23
   br label %5433
 
 5433:                                             ; preds = %5421, %5362
@@ -10685,12 +10685,12 @@ stack_double.exit3261:                            ; preds = %5384, %5395
 
 5489:                                             ; preds = %5486
   %5490 = shl i64 %5483, 1
-  %5491 = call noalias ptr @malloc(i64 noundef %5490) #21
+  %5491 = call noalias ptr @malloc(i64 noundef %5490) #22
   %5492 = icmp eq ptr %5491, null
   br i1 %5492, label %.loopexit3589, label %5493
 
 5493:                                             ; preds = %5489
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %5491, ptr noundef nonnull align 1 %5481, i64 noundef %5483, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %5491, ptr noundef nonnull align 1 %5481, i64 noundef %5483, i1 noundef false) #23
   %5494 = shl nsw i64 %5484, 1
   br label %stack_double.exit3267
 
@@ -10713,7 +10713,7 @@ stack_double.exit3261:                            ; preds = %5384, %5395
 5504:                                             ; preds = %5501, %5498, %5495
   %.151.i3263 = phi i64 [ %5497, %5498 ], [ %5497, %5495 ], [ %5499, %5501 ]
   %5505 = mul i64 %.151.i3263, 48
-  %5506 = call ptr @realloc(ptr noundef %5481, i64 noundef %5505) #23
+  %5506 = call ptr @realloc(ptr noundef %5481, i64 noundef %5505) #24
   %5507 = icmp eq ptr %5506, null
   br i1 %5507, label %5508, label %stack_double.exit3267
 
@@ -10754,7 +10754,7 @@ stack_double.exit3267:                            ; preds = %5493, %5504
   br label %5522
 
 5522:                                             ; preds = %.loopexit3589, %5515
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 5523:                                             ; preds = %stack_double.exit3267, %5473
@@ -11109,12 +11109,12 @@ memoize_extended_match_cache_point.exit3273:      ; preds = %5633, %5654, %5692,
 
 5726:                                             ; preds = %5723
   %5727 = shl i64 %5720, 1
-  %5728 = call noalias ptr @malloc(i64 noundef %5727) #21
+  %5728 = call noalias ptr @malloc(i64 noundef %5727) #22
   %5729 = icmp eq ptr %5728, null
   br i1 %5729, label %.loopexit3585, label %5730
 
 5730:                                             ; preds = %5726
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %5728, ptr noundef nonnull align 1 %5718, i64 noundef %5720, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %5728, ptr noundef nonnull align 1 %5718, i64 noundef %5720, i1 noundef false) #23
   %5731 = shl nsw i64 %5721, 1
   br label %stack_double.exit3279
 
@@ -11137,7 +11137,7 @@ memoize_extended_match_cache_point.exit3273:      ; preds = %5633, %5654, %5692,
 5741:                                             ; preds = %5738, %5735, %5732
   %.151.i3275 = phi i64 [ %5734, %5735 ], [ %5734, %5732 ], [ %5736, %5738 ]
   %5742 = mul i64 %.151.i3275, 48
-  %5743 = call ptr @realloc(ptr noundef %5718, i64 noundef %5742) #23
+  %5743 = call ptr @realloc(ptr noundef %5718, i64 noundef %5742) #24
   %5744 = icmp eq ptr %5743, null
   br i1 %5744, label %5745, label %stack_double.exit3279
 
@@ -11178,7 +11178,7 @@ stack_double.exit3279:                            ; preds = %5730, %5741
   br label %5759
 
 5759:                                             ; preds = %.loopexit3585, %5752
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 5760:                                             ; preds = %stack_double.exit3279, %5711
@@ -11222,7 +11222,7 @@ stack_double.exit3279:                            ; preds = %5730, %5741
   br label %5786
 
 5784:                                             ; preds = %5768
-  %5785 = call i32 @onigenc_mbclen(ptr noundef %5774, ptr noundef %5545, ptr noundef nonnull %38) #22
+  %5785 = call i32 @onigenc_mbclen(ptr noundef %5774, ptr noundef %5545, ptr noundef nonnull %38) #23
   %.pre = load ptr, ptr %22, align 8, !tbaa !50
   %.pre4508 = load ptr, ptr %21, align 8, !tbaa !50
   %.pre4509.pre = load ptr, ptr %20, align 8, !tbaa !50
@@ -11254,12 +11254,12 @@ stack_double.exit3279:                            ; preds = %5730, %5741
 
 5803:                                             ; preds = %5800
   %5804 = shl i64 %5797, 1
-  %5805 = call noalias ptr @malloc(i64 noundef %5804) #21
+  %5805 = call noalias ptr @malloc(i64 noundef %5804) #22
   %5806 = icmp eq ptr %5805, null
   br i1 %5806, label %.loopexit3586, label %5807
 
 5807:                                             ; preds = %5803
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %5805, ptr noundef nonnull align 1 %.pre4509, i64 noundef %5797, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %5805, ptr noundef nonnull align 1 %.pre4509, i64 noundef %5797, i1 noundef false) #23
   %5808 = shl nsw i64 %5798, 1
   br label %stack_double.exit3285
 
@@ -11282,7 +11282,7 @@ stack_double.exit3279:                            ; preds = %5730, %5741
 5818:                                             ; preds = %5815, %5812, %5809
   %.151.i3281 = phi i64 [ %5811, %5812 ], [ %5811, %5809 ], [ %5813, %5815 ]
   %5819 = mul i64 %.151.i3281, 48
-  %5820 = call ptr @realloc(ptr noundef %.pre4509, i64 noundef %5819) #23
+  %5820 = call ptr @realloc(ptr noundef %.pre4509, i64 noundef %5819) #24
   %5821 = icmp eq ptr %5820, null
   br i1 %5821, label %5822, label %stack_double.exit3285
 
@@ -11323,7 +11323,7 @@ stack_double.exit3285:                            ; preds = %5807, %5818
   br label %5836
 
 5836:                                             ; preds = %.loopexit3586, %5829
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 5837:                                             ; preds = %stack_double.exit3285, %5786
@@ -11369,12 +11369,12 @@ stack_double.exit3285:                            ; preds = %5807, %5818
 
 5863:                                             ; preds = %5860
   %5864 = shl i64 %5857, 1
-  %5865 = call noalias ptr @malloc(i64 noundef %5864) #21
+  %5865 = call noalias ptr @malloc(i64 noundef %5864) #22
   %5866 = icmp eq ptr %5865, null
   br i1 %5866, label %.loopexit3587, label %5867
 
 5867:                                             ; preds = %5863
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %5865, ptr noundef nonnull align 1 %5839, i64 noundef %5857, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %5865, ptr noundef nonnull align 1 %5839, i64 noundef %5857, i1 noundef false) #23
   %5868 = shl nsw i64 %5858, 1
   br label %stack_double.exit3291
 
@@ -11397,7 +11397,7 @@ stack_double.exit3285:                            ; preds = %5807, %5818
 5878:                                             ; preds = %5875, %5872, %5869
   %.151.i3287 = phi i64 [ %5871, %5872 ], [ %5871, %5869 ], [ %5873, %5875 ]
   %5879 = mul i64 %.151.i3287, 48
-  %5880 = call ptr @realloc(ptr noundef %5839, i64 noundef %5879) #23
+  %5880 = call ptr @realloc(ptr noundef %5839, i64 noundef %5879) #24
   %5881 = icmp eq ptr %5880, null
   br i1 %5881, label %5882, label %stack_double.exit3291
 
@@ -11438,7 +11438,7 @@ stack_double.exit3291:                            ; preds = %5867, %5878
   br label %5896
 
 5896:                                             ; preds = %.loopexit3587, %5889
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 5897:                                             ; preds = %stack_double.exit3291, %5845
@@ -11490,12 +11490,12 @@ stack_double.exit3291:                            ; preds = %5867, %5878
 
 5927:                                             ; preds = %5924
   %5928 = shl i64 %5921, 1
-  %5929 = call noalias ptr @malloc(i64 noundef %5928) #21
+  %5929 = call noalias ptr @malloc(i64 noundef %5928) #22
   %5930 = icmp eq ptr %5929, null
   br i1 %5930, label %.loopexit3588, label %5931
 
 5931:                                             ; preds = %5927
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %5929, ptr noundef nonnull align 1 %5899, i64 noundef %5921, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %5929, ptr noundef nonnull align 1 %5899, i64 noundef %5921, i1 noundef false) #23
   %5932 = shl nsw i64 %5922, 1
   br label %stack_double.exit3297
 
@@ -11518,7 +11518,7 @@ stack_double.exit3291:                            ; preds = %5867, %5878
 5942:                                             ; preds = %5939, %5936, %5933
   %.151.i3293 = phi i64 [ %5935, %5936 ], [ %5935, %5933 ], [ %5937, %5939 ]
   %5943 = mul i64 %.151.i3293, 48
-  %5944 = call ptr @realloc(ptr noundef %5899, i64 noundef %5943) #23
+  %5944 = call ptr @realloc(ptr noundef %5899, i64 noundef %5943) #24
   %5945 = icmp eq ptr %5944, null
   br i1 %5945, label %5946, label %stack_double.exit3297
 
@@ -11559,7 +11559,7 @@ stack_double.exit3297:                            ; preds = %5931, %5942
   br label %5960
 
 5960:                                             ; preds = %.loopexit3588, %5953
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 5961:                                             ; preds = %stack_double.exit3297, %5905
@@ -11671,12 +11671,12 @@ stack_double.exit3297:                            ; preds = %5931, %5942
 
 6030:                                             ; preds = %6027
   %6031 = shl i64 %6024, 1
-  %6032 = call noalias ptr @malloc(i64 noundef %6031) #21
+  %6032 = call noalias ptr @malloc(i64 noundef %6031) #22
   %6033 = icmp eq ptr %6032, null
   br i1 %6033, label %.loopexit3584, label %6034
 
 6034:                                             ; preds = %6030
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %6032, ptr noundef nonnull align 1 %6022, i64 noundef %6024, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %6032, ptr noundef nonnull align 1 %6022, i64 noundef %6024, i1 noundef false) #23
   %6035 = shl nsw i64 %6025, 1
   br label %stack_double.exit3303
 
@@ -11699,7 +11699,7 @@ stack_double.exit3297:                            ; preds = %5931, %5942
 6045:                                             ; preds = %6042, %6039, %6036
   %.151.i3299 = phi i64 [ %6038, %6039 ], [ %6038, %6036 ], [ %6040, %6042 ]
   %6046 = mul i64 %.151.i3299, 48
-  %6047 = call ptr @realloc(ptr noundef %6022, i64 noundef %6046) #23
+  %6047 = call ptr @realloc(ptr noundef %6022, i64 noundef %6046) #24
   %6048 = icmp eq ptr %6047, null
   br i1 %6048, label %6049, label %stack_double.exit3303
 
@@ -11740,7 +11740,7 @@ stack_double.exit3303:                            ; preds = %6034, %6045
   br label %6063
 
 6063:                                             ; preds = %.loopexit3584, %6056
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 6064:                                             ; preds = %stack_double.exit3303, %6012
@@ -11828,12 +11828,12 @@ stack_double.exit3303:                            ; preds = %6034, %6045
 
 6108:                                             ; preds = %6105
   %6109 = shl i64 %6102, 1
-  %6110 = call noalias ptr @malloc(i64 noundef %6109) #21
+  %6110 = call noalias ptr @malloc(i64 noundef %6109) #22
   %6111 = icmp eq ptr %6110, null
   br i1 %6111, label %.loopexit3583, label %6112
 
 6112:                                             ; preds = %6108
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %6110, ptr noundef nonnull align 1 %6100, i64 noundef %6102, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %6110, ptr noundef nonnull align 1 %6100, i64 noundef %6102, i1 noundef false) #23
   %6113 = shl nsw i64 %6103, 1
   br label %stack_double.exit3309
 
@@ -11856,7 +11856,7 @@ stack_double.exit3303:                            ; preds = %6034, %6045
 6123:                                             ; preds = %6120, %6117, %6114
   %.151.i3305 = phi i64 [ %6116, %6117 ], [ %6116, %6114 ], [ %6118, %6120 ]
   %6124 = mul i64 %.151.i3305, 48
-  %6125 = call ptr @realloc(ptr noundef %6100, i64 noundef %6124) #23
+  %6125 = call ptr @realloc(ptr noundef %6100, i64 noundef %6124) #24
   %6126 = icmp eq ptr %6125, null
   br i1 %6126, label %6127, label %stack_double.exit3309
 
@@ -11897,7 +11897,7 @@ stack_double.exit3309:                            ; preds = %6112, %6123
   br label %6141
 
 6141:                                             ; preds = %.loopexit3583, %6134
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 6142:                                             ; preds = %stack_double.exit3309, %6087
@@ -12326,7 +12326,7 @@ count_num_cache_opcodes.exit.thread3480:          ; preds = %6353, %6356
 6372:                                             ; preds = %6369
   store i32 0, ptr %107, align 8, !tbaa !40
   %6373 = mul i64 %6363, 56
-  %6374 = call noalias ptr @malloc(i64 noundef %6373) #21
+  %6374 = call noalias ptr @malloc(i64 noundef %6373) #22
   %6375 = icmp eq ptr %6374, null
   br i1 %6375, label %.loopexit3615, label %6376
 
@@ -12385,12 +12385,12 @@ count_num_cache_opcodes.exit.thread3480:          ; preds = %6353, %6356
   %6397 = add nuw i64 %mul.val, 7
   %6398 = lshr i64 %6397, 3
   %6399 = add nuw nsw i64 %6398, 1
-  %6400 = call noalias ptr @malloc(i64 noundef %6399) #21
+  %6400 = call noalias ptr @malloc(i64 noundef %6399) #22
   %6401 = icmp eq ptr %6400, null
   br i1 %6401, label %.loopexit3615, label %6402
 
 6402:                                             ; preds = %6396
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %6400, i8 noundef 0, i64 noundef range(i64 1, 1152921504606846978) %6399, i1 noundef false) #22
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %6400, i8 noundef 0, i64 noundef range(i64 1, 1152921504606846978) %6399, i1 noundef false) #23
   store ptr %6400, ptr %103, align 8, !tbaa !46
   br label %6403
 
@@ -12403,11 +12403,11 @@ count_num_cache_opcodes.exit.thread3480:          ; preds = %6353, %6356
 
 6407:                                             ; preds = %6403
   store i32 0, ptr %112, align 8, !tbaa !38
-  %6408 = call zeroext i1 @rb_reg_timeout_p(ptr noundef nonnull %0, ptr noundef nonnull %113) #22
+  %6408 = call zeroext i1 @rb_reg_timeout_p(ptr noundef nonnull %0, ptr noundef nonnull %113) #23
   br i1 %6408, label %6440, label %6409
 
 6409:                                             ; preds = %6407
-  call void @rb_thread_check_ints() #22
+  call void @rb_thread_check_ints() #23
   br label %6410
 
 6410:                                             ; preds = %6403, %6409
@@ -12432,7 +12432,7 @@ count_num_cache_opcodes.exit.thread3480:          ; preds = %6353, %6356
   br label %6421
 
 6421:                                             ; preds = %6412, %6414
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 .thread3484.sink.split:                           ; preds = %6349, %6356
@@ -12456,7 +12456,7 @@ count_num_cache_opcodes.exit.thread3480:          ; preds = %6353, %6356
   br label %6430
 
 6430:                                             ; preds = %.thread3484, %6423
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 .loopexit3595:                                    ; preds = %._crit_edge3998.thread, %..loopexit3595_crit_edge
@@ -12476,7 +12476,7 @@ count_num_cache_opcodes.exit.thread3480:          ; preds = %6353, %6356
   br label %6439
 
 6439:                                             ; preds = %.loopexit3595, %6432
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 6440:                                             ; preds = %3377, %4612, %5013, %6407
@@ -12496,7 +12496,7 @@ count_num_cache_opcodes.exit.thread3480:          ; preds = %6353, %6356
   br label %6449
 
 6449:                                             ; preds = %6440, %6442
-  call void @free(ptr noundef %.02227) #22
+  call void @free(ptr noundef %.02227) #23
   br label %.loopexit3615
 
 .loopexit3615:                                    ; preds = %6396, %6392, %6372, %6449, %6439, %6430, %6421, %6141, %6063, %5960, %5896, %5836, %5759, %5522, %5413, %5320, %5189, %5090, %4996, %4934, %4876, %4813, %4709, %4596, %4527, %4464, %4327, %4264, %4154, %4103, %4028, %3965, %3855, %3804, %3726, %3656, %3538, %3474, %3358, %3146, %2673, %2553, %2436, %2348, %1693, %1625, %1433, %1365, %1206, %1143, %958, %895
@@ -12666,7 +12666,7 @@ onig_region_resize_clear.exit.thread:             ; preds = %29, %21, %8
 79:                                               ; preds = %75
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %81 = load ptr, ptr %80, align 8, !tbaa !44
-  %82 = tail call ptr @onigenc_get_right_adjust_char_head(ptr noundef %81, ptr noundef %1, ptr noundef %77, ptr noundef nonnull %2) #22
+  %82 = tail call ptr @onigenc_get_right_adjust_char_head(ptr noundef %81, ptr noundef %1, ptr noundef %77, ptr noundef nonnull %2) #23
   %.pre649 = load i64, ptr %63, align 8, !tbaa !112
   br label %83
 
@@ -12703,7 +12703,7 @@ onig_region_resize_clear.exit.thread:             ; preds = %29, %21, %8
   %106 = load ptr, ptr %105, align 8, !tbaa !44
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 104
   %108 = load ptr, ptr %107, align 8, !tbaa !114
-  %109 = tail call ptr %108(ptr noundef %1, ptr noundef %104, ptr noundef nonnull %2, ptr noundef %106) #22
+  %109 = tail call ptr %108(ptr noundef %1, ptr noundef %104, ptr noundef nonnull %2, ptr noundef %106) #23
   br label %110
 
 110:                                              ; preds = %102, %93
@@ -12719,17 +12719,17 @@ onig_region_resize_clear.exit.thread:             ; preds = %29, %21, %8
 114:                                              ; preds = %112
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %116 = load ptr, ptr %115, align 8, !tbaa !44
-  %117 = tail call ptr @onigenc_step_back(ptr noundef %116, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %2, i32 noundef 1) #22
+  %117 = tail call ptr @onigenc_step_back(ptr noundef %116, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %2, i32 noundef 1) #23
   %118 = load ptr, ptr %115, align 8, !tbaa !44
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 24
   %120 = load ptr, ptr %119, align 8, !tbaa !74
-  %121 = tail call i32 %120(ptr noundef %117, ptr noundef nonnull %2, ptr noundef %118) #22
+  %121 = tail call i32 %120(ptr noundef %117, ptr noundef nonnull %2, ptr noundef %118) #23
   %.not452 = icmp eq i32 %121, 0
   br i1 %.not452, label %.thread, label %122
 
 122:                                              ; preds = %114
   %123 = load ptr, ptr %115, align 8, !tbaa !44
-  %124 = tail call ptr @onigenc_step_back(ptr noundef %123, ptr noundef %1, ptr noundef %117, ptr noundef nonnull %2, i32 noundef 1) #22
+  %124 = tail call ptr @onigenc_step_back(ptr noundef %123, ptr noundef %1, ptr noundef %117, ptr noundef nonnull %2, i32 noundef 1) #23
   %.not453 = icmp eq ptr %124, null
   br i1 %.not453, label %155, label %125
 
@@ -12744,7 +12744,7 @@ onig_region_resize_clear.exit.thread:             ; preds = %29, %21, %8
   %130 = load ptr, ptr %115, align 8, !tbaa !44
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 32
   %132 = load ptr, ptr %131, align 8, !tbaa !73
-  %133 = tail call i32 %132(ptr noundef nonnull %124, ptr noundef nonnull %2, ptr noundef %130) #22
+  %133 = tail call i32 %132(ptr noundef nonnull %124, ptr noundef nonnull %2, ptr noundef %130) #23
   %134 = icmp eq i32 %133, 13
   br i1 %134, label %135, label %155
 
@@ -12765,7 +12765,7 @@ onig_region_resize_clear.exit.thread:             ; preds = %29, %21, %8
   br label %148
 
 146:                                              ; preds = %135
-  %147 = tail call i32 @onigenc_mbclen(ptr noundef nonnull %124, ptr noundef nonnull %2, ptr noundef nonnull %136) #22
+  %147 = tail call i32 @onigenc_mbclen(ptr noundef nonnull %124, ptr noundef nonnull %2, ptr noundef nonnull %136) #23
   %.pre = load ptr, ptr %115, align 8, !tbaa !44
   br label %148
 
@@ -12774,7 +12774,7 @@ onig_region_resize_clear.exit.thread:             ; preds = %29, %21, %8
   %150 = phi i32 [ %147, %146 ], [ %spec.select481, %144 ]
   %151 = sext i32 %150 to i64
   %152 = getelementptr i8, ptr %124, i64 %151
-  %153 = tail call i32 %138(ptr noundef %152, ptr noundef nonnull %2, ptr noundef %149) #22
+  %153 = tail call i32 %138(ptr noundef %152, ptr noundef nonnull %2, ptr noundef %149) #23
   %154 = icmp eq i32 %153, 10
   %spec.select482 = select i1 %154, ptr %124, ptr %117
   br label %155
@@ -12878,7 +12878,7 @@ onig_region_resize_clear.exit.thread:             ; preds = %29, %21, %8
 199:                                              ; preds = %197
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %201 = load ptr, ptr %200, align 8, !tbaa !44
-  %202 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %201, ptr noundef %1, ptr noundef nonnull %.4395, ptr noundef %2) #22
+  %202 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %201, ptr noundef %1, ptr noundef nonnull %.4395, ptr noundef %2) #23
   br label %203
 
 203:                                              ; preds = %197, %199
@@ -12979,7 +12979,7 @@ onig_region_resize_clear.exit.thread:             ; preds = %29, %21, %8
   br label %246
 
 244:                                              ; preds = %235
-  %245 = call i32 @onigenc_mbclen(ptr noundef %.4368599, ptr noundef %2, ptr noundef nonnull %236) #22
+  %245 = call i32 @onigenc_mbclen(ptr noundef %.4368599, ptr noundef %2, ptr noundef nonnull %236) #23
   br label %246
 
 246:                                              ; preds = %242, %244
@@ -13047,7 +13047,7 @@ onig_region_resize_clear.exit.thread:             ; preds = %29, %21, %8
   br label %276
 
 274:                                              ; preds = %265
-  %275 = call i32 @onigenc_mbclen(ptr noundef %.5369, ptr noundef %2, ptr noundef nonnull %266) #22
+  %275 = call i32 @onigenc_mbclen(ptr noundef %.5369, ptr noundef %2, ptr noundef nonnull %266) #23
   br label %276
 
 276:                                              ; preds = %272, %274
@@ -13071,7 +13071,7 @@ onig_region_resize_clear.exit.thread:             ; preds = %29, %21, %8
 286:                                              ; preds = %.preheader
   %287 = getelementptr inbounds nuw i8, ptr %283, i64 32
   %288 = load ptr, ptr %287, align 8, !tbaa !73
-  %289 = call i32 %288(ptr noundef %.7, ptr noundef %2, ptr noundef %283) #22
+  %289 = call i32 %288(ptr noundef %.7, ptr noundef %2, ptr noundef %283) #23
   %290 = icmp eq i32 %289, 10
   br i1 %290, label %is_mbc_newline_ex.exit.thread, label %291
 
@@ -13089,7 +13089,7 @@ onig_region_resize_clear.exit.thread:             ; preds = %29, %21, %8
   br label %301
 
 299:                                              ; preds = %291
-  %300 = call i32 @onigenc_mbclen(ptr noundef %.7, ptr noundef %2, ptr noundef nonnull %283) #22
+  %300 = call i32 @onigenc_mbclen(ptr noundef %.7, ptr noundef %2, ptr noundef nonnull %283) #23
   br label %301
 
 301:                                              ; preds = %299, %297
@@ -13101,20 +13101,20 @@ onig_region_resize_clear.exit.thread:             ; preds = %29, %21, %8
 
 306:                                              ; preds = %301
   %307 = load ptr, ptr %287, align 8, !tbaa !73
-  %308 = call i32 %307(ptr noundef %.7, ptr noundef nonnull %2, ptr noundef nonnull %283) #22
+  %308 = call i32 %307(ptr noundef %.7, ptr noundef nonnull %2, ptr noundef nonnull %283) #23
   %309 = icmp eq i32 %308, 13
   br i1 %309, label %310, label %is_mbc_newline_ex.exit
 
 310:                                              ; preds = %306
   %311 = load ptr, ptr %287, align 8, !tbaa !73
-  %312 = call i32 %311(ptr noundef %304, ptr noundef nonnull %2, ptr noundef nonnull %283) #22
+  %312 = call i32 %311(ptr noundef %304, ptr noundef nonnull %2, ptr noundef nonnull %283) #23
   %313 = icmp eq i32 %312, 10
   br i1 %313, label %is_mbc_newline_ex.exit.thread, label %is_mbc_newline_ex.exit
 
 is_mbc_newline_ex.exit:                           ; preds = %.preheader, %301, %306, %310
   %314 = getelementptr inbounds nuw i8, ptr %283, i64 24
   %315 = load ptr, ptr %314, align 8, !tbaa !74
-  %316 = call i32 %315(ptr noundef %.7, ptr noundef %2, ptr noundef %283) #22
+  %316 = call i32 %315(ptr noundef %.7, ptr noundef %2, ptr noundef %283) #23
   %.1.i = icmp eq i32 %316, 0
   %317 = icmp ult ptr %.6370, %.4390
   %318 = select i1 %.1.i, i1 %317, i1 false
@@ -13135,7 +13135,7 @@ is_mbc_newline_ex.exit:                           ; preds = %.preheader, %301, %
   br label %330
 
 328:                                              ; preds = %319
-  %329 = call i32 @onigenc_mbclen(ptr noundef %.6370, ptr noundef %2, ptr noundef nonnull %320) #22
+  %329 = call i32 @onigenc_mbclen(ptr noundef %.6370, ptr noundef %2, ptr noundef nonnull %320) #23
   br label %330
 
 330:                                              ; preds = %326, %328
@@ -13221,7 +13221,7 @@ is_mbc_newline_ex.exit.thread:                    ; preds = %286, %310, %is_mbc_
   br label %357
 
 355:                                              ; preds = %346
-  %356 = call i32 @onigenc_mbclen(ptr noundef %.8372, ptr noundef %2, ptr noundef nonnull %347) #22
+  %356 = call i32 @onigenc_mbclen(ptr noundef %.8372, ptr noundef %2, ptr noundef nonnull %347) #23
   br label %357
 
 357:                                              ; preds = %353, %355
@@ -13269,7 +13269,7 @@ is_mbc_newline_ex.exit.thread:                    ; preds = %286, %310, %is_mbc_
   %378 = load ptr, ptr %377, align 8, !tbaa !44
   %379 = getelementptr inbounds nuw i8, ptr %378, i64 104
   %380 = load ptr, ptr %379, align 8, !tbaa !114
-  %381 = tail call ptr %380(ptr noundef %1, ptr noundef %.4390, ptr noundef %2, ptr noundef %378) #22
+  %381 = tail call ptr %380(ptr noundef %1, ptr noundef %.4390, ptr noundef %2, ptr noundef %378) #23
   br label %382
 
 382:                                              ; preds = %374, %376
@@ -13315,7 +13315,7 @@ is_mbc_newline_ex.exit.thread:                    ; preds = %286, %310, %is_mbc_
 .lr.ph:                                           ; preds = %399, %411
   %.13597 = phi ptr [ %404, %411 ], [ %spec.select494, %399 ]
   %403 = load ptr, ptr %392, align 8, !tbaa !44
-  %404 = call ptr @onigenc_get_prev_char_head(ptr noundef %403, ptr noundef %1, ptr noundef %.13597, ptr noundef %2) #22
+  %404 = call ptr @onigenc_get_prev_char_head(ptr noundef %403, ptr noundef %1, ptr noundef %.13597, ptr noundef %2) #23
   %405 = call fastcc i64 @match_at(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %.13597, ptr noundef %404, ptr noundef %9)
   switch i64 %405, label %406 [
     i64 -1, label %411
@@ -13390,7 +13390,7 @@ is_mbc_newline_ex.exit.thread:                    ; preds = %286, %310, %is_mbc_
 421:                                              ; preds = %430, %418
   %.14 = phi ptr [ %.4395, %418 ], [ %423, %430 ]
   %422 = load ptr, ptr %419, align 8, !tbaa !44
-  %423 = call ptr @onigenc_get_prev_char_head(ptr noundef %422, ptr noundef %1, ptr noundef %.14, ptr noundef %2) #22
+  %423 = call ptr @onigenc_get_prev_char_head(ptr noundef %422, ptr noundef %1, ptr noundef %.14, ptr noundef %2) #23
   %424 = call fastcc i64 @match_at(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %.14, ptr noundef %423, ptr noundef %9)
   switch i64 %424, label %425 [
     i64 -1, label %430
@@ -13431,13 +13431,13 @@ is_mbc_newline_ex.exit.thread:                    ; preds = %286, %310, %is_mbc_
 .loopexit551:                                     ; preds = %425, %341, %.thread542, %.thread513, %.loopexit562, %178, %366
   %.8382 = phi i64 [ %365, %366 ], [ %177, %178 ], [ -1, %.loopexit562 ], [ %.2376.ph, %.thread513 ], [ %405, %.thread542 ], [ %340, %341 ], [ %424, %425 ]
   %441 = load ptr, ptr %9, align 8, !tbaa !30
-  call void @free(ptr noundef %441) #22
+  call void @free(ptr noundef %441) #23
   %442 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %443 = load ptr, ptr %442, align 8, !tbaa !45
-  call void @free(ptr noundef %443) #22
+  call void @free(ptr noundef %443) #23
   %444 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %445 = load ptr, ptr %444, align 8, !tbaa !46
-  call void @free(ptr noundef %445) #22
+  call void @free(ptr noundef %445) #23
   %446 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %447 = load i32, ptr %446, align 8, !tbaa !47
   %448 = and i32 %447, 32
@@ -13473,13 +13473,13 @@ is_mbc_newline_ex.exit.thread:                    ; preds = %286, %310, %is_mbc_
   %.1385 = phi ptr [ %.0384, %438 ], [ %1, %368 ], [ @onig_search_gpos.address_for_empty_string, %180 ], [ %1, %.thread520 ], [ %1, %.thread546 ], [ %1, %343 ], [ %1, %427 ]
   %.15 = phi ptr [ %440, %438 ], [ %.4390, %368 ], [ @onig_search_gpos.address_for_empty_string, %180 ], [ %.1365.ph, %.thread520 ], [ %.13597, %.thread546 ], [ %.8372, %343 ], [ %.14, %427 ]
   %461 = load ptr, ptr %9, align 8, !tbaa !30
-  call void @free(ptr noundef %461) #22
+  call void @free(ptr noundef %461) #23
   %462 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %463 = load ptr, ptr %462, align 8, !tbaa !45
-  call void @free(ptr noundef %463) #22
+  call void @free(ptr noundef %463) #23
   %464 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %465 = load ptr, ptr %464, align 8, !tbaa !46
-  call void @free(ptr noundef %465) #22
+  call void @free(ptr noundef %465) #23
   %466 = ptrtoint ptr %.15 to i64
   %467 = ptrtoint ptr %.1385 to i64
   %468 = sub i64 %466, %467
@@ -13487,13 +13487,13 @@ is_mbc_newline_ex.exit.thread:                    ; preds = %286, %310, %is_mbc_
 
 .loopexit:                                        ; preds = %421, %339, %417, %.thread527, %165, %364
   %469 = load ptr, ptr %9, align 8, !tbaa !30
-  call void @free(ptr noundef %469) #22
+  call void @free(ptr noundef %469) #23
   %470 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %471 = load ptr, ptr %470, align 8, !tbaa !45
-  call void @free(ptr noundef %471) #22
+  call void @free(ptr noundef %471) #23
   %472 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %473 = load ptr, ptr %472, align 8, !tbaa !46
-  call void @free(ptr noundef %473) #22
+  call void @free(ptr noundef %473) #23
   br label %onig_region_clear.exit
 
 onig_region_clear.exit:                           ; preds = %458, %110, %83, %.thread, %57, %54, %450, %onig_region_resize_clear.exit, %161, %onig_region_resize_clear.exit.thread, %.loopexit551, %.loopexit, %.loopexit552
@@ -13502,11 +13502,11 @@ onig_region_clear.exit:                           ; preds = %458, %110, %83, %.t
   ret i64 %.0383
 }
 
-declare ptr @onigenc_get_right_adjust_char_head(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
+declare ptr @onigenc_get_right_adjust_char_head(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #11
 
-declare ptr @onigenc_step_back(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #10
+declare ptr @onigenc_step_back(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #11
 
-declare i32 @onigenc_mbclen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
+declare i32 @onigenc_mbclen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i32 0, 2) i32 @forward_search_range(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull writeonly captures(none) %5, ptr noundef nonnull writeonly captures(none) %6, ptr noundef %7) unnamed_addr #0 {
@@ -13572,7 +13572,7 @@ define internal fastcc range(i32 0, 2) i32 @forward_search_range(ptr noundef rea
   br i1 %43, label %46, label %44
 
 44:                                               ; preds = %.lr.ph.split
-  %45 = tail call i32 @onigenc_mbclen(ptr noundef %.2309, ptr noundef nonnull %2, ptr noundef nonnull %38) #22
+  %45 = tail call i32 @onigenc_mbclen(ptr noundef %.2309, ptr noundef nonnull %2, ptr noundef nonnull %38) #23
   br label %46
 
 46:                                               ; preds = %.lr.ph.split, %44
@@ -13652,7 +13652,7 @@ define internal fastcc range(i32 0, 2) i32 @forward_search_range(ptr noundef rea
   br i1 %86, label %89, label %87
 
 87:                                               ; preds = %83
-  %88 = call i32 @onigenc_mbclen(ptr noundef nonnull %.15064.us.i, ptr noundef %2, ptr noundef nonnull %63) #22
+  %88 = call i32 @onigenc_mbclen(ptr noundef nonnull %.15064.us.i, ptr noundef %2, ptr noundef nonnull %63) #23
   br label %91
 
 89:                                               ; preds = %83
@@ -13731,7 +13731,7 @@ define internal fastcc range(i32 0, 2) i32 @forward_search_range(ptr noundef rea
   br label %128
 
 126:                                              ; preds = %120
-  %127 = call i32 @onigenc_mbclen(ptr noundef nonnull %.15064.i, ptr noundef %2, ptr noundef nonnull %63) #22
+  %127 = call i32 @onigenc_mbclen(ptr noundef nonnull %.15064.i, ptr noundef %2, ptr noundef nonnull %63) #23
   br label %128
 
 128:                                              ; preds = %126, %124
@@ -13773,7 +13773,7 @@ define internal fastcc range(i32 0, 2) i32 @forward_search_range(ptr noundef rea
 147:                                              ; preds = %.loopexit.i.us.i, %.lr.ph20.i.us.i
   %.01219.i.us.i = phi ptr [ %136, %.lr.ph20.i.us.i ], [ %.1.lcssa.i.us.i, %.loopexit.i.us.i ]
   %148 = load ptr, ptr %144, align 8, !tbaa !62
-  %149 = call i32 %148(i32 noundef %135, ptr noundef nonnull %13, ptr noundef %2, ptr noundef nonnull %14, ptr noundef %134) #22
+  %149 = call i32 %148(i32 noundef %135, ptr noundef nonnull %13, ptr noundef %2, ptr noundef nonnull %14, ptr noundef %134) #23
   %150 = icmp sgt i32 %149, 0
   br i1 %150, label %.lr.ph.preheader.i.us.i, label %.loopexit.i.us.i
 
@@ -13802,7 +13802,7 @@ define internal fastcc range(i32 0, 2) i32 @forward_search_range(ptr noundef rea
   br i1 %158, label %161, label %159
 
 159:                                              ; preds = %155
-  %160 = call i32 @onigenc_mbclen(ptr noundef %.02640.us.i, ptr noundef %2, ptr noundef nonnull %134) #22
+  %160 = call i32 @onigenc_mbclen(ptr noundef %.02640.us.i, ptr noundef %2, ptr noundef nonnull %134) #23
   br label %163
 
 161:                                              ; preds = %155
@@ -13988,7 +13988,7 @@ str_lower_case_match.exit.thread.i:               ; preds = %.loopexit.i.us.i, %
   br label %262
 
 260:                                              ; preds = %.split.i
-  %261 = call i32 @onigenc_mbclen(ptr noundef %.1.i212, ptr noundef nonnull %.046.i, ptr noundef nonnull %207) #22
+  %261 = call i32 @onigenc_mbclen(ptr noundef %.1.i212, ptr noundef nonnull %.046.i, ptr noundef nonnull %207) #23
   br label %262
 
 262:                                              ; preds = %260, %258
@@ -14044,7 +14044,7 @@ str_lower_case_match.exit.thread.i:               ; preds = %.loopexit.i.us.i, %
 292:                                              ; preds = %.loopexit.i.us.i223, %.lr.ph20.i.us.i221
   %.01219.i.us.i222 = phi ptr [ %273, %.lr.ph20.i.us.i221 ], [ %.1.lcssa.i.us.i224, %.loopexit.i.us.i223 ]
   %293 = load ptr, ptr %289, align 8, !tbaa !62
-  %294 = call i32 %293(i32 noundef %276, ptr noundef nonnull %11, ptr noundef %291, ptr noundef nonnull %12, ptr noundef %275) #22
+  %294 = call i32 %293(i32 noundef %276, ptr noundef nonnull %11, ptr noundef %291, ptr noundef nonnull %12, ptr noundef %275) #23
   %295 = icmp sgt i32 %294, 0
   br i1 %295, label %.lr.ph.preheader.i.us.i225, label %.loopexit.i.us.i223
 
@@ -14145,7 +14145,7 @@ str_lower_case_match.exit.thread.i220:            ; preds = %str_lower_case_matc
 337:                                              ; preds = %.loopexit.i.us.i241, %.lr.ph20.i.us.i239
   %.01219.i.us.i240 = phi ptr [ %316, %.lr.ph20.i.us.i239 ], [ %.1.lcssa.i.us.i242, %.loopexit.i.us.i241 ]
   %338 = load ptr, ptr %332, align 8, !tbaa !62
-  %339 = call i32 %338(i32 noundef %319, ptr noundef nonnull %9, ptr noundef %336, ptr noundef nonnull %10, ptr noundef %318) #22
+  %339 = call i32 %338(i32 noundef %319, ptr noundef nonnull %9, ptr noundef %336, ptr noundef nonnull %10, ptr noundef %318) #23
   %340 = icmp sgt i32 %339, 0
   br i1 %340, label %.lr.ph.preheader.i.us.i243, label %.loopexit.i.us.i241
 
@@ -14192,7 +14192,7 @@ str_lower_case_match.exit.thread.i220:            ; preds = %str_lower_case_matc
   br i1 %359, label %362, label %360
 
 360:                                              ; preds = %.split.us63.i
-  %361 = call i32 @onigenc_mbclen(ptr noundef %.1.us59.i, ptr noundef nonnull %.044.i, ptr noundef nonnull %318) #22
+  %361 = call i32 @onigenc_mbclen(ptr noundef %.1.us59.i, ptr noundef nonnull %.044.i, ptr noundef nonnull %318) #23
   br label %364
 
 362:                                              ; preds = %.split.us63.i
@@ -14285,7 +14285,7 @@ str_lower_case_match.exit.thread.i238:            ; preds = %.loopexit.i.us.i241
   br label %406
 
 404:                                              ; preds = %398
-  %405 = call i32 @onigenc_mbclen(ptr noundef nonnull %.018.i, ptr noundef %2, ptr noundef nonnull %389) #22
+  %405 = call i32 @onigenc_mbclen(ptr noundef nonnull %.018.i, ptr noundef %2, ptr noundef nonnull %389) #23
   br label %406
 
 406:                                              ; preds = %404, %402
@@ -14324,7 +14324,7 @@ slow_search.exit:                                 ; preds = %393, %117, %.lr.ph.
   br label %427
 
 425:                                              ; preds = %.thread
-  %426 = call i32 @onigenc_mbclen(ptr noundef nonnull %.4, ptr noundef %2, ptr noundef nonnull %417) #22
+  %426 = call i32 @onigenc_mbclen(ptr noundef nonnull %.4, ptr noundef %2, ptr noundef nonnull %417) #23
   br label %427
 
 427:                                              ; preds = %423, %425
@@ -14348,7 +14348,7 @@ slow_search.exit:                                 ; preds = %393, %117, %.lr.ph.
   %436 = load ptr, ptr %52, align 8, !tbaa !44
   %.not190 = icmp eq ptr %.0172, null
   %437 = select i1 %.not190, ptr %1, ptr %.0172
-  %438 = call ptr @onigenc_get_prev_char_head(ptr noundef %436, ptr noundef %437, ptr noundef nonnull %.4, ptr noundef %2) #22
+  %438 = call ptr @onigenc_get_prev_char_head(ptr noundef %436, ptr noundef %437, ptr noundef nonnull %.4, ptr noundef %2) #23
   %439 = load ptr, ptr %52, align 8, !tbaa !44
   %440 = load i32, ptr %59, align 8, !tbaa !47
   %441 = and i32 %440, 65536
@@ -14358,7 +14358,7 @@ slow_search.exit:                                 ; preds = %393, %117, %.lr.ph.
 442:                                              ; preds = %435
   %443 = getelementptr inbounds nuw i8, ptr %439, i64 32
   %444 = load ptr, ptr %443, align 8, !tbaa !73
-  %445 = call i32 %444(ptr noundef %438, ptr noundef %2, ptr noundef %439) #22
+  %445 = call i32 %444(ptr noundef %438, ptr noundef %2, ptr noundef %439) #23
   %446 = icmp eq i32 %445, 10
   br i1 %446, label %is_mbc_newline_ex.exit.thread, label %447
 
@@ -14376,7 +14376,7 @@ slow_search.exit:                                 ; preds = %393, %117, %.lr.ph.
   br label %457
 
 455:                                              ; preds = %447
-  %456 = call i32 @onigenc_mbclen(ptr noundef %438, ptr noundef %2, ptr noundef nonnull %439) #22
+  %456 = call i32 @onigenc_mbclen(ptr noundef %438, ptr noundef %2, ptr noundef nonnull %439) #23
   br label %457
 
 457:                                              ; preds = %455, %453
@@ -14388,20 +14388,20 @@ slow_search.exit:                                 ; preds = %393, %117, %.lr.ph.
 
 462:                                              ; preds = %457
   %463 = load ptr, ptr %443, align 8, !tbaa !73
-  %464 = call i32 %463(ptr noundef %438, ptr noundef nonnull %2, ptr noundef nonnull %439) #22
+  %464 = call i32 %463(ptr noundef %438, ptr noundef nonnull %2, ptr noundef nonnull %439) #23
   %465 = icmp eq i32 %464, 13
   br i1 %465, label %466, label %is_mbc_newline_ex.exit
 
 466:                                              ; preds = %462
   %467 = load ptr, ptr %443, align 8, !tbaa !73
-  %468 = call i32 %467(ptr noundef %460, ptr noundef nonnull %2, ptr noundef nonnull %439) #22
+  %468 = call i32 %467(ptr noundef %460, ptr noundef nonnull %2, ptr noundef nonnull %439) #23
   %469 = icmp eq i32 %468, 10
   br i1 %469, label %is_mbc_newline_ex.exit.thread, label %is_mbc_newline_ex.exit
 
 is_mbc_newline_ex.exit:                           ; preds = %435, %457, %462, %466
   %470 = getelementptr inbounds nuw i8, ptr %439, i64 24
   %471 = load ptr, ptr %470, align 8, !tbaa !74
-  %472 = call i32 %471(ptr noundef %438, ptr noundef %2, ptr noundef %439) #22
+  %472 = call i32 %471(ptr noundef %438, ptr noundef %2, ptr noundef %439) #23
   %.1.i257 = icmp eq i32 %472, 0
   br i1 %.1.i257, label %.thread, label %is_mbc_newline_ex.exit.thread
 
@@ -14435,13 +14435,13 @@ is_mbc_newline_ex.exit.thread:                    ; preds = %442, %466, %431, %4
   br i1 %483, label %485, label %487
 
 485:                                              ; preds = %482
-  %486 = call ptr @onigenc_get_prev_char_head(ptr noundef %484, ptr noundef %3, ptr noundef nonnull %.4, ptr noundef %2) #22
+  %486 = call ptr @onigenc_get_prev_char_head(ptr noundef %484, ptr noundef %3, ptr noundef nonnull %.4, ptr noundef %2) #23
   br label %.sink.split
 
 487:                                              ; preds = %482
   %.not199 = icmp eq ptr %.0172, null
   %488 = select i1 %.not199, ptr %1, ptr %.0172
-  %489 = call ptr @onigenc_get_prev_char_head(ptr noundef %484, ptr noundef %488, ptr noundef nonnull %.4, ptr noundef %2) #22
+  %489 = call ptr @onigenc_get_prev_char_head(ptr noundef %484, ptr noundef %488, ptr noundef nonnull %.4, ptr noundef %2) #23
   br label %.sink.split
 
 490:                                              ; preds = %is_mbc_newline_ex.exit.thread
@@ -14456,7 +14456,7 @@ is_mbc_newline_ex.exit.thread:                    ; preds = %442, %466, %431, %4
 
 494:                                              ; preds = %493
   %495 = load ptr, ptr %52, align 8, !tbaa !44
-  %496 = call ptr @onigenc_get_prev_char_head(ptr noundef %495, ptr noundef %1, ptr noundef %1, ptr noundef %2) #22
+  %496 = call ptr @onigenc_get_prev_char_head(ptr noundef %495, ptr noundef %1, ptr noundef %1, ptr noundef %2) #23
   br label %.sink.split
 
 497:                                              ; preds = %490
@@ -14468,7 +14468,7 @@ is_mbc_newline_ex.exit.thread:                    ; preds = %442, %466, %431, %4
 
 501:                                              ; preds = %497
   %502 = load ptr, ptr %52, align 8, !tbaa !44
-  %503 = call ptr @onigenc_get_right_adjust_char_head_with_prev(ptr noundef %502, ptr noundef %3, ptr noundef nonnull %499, ptr noundef %2, ptr noundef %7) #22
+  %503 = call ptr @onigenc_get_right_adjust_char_head_with_prev(ptr noundef %502, ptr noundef %3, ptr noundef nonnull %499, ptr noundef %2, ptr noundef %7) #23
   store ptr %503, ptr %5, align 8, !tbaa !18
   %.not195 = icmp eq ptr %7, null
   br i1 %.not195, label %516, label %504
@@ -14482,7 +14482,7 @@ is_mbc_newline_ex.exit.thread:                    ; preds = %442, %466, %431, %4
   %508 = load ptr, ptr %52, align 8, !tbaa !44
   %.not196 = icmp eq ptr %.0172, null
   %509 = select i1 %.not196, ptr %3, ptr %.0172
-  %510 = call ptr @onigenc_get_prev_char_head(ptr noundef %508, ptr noundef %509, ptr noundef %503, ptr noundef %2) #22
+  %510 = call ptr @onigenc_get_prev_char_head(ptr noundef %508, ptr noundef %509, ptr noundef %503, ptr noundef %2) #23
   br label %.sink.split
 
 511:                                              ; preds = %497
@@ -14493,7 +14493,7 @@ is_mbc_newline_ex.exit.thread:                    ; preds = %442, %466, %431, %4
   %513 = load ptr, ptr %52, align 8, !tbaa !44
   %.not194 = icmp eq ptr %.0172, null
   %514 = select i1 %.not194, ptr %1, ptr %.0172
-  %515 = call ptr @onigenc_get_prev_char_head(ptr noundef %513, ptr noundef %514, ptr noundef %499, ptr noundef %2) #22
+  %515 = call ptr @onigenc_get_prev_char_head(ptr noundef %513, ptr noundef %514, ptr noundef %499, ptr noundef %2) #23
   br label %.sink.split
 
 .sink.split:                                      ; preds = %485, %487, %494, %512, %507
@@ -14522,7 +14522,7 @@ define internal fastcc i32 @is_mbc_newline_ex(ptr noundef %0, ptr noundef %1, pt
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !73
-  %11 = tail call i32 %10(ptr noundef %1, ptr noundef %3, ptr noundef %0) #22
+  %11 = tail call i32 %10(ptr noundef %1, ptr noundef %3, ptr noundef %0) #23
   %12 = icmp eq i32 %11, 10
   br i1 %12, label %13, label %21
 
@@ -14531,13 +14531,13 @@ define internal fastcc i32 @is_mbc_newline_ex(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not47, label %52, label %14
 
 14:                                               ; preds = %13
-  %15 = tail call ptr @onigenc_get_prev_char_head(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %1, ptr noundef %3) #22
+  %15 = tail call ptr @onigenc_get_prev_char_head(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %1, ptr noundef %3) #23
   %.not48 = icmp eq ptr %15, null
   br i1 %.not48, label %20, label %16
 
 16:                                               ; preds = %14
   %17 = load ptr, ptr %9, align 8, !tbaa !73
-  %18 = tail call i32 %17(ptr noundef nonnull %15, ptr noundef %3, ptr noundef nonnull %0) #22
+  %18 = tail call i32 %17(ptr noundef nonnull %15, ptr noundef %3, ptr noundef nonnull %0) #23
   %19 = icmp eq i32 %18, 13
   br i1 %19, label %52, label %20
 
@@ -14558,7 +14558,7 @@ define internal fastcc i32 @is_mbc_newline_ex(ptr noundef %0, ptr noundef %1, pt
   br label %31
 
 29:                                               ; preds = %21
-  %30 = tail call i32 @onigenc_mbclen(ptr noundef %1, ptr noundef %3, ptr noundef nonnull %0) #22
+  %30 = tail call i32 @onigenc_mbclen(ptr noundef %1, ptr noundef %3, ptr noundef nonnull %0) #23
   br label %31
 
 31:                                               ; preds = %27, %29
@@ -14570,20 +14570,20 @@ define internal fastcc i32 @is_mbc_newline_ex(ptr noundef %0, ptr noundef %1, pt
 
 36:                                               ; preds = %31
   %37 = load ptr, ptr %9, align 8, !tbaa !73
-  %38 = tail call i32 %37(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %0) #22
+  %38 = tail call i32 %37(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %0) #23
   %39 = icmp eq i32 %38, 13
   br i1 %39, label %40, label %44
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr %9, align 8, !tbaa !73
-  %42 = tail call i32 %41(ptr noundef %34, ptr noundef nonnull %3, ptr noundef nonnull %0) #22
+  %42 = tail call i32 %41(ptr noundef %34, ptr noundef nonnull %3, ptr noundef nonnull %0) #23
   %43 = icmp eq i32 %42, 10
   br i1 %43, label %52, label %44
 
 44:                                               ; preds = %40, %36, %31
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %46 = load ptr, ptr %45, align 8, !tbaa !74
-  %47 = tail call i32 %46(ptr noundef %1, ptr noundef %3, ptr noundef nonnull %0) #22
+  %47 = tail call i32 %46(ptr noundef %1, ptr noundef %3, ptr noundef nonnull %0) #23
   %.not46 = icmp ne i32 %47, 0
   %. = zext i1 %.not46 to i32
   br label %52
@@ -14591,7 +14591,7 @@ define internal fastcc i32 @is_mbc_newline_ex(ptr noundef %0, ptr noundef %1, pt
 48:                                               ; preds = %6
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %50 = load ptr, ptr %49, align 8, !tbaa !74
-  %51 = tail call i32 %50(ptr noundef %1, ptr noundef %3, ptr noundef %0) #22
+  %51 = tail call i32 %50(ptr noundef %1, ptr noundef %3, ptr noundef %0) #23
   br label %52
 
 52:                                               ; preds = %40, %44, %13, %20, %16, %48
@@ -14650,7 +14650,7 @@ define internal fastcc range(i32 0, 2) i32 @backward_search_range(ptr noundef re
 37:                                               ; preds = %29
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 104
   %39 = load ptr, ptr %38, align 8, !tbaa !114
-  %40 = call ptr %39(ptr noundef %5, ptr noundef %35, ptr noundef %2, ptr noundef %30) #22
+  %40 = call ptr %39(ptr noundef %5, ptr noundef %35, ptr noundef %2, ptr noundef %30) #23
   br label %41
 
 41:                                               ; preds = %37, %29
@@ -14684,7 +14684,7 @@ define internal fastcc range(i32 0, 2) i32 @backward_search_range(ptr noundef re
   br i1 %50, label %slow_search_backward.exit, label %51
 
 51:                                               ; preds = %49, %.lr.ph.i
-  %52 = call ptr @onigenc_get_prev_char_head(ptr noundef %30, ptr noundef %5, ptr noundef nonnull %.138.i, ptr noundef %2) #22
+  %52 = call ptr @onigenc_get_prev_char_head(ptr noundef %30, ptr noundef %5, ptr noundef nonnull %.138.i, ptr noundef %2) #23
   %.not.i = icmp ult ptr %52, %18
   br i1 %.not.i, label %slow_search_backward.exit.thread, label %.lr.ph.i, !llvm.loop !151
 
@@ -14703,7 +14703,7 @@ define internal fastcc range(i32 0, 2) i32 @backward_search_range(ptr noundef re
 62:                                               ; preds = %53
   %63 = getelementptr inbounds nuw i8, ptr %54, i64 104
   %64 = load ptr, ptr %63, align 8, !tbaa !114
-  %65 = call ptr %64(ptr noundef %5, ptr noundef %60, ptr noundef %2, ptr noundef %54) #22
+  %65 = call ptr %64(ptr noundef %5, ptr noundef %60, ptr noundef %2, ptr noundef %54) #23
   br label %66
 
 66:                                               ; preds = %62, %53
@@ -14726,7 +14726,7 @@ define internal fastcc range(i32 0, 2) i32 @backward_search_range(ptr noundef re
 69:                                               ; preds = %.loopexit.i.us.i, %.lr.ph20.i.us.i
   %.01219.i.us.i = phi ptr [ %56, %.lr.ph20.i.us.i ], [ %.1.lcssa.i.us.i, %.loopexit.i.us.i ]
   %70 = load ptr, ptr %68, align 8, !tbaa !62
-  %71 = call i32 %70(i32 noundef %55, ptr noundef nonnull %9, ptr noundef %2, ptr noundef nonnull %10, ptr noundef %54) #22
+  %71 = call i32 %70(i32 noundef %55, ptr noundef nonnull %9, ptr noundef %2, ptr noundef nonnull %10, ptr noundef %54) #23
   %72 = icmp sgt i32 %71, 0
   br i1 %72, label %.lr.ph.preheader.i.us.i, label %.loopexit.i.us.i
 
@@ -14749,7 +14749,7 @@ define internal fastcc range(i32 0, 2) i32 @backward_search_range(ptr noundef re
 77:                                               ; preds = %.lr.ph.i.us.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %78 = call ptr @onigenc_get_prev_char_head(ptr noundef %54, ptr noundef %5, ptr noundef %.136.us.i, ptr noundef %2) #22
+  %78 = call ptr @onigenc_get_prev_char_head(ptr noundef %54, ptr noundef %5, ptr noundef %.136.us.i, ptr noundef %2) #23
   %.not.us.i = icmp ult ptr %78, %18
   br i1 %.not.us.i, label %slow_search_backward.exit.thread, label %.lr.ph20.i.us.i, !llvm.loop !152
 
@@ -14790,7 +14790,7 @@ str_lower_case_match.exit.thread.i:               ; preds = %.loopexit.i.us.i, %
   br i1 %.not12.i, label %89, label %slow_search_backward.exit.thread91
 
 89:                                               ; preds = %.lr.ph.i86
-  %90 = call ptr @onigenc_get_prev_char_head(ptr noundef %84, ptr noundef %5, ptr noundef nonnull %.014.i, ptr noundef %2) #22
+  %90 = call ptr @onigenc_get_prev_char_head(ptr noundef %84, ptr noundef %5, ptr noundef nonnull %.014.i, ptr noundef %2) #23
   %.not.i87 = icmp ult ptr %90, %18
   br i1 %.not.i87, label %slow_search_backward.exit.thread, label %.lr.ph.i86, !llvm.loop !153
 
@@ -14813,7 +14813,7 @@ slow_search_backward.exit.thread91:               ; preds = %.lr.ph.i86, %slow_s
 
 94:                                               ; preds = %92
   %95 = load ptr, ptr %20, align 8, !tbaa !44
-  %96 = call ptr @onigenc_get_prev_char_head(ptr noundef %95, ptr noundef %1, ptr noundef nonnull %.194, ptr noundef %2) #22
+  %96 = call ptr @onigenc_get_prev_char_head(ptr noundef %95, ptr noundef %1, ptr noundef nonnull %.194, ptr noundef %2) #23
   %97 = load ptr, ptr %20, align 8, !tbaa !44
   %98 = load i32, ptr %26, align 8, !tbaa !47
   %99 = and i32 %98, 65536
@@ -14823,7 +14823,7 @@ slow_search_backward.exit.thread91:               ; preds = %.lr.ph.i86, %slow_s
 100:                                              ; preds = %94
   %101 = getelementptr inbounds nuw i8, ptr %97, i64 32
   %102 = load ptr, ptr %101, align 8, !tbaa !73
-  %103 = call i32 %102(ptr noundef %96, ptr noundef %2, ptr noundef %97) #22
+  %103 = call i32 %102(ptr noundef %96, ptr noundef %2, ptr noundef %97) #23
   %104 = icmp eq i32 %103, 10
   br i1 %104, label %.thread, label %105
 
@@ -14841,7 +14841,7 @@ slow_search_backward.exit.thread91:               ; preds = %.lr.ph.i86, %slow_s
   br label %115
 
 113:                                              ; preds = %105
-  %114 = call i32 @onigenc_mbclen(ptr noundef %96, ptr noundef %2, ptr noundef nonnull %97) #22
+  %114 = call i32 @onigenc_mbclen(ptr noundef %96, ptr noundef %2, ptr noundef nonnull %97) #23
   br label %115
 
 115:                                              ; preds = %113, %111
@@ -14853,20 +14853,20 @@ slow_search_backward.exit.thread91:               ; preds = %.lr.ph.i86, %slow_s
 
 120:                                              ; preds = %115
   %121 = load ptr, ptr %101, align 8, !tbaa !73
-  %122 = call i32 %121(ptr noundef %96, ptr noundef nonnull %2, ptr noundef nonnull %97) #22
+  %122 = call i32 %121(ptr noundef %96, ptr noundef nonnull %2, ptr noundef nonnull %97) #23
   %123 = icmp eq i32 %122, 13
   br i1 %123, label %124, label %is_mbc_newline_ex.exit
 
 124:                                              ; preds = %120
   %125 = load ptr, ptr %101, align 8, !tbaa !73
-  %126 = call i32 %125(ptr noundef %118, ptr noundef nonnull %2, ptr noundef nonnull %97) #22
+  %126 = call i32 %125(ptr noundef %118, ptr noundef nonnull %2, ptr noundef nonnull %97) #23
   %127 = icmp eq i32 %126, 10
   br i1 %127, label %.thread, label %is_mbc_newline_ex.exit
 
 is_mbc_newline_ex.exit:                           ; preds = %94, %115, %120, %124
   %128 = getelementptr inbounds nuw i8, ptr %97, i64 24
   %129 = load ptr, ptr %128, align 8, !tbaa !74
-  %130 = call i32 %129(ptr noundef %96, ptr noundef %2, ptr noundef %97) #22
+  %130 = call i32 %129(ptr noundef %96, ptr noundef %2, ptr noundef %97) #23
   %.1.i = icmp eq i32 %130, 0
   br i1 %.1.i, label %.backedge, label %.thread
 
@@ -14883,7 +14883,7 @@ is_mbc_newline_ex.exit:                           ; preds = %94, %115, %120, %12
 
 137:                                              ; preds = %133
   %138 = load ptr, ptr %20, align 8, !tbaa !44
-  %139 = call ptr @onigenc_get_prev_char_head(ptr noundef %138, ptr noundef %5, ptr noundef nonnull %.194, ptr noundef %2) #22
+  %139 = call ptr @onigenc_get_prev_char_head(ptr noundef %138, ptr noundef %5, ptr noundef nonnull %.194, ptr noundef %2) #23
   %140 = icmp eq ptr %139, null
   br i1 %140, label %slow_search_backward.exit.thread, label %.backedge
 
@@ -14906,7 +14906,7 @@ is_mbc_newline_ex.exit:                           ; preds = %94, %115, %120, %12
   %148 = getelementptr i8, ptr %.194, i64 %147
   store ptr %148, ptr %7, align 8, !tbaa !18
   %149 = load ptr, ptr %20, align 8, !tbaa !44
-  %150 = call ptr @onigenc_get_right_adjust_char_head(ptr noundef %149, ptr noundef %5, ptr noundef %148, ptr noundef %2) #22
+  %150 = call ptr @onigenc_get_right_adjust_char_head(ptr noundef %149, ptr noundef %5, ptr noundef %148, ptr noundef %2) #23
   store ptr %150, ptr %7, align 8, !tbaa !18
   br label %slow_search_backward.exit.thread
 
@@ -14930,7 +14930,7 @@ define dso_local i64 @onig_scan(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %13, label %14, label %43
 
 14:                                               ; preds = %11
-  %15 = tail call i32 %5(i64 noundef %.039, i64 noundef %12, ptr noundef %3, ptr noundef %6) #22
+  %15 = tail call i32 %5(i64 noundef %.039, i64 noundef %12, ptr noundef %3, ptr noundef %6) #23
   %16 = add i64 %.039, 1
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %19, label %17
@@ -14961,7 +14961,7 @@ define dso_local i64 @onig_scan(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %32, label %35, label %33
 
 33:                                               ; preds = %26
-  %34 = tail call i32 @onigenc_mbclen(ptr noundef %.0, ptr noundef nonnull %2, ptr noundef nonnull %27) #22
+  %34 = tail call i32 @onigenc_mbclen(ptr noundef %.0, ptr noundef nonnull %2, ptr noundef nonnull %27) #23
   br label %35
 
 35:                                               ; preds = %26, %33
@@ -14990,53 +14990,53 @@ define dso_local i64 @onig_scan(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @onig_get_encoding(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+define dso_local ptr @onig_get_encoding(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !44
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @onig_get_options(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+define dso_local i32 @onig_get_options(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8, !tbaa !47
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @onig_get_case_fold_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+define dso_local i32 @onig_get_case_fold_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8, !tbaa !48
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @onig_get_syntax(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+define dso_local ptr @onig_get_syntax(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !tbaa !154
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @onig_number_of_captures(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+define dso_local i32 @onig_number_of_captures(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8, !tbaa !43
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i32 @onig_number_of_capture_histories(ptr noundef readnone captures(none) %0) local_unnamed_addr #12 {
+define dso_local noundef i32 @onig_number_of_capture_histories(ptr noundef readnone captures(none) %0) local_unnamed_addr #13 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @onig_copy_encoding(ptr noundef writeonly captures(none) initializes((0, 136)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #13 {
+define dso_local void @onig_copy_encoding(ptr noundef writeonly captures(none) initializes((0, 136)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #14 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 136, i1 false), !tbaa.struct !155
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i64 -13, 1) i64 @count_num_cache_opcodes_inner(ptr noundef %0, i16 noundef signext %1, i32 noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #0 {
@@ -15263,7 +15263,7 @@ define internal fastcc range(i64 -13, 1) i64 @count_num_cache_opcodes_inner(ptr 
   br label %77
 
 75:                                               ; preds = %69
-  %76 = tail call i32 @onigenc_mbclen(ptr noundef %26, ptr noundef nonnull %13, ptr noundef nonnull %15) #22
+  %76 = tail call i32 @onigenc_mbclen(ptr noundef %26, ptr noundef nonnull %13, ptr noundef nonnull %15) #23
   br label %77
 
 77:                                               ; preds = %73, %75
@@ -15484,10 +15484,10 @@ define internal fastcc range(i64 -13, 1) i64 @count_num_cache_opcodes_inner(ptr 
   ret i64 %.0
 }
 
-declare i32 @onig_is_in_code_range(ptr noundef, i32 noundef) local_unnamed_addr #10
+declare i32 @onig_is_in_code_range(ptr noundef, i32 noundef) local_unnamed_addr #11
 
-; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @find_cache_point(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef nonnull writeonly captures(none) %6) unnamed_addr #15 {
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc i64 @find_cache_point(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef nonnull writeonly captures(none) %6) unnamed_addr #16 {
   %8 = load i8, ptr %3, align 1, !tbaa !57
   %9 = and i8 %8, -2
   %spec.select = icmp eq i8 %9, 68
@@ -15600,8 +15600,8 @@ bsearch_cache_opcodes.exit:                       ; preds = %.lr.ph.i, %16, %7
   ret i64 %.0
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -15, 1) i32 @stack_double(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef readnone captures(address) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #0 {
+; Function Attrs: nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 -15, 1) i32 @stack_double(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef readnone captures(address) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #8 {
   %6 = load ptr, ptr %0, align 8, !tbaa !50
   %7 = load ptr, ptr %1, align 8, !tbaa !50
   %8 = load ptr, ptr %2, align 8, !tbaa !50
@@ -15619,12 +15619,12 @@ define internal fastcc range(i32 -15, 1) i32 @stack_double(ptr noundef nonnull c
 
 17:                                               ; preds = %14
   %18 = shl i64 %11, 1
-  %19 = tail call noalias ptr @malloc(i64 noundef %18) #21
+  %19 = tail call noalias ptr @malloc(i64 noundef %18) #22
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %19, ptr noundef nonnull align 1 %6, i64 noundef %11, i1 noundef false) #22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %19, ptr noundef nonnull align 1 %6, i64 noundef %11, i1 noundef false) #23
   %22 = shl nsw i64 %12, 1
   br label %39
 
@@ -15647,7 +15647,7 @@ define internal fastcc range(i32 -15, 1) i32 @stack_double(ptr noundef nonnull c
 32:                                               ; preds = %29, %26, %23
   %.151 = phi i64 [ %25, %26 ], [ %25, %23 ], [ %27, %29 ]
   %33 = mul i64 %.151, 48
-  %34 = tail call ptr @realloc(ptr noundef %6, i64 noundef %33) #23
+  %34 = tail call ptr @realloc(ptr noundef %6, i64 noundef %33) #24
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %39
 
@@ -15677,7 +15677,7 @@ define internal fastcc range(i32 -15, 1) i32 @stack_double(ptr noundef nonnull c
   ret i32 %.0
 }
 
-declare i32 @onigenc_ascii_is_code_ctype(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #10
+declare i32 @onigenc_ascii_is_code_ctype(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i32 0, 2) i32 @string_cmp_ic(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull captures(none) %3, i64 noundef %4, ptr noundef %5) unnamed_addr #0 {
@@ -15706,9 +15706,9 @@ define internal fastcc range(i32 0, 2) i32 @string_cmp_ic(ptr noundef %0, i32 no
 
 17:                                               ; preds = %.lr.ph28, %.loopexit
   %18 = load ptr, ptr %14, align 8, !tbaa !62
-  %19 = call i32 %18(i32 noundef %1, ptr noundef nonnull %7, ptr noundef %5, ptr noundef nonnull %8, ptr noundef %0) #22
+  %19 = call i32 %18(i32 noundef %1, ptr noundef nonnull %7, ptr noundef %5, ptr noundef nonnull %8, ptr noundef %0) #23
   %20 = load ptr, ptr %14, align 8, !tbaa !62
-  %21 = call i32 %20(i32 noundef %1, ptr noundef nonnull %10, ptr noundef %5, ptr noundef nonnull %9, ptr noundef %0) #22
+  %21 = call i32 %20(i32 noundef %1, ptr noundef nonnull %10, ptr noundef %5, ptr noundef nonnull %9, ptr noundef %0) #23
   %.not = icmp eq i32 %19, %21
   br i1 %.not, label %.preheader, label %.loopexit24
 
@@ -15753,11 +15753,11 @@ define internal fastcc range(i32 0, 2) i32 @string_cmp_ic(ptr noundef %0, i32 no
   ret i32 %.0
 }
 
-declare zeroext i1 @rb_reg_timeout_p(ptr noundef, ptr noundef) local_unnamed_addr #10
+declare zeroext i1 @rb_reg_timeout_p(ptr noundef, ptr noundef) local_unnamed_addr #11
 
-declare void @rb_thread_check_ints() local_unnamed_addr #10
+declare void @rb_thread_check_ints() local_unnamed_addr #11
 
-declare i32 @onigenc_mbclen_approximate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
+declare i32 @onigenc_mbclen_approximate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i64 -14, 1) i64 @init_cache_opcodes_inner(ptr noundef %0, i16 noundef signext %1, i32 noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #0 {
@@ -15988,7 +15988,7 @@ define internal fastcc range(i64 -14, 1) i64 @init_cache_opcodes_inner(ptr nound
   br label %82
 
 80:                                               ; preds = %74
-  %81 = tail call i32 @onigenc_mbclen(ptr noundef %31, ptr noundef nonnull %16, ptr noundef nonnull %18) #22
+  %81 = tail call i32 @onigenc_mbclen(ptr noundef %31, ptr noundef nonnull %16, ptr noundef nonnull %18) #23
   br label %82
 
 82:                                               ; preds = %78, %80
@@ -16339,56 +16339,57 @@ define internal fastcc range(i64 -14, 1) i64 @init_cache_opcodes_inner(ptr nound
   ret i64 %.0
 }
 
-declare ptr @onigenc_get_right_adjust_char_head_with_prev(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
+declare ptr @onigenc_get_right_adjust_char_head_with_prev(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #17
+declare i32 @llvm.smax.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #17
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #18
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #19
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #20
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #17
+declare i64 @llvm.umax.i64(i64, i64) #18
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind sspstrong willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind sspstrong willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind sspstrong willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #20 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #21 = { nounwind allocsize(0) }
-attributes #22 = { nounwind }
-attributes #23 = { nounwind allocsize(1) }
+attributes #8 = { nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #20 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #21 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #22 = { nounwind allocsize(0) }
+attributes #23 = { nounwind }
+attributes #24 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

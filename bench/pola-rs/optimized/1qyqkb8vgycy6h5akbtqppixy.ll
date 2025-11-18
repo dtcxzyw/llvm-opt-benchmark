@@ -372,7 +372,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN71_$LT$polars_arrow..types..PrimitiveType$u20$as$u20$core..fmt..Debug$GT$3fmt17h1def0982e06d9741E" = private unnamed_addr constant [16 x i64] [i64 4, i64 5, i64 5, i64 5, i64 6, i64 6, i64 5, i64 6, i64 6, i64 6, i64 7, i64 7, i64 7, i64 7, i64 6, i64 12], align 8
 @"switch.table._ZN71_$LT$polars_arrow..types..PrimitiveType$u20$as$u20$core..fmt..Debug$GT$3fmt17h1def0982e06d9741E.160" = private unnamed_addr constant [16 x ptr] [ptr @anon.b5d9d3cf873c3267a8f7de4845b47373.405, ptr @anon.b5d9d3cf873c3267a8f7de4845b47373.406, ptr @anon.b5d9d3cf873c3267a8f7de4845b47373.407, ptr @anon.b5d9d3cf873c3267a8f7de4845b47373.408, ptr @anon.b5d9d3cf873c3267a8f7de4845b47373.409, ptr @anon.b5d9d3cf873c3267a8f7de4845b47373.410, ptr @anon.b5d9d3cf873c3267a8f7de4845b47373.411, ptr @anon.b5d9d3cf873c3267a8f7de4845b47373.412, ptr @anon.b5d9d3cf873c3267a8f7de4845b47373.413, ptr @anon.b5d9d3cf873c3267a8f7de4845b47373.414, ptr @anon.b5d9d3cf873c3267a8f7de4845b47373.415, ptr @anon.b5d9d3cf873c3267a8f7de4845b47373.416, ptr @anon.b5d9d3cf873c3267a8f7de4845b47373.417, ptr @anon.b5d9d3cf873c3267a8f7de4845b47373.418, ptr @anon.b5d9d3cf873c3267a8f7de4845b47373.419, ptr @anon.b5d9d3cf873c3267a8f7de4845b47373.420], align 8
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden { i64, i64 } @"_ZN115_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9try_rfold17h7acd63d7bd8f50f6E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.val.i.i = load ptr, ptr %0, align 8, !alias.scope !3, !noalias !8, !nonnull !10, !noundef !10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -424,7 +424,7 @@ define hidden { i64, i64 } @"_ZN115_$LT$core..iter..adapters..skip..Skip$LT$I$GT
   ret { i64, i64 } %28
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden { i64, i64 } @"_ZN115_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9try_rfold17he19b287297cf84d9E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.val.i.i = load ptr, ptr %0, align 8, !alias.scope !25, !noalias !30, !nonnull !10, !noundef !10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -55577,7 +55577,7 @@ declare i64 @llvm.umax.i64(i64, i64) #30
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #30
 
-attributes #0 = { nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #0 = { nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

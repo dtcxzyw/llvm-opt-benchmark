@@ -10825,7 +10825,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5: ; preds = %_ZNS
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @__cxx_global_var_init.215() #9 section ".text.startup" comdat($_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE4top_E) {
   %1 = load i8, ptr @_ZGVN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE4top_E, align 8
   %2 = icmp eq i8 %1, 0
@@ -10839,7 +10839,7 @@ define internal void @__cxx_global_var_init.215() #9 section ".text.startup" com
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @__cxx_global_var_init.216() #9 section ".text.startup" comdat($_ZN4asio6detail30execution_context_service_baseINS0_9schedulerEE2idE) {
   %1 = load i8, ptr @_ZGVN4asio6detail30execution_context_service_baseINS0_9schedulerEE2idE, align 8
   %2 = icmp eq i8 %1, 0
@@ -10853,7 +10853,7 @@ define internal void @__cxx_global_var_init.216() #9 section ".text.startup" com
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @__cxx_global_var_init.217() #9 section ".text.startup" comdat($_ZN4asio6detail30execution_context_service_baseINS0_13epoll_reactorEE2idE) {
   %1 = load i8, ptr @_ZGVN4asio6detail30execution_context_service_baseINS0_13epoll_reactorEE2idE, align 8
   %2 = icmp eq i8 %1, 0
@@ -10867,7 +10867,7 @@ define internal void @__cxx_global_var_init.217() #9 section ".text.startup" com
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @__cxx_global_var_init.218() #9 section ".text.startup" comdat($_ZN4asio6detail10call_stackINS0_14strand_service11strand_implEhE4top_E) {
   %1 = load i8, ptr @_ZGVN4asio6detail10call_stackINS0_14strand_service11strand_implEhE4top_E, align 8
   %2 = icmp eq i8 %1, 0
@@ -10881,7 +10881,7 @@ define internal void @__cxx_global_var_init.218() #9 section ".text.startup" com
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @__cxx_global_var_init.219() #9 section ".text.startup" comdat($_ZN4asio6detail12service_baseINS0_14strand_serviceEE2idE) {
   %1 = load i8, ptr @_ZGVN4asio6detail12service_baseINS0_14strand_serviceEE2idE, align 8
   %2 = icmp eq i8 %1, 0
@@ -10895,7 +10895,7 @@ define internal void @__cxx_global_var_init.219() #9 section ".text.startup" com
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @__cxx_global_var_init.220() #9 section ".text.startup" comdat($_ZN4asio6detail10call_stackINS0_23strand_executor_service11strand_implEhE4top_E) {
   %1 = load i8, ptr @_ZGVN4asio6detail10call_stackINS0_23strand_executor_service11strand_implEhE4top_E, align 8
   %2 = icmp eq i8 %1, 0
@@ -10909,7 +10909,7 @@ define internal void @__cxx_global_var_init.220() #9 section ".text.startup" com
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @__cxx_global_var_init.221() #9 section ".text.startup" comdat($_ZN4asio6detail30execution_context_service_baseINS0_23reactive_socket_serviceINS_2ip3tcpEEEE2idE) {
   %1 = load i8, ptr @_ZGVN4asio6detail30execution_context_service_baseINS0_23reactive_socket_serviceINS_2ip3tcpEEEE2idE, align 8
   %2 = icmp eq i8 %1, 0
@@ -10923,7 +10923,7 @@ define internal void @__cxx_global_var_init.221() #9 section ".text.startup" com
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @__cxx_global_var_init.222() #9 section ".text.startup" comdat($_ZN4asio6detail30execution_context_service_baseINS0_22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS6_EEEEEEE2idE) {
   %1 = load i8, ptr @_ZGVN4asio6detail30execution_context_service_baseINS0_22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS6_EEEEEEE2idE, align 8
   %2 = icmp eq i8 %1, 0
@@ -10937,7 +10937,7 @@ define internal void @__cxx_global_var_init.222() #9 section ".text.startup" com
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @__cxx_global_var_init.223() #9 section ".text.startup" comdat($_ZN4asio6detail30execution_context_service_baseINS0_18signal_set_serviceEE2idE) {
   %1 = load i8, ptr @_ZGVN4asio6detail30execution_context_service_baseINS0_18signal_set_serviceEE2idE, align 8
   %2 = icmp eq i8 %1, 0
@@ -10951,7 +10951,7 @@ define internal void @__cxx_global_var_init.223() #9 section ".text.startup" com
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @__cxx_global_var_init.224() #9 section ".text.startup" comdat($_ZN4asio6detail30execution_context_service_baseINS0_22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212system_clockENS_11wait_traitsIS6_EEEEEEE2idE) {
   %1 = load i8, ptr @_ZGVN4asio6detail30execution_context_service_baseINS0_22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212system_clockENS_11wait_traitsIS6_EEEEEEE2idE, align 8
   %2 = icmp eq i8 %1, 0
@@ -95041,7 +95041,7 @@ attributes #5 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "
 attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { mustprogress norecurse uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -16639,7 +16639,7 @@ define hidden void @_ZN17cranelift_codegen6cursor6Cursor9at_bottom17h3d3067c4415
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden { i32, i32 } @_ZN17cranelift_codegen6cursor6Cursor13current_block17h58dd51c08ecfd105E.llvm.5781664634918412060(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #19 personality ptr @rust_eh_personality {
   %2 = load i32, ptr %0, align 8, !range !1467, !alias.scope !1468, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -16711,7 +16711,7 @@ define hidden void @_ZN17cranelift_codegen6cursor6Cursor11goto_bottom17h5944dbf2
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden { i32, i32 } @_ZN17cranelift_codegen6cursor6Cursor10next_block17hbee0edff1560e72dE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0) unnamed_addr #21 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1488)
   %2 = load i32, ptr %0, align 8, !range !1467, !alias.scope !1491, !noundef !4
@@ -17796,7 +17796,7 @@ define hidden void @_ZN17cranelift_codegen9flowgraph16ControlFlowGraph8add_edge1
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN17cranelift_codegen9flowgraph16ControlFlowGraph9pred_iter17h18ec4ec47db18d02E(ptr noalias noundef writeonly sret({ { ptr, { [16 x i32], [16 x i8], i64, {} }, i32, [1 x i32] } }) align 8 captures(none) dereferenceable(104) initializes((0, 100)) %0, ptr noalias noundef readonly align 8 dereferenceable(104) %1, i32 noundef %2) unnamed_addr #22 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !alias.scope !1758, !nonnull !4, !noundef !4
@@ -17817,7 +17817,7 @@ define void @_ZN17cranelift_codegen9flowgraph16ControlFlowGraph9pred_iter17h18ec
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN17cranelift_codegen9flowgraph16ControlFlowGraph9succ_iter17h8e82411dd541819bE(ptr noalias noundef writeonly sret({ ptr, { [16 x i32], [16 x i8], i64, {} }, i32, [1 x i32] }) align 8 captures(none) dereferenceable(104) initializes((0, 100)) %0, ptr noalias noundef readonly align 8 dereferenceable(104) %1, i32 noundef %2) unnamed_addr #22 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !alias.scope !1761, !nonnull !4, !noundef !4
@@ -18651,7 +18651,7 @@ define noundef i64 @_ZN17cranelift_codegen2ir6layout6Layout14block_capacity17h7c
   ret i64 %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef range(i8 -1, 2) i8 @_ZN17cranelift_codegen2ir6layout6Layout6pp_cmp17h57db9e6036541f3cE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(104) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #19 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8, !alias.scope !1911, !nonnull !4, !noundef !4
@@ -18987,7 +18987,7 @@ _ZN17cranelift_codegen2ir6layout6Layout14renumber_insts17h6fedcd23ec9f9ed0E.exit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZN17cranelift_codegen2ir6layout6Layout17is_block_inserted17h280d2caf96414022E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(104) %0, i32 noundef %1) unnamed_addr #19 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i32, ptr %3, align 8, !range !59, !noundef !4
@@ -19379,7 +19379,7 @@ define { i32, i32 } @_ZN17cranelift_codegen2ir6layout6Layout10last_block17h7c85e
   ret { i32, i32 } %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i32, i32 } @_ZN17cranelift_codegen2ir6layout6Layout10prev_block17h40e080aef53f74b9E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(104) %0, i32 noundef %1) unnamed_addr #19 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !1987, !nonnull !4, !noundef !4
@@ -19398,7 +19398,7 @@ define { i32, i32 } @_ZN17cranelift_codegen2ir6layout6Layout10prev_block17h40e08
   ret { i32, i32 } %13
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i32, i32 } @_ZN17cranelift_codegen2ir6layout6Layout10next_block17hb07a38ed67b8ee57E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(104) %0, i32 noundef %1) unnamed_addr #19 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !1990, !nonnull !4, !noundef !4
@@ -19443,7 +19443,7 @@ define void @_ZN17cranelift_codegen2ir6layout6Layout8set_cold17hf53da97bce31311d
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZN17cranelift_codegen2ir6layout6Layout7is_cold17h474a7ed195b9c609E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(104) %0, i32 noundef %1) unnamed_addr #19 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !1996, !nonnull !4, !noundef !4
@@ -19460,7 +19460,7 @@ define noundef zeroext i1 @_ZN17cranelift_codegen2ir6layout6Layout7is_cold17h474
   ret i1 %12
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i32, i32 } @"_ZN96_$LT$cranelift_codegen..ir..layout..Blocks$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h485ab9fc67cab38aE"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0) unnamed_addr #22 personality ptr @rust_eh_personality {
   %2 = load i32, ptr %0, align 8, !range !59, !noundef !4
   %trunc = trunc nuw i32 %2 to i1
@@ -19512,7 +19512,7 @@ define void @"_ZN103_$LT$$RF$cranelift_codegen..ir..layout..Layout$u20$as$u20$co
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i32, i32 } @_ZN17cranelift_codegen2ir6layout6Layout10inst_block17h9c8bf7518b9b6129E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(104) %0, i32 noundef %1) unnamed_addr #19 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !alias.scope !2009, !nonnull !4, !noundef !4
@@ -19648,7 +19648,7 @@ define void @_ZN17cranelift_codegen2ir6layout6Layout11append_inst17he4f037d25c85
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i32, i32 } @_ZN17cranelift_codegen2ir6layout6Layout10first_inst17h2e01dbf5f58429efE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(104) %0, i32 noundef %1) unnamed_addr #19 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !2026, !nonnull !4, !noundef !4
@@ -19668,7 +19668,7 @@ define { i32, i32 } @_ZN17cranelift_codegen2ir6layout6Layout10first_inst17h2e01d
   ret { i32, i32 } %14
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i32, i32 } @_ZN17cranelift_codegen2ir6layout6Layout9last_inst17h7f50ff431314fe34E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(104) %0, i32 noundef %1) unnamed_addr #19 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !2029, !nonnull !4, !noundef !4
@@ -19688,7 +19688,7 @@ define { i32, i32 } @_ZN17cranelift_codegen2ir6layout6Layout9last_inst17h7f50ff4
   ret { i32, i32 } %14
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i32, i32 } @_ZN17cranelift_codegen2ir6layout6Layout9next_inst17hc0b26d4c73cbef5eE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(104) %0, i32 noundef %1) unnamed_addr #19 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !alias.scope !2032, !nonnull !4, !noundef !4
@@ -19708,7 +19708,7 @@ define { i32, i32 } @_ZN17cranelift_codegen2ir6layout6Layout9next_inst17hc0b26d4
   ret { i32, i32 } %14
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i32, i32 } @_ZN17cranelift_codegen2ir6layout6Layout9prev_inst17h885df15bc08067b9E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(104) %0, i32 noundef %1) unnamed_addr #19 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !alias.scope !2035, !nonnull !4, !noundef !4
@@ -19956,7 +19956,7 @@ define void @_ZN17cranelift_codegen2ir6layout6Layout11remove_inst17ha518a64ce21b
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN17cranelift_codegen2ir6layout6Layout11block_insts17hded3ed67a39b6e5dE(ptr noalias noundef writeonly sret({ { i32, [1 x i32] }, { i32, [1 x i32] }, ptr }) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 dereferenceable(104) %1, i32 noundef %2) unnamed_addr #22 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !alias.scope !2069, !nonnull !4, !noundef !4
@@ -20236,7 +20236,7 @@ define noundef zeroext i1 @"_ZN80_$LT$cranelift_codegen..ir..layout..InstNode$u2
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i32, i32 } @"_ZN95_$LT$cranelift_codegen..ir..layout..Insts$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfff6b5acf22091b8E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0) unnamed_addr #22 personality ptr @rust_eh_personality {
   %2 = load i32, ptr %0, align 8, !range !59, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -20285,7 +20285,7 @@ define { i32, i32 } @"_ZN95_$LT$cranelift_codegen..ir..layout..Insts$u20$as$u20$
   br label %5
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i32, i32 } @"_ZN110_$LT$cranelift_codegen..ir..layout..Insts$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h917f29dd5dbe1c36E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0) unnamed_addr #22 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !range !59, !noundef !4
@@ -29273,10 +29273,10 @@ attributes #15 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-c
 attributes #16 = { inlinehint nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #17 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #18 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #19 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #20 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #21 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #22 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #21 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #22 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #23 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #24 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #25 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

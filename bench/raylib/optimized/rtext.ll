@@ -229,13 +229,13 @@ define hidden range(i32 0, 2) i32 @stbrp_pack_rects(ptr noundef captures(address
 
 ._crit_edge61.thread:                             ; preds = %3
   %8 = sext i32 %2 to i64
-  tail call void @qsort(ptr noundef %1, i64 noundef %8, i64 noundef 24, ptr noundef nonnull @rect_height_compare) #44
-  tail call void @qsort(ptr noundef %1, i64 noundef %8, i64 noundef 24, ptr noundef nonnull @rect_original_order) #44
+  tail call void @qsort(ptr noundef %1, i64 noundef %8, i64 noundef 24, ptr noundef nonnull @rect_height_compare) #46
+  tail call void @qsort(ptr noundef %1, i64 noundef %8, i64 noundef 24, ptr noundef nonnull @rect_original_order) #46
   br label %._crit_edge66
 
 .lr.ph60:                                         ; preds = %.lr.ph
   %9 = zext nneg i32 %2 to i64
-  tail call void @qsort(ptr noundef nonnull %1, i64 noundef %9, i64 noundef 24, ptr noundef nonnull @rect_height_compare) #44
+  tail call void @qsort(ptr noundef nonnull %1, i64 noundef %9, i64 noundef 24, ptr noundef nonnull @rect_height_compare) #46
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -669,7 +669,7 @@ stbrp__skyline_find_best_pos.exit.i:              ; preds = %155, %._crit_edge.t
   br i1 %exitcond73.not, label %._crit_edge61, label %15
 
 ._crit_edge61:                                    ; preds = %198
-  tail call void @qsort(ptr noundef nonnull %1, i64 noundef %9, i64 noundef 24, ptr noundef nonnull @rect_original_order) #44
+  tail call void @qsort(ptr noundef nonnull %1, i64 noundef %9, i64 noundef 24, ptr noundef nonnull @rect_original_order) #46
   %wide.trip.count77 = zext nneg i32 %2 to i64
   br label %.lr.ph65
 
@@ -758,7 +758,7 @@ define hidden void @LoadFontDefault() local_unnamed_addr #5 {
   store i32 224, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 4), align 4
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 8), align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %4 = tail call noalias dereferenceable_or_null(32768) ptr @calloc(i64 noundef 16384, i64 noundef 2) #45
+  %4 = tail call noalias dereferenceable_or_null(32768) ptr @calloc(i64 noundef 16384, i64 noundef 2) #47
   store ptr %4, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 128, ptr %5, align 8
@@ -818,7 +818,7 @@ define hidden void @LoadFontDefault() local_unnamed_addr #5 {
 
 26:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @LoadTextureFromImage(ptr dead_on_unwind nonnull writable sret(%struct.Texture) align 4 %2, ptr noundef nonnull byval(%struct.Image) align 8 %1) #44
+  call void @LoadTextureFromImage(ptr dead_on_unwind nonnull writable sret(%struct.Texture) align 4 %2, ptr noundef nonnull byval(%struct.Image) align 8 %1) #46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) getelementptr inbounds nuw (i8, ptr @defaultFont, i64 12), ptr noundef nonnull align 4 dereferenceable(20) %2, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 4), align 4
@@ -827,22 +827,22 @@ define hidden void @LoadFontDefault() local_unnamed_addr #5 {
 27:                                               ; preds = %26, %11
   %28 = phi i32 [ %.pre, %26 ], [ 224, %11 ]
   %29 = sext i32 %28 to i64
-  %30 = call noalias ptr @calloc(i64 noundef %29, i64 noundef 40) #45
+  %30 = call noalias ptr @calloc(i64 noundef %29, i64 noundef 40) #47
   store ptr %30, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 40), align 8
-  %31 = call noalias ptr @calloc(i64 noundef %29, i64 noundef 16) #45
+  %31 = call noalias ptr @calloc(i64 noundef %29, i64 noundef 16) #47
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 32), align 8
   %32 = icmp sgt i32 %28, 0
   br i1 %32, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %64, %27
-  call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %1) #44
+  call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %1) #46
   %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 32), align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 12
   %35 = load float, ptr %34, align 4
   %36 = fptosi float %35 to i32
   store i32 %36, ptr @defaultFont, align 8
   %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 4), align 4
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str, i32 noundef %37) #44
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str, i32 noundef %37) #46
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 
@@ -901,7 +901,7 @@ define hidden void @LoadFontDefault() local_unnamed_addr #5 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %69 = load <2 x float>, ptr %44, align 4
   %70 = load <2 x float>, ptr %52, align 4
-  call void @ImageFromImage(ptr dead_on_unwind nonnull writable sret(%struct.Image) align 8 %3, ptr noundef nonnull byval(%struct.Image) align 8 %1, <2 x float> %69, <2 x float> %70) #44
+  call void @ImageFromImage(ptr dead_on_unwind nonnull writable sret(%struct.Image) align 8 %3, ptr noundef nonnull byval(%struct.Image) align 8 %1, <2 x float> %69, <2 x float> %70) #46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
@@ -942,7 +942,7 @@ define hidden void @UnloadFontDefault() local_unnamed_addr #9 {
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 40), align 8
   %7 = getelementptr inbounds nuw %struct.GlyphInfo, ptr %6, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  tail call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %8) #44
+  tail call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %8) #46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 4), align 4
   %10 = sext i32 %9 to i64
@@ -952,15 +952,15 @@ define hidden void @UnloadFontDefault() local_unnamed_addr #9 {
 12:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull align 4 dereferenceable(20) getelementptr inbounds nuw (i8, ptr @defaultFont, i64 12), i64 20, i1 false)
-  tail call void @UnloadTexture(ptr noundef nonnull byval(%struct.Texture) align 8 %1) #44
+  tail call void @UnloadTexture(ptr noundef nonnull byval(%struct.Texture) align 8 %1) #46
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %13
 
 13:                                               ; preds = %12, %._crit_edge
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 40), align 8
-  tail call void @free(ptr noundef %14) #44
+  tail call void @free(ptr noundef %14) #46
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 32), align 8
-  tail call void @free(ptr noundef %15) #44
+  tail call void @free(ptr noundef %15) #46
   ret void
 }
 
@@ -969,7 +969,7 @@ declare void @UnloadTexture(ptr noundef byval(%struct.Texture) align 8) local_un
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @GetFontDefault(ptr dead_on_unwind noalias writable writeonly sret(%struct.Font) align 8 captures(none) initializes((0, 48)) %0) local_unnamed_addr #11 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) @defaultFont, i64 48, i1 false)
   ret void
@@ -1006,11 +1006,11 @@ define void @LoadFont(ptr dead_on_unwind noalias writable sret(%struct.Font) ali
   %28 = alloca %struct.Image, align 8
   %29 = alloca %struct.Texture, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
-  %30 = tail call zeroext i1 @IsFileExtension(ptr noundef %1, ptr noundef nonnull @.str.1) #44
+  %30 = tail call zeroext i1 @IsFileExtension(ptr noundef %1, ptr noundef nonnull @.str.1) #46
   br i1 %30, label %33, label %31
 
 31:                                               ; preds = %2
-  %32 = tail call zeroext i1 @IsFileExtension(ptr noundef %1, ptr noundef nonnull @.str.2) #44
+  %32 = tail call zeroext i1 @IsFileExtension(ptr noundef %1, ptr noundef nonnull @.str.2) #46
   br i1 %32, label %33, label %38
 
 33:                                               ; preds = %31, %2
@@ -1019,15 +1019,15 @@ define void @LoadFont(ptr dead_on_unwind noalias writable sret(%struct.Font) ali
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, i8 0, i64 48, i1 false), !alias.scope !5
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !5
   store i32 0, ptr %26, align 4, !noalias !5
-  %34 = call ptr @LoadFileData(ptr noundef %1, ptr noundef nonnull %26) #44, !noalias !5
+  %34 = call ptr @LoadFileData(ptr noundef %1, ptr noundef nonnull %26) #46, !noalias !5
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %LoadFontEx.exit, label %35
 
 35:                                               ; preds = %33
-  %36 = call ptr @GetFileExtension(ptr noundef %1) #44, !noalias !5
+  %36 = call ptr @GetFileExtension(ptr noundef %1) #46, !noalias !5
   %37 = load i32, ptr %26, align 4, !noalias !5
   call void @LoadFontFromMemory(ptr dead_on_unwind nonnull writable sret(%struct.Font) align 8 %27, ptr noundef %36, ptr noundef nonnull %34, i32 noundef %37, i32 noundef 32, ptr noundef null, i32 noundef 95)
-  call void @UnloadFileData(ptr noundef nonnull %34) #44, !noalias !5
+  call void @UnloadFileData(ptr noundef nonnull %34) #46, !noalias !5
   br label %LoadFontEx.exit
 
 LoadFontEx.exit:                                  ; preds = %33, %35
@@ -1037,7 +1037,7 @@ LoadFontEx.exit:                                  ; preds = %33, %35
   br label %238
 
 38:                                               ; preds = %31
-  %39 = tail call zeroext i1 @IsFileExtension(ptr noundef %1, ptr noundef nonnull @.str.3) #44
+  %39 = tail call zeroext i1 @IsFileExtension(ptr noundef %1, ptr noundef nonnull @.str.3) #46
   br i1 %39, label %40, label %234
 
 40:                                               ; preds = %38
@@ -1060,7 +1060,7 @@ LoadFontEx.exit:                                  ; preds = %33, %35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1032) %10, i8 0, i64 1032, i1 false), !noalias !8
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !8
   store i32 0, ptr %11, align 4, !noalias !8
-  %41 = tail call ptr @LoadFileText(ptr noundef %1) #44, !noalias !8
+  %41 = tail call ptr @LoadFileText(ptr noundef %1) #46, !noalias !8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %LoadBMFont.exit, label %.preheader155.i
 
@@ -1113,15 +1113,15 @@ GetLine.exit131.i:                                ; preds = %57, %.split.loop.ex
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull readonly align 1 %52, i64 %59, i1 false), !noalias !8
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 %59
   store i8 0, ptr %60, align 1, !noalias !8
-  %61 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.72) #46, !noalias !8
-  %62 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %61, ptr noundef nonnull @.str.73, ptr noundef nonnull %5, ptr noundef nonnull %11, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #44, !noalias !8
+  %61 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.72) #48, !noalias !8
+  %62 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %61, ptr noundef nonnull @.str.73, ptr noundef nonnull %5, ptr noundef nonnull %11, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #46, !noalias !8
   %63 = sext i32 %.0.lcssa.i129.i to i64
   %64 = getelementptr i8, ptr %52, i64 %63
   %65 = icmp slt i32 %62, 4
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %GetLine.exit131.i
-  call void @UnloadFileText(ptr noundef nonnull %41) #44, !noalias !8
+  call void @UnloadFileText(ptr noundef nonnull %41) #46, !noalias !8
   br label %LoadBMFont.exit
 
 67:                                               ; preds = %GetLine.exit131.i
@@ -1130,7 +1130,7 @@ GetLine.exit131.i:                                ; preds = %57, %.split.loop.ex
   br i1 %69, label %.thread219.i, label %70
 
 .thread219.i:                                     ; preds = %67
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.74, ptr noundef %1, i32 noundef %68, i32 noundef 8) #44, !noalias !8
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.74, ptr noundef %1, i32 noundef %68, i32 noundef 8) #46, !noalias !8
   store i32 8, ptr %9, align 4, !noalias !8
   %.0115163220.i = getelementptr i8, ptr %64, i64 1
   br label %.preheader.i.preheader
@@ -1175,9 +1175,9 @@ GetLine.exit137.i:                                ; preds = %75, %.split.loop.ex
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull readonly align 1 %.0115166.i, i64 %77, i1 false), !noalias !8
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 %77
   store i8 0, ptr %78, align 1, !noalias !8
-  %79 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.75) #46, !noalias !8
+  %79 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.75) #48, !noalias !8
   %80 = getelementptr inbounds nuw [129 x i8], ptr %10, i64 %indvars.iv.i
-  %81 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %79, ptr noundef nonnull @.str.76, ptr noundef nonnull %80) #44, !noalias !8
+  %81 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %79, ptr noundef nonnull @.str.76, ptr noundef nonnull %80) #46, !noalias !8
   %82 = icmp slt i32 %81, 1
   br i1 %82, label %88, label %83
 
@@ -1192,7 +1192,7 @@ GetLine.exit137.i:                                ; preds = %75, %.split.loop.ex
   br i1 %.not.i7, label %.preheader.i, label %.thread.preheader.i
 
 88:                                               ; preds = %GetLine.exit137.i
-  call void @UnloadFileText(ptr noundef nonnull %41) #44, !noalias !8
+  call void @UnloadFileText(ptr noundef nonnull %41) #46, !noalias !8
   br label %LoadBMFont.exit
 
 .thread.i:                                        ; preds = %92, %.thread.preheader.i
@@ -1217,21 +1217,21 @@ GetLine.exit143.i:                                ; preds = %92, %.split.loop.ex
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull readonly align 1 %.0115.lcssa.i, i64 %94, i1 false), !noalias !8
   %95 = getelementptr inbounds nuw i8, ptr %4, i64 %94
   store i8 0, ptr %95, align 1, !noalias !8
-  %96 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.77) #46, !noalias !8
-  %97 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %96, ptr noundef nonnull @.str.78, ptr noundef nonnull %6) #44, !noalias !8
+  %96 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.77) #48, !noalias !8
+  %97 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %96, ptr noundef nonnull @.str.78, ptr noundef nonnull %6) #46, !noalias !8
   %98 = sext i32 %.0.lcssa.i141.i to i64
   %99 = getelementptr i8, ptr %.0115.lcssa.i, i64 %98
   %100 = icmp slt i32 %97, 1
   br i1 %100, label %101, label %102
 
 101:                                              ; preds = %GetLine.exit143.i
-  call void @UnloadFileText(ptr noundef nonnull %41) #44, !noalias !8
+  call void @UnloadFileText(ptr noundef nonnull %41) #46, !noalias !8
   br label %LoadBMFont.exit
 
 102:                                              ; preds = %GetLine.exit143.i
   %103 = load i32, ptr %9, align 4, !noalias !8
   %104 = sext i32 %103 to i64
-  %105 = call noalias ptr @calloc(i64 noundef %104, i64 noundef 24) #45
+  %105 = call noalias ptr @calloc(i64 noundef %104, i64 noundef 24) #47
   %106 = icmp sgt i32 %103, 0
   br i1 %106, label %.lr.ph171.i, label %._crit_edge172.thread.i
 
@@ -1250,10 +1250,10 @@ GetLine.exit143.i:                                ; preds = %92, %.split.loop.ex
   %indvars.iv202.i = phi i64 [ %indvars.iv.next203.i, %134 ], [ 0, %102 ]
   %108 = getelementptr inbounds nuw %struct.Image, ptr %105, i64 %indvars.iv202.i
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !8
-  %109 = call ptr @GetDirectoryPath(ptr noundef %1) #44, !noalias !8
+  %109 = call ptr @GetDirectoryPath(ptr noundef %1) #46, !noalias !8
   %110 = getelementptr inbounds nuw [129 x i8], ptr %10, i64 %indvars.iv202.i
   %111 = call ptr (ptr, ...) @TextFormat(ptr noundef nonnull @.str.79, ptr noundef %109, ptr noundef nonnull %110), !noalias !8
-  call void @LoadImage(ptr dead_on_unwind nonnull writable sret(%struct.Image) align 8 %12, ptr noundef nonnull %111) #44, !noalias !8
+  call void @LoadImage(ptr dead_on_unwind nonnull writable sret(%struct.Image) align 8 %12, ptr noundef nonnull %111) #46, !noalias !8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %108, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false), !noalias !8
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !8
   %112 = getelementptr inbounds nuw i8, ptr %108, i64 20
@@ -1268,7 +1268,7 @@ GetLine.exit143.i:                                ; preds = %92, %.split.loop.ex
   %119 = load i32, ptr %118, align 4, !noalias !8
   %120 = mul nsw i32 %119, %117
   %121 = sext i32 %120 to i64
-  %122 = call noalias ptr @calloc(i64 noundef %121, i64 noundef 2) #45
+  %122 = call noalias ptr @calloc(i64 noundef %121, i64 noundef 2) #47
   %123 = icmp sgt i32 %120, 0
   br i1 %123, label %.lr.ph.i, label %._crit_edge.i
 
@@ -1283,7 +1283,7 @@ GetLine.exit143.i:                                ; preds = %92, %.split.loop.ex
   br label %129
 
 ._crit_edge.i:                                    ; preds = %129, %115
-  call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %108) #44, !noalias !8
+  call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %108) #46, !noalias !8
   store ptr %122, ptr %108, align 8, !noalias !8
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %108, i64 16
   store i32 1, ptr %.sroa.8.0..sroa_idx.i, align 8, !noalias !8
@@ -1318,7 +1318,7 @@ GetLine.exit143.i:                                ; preds = %92, %.split.loop.ex
 .lr.ph176.i:                                      ; preds = %._crit_edge172.i, %.lr.ph176.i
   %indvars.iv205.i = phi i64 [ %indvars.iv.next206.i, %.lr.ph176.i ], [ 1, %._crit_edge172.i ]
   %139 = getelementptr inbounds nuw %struct.Image, ptr %105, i64 %indvars.iv205.i
-  call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %139) #44, !noalias !8
+  call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %139) #46, !noalias !8
   %indvars.iv.next206.i = add nuw nsw i64 %indvars.iv205.i, 1
   %.pr.i = load i32, ptr %9, align 4, !noalias !8
   %140 = sext i32 %.pr.i to i64
@@ -1329,7 +1329,7 @@ GetLine.exit143.i:                                ; preds = %92, %.split.loop.ex
   %143 = load i32, ptr %7, align 4, !noalias !8
   %144 = load i32, ptr %8, align 4, !noalias !8
   %145 = mul nsw i32 %144, %.pr.i
-  call void @ImageResizeCanvas(ptr noundef nonnull %13, i32 noundef %143, i32 noundef %145, i32 noundef 0, i32 noundef 0, i32 -16777216) #44, !noalias !8
+  call void @ImageResizeCanvas(ptr noundef nonnull %13, i32 noundef %143, i32 noundef %145, i32 noundef 0, i32 noundef 0, i32 -16777216) #46, !noalias !8
   %146 = load i32, ptr %9, align 4, !noalias !8
   %147 = icmp sgt i32 %146, 1
   br i1 %147, label %.lr.ph181.i, label %.loopexit.i
@@ -1347,7 +1347,7 @@ GetLine.exit143.i:                                ; preds = %92, %.split.loop.ex
   %154 = fmul float %153, %151
   %.sroa.023.4.vec.insert.i = insertelement <2 x float> <float 0.000000e+00, float poison>, float %154, i64 1
   %155 = getelementptr inbounds nuw %struct.Image, ptr %105, i64 %indvars.iv208.i
-  call void @ImageDraw(ptr noundef nonnull %13, ptr noundef nonnull byval(%struct.Image) align 8 %155, <2 x float> zeroinitializer, <2 x float> %.sroa.528.12.vec.insert.i, <2 x float> %.sroa.023.4.vec.insert.i, <2 x float> %.sroa.528.12.vec.insert.i, i32 -1) #44, !noalias !8
+  call void @ImageDraw(ptr noundef nonnull %13, ptr noundef nonnull byval(%struct.Image) align 8 %155, <2 x float> zeroinitializer, <2 x float> %.sroa.528.12.vec.insert.i, <2 x float> %.sroa.023.4.vec.insert.i, <2 x float> %.sroa.528.12.vec.insert.i, i32 -1) #46, !noalias !8
   %indvars.iv.next209.i = add nuw nsw i64 %indvars.iv208.i, 1
   %156 = load i32, ptr %9, align 4, !noalias !8
   %157 = sext i32 %156 to i64
@@ -1355,14 +1355,14 @@ GetLine.exit143.i:                                ; preds = %92, %.split.loop.ex
   br i1 %158, label %.lr.ph181.i, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph181.i, %142, %._crit_edge177.i, %._crit_edge172.i, %._crit_edge172.thread.i
-  call void @free(ptr noundef nonnull %105) #44, !noalias !8
+  call void @free(ptr noundef nonnull %105) #46, !noalias !8
   %159 = load i8, ptr @isGpuReady, align 1, !range !3, !noalias !8, !noundef !4
   %160 = trunc nuw i8 %159 to i1
   br i1 %160, label %161, label %162
 
 161:                                              ; preds = %.loopexit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !8
-  call void @LoadTextureFromImage(ptr dead_on_unwind nonnull writable sret(%struct.Texture) align 4 %14, ptr noundef nonnull byval(%struct.Image) align 8 %13) #44, !noalias !8
+  call void @LoadTextureFromImage(ptr dead_on_unwind nonnull writable sret(%struct.Texture) align 4 %14, ptr noundef nonnull byval(%struct.Image) align 8 %13) #46, !noalias !8
   %.sroa.8.12.copyload = load i32, ptr %14, align 4
   %.sroa.10.12..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.10.12..sroa_idx, i64 16, i1 false)
@@ -1375,9 +1375,9 @@ GetLine.exit143.i:                                ; preds = %92, %.split.loop.ex
   %164 = load i32, ptr %6, align 4, !noalias !8
   %165 = sext i32 %164 to i64
   %166 = mul nsw i64 %165, 40
-  %167 = call noalias ptr @malloc(i64 noundef %166) #47
+  %167 = call noalias ptr @malloc(i64 noundef %166) #49
   %168 = shl nsw i64 %165, 4
-  %169 = call noalias ptr @malloc(i64 noundef %168) #47
+  %169 = call noalias ptr @malloc(i64 noundef %168) #49
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !8
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !8
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !8
@@ -1391,8 +1391,8 @@ GetLine.exit143.i:                                ; preds = %92, %.split.loop.ex
   br i1 %170, label %.lr.ph185.i, label %._crit_edge186.i
 
 ._crit_edge186.i:                                 ; preds = %222, %162
-  call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %13) #44, !noalias !8
-  call void @UnloadFileText(ptr noundef nonnull %41) #44, !noalias !8
+  call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %13) #46, !noalias !8
+  call void @UnloadFileText(ptr noundef nonnull %41) #46, !noalias !8
   %171 = load i8, ptr @isGpuReady, align 1, !range !3, !noalias !8, !noundef !4
   %172 = trunc nuw i8 %171 to i1
   %173 = icmp eq i32 %.sroa.8.0, 0
@@ -1427,7 +1427,7 @@ GetLine.exit149.i:                                ; preds = %178, %.split.loop.e
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull readonly align 1 %.2.i, i64 %180, i1 false), !noalias !8
   %181 = getelementptr inbounds nuw i8, ptr %4, i64 %180
   store i8 0, ptr %181, align 1, !noalias !8
-  %182 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %4, ptr noundef nonnull @.str.80, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %23) #44, !noalias !8
+  %182 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %4, ptr noundef nonnull @.str.80, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %23) #46, !noalias !8
   %183 = sext i32 %.0.lcssa.i147.i to i64
   %184 = getelementptr i8, ptr %.2.i, i64 %183
   %185 = icmp eq i32 %182, 9
@@ -1471,7 +1471,7 @@ GetLine.exit149.i:                                ; preds = %178, %.split.loop.e
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !8
   %210 = load <2 x float>, ptr %187, align 4, !noalias !8
   %211 = load <2 x float>, ptr %.sroa.36.0..sroa_idx.i, align 4, !noalias !8
-  call void @ImageFromImage(ptr dead_on_unwind nonnull writable sret(%struct.Image) align 8 %24, ptr noundef nonnull byval(%struct.Image) align 8 %13, <2 x float> %210, <2 x float> %211) #44, !noalias !8
+  call void @ImageFromImage(ptr dead_on_unwind nonnull writable sret(%struct.Image) align 8 %24, ptr noundef nonnull byval(%struct.Image) align 8 %13, <2 x float> %210, <2 x float> %211) #46, !noalias !8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %209, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false), !noalias !8
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !8
   br label %222
@@ -1487,10 +1487,10 @@ GetLine.exit149.i:                                ; preds = %178, %.split.loop.e
   %219 = getelementptr inbounds nuw i8, ptr %215, i64 12
   %220 = load float, ptr %219, align 4, !noalias !8
   %221 = fptosi float %220 to i32
-  call void @GenImageColor(ptr dead_on_unwind nonnull writable sret(%struct.Image) align 8 %25, i32 noundef %218, i32 noundef %221, i32 -16777216) #44, !noalias !8
+  call void @GenImageColor(ptr dead_on_unwind nonnull writable sret(%struct.Image) align 8 %25, i32 noundef %218, i32 noundef %221, i32 -16777216) #46, !noalias !8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %214, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false), !noalias !8
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !8
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.81, ptr noundef %1) #44, !noalias !8
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.81, ptr noundef %1) #46, !noalias !8
   br label %222
 
 222:                                              ; preds = %212, %186
@@ -1513,7 +1513,7 @@ GetLine.exit149.i:                                ; preds = %178, %.split.loop.e
   br i1 %170, label %.lr.ph.preheader.i.i.i, label %UnloadFontData.exit.i.thread225.i
 
 UnloadFontData.exit.i.thread225.i:                ; preds = %.preheader.i.i.i
-  call void @free(ptr noundef nonnull %167) #44, !noalias !8
+  call void @free(ptr noundef nonnull %167) #46, !noalias !8
   br label %UnloadFontData.exit.i.thread.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %.preheader.i.i.i
@@ -1524,7 +1524,7 @@ UnloadFontData.exit.i.thread225.i:                ; preds = %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
   %228 = getelementptr inbounds nuw %struct.GlyphInfo, ptr %167, i64 %indvars.iv.i.i.i
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 16
-  call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %229) #44, !noalias !8
+  call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %229) #46, !noalias !8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %UnloadFontData.exit.i.i, label %.lr.ph.i.i.i
@@ -1532,7 +1532,7 @@ UnloadFontData.exit.i.thread225.i:                ; preds = %.preheader.i.i.i
 UnloadFontData.exit.i.i:                          ; preds = %.lr.ph.i.i.i
   %.pre.pre.i = load i8, ptr @isGpuReady, align 1, !range !3, !noalias !8
   %230 = trunc nuw i8 %.pre.pre.i to i1
-  call void @free(ptr noundef nonnull %167) #44, !noalias !8
+  call void @free(ptr noundef nonnull %167) #46, !noalias !8
   br i1 %230, label %UnloadFontData.exit.i.thread.i, label %231
 
 UnloadFontData.exit.i.thread.i:                   ; preds = %UnloadFontData.exit.i.i, %UnloadFontData.exit.i.thread225.i, %227
@@ -1540,12 +1540,12 @@ UnloadFontData.exit.i.thread.i:                   ; preds = %UnloadFontData.exit
   store i32 0, ptr %3, align 8, !noalias !8
   %.sroa.6.12..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6.12..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
-  call void @UnloadTexture(ptr noundef nonnull byval(%struct.Texture) align 8 %3) #44, !noalias !8
+  call void @UnloadTexture(ptr noundef nonnull byval(%struct.Texture) align 8 %3) #46, !noalias !8
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !8
   br label %231
 
 231:                                              ; preds = %UnloadFontData.exit.i.thread.i, %UnloadFontData.exit.i.i
-  call void @free(ptr noundef %169) #44, !noalias !8
+  call void @free(ptr noundef %169) #46, !noalias !8
   %.sroa.8.0.copyload11.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 12), align 4
   br label %UnloadFont.exit.i
 
@@ -1557,11 +1557,11 @@ UnloadFont.exit.i:                                ; preds = %231, %226
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @defaultFont, i64 16), i64 16, i1 false)
   %.sroa.11.0.copyload12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 32), align 8
   %.sroa.12.0.copyload13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 40), align 8
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.82, ptr noundef %1) #44, !noalias !8
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.82, ptr noundef %1) #46, !noalias !8
   br label %233
 
 232:                                              ; preds = %._crit_edge186.i
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.83, ptr noundef %1, i32 noundef %164) #44, !noalias !8
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.83, ptr noundef %1, i32 noundef %164) #46, !noalias !8
   br label %233
 
 233:                                              ; preds = %232, %UnloadFont.exit.i
@@ -1616,7 +1616,7 @@ LoadBMFont.exit:                                  ; preds = %40, %66, %88, %101,
 
 234:                                              ; preds = %38
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  call void @LoadImage(ptr dead_on_unwind nonnull writable sret(%struct.Image) align 8 %28, ptr noundef %1) #44
+  call void @LoadImage(ptr dead_on_unwind nonnull writable sret(%struct.Image) align 8 %28, ptr noundef %1) #46
   %235 = load ptr, ptr %28, align 8
   %.not = icmp eq ptr %235, null
   br i1 %.not, label %237, label %236
@@ -1626,7 +1626,7 @@ LoadBMFont.exit:                                  ; preds = %40, %66, %88, %101,
   br label %237
 
 237:                                              ; preds = %236, %234
-  call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %28) #44
+  call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %28) #46
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %238
 
@@ -1642,15 +1642,15 @@ LoadBMFont.exit:                                  ; preds = %40, %66, %88, %101,
   br i1 %244, label %245, label %246
 
 245:                                              ; preds = %241
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.4, ptr noundef %1) #44
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.4, ptr noundef %1) #46
   br label %247
 
 246:                                              ; preds = %241
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %29, ptr noundef nonnull align 4 dereferenceable(20) %242, i64 20, i1 false)
-  call void @SetTextureFilter(ptr noundef nonnull byval(%struct.Texture) align 8 %29, i32 noundef 0) #44
+  call void @SetTextureFilter(ptr noundef nonnull byval(%struct.Texture) align 8 %29, i32 noundef 0) #46
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.5, i32 noundef 32, i32 noundef 95) #44
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.5, i32 noundef 32, i32 noundef 95) #46
   br label %247
 
 247:                                              ; preds = %245, %246, %238
@@ -1668,15 +1668,15 @@ define void @LoadFontEx(ptr dead_on_unwind noalias writable writeonly sret(%stru
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
-  %7 = call ptr @LoadFileData(ptr noundef %1, ptr noundef nonnull %6) #44
+  %7 = call ptr @LoadFileData(ptr noundef %1, ptr noundef nonnull %6) #46
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %5
-  %9 = call ptr @GetFileExtension(ptr noundef %1) #44
+  %9 = call ptr @GetFileExtension(ptr noundef %1) #46
   %10 = load i32, ptr %6, align 4
   call void @LoadFontFromMemory(ptr dead_on_unwind nonnull writable sret(%struct.Font) align 8 %0, ptr noundef %9, ptr noundef nonnull %7, i32 noundef %10, i32 noundef %2, ptr noundef %3, i32 noundef %4)
-  call void @UnloadFileData(ptr noundef nonnull %7) #44
+  call void @UnloadFileData(ptr noundef nonnull %7) #46
   br label %11
 
 11:                                               ; preds = %8, %5
@@ -1700,7 +1700,7 @@ define void @LoadFontFromImage(ptr dead_on_unwind noalias writable sret(%struct.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %5, i8 0, i64 1024, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %6, i8 0, i64 4096, i1 false)
-  %9 = tail call ptr @LoadImageColors(ptr noundef nonnull byval(%struct.Image) align 8 %1) #44
+  %9 = tail call ptr @LoadImageColors(ptr noundef nonnull byval(%struct.Image) align 8 %1) #46
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp sgt i32 %11, 0
@@ -2062,7 +2062,7 @@ define void @LoadFontFromImage(ptr dead_on_unwind noalias writable sret(%struct.
 
 185:                                              ; preds = %._crit_edge
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  tail call void @LoadTextureFromImage(ptr dead_on_unwind nonnull writable sret(%struct.Texture) align 4 %186, ptr noundef nonnull byval(%struct.Image) align 8 %7) #44
+  tail call void @LoadTextureFromImage(ptr dead_on_unwind nonnull writable sret(%struct.Texture) align 4 %186, ptr noundef nonnull byval(%struct.Image) align 8 %7) #46
   br label %187
 
 187:                                              ; preds = %185, %._crit_edge
@@ -2072,11 +2072,11 @@ define void @LoadFontFromImage(ptr dead_on_unwind noalias writable sret(%struct.
   store i32 0, ptr %189, align 8
   %190 = sext i32 %.0182.lcssa to i64
   %191 = mul nsw i64 %190, 40
-  %192 = tail call noalias ptr @malloc(i64 noundef %191) #47
+  %192 = tail call noalias ptr @malloc(i64 noundef %191) #49
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %192, ptr %193, align 8
   %194 = shl nsw i64 %190, 4
-  %195 = tail call noalias ptr @malloc(i64 noundef %194) #47
+  %195 = tail call noalias ptr @malloc(i64 noundef %194) #49
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %195, ptr %196, align 8
   %197 = icmp sgt i32 %.0182.lcssa, 0
@@ -2087,7 +2087,7 @@ define void @LoadFontFromImage(ptr dead_on_unwind noalias writable sret(%struct.
   br label %.lr.ph266
 
 ._crit_edge267:                                   ; preds = %.lr.ph266, %187
-  call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %7) #44
+  call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %7) #46
   %198 = getelementptr inbounds nuw i8, ptr %195, i64 12
   %199 = load float, ptr %198, align 4
   %200 = fptosi float %199 to i32
@@ -2115,7 +2115,7 @@ define void @LoadFontFromImage(ptr dead_on_unwind noalias writable sret(%struct.
   %210 = load <2 x float>, ptr %205, align 16
   %211 = getelementptr inbounds nuw i8, ptr %205, i64 8
   %212 = load <2 x float>, ptr %211, align 8
-  call void @ImageFromImage(ptr dead_on_unwind nonnull writable sret(%struct.Image) align 8 %8, ptr noundef nonnull byval(%struct.Image) align 8 %7, <2 x float> %210, <2 x float> %212) #44
+  call void @ImageFromImage(ptr dead_on_unwind nonnull writable sret(%struct.Image) align 8 %8, ptr noundef nonnull byval(%struct.Image) align 8 %7, <2 x float> %210, <2 x float> %212) #46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %209, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
@@ -2164,7 +2164,7 @@ define void @LoadFontFromMemory(ptr dead_on_unwind noalias writable sret(%struct
   br i1 %exitcond.not.i, label %TextToLower.exit, label %.preheader.i
 
 TextToLower.exit:                                 ; preds = %.preheader.i, %14, %7
-  %18 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @TextToLower.buffer, i64 noundef 15) #44
+  %18 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @TextToLower.buffer, i64 noundef 15) #46
   store i32 %4, ptr %0, align 8
   %19 = icmp sgt i32 %6, 0
   %20 = select i1 %19, i32 %6, i32 95
@@ -2199,7 +2199,7 @@ TextToLower.exit:                                 ; preds = %.preheader.i, %14, 
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  call void @LoadTextureFromImage(ptr dead_on_unwind nonnull writable sret(%struct.Texture) align 4 %35, ptr noundef nonnull byval(%struct.Image) align 8 %9) #44
+  call void @LoadTextureFromImage(ptr dead_on_unwind nonnull writable sret(%struct.Texture) align 4 %35, ptr noundef nonnull byval(%struct.Image) align 8 %9) #46
   br label %36
 
 36:                                               ; preds = %34, %30
@@ -2214,9 +2214,9 @@ TextToLower.exit:                                 ; preds = %.preheader.i, %14, 
   br label %42
 
 ._crit_edge:                                      ; preds = %42, %36
-  call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %9) #44
+  call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %9) #46
   %41 = load i32, ptr %0, align 8
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.5, i32 noundef %41, i32 noundef %37) #44
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.5, i32 noundef %41, i32 noundef %37) #46
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %49
 
@@ -2224,13 +2224,13 @@ TextToLower.exit:                                 ; preds = %.preheader.i, %14, 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
   %43 = getelementptr inbounds nuw %struct.GlyphInfo, ptr %39, i64 %indvars.iv
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %44) #44
+  call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %44) #46
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %45 = getelementptr inbounds nuw %struct.Rectangle, ptr %40, i64 %indvars.iv
   %46 = load <2 x float>, ptr %45, align 4
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %48 = load <2 x float>, ptr %47, align 4
-  call void @ImageFromImage(ptr dead_on_unwind nonnull writable sret(%struct.Image) align 8 %10, ptr noundef nonnull byval(%struct.Image) align 8 %9, <2 x float> %46, <2 x float> %48) #44
+  call void @ImageFromImage(ptr dead_on_unwind nonnull writable sret(%struct.Image) align 8 %10, ptr noundef nonnull byval(%struct.Image) align 8 %9, <2 x float> %46, <2 x float> %48) #46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2258,7 +2258,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #13
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #14
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef nonnull ptr @TextToLower(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #15 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) @TextToLower.buffer, i8 0, i64 1024, i1 false)
   %.not = icmp eq ptr %0, null
@@ -2294,7 +2294,7 @@ define zeroext i1 @TextIsEqual(ptr noundef readonly captures(address_is_null) %0
   br i1 %or.cond, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #46
+  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #48
   %7 = icmp eq i32 %6, 0
   br label %8
 
@@ -3801,7 +3801,7 @@ stbtt__find_table.exit332.thread.i.i:             ; preds = %712, %731, %stbtt__
 
 828:                                              ; preds = %794
   %829 = shl nuw nsw i64 %827, 2
-  %830 = tail call noalias ptr @malloc(i64 noundef %829) #47
+  %830 = tail call noalias ptr @malloc(i64 noundef %829) #49
   br label %831
 
 831:                                              ; preds = %828, %831
@@ -3816,7 +3816,7 @@ stbtt__find_table.exit332.thread.i.i:             ; preds = %712, %731, %stbtt__
 
 .loopexit211:                                     ; preds = %831, %794
   %.097 = phi ptr [ %3, %794 ], [ %830, %831 ]
-  %835 = tail call noalias ptr @calloc(i64 noundef %827, i64 noundef 40) #45
+  %835 = tail call noalias ptr @calloc(i64 noundef %827, i64 noundef 40) #47
   %836 = fcmp oeq float %823, 0.000000e+00
   %837 = fneg float %823
   %838 = fcmp une float %823, 0.000000e+00
@@ -3876,7 +3876,7 @@ stbtt__find_table.exit332.thread.i.i:             ; preds = %712, %731, %stbtt__
 865:                                              ; preds = %854
   %866 = mul nsw i32 %862, %859
   %867 = sext i32 %866 to i64
-  %868 = call noalias ptr @malloc(i64 noundef %867) #47
+  %868 = call noalias ptr @malloc(i64 noundef %867) #49
   %.not40.i.i.i = icmp eq ptr %868, null
   br i1 %.not40.i.i.i, label %stbtt_GetCodepointBitmap.exit, label %869
 
@@ -3910,7 +3910,7 @@ stbtt__find_table.exit332.thread.i.i:             ; preds = %712, %731, %stbtt__
 878:                                              ; preds = %._crit_edge.i.i.i.i.i
   %879 = zext nneg i32 %spec.select.i.i.i.i.i to i64
   %880 = shl nuw nsw i64 %879, 2
-  %881 = call noalias ptr @malloc(i64 noundef %880) #47
+  %881 = call noalias ptr @malloc(i64 noundef %880) #49
   %882 = icmp eq ptr %881, null
   br i1 %882, label %stbtt_FlattenCurves.exit.thread.i.i.i.i, label %.preheader.split.us.i.i.i.i.i
 
@@ -3925,7 +3925,7 @@ stbtt__find_table.exit332.thread.i.i:             ; preds = %712, %731, %stbtt__
 886:                                              ; preds = %.preheader.split.us.i.i.i.i.i
   %887 = sext i32 %883 to i64
   %888 = shl nsw i64 %887, 3
-  %889 = call noalias ptr @malloc(i64 noundef %888) #47
+  %889 = call noalias ptr @malloc(i64 noundef %888) #49
   %890 = icmp eq ptr %889, null
   br i1 %890, label %.split.us.i.i.i.i.i, label %.lr.ph15.us.i.i.i.i.i
 
@@ -4063,7 +4063,7 @@ stbtt__add_point.exit.us.i.i.i.i.i:               ; preds = %959, %951, %941, %9
   br i1 %885, label %.preheader.split.us.i.i.i.i.i, label %stbtt_FlattenCurves.exit.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %886
-  call void @free(ptr noundef nonnull %881) #44
+  call void @free(ptr noundef nonnull %881) #46
   br label %stbtt_FlattenCurves.exit.thread.i.i.i.i
 
 stbtt_FlattenCurves.exit.thread.i.i.i.i:          ; preds = %.split.us.i.i.i.i.i, %878, %._crit_edge.i.i.i.i.i, %869
@@ -4088,7 +4088,7 @@ stbtt_FlattenCurves.exit.i.i.i.i:                 ; preds = %._crit_edge16.us.i.
   %970 = add nsw i32 %969, 1
   %971 = sext i32 %970 to i64
   %972 = mul nsw i64 %971, 20
-  %973 = call noalias ptr @malloc(i64 noundef %972) #47
+  %973 = call noalias ptr @malloc(i64 noundef %972) #49
   %974 = icmp eq ptr %973, null
   br i1 %974, label %stbtt__rasterize.exit.i.i.i.i, label %.lr.ph15.i.i.i.i.i
 
@@ -4247,7 +4247,7 @@ stbtt__sort_edges.exit.i.i.i.i.i:                 ; preds = %1030, %._crit_edge1
   %1034 = or disjoint i32 %1033, 1
   %1035 = zext nneg i32 %1034 to i64
   %1036 = shl nuw nsw i64 %1035, 2
-  %1037 = call noalias ptr @malloc(i64 noundef %1036) #47
+  %1037 = call noalias ptr @malloc(i64 noundef %1036) #49
   br label %1038
 
 1038:                                             ; preds = %1032, %stbtt__sort_edges.exit.i.i.i.i.i
@@ -4357,7 +4357,7 @@ stbtt__sort_edges.exit.i.i.i.i.i:                 ; preds = %1030, %._crit_edge1
   br label %1087
 
 1084:                                             ; preds = %1081
-  %1085 = call noalias dereferenceable_or_null(25608) ptr @malloc(i64 noundef 25608) #47
+  %1085 = call noalias dereferenceable_or_null(25608) ptr @malloc(i64 noundef 25608) #49
   %1086 = icmp eq ptr %1085, null
   br i1 %1086, label %stbtt__new_active.exit.thread.i.i.i.i.i.i, label %.thread.i.i.i.i.i.i.i.i
 
@@ -6181,7 +6181,7 @@ stbtt__fill_active_edges_new.exit.i.i.i.i.i.i:    ; preds = %stbtt__handle_clipp
 .lr.ph.i94.i.i.i.i.i.i:                           ; preds = %._crit_edge35.i.i.i.i.i.i, %.lr.ph.i94.i.i.i.i.i.i
   %.02.i.i.i.i.i.i.i = phi ptr [ %2188, %.lr.ph.i94.i.i.i.i.i.i ], [ %.sroa.0.1.lcssa.i.i.i.i.i.i, %._crit_edge35.i.i.i.i.i.i ]
   %2188 = load ptr, ptr %.02.i.i.i.i.i.i.i, align 8
-  call void @free(ptr noundef nonnull %.02.i.i.i.i.i.i.i) #44
+  call void @free(ptr noundef nonnull %.02.i.i.i.i.i.i.i) #46
   %.not.i95.i.i.i.i.i.i = icmp eq ptr %2188, null
   br i1 %.not.i95.i.i.i.i.i.i, label %stbtt__hheap_cleanup.exit.i.i.i.i.i.i, label %.lr.ph.i94.i.i.i.i.i.i
 
@@ -6190,18 +6190,18 @@ stbtt__hheap_cleanup.exit.i.i.i.i.i.i:            ; preds = %.lr.ph.i94.i.i.i.i.
   br i1 %.not.i.i.i.i.i.i, label %stbtt__rasterize_sorted_edges.exit.i.i.i.i.i, label %2189
 
 2189:                                             ; preds = %stbtt__hheap_cleanup.exit.i.i.i.i.i.i
-  call void @free(ptr noundef %.079.i.i.i.i.i.i) #44
+  call void @free(ptr noundef %.079.i.i.i.i.i.i) #46
   br label %stbtt__rasterize_sorted_edges.exit.i.i.i.i.i
 
 stbtt__rasterize_sorted_edges.exit.i.i.i.i.i:     ; preds = %2189, %stbtt__hheap_cleanup.exit.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  call void @free(ptr noundef %973) #44
+  call void @free(ptr noundef %973) #46
   br label %stbtt__rasterize.exit.i.i.i.i
 
 stbtt__rasterize.exit.i.i.i.i:                    ; preds = %stbtt__rasterize_sorted_edges.exit.i.i.i.i.i, %._crit_edge.i26.i.i.i.i
-  call void @free(ptr noundef %881) #44
-  call void @free(ptr noundef %.1102.us.i.i.i.i.i) #44
+  call void @free(ptr noundef %881) #46
+  call void @free(ptr noundef %.1102.us.i.i.i.i.i) #46
   br label %stbtt_GetCodepointBitmap.exit
 
 stbtt_GetCodepointBitmap.exit:                    ; preds = %854, %865, %stbtt_FlattenCurves.exit.thread.i.i.i.i, %stbtt_FlattenCurves.exit.i.i.i.i, %stbtt__rasterize.exit.i.i.i.i, %852
@@ -6209,7 +6209,7 @@ stbtt_GetCodepointBitmap.exit:                    ; preds = %854, %865, %stbtt_F
   %.1149 = phi i32 [ 0, %852 ], [ %862, %stbtt__rasterize.exit.i.i.i.i ], [ %862, %stbtt_FlattenCurves.exit.i.i.i.i ], [ %862, %stbtt_FlattenCurves.exit.thread.i.i.i.i ], [ %862, %865 ], [ %862, %854 ]
   %.0.i.i.i116 = phi ptr [ null, %852 ], [ %868, %stbtt__rasterize.exit.i.i.i.i ], [ %868, %stbtt_FlattenCurves.exit.i.i.i.i ], [ %868, %stbtt_FlattenCurves.exit.thread.i.i.i.i ], [ null, %865 ], [ null, %854 ]
   %2190 = load ptr, ptr %19, align 8
-  call void @free(ptr noundef %2190) #44
+  call void @free(ptr noundef %2190) #46
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -6256,10 +6256,10 @@ stbtt_GetCodepointBitmap.exit:                    ; preds = %854, %865, %stbtt_F
   %2210 = call fastcc i32 @stbtt_GetGlyphShape(ptr noundef nonnull readonly %26, i32 noundef %849, ptr noundef %11)
   %2211 = mul nsw i32 %2209, %2208
   %2212 = sext i32 %2211 to i64
-  %2213 = call noalias ptr @malloc(i64 noundef %2212) #47
+  %2213 = call noalias ptr @malloc(i64 noundef %2212) #49
   %2214 = sext i32 %2210 to i64
   %2215 = shl nsw i64 %2214, 2
-  %2216 = call noalias ptr @malloc(i64 noundef %2215) #47
+  %2216 = call noalias ptr @malloc(i64 noundef %2215) #49
   %2217 = icmp sgt i32 %2210, 0
   %.pre.pre.i.i = load ptr, ptr %11, align 8
   br i1 %2217, label %.lr.ph.i.i124, label %.preheader486.i.i
@@ -6302,7 +6302,7 @@ stbtt_GetCodepointBitmap.exit:                    ; preds = %854, %865, %stbtt_F
   %2233 = sitofp i32 %2232 to float
   %2234 = fadd float %2233, 5.000000e-01
   %2235 = fdiv float %2234, %823
-  %2236 = call double @fmod(double noundef %2225, double noundef 1.000000e+00) #44
+  %2236 = call double @fmod(double noundef %2225, double noundef 1.000000e+00) #46
   %2237 = fcmp olt double %2236, 0x3F847AE130000000
   br i1 %2237, label %.lr.ph.i.us.i.us.us.i, label %2238
 
@@ -6703,14 +6703,14 @@ stbtt__ray_intersect_bezier.exit.i.us.i.us.us.i:  ; preds = %2366, %.thread21.i.
 
 2517:                                             ; preds = %2510
   %2518 = fpext float %2513 to double
-  %2519 = call double @pow(double noundef %2518, double noundef 0x3FD5555560000000) #44
+  %2519 = call double @pow(double noundef %2518, double noundef 0x3FD5555560000000) #46
   %2520 = fptrunc double %2519 to float
   br label %stbtt__cuberoot.exit.i.us.i.us.us.i
 
 2521:                                             ; preds = %2510
   %2522 = fneg float %2513
   %2523 = fpext float %2522 to double
-  %2524 = call double @pow(double noundef %2523, double noundef 0x3FD5555560000000) #44
+  %2524 = call double @pow(double noundef %2523, double noundef 0x3FD5555560000000) #46
   %2525 = fptrunc double %2524 to float
   %2526 = fneg float %2525
   br label %stbtt__cuberoot.exit.i.us.i.us.us.i
@@ -6722,14 +6722,14 @@ stbtt__cuberoot.exit.i.us.i.us.us.i:              ; preds = %2521, %2517
 
 2528:                                             ; preds = %stbtt__cuberoot.exit.i.us.i.us.us.i
   %2529 = fpext float %2515 to double
-  %2530 = call double @pow(double noundef %2529, double noundef 0x3FD5555560000000) #44
+  %2530 = call double @pow(double noundef %2529, double noundef 0x3FD5555560000000) #46
   %2531 = fptrunc double %2530 to float
   br label %stbtt__cuberoot.exit49.i.us.i.us.us.i
 
 2532:                                             ; preds = %stbtt__cuberoot.exit.i.us.i.us.us.i
   %2533 = fneg float %2515
   %2534 = fpext float %2533 to double
-  %2535 = call double @pow(double noundef %2534, double noundef 0x3FD5555560000000) #44
+  %2535 = call double @pow(double noundef %2534, double noundef 0x3FD5555560000000) #46
   %2536 = fptrunc double %2535 to float
   %2537 = fneg float %2536
   br label %stbtt__cuberoot.exit49.i.us.i.us.us.i
@@ -6745,19 +6745,19 @@ stbtt__cuberoot.exit49.i.us.i.us.us.i:            ; preds = %2532, %2528
   %sqrtf.i.us.i.us.us.i = call float @sqrtf(float noundef %2541) #18
   %2542 = fdiv float -2.700000e+01, %2505
   %2543 = fpext float %2542 to double
-  %2544 = call double @sqrt(double noundef %2543) #44
+  %2544 = call double @sqrt(double noundef %2543) #46
   %2545 = fneg double %2544
   %2546 = fpext float %2503 to double
   %2547 = fmul double %2546, %2545
   %2548 = fmul double %2547, 5.000000e-01
-  %2549 = call double @acos(double noundef %2548) #44
+  %2549 = call double @acos(double noundef %2548) #46
   %2550 = fptrunc double %2549 to float
   %2551 = fdiv float %2550, 3.000000e+00
   %2552 = fpext float %2551 to double
-  %2553 = call double @cos(double noundef %2552) #44
+  %2553 = call double @cos(double noundef %2552) #46
   %2554 = fptrunc double %2553 to float
   %2555 = fadd double %2552, 0xBFF921FAFC8B007A
-  %2556 = call double @cos(double noundef %2555) #44
+  %2556 = call double @cos(double noundef %2555) #46
   %2557 = fptrunc double %2556 to float
   %2558 = fmul float %2557, 0x3FFBB67AE0000000
   %2559 = fmul float %sqrtf.i.us.i.us.us.i, 2.000000e+00
@@ -7009,7 +7009,7 @@ stbtt__solve_cubic.exit.us.i.us.us.i:             ; preds = %2592, %2589, %2582,
   %2724 = sub nsw i32 %.0428495.us.i.i, %2205
   %2725 = mul nsw i32 %2724, %2208
   %2726 = add i32 %2725, %reass.sub.i.i
-  %2727 = call double @fmod(double noundef %2723, double noundef 1.000000e+00) #44
+  %2727 = call double @fmod(double noundef %2723, double noundef 1.000000e+00) #46
   %2728 = fcmp olt double %2727, 0x3F847AE130000000
   br i1 %2728, label %._crit_edge.us.thread.i.us12.i, label %.preheader.us.i.split.split.i
 
@@ -7144,8 +7144,8 @@ stbtt__solve_cubic.exit.us.i.us.us.i:             ; preds = %2592, %2589, %2582,
   br i1 %exitcond.not.i.i129, label %.preheader486.i.i, label %2743
 
 ._crit_edge496.i.i:                               ; preds = %._crit_edge494.us.i.split.i, %._crit_edge494.us.i.split.us.us.i, %.preheader.lr.ph.i.i, %.preheader486.i.i
-  call void @free(ptr noundef %2216) #44
-  call void @free(ptr noundef %.pre.pre.i.i) #44
+  call void @free(ptr noundef %2216) #46
+  call void @free(ptr noundef %.pre.pre.i.i) #46
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %stbtt_GetCodepointSDF.exit
 
@@ -7220,7 +7220,7 @@ stbtt_GetCodepointHMetrics.exit:                  ; preds = %2809
   br i1 %2843, label %2844, label %2845
 
 2844:                                             ; preds = %stbtt_GetCodepointHMetrics.exit
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.6, i32 noundef %847) #44
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.6, i32 noundef %847) #46
   br label %2845
 
 2845:                                             ; preds = %2844, %stbtt_GetCodepointHMetrics.exit
@@ -7285,7 +7285,7 @@ stbtt_GetCodepointHMetrics.exit142:               ; preds = %2853
   store i32 %2885, ptr %2855, align 4
   %2886 = mul nsw i32 %2, %2885
   %2887 = sext i32 %2886 to i64
-  %2888 = call noalias ptr @calloc(i64 noundef %2887, i64 noundef 2) #45
+  %2888 = call noalias ptr @calloc(i64 noundef %2887, i64 noundef 2) #47
   store ptr %2888, ptr %2810, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %848, i64 24
   store i32 %2885, ptr %.sroa.4.0..sroa_idx, align 8
@@ -7327,14 +7327,14 @@ stbtt_GetCodepointHMetrics.exit142:               ; preds = %2853
   br i1 %exitcond303.not, label %2897, label %845
 
 .thread:                                          ; preds = %stbtt__find_table.exit332.thread.i.i, %._crit_edge.i.i, %355, %stbtt__find_table.exit201.i.i, %stbtt__find_table.exit211.thread.i.i
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.7) #44
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.7) #46
   br label %2899
 
 2897:                                             ; preds = %.loopexit
   br i1 %826, label %2898, label %2899
 
 2898:                                             ; preds = %2897
-  call void @free(ptr noundef %.097) #44
+  call void @free(ptr noundef %.097) #46
   br label %2899
 
 2899:                                             ; preds = %.thread, %2898, %2897
@@ -7354,7 +7354,7 @@ define void @GenImageFontAtlas(ptr dead_on_unwind noalias writable writeonly sre
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %7
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.8) #44
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.8) #46
   br label %195
 
 10:                                               ; preds = %7
@@ -7363,7 +7363,7 @@ define void @GenImageFontAtlas(ptr dead_on_unwind noalias writable writeonly sre
   %12 = select i1 %11, i32 %3, i32 95
   %13 = zext nneg i32 %12 to i64
   %14 = shl nuw nsw i64 %13, 4
-  %15 = tail call noalias ptr @malloc(i64 noundef %14) #47
+  %15 = tail call noalias ptr @malloc(i64 noundef %14) #49
   %16 = shl nsw i32 %5, 1
   br label %31
 
@@ -7372,11 +7372,11 @@ define void @GenImageFontAtlas(ptr dead_on_unwind noalias writable writeonly sre
   %19 = mul nsw i32 %36, %18
   %20 = sitofp i32 %19 to float
   %21 = fmul float %20, 0x3FF3333340000000
-  %22 = tail call float @sqrtf(float noundef %21) #44
-  %23 = tail call float @logf(float noundef %22) #44
+  %22 = tail call float @sqrtf(float noundef %21) #46
+  %23 = tail call float @logf(float noundef %22) #46
   %24 = fdiv float %23, 0x3FE62E4300000000
   %25 = tail call float @llvm.ceil.f32(float %24)
-  %exp2f = tail call float @exp2f(float %25) #44
+  %exp2f = tail call float @exp2f(float %25) #46
   %26 = fptosi float %exp2f to i32
   %27 = mul nsw i32 %26, %26
   %28 = lshr i32 %27, 1
@@ -7409,7 +7409,7 @@ define void @GenImageFontAtlas(ptr dead_on_unwind noalias writable writeonly sre
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.sink, ptr %41, align 4
   %42 = sext i32 %.pre-phi to i64
-  %43 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %42) #45
+  %43 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %42) #47
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 1, ptr %45, align 8
@@ -7451,7 +7451,7 @@ define void @GenImageFontAtlas(ptr dead_on_unwind noalias writable writeonly sre
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv287 = phi i64 [ %indvars.iv.next288, %.lr.ph ], [ %indvars.iv284, %.preheader ]
   %60 = trunc nuw nsw i64 %indvars.iv287 to i32
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.9, i32 noundef %60) #44
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.9, i32 noundef %60) #46
   %61 = getelementptr inbounds nuw %struct.Rectangle, ptr %15, i64 %indvars.iv287
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
   %exitcond291.not = icmp eq i64 %indvars.iv.next288, %13
@@ -7523,8 +7523,8 @@ define void @GenImageFontAtlas(ptr dead_on_unwind noalias writable writeonly sre
   br i1 %exitcond283.not, label %.loopexit, label %48
 
 91:                                               ; preds = %39
-  %92 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #47
-  %93 = tail call noalias ptr @malloc(i64 noundef %14) #47
+  %92 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #49
+  %93 = tail call noalias ptr @malloc(i64 noundef %14) #49
   %94 = add nsw i32 %12, -1
   %95 = icmp samesign ugt i32 %12, 1
   br i1 %95, label %.lr.ph.preheader.i, label %stbrp_init_target.exit
@@ -7578,7 +7578,7 @@ stbrp_init_target.exit:                           ; preds = %.lr.ph.i, %91
   %115 = getelementptr inbounds nuw i8, ptr %92, i64 64
   store ptr null, ptr %115, align 8
   %116 = mul nuw nsw i64 %13, 24
-  %117 = tail call noalias ptr @malloc(i64 noundef %116) #47
+  %117 = tail call noalias ptr @malloc(i64 noundef %116) #49
   br label %121
 
 118:                                              ; preds = %121
@@ -7607,9 +7607,9 @@ stbrp_init_target.exit:                           ; preds = %.lr.ph.i, %91
   br i1 %exitcond252.not, label %118, label %121
 
 133:                                              ; preds = %.loopexit219
-  tail call void @free(ptr noundef %117) #44
-  tail call void @free(ptr noundef %93) #44
-  tail call void @free(ptr noundef %92) #44
+  tail call void @free(ptr noundef %117) #46
+  tail call void @free(ptr noundef %93) #46
+  tail call void @free(ptr noundef %92) #46
   br label %.loopexit
 
 134:                                              ; preds = %118, %.loopexit219
@@ -7691,7 +7691,7 @@ stbrp_init_target.exit:                           ; preds = %.lr.ph.i, %91
 
 177:                                              ; preds = %134
   %178 = trunc nuw nsw i64 %indvars.iv263 to i32
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.9, i32 noundef %178) #44
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.9, i32 noundef %178) #46
   br label %.loopexit219
 
 .loopexit219:                                     ; preds = %._crit_edge.us, %.preheader217.lr.ph, %.preheader218, %177
@@ -7705,7 +7705,7 @@ stbrp_init_target.exit:                           ; preds = %.lr.ph.i, %91
 
 180:                                              ; preds = %184
   %181 = shl nsw i64 %42, 1
-  %182 = tail call noalias ptr @malloc(i64 noundef %181) #47
+  %182 = tail call noalias ptr @malloc(i64 noundef %181) #49
   %183 = icmp sgt i32 %.pre-phi, 0
   br i1 %183, label %.lr.ph241.preheader, label %._crit_edge
 
@@ -7729,7 +7729,7 @@ stbrp_init_target.exit:                           ; preds = %.lr.ph.i, %91
   br i1 %exitcond292.not, label %180, label %184
 
 ._crit_edge:                                      ; preds = %.lr.ph241, %180
-  tail call void @free(ptr noundef nonnull %43) #44
+  tail call void @free(ptr noundef nonnull %43) #46
   store ptr %182, ptr %0, align 8
   store i32 2, ptr %44, align 4
   store ptr %15, ptr %2, align 8
@@ -8178,14 +8178,14 @@ define void @UnloadFontData(ptr noundef captures(address_is_null) %0, i32 nounde
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  tail call void @free(ptr noundef nonnull %0) #44
+  tail call void @free(ptr noundef nonnull %0) #46
   br label %6
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %4 = getelementptr inbounds nuw %struct.GlyphInfo, ptr %0, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  tail call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %5) #44
+  tail call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %5) #46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -8220,14 +8220,14 @@ define void @UnloadFont(ptr noundef readonly byval(%struct.Font) align 8 capture
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  tail call void @free(ptr noundef nonnull %7) #44
+  tail call void @free(ptr noundef nonnull %7) #46
   br label %UnloadFontData.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %11 = getelementptr inbounds nuw %struct.GlyphInfo, ptr %7, i64 %indvars.iv.i
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  tail call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %12) #44
+  tail call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %12) #46
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
@@ -8240,14 +8240,14 @@ UnloadFontData.exit:                              ; preds = %5, %._crit_edge.i
 15:                                               ; preds = %UnloadFontData.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false)
-  tail call void @UnloadTexture(ptr noundef nonnull byval(%struct.Texture) align 8 %2) #44
+  tail call void @UnloadTexture(ptr noundef nonnull byval(%struct.Texture) align 8 %2) #46
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %16
 
 16:                                               ; preds = %15, %UnloadFontData.exit
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8
-  tail call void @free(ptr noundef %18) #44
+  tail call void @free(ptr noundef %18) #46
   br label %19
 
 19:                                               ; preds = %16, %1
@@ -8263,7 +8263,7 @@ define noundef zeroext i1 @ExportFontAsCode(ptr noundef readonly byval(%struct.F
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 240
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  %8 = tail call ptr @GetFileNameWithoutExt(ptr noundef %1) #44
+  %8 = tail call ptr @GetFileNameWithoutExt(ptr noundef %1) #46
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) @TextToPascal.buffer, i8 0, i64 1024, i1 false)
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %TextToPascal.exit, label %9
@@ -8316,8 +8316,8 @@ define noundef zeroext i1 @ExportFontAsCode(ptr noundef readonly byval(%struct.F
   br i1 %exitcond.not.i, label %TextToPascal.exit, label %12
 
 TextToPascal.exit:                                ; preds = %12, %24, %2
-  %26 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @TextToPascal.buffer, i64 noundef 255) #44
-  %27 = call noalias dereferenceable_or_null(1048576) ptr @calloc(i64 noundef 1048576, i64 noundef 1) #45
+  %26 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @TextToPascal.buffer, i64 noundef 255) #46
+  %27 = call noalias dereferenceable_or_null(1048576) ptr @calloc(i64 noundef 1048576, i64 noundef 1) #47
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(90) %27, ptr noundef nonnull align 1 dereferenceable(90) @.str.10, i64 89, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 89
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(90) %28, ptr noundef nonnull align 1 dereferenceable(90) @.str.11, i64 89, i1 false)
@@ -8357,7 +8357,7 @@ TextToPascal.exit:                                ; preds = %12, %24, %2
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 4 dereferenceable(20) %45, i64 20, i1 false)
-  call void @LoadImageFromTexture(ptr dead_on_unwind nonnull writable sret(%struct.Image) align 8 %4, ptr noundef nonnull byval(%struct.Texture) align 8 %5) #44
+  call void @LoadImageFromTexture(ptr dead_on_unwind nonnull writable sret(%struct.Image) align 8 %4, ptr noundef nonnull byval(%struct.Texture) align 8 %5) #46
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %47 = load i32, ptr %46, align 4
@@ -8365,7 +8365,7 @@ TextToPascal.exit:                                ; preds = %12, %24, %2
   br i1 %.not, label %49, label %48
 
 48:                                               ; preds = %TextToPascal.exit
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.22) #44
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.22) #46
   %.pre = load i32, ptr %46, align 4
   br label %49
 
@@ -8375,11 +8375,11 @@ TextToPascal.exit:                                ; preds = %12, %24, %2
   %52 = load i32, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %54 = load i32, ptr %53, align 4
-  %55 = call i32 @GetPixelDataSize(i32 noundef %52, i32 noundef %54, i32 noundef %50) #44
+  %55 = call i32 @GetPixelDataSize(i32 noundef %52, i32 noundef %54, i32 noundef %50) #46
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %56 = load ptr, ptr %4, align 8
-  %57 = call ptr @CompressData(ptr noundef %56, i32 noundef %55, ptr noundef nonnull %6) #44
+  %57 = call ptr @CompressData(ptr noundef %56, i32 noundef %55, ptr noundef nonnull %6) #46
   %58 = getelementptr inbounds nuw i8, ptr %27, i64 1603
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) @TextToUpper.buffer, i8 0, i64 1024, i1 false)
   %59 = load i8, ptr %3, align 16
@@ -8403,7 +8403,7 @@ TextToPascal.exit:                                ; preds = %12, %24, %2
 
 TextToUpper.exit:                                 ; preds = %.preheader.i, %49
   %65 = load i32, ptr %6, align 4
-  %66 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(1) @.str.23, ptr noundef nonnull @TextToUpper.buffer, i32 noundef %65) #44
+  %66 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(1) @.str.23, ptr noundef nonnull @TextToUpper.buffer, i32 noundef %65) #46
   %67 = sext i32 %66 to i64
   %68 = getelementptr i8, ptr %27, i64 %67
   %69 = getelementptr i8, ptr %68, i64 1603
@@ -8434,7 +8434,7 @@ TextToUpper.exit:                                 ; preds = %.preheader.i, %49
   br i1 %.not16.i200, label %TextToUpper.exit206, label %.preheader.i198
 
 TextToUpper.exit206:                              ; preds = %.preheader.i198, %TextToUpper.exit
-  %80 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %73, ptr noundef nonnull dereferenceable(1) @.str.26, ptr noundef nonnull %3, ptr noundef nonnull @TextToUpper.buffer) #44
+  %80 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %73, ptr noundef nonnull dereferenceable(1) @.str.26, ptr noundef nonnull %3, ptr noundef nonnull @TextToUpper.buffer) #46
   %81 = add nsw i32 %80, %71
   %82 = load i32, ptr %6, align 4
   %83 = icmp sgt i32 %82, 1
@@ -8453,9 +8453,9 @@ TextToUpper.exit206.._crit_edge_crit_edge:        ; preds = %TextToUpper.exit206
   %87 = getelementptr inbounds i8, ptr %57, i64 %.pre-phi
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i32
-  %90 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull dereferenceable(1) @.str.29, i32 noundef %89) #44
+  %90 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull dereferenceable(1) @.str.29, i32 noundef %89) #46
   %91 = add nsw i32 %90, %.0188.lcssa
-  call void @free(ptr noundef %57) #44
+  call void @free(ptr noundef %57) #46
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds i8, ptr %27, i64 %92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %93, ptr noundef nonnull align 1 dereferenceable(36) @.str.30, i64 36, i1 false)
@@ -8464,7 +8464,7 @@ TextToUpper.exit206.._crit_edge_crit_edge:        ; preds = %TextToUpper.exit206
   %96 = getelementptr inbounds i8, ptr %27, i64 %95
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %98 = load i32, ptr %97, align 4
-  %99 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %96, ptr noundef nonnull dereferenceable(1) @.str.31, ptr noundef nonnull %3, i32 noundef %98) #44
+  %99 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %96, ptr noundef nonnull dereferenceable(1) @.str.31, ptr noundef nonnull %3, i32 noundef %98) #46
   %100 = add nsw i32 %99, %94
   %101 = icmp sgt i32 %98, 0
   br i1 %101, label %.lr.ph229, label %._crit_edge230
@@ -8487,7 +8487,7 @@ TextToUpper.exit206.._crit_edge_crit_edge:        ; preds = %TextToUpper.exit206
   %110 = getelementptr inbounds nuw i8, ptr %57, i64 %indvars.iv
   %111 = load i8, ptr %110, align 1
   %112 = zext i8 %111 to i32
-  %113 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %105, ptr noundef nonnull dereferenceable(1) %109, i32 noundef %112) #44
+  %113 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %105, ptr noundef nonnull dereferenceable(1) %109, i32 noundef %112) #46
   %114 = add nsw i32 %113, %.0188222
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %115 = load i32, ptr %6, align 4
@@ -8508,7 +8508,7 @@ TextToUpper.exit206.._crit_edge_crit_edge:        ; preds = %TextToUpper.exit206
   %123 = add nsw i32 %.1.lcssa, 68
   %124 = sext i32 %123 to i64
   %125 = getelementptr inbounds i8, ptr %27, i64 %124
-  %126 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %125, ptr noundef nonnull dereferenceable(1) @.str.36, ptr noundef nonnull %3, i32 noundef %98) #44
+  %126 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %125, ptr noundef nonnull dereferenceable(1) @.str.36, ptr noundef nonnull %3, i32 noundef %98) #46
   %127 = add nsw i32 %126, %123
   br i1 %101, label %.lr.ph235, label %._crit_edge236
 
@@ -8535,7 +8535,7 @@ TextToUpper.exit206.._crit_edge_crit_edge:        ; preds = %TextToUpper.exit206
   %142 = getelementptr inbounds nuw i8, ptr %133, i64 12
   %143 = load float, ptr %142, align 4
   %144 = fpext float %143 to double
-  %145 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(1) @.str.32, double noundef %135, double noundef %138, double noundef %141, double noundef %144) #44
+  %145 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(1) @.str.32, double noundef %135, double noundef %138, double noundef %141, double noundef %144) #46
   %146 = add nsw i32 %145, %.1226
   %indvars.iv.next248 = add nuw nsw i64 %indvars.iv247, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next248, %wide.trip.count
@@ -8549,11 +8549,11 @@ TextToUpper.exit206.._crit_edge_crit_edge:        ; preds = %TextToUpper.exit206
   %149 = add nsw i32 %.2.lcssa, 4
   %150 = sext i32 %149 to i64
   %151 = getelementptr inbounds i8, ptr %27, i64 %150
-  %152 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %151, ptr noundef nonnull dereferenceable(1) @.str.38, ptr noundef nonnull %3) #44
+  %152 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %151, ptr noundef nonnull dereferenceable(1) @.str.38, ptr noundef nonnull %3) #46
   %153 = add nsw i32 %152, %149
   %154 = sext i32 %153 to i64
   %155 = getelementptr inbounds i8, ptr %27, i64 %154
-  %156 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %155, ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef nonnull %3) #44
+  %156 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %155, ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef nonnull %3) #46
   %157 = add nsw i32 %153, %156
   %158 = sext i32 %157 to i64
   %159 = getelementptr inbounds i8, ptr %27, i64 %158
@@ -8562,17 +8562,17 @@ TextToUpper.exit206.._crit_edge_crit_edge:        ; preds = %TextToUpper.exit206
   %161 = sext i32 %160 to i64
   %162 = getelementptr inbounds i8, ptr %27, i64 %161
   %163 = load i32, ptr %0, align 8
-  %164 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %162, ptr noundef nonnull dereferenceable(1) @.str.41, i32 noundef %163) #44
+  %164 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %162, ptr noundef nonnull dereferenceable(1) @.str.41, i32 noundef %163) #46
   %165 = add nsw i32 %164, %160
   %166 = sext i32 %165 to i64
   %167 = getelementptr inbounds i8, ptr %27, i64 %166
-  %168 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %167, ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef %98) #44
+  %168 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %167, ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef %98) #46
   %169 = add nsw i32 %165, %168
   %170 = sext i32 %169 to i64
   %171 = getelementptr inbounds i8, ptr %27, i64 %170
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %173 = load i32, ptr %172, align 8
-  %174 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %171, ptr noundef nonnull dereferenceable(1) @.str.43, i32 noundef %173) #44
+  %174 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %171, ptr noundef nonnull dereferenceable(1) @.str.43, i32 noundef %173) #46
   %175 = add nsw i32 %174, %169
   %176 = sext i32 %175 to i64
   %177 = getelementptr i8, ptr %27, i64 %176
@@ -8582,7 +8582,7 @@ TextToUpper.exit206.._crit_edge_crit_edge:        ; preds = %TextToUpper.exit206
   %179 = add nsw i32 %175, 116
   %180 = sext i32 %179 to i64
   %181 = getelementptr inbounds i8, ptr %27, i64 %180
-  %182 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %181, ptr noundef nonnull dereferenceable(1) @.str.46, ptr noundef nonnull %3) #44
+  %182 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %181, ptr noundef nonnull dereferenceable(1) @.str.46, ptr noundef nonnull %3) #46
   %183 = add nsw i32 %182, %179
   %184 = sext i32 %183 to i64
   %185 = getelementptr inbounds i8, ptr %27, i64 %184
@@ -8607,14 +8607,14 @@ TextToUpper.exit206.._crit_edge_crit_edge:        ; preds = %TextToUpper.exit206
   br i1 %.not16.i210, label %TextToUpper.exit216, label %.preheader.i208
 
 TextToUpper.exit216:                              ; preds = %.preheader.i208, %._crit_edge236
-  %192 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %185, ptr noundef nonnull dereferenceable(1) @.str.47, ptr noundef nonnull %3, ptr noundef nonnull @TextToUpper.buffer, ptr noundef nonnull %3) #44
+  %192 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %185, ptr noundef nonnull dereferenceable(1) @.str.47, ptr noundef nonnull %3, ptr noundef nonnull @TextToUpper.buffer, ptr noundef nonnull %3) #46
   %193 = add nsw i32 %192, %183
   %194 = sext i32 %193 to i64
   %195 = getelementptr inbounds i8, ptr %27, i64 %194
   %196 = load i32, ptr %51, align 8
   %197 = load i32, ptr %53, align 4
   %198 = load i32, ptr %46, align 4
-  %199 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %195, ptr noundef nonnull dereferenceable(1) @.str.48, i32 noundef %196, i32 noundef %197, i32 noundef %198) #44
+  %199 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %195, ptr noundef nonnull dereferenceable(1) @.str.48, i32 noundef %196, i32 noundef %197, i32 noundef %198) #46
   %200 = add nsw i32 %199, %193
   %201 = sext i32 %200 to i64
   %202 = getelementptr i8, ptr %27, i64 %201
@@ -8630,20 +8630,20 @@ TextToUpper.exit216:                              ; preds = %.preheader.i208, %.
   %207 = add nsw i32 %200, 272
   %208 = sext i32 %207 to i64
   %209 = getelementptr inbounds i8, ptr %27, i64 %208
-  %210 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %209, ptr noundef nonnull dereferenceable(1) @.str.54, ptr noundef nonnull %3) #44
+  %210 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %209, ptr noundef nonnull dereferenceable(1) @.str.54, ptr noundef nonnull %3) #46
   %211 = add nsw i32 %210, %207
   %212 = sext i32 %211 to i64
   %213 = getelementptr inbounds i8, ptr %27, i64 %212
-  %214 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %213, ptr noundef nonnull dereferenceable(1) @.str.55, ptr noundef nonnull %3) #44
+  %214 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %213, ptr noundef nonnull dereferenceable(1) @.str.55, ptr noundef nonnull %3) #46
   %215 = add nsw i32 %211, %214
   %216 = sext i32 %215 to i64
   %217 = getelementptr inbounds i8, ptr %27, i64 %216
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %217, ptr noundef nonnull align 1 dereferenceable(18) @.str.56, i64 17, i1 false)
   %218 = getelementptr i8, ptr %217, i64 17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %218, ptr noundef nonnull align 1 dereferenceable(3) @.str.57, i64 3, i1 false)
-  call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %4) #44
-  %219 = call zeroext i1 @SaveFileText(ptr noundef %1, ptr noundef nonnull %27) #44
-  call void @free(ptr noundef nonnull %27) #44
+  call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %4) #46
+  %219 = call zeroext i1 @SaveFileText(ptr noundef %1, ptr noundef nonnull %27) #46
+  call void @free(ptr noundef nonnull %27) #46
   br i1 %219, label %233, label %234
 
 220:                                              ; preds = %.lr.ph235, %220
@@ -8659,18 +8659,18 @@ TextToUpper.exit216:                              ; preds = %.preheader.i208, %.
   %228 = load i32, ptr %227, align 8
   %229 = getelementptr inbounds nuw i8, ptr %223, i64 12
   %230 = load i32, ptr %229, align 4
-  %231 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %222, ptr noundef nonnull dereferenceable(1) @.str.37, i32 noundef %224, i32 noundef %226, i32 noundef %228, i32 noundef %230) #44
+  %231 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %222, ptr noundef nonnull dereferenceable(1) @.str.37, i32 noundef %224, i32 noundef %226, i32 noundef %228, i32 noundef %230) #46
   %232 = add nsw i32 %231, %.2232
   %indvars.iv.next251 = add nuw nsw i64 %indvars.iv250, 1
   %exitcond254.not = icmp eq i64 %indvars.iv.next251, %wide.trip.count253
   br i1 %exitcond254.not, label %._crit_edge236, label %220
 
 233:                                              ; preds = %TextToUpper.exit216
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.58, ptr noundef %1) #44
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.58, ptr noundef %1) #46
   br label %235
 
 234:                                              ; preds = %TextToUpper.exit216
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.59, ptr noundef %1) #44
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.59, ptr noundef %1) #46
   br label %235
 
 235:                                              ; preds = %234, %233
@@ -8680,7 +8680,7 @@ TextToUpper.exit216:                              ; preds = %.preheader.i208, %.
   ret i1 %219
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef nonnull ptr @TextToPascal(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #15 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) @TextToPascal.buffer, i8 0, i64 1024, i1 false)
   %.not = icmp eq ptr %0, null
@@ -8748,7 +8748,7 @@ declare i32 @GetPixelDataSize(i32 noundef, i32 noundef, i32 noundef) local_unnam
 
 declare ptr @CompressData(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef nonnull ptr @TextToUpper(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #15 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) @TextToUpper.buffer, i8 0, i64 1024, i1 false)
   %.not = icmp eq ptr %0, null
@@ -8780,7 +8780,7 @@ declare zeroext i1 @SaveFileText(ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define void @DrawFPS(i32 noundef %0, i32 noundef %1) local_unnamed_addr #5 {
-  %3 = tail call i32 @GetFPS() #44
+  %3 = tail call i32 @GetFPS() #46
   %4 = tail call ptr (ptr, ...) @TextFormat(ptr noundef nonnull @.str.60, i32 noundef %3)
   %.sroa.1.0.copyload.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 12), align 4
   %.not.i = icmp eq i32 %.sroa.1.0.copyload.i, 0
@@ -8836,7 +8836,7 @@ define noundef nonnull ptr @TextFormat(ptr noundef readonly captures(none) %0, .
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %5, i8 0, i64 1024, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.va_start.p0(ptr nonnull %2)
-  %6 = call i32 @vsnprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef %0, ptr noundef nonnull %2) #44
+  %6 = call i32 @vsnprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef %0, ptr noundef nonnull %2) #46
   call void @llvm.va_end.p0(ptr nonnull %2)
   %7 = icmp sgt i32 %6, 1023
   %.pre = load i32, ptr @TextFormat.index, align 4
@@ -9136,7 +9136,7 @@ DrawTextCodepoint.exit:                           ; preds = %115, %124, %.thread
   %.sroa.5.12.vec.insert.i = insertelement <2 x float> %.sroa.5.8.vec.insert.i, float %146, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull align 4 dereferenceable(20) %8, i64 20, i1 false)
-  tail call void @DrawTexturePro(ptr noundef nonnull byval(%struct.Texture) align 8 %7, <2 x float> %.sroa.02.4.vec.insert.i, <2 x float> %.sroa.5.12.vec.insert.i, <2 x float> %.sroa.05.4.vec.insert.i, <2 x float> %.sroa.57.12.vec.insert.i, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %5) #44
+  tail call void @DrawTexturePro(ptr noundef nonnull byval(%struct.Texture) align 8 %7, <2 x float> %.sroa.02.4.vec.insert.i, <2 x float> %.sroa.5.12.vec.insert.i, <2 x float> %.sroa.05.4.vec.insert.i, <2 x float> %.sroa.57.12.vec.insert.i, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %5) #46
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %153
 
@@ -9305,7 +9305,7 @@ define range(i32 0, 2097152) i32 @GetCodepointNext(ptr noundef readonly captures
   ret i32 %.030
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @GetGlyphIndex(ptr noundef readonly byval(%struct.Font) align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #21 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp sgt i32 %3, 0
@@ -9454,7 +9454,7 @@ GetGlyphIndex.exit:                               ; preds = %5, %25, %.thread.i
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 4 dereferenceable(20) %60, i64 20, i1 false)
-  tail call void @DrawTexturePro(ptr noundef nonnull byval(%struct.Texture) align 8 %6, <2 x float> %.sroa.02.4.vec.insert, <2 x float> %.sroa.5.12.vec.insert, <2 x float> %.sroa.05.4.vec.insert, <2 x float> %.sroa.57.12.vec.insert, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %4) #44
+  tail call void @DrawTexturePro(ptr noundef nonnull byval(%struct.Texture) align 8 %6, <2 x float> %.sroa.02.4.vec.insert, <2 x float> %.sroa.5.12.vec.insert, <2 x float> %.sroa.05.4.vec.insert, <2 x float> %.sroa.57.12.vec.insert, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %4) #46
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
@@ -9464,18 +9464,18 @@ declare float @llvm.fmuladd.f32(float, float, float) #19
 
 ; Function Attrs: nounwind uwtable
 define void @DrawTextPro(ptr noundef readonly byval(%struct.Font) align 8 captures(none) %0, ptr noundef readonly captures(address_is_null) %1, <2 x float> %2, <2 x float> %3, float noundef %4, float noundef %5, float noundef %6, i32 %7) local_unnamed_addr #5 {
-  tail call void @rlPushMatrix() #44
+  tail call void @rlPushMatrix() #46
   %.sroa.07.0.vec.extract = extractelement <2 x float> %2, i64 0
   %.sroa.07.4.vec.extract = extractelement <2 x float> %2, i64 1
-  tail call void @rlTranslatef(float noundef %.sroa.07.0.vec.extract, float noundef %.sroa.07.4.vec.extract, float noundef 0.000000e+00) #44
-  tail call void @rlRotatef(float noundef %4, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00) #44
+  tail call void @rlTranslatef(float noundef %.sroa.07.0.vec.extract, float noundef %.sroa.07.4.vec.extract, float noundef 0.000000e+00) #46
+  tail call void @rlRotatef(float noundef %4, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00) #46
   %.sroa.06.0.vec.extract = extractelement <2 x float> %3, i64 0
   %9 = fneg float %.sroa.06.0.vec.extract
   %.sroa.06.4.vec.extract = extractelement <2 x float> %3, i64 1
   %10 = fneg float %.sroa.06.4.vec.extract
-  tail call void @rlTranslatef(float noundef %9, float noundef %10, float noundef 0.000000e+00) #44
+  tail call void @rlTranslatef(float noundef %9, float noundef %10, float noundef 0.000000e+00) #46
   tail call void @DrawTextEx(ptr noundef nonnull byval(%struct.Font) align 8 %0, ptr noundef %1, <2 x float> zeroinitializer, float noundef %5, float noundef %6, i32 %7)
-  tail call void @rlPopMatrix() #44
+  tail call void @rlPopMatrix() #46
   ret void
 }
 
@@ -9644,7 +9644,7 @@ DrawTextCodepoint.exit:                           ; preds = %42, %51, %.thread.i
   %.sroa.5.12.vec.insert.i = insertelement <2 x float> %.sroa.5.8.vec.insert.i, float %73, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %8, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.6.0..sroa_idx, i64 20, i1 false)
-  tail call void @DrawTexturePro(ptr noundef nonnull byval(%struct.Texture) align 8 %8, <2 x float> %.sroa.02.4.vec.insert.i, <2 x float> %.sroa.5.12.vec.insert.i, <2 x float> %.sroa.05.4.vec.insert.i, <2 x float> %.sroa.57.12.vec.insert.i, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %6) #44
+  tail call void @DrawTexturePro(ptr noundef nonnull byval(%struct.Texture) align 8 %8, <2 x float> %.sroa.02.4.vec.insert.i, <2 x float> %.sroa.5.12.vec.insert.i, <2 x float> %.sroa.05.4.vec.insert.i, <2 x float> %.sroa.57.12.vec.insert.i, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %6) #46
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %80
 
@@ -9678,13 +9678,13 @@ DrawTextCodepoint.exit:                           ; preds = %42, %51, %.thread.i
   br i1 %exitcond.not, label %._crit_edge, label %25
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @SetTextLineSpacing(i32 noundef %0) local_unnamed_addr #22 {
   store i32 %0, ptr @textLineSpacing, align 4
   ret void
 }
 
-; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @MeasureText(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #23 {
   %.sroa.1.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 12), align 4
   %.not = icmp eq i32 %.sroa.1.0.copyload, 0
@@ -9705,7 +9705,7 @@ define i32 @MeasureText(ptr noundef readonly captures(address_is_null) %0, i32 n
   ret i32 %9
 }
 
-; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define <2 x float> @MeasureTextEx(ptr noundef readonly byval(%struct.Font) align 8 captures(none) %0, ptr noundef readonly captures(address_is_null) %1, float noundef %2, float noundef %3) local_unnamed_addr #23 {
   %5 = load i8, ptr @isGpuReady, align 1, !range !3, !noundef !4
   %6 = trunc nuw i8 %5 to i1
@@ -9961,7 +9961,7 @@ GetGlyphIndex.exit:                               ; preds = %GetCodepointNext.ex
   ret <2 x float> %.sroa.0.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @GetGlyphInfo(ptr dead_on_unwind noalias writable writeonly sret(%struct.GlyphInfo) align 8 captures(none) %0, ptr noundef readonly byval(%struct.Font) align 8 captures(none) %1, i32 noundef %2) local_unnamed_addr #24 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
@@ -10017,7 +10017,7 @@ GetGlyphIndex.exit:                               ; preds = %3, %22, %.thread.i
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { <2 x float>, <2 x float> } @GetGlyphAtlasRec(ptr noundef readonly byval(%struct.Font) align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #21 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -10257,7 +10257,7 @@ define i32 @TextCopy(ptr noundef writeonly captures(address_is_null) %0, ptr nou
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #27
 
-; Function Attrs: nofree norecurse nounwind memory(write, argmem: read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(write, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef nonnull ptr @TextSubtext(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #28 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) @TextSubtext.buffer, i8 0, i64 1024, i1 false)
   %.not.i = icmp eq ptr %0, null
@@ -10314,8 +10314,8 @@ TextLength.exit:                                  ; preds = %3, %.preheader.i, %
   ret ptr @TextSubtext.buffer
 }
 
-; Function Attrs: nofree nounwind uwtable
-define noundef ptr @TextReplace(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #2 {
+; Function Attrs: nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define noundef ptr @TextReplace(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #29 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -10350,7 +10350,7 @@ TextLength.exit:                                  ; preds = %.preheader.i
 
 TextLength.exit58:                                ; preds = %.preheader.i52, %.lr.ph.preheader.i54
   %.0.i57 = phi i32 [ 0, %.preheader.i52 ], [ %13, %.lr.ph.preheader.i54 ]
-  %14 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #46
+  %14 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #48
   %.not68 = icmp eq ptr %14, null
   br i1 %.not68, label %.preheader.i60, label %.lr.ph
 
@@ -10363,7 +10363,7 @@ TextLength.exit58:                                ; preds = %.preheader.i52, %.l
   %.069 = phi i32 [ 0, %.lr.ph ], [ %19, %16 ]
   %18 = getelementptr inbounds i8, ptr %17, i64 %15
   %19 = add nuw nsw i32 %.069, 1
-  %20 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %1) #46
+  %20 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %1) #48
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %.preheader.i60, label %16
 
@@ -10387,7 +10387,7 @@ TextLength.exit66:                                ; preds = %.preheader.i60, %.l
   %26 = add i32 %25, 1
   %27 = add i32 %26, %.0.i65
   %28 = zext i32 %27 to i64
-  %29 = tail call noalias ptr @malloc(i64 noundef %28) #47
+  %29 = tail call noalias ptr @malloc(i64 noundef %28) #49
   %.not49 = icmp eq ptr %29, null
   br i1 %.not49, label %TextLength.exit.thread, label %.preheader
 
@@ -10404,16 +10404,16 @@ TextLength.exit66:                                ; preds = %.preheader.i60, %.l
   %.03872 = phi ptr [ %29, %.lr.ph74 ], [ %42, %31 ]
   %.04271 = phi ptr [ %0, %.lr.ph74 ], [ %45, %31 ]
   %32 = add nsw i32 %.173, -1
-  %33 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.04271, ptr noundef nonnull dereferenceable(1) %1) #46
+  %33 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.04271, ptr noundef nonnull dereferenceable(1) %1) #48
   %34 = ptrtoint ptr %33 to i64
   %35 = ptrtoint ptr %.04271 to i64
   %36 = sub i64 %34, %35
   %37 = trunc i64 %36 to i32
   %sext = shl i64 %36, 32
   %38 = ashr exact i64 %sext, 32
-  %39 = tail call ptr @strncpy(ptr noundef nonnull %.03872, ptr noundef nonnull %.04271, i64 noundef %38) #44
+  %39 = tail call ptr @strncpy(ptr noundef nonnull %.03872, ptr noundef nonnull %.04271, i64 noundef %38) #46
   %40 = getelementptr inbounds i8, ptr %.03872, i64 %38
-  %41 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %2) #44
+  %41 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %2) #46
   %42 = getelementptr inbounds i8, ptr %40, i64 %30
   %43 = add nsw i32 %9, %37
   %44 = sext i32 %43 to i64
@@ -10424,7 +10424,7 @@ TextLength.exit66:                                ; preds = %.preheader.i60, %.l
 ._crit_edge:                                      ; preds = %31, %.preheader
   %.042.lcssa = phi ptr [ %0, %.preheader ], [ %45, %31 ]
   %.038.lcssa = phi ptr [ %29, %.preheader ], [ %42, %31 ]
-  %46 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.038.lcssa, ptr noundef nonnull dereferenceable(1) %.042.lcssa) #44
+  %46 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.038.lcssa, ptr noundef nonnull dereferenceable(1) %.042.lcssa) #46
   br label %TextLength.exit.thread
 
 TextLength.exit.thread:                           ; preds = %.preheader.i, %._crit_edge, %TextLength.exit, %TextLength.exit66, %3
@@ -10438,8 +10438,8 @@ declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #14
 
-; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noalias noundef ptr @TextInsert(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #29 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define noalias noundef ptr @TextInsert(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #30 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %TextLength.exit, label %.preheader.i
 
@@ -10477,7 +10477,7 @@ TextLength.exit45:                                ; preds = %TextLength.exit, %.
   %10 = add nsw i32 %.0.i44, %.0.i
   %11 = add nsw i32 %10, 1
   %12 = sext i32 %11 to i64
-  %13 = tail call noalias ptr @malloc(i64 noundef %12) #47
+  %13 = tail call noalias ptr @malloc(i64 noundef %12) #49
   %14 = icmp sgt i32 %2, 0
   br i1 %14, label %.lr.ph.preheader, label %.preheader46
 
@@ -10529,8 +10529,8 @@ TextLength.exit45:                                ; preds = %TextLength.exit, %.
   ret ptr %13
 }
 
-; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @TextJoin(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #30 {
+; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define noundef nonnull ptr @TextJoin(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #31 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) @TextJoin.buffer, i8 0, i64 1024, i1 false)
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %TextLength.exit, label %.preheader.i
@@ -10659,8 +10659,8 @@ TextLength.exit39:                                ; preds = %.lr.ph.split, %.pre
   br i1 %exitcond49.not, label %._crit_edge, label %.lr.ph.split
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @TextSplit(ptr noundef readonly captures(address_is_null) %0, i8 noundef signext %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #31 {
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define noundef nonnull ptr @TextSplit(ptr noundef readonly captures(address_is_null) %0, i8 noundef signext %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #32 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) @TextSplit.buffer, i8 0, i64 1024, i1 false)
   store ptr @TextSplit.buffer, ptr @TextSplit.result, align 16
   %.not = icmp eq ptr %0, null
@@ -10703,12 +10703,12 @@ define noundef nonnull ptr @TextSplit(ptr noundef readonly captures(address_is_n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @TextAppend(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #32 {
+define void @TextAppend(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #33 {
 .preheader.i:
   %3 = load i32, ptr %2, align 4
   %4 = sext i32 %3 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  %6 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %1) #44
+  %6 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %1) #46
   %7 = load i8, ptr %1, align 1
   %.not56.i = icmp eq i8 %7, 0
   br i1 %.not56.i, label %TextLength.exit, label %.lr.ph.preheader.i
@@ -10730,7 +10730,7 @@ TextLength.exit:                                  ; preds = %.preheader.i, %.lr.
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define i32 @TextFindIndex(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #16 {
-  %3 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #46
+  %3 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #48
   %.not = icmp eq ptr %3, null
   %4 = ptrtoint ptr %3 to i64
   %5 = ptrtoint ptr %0 to i64
@@ -10740,7 +10740,7 @@ define i32 @TextFindIndex(ptr noundef %0, ptr noundef readonly captures(none) %1
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef nonnull ptr @TextToSnake(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #15 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) @TextToSnake.buffer, i8 0, i64 1024, i1 false)
   %.not = icmp eq ptr %0, null
@@ -10792,7 +10792,7 @@ define noundef nonnull ptr @TextToSnake(ptr noundef readonly captures(address_is
   ret ptr @TextToSnake.buffer
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef nonnull ptr @TextToCamel(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #15 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) @TextToCamel.buffer, i8 0, i64 1024, i1 false)
   %.not = icmp eq ptr %0, null
@@ -10849,11 +10849,11 @@ define noundef nonnull ptr @TextToCamel(ptr noundef readonly captures(address_is
   ret ptr @TextToCamel.buffer
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define noalias noundef ptr @LoadUTF8(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #33 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define noalias noundef ptr @LoadUTF8(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #34 {
   %3 = mul nsw i32 %1, 5
   %4 = sext i32 %3 to i64
-  %5 = tail call noalias ptr @calloc(i64 noundef %4, i64 noundef 1) #45
+  %5 = tail call noalias ptr @calloc(i64 noundef %4, i64 noundef 1) #47
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -10868,7 +10868,7 @@ define noalias noundef ptr @LoadUTF8(ptr noundef readonly captures(none) %0, i32
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
   %.015.lcssa = phi i64 [ 1, %2 ], [ %8, %._crit_edge.loopexit ]
-  %9 = tail call ptr @realloc(ptr noundef %5, i64 noundef %.015.lcssa) #48
+  %9 = tail call ptr @realloc(ptr noundef %5, i64 noundef %.015.lcssa) #50
   %.not = icmp eq ptr %9, null
   %spec.select = select i1 %.not, ptr %5, ptr %9
   ret ptr %spec.select
@@ -10959,8 +10959,8 @@ CodepointToUTF8.exit:                             ; preds = %13, %17, %26, %37, 
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @CodepointToUTF8(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #34 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define noundef nonnull ptr @CodepointToUTF8(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #35 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) @CodepointToUTF8.utf8, i8 0, i64 6, i1 false)
   %3 = icmp slt i32 %0, 128
   br i1 %3, label %4, label %6
@@ -11037,16 +11037,16 @@ define noundef nonnull ptr @CodepointToUTF8(i32 noundef %0, ptr noundef writeonl
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #35
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #36
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @UnloadUTF8(ptr noundef captures(none) %0) local_unnamed_addr #36 {
-  tail call void @free(ptr noundef %0) #44
+define void @UnloadUTF8(ptr noundef captures(none) %0) local_unnamed_addr #37 {
+  tail call void @free(ptr noundef %0) #46
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define noalias noundef ptr @LoadCodepoints(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define noalias noundef ptr @LoadCodepoints(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #38 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %TextLength.exit.thread, label %.preheader.i
 
@@ -11056,7 +11056,7 @@ define noalias noundef ptr @LoadCodepoints(ptr noundef readonly captures(address
   br i1 %.not56.i, label %TextLength.exit.thread, label %TextLength.exit
 
 TextLength.exit.thread:                           ; preds = %2, %.preheader.i
-  %4 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 4) #45
+  %4 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 4) #47
   br label %._crit_edge
 
 TextLength.exit:                                  ; preds = %.preheader.i
@@ -11065,7 +11065,7 @@ TextLength.exit:                                  ; preds = %.preheader.i
   %5 = trunc i64 %strlen.i to i32
   %6 = add i32 %5, 1
   %7 = sext i32 %6 to i64
-  %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 4) #45
+  %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 4) #47
   %9 = icmp ult i32 %5, 2147483647
   br i1 %9, label %.lr.ph, label %._crit_edge
 
@@ -11078,7 +11078,7 @@ TextLength.exit:                                  ; preds = %.preheader.i
   %.014.lcssa = phi i32 [ 0, %TextLength.exit ], [ %10, %._crit_edge.loopexit ], [ 0, %TextLength.exit.thread ]
   %12 = zext nneg i32 %.014.lcssa to i64
   %13 = shl nuw nsw i64 %12, 2
-  %14 = tail call ptr @realloc(ptr noundef %11, i64 noundef %13) #48
+  %14 = tail call ptr @realloc(ptr noundef %11, i64 noundef %13) #50
   store i32 %.014.lcssa, ptr %1, align 4
   ret ptr %14
 
@@ -11198,8 +11198,8 @@ GetCodepointNext.exit:                            ; preds = %36, %60, %76, %21, 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @UnloadCodepoints(ptr noundef captures(none) %0) local_unnamed_addr #36 {
-  tail call void @free(ptr noundef %0) #44
+define void @UnloadCodepoints(ptr noundef captures(none) %0) local_unnamed_addr #37 {
+  tail call void @free(ptr noundef %0) #46
   ret void
 }
 
@@ -11584,8 +11584,8 @@ GetCodepointNext.exit.thread:                     ; preds = %67, %58, %38, %42, 
   ret i32 %.030.i15
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc { ptr, i64 } @stbtt__cff_get_index(ptr noundef nonnull captures(none) %0) unnamed_addr #37 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc { ptr, i64 } @stbtt__cff_get_index(ptr noundef nonnull captures(none) %0) unnamed_addr #39 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -11714,8 +11714,8 @@ stbtt__buf_range.exit:                            ; preds = %48, %52, %55
   ret { ptr, i64 } %.fca.1.insert.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @stbtt__dict_get_ints(ptr noundef nonnull captures(none) initializes((8, 12)) %0, i32 noundef range(i32 17, 294) %1, i32 noundef range(i32 1, 3) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #37 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc void @stbtt__dict_get_ints(ptr noundef nonnull captures(none) initializes((8, 12)) %0, i32 noundef range(i32 17, 294) %1, i32 noundef range(i32 1, 3) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #39 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = tail call i32 @llvm.smin.i32(i32 %6, i32 0)
@@ -12054,7 +12054,7 @@ stbtt__cff_int.exit:                              ; preds = %stbtt__buf_get8.exi
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc { ptr, i64 } @stbtt__get_subrs(ptr %0, i64 %1, ptr %2, i64 %3) unnamed_addr #21 {
   %5 = alloca %struct.stbtt__buf, align 8
   %6 = alloca i32, align 4
@@ -12227,8 +12227,8 @@ stbtt__cff_get_index.exit:                        ; preds = %stbtt__buf_get.exit
   ret { ptr, i64 } %.pn
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc i32 @stbtt_GetGlyphShape(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %2) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc i32 @stbtt_GetGlyphShape(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %2) unnamed_addr #38 {
   %4 = alloca %struct.stbtt__csctx, align 8
   %5 = alloca %struct.stbtt__csctx, align 8
   %6 = alloca ptr, align 8
@@ -12375,7 +12375,7 @@ stbtt__GetGlyfOffset.exit:                        ; preds = %82
   %108 = add nuw nsw i32 %107, %106
   %narrow.i = mul nuw nsw i32 %108, 14
   %109 = zext nneg i32 %narrow.i to i64
-  %110 = tail call noalias ptr @malloc(i64 noundef %109) #47
+  %110 = tail call noalias ptr @malloc(i64 noundef %109) #49
   %.not368.i = icmp eq ptr %110, null
   br i1 %.not368.i, label %stbtt__GetGlyphShapeTT.exit, label %111
 
@@ -13111,7 +13111,7 @@ stbtt__close_shape.exit17:                        ; preds = %215, %232, %236
   %510 = add nuw nsw i32 %473, %.7.i38
   %511 = zext nneg i32 %510 to i64
   %512 = mul nuw nsw i64 %511, 14
-  %513 = tail call noalias ptr @malloc(i64 noundef %512) #47
+  %513 = tail call noalias ptr @malloc(i64 noundef %512) #49
   %.not348.i = icmp eq ptr %513, null
   br i1 %.not348.i, label %514, label %516
 
@@ -13120,7 +13120,7 @@ stbtt__close_shape.exit17:                        ; preds = %215, %232, %236
   br i1 %.not349.i, label %530, label %515
 
 515:                                              ; preds = %514
-  tail call void @free(ptr noundef nonnull %.1273.i39) #44
+  tail call void @free(ptr noundef nonnull %.1273.i39) #46
   br label %530
 
 516:                                              ; preds = %509
@@ -13145,11 +13145,11 @@ stbtt__close_shape.exit17:                        ; preds = %215, %232, %236
   br i1 %518, label %526, label %527
 
 526:                                              ; preds = %.thread23, %523
-  tail call void @free(ptr noundef nonnull %.1273.i39) #44
+  tail call void @free(ptr noundef nonnull %.1273.i39) #46
   br label %527
 
 527:                                              ; preds = %526, %523
-  tail call void @free(ptr noundef nonnull %475) #44
+  tail call void @free(ptr noundef nonnull %475) #46
   br label %528
 
 528:                                              ; preds = %468, %527
@@ -13161,7 +13161,7 @@ stbtt__close_shape.exit17:                        ; preds = %215, %232, %236
   br i1 %.not.i, label %.thread29, label %369
 
 530:                                              ; preds = %515, %514
-  tail call void @free(ptr noundef nonnull %475) #44
+  tail call void @free(ptr noundef nonnull %475) #46
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %stbtt__GetGlyphShapeTT.exit
 
@@ -13186,7 +13186,7 @@ stbtt__close_shape.exit17:                        ; preds = %215, %232, %236
   %535 = load i32, ptr %534, align 8
   %536 = sext i32 %535 to i64
   %537 = mul nsw i64 %536, 14
-  %538 = tail call noalias ptr @malloc(i64 noundef %537) #47
+  %538 = tail call noalias ptr @malloc(i64 noundef %537) #49
   store ptr %538, ptr %2, align 8
   %539 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %538, ptr %539, align 8
@@ -13214,7 +13214,7 @@ stbtt__GetGlyphShapeTT.exit:                      ; preds = %530, %94, %.thread2
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @stbtt_GetGlyphBitmapBoxSubpixel(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %4, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %5, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %6, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %7) unnamed_addr #24 {
   %9 = alloca %struct.stbtt__csctx, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -13424,7 +13424,7 @@ stbtt_GetGlyphBox.exit:                           ; preds = %102, %12
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @sqrt(double noundef) local_unnamed_addr #18
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 2) i32 @stbtt__run_charstring(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #24 {
   %4 = alloca [48 x float], align 16
   %5 = alloca [10 x %struct.stbtt__buf], align 16
@@ -14990,8 +14990,8 @@ stbtt__cff_int.exit:                              ; preds = %stbtt__buf_get8.exi
   ret i32 %.2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @stbtt__csctx_rmove_to(ptr noundef nonnull captures(none) %0, float noundef %1, float noundef %2) unnamed_addr #38 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc void @stbtt__csctx_rmove_to(ptr noundef nonnull captures(none) %0, float noundef %1, float noundef %2) unnamed_addr #40 {
   tail call fastcc void @stbtt__csctx_close_shape(ptr noundef %0)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load float, ptr %4, align 8
@@ -15120,8 +15120,8 @@ stbtt__csctx_v.exit:                              ; preds = %stbtt__track_vertex
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @stbtt__csctx_rline_to(ptr noundef nonnull captures(none) %0, float noundef %1, float noundef %2) unnamed_addr #38 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc void @stbtt__csctx_rline_to(ptr noundef nonnull captures(none) %0, float noundef %1, float noundef %2) unnamed_addr #40 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load float, ptr %4, align 8
   %6 = fadd float %1, %5
@@ -15245,8 +15245,8 @@ stbtt__csctx_v.exit:                              ; preds = %stbtt__track_vertex
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @stbtt__csctx_rccurve_to(ptr noundef nonnull captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) unnamed_addr #38 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc void @stbtt__csctx_rccurve_to(ptr noundef nonnull captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) unnamed_addr #40 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load float, ptr %8, align 8
   %10 = fadd float %1, %9
@@ -15455,8 +15455,8 @@ stbtt__csctx_v.exit:                              ; preds = %stbtt__track_vertex
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @stbtt__csctx_close_shape(ptr noundef nonnull captures(none) %0) unnamed_addr #38 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc void @stbtt__csctx_close_shape(ptr noundef nonnull captures(none) %0) unnamed_addr #40 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load float, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15592,7 +15592,7 @@ stbtt__csctx_v.exit:                              ; preds = %stbtt__track_vertex
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @stbtt__tesselate_curve(ptr noundef writeonly captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) unnamed_addr #39 {
+define internal fastcc void @stbtt__tesselate_curve(ptr noundef writeonly captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) unnamed_addr #41 {
   %11 = icmp sgt i32 %9, 16
   br i1 %11, label %.loopexit, label %.lr.ph.preheader
 
@@ -15664,7 +15664,7 @@ stbtt__add_point.exit:                            ; preds = %36, %37
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @stbtt__tesselate_cubic(ptr noundef writeonly captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, i32 noundef %11) unnamed_addr #39 {
+define internal fastcc void @stbtt__tesselate_cubic(ptr noundef writeonly captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, i32 noundef %11) unnamed_addr #41 {
   %smax = tail call i32 @llvm.smax.i32(i32 %11, i32 17)
   %exitcond108 = icmp sgt i32 %11, 16
   br i1 %exitcond108, label %.loopexit, label %.lr.ph
@@ -15763,7 +15763,7 @@ stbtt__add_point.exit:                            ; preds = %64, %65
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @stbtt__sort_edges_quicksort(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #39 {
+define internal fastcc void @stbtt__sort_edges_quicksort(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #41 {
   %3 = alloca %struct.stbtt__edge, align 4
   %4 = icmp sgt i32 %1, 12
   br i1 %4, label %.lr.ph, label %._crit_edge
@@ -15901,54 +15901,54 @@ declare void @ImageDraw(ptr noundef, ptr noundef byval(%struct.Image) align 8, <
 declare void @GenImageColor(ptr dead_on_unwind writable sret(%struct.Image) align 8, i32 noundef, i32 noundef, i32) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #40
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #42
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #40
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #42
 
 declare float @exp2f(float) local_unnamed_addr
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #41
+declare i32 @llvm.smin.i32(i32, i32) #43
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.floor.f32(float) #41
+declare float @llvm.floor.f32(float) #43
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #41
+declare float @llvm.fabs.f32(float) #43
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smin.i16(i16, i16) #41
+declare i16 @llvm.smin.i16(i16, i16) #43
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smax.i16(i16, i16) #41
+declare i16 @llvm.smax.i16(i16, i16) #43
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #41
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #43
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #41
+declare i32 @llvm.smax.i32(i32, i32) #43
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #41
+declare float @llvm.sqrt.f32(float) #43
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #41
+declare double @llvm.sqrt.f64(double) #43
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #41
+declare i64 @llvm.smax.i64(i64, i64) #43
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.copysign.f32(float, float) #41
+declare float @llvm.copysign.f32(float, float) #43
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #42
+declare void @llvm.experimental.noalias.scope.decl(metadata) #44
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #43
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #45
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr captures(none)) local_unnamed_addr #43
+declare i64 @strlen(ptr captures(none)) local_unnamed_addr #45
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -15961,44 +15961,46 @@ attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroe
 attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #13 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree norecurse nosync nounwind memory(write, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree norecurse nosync nounwind memory(write, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { nofree norecurse nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #25 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #26 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #27 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { nofree norecurse nounwind memory(write, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #29 = { mustprogress nofree nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #30 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #31 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #32 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #33 = { nounwind memory(readwrite, argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #34 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #35 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #36 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #37 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #38 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #39 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #40 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #41 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #42 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #43 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #44 = { nounwind }
-attributes #45 = { nounwind allocsize(0,1) }
-attributes #46 = { nounwind willreturn memory(read) }
-attributes #47 = { nounwind allocsize(0) }
-attributes #48 = { nounwind allocsize(1) }
+attributes #28 = { nofree norecurse nounwind memory(write, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #30 = { mustprogress nofree nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #31 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #32 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #33 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #34 = { nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #35 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #36 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #37 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #38 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #39 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #40 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #41 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #42 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #43 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #44 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #45 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #46 = { nounwind }
+attributes #47 = { nounwind allocsize(0,1) }
+attributes #48 = { nounwind willreturn memory(read) }
+attributes #49 = { nounwind allocsize(0) }
+attributes #50 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

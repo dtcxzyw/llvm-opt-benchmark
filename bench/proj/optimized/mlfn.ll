@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZZ7pj_enfndE12coeff_mu_phi = internal unnamed_addr constant [12 x double] [double -1.500000e+00, double 5.625000e-01, double -9.375000e-02, double 9.375000e-01, double -4.687500e-01, double 0x3FB0E00000000000, double 0xBFE7555555555555, double 0x3FDA400000000000, double 0x3FE3B00000000000, double 0xBFD7A00000000000, double 0xBFE1533333333333, double 0x3FDF480000000000], align 16
 @_ZZ7pj_enfndE12coeff_phi_mu = internal unnamed_addr constant [12 x double] [double 1.500000e+00, double -8.437500e-01, double 0x3FE0D00000000000, double 1.312500e+00, double -1.718750e+00, double 0x3FFA670000000000, double 0x3FF92AAAAAAAAAAB, double 0xC00A100000000000, double 0x4001240000000000, double 0xC018493333333333, double 0x400908CCCCCCCCCD, double 0x401319E222222222], align 16
 
-; Function Attrs: mustprogress nofree nounwind memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noalias noundef ptr @_Z7pj_enfnd(double noundef %0) local_unnamed_addr #0 {
   %2 = fmul double %0, %0
   %3 = tail call noalias dereferenceable_or_null(104) ptr @malloc(i64 noundef 104) #6
@@ -179,7 +179,7 @@ declare double @cos(double noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #5
 
-attributes #0 = { mustprogress nofree nounwind memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree nounwind memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nounwind memory(argmem: read, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

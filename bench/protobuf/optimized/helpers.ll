@@ -7181,7 +7181,7 @@ entry:
   ret ptr null
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp17HasRepeatedFieldsEPKNS0_14FileDescriptorE(ptr noundef readonly captures(none) %file) local_unnamed_addr #12 {
 entry:
   %message_type_count_.i = getelementptr inbounds nuw i8, ptr %file, i64 60
@@ -7209,7 +7209,7 @@ return:                                           ; preds = %for.body, %entry
   ret i1 %cmp.lcssa
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler3cppL17HasRepeatedFieldsEPKNS0_10DescriptorE(ptr noundef readonly captures(none) %descriptor) unnamed_addr #12 {
 entry:
   %field_count_.i = getelementptr inbounds nuw i8, ptr %descriptor, i64 4
@@ -7586,7 +7586,7 @@ return:                                           ; preds = %land.lhs.true2.i.i,
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp32HasExtensionsOrExtendableMessageEPKNS0_14FileDescriptorE(ptr noundef readonly captures(none) %file) local_unnamed_addr #12 {
 entry:
   %extension_count_.i = getelementptr inbounds nuw i8, ptr %file, i64 4
@@ -7620,7 +7620,7 @@ return:                                           ; preds = %for.body, %for.cond
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler3cppL32HasExtensionsOrExtendableMessageEPKNS0_10DescriptorE(ptr noundef readonly captures(none) %descriptor) unnamed_addr #12 {
 entry:
   %extension_range_count_.i = getelementptr inbounds nuw i8, ptr %descriptor, i64 136
@@ -7783,7 +7783,7 @@ return:                                           ; preds = %_ZNK6google8protobu
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp18HasEnumDefinitionsEPKNS0_14FileDescriptorE(ptr noundef readonly captures(none) %file) local_unnamed_addr #12 {
 entry:
   %enum_type_count_.i = getelementptr inbounds nuw i8, ptr %file, i64 64
@@ -7817,7 +7817,7 @@ return:                                           ; preds = %for.body, %for.cond
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler3cppL18HasEnumDefinitionsEPKNS0_10DescriptorE(ptr noundef readonly captures(none) %message_type) unnamed_addr #12 {
 entry:
   %enum_type_count_.i = getelementptr inbounds nuw i8, ptr %message_type, i64 132
@@ -26451,7 +26451,7 @@ attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #9 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { cold nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

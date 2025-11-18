@@ -30,7 +30,7 @@ define noalias noundef ptr @Cloud_Init(i32 noundef %0, i32 noundef %1) local_unn
   %4 = alloca %struct.timespec, align 8
   %5 = icmp eq i32 %1, 0
   %spec.store.select = select i1 %5, i32 23, i32 %1
-  %6 = tail call noalias dereferenceable_or_null(304) ptr @calloc(i64 noundef 1, i64 noundef 304) #13
+  %6 = tail call noalias dereferenceable_or_null(304) ptr @calloc(i64 noundef 1, i64 noundef 304) #15
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 60
   store i32 304, ptr %7, align 4, !tbaa !3
   store i32 %0, ptr %6, align 8, !tbaa !11
@@ -77,17 +77,17 @@ Abc_Clock.exit:                                   ; preds = %19
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 %27, ptr %28, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %29 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #14
+  %29 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %30 = sext i32 %25 to i64
-  %31 = call noalias ptr @calloc(i64 noundef %30, i64 noundef 24) #13
+  %31 = call noalias ptr @calloc(i64 noundef %30, i64 noundef 24) #15
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store ptr %31, ptr %32, align 8, !tbaa !20
   %33 = shl i32 24, %24
   %34 = load i32, ptr %7, align 4, !tbaa !3
   %35 = add i32 %34, %33
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %36 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #14
+  %36 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i32 1, ptr %37, align 8, !tbaa !21
@@ -113,7 +113,7 @@ Abc_Clock.exit:                                   ; preds = %19
   store ptr %48, ptr %49, align 8, !tbaa !29
   %50 = sext i32 %0 to i64
   %51 = shl nsw i64 %50, 3
-  %52 = call noalias ptr @malloc(i64 noundef %51) #15
+  %52 = call noalias ptr @malloc(i64 noundef %51) #17
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 128
   store ptr %52, ptr %53, align 8, !tbaa !30
   %54 = shl i32 %0, 3
@@ -337,15 +337,15 @@ define internal fastcc noundef ptr @cloudMakeNode(ptr noundef captures(none) %0,
   ret ptr %.032
 }
 
-; Function Attrs: nounwind uwtable
-define void @Cloud_Quit(ptr noundef captures(none) %0) local_unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define void @Cloud_Quit(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8, !tbaa !39
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %3) #14
+  tail call void @free(ptr noundef nonnull %3) #16
   store ptr null, ptr %2, align 8, !tbaa !39
   br label %5
 
@@ -356,7 +356,7 @@ define void @Cloud_Quit(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   br i1 %.not23, label %9, label %8
 
 8:                                                ; preds = %5
-  tail call void @free(ptr noundef nonnull %7) #14
+  tail call void @free(ptr noundef nonnull %7) #16
   store ptr null, ptr %6, align 8, !tbaa !20
   br label %9
 
@@ -367,7 +367,7 @@ define void @Cloud_Quit(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   br i1 %.not24, label %13, label %12
 
 12:                                               ; preds = %9
-  tail call void @free(ptr noundef nonnull %11) #14
+  tail call void @free(ptr noundef nonnull %11) #16
   store ptr null, ptr %10, align 8, !tbaa !30
   br label %13
 
@@ -383,7 +383,7 @@ define void @Cloud_Quit(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   br i1 %.not26, label %19, label %18
 
 18:                                               ; preds = %15
-  tail call void @free(ptr noundef nonnull %17) #14
+  tail call void @free(ptr noundef nonnull %17) #16
   store ptr null, ptr %16, align 8, !tbaa !40
   br label %19
 
@@ -393,15 +393,15 @@ define void @Cloud_Quit(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   br i1 %exitcond.not, label %20, label %15, !llvm.loop !42
 
 20:                                               ; preds = %19
-  tail call void @free(ptr noundef nonnull %0) #14
+  tail call void @free(ptr noundef nonnull %0) #16
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Cloud_Restart(ptr noundef captures(none) %0) local_unnamed_addr #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define void @Cloud_Restart(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8, !tbaa !21
   %4 = add i32 %3, 1
@@ -440,7 +440,7 @@ define void @Cloud_Restart(ptr noundef captures(none) %0) local_unnamed_addr #5 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @Cloud_CacheAllocate(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+define void @Cloud_CacheAllocate(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %._crit_edge, label %4
 
@@ -470,7 +470,7 @@ define void @Cloud_CacheAllocate(ptr noundef captures(none) %0, i32 noundef %1, 
   %15 = phi i32 [ %.pre, %._crit_edge ], [ %7, %4 ]
   %16 = shl nuw i32 1, %15
   %17 = sext i32 %16 to i64
-  %18 = tail call noalias ptr @calloc(i64 noundef %17, i64 noundef 32) #13
+  %18 = tail call noalias ptr @calloc(i64 noundef %17, i64 noundef 32) #15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.pre-phi
   store ptr %18, ptr %20, align 8, !tbaa !40
@@ -947,7 +947,7 @@ define ptr @Cloud_bddAnd(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
   %12 = load i32, ptr %11, align 4, !tbaa !13
   %13 = shl nuw i32 1, %12
   %14 = sext i32 %13 to i64
-  %15 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef 32) #13
+  %15 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef 32) #15
   store ptr %15, ptr %7, align 8, !tbaa !40
   %16 = shl i32 32, %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -995,7 +995,7 @@ define ptr @Cloud_bddOr(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_un
   %15 = load i32, ptr %14, align 4, !tbaa !13
   %16 = shl nuw i32 1, %15
   %17 = sext i32 %16 to i64
-  %18 = tail call noalias ptr @calloc(i64 noundef %17, i64 noundef 32) #13
+  %18 = tail call noalias ptr @calloc(i64 noundef %17, i64 noundef 32) #15
   store ptr %18, ptr %10, align 8, !tbaa !40
   %19 = shl i32 32, %15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -1056,7 +1056,7 @@ define ptr @Cloud_bddXor(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
   %15 = load i32, ptr %14, align 4, !tbaa !13
   %16 = shl nuw i32 1, %15
   %17 = sext i32 %16 to i64
-  %18 = tail call noalias ptr @calloc(i64 noundef %17, i64 noundef 32) #13
+  %18 = tail call noalias ptr @calloc(i64 noundef %17, i64 noundef 32) #15
   store ptr %18, ptr %10, align 8, !tbaa !40
   %19 = shl i32 32, %15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -1123,7 +1123,7 @@ cloudBddAnd_gate.exit21:                          ; preds = %34, %36
   %50 = load i32, ptr %49, align 4, !tbaa !13
   %51 = shl nuw i32 1, %50
   %52 = sext i32 %51 to i64
-  %53 = tail call noalias ptr @calloc(i64 noundef %52, i64 noundef 32) #13
+  %53 = tail call noalias ptr @calloc(i64 noundef %52, i64 noundef 32) #15
   store ptr %53, ptr %10, align 8, !tbaa !40
   %54 = shl i32 32, %50
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -1166,7 +1166,7 @@ Cloud_bddOr.exit:                                 ; preds = %cloudBddAnd_gate.ex
 define ptr @Cloud_Support(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8, !tbaa !11
   %4 = sext i32 %3 to i64
-  %5 = tail call noalias ptr @calloc(i64 noundef %4, i64 noundef 4) #13
+  %5 = tail call noalias ptr @calloc(i64 noundef %4, i64 noundef 4) #15
   %6 = ptrtoint ptr %1 to i64
   %7 = and i64 %6, -2
   %8 = inttoptr i64 %7 to ptr
@@ -1213,7 +1213,7 @@ define ptr @Cloud_Support(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   %32 = load i32, ptr %15, align 4, !tbaa !13
   %33 = shl nuw i32 1, %32
   %34 = sext i32 %33 to i64
-  %35 = tail call noalias ptr @calloc(i64 noundef %34, i64 noundef 32) #13
+  %35 = tail call noalias ptr @calloc(i64 noundef %34, i64 noundef 32) #15
   store ptr %35, ptr %14, align 8, !tbaa !40
   %36 = shl i32 32, %32
   %37 = load i32, ptr %16, align 4, !tbaa !3
@@ -1249,7 +1249,7 @@ Cloud_bddAnd.exit:                                ; preds = %40, %42
 
 .thread:                                          ; preds = %45, %22, %Cloud_bddAnd.exit, %._crit_edge
   %.126 = phi ptr [ %10, %._crit_edge ], [ %.2, %45 ], [ null, %22 ], [ null, %Cloud_bddAnd.exit ]
-  tail call void @free(ptr noundef nonnull %5) #14
+  tail call void @free(ptr noundef nonnull %5) #16
   br label %47
 
 47:                                               ; preds = %._crit_edge, %.thread
@@ -1257,8 +1257,8 @@ Cloud_bddAnd.exit:                                ; preds = %40, %42
   ret ptr %.127
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @cloudSupport(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #7 {
+; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc void @cloudSupport(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !24
   %5 = and i32 %4, -268435457
@@ -1298,8 +1298,8 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @cloudClearMark(ptr noundef captures(none) %0) unnamed_addr #7 {
+; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc void @cloudClearMark(ptr noundef captures(none) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !24
   %4 = and i32 %3, 268435456
@@ -1334,11 +1334,11 @@ tailrecurse:                                      ; preds = %.lr.ph
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define i32 @Cloud_SupportSize(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define i32 @Cloud_SupportSize(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = load i32, ptr %0, align 8, !tbaa !11
   %4 = sext i32 %3 to i64
-  %5 = tail call noalias ptr @calloc(i64 noundef %4, i64 noundef 4) #13
+  %5 = tail call noalias ptr @calloc(i64 noundef %4, i64 noundef 4) #15
   %6 = ptrtoint ptr %1 to i64
   %7 = and i64 %6, -2
   %8 = inttoptr i64 %7 to ptr
@@ -1370,7 +1370,7 @@ define i32 @Cloud_SupportSize(ptr noundef readonly captures(none) %0, ptr nounde
 
 ._crit_edge.thread:                               ; preds = %.lr.ph, %._crit_edge
   %.0.lcssa22 = phi i32 [ 0, %._crit_edge ], [ %spec.select, %.lr.ph ]
-  tail call void @free(ptr noundef nonnull %5) #14
+  tail call void @free(ptr noundef nonnull %5) #16
   br label %15
 
 15:                                               ; preds = %._crit_edge, %._crit_edge.thread
@@ -1378,8 +1378,8 @@ define i32 @Cloud_SupportSize(ptr noundef readonly captures(none) %0, ptr nounde
   ret i32 %.0.lcssa23
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -2147483647, -2147483648) i32 @Cloud_DagSize(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #7 {
+; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define range(i32 -2147483647, -2147483648) i32 @Cloud_DagSize(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #8 {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, -2
   %5 = inttoptr i64 %4 to ptr
@@ -1388,8 +1388,8 @@ define range(i32 -2147483647, -2147483648) i32 @Cloud_DagSize(ptr noundef readno
   ret i32 %6
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -2147483647, -2147483648) i32 @cloudDagSize(ptr noundef captures(none) %0) unnamed_addr #7 {
+; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @cloudDagSize(ptr noundef captures(none) %0) unnamed_addr #8 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %8, %1
@@ -1426,8 +1426,8 @@ common.ret:                                       ; preds = %tailrecurse, %5
   br label %tailrecurse
 }
 
-; Function Attrs: nofree nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @Cloud_DagCollect(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+; Function Attrs: nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define range(i32 -2147483647, -2147483648) i32 @Cloud_DagCollect(ptr noundef %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !13
@@ -1441,7 +1441,7 @@ define range(i32 -2147483647, -2147483648) i32 @Cloud_DagCollect(ptr noundef %0,
   %9 = load i32, ptr %8, align 8, !tbaa !19
   %10 = sext i32 %9 to i64
   %11 = shl nsw i64 %10, 3
-  %12 = tail call noalias ptr @malloc(i64 noundef %11) #15
+  %12 = tail call noalias ptr @malloc(i64 noundef %11) #17
   store ptr %12, ptr %4, align 8, !tbaa !39
   br label %13
 
@@ -1455,8 +1455,8 @@ define range(i32 -2147483647, -2147483648) i32 @Cloud_DagCollect(ptr noundef %0,
   ret i32 %17
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -2147483647, -2147483648) i32 @Cloud_DagCollect_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #7 {
+; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @Cloud_DagCollect_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !24
   %6 = and i32 %5, 268435456
@@ -1507,8 +1507,8 @@ common.ret17:                                     ; preds = %3, %10, %17
   br label %common.ret17
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Cloud_SharingSize(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #7 {
+; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define i32 @Cloud_SharingSize(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1624,7 +1624,7 @@ define ptr @Cloud_GetOneCube(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %50 = load i32, ptr %49, align 4, !tbaa !13
   %51 = shl nuw i32 1, %50
   %52 = sext i32 %51 to i64
-  %53 = tail call noalias ptr @calloc(i64 noundef %52, i64 noundef 32) #13
+  %53 = tail call noalias ptr @calloc(i64 noundef %52, i64 noundef 32) #15
   store ptr %53, ptr %45, align 8, !tbaa !40
   %54 = shl i32 32, %50
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -1673,7 +1673,7 @@ define ptr @Cloud_GetOneCube(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %81 = load i32, ptr %80, align 4, !tbaa !13
   %82 = shl nuw i32 1, %81
   %83 = sext i32 %82 to i64
-  %84 = tail call noalias ptr @calloc(i64 noundef %83, i64 noundef 32) #13
+  %84 = tail call noalias ptr @calloc(i64 noundef %83, i64 noundef 32) #15
   store ptr %84, ptr %76, align 8, !tbaa !40
   %85 = shl i32 32, %81
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -1809,7 +1809,7 @@ Cloud_bddPrintCube.exit:                          ; preds = %46, %22
   %66 = load i32, ptr %13, align 4, !tbaa !13
   %67 = shl nuw i32 1, %66
   %68 = sext i32 %67 to i64
-  %69 = tail call noalias ptr @calloc(i64 noundef %68, i64 noundef 32) #13
+  %69 = tail call noalias ptr @calloc(i64 noundef %68, i64 noundef 32) #15
   store ptr %69, ptr %12, align 8, !tbaa !40
   %70 = shl i32 32, %66
   %71 = load i32, ptr %14, align 4, !tbaa !3
@@ -1846,7 +1846,7 @@ Cloud_bddAnd.exit:                                ; preds = %Cloud_bddPrintCube.
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #8
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Cloud_bddPrintCube(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
@@ -1982,39 +1982,41 @@ define void @Cloud_PrintHashTable(ptr noundef readonly captures(none) %0) local_
 }
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #9
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #11
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #11
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nofree nounwind }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nounwind allocsize(0,1) }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind allocsize(0) }
+attributes #4 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nofree nounwind }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { nounwind allocsize(0,1) }
+attributes #16 = { nounwind }
+attributes #17 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

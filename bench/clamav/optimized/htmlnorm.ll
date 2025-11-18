@@ -77,7 +77,7 @@ define void @html_tag_arg_add(ptr noundef captures(none) %0, ptr noundef %1, ptr
   %7 = add nsw i32 %4, 1
   %8 = sext i32 %7 to i64
   %9 = shl nsw i64 %8, 3
-  %10 = tail call ptr @cli_max_realloc(ptr noundef %6, i64 noundef %9) #17
+  %10 = tail call ptr @cli_max_realloc(ptr noundef %6, i64 noundef %9) #18
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %66, label %11
 
@@ -85,7 +85,7 @@ define void @html_tag_arg_add(ptr noundef captures(none) %0, ptr noundef %1, ptr
   store ptr %10, ptr %5, align 8, !tbaa !10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !11
-  %14 = tail call ptr @cli_max_realloc(ptr noundef %13, i64 noundef %9) #17
+  %14 = tail call ptr @cli_max_realloc(ptr noundef %13, i64 noundef %9) #18
   %.not91 = icmp eq ptr %14, null
   br i1 %.not91, label %66, label %15
 
@@ -103,7 +103,7 @@ define void @html_tag_arg_add(ptr noundef captures(none) %0, ptr noundef %1, ptr
   %22 = add nsw i32 %19, 1
   %23 = sext i32 %22 to i64
   %24 = shl nsw i64 %23, 3
-  %25 = tail call ptr @cli_max_realloc(ptr noundef %21, i64 noundef %24) #17
+  %25 = tail call ptr @cli_max_realloc(ptr noundef %21, i64 noundef %24) #18
   %.not93 = icmp eq ptr %25, null
   br i1 %.not93, label %66, label %26
 
@@ -116,7 +116,7 @@ define void @html_tag_arg_add(ptr noundef captures(none) %0, ptr noundef %1, ptr
 
 29:                                               ; preds = %26, %15
   %.1 = phi i32 [ %22, %26 ], [ 0, %15 ]
-  %30 = tail call ptr @cli_safer_strdup(ptr noundef %1) #17
+  %30 = tail call ptr @cli_safer_strdup(ptr noundef %1) #18
   %31 = load ptr, ptr %5, align 8, !tbaa !10
   %32 = load i32, ptr %0, align 8, !tbaa !3
   %33 = sext i32 %32 to i64
@@ -132,7 +132,7 @@ define void @html_tag_arg_add(ptr noundef captures(none) %0, ptr noundef %1, ptr
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %40 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %39) #17
+  %40 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %39) #18
   %41 = load ptr, ptr %12, align 8, !tbaa !11
   %42 = load i32, ptr %0, align 8, !tbaa !3
   %43 = sext i32 %42 to i64
@@ -142,7 +142,7 @@ define void @html_tag_arg_add(ptr noundef captures(none) %0, ptr noundef %1, ptr
   br i1 %45, label %66, label %46
 
 46:                                               ; preds = %38
-  %47 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %39) #18
+  %47 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %39) #19
   %48 = trunc i64 %47 to i32
   %49 = icmp sgt i32 %48, 0
   br i1 %49, label %50, label %63
@@ -156,7 +156,7 @@ define void @html_tag_arg_add(ptr noundef captures(none) %0, ptr noundef %1, ptr
   br label %63
 
 54:                                               ; preds = %35
-  %55 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %2) #17
+  %55 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %2) #18
   %56 = load ptr, ptr %12, align 8, !tbaa !11
   %57 = load i32, ptr %0, align 8, !tbaa !3
   %58 = sext i32 %57 to i64
@@ -218,7 +218,7 @@ define void @html_tag_arg_add(ptr noundef captures(none) %0, ptr noundef %1, ptr
 75:                                               ; preds = %.lr.ph.split
   %76 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv
   %77 = load ptr, ptr %76, align 8, !tbaa !14
-  tail call void @free(ptr noundef %77) #17
+  tail call void @free(ptr noundef %77) #18
   br label %78
 
 78:                                               ; preds = %.lr.ph.split, %75
@@ -253,7 +253,7 @@ define void @html_tag_arg_add(ptr noundef captures(none) %0, ptr noundef %1, ptr
 84:                                               ; preds = %.lr.ph105.split
   %85 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv112
   %86 = load ptr, ptr %85, align 8, !tbaa !14
-  tail call void @free(ptr noundef %86) #17
+  tail call void @free(ptr noundef %86) #18
   br label %87
 
 87:                                               ; preds = %.lr.ph105.split, %84
@@ -278,7 +278,7 @@ define void @html_tag_arg_add(ptr noundef captures(none) %0, ptr noundef %1, ptr
   br i1 %.not99, label %93, label %92
 
 92:                                               ; preds = %89
-  tail call void @free(ptr noundef nonnull %91) #17
+  tail call void @free(ptr noundef nonnull %91) #18
   br label %93
 
 93:                                               ; preds = %.lr.ph107.split, %92, %89
@@ -292,7 +292,7 @@ define void @html_tag_arg_add(ptr noundef captures(none) %0, ptr noundef %1, ptr
   br i1 %.not95, label %96, label %95
 
 95:                                               ; preds = %._crit_edge
-  tail call void @free(ptr noundef nonnull %94) #17
+  tail call void @free(ptr noundef nonnull %94) #18
   br label %96
 
 96:                                               ; preds = %95, %._crit_edge
@@ -302,7 +302,7 @@ define void @html_tag_arg_add(ptr noundef captures(none) %0, ptr noundef %1, ptr
   br i1 %.not96, label %100, label %99
 
 99:                                               ; preds = %96
-  tail call void @free(ptr noundef nonnull %98) #17
+  tail call void @free(ptr noundef nonnull %98) #18
   br label %100
 
 100:                                              ; preds = %99, %96
@@ -312,7 +312,7 @@ define void @html_tag_arg_add(ptr noundef captures(none) %0, ptr noundef %1, ptr
   br i1 %.not97, label %104, label %103
 
 103:                                              ; preds = %100
-  tail call void @free(ptr noundef nonnull %102) #17
+  tail call void @free(ptr noundef nonnull %102) #18
   br label %104
 
 104:                                              ; preds = %103, %100
@@ -335,8 +335,8 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
-; Function Attrs: nounwind uwtable
-define void @html_tag_arg_free(ptr noundef captures(none) %0) local_unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define void @html_tag_arg_free(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 8, !tbaa !3
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
@@ -352,7 +352,7 @@ define void @html_tag_arg_free(ptr noundef captures(none) %0) local_unnamed_addr
   %8 = load ptr, ptr %4, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !14
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef %10) #18
   %11 = load ptr, ptr %5, align 8, !tbaa !11
   %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !14
@@ -360,7 +360,7 @@ define void @html_tag_arg_free(ptr noundef captures(none) %0) local_unnamed_addr
   br i1 %.not31, label %15, label %14
 
 14:                                               ; preds = %7
-  tail call void @free(ptr noundef nonnull %13) #17
+  tail call void @free(ptr noundef nonnull %13) #18
   br label %15
 
 15:                                               ; preds = %14, %7
@@ -375,7 +375,7 @@ define void @html_tag_arg_free(ptr noundef captures(none) %0) local_unnamed_addr
   br i1 %.not33, label %21, label %20
 
 20:                                               ; preds = %17
-  tail call void @free(ptr noundef nonnull %19) #17
+  tail call void @free(ptr noundef nonnull %19) #18
   br label %21
 
 21:                                               ; preds = %15, %20, %17
@@ -392,7 +392,7 @@ define void @html_tag_arg_free(ptr noundef captures(none) %0) local_unnamed_addr
   br i1 %.not, label %28, label %27
 
 27:                                               ; preds = %._crit_edge
-  tail call void @free(ptr noundef nonnull %26) #17
+  tail call void @free(ptr noundef nonnull %26) #18
   br label %28
 
 28:                                               ; preds = %27, %._crit_edge
@@ -402,7 +402,7 @@ define void @html_tag_arg_free(ptr noundef captures(none) %0) local_unnamed_addr
   br i1 %.not29, label %32, label %31
 
 31:                                               ; preds = %28
-  tail call void @free(ptr noundef nonnull %30) #17
+  tail call void @free(ptr noundef nonnull %30) #18
   br label %32
 
 32:                                               ; preds = %31, %28
@@ -412,7 +412,7 @@ define void @html_tag_arg_free(ptr noundef captures(none) %0) local_unnamed_addr
   br i1 %.not30, label %36, label %35
 
 35:                                               ; preds = %32
-  tail call void @free(ptr noundef nonnull %34) #17
+  tail call void @free(ptr noundef nonnull %34) #18
   br label %36
 
 36:                                               ; preds = %35, %32
@@ -428,13 +428,13 @@ define noundef zeroext i1 @html_insert_form_data(ptr noundef %0, ptr noundef cap
   %5 = add i64 %4, 1
   %6 = load ptr, ptr %1, align 8, !tbaa !24
   %7 = shl i64 %5, 3
-  %8 = tail call ptr @cli_max_realloc(ptr noundef %6, i64 noundef %7) #17
+  %8 = tail call ptr @cli_max_realloc(ptr noundef %6, i64 noundef %7) #18
   %.not = icmp ne ptr %8, null
   br i1 %.not, label %9, label %.critedge
 
 9:                                                ; preds = %2
   store ptr %8, ptr %1, align 8, !tbaa !24
-  %10 = tail call ptr @cli_safer_strdup(ptr noundef %0) #17
+  %10 = tail call ptr @cli_safer_strdup(ptr noundef %0) #18
   %11 = load ptr, ptr %1, align 8, !tbaa !24
   %12 = load i64, ptr %3, align 8, !tbaa !21
   %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %12
@@ -455,10 +455,10 @@ define noundef zeroext i1 @html_insert_form_data(ptr noundef %0, ptr noundef cap
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-; Function Attrs: nounwind uwtable
-define void @html_form_data_tag_free(ptr noundef captures(none) %0) local_unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define void @html_form_data_tag_free(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !21
   %.not15 = icmp eq i64 %3, 0
@@ -475,7 +475,7 @@ define void @html_form_data_tag_free(ptr noundef captures(none) %0) local_unname
   br i1 %.not13, label %11, label %8
 
 8:                                                ; preds = %.lr.ph
-  tail call void @free(ptr noundef nonnull %7) #17
+  tail call void @free(ptr noundef nonnull %7) #18
   %9 = load ptr, ptr %0, align 8, !tbaa !24
   %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.014
   store ptr null, ptr %10, align 8, !tbaa !14
@@ -495,7 +495,7 @@ define void @html_form_data_tag_free(ptr noundef captures(none) %0) local_unname
 
 ._crit_edge.thread:                               ; preds = %11, %._crit_edge
   %16 = phi ptr [ %.pre17, %._crit_edge ], [ %13, %11 ]
-  tail call void @free(ptr noundef nonnull %16) #17
+  tail call void @free(ptr noundef nonnull %16) #18
   store ptr null, ptr %0, align 8, !tbaa !24
   br label %17
 
@@ -594,50 +594,50 @@ define internal fastcc noundef zeroext i1 @cli_html_normalise(ptr noundef %0, pt
   br i1 %.not13131840, label %55, label %33
 
 33:                                               ; preds = %28
-  %34 = tail call noalias dereferenceable_or_null(8208) ptr @malloc(i64 noundef 8208) #19
+  %34 = tail call noalias dereferenceable_or_null(8208) ptr @malloc(i64 noundef 8208) #20
   %.not1314 = icmp eq ptr %34, null
   br i1 %.not1314, label %35, label %36
 
 35:                                               ; preds = %33
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.8) #17
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.8) #18
   br label %.thread2004
 
 36:                                               ; preds = %33
-  %37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 1024, ptr noundef nonnull @.str.9, ptr noundef nonnull %2) #17
-  %38 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %7, i32 noundef 577, i32 noundef 384) #17
+  %37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 1024, ptr noundef nonnull @.str.9, ptr noundef nonnull %2) #18
+  %38 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %7, i32 noundef 577, i32 noundef 384) #18
   store i32 %38, ptr %34, align 8, !tbaa !34
   %39 = icmp eq i32 %38, -1
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %36
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1, ptr noundef nonnull %7) #17
-  call void @free(ptr noundef nonnull %34) #17
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1, ptr noundef nonnull %7) #18
+  call void @free(ptr noundef nonnull %34) #18
   br label %.thread2004
 
 41:                                               ; preds = %36
-  %42 = tail call noalias dereferenceable_or_null(8208) ptr @malloc(i64 noundef 8208) #19
+  %42 = tail call noalias dereferenceable_or_null(8208) ptr @malloc(i64 noundef 8208) #20
   %.not1315 = icmp eq ptr %42, null
   br i1 %.not1315, label %43, label %45
 
 43:                                               ; preds = %41
-  %44 = tail call i32 @close(i32 noundef %38) #17
-  tail call void @free(ptr noundef nonnull %34) #17
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.10) #17
+  %44 = tail call i32 @close(i32 noundef %38) #18
+  tail call void @free(ptr noundef nonnull %34) #18
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.10) #18
   br label %.thread2004
 
 45:                                               ; preds = %41
-  %46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 1024, ptr noundef nonnull @.str.11, ptr noundef nonnull %2) #17
-  %47 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %7, i32 noundef 577, i32 noundef 384) #17
+  %46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 1024, ptr noundef nonnull @.str.11, ptr noundef nonnull %2) #18
+  %47 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %7, i32 noundef 577, i32 noundef 384) #18
   store i32 %47, ptr %42, align 8, !tbaa !34
   %48 = icmp eq i32 %47, -1
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %45
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1, ptr noundef nonnull %7) #17
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1, ptr noundef nonnull %7) #18
   %50 = load i32, ptr %34, align 8, !tbaa !34
-  %51 = call i32 @close(i32 noundef %50) #17
-  call void @free(ptr noundef nonnull %34) #17
-  call void @free(ptr noundef nonnull %42) #17
+  %51 = call i32 @close(i32 noundef %50) #18
+  call void @free(ptr noundef nonnull %34) #18
+  call void @free(ptr noundef nonnull %42) #18
   br label %.thread2004
 
 52:                                               ; preds = %45
@@ -710,7 +710,7 @@ define internal fastcc noundef zeroext i1 @cli_html_normalise(ptr noundef %0, pt
   br i1 %.not13232329, label %._crit_edge2434, label %.lr.ph
 
 .lr.ph:                                           ; preds = %67
-  %69 = tail call ptr @__ctype_b_loc() #20
+  %69 = tail call ptr @__ctype_b_loc() #21
   %70 = load ptr, ptr %69, align 8, !tbaa !37
   br label %71
 
@@ -851,15 +851,15 @@ define internal fastcc noundef zeroext i1 @cli_html_normalise(ptr noundef %0, pt
   ]
 
 92:                                               ; preds = %91
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.12) #17
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.12) #18
   br label %.backedge
 
 93:                                               ; preds = %91
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.13) #17
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.13) #18
   br label %.thread1859
 
 94:                                               ; preds = %91
-  %95 = tail call ptr @__ctype_b_loc() #20
+  %95 = tail call ptr @__ctype_b_loc() #21
   %96 = load ptr, ptr %95, align 8, !tbaa !37
   %97 = zext i8 %83 to i64
   %98 = getelementptr inbounds nuw i16, ptr %96, i64 %97
@@ -873,7 +873,7 @@ define internal fastcc noundef zeroext i1 @cli_html_normalise(ptr noundef %0, pt
   br label %.backedge
 
 103:                                              ; preds = %91
-  %104 = tail call ptr @__ctype_b_loc() #20
+  %104 = tail call ptr @__ctype_b_loc() #21
   %105 = load ptr, ptr %104, align 8, !tbaa !37
   %106 = zext i8 %83 to i64
   %107 = getelementptr inbounds nuw i16, ptr %105, i64 %106
@@ -900,7 +900,7 @@ define internal fastcc noundef zeroext i1 @cli_html_normalise(ptr noundef %0, pt
 
 html_output_flush.exit.i:                         ; preds = %115
   %118 = load i32, ptr %.11137, align 8, !tbaa !34
-  %119 = call i64 @cli_writen(i32 noundef %118, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %119 = call i64 @cli_writen(i32 noundef %118, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %120
 
 120:                                              ; preds = %html_output_flush.exit.i, %115
@@ -942,7 +942,7 @@ html_output_flush.exit.i:                         ; preds = %115
 
 html_output_flush.exit.i1491:                     ; preds = %130
   %133 = load i32, ptr %.11137, align 8, !tbaa !34
-  %134 = call i64 @cli_writen(i32 noundef %133, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %134 = call i64 @cli_writen(i32 noundef %133, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %135
 
 135:                                              ; preds = %html_output_flush.exit.i1491, %130
@@ -963,7 +963,7 @@ html_output_c.exit1492:                           ; preds = %129, %135
 
 html_output_flush.exit.i1494:                     ; preds = %139
   %142 = load i32, ptr %.11139, align 8, !tbaa !34
-  %143 = call i64 @cli_writen(i32 noundef %142, ptr noundef nonnull %65, i64 noundef 8192) #17
+  %143 = call i64 @cli_writen(i32 noundef %142, ptr noundef nonnull %65, i64 noundef 8192) #18
   br label %144
 
 144:                                              ; preds = %html_output_flush.exit.i1494, %139
@@ -1001,7 +1001,7 @@ html_output_c.exit1495:                           ; preds = %html_output_c.exit1
 
 html_output_flush.exit.i1497:                     ; preds = %158
   %161 = load i32, ptr %.11137, align 8, !tbaa !34
-  %162 = call i64 @cli_writen(i32 noundef %161, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %162 = call i64 @cli_writen(i32 noundef %161, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %163
 
 163:                                              ; preds = %html_output_flush.exit.i1497, %158
@@ -1022,7 +1022,7 @@ html_output_c.exit1498:                           ; preds = %157, %163
 
 html_output_flush.exit.i1500:                     ; preds = %167
   %170 = load i32, ptr %.11139, align 8, !tbaa !34
-  %171 = call i64 @cli_writen(i32 noundef %170, ptr noundef nonnull %65, i64 noundef 8192) #17
+  %171 = call i64 @cli_writen(i32 noundef %170, ptr noundef nonnull %65, i64 noundef 8192) #18
   br label %172
 
 172:                                              ; preds = %html_output_flush.exit.i1500, %167
@@ -1048,7 +1048,7 @@ html_output_c.exit1501:                           ; preds = %172, %html_output_c
 
 html_output_flush.exit.i1503:                     ; preds = %178
   %181 = load i32, ptr %.11137, align 8, !tbaa !34
-  %182 = call i64 @cli_writen(i32 noundef %181, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %182 = call i64 @cli_writen(i32 noundef %181, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %183
 
 183:                                              ; preds = %html_output_flush.exit.i1503, %178
@@ -1069,7 +1069,7 @@ html_output_c.exit1504:                           ; preds = %177, %183
 
 html_output_flush.exit.i1506:                     ; preds = %187
   %190 = load i32, ptr %.11139, align 8, !tbaa !34
-  %191 = call i64 @cli_writen(i32 noundef %190, ptr noundef nonnull %65, i64 noundef 8192) #17
+  %191 = call i64 @cli_writen(i32 noundef %190, ptr noundef nonnull %65, i64 noundef 8192) #18
   br label %192
 
 192:                                              ; preds = %html_output_flush.exit.i1506, %187
@@ -1092,7 +1092,7 @@ html_output_c.exit1507:                           ; preds = %128, %192, %html_ou
 
 html_output_flush.exit.i1509:                     ; preds = %198
   %201 = load i32, ptr %.11137, align 8, !tbaa !34
-  %202 = call i64 @cli_writen(i32 noundef %201, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %202 = call i64 @cli_writen(i32 noundef %201, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %203
 
 203:                                              ; preds = %html_output_flush.exit.i1509, %198
@@ -1113,7 +1113,7 @@ html_output_c.exit1510:                           ; preds = %html_output_c.exit1
 
 html_output_flush.exit.i1512:                     ; preds = %207
   %210 = load i32, ptr %.11139, align 8, !tbaa !34
-  %211 = call i64 @cli_writen(i32 noundef %210, ptr noundef nonnull %65, i64 noundef 8192) #17
+  %211 = call i64 @cli_writen(i32 noundef %210, ptr noundef nonnull %65, i64 noundef 8192) #18
   br label %212
 
 212:                                              ; preds = %html_output_flush.exit.i1512, %207
@@ -1146,7 +1146,7 @@ html_output_flush.exit.i1512:                     ; preds = %207
 
 html_output_flush.exit.i1515:                     ; preds = %225
   %228 = load i32, ptr %.11137, align 8, !tbaa !34
-  %229 = call i64 @cli_writen(i32 noundef %228, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %229 = call i64 @cli_writen(i32 noundef %228, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %230
 
 230:                                              ; preds = %html_output_flush.exit.i1515, %225
@@ -1172,7 +1172,7 @@ html_output_c.exit1516:                           ; preds = %224, %230
 
 html_output_flush.exit.i1518:                     ; preds = %236
   %239 = load i32, ptr %.11139, align 8, !tbaa !34
-  %240 = call i64 @cli_writen(i32 noundef %239, ptr noundef nonnull %65, i64 noundef 8192) #17
+  %240 = call i64 @cli_writen(i32 noundef %239, ptr noundef nonnull %65, i64 noundef 8192) #18
   br label %241
 
 241:                                              ; preds = %html_output_flush.exit.i1518, %236
@@ -1323,7 +1323,7 @@ html_tag_contents_append.exit:                    ; preds = %292, %250
   br label %.backedge
 
 299:                                              ; preds = %221
-  %300 = tail call ptr @__ctype_b_loc() #20
+  %300 = tail call ptr @__ctype_b_loc() #21
   %301 = load ptr, ptr %300, align 8, !tbaa !37
   %302 = zext i8 %83 to i64
   %303 = getelementptr inbounds nuw i16, ptr %301, i64 %302
@@ -1348,7 +1348,7 @@ html_tag_contents_append.exit:                    ; preds = %292, %250
 
 html_output_flush.exit.i1522:                     ; preds = %310
   %313 = load i32, ptr %.11139, align 8, !tbaa !34
-  %314 = call i64 @cli_writen(i32 noundef %313, ptr noundef nonnull %65, i64 noundef 8192) #17
+  %314 = call i64 @cli_writen(i32 noundef %313, ptr noundef nonnull %65, i64 noundef 8192) #18
   br label %315
 
 315:                                              ; preds = %html_output_flush.exit.i1522, %310
@@ -1378,7 +1378,7 @@ html_output_flush.exit.i1522:                     ; preds = %310
 
 html_output_flush.exit.i1525:                     ; preds = %324
   %327 = load i32, ptr %.11139, align 8, !tbaa !34
-  %328 = call i64 @cli_writen(i32 noundef %327, ptr noundef nonnull %65, i64 noundef 8192) #17
+  %328 = call i64 @cli_writen(i32 noundef %327, ptr noundef nonnull %65, i64 noundef 8192) #18
   br label %329
 
 329:                                              ; preds = %html_output_flush.exit.i1525, %324
@@ -1403,7 +1403,7 @@ html_output_c.exit1526:                           ; preds = %321, %329
   br label %.backedge
 
 338:                                              ; preds = %334
-  %339 = tail call ptr @__ctype_tolower_loc() #20
+  %339 = tail call ptr @__ctype_tolower_loc() #21
   %340 = load ptr, ptr %339, align 8, !tbaa !41
   %341 = getelementptr inbounds nuw i32, ptr %340, i64 %302
   %342 = load i32, ptr %341, align 4, !tbaa !43
@@ -1422,7 +1422,7 @@ html_output_c.exit1526:                           ; preds = %321, %329
 
 html_output_flush.exit.i1528:                     ; preds = %347
   %350 = load i32, ptr %.11137, align 8, !tbaa !34
-  %351 = call i64 @cli_writen(i32 noundef %350, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %351 = call i64 @cli_writen(i32 noundef %350, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %352
 
 352:                                              ; preds = %html_output_flush.exit.i1528, %347
@@ -1460,7 +1460,7 @@ html_output_c.exit1529:                           ; preds = %338, %352
 
 html_output_flush.exit.i1531:                     ; preds = %364
   %367 = load i32, ptr %.11139, align 8, !tbaa !34
-  %368 = call i64 @cli_writen(i32 noundef %367, ptr noundef nonnull %65, i64 noundef 8192) #17
+  %368 = call i64 @cli_writen(i32 noundef %367, ptr noundef nonnull %65, i64 noundef 8192) #18
   br label %369
 
 369:                                              ; preds = %html_output_flush.exit.i1531, %364
@@ -1496,7 +1496,7 @@ html_output_c.exit1532:                           ; preds = %369, %363, %362, %3
 
 html_output_flush.exit.i1534:                     ; preds = %379
   %382 = load i32, ptr %.11137, align 8, !tbaa !34
-  %383 = call i64 @cli_writen(i32 noundef %382, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %383 = call i64 @cli_writen(i32 noundef %382, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %384
 
 384:                                              ; preds = %html_output_flush.exit.i1534, %379
@@ -1538,7 +1538,7 @@ html_output_c.exit1535:                           ; preds = %384, %378, %388, %3
 
 html_output_flush.exit.i1537:                     ; preds = %397
   %400 = load i32, ptr %.11137, align 8, !tbaa !34
-  %401 = call i64 @cli_writen(i32 noundef %400, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %401 = call i64 @cli_writen(i32 noundef %400, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %402
 
 402:                                              ; preds = %html_output_flush.exit.i1537, %397
@@ -1557,7 +1557,7 @@ html_output_c.exit1538:                           ; preds = %396, %402
   br label %.backedge
 
 409:                                              ; preds = %394
-  %410 = tail call ptr @__ctype_b_loc() #20
+  %410 = tail call ptr @__ctype_b_loc() #21
   %411 = load ptr, ptr %410, align 8, !tbaa !37
   %412 = zext i8 %83 to i64
   %413 = getelementptr inbounds nuw i16, ptr %411, i64 %412
@@ -1567,7 +1567,7 @@ html_output_c.exit1538:                           ; preds = %396, %402
   br i1 %.not1438, label %416, label %447
 
 416:                                              ; preds = %409
-  %417 = tail call ptr @__ctype_tolower_loc() #20
+  %417 = tail call ptr @__ctype_tolower_loc() #21
   %418 = load ptr, ptr %417, align 8, !tbaa !41
   %419 = getelementptr inbounds nuw i32, ptr %418, i64 %412
   %420 = load i32, ptr %419, align 4, !tbaa !43
@@ -1581,7 +1581,7 @@ html_output_c.exit1538:                           ; preds = %396, %402
 
 html_output_flush.exit.i1540:                     ; preds = %422
   %425 = load i32, ptr %.11137, align 8, !tbaa !34
-  %426 = call i64 @cli_writen(i32 noundef %425, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %426 = call i64 @cli_writen(i32 noundef %425, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %427
 
 427:                                              ; preds = %html_output_flush.exit.i1540, %422
@@ -1653,7 +1653,7 @@ html_output_c.exit1541:                           ; preds = %416, %427
 
 html_output_flush.exit.i1543:                     ; preds = %455
   %458 = load i32, ptr %.11137, align 8, !tbaa !34
-  %459 = call i64 @cli_writen(i32 noundef %458, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %459 = call i64 @cli_writen(i32 noundef %458, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %460
 
 460:                                              ; preds = %html_output_flush.exit.i1543, %455
@@ -1672,7 +1672,7 @@ html_output_c.exit1544:                           ; preds = %454, %460
   br label %.backedge
 
 467:                                              ; preds = %452
-  %468 = tail call ptr @__ctype_b_loc() #20
+  %468 = tail call ptr @__ctype_b_loc() #21
   %469 = load ptr, ptr %468, align 8, !tbaa !37
   %470 = zext i8 %83 to i64
   %471 = getelementptr inbounds nuw i16, ptr %469, i64 %470
@@ -1702,7 +1702,7 @@ html_output_c.exit1544:                           ; preds = %454, %460
 
 html_output_flush.exit.i1546:                     ; preds = %481
   %484 = load i32, ptr %.11137, align 8, !tbaa !34
-  %485 = call i64 @cli_writen(i32 noundef %484, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %485 = call i64 @cli_writen(i32 noundef %484, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %486
 
 486:                                              ; preds = %html_output_flush.exit.i1546, %481
@@ -1740,7 +1740,7 @@ html_output_c.exit1547:                           ; preds = %480, %486
 
 html_output_flush.exit.i1549:                     ; preds = %498
   %501 = load i32, ptr %.11137, align 8, !tbaa !34
-  %502 = call i64 @cli_writen(i32 noundef %501, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %502 = call i64 @cli_writen(i32 noundef %501, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %html_output_c.exit1550.thread
 
 html_output_c.exit1550.thread:                    ; preds = %498, %html_output_flush.exit.i1549
@@ -1751,13 +1751,13 @@ html_output_c.exit1550.thread:                    ; preds = %498, %html_output_f
   store i8 32, ptr %505, align 1, !tbaa !16
   %.pre2611 = load i8, ptr %.211162395, align 1, !tbaa !16
   %.pre2615 = zext i8 %.pre2611 to i64
-  %506 = tail call ptr @__ctype_tolower_loc() #20
+  %506 = tail call ptr @__ctype_tolower_loc() #21
   %507 = load ptr, ptr %506, align 8, !tbaa !41
   %508 = getelementptr inbounds nuw i32, ptr %507, i64 %.pre2615
   br label %512
 
 html_output_c.exit1550:                           ; preds = %496
-  %509 = tail call ptr @__ctype_tolower_loc() #20
+  %509 = tail call ptr @__ctype_tolower_loc() #21
   %510 = load ptr, ptr %509, align 8, !tbaa !41
   %511 = getelementptr inbounds nuw i32, ptr %510, i64 %470
   br i1 %.not.i1717, label %html_output_c.exit1553, label %512
@@ -1773,7 +1773,7 @@ html_output_c.exit1550:                           ; preds = %496
 
 html_output_flush.exit.i1552:                     ; preds = %512
   %517 = load i32, ptr %.11137, align 8, !tbaa !34
-  %518 = call i64 @cli_writen(i32 noundef %517, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %518 = call i64 @cli_writen(i32 noundef %517, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %519
 
 519:                                              ; preds = %html_output_flush.exit.i1552, %512
@@ -1821,7 +1821,7 @@ html_output_c.exit1553:                           ; preds = %html_output_c.exit1
 
 html_output_flush.exit.i1555:                     ; preds = %540
   %543 = load i32, ptr %.11137, align 8, !tbaa !34
-  %544 = call i64 @cli_writen(i32 noundef %543, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %544 = call i64 @cli_writen(i32 noundef %543, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %545
 
 545:                                              ; preds = %html_output_flush.exit.i1555, %540
@@ -1882,7 +1882,7 @@ html_output_c.exit1556:                           ; preds = %539, %545
 
 html_output_flush.exit.i1558:                     ; preds = %564
   %567 = load i32, ptr %.11137, align 8, !tbaa !34
-  %568 = call i64 @cli_writen(i32 noundef %567, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %568 = call i64 @cli_writen(i32 noundef %567, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %569
 
 569:                                              ; preds = %html_output_flush.exit.i1558, %564
@@ -1922,7 +1922,7 @@ html_output_flush.exit.i1558:                     ; preds = %564
 
 html_output_flush.exit.i1561:                     ; preds = %581
   %584 = load i32, ptr %.11137, align 8, !tbaa !34
-  %585 = call i64 @cli_writen(i32 noundef %584, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %585 = call i64 @cli_writen(i32 noundef %584, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %586
 
 586:                                              ; preds = %html_output_flush.exit.i1561, %581
@@ -1958,7 +1958,7 @@ html_output_flush.exit.i1561:                     ; preds = %581
 
 html_output_flush.exit.i1564:                     ; preds = %596
   %599 = load i32, ptr %.11137, align 8, !tbaa !34
-  %600 = call i64 @cli_writen(i32 noundef %599, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %600 = call i64 @cli_writen(i32 noundef %599, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %601
 
 601:                                              ; preds = %html_output_flush.exit.i1564, %596
@@ -1990,7 +1990,7 @@ html_output_c.exit1565:                           ; preds = %595, %601
 
 html_output_flush.exit.i1567:                     ; preds = %610
   %613 = load i32, ptr %.11137, align 8, !tbaa !34
-  %614 = call i64 @cli_writen(i32 noundef %613, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %614 = call i64 @cli_writen(i32 noundef %613, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %615
 
 615:                                              ; preds = %html_output_flush.exit.i1567, %610
@@ -2029,7 +2029,7 @@ html_output_c.exit1568:                           ; preds = %609, %615
 
 html_output_flush.exit.i1570:                     ; preds = %627
   %630 = load i32, ptr %.11137, align 8, !tbaa !34
-  %631 = call i64 @cli_writen(i32 noundef %630, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %631 = call i64 @cli_writen(i32 noundef %630, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %632
 
 632:                                              ; preds = %html_output_flush.exit.i1570, %627
@@ -2069,7 +2069,7 @@ html_output_c.exit1571:                           ; preds = %626, %632
 
 html_output_flush.exit.i1573:                     ; preds = %645
   %648 = load i32, ptr %.11137, align 8, !tbaa !34
-  %649 = call i64 @cli_writen(i32 noundef %648, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %649 = call i64 @cli_writen(i32 noundef %648, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %650
 
 650:                                              ; preds = %html_output_flush.exit.i1573, %645
@@ -2101,7 +2101,7 @@ html_output_c.exit1574:                           ; preds = %644, %650
 
 html_output_flush.exit.i1576:                     ; preds = %659
   %662 = load i32, ptr %.11137, align 8, !tbaa !34
-  %663 = call i64 @cli_writen(i32 noundef %662, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %663 = call i64 @cli_writen(i32 noundef %662, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %664
 
 664:                                              ; preds = %html_output_flush.exit.i1576, %659
@@ -2140,7 +2140,7 @@ html_output_c.exit1577:                           ; preds = %658, %664
 
 html_output_flush.exit.i1579:                     ; preds = %676
   %679 = load i32, ptr %.11137, align 8, !tbaa !34
-  %680 = call i64 @cli_writen(i32 noundef %679, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %680 = call i64 @cli_writen(i32 noundef %679, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %681
 
 681:                                              ; preds = %html_output_flush.exit.i1579, %676
@@ -2167,7 +2167,7 @@ html_output_c.exit1580:                           ; preds = %675, %681
   br label %html_output_c.exit1559
 
 691:                                              ; preds = %590
-  %692 = tail call ptr @__ctype_b_loc() #20
+  %692 = tail call ptr @__ctype_b_loc() #21
   %693 = load ptr, ptr %692, align 8, !tbaa !37
   %694 = zext i8 %83 to i64
   %695 = getelementptr inbounds nuw i16, ptr %693, i64 %694
@@ -2198,7 +2198,7 @@ html_output_c.exit1580:                           ; preds = %675, %681
 
 html_output_flush.exit.i1582:                     ; preds = %704
   %707 = load i32, ptr %.11137, align 8, !tbaa !34
-  %708 = call i64 @cli_writen(i32 noundef %707, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %708 = call i64 @cli_writen(i32 noundef %707, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %709
 
 709:                                              ; preds = %html_output_flush.exit.i1582, %704
@@ -2271,7 +2271,7 @@ html_output_c.exit1583:                           ; preds = %703, %709
 
 html_output_flush.exit.i1585:                     ; preds = %731
   %734 = load i32, ptr %.11137, align 8, !tbaa !34
-  %735 = call i64 @cli_writen(i32 noundef %734, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %735 = call i64 @cli_writen(i32 noundef %734, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %736
 
 736:                                              ; preds = %html_output_flush.exit.i1585, %731
@@ -2375,7 +2375,7 @@ html_output_c.exit1586:                           ; preds = %730, %736
   br label %803
 
 782:                                              ; preds = %775
-  %783 = tail call ptr @__ctype_tolower_loc() #20
+  %783 = tail call ptr @__ctype_tolower_loc() #21
   %784 = load ptr, ptr %783, align 8, !tbaa !41
   %785 = zext nneg i8 %776 to i64
   %786 = getelementptr inbounds nuw i32, ptr %784, i64 %785
@@ -2390,7 +2390,7 @@ html_output_c.exit1586:                           ; preds = %730, %736
 
 html_output_flush.exit.i1588:                     ; preds = %789
   %792 = load i32, ptr %.11137, align 8, !tbaa !34
-  %793 = call i64 @cli_writen(i32 noundef %792, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %793 = call i64 @cli_writen(i32 noundef %792, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %794
 
 794:                                              ; preds = %html_output_flush.exit.i1588, %789
@@ -2436,7 +2436,7 @@ html_output_c.exit1559:                           ; preds = %575, %558, %586, %5
   br i1 %.not1421, label %html_output_c.exit1592, label %808
 
 808:                                              ; preds = %807
-  %809 = tail call ptr @__ctype_b_loc() #20
+  %809 = tail call ptr @__ctype_b_loc() #21
   %810 = load ptr, ptr %809, align 8, !tbaa !37
   %811 = zext i8 %83 to i64
   %812 = getelementptr inbounds nuw i16, ptr %810, i64 %811
@@ -2446,7 +2446,7 @@ html_output_c.exit1559:                           ; preds = %575, %558, %586, %5
   br i1 %.not1422, label %815, label %html_output_c.exit1592
 
 815:                                              ; preds = %808
-  %816 = tail call ptr @__ctype_tolower_loc() #20
+  %816 = tail call ptr @__ctype_tolower_loc() #21
   %817 = load ptr, ptr %816, align 8, !tbaa !41
   %818 = getelementptr inbounds nuw i32, ptr %817, i64 %811
   %819 = load i32, ptr %818, align 4, !tbaa !43
@@ -2463,7 +2463,7 @@ html_output_c.exit1559:                           ; preds = %575, %558, %586, %5
 
 html_output_flush.exit.i1591:                     ; preds = %823
   %826 = load i32, ptr %.11137, align 8, !tbaa !34
-  %827 = call i64 @cli_writen(i32 noundef %826, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %827 = call i64 @cli_writen(i32 noundef %826, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %828
 
 828:                                              ; preds = %html_output_flush.exit.i1591, %823
@@ -2529,13 +2529,13 @@ html_output_c.exit1592:                           ; preds = %828, %815, %808, %8
 
 853:                                              ; preds = %848
   %854 = sub i64 %849, %843
-  call void @cli_js_process_buffer(ptr noundef nonnull %.211792362, ptr noundef nonnull %spec.select.i, i64 noundef %854) #17
+  call void @cli_js_process_buffer(ptr noundef nonnull %.211792362, ptr noundef nonnull %spec.select.i, i64 noundef %854) #18
   br label %js_process.exit
 
 js_process.exit:                                  ; preds = %840, %842, %844, %848, %853
-  call void @cli_js_parse_done(ptr noundef nonnull %.211792362) #17
-  call void @cli_js_output(ptr noundef nonnull %.211792362, ptr noundef %2) #17
-  call void @cli_js_destroy(ptr noundef nonnull %.211792362) #17
+  call void @cli_js_parse_done(ptr noundef nonnull %.211792362) #18
+  call void @cli_js_output(ptr noundef nonnull %.211792362, ptr noundef %2) #18
+  call void @cli_js_destroy(ptr noundef nonnull %.211792362) #18
   br label %878
 
 855:                                              ; preds = %838
@@ -2551,7 +2551,7 @@ js_process.exit:                                  ; preds = %840, %842, %844, %8
   br i1 %860, label %861, label %862
 
 861:                                              ; preds = %858
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.18) #17
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.18) #18
   br label %.thread1859
 
 862:                                              ; preds = %858
@@ -2563,14 +2563,14 @@ js_process.exit:                                  ; preds = %840, %842, %844, %8
 
 867:                                              ; preds = %862
   %868 = add i64 %865, 1
-  %869 = call ptr @cli_max_malloc(i64 noundef %868) #17
+  %869 = call ptr @cli_max_malloc(i64 noundef %868) #18
   %870 = icmp eq ptr %869, null
   br i1 %870, label %.thread1859, label %.thread1865
 
 871:                                              ; preds = %862
   %872 = add i64 %.112122353, 1
   %873 = add i64 %872, %865
-  %874 = call ptr @cli_max_realloc(ptr noundef nonnull %.211982356, i64 noundef %873) #17
+  %874 = call ptr @cli_max_realloc(ptr noundef nonnull %.211982356, i64 noundef %873) #18
   %.not1415 = icmp eq ptr %874, null
   br i1 %.not1415, label %.thread1859, label %.thread1865
 
@@ -2610,12 +2610,12 @@ js_process.exit:                                  ; preds = %840, %842, %844, %8
   store i64 %887, ptr %15, align 8, !tbaa !32
   %888 = getelementptr inbounds nuw i8, ptr %66, i64 %886
   store i8 0, ptr %888, align 1, !tbaa !16
-  %889 = call ptr @cli_max_malloc(i64 noundef %887) #17
+  %889 = call ptr @cli_max_malloc(i64 noundef %887) #18
   %.not.i1595 = icmp eq ptr %889, null
   br i1 %.not.i1595, label %890, label %891
 
 890:                                              ; preds = %885
-  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.52) #17
+  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.52) #18
   br label %html_tag_contents_done.exit
 
 891:                                              ; preds = %885
@@ -2640,7 +2640,7 @@ html_tag_contents_done.exit:                      ; preds = %891, %890, %883, %8
   br i1 %.not1420, label %html_output_c.exit1662, label %898
 
 898:                                              ; preds = %897
-  call void @free(ptr noundef nonnull %.211702368) #17
+  call void @free(ptr noundef nonnull %.211702368) #18
   br label %html_output_c.exit1662
 
 899:                                              ; preds = %835
@@ -2667,7 +2667,7 @@ html_tag_contents_done.exit:                      ; preds = %891, %890, %883, %8
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i1596 ], [ %indvars.iv.next.i, %905 ]
   %907 = getelementptr inbounds nuw ptr, ptr %904, i64 %indvars.iv.i
   %908 = load ptr, ptr %907, align 8, !tbaa !14
-  %909 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %908, ptr noundef nonnull dereferenceable(9) @.str.22) #18
+  %909 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %908, ptr noundef nonnull dereferenceable(9) @.str.22) #19
   %910 = icmp eq i32 %909, 0
   br i1 %910, label %html_tag_arg_value.exit, label %905
 
@@ -2679,7 +2679,7 @@ html_tag_arg_value.exit:                          ; preds = %906
   br i1 %.not1409, label %.critedge1469, label %914
 
 914:                                              ; preds = %html_tag_arg_value.exit
-  %915 = call i32 @strcasecmp(ptr noundef nonnull %913, ptr noundef nonnull @.str.23) #18
+  %915 = call i32 @strcasecmp(ptr noundef nonnull %913, ptr noundef nonnull @.str.23) #19
   %916 = icmp eq i32 %915, 0
   br i1 %916, label %.lr.ph.i1597, label %922
 
@@ -2692,12 +2692,12 @@ html_tag_arg_value.exit:                          ; preds = %906
   %indvars.iv.i1599 = phi i64 [ %indvars.iv.next.i1600, %917 ], [ 0, %914 ]
   %918 = getelementptr inbounds nuw ptr, ptr %904, i64 %indvars.iv.i1599
   %919 = load ptr, ptr %918, align 8, !tbaa !14
-  %920 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %919, ptr noundef nonnull dereferenceable(9) @.str.22) #18
+  %920 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %919, ptr noundef nonnull dereferenceable(9) @.str.22) #19
   %921 = icmp eq i32 %920, 0
   br i1 %921, label %.critedge1469.sink.split.sink.split, label %917
 
 922:                                              ; preds = %914
-  %923 = call i32 @strcasecmp(ptr noundef nonnull %913, ptr noundef nonnull @.str.25) #18
+  %923 = call i32 @strcasecmp(ptr noundef nonnull %913, ptr noundef nonnull @.str.25) #19
   %924 = icmp eq i32 %923, 0
   br i1 %924, label %.lr.ph.i1602, label %.critedge1469
 
@@ -2710,7 +2710,7 @@ html_tag_arg_value.exit:                          ; preds = %906
   %indvars.iv.i1604 = phi i64 [ %indvars.iv.next.i1605, %925 ], [ 0, %922 ]
   %926 = getelementptr inbounds nuw ptr, ptr %904, i64 %indvars.iv.i1604
   %927 = load ptr, ptr %926, align 8, !tbaa !14
-  %928 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %927, ptr noundef nonnull dereferenceable(9) @.str.22) #18
+  %928 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %927, ptr noundef nonnull dereferenceable(9) @.str.22) #19
   %929 = icmp eq i32 %928, 0
   br i1 %929, label %.critedge1469.sink.split.sink.split, label %925
 
@@ -2719,8 +2719,8 @@ html_tag_arg_value.exit:                          ; preds = %906
   %.str.26.sink = phi ptr [ @.str.24, %.lr.ph.i1597 ], [ @.str.26, %.lr.ph.i1602 ]
   %930 = getelementptr inbounds nuw ptr, ptr %911, i64 %indvars.iv.i1604.lcssa.sink
   %931 = load ptr, ptr %930, align 8, !tbaa !14
-  call void @free(ptr noundef %931) #17
-  %932 = call ptr @cli_safer_strdup(ptr noundef nonnull %.str.26.sink) #17
+  call void @free(ptr noundef %931) #18
+  %932 = call ptr @cli_safer_strdup(ptr noundef nonnull %.str.26.sink) #18
   store ptr %932, ptr %930, align 8, !tbaa !14
   br label %.critedge1469.sink.split
 
@@ -2735,12 +2735,12 @@ html_tag_arg_value.exit:                          ; preds = %906
   br i1 %or.cond53, label %html_output_c.exit1662, label %934
 
 934:                                              ; preds = %.critedge1469
-  %935 = call ptr @cli_js_init() #17
+  %935 = call ptr @cli_js_init() #18
   %.not1410 = icmp eq ptr %935, null
   br i1 %.not1410, label %936, label %html_output_c.exit1662
 
 936:                                              ; preds = %934
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.27) #17
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.27) #18
   br label %html_output_c.exit1662
 
 937:                                              ; preds = %899
@@ -2772,7 +2772,7 @@ html_tag_arg_value.exit:                          ; preds = %906
   %indvars.iv.i1611 = phi i64 [ 0, %.lr.ph.i1609 ], [ %indvars.iv.next.i1612, %945 ]
   %947 = getelementptr inbounds nuw ptr, ptr %944, i64 %indvars.iv.i1611
   %948 = load ptr, ptr %947, align 8, !tbaa !14
-  %949 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %948, ptr noundef nonnull dereferenceable(9) @.str.22) #18
+  %949 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %948, ptr noundef nonnull dereferenceable(9) @.str.22) #19
   %950 = icmp eq i32 %949, 0
   br i1 %950, label %html_tag_arg_value.exit1614, label %945
 
@@ -2784,12 +2784,12 @@ html_tag_arg_value.exit1614:                      ; preds = %946
   br i1 %.not1408, label %html_output_c.exit1662, label %954
 
 954:                                              ; preds = %html_tag_arg_value.exit1614
-  %955 = call i32 @strcasecmp(ptr noundef nonnull %953, ptr noundef nonnull @.str.23) #18
+  %955 = call i32 @strcasecmp(ptr noundef nonnull %953, ptr noundef nonnull @.str.23) #19
   %956 = icmp eq i32 %955, 0
   br i1 %956, label %960, label %957
 
 957:                                              ; preds = %954
-  %958 = call i32 @strcasecmp(ptr noundef nonnull %953, ptr noundef nonnull @.str.25) #18
+  %958 = call i32 @strcasecmp(ptr noundef nonnull %953, ptr noundef nonnull @.str.25) #19
   %959 = icmp eq i32 %958, 0
   br i1 %959, label %960, label %html_output_c.exit1662
 
@@ -2827,7 +2827,7 @@ html_tag_arg_value.exit1614:                      ; preds = %946
   %indvars.iv.i1618 = phi i64 [ 0, %.lr.ph.i1616 ], [ %indvars.iv.next.i1619, %969 ]
   %971 = getelementptr inbounds nuw ptr, ptr %968, i64 %indvars.iv.i1618
   %972 = load ptr, ptr %971, align 8, !tbaa !14
-  %973 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %972, ptr noundef nonnull dereferenceable(5) @.str.31) #18
+  %973 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %972, ptr noundef nonnull dereferenceable(5) @.str.31) #19
   %974 = icmp eq i32 %973, 0
   br i1 %974, label %html_tag_arg_value.exit1621, label %969
 
@@ -2857,7 +2857,7 @@ html_tag_arg_value.exit1621:                      ; preds = %970
   %indvars.iv.i1625 = phi i64 [ %indvars.iv.next.i1626, %981 ], [ 0, %979 ]
   %982 = getelementptr inbounds nuw ptr, ptr %968, i64 %indvars.iv.i1625
   %983 = load ptr, ptr %982, align 8, !tbaa !14
-  %984 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %983, ptr noundef nonnull dereferenceable(6) @.str.32) #18
+  %984 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %983, ptr noundef nonnull dereferenceable(6) @.str.32) #19
   %985 = icmp eq i32 %984, 0
   br i1 %985, label %986, label %981
 
@@ -2885,7 +2885,7 @@ html_tag_arg_value.exit1628:                      ; preds = %981, %986
 
 993:                                              ; preds = %992
   call void @html_tag_arg_add(ptr noundef nonnull %3, ptr noundef nonnull @.str.33, ptr noundef nonnull %.08.i1622)
-  %994 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %977) #18
+  %994 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %977) #19
   %995 = getelementptr inbounds nuw i8, ptr %977, i64 %994
   call fastcc void @html_tag_contents_append(ptr noundef %15, ptr noundef %977, ptr noundef nonnull %995)
   %996 = load i32, ptr %3, align 8, !tbaa !3
@@ -2899,7 +2899,7 @@ html_tag_arg_value.exit1628:                      ; preds = %981, %986
 998:                                              ; preds = %997
   call void @html_tag_arg_add(ptr noundef nonnull %3, ptr noundef nonnull @.str.34, ptr noundef nonnull %977)
   store i64 0, ptr %15, align 8, !tbaa !32
-  %999 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.211702368) #18
+  %999 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.211702368) #19
   %1000 = getelementptr inbounds nuw i8, ptr %.211702368, i64 %999
   call fastcc void @html_tag_contents_append(ptr noundef %15, ptr noundef %.211702368, ptr noundef nonnull %1000)
   %1001 = load i32, ptr %3, align 8, !tbaa !3
@@ -2947,7 +2947,7 @@ html_tag_arg_value.exit1628:                      ; preds = %981, %986
   %indvars.iv.i1632 = phi i64 [ 0, %.lr.ph.i1630 ], [ %indvars.iv.next.i1633, %1014 ]
   %1016 = getelementptr inbounds nuw ptr, ptr %1013, i64 %indvars.iv.i1632
   %1017 = load ptr, ptr %1016, align 8, !tbaa !14
-  %1018 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1017, ptr noundef nonnull dereferenceable(7) @.str.35) #18
+  %1018 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1017, ptr noundef nonnull dereferenceable(7) @.str.35) #19
   %1019 = icmp eq i32 %1018, 0
   br i1 %1019, label %html_tag_arg_value.exit1635, label %1014
 
@@ -2963,11 +2963,11 @@ html_tag_arg_value.exit1635:                      ; preds = %1015
   br i1 %.not1399, label %1025, label %1024
 
 1024:                                             ; preds = %1023
-  call void @free(ptr noundef nonnull %.211702368) #17
+  call void @free(ptr noundef nonnull %.211702368) #18
   br label %1025
 
 1025:                                             ; preds = %1024, %1023
-  %1026 = call ptr @cli_safer_strdup(ptr noundef nonnull %1022) #17
+  %1026 = call ptr @cli_safer_strdup(ptr noundef nonnull %1022) #18
   br i1 %.not1400, label %html_output_c.exit1662, label %1027
 
 1027:                                             ; preds = %1025
@@ -2998,7 +2998,7 @@ html_tag_arg_value.exit1635:                      ; preds = %1015
   %indvars.iv.i1639 = phi i64 [ 0, %.lr.ph.i1637 ], [ %indvars.iv.next.i1640, %1034 ]
   %1036 = getelementptr inbounds nuw ptr, ptr %1033, i64 %indvars.iv.i1639
   %1037 = load ptr, ptr %1036, align 8, !tbaa !14
-  %1038 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1037, ptr noundef nonnull dereferenceable(4) @.str.37) #18
+  %1038 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1037, ptr noundef nonnull dereferenceable(4) @.str.37) #19
   %1039 = icmp eq i32 %1038, 0
   br i1 %1039, label %html_tag_arg_value.exit1642, label %1034
 
@@ -3028,7 +3028,7 @@ html_tag_arg_value.exit1642:                      ; preds = %1035
   %1051 = getelementptr ptr, ptr %1049, i64 %1050
   %1052 = getelementptr i8, ptr %1051, i64 -8
   %1053 = load ptr, ptr %1052, align 8, !tbaa !14
-  %1054 = call ptr @cli_safer_strdup(ptr noundef %1053) #17
+  %1054 = call ptr @cli_safer_strdup(ptr noundef %1053) #18
   %1055 = load ptr, ptr %63, align 8, !tbaa !13
   %1056 = load i32, ptr %3, align 8, !tbaa !3
   %1057 = sext i32 %1056 to i64
@@ -3044,7 +3044,7 @@ html_tag_arg_value.exit1642:                      ; preds = %1035
 1061:                                             ; preds = %1060
   call void @html_tag_arg_add(ptr noundef nonnull %3, ptr noundef nonnull @.str.34, ptr noundef nonnull %1042)
   store i64 0, ptr %15, align 8, !tbaa !32
-  %1062 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.211702368) #18
+  %1062 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.211702368) #19
   %1063 = getelementptr inbounds nuw i8, ptr %.211702368, i64 %1062
   call fastcc void @html_tag_contents_append(ptr noundef %15, ptr noundef %.211702368, ptr noundef nonnull %1063)
   %1064 = load i32, ptr %3, align 8, !tbaa !3
@@ -3063,7 +3063,7 @@ html_tag_arg_value.exit1642:                      ; preds = %1035
   %indvars.iv.i1646 = phi i64 [ %indvars.iv.next.i1647, %1065 ], [ 0, %.lr.ph.i1644.preheader ]
   %1066 = getelementptr inbounds nuw ptr, ptr %1033, i64 %indvars.iv.i1646
   %1067 = load ptr, ptr %1066, align 8, !tbaa !14
-  %1068 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1067, ptr noundef nonnull dereferenceable(7) @.str.38) #18
+  %1068 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1067, ptr noundef nonnull dereferenceable(7) @.str.38) #19
   %1069 = icmp eq i32 %1068, 0
   br i1 %1069, label %html_tag_arg_value.exit1649, label %1065
 
@@ -3093,7 +3093,7 @@ html_tag_arg_value.exit1649:                      ; preds = %.lr.ph.i1644
   %1081 = getelementptr ptr, ptr %1079, i64 %1080
   %1082 = getelementptr i8, ptr %1081, i64 -8
   %1083 = load ptr, ptr %1082, align 8, !tbaa !14
-  %1084 = call ptr @cli_safer_strdup(ptr noundef %1083) #17
+  %1084 = call ptr @cli_safer_strdup(ptr noundef %1083) #18
   %1085 = load ptr, ptr %63, align 8, !tbaa !13
   %1086 = load i32, ptr %3, align 8, !tbaa !3
   %1087 = sext i32 %1086 to i64
@@ -3109,7 +3109,7 @@ html_tag_arg_value.exit1649:                      ; preds = %.lr.ph.i1644
 1091:                                             ; preds = %1090
   call void @html_tag_arg_add(ptr noundef nonnull %3, ptr noundef nonnull @.str.34, ptr noundef nonnull %1072)
   store i64 0, ptr %15, align 8, !tbaa !32
-  %1092 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.211702368) #18
+  %1092 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.211702368) #19
   %1093 = getelementptr inbounds nuw i8, ptr %.211702368, i64 %1092
   call fastcc void @html_tag_contents_append(ptr noundef %15, ptr noundef %.211702368, ptr noundef nonnull %1093)
   %1094 = load i32, ptr %3, align 8, !tbaa !3
@@ -3145,7 +3145,7 @@ html_tag_arg_value.exit1649:                      ; preds = %.lr.ph.i1644
   %1107 = getelementptr ptr, ptr %1105, i64 %1106
   %1108 = getelementptr i8, ptr %1107, i64 -8
   %1109 = load ptr, ptr %1108, align 8, !tbaa !14
-  %1110 = call ptr @cli_safer_strdup(ptr noundef %1109) #17
+  %1110 = call ptr @cli_safer_strdup(ptr noundef %1109) #18
   %1111 = load ptr, ptr %63, align 8, !tbaa !13
   %1112 = load i32, ptr %3, align 8, !tbaa !3
   %1113 = sext i32 %1112 to i64
@@ -3161,7 +3161,7 @@ html_tag_arg_value.exit1649:                      ; preds = %.lr.ph.i1644
 1117:                                             ; preds = %1116
   call void @html_tag_arg_add(ptr noundef nonnull %3, ptr noundef nonnull @.str.34, ptr noundef nonnull %1098)
   store i64 0, ptr %15, align 8, !tbaa !32
-  %1118 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.211702368) #18
+  %1118 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.211702368) #19
   %1119 = getelementptr inbounds nuw i8, ptr %.211702368, i64 %1118
   call fastcc void @html_tag_contents_append(ptr noundef %15, ptr noundef %.211702368, ptr noundef nonnull %1119)
   %1120 = load i32, ptr %3, align 8, !tbaa !3
@@ -3197,7 +3197,7 @@ html_tag_arg_value.exit1649:                      ; preds = %.lr.ph.i1644
   %1133 = getelementptr ptr, ptr %1131, i64 %1132
   %1134 = getelementptr i8, ptr %1133, i64 -8
   %1135 = load ptr, ptr %1134, align 8, !tbaa !14
-  %1136 = call ptr @cli_safer_strdup(ptr noundef %1135) #17
+  %1136 = call ptr @cli_safer_strdup(ptr noundef %1135) #18
   %1137 = load ptr, ptr %63, align 8, !tbaa !13
   %1138 = load i32, ptr %3, align 8, !tbaa !3
   %1139 = sext i32 %1138 to i64
@@ -3213,7 +3213,7 @@ html_tag_arg_value.exit1649:                      ; preds = %.lr.ph.i1644
 1143:                                             ; preds = %1142
   call void @html_tag_arg_add(ptr noundef nonnull %3, ptr noundef nonnull @.str.34, ptr noundef nonnull %1124)
   store i64 0, ptr %15, align 8, !tbaa !32
-  %1144 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.211702368) #18
+  %1144 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.211702368) #19
   %1145 = getelementptr inbounds nuw i8, ptr %.211702368, i64 %1144
   call fastcc void @html_tag_contents_append(ptr noundef %15, ptr noundef %.211702368, ptr noundef nonnull %1145)
   %1146 = load i32, ptr %3, align 8, !tbaa !3
@@ -3244,7 +3244,7 @@ html_tag_arg_value.exit1649:                      ; preds = %.lr.ph.i1644
   %indvars.iv.i1653 = phi i64 [ 0, %.lr.ph.i1651 ], [ %indvars.iv.next.i1654, %1152 ]
   %1154 = getelementptr inbounds nuw ptr, ptr %1151, i64 %indvars.iv.i1653
   %1155 = load ptr, ptr %1154, align 8, !tbaa !14
-  %1156 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1155, ptr noundef nonnull dereferenceable(5) @.str.31) #18
+  %1156 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1155, ptr noundef nonnull dereferenceable(5) @.str.31) #19
   %1157 = icmp eq i32 %1156, 0
   br i1 %1157, label %html_tag_arg_value.exit1656, label %1152
 
@@ -3261,7 +3261,7 @@ html_tag_arg_value.exit1656:                      ; preds = %1153
   br i1 %.not1372, label %html_output_c.exit1662, label %1163
 
 1163:                                             ; preds = %1161
-  %1164 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1160) #18
+  %1164 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1160) #19
   br i1 %.not.i1657, label %html_output_c.exit1662, label %1165
 
 1165:                                             ; preds = %1163
@@ -3278,7 +3278,7 @@ html_output_flush.exit.i1659:                     ; preds = %1165
 
 html_output_flush.exit.thread.i:                  ; preds = %1165
   %1170 = load i32, ptr %.11139, align 8, !tbaa !34
-  %1171 = call i64 @cli_writen(i32 noundef %1170, ptr noundef nonnull %65, i64 noundef %1166) #17
+  %1171 = call i64 @cli_writen(i32 noundef %1170, ptr noundef nonnull %65, i64 noundef %1166) #18
   store i64 0, ptr %64, align 8, !tbaa !36
   %1172 = icmp ugt i64 %1164, 8191
   br i1 %1172, label %html_output_flush.exit16.i, label %1179
@@ -3288,13 +3288,13 @@ html_output_flush.exit.thread.i:                  ; preds = %1165
 
 1174:                                             ; preds = %1173
   %1175 = load i32, ptr %.11139, align 8, !tbaa !34
-  %1176 = call i64 @cli_writen(i32 noundef %1175, ptr noundef nonnull %65, i64 noundef %1166) #17
+  %1176 = call i64 @cli_writen(i32 noundef %1175, ptr noundef nonnull %65, i64 noundef %1166) #18
   store i64 0, ptr %64, align 8, !tbaa !36
   br label %html_output_flush.exit16.i
 
 html_output_flush.exit16.i:                       ; preds = %1174, %1173, %html_output_flush.exit.thread.i
   %1177 = load i32, ptr %.11139, align 8, !tbaa !34
-  %1178 = call i64 @cli_writen(i32 noundef %1177, ptr noundef nonnull %1160, i64 noundef %1164) #17
+  %1178 = call i64 @cli_writen(i32 noundef %1177, ptr noundef nonnull %1160, i64 noundef %1164) #18
   %.pre2609 = load i64, ptr %64, align 8, !tbaa !36
   br label %1184
 
@@ -3314,7 +3314,7 @@ html_output_flush.exit16.i:                       ; preds = %1174, %1173, %html_
 
 html_output_flush.exit.i1661:                     ; preds = %1184
   %1187 = load i32, ptr %.11139, align 8, !tbaa !34
-  %1188 = call i64 @cli_writen(i32 noundef %1187, ptr noundef nonnull %65, i64 noundef 8192) #17
+  %1188 = call i64 @cli_writen(i32 noundef %1187, ptr noundef nonnull %65, i64 noundef 8192) #18
   br label %1189
 
 1189:                                             ; preds = %html_output_flush.exit.i1661, %1184
@@ -3349,7 +3349,7 @@ html_output_flush.exit.i1661:                     ; preds = %1184
   %indvars.iv.i1666 = phi i64 [ 0, %.lr.ph.i1664 ], [ %indvars.iv.next.i1667, %1198 ]
   %1200 = getelementptr inbounds nuw ptr, ptr %1197, i64 %indvars.iv.i1666
   %1201 = load ptr, ptr %1200, align 8, !tbaa !14
-  %1202 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1201, ptr noundef nonnull dereferenceable(4) @.str.37) #18
+  %1202 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1201, ptr noundef nonnull dereferenceable(4) @.str.37) #19
   %1203 = icmp eq i32 %1202, 0
   br i1 %1203, label %html_tag_arg_value.exit1669, label %1198
 
@@ -3366,7 +3366,7 @@ html_tag_arg_value.exit1669:                      ; preds = %1199
   br i1 %.not1370, label %html_output_c.exit1662, label %1209
 
 1209:                                             ; preds = %1207
-  %1210 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1206) #18
+  %1210 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1206) #19
   call fastcc void @html_output_str(ptr noundef %.11139, ptr noundef nonnull %1206, i64 noundef %1210)
   call fastcc void @html_output_c(ptr noundef %.11139, i8 noundef zeroext 32)
   br label %html_output_c.exit1662
@@ -3423,7 +3423,7 @@ html_output_c.exit1662:                           ; preds = %1014, %1065, %969, 
 
 html_output_flush.exit.i1671:                     ; preds = %1223
   %1226 = load i32, ptr %.11137, align 8, !tbaa !34
-  %1227 = call i64 @cli_writen(i32 noundef %1226, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %1227 = call i64 @cli_writen(i32 noundef %1226, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %1228
 
 1228:                                             ; preds = %html_output_flush.exit.i1671, %1223
@@ -3441,7 +3441,7 @@ html_output_flush.exit.i1671:                     ; preds = %1223
 1234:                                             ; preds = %1232
   %1235 = getelementptr inbounds nuw i8, ptr %14, i64 %.111752365
   store i8 0, ptr %1235, align 1, !tbaa !16
-  %1236 = call ptr @entity_norm(ptr noundef nonnull %13, ptr noundef nonnull %14) #17
+  %1236 = call ptr @entity_norm(ptr noundef nonnull %13, ptr noundef nonnull %14) #18
   %.not1359 = icmp eq ptr %1236, null
   br i1 %.not1359, label %1258, label %.preheader2022
 
@@ -3468,7 +3468,7 @@ html_output_flush.exit.i1671:                     ; preds = %1223
 
 html_output_flush.exit.i1674:                     ; preds = %1241
   %1244 = load i32, ptr %.11137, align 8, !tbaa !34
-  %1245 = call i64 @cli_writen(i32 noundef %1244, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %1245 = call i64 @cli_writen(i32 noundef %1244, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %1246
 
 1246:                                             ; preds = %html_output_flush.exit.i1674, %1241
@@ -3493,7 +3493,7 @@ html_output_c.exit1675:                           ; preds = %1238, %1246
 1254:                                             ; preds = %1251, %html_output_c.exit1675
   %.20 = phi i64 [ %1252, %1251 ], [ %.192338, %html_output_c.exit1675 ]
   %1255 = add nuw i64 %.011462337, 1
-  %1256 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1236) #18
+  %1256 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1236) #19
   %1257 = icmp ult i64 %1255, %1256
   br i1 %1257, label %1238, label %html_output_c.exit1684
 
@@ -3507,7 +3507,7 @@ html_output_c.exit1675:                           ; preds = %1238, %1246
 
 html_output_flush.exit.i1677:                     ; preds = %1259
   %1262 = load i32, ptr %.11137, align 8, !tbaa !34
-  %1263 = call i64 @cli_writen(i32 noundef %1262, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %1263 = call i64 @cli_writen(i32 noundef %1262, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %1264
 
 1264:                                             ; preds = %html_output_flush.exit.i1677, %1259
@@ -3536,7 +3536,7 @@ html_output_c.exit1678:                           ; preds = %1258, %1264
   br i1 %.not2515, label %._crit_edge, label %.lr.ph2343
 
 .lr.ph2343:                                       ; preds = %1273
-  %1274 = tail call ptr @__ctype_tolower_loc() #20
+  %1274 = tail call ptr @__ctype_tolower_loc() #21
   br label %1275
 
 1275:                                             ; preds = %.lr.ph2343, %1296
@@ -3558,7 +3558,7 @@ html_output_c.exit1678:                           ; preds = %1258, %1264
 
 html_output_flush.exit.i1680:                     ; preds = %1283
   %1286 = load i32, ptr %.11137, align 8, !tbaa !34
-  %1287 = call i64 @cli_writen(i32 noundef %1286, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %1287 = call i64 @cli_writen(i32 noundef %1286, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %1288
 
 1288:                                             ; preds = %html_output_flush.exit.i1680, %1283
@@ -3609,7 +3609,7 @@ html_output_c.exit1681:                           ; preds = %1275, %1288
 
 html_output_flush.exit.i1683:                     ; preds = %1303
   %1306 = load i32, ptr %.11137, align 8, !tbaa !34
-  %1307 = call i64 @cli_writen(i32 noundef %1306, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %1307 = call i64 @cli_writen(i32 noundef %1306, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %1308
 
 1308:                                             ; preds = %html_output_flush.exit.i1683, %1303
@@ -3626,7 +3626,7 @@ html_output_c.exit1684:                           ; preds = %1254, %.preheader20
   br label %.backedge
 
 1313:                                             ; preds = %1232
-  %1314 = tail call ptr @__ctype_b_loc() #20
+  %1314 = tail call ptr @__ctype_b_loc() #21
   %1315 = load ptr, ptr %1314, align 8, !tbaa !37
   %1316 = zext i8 %83 to i64
   %1317 = getelementptr inbounds nuw i16, ptr %1315, i64 %1316
@@ -3682,7 +3682,7 @@ switch.early.test:                                ; preds = %1313
 
 html_output_flush.exit.i1686:                     ; preds = %1335
   %1338 = load i32, ptr %.11137, align 8, !tbaa !34
-  %1339 = call i64 @cli_writen(i32 noundef %1338, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %1339 = call i64 @cli_writen(i32 noundef %1338, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %1340
 
 1340:                                             ; preds = %html_output_flush.exit.i1686, %1335
@@ -3698,7 +3698,7 @@ html_output_c.exit1687:                           ; preds = %1334, %1340
   br i1 %.not2512, label %.backedge, label %.lr.ph2335
 
 .lr.ph2335:                                       ; preds = %html_output_c.exit1687
-  %1344 = tail call ptr @__ctype_tolower_loc() #20
+  %1344 = tail call ptr @__ctype_tolower_loc() #21
   br label %1345
 
 1345:                                             ; preds = %.lr.ph2335, %1366
@@ -3720,7 +3720,7 @@ html_output_c.exit1687:                           ; preds = %1334, %1340
 
 html_output_flush.exit.i1689:                     ; preds = %1353
   %1356 = load i32, ptr %.11137, align 8, !tbaa !34
-  %1357 = call i64 @cli_writen(i32 noundef %1356, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %1357 = call i64 @cli_writen(i32 noundef %1356, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %1358
 
 1358:                                             ; preds = %html_output_flush.exit.i1689, %1353
@@ -3795,7 +3795,7 @@ html_output_c.exit1690:                           ; preds = %1345, %1358
   br i1 %or.cond.i1691, label %tolower.exit.sink.split, label %tolower.exit
 
 tolower.exit.sink.split:                          ; preds = %1385
-  %1388 = tail call ptr @__ctype_tolower_loc() #20
+  %1388 = tail call ptr @__ctype_tolower_loc() #21
   %1389 = load ptr, ptr %1388, align 8, !tbaa !41
   %sext2015 = shl i64 %.110442417, 32
   %1390 = ashr exact i64 %sext2015, 30
@@ -3815,7 +3815,7 @@ tolower.exit:                                     ; preds = %tolower.exit.sink.s
 
 html_output_flush.exit.i1693:                     ; preds = %1394
   %1397 = load i32, ptr %.11137, align 8, !tbaa !34
-  %1398 = call i64 @cli_writen(i32 noundef %1397, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %1398 = call i64 @cli_writen(i32 noundef %1397, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %1399
 
 1399:                                             ; preds = %html_output_flush.exit.i1693, %1394
@@ -3829,7 +3829,7 @@ html_output_flush.exit.i1693:                     ; preds = %1394
 1403:                                             ; preds = %1383
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %1404 = trunc i64 %.110442417 to i16
-  %1405 = call ptr @u16_normalize_tobuffer(i16 noundef zeroext %1404, ptr noundef nonnull %16, i64 noundef 10) #17
+  %1405 = call ptr @u16_normalize_tobuffer(i16 noundef zeroext %1404, ptr noundef nonnull %16, i64 noundef 10) #18
   %1406 = icmp ugt ptr %1405, %16
   br i1 %1406, label %1407, label %html_output_str.exit1702
 
@@ -3852,7 +3852,7 @@ html_output_flush.exit.i1700:                     ; preds = %1410
 
 html_output_flush.exit.thread.i1698:              ; preds = %1410
   %1415 = load i32, ptr %.11137, align 8, !tbaa !34
-  %1416 = call i64 @cli_writen(i32 noundef %1415, ptr noundef nonnull %58, i64 noundef %1411) #17
+  %1416 = call i64 @cli_writen(i32 noundef %1415, ptr noundef nonnull %58, i64 noundef %1411) #18
   store i64 0, ptr %57, align 8, !tbaa !36
   %1417 = icmp ugt i64 %1409, 8191
   br i1 %1417, label %html_output_flush.exit16.i1699, label %1424
@@ -3862,13 +3862,13 @@ html_output_flush.exit.thread.i1698:              ; preds = %1410
 
 1419:                                             ; preds = %1418
   %1420 = load i32, ptr %.11137, align 8, !tbaa !34
-  %1421 = call i64 @cli_writen(i32 noundef %1420, ptr noundef nonnull %58, i64 noundef %1411) #17
+  %1421 = call i64 @cli_writen(i32 noundef %1420, ptr noundef nonnull %58, i64 noundef %1411) #18
   store i64 0, ptr %57, align 8, !tbaa !36
   br label %html_output_flush.exit16.i1699
 
 html_output_flush.exit16.i1699:                   ; preds = %1419, %1418, %html_output_flush.exit.thread.i1698
   %1422 = load i32, ptr %.11137, align 8, !tbaa !34
-  %1423 = call i64 @cli_writen(i32 noundef %1422, ptr noundef nonnull %16, i64 noundef %1409) #17
+  %1423 = call i64 @cli_writen(i32 noundef %1422, ptr noundef nonnull %16, i64 noundef %1409) #18
   br label %html_output_str.exit1702
 
 1424:                                             ; preds = %html_output_flush.exit.thread.i1698, %html_output_flush.exit.i1700
@@ -3886,7 +3886,7 @@ html_output_str.exit1702:                         ; preds = %1424, %html_output_
 
 tolower.exit1704:                                 ; preds = %1382
   %1429 = and i64 %.110442417, 255
-  %1430 = tail call ptr @__ctype_tolower_loc() #20
+  %1430 = tail call ptr @__ctype_tolower_loc() #21
   %.pn = load ptr, ptr %1430, align 8, !tbaa !41
   %.01105.in = getelementptr inbounds nuw i32, ptr %.pn, i64 %1429
   %.01105 = load i32, ptr %.01105.in, align 4, !tbaa !43
@@ -3900,7 +3900,7 @@ tolower.exit1704:                                 ; preds = %1382
 
 html_output_flush.exit.i1706:                     ; preds = %1432
   %1435 = load i32, ptr %.11137, align 8, !tbaa !34
-  %1436 = call i64 @cli_writen(i32 noundef %1435, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %1436 = call i64 @cli_writen(i32 noundef %1435, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %1437
 
 1437:                                             ; preds = %html_output_flush.exit.i1706, %1432
@@ -3916,7 +3916,7 @@ html_output_c.exit1694:                           ; preds = %1437, %tolower.exit
   br label %.backedge
 
 1442:                                             ; preds = %1370, %1373
-  %1443 = tail call ptr @__ctype_b_loc() #20
+  %1443 = tail call ptr @__ctype_b_loc() #21
   %1444 = load ptr, ptr %1443, align 8, !tbaa !37
   %1445 = zext i8 %83 to i64
   %1446 = getelementptr inbounds nuw i16, ptr %1444, i64 %1445
@@ -3962,7 +3962,7 @@ html_output_c.exit1694:                           ; preds = %1437, %tolower.exit
 
 html_output_flush.exit.i1709:                     ; preds = %1462
   %1465 = load i32, ptr %.11137, align 8, !tbaa !34
-  %1466 = call i64 @cli_writen(i32 noundef %1465, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %1466 = call i64 @cli_writen(i32 noundef %1465, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %1467
 
 1467:                                             ; preds = %html_output_flush.exit.i1709, %1462
@@ -3984,7 +3984,7 @@ html_output_flush.exit.i1709:                     ; preds = %1462
   br label %1482
 
 1475:                                             ; preds = %1471
-  %1476 = tail call ptr @__ctype_tolower_loc() #20
+  %1476 = tail call ptr @__ctype_tolower_loc() #21
   %1477 = load ptr, ptr %1476, align 8, !tbaa !41
   %1478 = getelementptr inbounds nuw i32, ptr %1477, i64 %1445
   %1479 = load i32, ptr %1478, align 4, !tbaa !43
@@ -4009,7 +4009,7 @@ html_output_flush.exit.i1709:                     ; preds = %1462
 
 html_output_flush.exit.i1712:                     ; preds = %1487
   %1490 = load i32, ptr %.11137, align 8, !tbaa !34
-  %1491 = call i64 @cli_writen(i32 noundef %1490, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %1491 = call i64 @cli_writen(i32 noundef %1490, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %1492
 
 1492:                                             ; preds = %html_output_flush.exit.i1712, %1487
@@ -4042,7 +4042,7 @@ html_output_c.exit1710:                           ; preds = %1492, %1485, %1467,
 
 html_output_flush.exit.i1715:                     ; preds = %1500
   %1503 = load i32, ptr %.11137, align 8, !tbaa !34
-  %1504 = call i64 @cli_writen(i32 noundef %1503, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %1504 = call i64 @cli_writen(i32 noundef %1503, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %1505
 
 1505:                                             ; preds = %html_output_flush.exit.i1715, %1500
@@ -4054,7 +4054,7 @@ html_output_flush.exit.i1715:                     ; preds = %1500
   br label %.backedge
 
 1509:                                             ; preds = %91
-  %1510 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.211162395, ptr noundef nonnull dereferenceable(1) @.str.2) #18
+  %1510 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.211162395, ptr noundef nonnull dereferenceable(1) @.str.2) #19
   %.not1353 = icmp eq ptr %1510, null
   br i1 %.not1353, label %.backedge, label %1511
 
@@ -4066,7 +4066,7 @@ html_output_flush.exit.i1715:                     ; preds = %1500
   br label %.backedge
 
 1514:                                             ; preds = %91
-  %1515 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.211162395, ptr noundef nonnull dereferenceable(5) @.str.2, i64 noundef 4) #18
+  %1515 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.211162395, ptr noundef nonnull dereferenceable(5) @.str.2, i64 noundef 4) #19
   %1516 = icmp eq i32 %1515, 0
   br i1 %1516, label %1517, label %1520
 
@@ -4078,7 +4078,7 @@ html_output_flush.exit.i1715:                     ; preds = %1500
   br label %.backedge
 
 1520:                                             ; preds = %1514
-  %1521 = tail call ptr @__ctype_tolower_loc() #20
+  %1521 = tail call ptr @__ctype_tolower_loc() #21
   %1522 = load ptr, ptr %1521, align 8, !tbaa !41
   %1523 = zext i8 %83 to i64
   %1524 = getelementptr inbounds nuw i32, ptr %1522, i64 %1523
@@ -4093,7 +4093,7 @@ html_output_flush.exit.i1715:                     ; preds = %1500
 
 html_output_flush.exit.i1718:                     ; preds = %1527
   %1530 = load i32, ptr %.11137, align 8, !tbaa !34
-  %1531 = call i64 @cli_writen(i32 noundef %1530, ptr noundef nonnull %58, i64 noundef 8192) #17
+  %1531 = call i64 @cli_writen(i32 noundef %1530, ptr noundef nonnull %58, i64 noundef 8192) #18
   br label %1532
 
 1532:                                             ; preds = %html_output_flush.exit.i1718, %1527
@@ -4109,7 +4109,7 @@ html_output_c.exit1719:                           ; preds = %1520, %1532
   br label %.backedge
 
 1537:                                             ; preds = %91
-  %1538 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.211162395) #18
+  %1538 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.211162395) #19
   %1539 = icmp ult i64 %1538, 8
   br i1 %1539, label %.backedge, label %1540
 
@@ -4264,7 +4264,7 @@ html_output_c.exit1719:                           ; preds = %1520, %1532
   br label %1672
 
 1639:                                             ; preds = %1614
-  %1640 = tail call ptr @__ctype_b_loc() #20
+  %1640 = tail call ptr @__ctype_b_loc() #21
   %1641 = load ptr, ptr %1640, align 8, !tbaa !37
   %1642 = zext i8 %83 to i64
   %1643 = getelementptr inbounds nuw i16, ptr %1641, i64 %1642
@@ -4311,7 +4311,7 @@ html_output_c.exit1719:                           ; preds = %1520, %1532
   br i1 %1661, label %1662, label %1670
 
 1662:                                             ; preds = %1660
-  %1663 = tail call ptr @__ctype_tolower_loc() #20
+  %1663 = tail call ptr @__ctype_tolower_loc() #21
   %1664 = load ptr, ptr %1663, align 8, !tbaa !41
   %1665 = getelementptr inbounds nuw i32, ptr %1664, i64 %1642
   %1666 = load i32, ptr %1665, align 4, !tbaa !43
@@ -4359,67 +4359,67 @@ html_output_c.exit1719:                           ; preds = %1520, %1532
 
 1682:                                             ; preds = %1679
   %1683 = getelementptr inbounds nuw i8, ptr %.211422382, i64 4
-  %1684 = call i64 @cli_writen(i32 noundef %1678, ptr noundef nonnull %1683, i64 noundef %1681) #17
+  %1684 = call i64 @cli_writen(i32 noundef %1678, ptr noundef nonnull %1683, i64 noundef %1681) #18
   store i64 0, ptr %1680, align 8, !tbaa !36
   %.pre2608 = load i32, ptr %.211422382, align 8, !tbaa !34
   br label %html_output_flush.exit
 
 html_output_flush.exit:                           ; preds = %1679, %1682
   %1685 = phi i32 [ %1678, %1679 ], [ %.pre2608, %1682 ]
-  %1686 = call i32 @close(i32 noundef %1685) #17
+  %1686 = call i32 @close(i32 noundef %1685) #18
   br label %1687
 
 1687:                                             ; preds = %html_output_flush.exit, %1677
-  call void @free(ptr noundef nonnull %.211422382) #17
+  call void @free(ptr noundef nonnull %.211422382) #18
   br label %1688
 
 1688:                                             ; preds = %1687, %1676
-  %1689 = call noalias dereferenceable_or_null(8208) ptr @malloc(i64 noundef 8208) #19
+  %1689 = call noalias dereferenceable_or_null(8208) ptr @malloc(i64 noundef 8208) #20
   %.not1339 = icmp eq ptr %1689, null
   br i1 %.not1339, label %1690, label %1691
 
 1690:                                             ; preds = %1688
-  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.41) #17
+  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.41) #18
   br label %.thread1894
 
 1691:                                             ; preds = %1688
   store i32 -1, ptr %1689, align 8, !tbaa !34
-  %1692 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 1024, ptr noundef nonnull @.str.42, ptr noundef nonnull %2) #17
-  %1693 = call i32 @lstat(ptr noundef nonnull %7, ptr noundef nonnull %17) #17
+  %1692 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 1024, ptr noundef nonnull @.str.42, ptr noundef nonnull %2) #18
+  %1693 = call i32 @lstat(ptr noundef nonnull %7, ptr noundef nonnull %17) #18
   %1694 = icmp eq i32 %1693, -1
   br i1 %1694, label %1695, label %1701
 
 1695:                                             ; preds = %1691
-  %1696 = call i32 @mkdir(ptr noundef nonnull %7, i32 noundef 448) #17
+  %1696 = call i32 @mkdir(ptr noundef nonnull %7, i32 noundef 448) #18
   %.not1340 = icmp eq i32 %1696, 0
   br i1 %.not1340, label %1701, label %1697
 
 1697:                                             ; preds = %1695
-  %1698 = tail call ptr @__errno_location() #20
+  %1698 = tail call ptr @__errno_location() #21
   %1699 = load i32, ptr %1698, align 4, !tbaa !43
   %.not1341 = icmp eq i32 %1699, 17
   br i1 %.not1341, label %1701, label %1700
 
 1700:                                             ; preds = %1697
-  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.43, ptr noundef nonnull %2) #17
+  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.43, ptr noundef nonnull %2) #18
   br label %.thread1894
 
 1701:                                             ; preds = %1695, %1697, %1691
-  %1702 = call ptr @cli_gentemp(ptr noundef nonnull %7) #17
+  %1702 = call ptr @cli_gentemp(ptr noundef nonnull %7) #18
   %.not1342 = icmp eq ptr %1702, null
   br i1 %.not1342, label %.thread1894, label %1703
 
 1703:                                             ; preds = %1701
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.44, ptr noundef nonnull %1702) #17
-  %1704 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %1702, i32 noundef 577, i32 noundef 384) #17
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.44, ptr noundef nonnull %1702) #18
+  %1704 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %1702, i32 noundef 577, i32 noundef 384) #18
   store i32 %1704, ptr %1689, align 8, !tbaa !34
-  call void @free(ptr noundef nonnull %1702) #17
+  call void @free(ptr noundef nonnull %1702) #18
   %1705 = load i32, ptr %1689, align 8, !tbaa !34
   %1706 = icmp slt i32 %1705, 0
   br i1 %1706, label %1707, label %html_output_str.exit1732
 
 1707:                                             ; preds = %1703
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1, ptr noundef nonnull %7) #17
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1, ptr noundef nonnull %7) #18
   br label %.thread1894
 
 html_output_str.exit1732:                         ; preds = %1703
@@ -4451,19 +4451,19 @@ html_output_flush.exit.i1744:                     ; preds = %1714
   br i1 %1718, label %1721, label %html_output_flush.exit.i1744.thread
 
 html_output_flush.exit.thread.i1742:              ; preds = %1714
-  %1719 = call i64 @cli_writen(i32 noundef %1705, ptr noundef nonnull %1709, i64 noundef 34) #17
+  %1719 = call i64 @cli_writen(i32 noundef %1705, ptr noundef nonnull %1709, i64 noundef 34) #18
   store i64 0, ptr %1708, align 8, !tbaa !36
   %1720 = icmp ugt i64 %.110502416, 8191
   br i1 %1720, label %html_output_flush.exit16.i1743, label %html_output_flush.exit.i1744.thread
 
 1721:                                             ; preds = %html_output_flush.exit.i1744
-  %1722 = call i64 @cli_writen(i32 noundef %1705, ptr noundef nonnull %1709, i64 noundef 34) #17
+  %1722 = call i64 @cli_writen(i32 noundef %1705, ptr noundef nonnull %1709, i64 noundef 34) #18
   store i64 0, ptr %1708, align 8, !tbaa !36
   br label %html_output_flush.exit16.i1743
 
 html_output_flush.exit16.i1743:                   ; preds = %1721, %html_output_flush.exit.thread.i1742
   %1723 = load i32, ptr %1689, align 8, !tbaa !34
-  %1724 = call i64 @cli_writen(i32 noundef %1723, ptr noundef nonnull %10, i64 noundef %.110502416) #17
+  %1724 = call i64 @cli_writen(i32 noundef %1723, ptr noundef nonnull %10, i64 noundef %.110502416) #18
   %.pr = load i64, ptr %1708, align 8, !tbaa !36
   br label %html_output_str.exit1746
 
@@ -4483,7 +4483,7 @@ html_output_str.exit1746:                         ; preds = %html_output_flush.e
 
 html_output_flush.exit.i1748:                     ; preds = %html_output_str.exit1746
   %1731 = load i32, ptr %1689, align 8, !tbaa !34
-  %1732 = call i64 @cli_writen(i32 noundef %1731, ptr noundef nonnull %1709, i64 noundef 8192) #17
+  %1732 = call i64 @cli_writen(i32 noundef %1731, ptr noundef nonnull %1709, i64 noundef 8192) #18
   br label %html_output_c.exit1749
 
 html_output_c.exit1749:                           ; preds = %html_output_str.exit1746, %html_output_flush.exit.i1748
@@ -4492,7 +4492,7 @@ html_output_c.exit1749:                           ; preds = %html_output_str.exi
   store i64 %1734, ptr %1708, align 8, !tbaa !36
   %1735 = getelementptr inbounds nuw i8, ptr %1709, i64 %1733
   store i8 10, ptr %1735, align 1, !tbaa !16
-  %1736 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.48) #18
+  %1736 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.48) #19
   %.not1343 = icmp eq ptr %1736, null
   %.pr1892 = load i64, ptr %1708, align 8, !tbaa !36
   br i1 %.not1343, label %thread-pre-split, label %1737
@@ -4504,7 +4504,7 @@ html_output_c.exit1749:                           ; preds = %html_output_str.exi
 
 html_output_flush.exit.thread.i1753:              ; preds = %1737
   %1740 = load i32, ptr %1689, align 8, !tbaa !34
-  %1741 = call i64 @cli_writen(i32 noundef %1740, ptr noundef nonnull %1709, i64 noundef %.pr1892) #17
+  %1741 = call i64 @cli_writen(i32 noundef %1740, ptr noundef nonnull %1709, i64 noundef %.pr1892) #18
   store i64 0, ptr %1708, align 8, !tbaa !36
   br label %html_output_str.exit1755
 
@@ -4524,7 +4524,7 @@ thread-pre-split:                                 ; preds = %html_output_c.exit1
 
 html_output_flush.exit.i1757:                     ; preds = %thread-pre-split
   %1748 = load i32, ptr %1689, align 8, !tbaa !34
-  %1749 = call i64 @cli_writen(i32 noundef %1748, ptr noundef nonnull %1709, i64 noundef 8192) #17
+  %1749 = call i64 @cli_writen(i32 noundef %1748, ptr noundef nonnull %1709, i64 noundef 8192) #18
   br label %1750
 
 .thread1894:                                      ; preds = %1701, %1700, %1707, %1690
@@ -4570,7 +4570,7 @@ html_output_flush.exit.i1757:                     ; preds = %thread-pre-split
 html_output_flush.exit.i1760:                     ; preds = %1760
   %1764 = load i32, ptr %.211422382, align 8, !tbaa !34
   %1765 = getelementptr inbounds nuw i8, ptr %.211422382, i64 4
-  %1766 = call i64 @cli_writen(i32 noundef %1764, ptr noundef nonnull %1765, i64 noundef 8192) #17
+  %1766 = call i64 @cli_writen(i32 noundef %1764, ptr noundef nonnull %1765, i64 noundef 8192) #18
   br label %1767
 
 1767:                                             ; preds = %html_output_flush.exit.i1760, %1760
@@ -4601,7 +4601,7 @@ html_output_flush.exit.i1760:                     ; preds = %1760
 html_output_flush.exit.i1763:                     ; preds = %1776
   %1780 = load i32, ptr %.211422382, align 8, !tbaa !34
   %1781 = getelementptr inbounds nuw i8, ptr %.211422382, i64 4
-  %1782 = call i64 @cli_writen(i32 noundef %1780, ptr noundef nonnull %1781, i64 noundef 8192) #17
+  %1782 = call i64 @cli_writen(i32 noundef %1780, ptr noundef nonnull %1781, i64 noundef 8192) #18
   br label %1783
 
 1783:                                             ; preds = %html_output_flush.exit.i1763, %1776
@@ -4614,7 +4614,7 @@ html_output_flush.exit.i1763:                     ; preds = %1776
   br label %html_output_c.exit1761
 
 1788:                                             ; preds = %1754
-  %1789 = tail call ptr @__ctype_b_loc() #20
+  %1789 = tail call ptr @__ctype_b_loc() #21
   %1790 = load ptr, ptr %1789, align 8, !tbaa !37
   %1791 = zext i8 %83 to i64
   %1792 = getelementptr inbounds nuw i16, ptr %1790, i64 %1791
@@ -4642,7 +4642,7 @@ html_output_flush.exit.i1763:                     ; preds = %1776
 html_output_flush.exit.i1766:                     ; preds = %1799
   %1803 = load i32, ptr %.211422382, align 8, !tbaa !34
   %1804 = getelementptr inbounds nuw i8, ptr %.211422382, i64 4
-  %1805 = call i64 @cli_writen(i32 noundef %1803, ptr noundef nonnull %1804, i64 noundef 8192) #17
+  %1805 = call i64 @cli_writen(i32 noundef %1803, ptr noundef nonnull %1804, i64 noundef 8192) #18
   br label %1806
 
 1806:                                             ; preds = %html_output_flush.exit.i1766, %1799
@@ -4667,7 +4667,7 @@ html_output_flush.exit.i1766:                     ; preds = %1799
 html_output_flush.exit.i1769:                     ; preds = %1812
   %1816 = load i32, ptr %.211422382, align 8, !tbaa !34
   %1817 = getelementptr inbounds nuw i8, ptr %.211422382, i64 4
-  %1818 = call i64 @cli_writen(i32 noundef %1816, ptr noundef nonnull %1817, i64 noundef 8192) #17
+  %1818 = call i64 @cli_writen(i32 noundef %1816, ptr noundef nonnull %1817, i64 noundef 8192) #18
   br label %1819
 
 1819:                                             ; preds = %html_output_flush.exit.i1769, %1812
@@ -4707,18 +4707,18 @@ html_output_c.exit1761:                           ; preds = %1819, %1811, %1806,
 
 1832:                                             ; preds = %1829
   %1833 = getelementptr inbounds nuw i8, ptr %.211422382, i64 4
-  %1834 = call i64 @cli_writen(i32 noundef %1828, ptr noundef nonnull %1833, i64 noundef %1831) #17
+  %1834 = call i64 @cli_writen(i32 noundef %1828, ptr noundef nonnull %1833, i64 noundef %1831) #18
   store i64 0, ptr %1830, align 8, !tbaa !36
   %.pre = load i32, ptr %.211422382, align 8, !tbaa !34
   br label %html_output_flush.exit1772
 
 html_output_flush.exit1772:                       ; preds = %1829, %1832
   %1835 = phi i32 [ %1828, %1829 ], [ %.pre, %1832 ]
-  %1836 = call i32 @close(i32 noundef %1835) #17
+  %1836 = call i32 @close(i32 noundef %1835) #18
   br label %1837
 
 1837:                                             ; preds = %html_output_flush.exit1772, %1827
-  call void @free(ptr noundef nonnull %.211422382) #17
+  call void @free(ptr noundef nonnull %.211422382) #18
   br label %.backedge
 
 1838:                                             ; preds = %91
@@ -4741,7 +4741,7 @@ html_output_flush.exit1772:                       ; preds = %1829, %1832
 html_output_flush.exit.i1774:                     ; preds = %1841
   %1845 = load i32, ptr %.211422382, align 8, !tbaa !34
   %1846 = getelementptr inbounds nuw i8, ptr %.211422382, i64 4
-  %1847 = call i64 @cli_writen(i32 noundef %1845, ptr noundef nonnull %1846, i64 noundef 8192) #17
+  %1847 = call i64 @cli_writen(i32 noundef %1845, ptr noundef nonnull %1846, i64 noundef 8192) #18
   br label %1848
 
 1848:                                             ; preds = %html_output_flush.exit.i1774, %1841
@@ -4766,7 +4766,7 @@ html_output_flush.exit.i1774:                     ; preds = %1841
 html_output_flush.exit.i1777:                     ; preds = %1854
   %1858 = load i32, ptr %.211422382, align 8, !tbaa !34
   %1859 = getelementptr inbounds nuw i8, ptr %.211422382, i64 4
-  %1860 = call i64 @cli_writen(i32 noundef %1858, ptr noundef nonnull %1859, i64 noundef 8192) #17
+  %1860 = call i64 @cli_writen(i32 noundef %1858, ptr noundef nonnull %1859, i64 noundef 8192) #18
   br label %1861
 
 1861:                                             ; preds = %html_output_flush.exit.i1777, %1854
@@ -4784,7 +4784,7 @@ html_output_flush.exit.i1777:                     ; preds = %1854
 
 html_output_flush.exit.i1780:                     ; preds = %1861
   %1870 = load i32, ptr %.211422382, align 8, !tbaa !34
-  %1871 = call i64 @cli_writen(i32 noundef %1870, ptr noundef nonnull %1863, i64 noundef 8192) #17
+  %1871 = call i64 @cli_writen(i32 noundef %1870, ptr noundef nonnull %1863, i64 noundef 8192) #18
   br label %1872
 
 1872:                                             ; preds = %html_output_flush.exit.i1780, %1861
@@ -4808,7 +4808,7 @@ html_output_flush.exit.i1780:                     ; preds = %1861
 html_output_flush.exit.i1783:                     ; preds = %1877
   %1881 = load i32, ptr %.211422382, align 8, !tbaa !34
   %1882 = getelementptr inbounds nuw i8, ptr %.211422382, i64 4
-  %1883 = call i64 @cli_writen(i32 noundef %1881, ptr noundef nonnull %1882, i64 noundef 8192) #17
+  %1883 = call i64 @cli_writen(i32 noundef %1881, ptr noundef nonnull %1882, i64 noundef 8192) #18
   br label %1884
 
 1884:                                             ; preds = %html_output_flush.exit.i1783, %1877
@@ -4827,7 +4827,7 @@ html_output_flush.exit.i1783:                     ; preds = %1877
 1891:                                             ; preds = %1889
   %1892 = shl nsw i64 %.110442417, 4
   %1893 = add i64 %.111332387, 1
-  %1894 = tail call ptr @__ctype_b_loc() #20
+  %1894 = tail call ptr @__ctype_b_loc() #21
   %1895 = load ptr, ptr %1894, align 8, !tbaa !37
   %1896 = zext i8 %83 to i64
   %1897 = getelementptr inbounds nuw i16, ptr %1895, i64 %1896
@@ -4852,7 +4852,7 @@ html_output_flush.exit.i1783:                     ; preds = %1877
   br label %1916
 
 1908:                                             ; preds = %1903
-  %1909 = tail call ptr @__ctype_tolower_loc() #20
+  %1909 = tail call ptr @__ctype_tolower_loc() #21
   %1910 = load ptr, ptr %1909, align 8, !tbaa !41
   %1911 = getelementptr inbounds nuw i32, ptr %1910, i64 %1896
   %1912 = load i32, ptr %1911, align 4, !tbaa !43
@@ -5070,7 +5070,7 @@ html_tag_contents_append.exit1811:                ; preds = %1966, %1924
 
 1987:                                             ; preds = %1982
   %1988 = sub i64 %1983, %1975
-  call void @cli_js_process_buffer(ptr noundef nonnull %.21179.lcssa, ptr noundef nonnull %spec.select.i1813, i64 noundef %1988) #17
+  call void @cli_js_process_buffer(ptr noundef nonnull %.21179.lcssa, ptr noundef nonnull %spec.select.i1813, i64 noundef %1988) #18
   br label %1989
 
 1989:                                             ; preds = %1987, %1982, %1977, %1974, %1972
@@ -5078,9 +5078,9 @@ html_tag_contents_append.exit1811:                ; preds = %1966, %1924
   br i1 %1990, label %js_process.exit1821.thread, label %js_process.exit1821
 
 js_process.exit1821.thread:                       ; preds = %1989
-  call void @cli_js_parse_done(ptr noundef nonnull %.21179.lcssa) #17
-  call void @cli_js_output(ptr noundef nonnull %.21179.lcssa, ptr noundef %2) #17
-  call void @cli_js_destroy(ptr noundef nonnull %.21179.lcssa) #17
+  call void @cli_js_parse_done(ptr noundef nonnull %.21179.lcssa) #18
+  call void @cli_js_output(ptr noundef nonnull %.21179.lcssa, ptr noundef %2) #18
+  call void @cli_js_destroy(ptr noundef nonnull %.21179.lcssa) #18
   br label %2011
 
 js_process.exit1821:                              ; preds = %1989, %1971
@@ -5093,7 +5093,7 @@ js_process.exit1821:                              ; preds = %1989, %1971
   br i1 %1993, label %1994, label %1995
 
 1994:                                             ; preds = %1992
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.18) #17
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.18) #18
   br label %.thread1859
 
 1995:                                             ; preds = %1992
@@ -5105,14 +5105,14 @@ js_process.exit1821:                              ; preds = %1989, %1971
 
 2000:                                             ; preds = %1995
   %2001 = add i64 %1998, 1
-  %2002 = call ptr @cli_max_malloc(i64 noundef %2001) #17
+  %2002 = call ptr @cli_max_malloc(i64 noundef %2001) #18
   %2003 = icmp eq ptr %2002, null
   br i1 %2003, label %.thread1859, label %.thread1896
 
 2004:                                             ; preds = %1995
   %2005 = add i64 %.11212.lcssa, 1
   %2006 = add i64 %2005, %1998
-  %2007 = call ptr @cli_max_realloc(ptr noundef nonnull %.21198.lcssa, i64 noundef %2006) #17
+  %2007 = call ptr @cli_max_realloc(ptr noundef nonnull %.21198.lcssa, i64 noundef %2006) #18
   %.not1328 = icmp eq ptr %2007, null
   br i1 %.not1328, label %.thread1859, label %.thread1896
 
@@ -5136,7 +5136,7 @@ js_process.exit1821:                              ; preds = %1989, %1971
   br i1 %or.cond127, label %.backedge2025, label %2014
 
 2014:                                             ; preds = %2011
-  call void @free(ptr noundef %.111132482) #17
+  call void @free(ptr noundef %.111132482) #18
   %2015 = call fastcc ptr @cli_readchunk(ptr noundef %1)
   %spec.select1487 = select i1 %2012, ptr %2015, ptr %.11220.lcssa
   br i1 %.11061.lcssa, label %.backedge2025, label %2016
@@ -5153,7 +5153,7 @@ js_process.exit1821:                              ; preds = %1989, %1971
   br i1 %2019, label %2020, label %.backedge2025
 
 2020:                                             ; preds = %2018
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.50) #17
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.50) #18
   br label %.backedge2025
 
 .backedge2025:                                    ; preds = %2018, %2020, %2014, %2016, %2011
@@ -5173,17 +5173,17 @@ js_process.exit1821:                              ; preds = %1989, %1971
   br i1 %.not1317, label %._crit_edge2500.thread, label %2021
 
 2021:                                             ; preds = %._crit_edge2500
-  %2022 = call i32 @html_style_block_handler(ptr noundef %0, ptr noundef nonnull %.91205) #17
+  %2022 = call i32 @html_style_block_handler(ptr noundef %0, ptr noundef nonnull %.91205) #18
   %.not1318 = icmp eq i32 %2022, 0
   br i1 %.not1318, label %.thread1911, label %2023
 
 .thread1911:                                      ; preds = %2021
-  call void @free(ptr noundef nonnull %.91205) #17
+  call void @free(ptr noundef nonnull %.91205) #18
   br label %._crit_edge2500.thread
 
 2023:                                             ; preds = %2021
-  %2024 = call ptr @cl_strerror(i32 noundef %2022) #17
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.51, ptr noundef %2024) #17
+  %2024 = call ptr @cl_strerror(i32 noundef %2022) #18
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.51, ptr noundef %2024) #18
   br label %.thread1915
 
 ._crit_edge2500.thread:                           ; preds = %55, %.thread1911, %._crit_edge2500
@@ -5197,7 +5197,7 @@ js_process.exit1821:                              ; preds = %1989, %1971
 2025:                                             ; preds = %._crit_edge2500.thread
   %2026 = getelementptr inbounds nuw i8, ptr %14, i64 %.01174.lcssa2795
   store i8 0, ptr %2026, align 1, !tbaa !16
-  %2027 = call ptr @entity_norm(ptr noundef nonnull %13, ptr noundef nonnull %14) #17
+  %2027 = call ptr @entity_norm(ptr noundef nonnull %13, ptr noundef nonnull %14) #18
   %.not1320 = icmp eq ptr %2027, null
   br i1 %.not1320, label %2042, label %.preheader
 
@@ -5222,7 +5222,7 @@ js_process.exit1821:                              ; preds = %1989, %1971
 
 html_output_flush.exit.i1823:                     ; preds = %.lr.ph2508.split
   %2034 = load i32, ptr %.11137, align 8, !tbaa !34
-  %2035 = call i64 @cli_writen(i32 noundef %2034, ptr noundef nonnull %2029, i64 noundef 8192) #17
+  %2035 = call i64 @cli_writen(i32 noundef %2034, ptr noundef nonnull %2029, i64 noundef 8192) #18
   br label %html_output_c.exit1824
 
 html_output_c.exit1824:                           ; preds = %html_output_flush.exit.i1823, %.lr.ph2508.split
@@ -5232,7 +5232,7 @@ html_output_c.exit1824:                           ; preds = %html_output_flush.e
   %2038 = getelementptr inbounds nuw i8, ptr %2029, i64 %2036
   store i8 %2031, ptr %2038, align 1, !tbaa !16
   %2039 = add nuw i64 %.010312507, 1
-  %2040 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2027) #18
+  %2040 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2027) #19
   %2041 = icmp ult i64 %2039, %2040
   br i1 %2041, label %.lr.ph2508.split, label %.thread1915
 
@@ -5242,7 +5242,7 @@ html_output_c.exit1824:                           ; preds = %html_output_flush.e
 
 2043:                                             ; preds = %2042
   call fastcc void @html_output_c(ptr noundef %.11137, i8 noundef zeroext 38)
-  %2044 = tail call ptr @__ctype_tolower_loc() #20
+  %2044 = tail call ptr @__ctype_tolower_loc() #21
   %.not.i1825 = icmp eq ptr %.11137, null
   %2045 = getelementptr inbounds nuw i8, ptr %.11137, i64 8200
   %2046 = getelementptr inbounds nuw i8, ptr %.11137, i64 4
@@ -5263,7 +5263,7 @@ html_output_c.exit1824:                           ; preds = %html_output_flush.e
 
 html_output_flush.exit.i1826:                     ; preds = %.split
   %2056 = load i32, ptr %.11137, align 8, !tbaa !34
-  %2057 = call i64 @cli_writen(i32 noundef %2056, ptr noundef nonnull %2046, i64 noundef 8192) #17
+  %2057 = call i64 @cli_writen(i32 noundef %2056, ptr noundef nonnull %2046, i64 noundef 8192) #18
   br label %html_output_c.exit1827
 
 html_output_c.exit1827:                           ; preds = %html_output_flush.exit.i1826, %.split
@@ -5282,7 +5282,7 @@ html_output_c.exit1827:                           ; preds = %html_output_flush.e
   %.01196 = phi ptr [ %.211982356, %93 ], [ %.21198.lcssa, %1994 ], [ %.211982356, %.thread1894 ], [ %.211982356, %861 ], [ null, %867 ], [ %.211982356, %871 ], [ null, %2000 ], [ %.21198.lcssa, %2004 ]
   %.01177 = phi ptr [ %.211792362, %93 ], [ %.21179.lcssa, %1994 ], [ %.211792362, %.thread1894 ], [ %.211792362, %861 ], [ %.211792362, %871 ], [ %.211792362, %867 ], [ %.21179.lcssa, %2004 ], [ %.21179.lcssa, %2000 ]
   %.01140 = phi ptr [ %.211422382, %93 ], [ %.21142.lcssa, %1994 ], [ %1689, %.thread1894 ], [ %.211422382, %861 ], [ %.211422382, %871 ], [ %.211422382, %867 ], [ %.21142.lcssa, %2004 ], [ %.21142.lcssa, %2000 ]
-  call void @free(ptr noundef nonnull %.111132482) #17
+  call void @free(ptr noundef nonnull %.111132482) #18
   br label %.thread1915
 
 .thread2004:                                      ; preds = %35, %43, %49, %40
@@ -5300,7 +5300,7 @@ html_output_c.exit1827:                           ; preds = %html_output_flush.e
   br i1 %.not1450, label %2063, label %2062
 
 2062:                                             ; preds = %.thread1915
-  call void @free(ptr noundef nonnull %.011681928) #17
+  call void @free(ptr noundef nonnull %.011681928) #18
   br label %2063
 
 2063:                                             ; preds = %2062, %.thread1915
@@ -5314,12 +5314,12 @@ html_output_c.exit1827:                           ; preds = %html_output_flush.e
   store i64 %2067, ptr %15, align 8, !tbaa !32
   %2068 = getelementptr inbounds nuw i8, ptr %2065, i64 %2066
   store i8 0, ptr %2068, align 1, !tbaa !16
-  %2069 = call ptr @cli_max_malloc(i64 noundef %2067) #17
+  %2069 = call ptr @cli_max_malloc(i64 noundef %2067) #18
   %.not.i1828 = icmp eq ptr %2069, null
   br i1 %.not.i1828, label %2070, label %2071
 
 2070:                                             ; preds = %2064
-  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.52) #17
+  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.52) #18
   br label %html_tag_contents_done.exit1829
 
 2071:                                             ; preds = %2064
@@ -5338,9 +5338,9 @@ html_tag_contents_done.exit1829:                  ; preds = %2071, %2070, %2063
   br i1 %.not1452, label %2078, label %2077
 
 2077:                                             ; preds = %html_tag_contents_done.exit1829
-  call void @cli_js_parse_done(ptr noundef nonnull %.011771927) #17
-  call void @cli_js_output(ptr noundef nonnull %.011771927, ptr noundef %2) #17
-  call void @cli_js_destroy(ptr noundef nonnull %.011771927) #17
+  call void @cli_js_parse_done(ptr noundef nonnull %.011771927) #18
+  call void @cli_js_output(ptr noundef nonnull %.011771927, ptr noundef %2) #18
+  call void @cli_js_destroy(ptr noundef nonnull %.011771927) #18
   br label %2078
 
 2078:                                             ; preds = %2077, %html_tag_contents_done.exit1829
@@ -5357,7 +5357,7 @@ html_tag_contents_done.exit1829:                  ; preds = %2071, %2070, %2063
 2082:                                             ; preds = %2079
   %2083 = load i32, ptr %.11137, align 8, !tbaa !34
   %2084 = getelementptr inbounds nuw i8, ptr %.11137, i64 4
-  %2085 = call i64 @cli_writen(i32 noundef %2083, ptr noundef nonnull %2084, i64 noundef %2081) #17
+  %2085 = call i64 @cli_writen(i32 noundef %2083, ptr noundef nonnull %2084, i64 noundef %2081) #18
   store i64 0, ptr %2080, align 8, !tbaa !36
   br label %html_output_flush.exit1831
 
@@ -5367,11 +5367,11 @@ html_output_flush.exit1831:                       ; preds = %2079, %2082
   br i1 %.not1454, label %2089, label %2087
 
 2087:                                             ; preds = %html_output_flush.exit1831
-  %2088 = call i32 @close(i32 noundef %2086) #17
+  %2088 = call i32 @close(i32 noundef %2086) #18
   br label %2089
 
 2089:                                             ; preds = %2087, %html_output_flush.exit1831
-  call void @free(ptr noundef nonnull %.11137) #17
+  call void @free(ptr noundef nonnull %.11137) #18
   br label %2090
 
 2090:                                             ; preds = %2089, %2078
@@ -5387,7 +5387,7 @@ html_output_flush.exit1831:                       ; preds = %2079, %2082
 2094:                                             ; preds = %2091
   %2095 = load i32, ptr %.11139, align 8, !tbaa !34
   %2096 = getelementptr inbounds nuw i8, ptr %.11139, i64 4
-  %2097 = call i64 @cli_writen(i32 noundef %2095, ptr noundef nonnull %2096, i64 noundef %2093) #17
+  %2097 = call i64 @cli_writen(i32 noundef %2095, ptr noundef nonnull %2096, i64 noundef %2093) #18
   store i64 0, ptr %2092, align 8, !tbaa !36
   br label %html_output_flush.exit1833
 
@@ -5397,11 +5397,11 @@ html_output_flush.exit1833:                       ; preds = %2091, %2094
   br i1 %.not1456, label %2101, label %2099
 
 2099:                                             ; preds = %html_output_flush.exit1833
-  %2100 = call i32 @close(i32 noundef %2098) #17
+  %2100 = call i32 @close(i32 noundef %2098) #18
   br label %2101
 
 2101:                                             ; preds = %2099, %html_output_flush.exit1833
-  call void @free(ptr noundef nonnull %.11139) #17
+  call void @free(ptr noundef nonnull %.11139) #18
   br label %2102
 
 2102:                                             ; preds = %2101, %2090
@@ -5421,18 +5421,18 @@ html_output_flush.exit1833:                       ; preds = %2091, %2094
 
 2108:                                             ; preds = %2105
   %2109 = getelementptr inbounds nuw i8, ptr %.011401930, i64 4
-  %2110 = call i64 @cli_writen(i32 noundef %2104, ptr noundef nonnull %2109, i64 noundef %2107) #17
+  %2110 = call i64 @cli_writen(i32 noundef %2104, ptr noundef nonnull %2109, i64 noundef %2107) #18
   store i64 0, ptr %2106, align 8, !tbaa !36
   %.pre2614 = load i32, ptr %.011401930, align 8, !tbaa !34
   br label %html_output_flush.exit1835
 
 html_output_flush.exit1835:                       ; preds = %2105, %2108
   %2111 = phi i32 [ %2104, %2105 ], [ %.pre2614, %2108 ]
-  %2112 = call i32 @close(i32 noundef %2111) #17
+  %2112 = call i32 @close(i32 noundef %2111) #18
   br label %2113
 
 2113:                                             ; preds = %html_output_flush.exit1835, %2103
-  call void @free(ptr noundef nonnull %.011401930) #17
+  call void @free(ptr noundef nonnull %.011401930) #18
   br label %2114
 
 2114:                                             ; preds = %2113, %2102
@@ -5440,7 +5440,7 @@ html_output_flush.exit1835:                       ; preds = %2105, %2108
   br i1 %.not1459, label %2116, label %2115
 
 2115:                                             ; preds = %2114
-  call void @free(ptr noundef nonnull %.011961926) #17
+  call void @free(ptr noundef nonnull %.011961926) #18
   br label %2116
 
 2116:                                             ; preds = %.thread2004, %2114, %2115
@@ -5510,8 +5510,8 @@ define noundef zeroext i1 @html_screnc_decode(ptr noundef %0, ptr noundef %1) lo
   store i64 0, ptr %10, align 8, !tbaa !51
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %0, ptr %11, align 8, !tbaa !52
-  %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1024, ptr noundef nonnull @.str, ptr noundef %1) #17
-  %13 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %4, i32 noundef 577, i32 noundef 384) #17
+  %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1024, ptr noundef nonnull @.str, ptr noundef %1) #18
+  %13 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %4, i32 noundef 577, i32 noundef 384) #18
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %16, label %.preheader
 
@@ -5521,17 +5521,17 @@ define noundef zeroext i1 @html_screnc_decode(ptr noundef %0, ptr noundef %1) lo
   br i1 %.not70, label %.critedge.thread, label %.lr.ph
 
 16:                                               ; preds = %2
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1, ptr noundef nonnull %4) #17
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1, ptr noundef nonnull %4) #18
   br label %109
 
 .lr.ph:                                           ; preds = %.preheader, %19
   %17 = phi ptr [ %20, %19 ], [ %15, %.preheader ]
-  %18 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) @.str.2) #18
+  %18 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) @.str.2) #19
   %.not52 = icmp eq ptr %18, null
   br i1 %.not52, label %19, label %21
 
 19:                                               ; preds = %.lr.ph
-  tail call void @free(ptr noundef nonnull %17) #17
+  tail call void @free(ptr noundef nonnull %17) #18
   %20 = call fastcc ptr @cli_readchunk(ptr noundef %6)
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %.critedge.thread, label %.lr.ph
@@ -5549,7 +5549,7 @@ define noundef zeroext i1 @html_screnc_decode(ptr noundef %0, ptr noundef %1) lo
   br i1 %.not53, label %25, label %27
 
 25:                                               ; preds = %23
-  tail call void @free(ptr noundef %.132) #17
+  tail call void @free(ptr noundef %.132) #18
   %26 = call fastcc ptr @cli_readchunk(ptr noundef %6)
   %.not54 = icmp eq ptr %26, null
   br i1 %.not54, label %.critedge.thread, label %27
@@ -5642,7 +5642,7 @@ define noundef zeroext i1 @html_screnc_decode(ptr noundef %0, ptr noundef %1) lo
   %95 = select i1 %92, i32 0, i32 %94
   %96 = add i32 %95, %85
   store i32 %96, ptr %5, align 4, !tbaa !45
-  %97 = tail call i64 @cli_writen(i32 noundef %13, ptr noundef nonnull @.str.3, i64 noundef 8) #17
+  %97 = tail call i64 @cli_writen(i32 noundef %13, ptr noundef nonnull @.str.3, i64 noundef 8) #18
   %.not87 = icmp eq i32 %96, 0
   br i1 %.not87, label %._crit_edge.thread, label %.lr.ph73
 
@@ -5650,9 +5650,9 @@ define noundef zeroext i1 @html_screnc_decode(ptr noundef %0, ptr noundef %1) lo
   %.472 = phi ptr [ %102, %101 ], [ %33, %34 ]
   %.33471 = phi ptr [ %102, %101 ], [ %.233, %34 ]
   call fastcc void @screnc_decode(ptr noundef nonnull %.472, ptr noundef %5)
-  %98 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.472) #18
-  %99 = tail call i64 @cli_writen(i32 noundef %13, ptr noundef nonnull %.472, i64 noundef %98) #17
-  tail call void @free(ptr noundef nonnull %.33471) #17
+  %98 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.472) #19
+  %99 = tail call i64 @cli_writen(i32 noundef %13, ptr noundef nonnull %.472, i64 noundef %98) #18
+  tail call void @free(ptr noundef nonnull %.33471) #18
   %100 = load i32, ptr %5, align 4, !tbaa !45
   %.not61 = icmp eq i32 %100, 0
   br i1 %.not61, label %._crit_edge.thread, label %101
@@ -5664,26 +5664,26 @@ define noundef zeroext i1 @html_screnc_decode(ptr noundef %0, ptr noundef %1) lo
 
 ._crit_edge.thread:                               ; preds = %.lr.ph73, %34
   %.334.lcssa.ph = phi ptr [ %.233, %34 ], [ null, %.lr.ph73 ]
-  %103 = tail call i64 @cli_writen(i32 noundef %13, ptr noundef nonnull @.str.4, i64 noundef 9) #17
+  %103 = tail call i64 @cli_writen(i32 noundef %13, ptr noundef nonnull @.str.4, i64 noundef 9) #18
   br label %.critedge
 
 104:                                              ; preds = %101
-  %105 = tail call i64 @cli_writen(i32 noundef %13, ptr noundef nonnull @.str.4, i64 noundef 9) #17
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5, i32 noundef %100) #17
+  %105 = tail call i64 @cli_writen(i32 noundef %13, ptr noundef nonnull @.str.4, i64 noundef 9) #18
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5, i32 noundef %100) #18
   br label %.critedge
 
 .critedge.thread:                                 ; preds = %19, %25, %.preheader
-  %106 = tail call i32 @close(i32 noundef %13) #17
+  %106 = tail call i32 @close(i32 noundef %13) #18
   br label %109
 
 .critedge:                                        ; preds = %._crit_edge.thread, %104
   %.334.lcssa94 = phi ptr [ %.334.lcssa.ph, %._crit_edge.thread ], [ %102, %104 ]
-  %107 = tail call i32 @close(i32 noundef %13) #17
+  %107 = tail call i32 @close(i32 noundef %13) #18
   %.not60 = icmp eq ptr %.334.lcssa94, null
   br i1 %.not60, label %109, label %108
 
 108:                                              ; preds = %.critedge
-  tail call void @free(ptr noundef nonnull %.334.lcssa94) #17
+  tail call void @free(ptr noundef nonnull %.334.lcssa94) #18
   br label %109
 
 109:                                              ; preds = %.critedge.thread, %.critedge, %108, %16
@@ -5696,21 +5696,21 @@ define noundef zeroext i1 @html_screnc_decode(ptr noundef %0, ptr noundef %1) lo
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #6
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #7
 
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @cli_readchunk(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
-  %2 = tail call ptr @cli_max_malloc(i64 noundef 8192) #17
+  %2 = tail call ptr @cli_max_malloc(i64 noundef 8192) #18
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %4
 
 3:                                                ; preds = %1
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.54) #17
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.54) #18
   br label %110
 
 4:                                                ; preds = %1
@@ -5725,7 +5725,7 @@ define internal fastcc ptr @cli_readchunk(ptr noundef nonnull captures(none) %0)
   br i1 %.not150, label %12, label %13
 
 12:                                               ; preds = %4
-  tail call void @free(ptr noundef nonnull %2) #17
+  tail call void @free(ptr noundef nonnull %2) #18
   br label %110
 
 13:                                               ; preds = %4
@@ -5738,7 +5738,7 @@ define internal fastcc ptr @cli_readchunk(ptr noundef nonnull captures(none) %0)
   %17 = and i64 %10, 4294967295
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 104
   %19 = load ptr, ptr %18, align 8, !tbaa !53
-  %20 = tail call ptr %19(ptr noundef nonnull %15, i64 noundef %8, i64 noundef range(i64 1, 4294967296) %17, i32 noundef 0) #17
+  %20 = tail call ptr %19(ptr noundef nonnull %15, i64 noundef %8, i64 noundef range(i64 1, 4294967296) %17, i32 noundef 0) #18
   %.pre = load i64, ptr %7, align 8, !tbaa !51
   %.pre8 = load i64, ptr %5, align 8, !tbaa !28
   %.pre9 = sub i64 %.pre8, %.pre
@@ -5759,12 +5759,12 @@ define internal fastcc ptr @cli_readchunk(ptr noundef nonnull captures(none) %0)
   br i1 %or.cond, label %29, label %28
 
 28:                                               ; preds = %24
-  tail call void @free(ptr noundef nonnull %2) #17
+  tail call void @free(ptr noundef nonnull %2) #18
   br label %110
 
 29:                                               ; preds = %24
   %30 = and i64 %10, 4294967295
-  %31 = tail call ptr @memchr(ptr noundef nonnull %.0125, i32 noundef 0, i64 noundef %30) #18
+  %31 = tail call ptr @memchr(ptr noundef nonnull %.0125, i32 noundef 0, i64 noundef %30) #19
   %.not152 = icmp eq ptr %31, null
   br i1 %.not152, label %32, label %37
 
@@ -5811,12 +5811,12 @@ define internal fastcc ptr @cli_readchunk(ptr noundef nonnull captures(none) %0)
   %55 = ptrtoint ptr %.val.i to i64
   %56 = add i64 %.val4.i, %55
   %57 = sub i64 %49, %56
-  %58 = tail call ptr %52(ptr noundef nonnull %46, i64 noundef %57, i64 noundef %50, i32 noundef 0) #17
+  %58 = tail call ptr %52(ptr noundef nonnull %46, i64 noundef %57, i64 noundef %50, i32 noundef 0) #18
   %.not154 = icmp eq ptr %58, null
   br i1 %.not154, label %.thread.thread, label %.thread
 
 .thread.thread:                                   ; preds = %47
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.55) #17
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.55) #18
   br label %._crit_edge
 
 .thread:                                          ; preds = %45, %47
@@ -5868,7 +5868,7 @@ define internal fastcc ptr @cli_readchunk(ptr noundef nonnull captures(none) %0)
   br i1 %79, label %80, label %110
 
 80:                                               ; preds = %78
-  %81 = tail call ptr @__ctype_b_loc() #20
+  %81 = tail call ptr @__ctype_b_loc() #21
   %82 = load ptr, ptr %81, align 8, !tbaa !37
   %83 = load i8, ptr %.1126, align 1, !tbaa !16
   %84 = zext i8 %83 to i64
@@ -6060,7 +6060,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %.lr.ph
 .critedge.thread:                                 ; preds = %45, %thread-pre-split.preheader, %.critedge
   %.1120 = phi ptr [ %.1, %.critedge ], [ %0, %thread-pre-split.preheader ], [ %46, %45 ]
   %.165119 = phi ptr [ %.165, %.critedge ], [ %0, %thread-pre-split.preheader ], [ %.266, %45 ]
-  %51 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1120) #18
+  %51 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1120) #19
   %52 = icmp ugt i64 %51, 11
   br i1 %52, label %53, label %117
 
@@ -6125,21 +6125,21 @@ thread-pre-split:                                 ; preds = %.lr.ph, %.lr.ph
   br i1 %.not81, label %110, label %109
 
 109:                                              ; preds = %53
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.57, i32 noundef %107, i64 noundef %105) #17
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.57, i32 noundef %107, i64 noundef %105) #18
   br label %115
 
 110:                                              ; preds = %53
   %111 = getelementptr inbounds nuw i8, ptr %.1120, i64 8
-  %112 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %111, ptr noundef nonnull dereferenceable(5) @.str.58, i64 noundef 4) #18
+  %112 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %111, ptr noundef nonnull dereferenceable(5) @.str.58, i64 noundef 4) #19
   %.not82 = icmp eq i32 %112, 0
   br i1 %.not82, label %114, label %113
 
 113:                                              ; preds = %110
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.59) #17
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.59) #18
   br label %115
 
 114:                                              ; preds = %110
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.60) #17
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.60) #18
   br label %115
 
 115:                                              ; preds = %113, %114, %109
@@ -6148,7 +6148,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %.lr.ph
 
 117:                                              ; preds = %115, %.critedge.thread
   %.4 = phi ptr [ %116, %115 ], [ %.1120, %.critedge.thread ]
-  %118 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.4) #18
+  %118 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.4) #19
   %119 = add i64 %118, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.165119, ptr nonnull align 1 %.4, i64 %119, i1 false)
   br label %121
@@ -6164,15 +6164,15 @@ thread-pre-split:                                 ; preds = %.lr.ph, %.lr.ph
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #8
+declare ptr @__ctype_b_loc() local_unnamed_addr #9
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @html_output_c(ptr noundef %0, i8 noundef zeroext %1) unnamed_addr #9 {
+define internal fastcc void @html_output_c(ptr noundef %0, i8 noundef zeroext %1) unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %3
 
@@ -6185,7 +6185,7 @@ define internal fastcc void @html_output_c(ptr noundef %0, i8 noundef zeroext %1
 html_output_flush.exit:                           ; preds = %3
   %7 = load i32, ptr %0, align 8, !tbaa !34
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %9 = tail call i64 @cli_writen(i32 noundef %7, ptr noundef nonnull %8, i64 noundef 8192) #17
+  %9 = tail call i64 @cli_writen(i32 noundef %7, ptr noundef nonnull %8, i64 noundef 8192) #18
   br label %10
 
 10:                                               ; preds = %html_output_flush.exit, %3
@@ -6202,7 +6202,7 @@ html_output_flush.exit:                           ; preds = %3
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @html_tag_contents_append(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(address) %1, ptr noundef readnone captures(address) %2) unnamed_addr #10 {
+define internal fastcc void @html_tag_contents_append(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(address) %1, ptr noundef readnone captures(address) %2) unnamed_addr #11 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %53, label %4
 
@@ -6336,7 +6336,7 @@ define internal fastcc void @html_tag_contents_append(ptr noundef nonnull captur
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_tolower_loc() local_unnamed_addr #8
+declare ptr @__ctype_tolower_loc() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
@@ -6347,22 +6347,22 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare ptr @cli_max_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @html_tag_contents_done(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #9 {
+define internal fastcc void @html_tag_contents_done(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #10 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %2, align 8, !tbaa !32
   %6 = add i64 %5, 1
   store i64 %6, ptr %2, align 8, !tbaa !32
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 %5
   store i8 0, ptr %7, align 1, !tbaa !16
-  %8 = tail call ptr @cli_max_malloc(i64 noundef %6) #17
+  %8 = tail call ptr @cli_max_malloc(i64 noundef %6) #18
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %10
 
 9:                                                ; preds = %3
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.52) #17
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.52) #18
   br label %17
 
 10:                                               ; preds = %3
@@ -6381,8 +6381,8 @@ define internal fastcc void @html_tag_contents_done(ptr noundef readonly capture
   ret void
 }
 
-; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @html_tag_arg_value(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #12 {
+; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc ptr @html_tag_arg_value(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #13 {
   %3 = load i32, ptr %0, align 8, !tbaa !3
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %.loopexit
@@ -6402,7 +6402,7 @@ define internal fastcc ptr @html_tag_arg_value(ptr noundef nonnull readonly capt
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !14
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %1) #18
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %1) #19
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %7
 
@@ -6419,7 +6419,7 @@ define internal fastcc ptr @html_tag_arg_value(ptr noundef nonnull readonly capt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @html_output_tag(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
@@ -6435,7 +6435,7 @@ define internal fastcc void @html_output_tag(ptr noundef %0, ptr noundef nonnull
 html_output_flush.exit.i:                         ; preds = %4
   %8 = load i32, ptr %0, align 8, !tbaa !34
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %10 = tail call i64 @cli_writen(i32 noundef %8, ptr noundef nonnull %9, i64 noundef 8192) #17
+  %10 = tail call i64 @cli_writen(i32 noundef %8, ptr noundef nonnull %9, i64 noundef 8192) #18
   br label %11
 
 11:                                               ; preds = %html_output_flush.exit.i, %4
@@ -6445,7 +6445,7 @@ html_output_flush.exit.i:                         ; preds = %4
   store i64 %14, ptr %5, align 8, !tbaa !36
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 %12
   store i8 60, ptr %15, align 1, !tbaa !16
-  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
+  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %17 = load i64, ptr %5, align 8, !tbaa !36
   %18 = add i64 %17, %16
   %19 = icmp ult i64 %18, 8192
@@ -6459,7 +6459,7 @@ html_output_flush.exit.i30:                       ; preds = %11
 
 html_output_flush.exit.thread.i:                  ; preds = %11
   %21 = load i32, ptr %0, align 8, !tbaa !34
-  %22 = tail call i64 @cli_writen(i32 noundef %21, ptr noundef nonnull %13, i64 noundef %17) #17
+  %22 = tail call i64 @cli_writen(i32 noundef %21, ptr noundef nonnull %13, i64 noundef %17) #18
   store i64 0, ptr %5, align 8, !tbaa !36
   %23 = icmp ugt i64 %16, 8191
   br i1 %23, label %html_output_flush.exit16.i, label %30
@@ -6469,13 +6469,13 @@ html_output_flush.exit.thread.i:                  ; preds = %11
 
 25:                                               ; preds = %24
   %26 = load i32, ptr %0, align 8, !tbaa !34
-  %27 = tail call i64 @cli_writen(i32 noundef %26, ptr noundef nonnull %13, i64 noundef %17) #17
+  %27 = tail call i64 @cli_writen(i32 noundef %26, ptr noundef nonnull %13, i64 noundef %17) #18
   store i64 0, ptr %5, align 8, !tbaa !36
   br label %html_output_flush.exit16.i
 
 html_output_flush.exit16.i:                       ; preds = %25, %24, %html_output_flush.exit.thread.i
   %28 = load i32, ptr %0, align 8, !tbaa !34
-  %29 = tail call i64 @cli_writen(i32 noundef %28, ptr noundef nonnull %1, i64 noundef %16) #17
+  %29 = tail call i64 @cli_writen(i32 noundef %28, ptr noundef nonnull %1, i64 noundef %16) #18
   br label %html_output_str.exit
 
 30:                                               ; preds = %html_output_flush.exit.thread.i, %html_output_flush.exit.i30
@@ -6510,7 +6510,7 @@ html_output_str.exit:                             ; preds = %3, %html_output_flu
 
 html_output_flush.exit.i32:                       ; preds = %42
   %45 = load i32, ptr %0, align 8, !tbaa !34
-  %46 = tail call i64 @cli_writen(i32 noundef %45, ptr noundef nonnull %38, i64 noundef 8192) #17
+  %46 = tail call i64 @cli_writen(i32 noundef %45, ptr noundef nonnull %38, i64 noundef 8192) #18
   br label %47
 
 47:                                               ; preds = %html_output_flush.exit.i32, %42
@@ -6522,7 +6522,7 @@ html_output_flush.exit.i32:                       ; preds = %42
   %51 = load ptr, ptr %39, align 8, !tbaa !10
   %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv64
   %53 = load ptr, ptr %52, align 8, !tbaa !14
-  %54 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %53) #18
+  %54 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %53) #19
   %55 = load i64, ptr %37, align 8, !tbaa !36
   %56 = add i64 %55, %54
   %57 = icmp ult i64 %56, 8192
@@ -6536,7 +6536,7 @@ html_output_flush.exit.i39:                       ; preds = %47
 
 html_output_flush.exit.thread.i37:                ; preds = %47
   %59 = load i32, ptr %0, align 8, !tbaa !34
-  %60 = tail call i64 @cli_writen(i32 noundef %59, ptr noundef nonnull %38, i64 noundef %55) #17
+  %60 = tail call i64 @cli_writen(i32 noundef %59, ptr noundef nonnull %38, i64 noundef %55) #18
   store i64 0, ptr %37, align 8, !tbaa !36
   %61 = icmp ugt i64 %54, 8191
   br i1 %61, label %html_output_flush.exit16.i38, label %68
@@ -6546,13 +6546,13 @@ html_output_flush.exit.thread.i37:                ; preds = %47
 
 63:                                               ; preds = %62
   %64 = load i32, ptr %0, align 8, !tbaa !34
-  %65 = tail call i64 @cli_writen(i32 noundef %64, ptr noundef nonnull %38, i64 noundef %55) #17
+  %65 = tail call i64 @cli_writen(i32 noundef %64, ptr noundef nonnull %38, i64 noundef %55) #18
   store i64 0, ptr %37, align 8, !tbaa !36
   br label %html_output_flush.exit16.i38
 
 html_output_flush.exit16.i38:                     ; preds = %63, %62, %html_output_flush.exit.thread.i37
   %66 = load i32, ptr %0, align 8, !tbaa !34
-  %67 = tail call i64 @cli_writen(i32 noundef %66, ptr noundef nonnull %53, i64 noundef %54) #17
+  %67 = tail call i64 @cli_writen(i32 noundef %66, ptr noundef nonnull %53, i64 noundef %54) #18
   br label %html_output_str.exit41
 
 68:                                               ; preds = %html_output_flush.exit.thread.i37, %html_output_flush.exit.i39
@@ -6579,7 +6579,7 @@ html_output_str.exit41:                           ; preds = %html_output_flush.e
 
 html_output_flush.exit.thread.i45:                ; preds = %76
   %80 = load i32, ptr %0, align 8, !tbaa !34
-  %81 = tail call i64 @cli_writen(i32 noundef %80, ptr noundef nonnull %38, i64 noundef %77) #17
+  %81 = tail call i64 @cli_writen(i32 noundef %80, ptr noundef nonnull %38, i64 noundef %77) #18
   store i64 0, ptr %37, align 8, !tbaa !36
   br label %html_output_str.exit47.thread
 
@@ -6593,13 +6593,13 @@ html_output_str.exit47.thread:                    ; preds = %html_output_flush.e
   %.pre = load ptr, ptr %40, align 8, !tbaa !11
   %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv64
   %.pre67 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !14
-  %86 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre67) #18
+  %86 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre67) #19
   %87 = trunc i64 %86 to i32
   %88 = icmp sgt i32 %87, 0
   br i1 %88, label %.lr.ph.split.preheader, label %._crit_edge.thread80
 
 .lr.ph.split.preheader:                           ; preds = %html_output_str.exit47.thread
-  %89 = tail call ptr @__ctype_tolower_loc() #20
+  %89 = tail call ptr @__ctype_tolower_loc() #21
   %wide.trip.count = and i64 %86, 2147483647
   br label %.lr.ph.split
 
@@ -6621,7 +6621,7 @@ html_output_str.exit47.thread:                    ; preds = %html_output_flush.e
 
 html_output_flush.exit.i49:                       ; preds = %.lr.ph.split
   %102 = load i32, ptr %0, align 8, !tbaa !34
-  %103 = tail call i64 @cli_writen(i32 noundef %102, ptr noundef nonnull %38, i64 noundef 8192) #17
+  %103 = tail call i64 @cli_writen(i32 noundef %102, ptr noundef nonnull %38, i64 noundef 8192) #18
   br label %html_output_c.exit50
 
 html_output_c.exit50:                             ; preds = %html_output_flush.exit.i49, %.lr.ph.split
@@ -6641,7 +6641,7 @@ html_output_c.exit50:                             ; preds = %html_output_flush.e
 
 html_output_flush.exit.i52:                       ; preds = %._crit_edge.thread80
   %109 = load i32, ptr %0, align 8, !tbaa !34
-  %110 = tail call i64 @cli_writen(i32 noundef %109, ptr noundef nonnull %38, i64 noundef 8192) #17
+  %110 = tail call i64 @cli_writen(i32 noundef %109, ptr noundef nonnull %38, i64 noundef 8192) #18
   br label %111
 
 111:                                              ; preds = %html_output_flush.exit.i52, %._crit_edge.thread80
@@ -6671,7 +6671,7 @@ html_output_c.exit53:                             ; preds = %41, %111, %html_out
 html_output_flush.exit.i55:                       ; preds = %118
   %122 = load i32, ptr %0, align 8, !tbaa !34
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %124 = tail call i64 @cli_writen(i32 noundef %122, ptr noundef nonnull %123, i64 noundef 8192) #17
+  %124 = tail call i64 @cli_writen(i32 noundef %122, ptr noundef nonnull %123, i64 noundef 8192) #18
   br label %125
 
 125:                                              ; preds = %html_output_flush.exit.i55, %118
@@ -6710,7 +6710,7 @@ html_output_flush.exit:                           ; preds = %4
 html_output_flush.exit.thread:                    ; preds = %4
   %10 = load i32, ptr %0, align 8, !tbaa !34
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %12 = tail call i64 @cli_writen(i32 noundef %10, ptr noundef nonnull %11, i64 noundef %6) #17
+  %12 = tail call i64 @cli_writen(i32 noundef %10, ptr noundef nonnull %11, i64 noundef %6) #18
   store i64 0, ptr %5, align 8, !tbaa !36
   %13 = icmp ugt i64 %2, 8191
   br i1 %13, label %html_output_flush.exit16, label %21
@@ -6722,13 +6722,13 @@ html_output_flush.exit.thread:                    ; preds = %4
 15:                                               ; preds = %14
   %16 = load i32, ptr %0, align 8, !tbaa !34
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %18 = tail call i64 @cli_writen(i32 noundef %16, ptr noundef nonnull %17, i64 noundef %6) #17
+  %18 = tail call i64 @cli_writen(i32 noundef %16, ptr noundef nonnull %17, i64 noundef %6) #18
   store i64 0, ptr %5, align 8, !tbaa !36
   br label %html_output_flush.exit16
 
 html_output_flush.exit16:                         ; preds = %html_output_flush.exit.thread, %14, %15
   %19 = load i32, ptr %0, align 8, !tbaa !34
-  %20 = tail call i64 @cli_writen(i32 noundef %19, ptr noundef %1, i64 noundef %2) #17
+  %20 = tail call i64 @cli_writen(i32 noundef %19, ptr noundef %1, i64 noundef %2) #18
   br label %27
 
 21:                                               ; preds = %html_output_flush.exit.thread, %html_output_flush.exit
@@ -6750,13 +6750,13 @@ declare ptr @entity_norm(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @u16_normalize_tobuffer(i16 noundef zeroext, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @lstat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i32 @lstat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #5
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #8
+declare ptr @__errno_location() local_unnamed_addr #9
 
 declare ptr @cli_gentemp(ptr noundef) local_unnamed_addr #1
 
@@ -6778,44 +6778,45 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #16
+declare i64 @llvm.smin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #16
+declare i64 @llvm.smax.i64(i64, i64) #17
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #16 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nounwind }
-attributes #18 = { nounwind willreturn memory(read) }
-attributes #19 = { nounwind allocsize(0) }
-attributes #20 = { nounwind willreturn memory(none) }
+attributes #4 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nofree norecurse nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #17 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nounwind }
+attributes #19 = { nounwind willreturn memory(read) }
+attributes #20 = { nounwind allocsize(0) }
+attributes #21 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -132,7 +132,7 @@ lean_dec.exit:                                    ; preds = %8, %18, %20, %21, %
   ret ptr %.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Lean_instInhabitedPersistentArrayNode(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @l_Lean_instInhabitedPersistentArrayNode___closed__2, align 8, !tbaa !9
   ret ptr %2
@@ -226,13 +226,13 @@ lean_dec.exit:                                    ; preds = %14, %13, %11, %l_Le
   ret ptr %15
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Lean_instInhabitedPersistentArray(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @l_Lean_instInhabitedPersistentArray___closed__2, align 8, !tbaa !9
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Lean_PersistentArray_empty(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @l_Lean_PersistentArray_empty___closed__3, align 8, !tbaa !9
   ret ptr %2
@@ -332,7 +332,7 @@ lean_dec.exit:                                    ; preds = %17, %16, %14, %l_Le
   ret ptr %18
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Lean_PersistentArray_mkEmptyArray(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @l_Lean_PersistentArray_empty___closed__1, align 8, !tbaa !9
   ret ptr %2
@@ -6713,7 +6713,7 @@ lean_alloc_closure.exit:                          ; preds = %1
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l___private_Lean_Data_PersistentArray_0__Lean_PersistentArray_emptyArray(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @l_Lean_PersistentArray_empty___closed__1, align 8, !tbaa !9
   ret ptr %2
@@ -41299,7 +41299,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %2
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Lean_PersistentArray_instAppend(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @l_Lean_PersistentArray_instAppend___closed__1, align 8, !tbaa !9
   ret ptr %2
@@ -61658,7 +61658,7 @@ lean_alloc_closure.exit:                          ; preds = %0
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

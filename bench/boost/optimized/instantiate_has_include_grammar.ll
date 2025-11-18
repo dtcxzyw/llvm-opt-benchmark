@@ -1484,7 +1484,7 @@ _ZN5boost6system6detail30generic_error_category_messageEiPcm.exit: ; preds = %6,
   ret ptr %.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @__cxx_global_var_init.32() #10 section ".text.startup" comdat($_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) {
   %1 = load i8, ptr @_ZGVN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, align 8
   %2 = icmp eq i8 %1, 0
@@ -1498,7 +1498,7 @@ define internal void @__cxx_global_var_init.32() #10 section ".text.startup" com
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @__cxx_global_var_init.33() #10 section ".text.startup" comdat($_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE13create_objectE) {
   %1 = load i8, ptr @_ZGVN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE13create_objectE, align 8
   %2 = icmp eq i8 %1, 0
@@ -1523,7 +1523,7 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @__cxx_global_var_init.34() #10 section ".text.startup" comdat($_ZN5boost14singleton_poolINS_23fast_pool_allocator_tagELj24ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) {
   %1 = load i8, ptr @_ZGVN5boost14singleton_poolINS_23fast_pool_allocator_tagELj24ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, align 8
   %2 = icmp eq i8 %1, 0
@@ -1537,7 +1537,7 @@ define internal void @__cxx_global_var_init.34() #10 section ".text.startup" com
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @__cxx_global_var_init.35() #10 section ".text.startup" comdat($_ZN5boost14singleton_poolINS_23fast_pool_allocator_tagELj24ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE13create_objectE) {
   %1 = load i8, ptr @_ZGVN5boost14singleton_poolINS_23fast_pool_allocator_tagELj24ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE13create_objectE, align 8
   %2 = icmp eq i8 %1, 0
@@ -1562,7 +1562,7 @@ _ZN5boost14singleton_poolINS_23fast_pool_allocator_tagELj24ENS_33default_user_al
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @__cxx_global_var_init.36() #10 section ".text.startup" comdat($_ZN5boost14singleton_poolINS_23fast_pool_allocator_tagELj8ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) {
   %1 = load i8, ptr @_ZGVN5boost14singleton_poolINS_23fast_pool_allocator_tagELj8ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, align 8
   %2 = icmp eq i8 %1, 0
@@ -1576,7 +1576,7 @@ define internal void @__cxx_global_var_init.36() #10 section ".text.startup" com
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @__cxx_global_var_init.37() #10 section ".text.startup" comdat($_ZN5boost14singleton_poolINS_23fast_pool_allocator_tagELj8ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE13create_objectE) {
   %1 = load i8, ptr @_ZGVN5boost14singleton_poolINS_23fast_pool_allocator_tagELj8ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE13create_objectE, align 8
   %2 = icmp eq i8 %1, 0
@@ -1601,7 +1601,7 @@ _ZN5boost14singleton_poolINS_23fast_pool_allocator_tagELj8ENS_33default_user_all
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @__cxx_global_var_init.38() #10 section ".text.startup" comdat($_ZN5boost6spirit7classic7static_INS_19thread_specific_ptrINS_8weak_ptrINS1_4impl14grammar_helperINS1_7grammarINS_4wave8grammars19has_include_grammarINSt7__cxx114listINS8_8cpplexer9lex_tokenINS8_4util13file_positionINSF_11flex_stringIcSt11char_traitsIcESaIcENSF_9CowStringINSF_22AllocatorStringStorageIcSK_EEPcEEEEEEEENS_19fast_pool_allocatorISS_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_14parser_contextINS1_5nil_tEEEEESY_NS1_7scannerINSF_20unput_queue_iteratorISt14_List_iteratorISS_ESS_SX_EENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS8_8token_idEEES1D_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEEEEEENS5_30get_definition_static_data_tagEE5data_E) {
   %1 = load i8, ptr @_ZGVN5boost6spirit7classic7static_INS_19thread_specific_ptrINS_8weak_ptrINS1_4impl14grammar_helperINS1_7grammarINS_4wave8grammars19has_include_grammarINSt7__cxx114listINS8_8cpplexer9lex_tokenINS8_4util13file_positionINSF_11flex_stringIcSt11char_traitsIcESaIcENSF_9CowStringINSF_22AllocatorStringStorageIcSK_EEPcEEEEEEEENS_19fast_pool_allocatorISS_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_14parser_contextINS1_5nil_tEEEEESY_NS1_7scannerINSF_20unput_queue_iteratorISt14_List_iteratorISS_ESS_SX_EENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS8_8token_idEEES1D_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEEEEEENS5_30get_definition_static_data_tagEE5data_E, align 8
   %2 = icmp eq i8 %1, 0
@@ -1615,7 +1615,7 @@ define internal void @__cxx_global_var_init.38() #10 section ".text.startup" com
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @__cxx_global_var_init.39() #10 section ".text.startup" comdat($_ZN5boost6spirit7classic7static_INS_19thread_specific_ptrINS_8weak_ptrINS1_4impl14grammar_helperINS1_7grammarINS_4wave8grammars19has_include_grammarINSt7__cxx114listINS8_8cpplexer9lex_tokenINS8_4util13file_positionINSF_11flex_stringIcSt11char_traitsIcESaIcENSF_9CowStringINSF_22AllocatorStringStorageIcSK_EEPcEEEEEEEENS_19fast_pool_allocatorISS_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_14parser_contextINS1_5nil_tEEEEESY_NS1_7scannerINSF_20unput_queue_iteratorINSD_12lex_iteratorISS_EESS_SX_EENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS8_8token_idEEES1D_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEEEEEENS5_30get_definition_static_data_tagEE5data_E) {
   %1 = load i8, ptr @_ZGVN5boost6spirit7classic7static_INS_19thread_specific_ptrINS_8weak_ptrINS1_4impl14grammar_helperINS1_7grammarINS_4wave8grammars19has_include_grammarINSt7__cxx114listINS8_8cpplexer9lex_tokenINS8_4util13file_positionINSF_11flex_stringIcSt11char_traitsIcESaIcENSF_9CowStringINSF_22AllocatorStringStorageIcSK_EEPcEEEEEEEENS_19fast_pool_allocatorISS_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_14parser_contextINS1_5nil_tEEEEESY_NS1_7scannerINSF_20unput_queue_iteratorINSD_12lex_iteratorISS_EESS_SX_EENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS8_8token_idEEES1D_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEEEEEENS5_30get_definition_static_data_tagEE5data_E, align 8
   %2 = icmp eq i8 %1, 0
@@ -20074,7 +20074,7 @@ attributes #6 = { cold nofree noreturn }
 attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

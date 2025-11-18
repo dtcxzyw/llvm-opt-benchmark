@@ -48,7 +48,7 @@ define range(i32 0, 2) i32 @Cudd_zddPrintMinterm(ptr noundef captures(none) %0, 
   %4 = load i32, ptr %3, align 4, !tbaa !3
   %5 = sext i32 %4 to i64
   %6 = shl nsw i64 %5, 2
-  %7 = tail call noalias ptr @malloc(i64 noundef %6) #11
+  %7 = tail call noalias ptr @malloc(i64 noundef %6) #12
   %8 = icmp eq ptr %7, null
   br i1 %8, label %10, label %.preheader
 
@@ -75,7 +75,7 @@ define range(i32 0, 2) i32 @Cudd_zddPrintMinterm(ptr noundef captures(none) %0, 
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   tail call fastcc void @zdd_print_minterm_aux(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0, ptr noundef %7)
-  tail call void @free(ptr noundef nonnull %7) #12
+  tail call void @free(ptr noundef nonnull %7) #13
   br label %13
 
 13:                                               ; preds = %._crit_edge, %10
@@ -230,7 +230,7 @@ define range(i32 0, 2) i32 @Cudd_zddPrintCover(ptr noundef captures(none) %0, pt
 6:                                                ; preds = %2
   %7 = sext i32 %4 to i64
   %8 = shl nsw i64 %7, 2
-  %9 = tail call noalias ptr @malloc(i64 noundef %8) #11
+  %9 = tail call noalias ptr @malloc(i64 noundef %8) #12
   %10 = icmp eq ptr %9, null
   br i1 %10, label %12, label %.preheader
 
@@ -257,7 +257,7 @@ define range(i32 0, 2) i32 @Cudd_zddPrintCover(ptr noundef captures(none) %0, pt
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   tail call fastcc void @zddPrintCoverAux(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0, ptr noundef %9)
-  tail call void @free(ptr noundef nonnull %9) #12
+  tail call void @free(ptr noundef nonnull %9) #13
   br label %15
 
 15:                                               ; preds = %2, %._crit_edge, %12
@@ -418,25 +418,25 @@ define range(i32 0, 2) i32 @Cudd_zddPrintDebug(ptr noundef %0, ptr noundef %1, i
   br i1 %8, label %14, label %47
 
 14:                                               ; preds = %13
-  %15 = tail call i32 @Cudd_zddDagSize(ptr noundef %1) #12
+  %15 = tail call i32 @Cudd_zddDagSize(ptr noundef %1) #13
   %16 = icmp ne i32 %15, -1
-  %17 = tail call double @Cudd_zddCountMinterm(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) #12
+  %17 = tail call double @Cudd_zddCountMinterm(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) #13
   %18 = fcmp une double %17, -1.000000e+00
   %narrow = select i1 %18, i1 %16, i1 false
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %20 = load ptr, ptr %19, align 8, !tbaa !31
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.1, i32 noundef %15, double noundef %17) #12
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.1, i32 noundef %15, double noundef %17) #13
   %22 = icmp samesign ugt i32 %3, 2
   br i1 %22, label %23, label %29
 
 23:                                               ; preds = %14
-  %24 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #12
+  %24 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #13
   %25 = icmp eq ptr %24, null
   br i1 %25, label %cuddZddP.exit.thread, label %cuddZddP.exit
 
 cuddZddP.exit:                                    ; preds = %23
   %26 = tail call fastcc i32 @zp2(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %24)
-  tail call void @st__free_table(ptr noundef nonnull %24) #12
+  tail call void @st__free_table(ptr noundef nonnull %24) #13
   %27 = load ptr, ptr %19, align 8, !tbaa !31
   %28 = tail call i32 @fputc(i32 noundef 10, ptr noundef %27)
   %.fr = freeze i32 %26
@@ -459,7 +459,7 @@ cuddZddP.exit.thread:                             ; preds = %23, %cuddZddP.exit
   %34 = load i32, ptr %33, align 4, !tbaa !3
   %35 = sext i32 %34 to i64
   %36 = shl nsw i64 %35, 2
-  %37 = tail call noalias ptr @malloc(i64 noundef %36) #11
+  %37 = tail call noalias ptr @malloc(i64 noundef %36) #12
   %38 = icmp eq ptr %37, null
   br i1 %38, label %41, label %.preheader.i
 
@@ -481,7 +481,7 @@ cuddZddP.exit.thread:                             ; preds = %23, %cuddZddP.exit
 
 Cudd_zddPrintMinterm.exit:                        ; preds = %.lr.ph.i, %.preheader.i
   tail call fastcc void @zdd_print_minterm_aux(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0, ptr noundef %37)
-  tail call void @free(ptr noundef nonnull %37) #12
+  tail call void @free(ptr noundef nonnull %37) #13
   br label %43
 
 41:                                               ; preds = %32
@@ -519,13 +519,13 @@ declare double @Cudd_zddCountMinterm(ptr noundef, ptr noundef, i32 noundef) loca
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @cuddZddP(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #12
+  %3 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #13
   %4 = icmp eq ptr %3, null
   br i1 %4, label %10, label %5
 
 5:                                                ; preds = %2
   %6 = tail call fastcc i32 @zp2(ptr noundef %0, ptr noundef %1, ptr noundef %3)
-  tail call void @st__free_table(ptr noundef nonnull %3) #12
+  tail call void @st__free_table(ptr noundef nonnull %3) #13
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %8 = load ptr, ptr %7, align 8, !tbaa !31
   %9 = tail call i32 @fputc(i32 noundef 10, ptr noundef %8)
@@ -536,15 +536,15 @@ define range(i32 0, 2) i32 @cuddZddP(ptr noundef %0, ptr noundef %1) local_unnam
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Cudd_zddFirstPath(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define noalias noundef ptr @Cudd_zddFirstPath(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #6 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
   br i1 %or.cond, label %84, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #11
+  %7 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #12
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %11
 
@@ -568,7 +568,7 @@ define noalias noundef ptr @Cudd_zddFirstPath(ptr noundef %0, ptr noundef %1, pt
   %19 = load i32, ptr %18, align 4, !tbaa !3
   %20 = sext i32 %19 to i64
   %21 = shl nsw i64 %20, 2
-  %22 = tail call noalias ptr @malloc(i64 noundef %21) #11
+  %22 = tail call noalias ptr @malloc(i64 noundef %21) #12
   store ptr %22, ptr %14, align 8, !tbaa !34
   %23 = icmp eq ptr %22, null
   br i1 %23, label %25, label %.preheader93
@@ -584,7 +584,7 @@ define noalias noundef ptr @Cudd_zddFirstPath(ptr noundef %0, ptr noundef %1, pt
 25:                                               ; preds = %11
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %26, align 8, !tbaa !24
-  tail call void @free(ptr noundef nonnull %7) #12
+  tail call void @free(ptr noundef nonnull %7) #13
   br label %84
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -599,7 +599,7 @@ define noalias noundef ptr @Cudd_zddFirstPath(ptr noundef %0, ptr noundef %1, pt
   %28 = add i32 %19, 1
   %29 = sext i32 %28 to i64
   %30 = shl nsw i64 %29, 3
-  %31 = tail call noalias ptr @malloc(i64 noundef %30) #11
+  %31 = tail call noalias ptr @malloc(i64 noundef %30) #12
   store ptr %31, ptr %17, align 8, !tbaa !44
   %32 = icmp eq ptr %31, null
   br i1 %32, label %35, label %.preheader
@@ -617,8 +617,8 @@ define noalias noundef ptr @Cudd_zddFirstPath(ptr noundef %0, ptr noundef %1, pt
 35:                                               ; preds = %._crit_edge
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %36, align 8, !tbaa !24
-  tail call void @free(ptr noundef nonnull %22) #12
-  tail call void @free(ptr noundef nonnull %7) #12
+  tail call void @free(ptr noundef nonnull %22) #13
+  tail call void @free(ptr noundef nonnull %7) #13
   br label %84
 
 ._crit_edge104:                                   ; preds = %.lr.ph103.preheader, %.preheader
@@ -720,8 +720,8 @@ thread-pre-split._crit_edge:                      ; preds = %thread-pre-split, %
   ret ptr %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Cudd_zddNextPath(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define range(i32 0, 2) i32 @Cudd_zddNextPath(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #7 {
   %3 = load ptr, ptr %0, align 8, !tbaa !38
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8, !tbaa !47
@@ -883,8 +883,8 @@ thread-pre-split._crit_edge:                      ; preds = %thread-pre-split, %
   ret i32 %.0
 }
 
-; Function Attrs: nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef ptr @Cudd_zddCoverPathToString(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %2) local_unnamed_addr #7 {
+; Function Attrs: nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
+define noundef ptr @Cudd_zddCoverPathToString(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %5 = load i32, ptr %4, align 4, !tbaa !3
   %6 = and i32 %5, 1
@@ -899,7 +899,7 @@ define noundef ptr @Cudd_zddCoverPathToString(ptr noundef readonly captures(none
 10:                                               ; preds = %7
   %11 = add nsw i32 %8, 1
   %12 = sext i32 %11 to i64
-  %13 = tail call noalias ptr @malloc(i64 noundef %12) #11
+  %13 = tail call noalias ptr @malloc(i64 noundef %12) #12
   %14 = icmp eq ptr %13, null
   br i1 %14, label %29, label %15
 
@@ -957,7 +957,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   %9 = load i32, ptr %8, align 4, !tbaa !3
   %10 = sext i32 %9 to i64
   %11 = shl nsw i64 %10, 2
-  %12 = tail call noalias ptr @malloc(i64 noundef %11) #11
+  %12 = tail call noalias ptr @malloc(i64 noundef %11) #12
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.thread247, label %.preheader265
 
@@ -988,7 +988,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   %indvars.iv = phi i64 [ 0, %.lr.ph271.preheader ], [ %indvars.iv.next, %._crit_edge ]
   %19 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !45
-  %21 = tail call ptr @Cudd_Support(ptr noundef %0, ptr noundef %20) #12
+  %21 = tail call ptr @Cudd_Support(ptr noundef %0, ptr noundef %20) #13
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.thread, label %23
 
@@ -1019,18 +1019,18 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
 ._crit_edge:                                      ; preds = %.lr.ph269, %23
   %storemerge238.lcssa = phi ptr [ %21, %23 ], [ %35, %.lr.ph269 ]
   store ptr %storemerge238.lcssa, ptr %7, align 8, !tbaa !45
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %21) #12
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %21) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge272, label %.lr.ph271, !llvm.loop !52
 
 ._crit_edge272:                                   ; preds = %._crit_edge
-  %37 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #12
+  %37 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #13
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.thread, label %.lr.ph274.preheader
 
 ._crit_edge272.thread:                            ; preds = %.preheader263
-  %39 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #12
+  %39 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #13
   %40 = icmp eq ptr %39, null
   br i1 %40, label %.thread, label %._crit_edge275
 
@@ -1047,7 +1047,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   %indvars.iv348 = phi i64 [ 0, %.lr.ph274.preheader ], [ %indvars.iv.next349, %41 ]
   %42 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv348
   %43 = load ptr, ptr %42, align 8, !tbaa !45
-  %44 = tail call i32 @cuddCollectNodes(ptr noundef %43, ptr noundef nonnull %37) #12
+  %44 = tail call i32 @cuddCollectNodes(ptr noundef %43, ptr noundef nonnull %37) #13
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %.loopexit417, label %41
 
@@ -1055,8 +1055,8 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   %46 = phi ptr [ %39, %._crit_edge272.thread ], [ %37, %41 ]
   %47 = load ptr, ptr %2, align 8, !tbaa !45
   %48 = ptrtoint ptr %47 to i64
-  %49 = tail call ptr @st__init_gen(ptr noundef nonnull %46) #12
-  %50 = call i32 @st__gen(ptr noundef %49, ptr noundef nonnull %7, ptr noundef null) #12
+  %49 = tail call ptr @st__init_gen(ptr noundef nonnull %46) #13
+  %50 = call i32 @st__gen(ptr noundef %49, ptr noundef nonnull %7, ptr noundef null) #13
   %.not276 = icmp eq i32 %50, 0
   br i1 %.not276, label %._crit_edge280, label %.lr.ph279
 
@@ -1066,13 +1066,13 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   %52 = ptrtoint ptr %51 to i64
   %53 = xor i64 %52, %48
   %54 = or i64 %53, %.0192277
-  %55 = call i32 @st__gen(ptr noundef %49, ptr noundef nonnull %7, ptr noundef null) #12
+  %55 = call i32 @st__gen(ptr noundef %49, ptr noundef nonnull %7, ptr noundef null) #13
   %.not = icmp eq i32 %55, 0
   br i1 %.not, label %._crit_edge280, label %.lr.ph279, !llvm.loop !54
 
 ._crit_edge280:                                   ; preds = %.lr.ph279, %._crit_edge275
   %.0192.lcssa = phi i64 [ 0, %._crit_edge275 ], [ %54, %.lr.ph279 ]
-  call void @st__free_gen(ptr noundef %49) #12
+  call void @st__free_gen(ptr noundef %49) #13
   br label %56
 
 56:                                               ; preds = %56, %._crit_edge280
@@ -1087,27 +1087,27 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %or.cond, label %56, label %61, !llvm.loop !55
 
 61:                                               ; preds = %56
-  %62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.3) #12
+  %62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.3) #13
   %63 = icmp eq i32 %62, -1
   br i1 %63, label %281, label %64
 
 64:                                               ; preds = %61
-  %65 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.4) #12
+  %65 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.4) #13
   %66 = icmp eq i32 %65, -1
   br i1 %66, label %281, label %67
 
 67:                                               ; preds = %64
-  %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.5) #12
+  %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.5) #13
   %69 = icmp eq i32 %68, -1
   br i1 %69, label %.loopexit417, label %70
 
 70:                                               ; preds = %67
-  %71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.6) #12
+  %71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.6) #13
   %72 = icmp eq i32 %71, -1
   br i1 %72, label %.loopexit417, label %73
 
 73:                                               ; preds = %70
-  %74 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.7) #12
+  %74 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.7) #13
   %75 = icmp eq i32 %74, -1
   br i1 %75, label %.loopexit417, label %.preheader259
 
@@ -1135,13 +1135,13 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %77, label %86, label %88
 
 86:                                               ; preds = %85
-  %87 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, i32 noundef %81) #12
+  %87 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, i32 noundef %81) #13
   br label %92
 
 88:                                               ; preds = %85
   %89 = getelementptr inbounds ptr, ptr %3, i64 %82
   %90 = load ptr, ptr %89, align 8, !tbaa !56
-  %91 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.9, ptr noundef %90) #12
+  %91 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.9, ptr noundef %90) #13
   br label %92
 
 92:                                               ; preds = %88, %86
@@ -1155,12 +1155,12 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %exitcond357.not, label %._crit_edge285, label %78, !llvm.loop !57
 
 ._crit_edge285:                                   ; preds = %94, %.preheader259
-  %95 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.10) #12
+  %95 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.10) #13
   %96 = icmp eq i32 %95, -1
   br i1 %96, label %.loopexit417, label %97
 
 97:                                               ; preds = %._crit_edge285
-  %98 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.11) #12
+  %98 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.11) #13
   %99 = icmp eq i32 %98, -1
   br i1 %99, label %.loopexit417, label %.preheader257
 
@@ -1195,13 +1195,13 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
 
 108:                                              ; preds = %107
   %109 = trunc nuw nsw i64 %indvars.iv358 to i32
-  %110 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.12, i32 noundef %109) #12
+  %110 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.12, i32 noundef %109) #13
   br label %115
 
 111:                                              ; preds = %107
   %112 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv358
   %113 = load ptr, ptr %112, align 8, !tbaa !56
-  %114 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.13, ptr noundef %113) #12
+  %114 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.13, ptr noundef %113) #13
   br label %115
 
 115:                                              ; preds = %111, %108
@@ -1212,7 +1212,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
 117:                                              ; preds = %115
   %118 = icmp eq i64 %indvars.iv358, %102
   %.str.14..str.15 = select i1 %118, ptr @.str.14, ptr @.str.15
-  %119 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull %.str.14..str.15) #12
+  %119 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull %.str.14..str.15) #13
   %120 = icmp eq i32 %119, -1
   br i1 %120, label %.loopexit417, label %103
 
@@ -1228,7 +1228,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %.not233, label %166, label %128
 
 128:                                              ; preds = %121
-  %129 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.16) #12
+  %129 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.16) #13
   %130 = icmp eq i32 %129, -1
   br i1 %130, label %.loopexit417, label %131
 
@@ -1239,14 +1239,14 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %105, label %135, label %137
 
 135:                                              ; preds = %131
-  %136 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.17, i32 noundef %134) #12
+  %136 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.17, i32 noundef %134) #13
   br label %142
 
 137:                                              ; preds = %131
   %138 = sext i32 %134 to i64
   %139 = getelementptr inbounds ptr, ptr %3, i64 %138
   %140 = load ptr, ptr %139, align 8, !tbaa !56
-  %141 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.18, ptr noundef %140) #12
+  %141 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.18, ptr noundef %140) #13
   br label %142
 
 142:                                              ; preds = %137, %135
@@ -1277,7 +1277,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
 
 .lr.ph292:                                        ; preds = %.lr.ph296, %161
   %storemerge234290 = phi ptr [ %storemerge234, %161 ], [ %storemerge234288, %.lr.ph296 ]
-  %152 = call i32 @st__lookup(ptr noundef nonnull %46, ptr noundef nonnull %storemerge234290, ptr noundef null) #12
+  %152 = call i32 @st__lookup(ptr noundef nonnull %46, ptr noundef nonnull %storemerge234290, ptr noundef null) #13
   %.not236 = icmp eq i32 %152, 0
   br i1 %.not236, label %161, label %153
 
@@ -1287,7 +1287,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   %156 = and i64 %155, %58
   %157 = udiv i64 %156, 40
   %158 = inttoptr i64 %157 to ptr
-  %159 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.19, ptr noundef %158) #12
+  %159 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.19, ptr noundef %158) #13
   %160 = icmp eq i32 %159, -1
   br i1 %160, label %.loopexit417, label %161
 
@@ -1305,7 +1305,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %exitcond367.not, label %._crit_edge297, label %.lr.ph296, !llvm.loop !63
 
 ._crit_edge297:                                   ; preds = %._crit_edge293, %144
-  %164 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.20) #12
+  %164 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.20) #13
   %165 = icmp eq i32 %164, -1
   br i1 %165, label %.loopexit417, label %166
 
@@ -1315,7 +1315,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %exitcond372.not, label %._crit_edge300, label %121, !llvm.loop !64
 
 ._crit_edge300:                                   ; preds = %166, %.preheader255
-  %167 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.21) #12
+  %167 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.21) #13
   %168 = icmp eq i32 %167, -1
   br i1 %168, label %.loopexit417, label %169
 
@@ -1341,7 +1341,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
 
 .lr.ph305:                                        ; preds = %.lr.ph309, %185
   %storemerge230303 = phi ptr [ %storemerge230, %185 ], [ %storemerge230301, %.lr.ph309 ]
-  %176 = call i32 @st__lookup(ptr noundef nonnull %46, ptr noundef nonnull %storemerge230303, ptr noundef null) #12
+  %176 = call i32 @st__lookup(ptr noundef nonnull %46, ptr noundef nonnull %storemerge230303, ptr noundef null) #13
   %.not232 = icmp eq i32 %176, 0
   br i1 %.not232, label %185, label %177
 
@@ -1351,7 +1351,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   %180 = and i64 %179, %58
   %181 = udiv i64 %180, 40
   %182 = inttoptr i64 %181 to ptr
-  %183 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.19, ptr noundef %182) #12
+  %183 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.19, ptr noundef %182) #13
   %184 = icmp eq i32 %183, -1
   br i1 %184, label %.loopexit417, label %185
 
@@ -1369,7 +1369,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %exitcond377.not, label %._crit_edge310, label %.lr.ph309, !llvm.loop !68
 
 ._crit_edge310:                                   ; preds = %._crit_edge306, %169
-  %188 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.22) #12
+  %188 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.22) #13
   %189 = icmp eq i32 %188, -1
   br i1 %189, label %.loopexit417, label %.preheader251
 
@@ -1401,13 +1401,13 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
 
 195:                                              ; preds = %194
   %196 = trunc nuw nsw i64 %indvars.iv378 to i32
-  %197 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.12, i32 noundef %196) #12
+  %197 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.12, i32 noundef %196) #13
   br label %202
 
 198:                                              ; preds = %194
   %199 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv378
   %200 = load ptr, ptr %199, align 8, !tbaa !56
-  %201 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.13, ptr noundef %200) #12
+  %201 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.13, ptr noundef %200) #13
   br label %202
 
 202:                                              ; preds = %198, %195
@@ -1422,7 +1422,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   %208 = and i64 %207, %58
   %209 = udiv i64 %208, 40
   %210 = inttoptr i64 %209 to ptr
-  %211 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.23, ptr noundef %210) #12
+  %211 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.23, ptr noundef %210) #13
   %212 = icmp eq i32 %211, -1
   br i1 %212, label %.loopexit417, label %191
 
@@ -1460,7 +1460,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
 
 .lr.ph317:                                        ; preds = %.lr.ph321, %257
   %storemerge227315 = phi ptr [ %storemerge227, %257 ], [ %storemerge227313, %.lr.ph321 ]
-  %228 = call i32 @st__lookup(ptr noundef nonnull %46, ptr noundef nonnull %storemerge227315, ptr noundef null) #12
+  %228 = call i32 @st__lookup(ptr noundef nonnull %46, ptr noundef nonnull %storemerge227315, ptr noundef null) #13
   %.not229 = icmp eq i32 %228, 0
   br i1 %.not229, label %257, label %229
 
@@ -1476,7 +1476,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   %238 = and i64 %237, %58
   %239 = udiv i64 %238, 40
   %240 = inttoptr i64 %239 to ptr
-  %241 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.24, ptr noundef %234, ptr noundef %240) #12
+  %241 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.24, ptr noundef %234, ptr noundef %240) #13
   %242 = icmp eq i32 %241, -1
   br i1 %242, label %.loopexit417, label %243
 
@@ -1492,7 +1492,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   %252 = and i64 %251, %58
   %253 = udiv i64 %252, 40
   %254 = inttoptr i64 %253 to ptr
-  %255 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.25, ptr noundef %248, ptr noundef %254) #12
+  %255 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.25, ptr noundef %248, ptr noundef %254) #13
   %256 = icmp eq i32 %255, -1
   br i1 %256, label %.loopexit417, label %257
 
@@ -1534,7 +1534,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
 
 .lr.ph329:                                        ; preds = %.lr.ph333, %275
   %storemerge327 = phi ptr [ %storemerge, %275 ], [ %storemerge325, %.lr.ph333 ]
-  %264 = call i32 @st__lookup(ptr noundef nonnull %46, ptr noundef nonnull %storemerge327, ptr noundef null) #12
+  %264 = call i32 @st__lookup(ptr noundef nonnull %46, ptr noundef nonnull %storemerge327, ptr noundef null) #13
   %.not225 = icmp eq i32 %264, 0
   br i1 %.not225, label %275, label %265
 
@@ -1546,7 +1546,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   %270 = inttoptr i64 %269 to ptr
   %271 = getelementptr inbounds nuw i8, ptr %266, i64 16
   %272 = load double, ptr %271, align 8, !tbaa !34
-  %273 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.26, ptr noundef %270, double noundef %272) #12
+  %273 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.26, ptr noundef %270, double noundef %272) #13
   %274 = icmp eq i32 %273, -1
   br i1 %274, label %.loopexit417, label %275
 
@@ -1564,23 +1564,23 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %exitcond397.not, label %._crit_edge334, label %.lr.ph333, !llvm.loop !74
 
 ._crit_edge334:                                   ; preds = %._crit_edge330, %._crit_edge324
-  %278 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.20) #12
+  %278 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.20) #13
   %279 = icmp eq i32 %278, -1
   br i1 %279, label %.loopexit417, label %280
 
 280:                                              ; preds = %._crit_edge334
-  call void @st__free_table(ptr noundef nonnull %46) #12
-  call void @free(ptr noundef %12) #12
+  call void @st__free_table(ptr noundef nonnull %46) #13
+  call void @free(ptr noundef %12) #13
   br label %281
 
 .thread:                                          ; preds = %.lr.ph271, %._crit_edge272.thread, %._crit_edge272
-  tail call void @free(ptr noundef nonnull %12) #12
+  tail call void @free(ptr noundef nonnull %12) #13
   br label %281
 
 .loopexit417:                                     ; preds = %.lr.ph274, %92, %117, %115, %142, %128, %._crit_edge297, %153, %177, %204, %202, %243, %229, %265, %67, %70, %73, %._crit_edge285, %97, %._crit_edge300, %._crit_edge310, %._crit_edge334
   %.0205243.ph = phi ptr [ %46, %._crit_edge334 ], [ %46, %._crit_edge310 ], [ %46, %._crit_edge300 ], [ %46, %97 ], [ %46, %._crit_edge285 ], [ %46, %73 ], [ %46, %70 ], [ %46, %67 ], [ %46, %265 ], [ %46, %229 ], [ %46, %243 ], [ %46, %202 ], [ %46, %204 ], [ %46, %177 ], [ %46, %153 ], [ %46, %._crit_edge297 ], [ %46, %128 ], [ %46, %142 ], [ %46, %115 ], [ %46, %117 ], [ %46, %92 ], [ %37, %.lr.ph274 ]
-  call void @free(ptr noundef nonnull %12) #12
-  call void @st__free_table(ptr noundef nonnull %.0205243.ph) #12
+  call void @free(ptr noundef nonnull %12) #13
+  call void @st__free_table(ptr noundef nonnull %.0205243.ph) #13
   br label %281
 
 281:                                              ; preds = %.thread, %.thread247, %.loopexit417, %64, %61, %280
@@ -1631,16 +1631,16 @@ define internal fastcc range(i32 0, 2) i32 @zp2(ptr noundef %0, ptr noundef %1, 
   %15 = load ptr, ptr %14, align 8, !tbaa !31
   %16 = icmp eq ptr %1, %5
   %17 = zext i1 %16 to i32
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.27, i32 noundef %17) #12
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.27, i32 noundef %17) #13
   br label %70
 
 19:                                               ; preds = %7
-  %20 = tail call i32 @st__lookup(ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef null) #12
+  %20 = tail call i32 @st__lookup(ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef null) #13
   %21 = icmp eq i32 %20, 1
   br i1 %21, label %70, label %22
 
 22:                                               ; preds = %19
-  %23 = tail call i32 @st__insert(ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef null) #12
+  %23 = tail call i32 @st__insert(ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef null) #13
   %24 = icmp eq i32 %23, -10000
   br i1 %24, label %70, label %25
 
@@ -1651,7 +1651,7 @@ define internal fastcc range(i32 0, 2) i32 @zp2(ptr noundef %0, ptr noundef %1, 
   %29 = load i32, ptr %1, align 8, !tbaa !28
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !50
-  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.28, i64 noundef %28, i32 noundef %29, i32 noundef %31) #12
+  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.28, i64 noundef %28, i32 noundef %29, i32 noundef %31) #13
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !34
   %35 = ptrtoint ptr %34 to i64
@@ -1665,12 +1665,12 @@ define internal fastcc range(i32 0, 2) i32 @zp2(ptr noundef %0, ptr noundef %1, 
 40:                                               ; preds = %25
   %41 = icmp eq ptr %34, %5
   %42 = zext i1 %41 to i32
-  %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.29, i32 noundef %42) #12
+  %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.29, i32 noundef %42) #13
   br label %47
 
 44:                                               ; preds = %25
   %45 = udiv i64 %35, 40
-  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.30, i64 noundef %45) #12
+  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.30, i64 noundef %45) #13
   br label %47
 
 47:                                               ; preds = %44, %40
@@ -1687,12 +1687,12 @@ define internal fastcc range(i32 0, 2) i32 @zp2(ptr noundef %0, ptr noundef %1, 
 .thread:                                          ; preds = %47
   %55 = icmp eq ptr %49, %5
   %56 = zext i1 %55 to i32
-  %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.31, i32 noundef %56) #12
+  %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.31, i32 noundef %56) #13
   br label %64
 
 58:                                               ; preds = %47
   %59 = udiv i64 %50, 40
-  %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.32, i64 noundef %59) #12
+  %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.32, i64 noundef %59) #13
   %61 = load ptr, ptr %48, align 8, !tbaa !34
   %62 = tail call fastcc i32 @zp2(ptr noundef nonnull %0, ptr noundef %61, ptr noundef %2)
   %63 = icmp eq i32 %62, 0
@@ -1724,16 +1724,16 @@ declare i32 @st__insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare noundef i32 @putc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1741,13 +1741,14 @@ attributes #2 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapp
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nofree nounwind }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nounwind allocsize(0) }
-attributes #12 = { nounwind }
+attributes #6 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nofree nounwind }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nounwind allocsize(0) }
+attributes #13 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

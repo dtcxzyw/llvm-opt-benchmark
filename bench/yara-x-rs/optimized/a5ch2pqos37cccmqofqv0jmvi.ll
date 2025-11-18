@@ -1733,7 +1733,7 @@ define hidden noundef range(i32 0, 1114113) i32 @"_ZN119_$LT$itertools..peeking_
   ret i32 %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @"_ZN119_$LT$itertools..peeking_take_while..PeekingTakeWhile$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h38b199ab1030bed4E"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #2 {
   %3 = load ptr, ptr %1, align 8, !nonnull !3, !align !9, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -28888,7 +28888,7 @@ _ZN5alloc5alloc15exchange_malloc17h7e2bceb9247f6c38E.exit.i: ; preds = %285
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @"_ZN80_$LT$yara_x..modules..protos..crx..Crx$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h07762b5f8e896979E"(ptr noundef nonnull readonly align 8 captures(none) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
@@ -35871,7 +35871,7 @@ _ZN5alloc5alloc15exchange_malloc17h7e2bceb9247f6c38E.exit.i216: ; preds = %447
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @"_ZN86_$LT$yara_x..modules..protos..dotnet..Dotnet$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h17621dafada5feddE"(ptr noundef nonnull readonly align 8 captures(none) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
@@ -38889,7 +38889,7 @@ define hidden void @_ZN6yara_x7modules6protos6dotnet8Assembly33generated_message
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @"_ZN88_$LT$yara_x..modules..protos..dotnet..Assembly$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h4c1bcb37f4dd5807E"(ptr noundef nonnull readonly align 8 captures(none) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !align !9, !noundef !3
@@ -39799,7 +39799,7 @@ define hidden void @_ZN6yara_x7modules6protos6dotnet11AssemblyRef33generated_mes
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @"_ZN91_$LT$yara_x..modules..protos..dotnet..AssemblyRef$u20$as$u20$protobuf..message..Message$GT$14is_initialized17he081764cadb6ef96E"(ptr noundef nonnull readonly align 8 captures(none) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !align !9, !noundef !3
@@ -44320,7 +44320,7 @@ _ZN5alloc5alloc15exchange_malloc17h7e2bceb9247f6c38E.exit.i: ; preds = %239
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @"_ZN85_$LT$yara_x..modules..protos..dotnet..Class$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h5ca04904a5e5113cE"(ptr noundef nonnull readonly align 8 captures(none) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load i8, ptr %2, align 8, !range !807, !noundef !3
@@ -47017,7 +47017,7 @@ _ZN5alloc5alloc15exchange_malloc17h7e2bceb9247f6c38E.exit.i109: ; preds = %222
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @"_ZN86_$LT$yara_x..modules..protos..dotnet..Method$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h10ed664e49b9bf1aE"(ptr noundef nonnull readonly align 8 captures(none) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load i8, ptr %2, align 8, !range !807, !noundef !3
@@ -69374,7 +69374,7 @@ _ZN5alloc5alloc15exchange_malloc17h7e2bceb9247f6c38E.exit.i235: ; preds = %429
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @"_ZN83_$LT$yara_x..modules..protos..macho..File$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h3219a811bfc374baE"(ptr noundef nonnull readonly align 8 captures(none) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
@@ -74851,7 +74851,7 @@ _ZN5alloc5alloc15exchange_malloc17h7e2bceb9247f6c38E.exit.i303: ; preds = %613
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @"_ZN84_$LT$yara_x..modules..protos..macho..Macho$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h526d91dc4b141fcdE"(ptr noundef nonnull readonly align 8 captures(none) %0) unnamed_addr #10 {
 .critedge:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -110100,7 +110100,7 @@ declare i32 @llvm.umin.i32(i32, i32) #24
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -110108,7 +110108,7 @@ attributes #6 = { mustprogress nofree norecurse nosync nounwind nonlazybind will
 attributes #7 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #10 = { nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #10 = { nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #11 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #13 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

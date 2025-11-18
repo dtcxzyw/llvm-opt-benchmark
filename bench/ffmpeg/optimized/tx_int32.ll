@@ -350,7 +350,7 @@ declare double @llvm.sin.f64(double) #3
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_init_tab_8_int32() #5 {
   br label %2
 
@@ -371,7 +371,7 @@ define internal void @ff_tx_init_tab_8_int32() #5 {
   br i1 %3, label %2, label %1, !llvm.loop !30
 }
 
-; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_init_tab_16_int32() #5 {
   br label %2
 
@@ -398,7 +398,7 @@ define internal void @ff_tx_init_tab_16_int32() #5 {
   br i1 %exitcond.not, label %1, label %2, !llvm.loop !31
 }
 
-; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_init_tab_32_int32() #5 {
   br label %2
 
@@ -425,7 +425,7 @@ define internal void @ff_tx_init_tab_32_int32() #5 {
   br i1 %exitcond.not, label %1, label %2, !llvm.loop !32
 }
 
-; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_init_tab_64_int32() #5 {
   br label %2
 
@@ -452,7 +452,7 @@ define internal void @ff_tx_init_tab_64_int32() #5 {
   br i1 %exitcond.not, label %1, label %2, !llvm.loop !33
 }
 
-; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_init_tab_128_int32() #5 {
   br label %2
 
@@ -479,7 +479,7 @@ define internal void @ff_tx_init_tab_128_int32() #5 {
   br i1 %exitcond.not, label %1, label %2, !llvm.loop !34
 }
 
-; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_init_tab_256_int32() #5 {
   br label %2
 
@@ -506,7 +506,7 @@ define internal void @ff_tx_init_tab_256_int32() #5 {
   br i1 %exitcond.not, label %1, label %2, !llvm.loop !35
 }
 
-; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_init_tab_512_int32() #5 {
   br label %2
 
@@ -533,7 +533,7 @@ define internal void @ff_tx_init_tab_512_int32() #5 {
   br i1 %exitcond.not, label %1, label %2, !llvm.loop !36
 }
 
-; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_init_tab_1024_int32() #5 {
   br label %2
 
@@ -560,7 +560,7 @@ define internal void @ff_tx_init_tab_1024_int32() #5 {
   br i1 %exitcond.not, label %1, label %2, !llvm.loop !37
 }
 
-; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_init_tab_2048_int32() #5 {
   br label %2
 
@@ -587,7 +587,7 @@ define internal void @ff_tx_init_tab_2048_int32() #5 {
   br i1 %exitcond.not, label %1, label %2, !llvm.loop !38
 }
 
-; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_init_tab_4096_int32() #5 {
   br label %2
 
@@ -614,7 +614,7 @@ define internal void @ff_tx_init_tab_4096_int32() #5 {
   br i1 %exitcond.not, label %1, label %2, !llvm.loop !39
 }
 
-; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_init_tab_8192_int32() #5 {
   br label %2
 
@@ -641,7 +641,7 @@ define internal void @ff_tx_init_tab_8192_int32() #5 {
   br i1 %exitcond.not, label %1, label %2, !llvm.loop !40
 }
 
-; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_init_tab_16384_int32() #5 {
   br label %2
 
@@ -668,7 +668,7 @@ define internal void @ff_tx_init_tab_16384_int32() #5 {
   br i1 %exitcond.not, label %1, label %2, !llvm.loop !41
 }
 
-; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_init_tab_32768_int32() #5 {
   br label %2
 
@@ -695,7 +695,7 @@ define internal void @ff_tx_init_tab_32768_int32() #5 {
   br i1 %exitcond.not, label %1, label %2, !llvm.loop !42
 }
 
-; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_init_tab_65536_int32() #5 {
   br label %2
 
@@ -722,7 +722,7 @@ define internal void @ff_tx_init_tab_65536_int32() #5 {
   br i1 %exitcond.not, label %1, label %2, !llvm.loop !43
 }
 
-; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_init_tab_131072_int32() #5 {
   br label %2
 
@@ -749,7 +749,7 @@ define internal void @ff_tx_init_tab_131072_int32() #5 {
   br i1 %exitcond.not, label %1, label %2, !llvm.loop !44
 }
 
-; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_init_tab_262144_int32() #5 {
   br label %2
 
@@ -776,7 +776,7 @@ define internal void @ff_tx_init_tab_262144_int32() #5 {
   br i1 %exitcond.not, label %1, label %2, !llvm.loop !45
 }
 
-; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_init_tab_524288_int32() #5 {
   br label %2
 
@@ -803,7 +803,7 @@ define internal void @ff_tx_init_tab_524288_int32() #5 {
   br i1 %exitcond.not, label %1, label %2, !llvm.loop !46
 }
 
-; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_init_tab_1048576_int32() #5 {
   br label %2
 
@@ -830,7 +830,7 @@ define internal void @ff_tx_init_tab_1048576_int32() #5 {
   br i1 %exitcond.not, label %1, label %2, !llvm.loop !47
 }
 
-; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_init_tab_2097152_int32() #5 {
   br label %2
 
@@ -857,7 +857,7 @@ define internal void @ff_tx_init_tab_2097152_int32() #5 {
   br i1 %exitcond.not, label %1, label %2, !llvm.loop !48
 }
 
-; Function Attrs: cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_init_tab_53_int32() #6 {
   %1 = tail call i64 @llvm.llrint.i64.f32(float 0x41C3C6EF40000000)
   %2 = tail call i64 @llvm.smax.i64(i64 %1, i64 -2147483648)
@@ -902,7 +902,7 @@ define internal void @ff_tx_init_tab_53_int32() #6 {
   ret void
 }
 
-; Function Attrs: cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_init_tab_9_int32() #6 {
   %1 = tail call i64 @llvm.llrint.i64.f32(float 0xC1D0000000000000)
   %2 = tail call i64 @llvm.smax.i64(i64 %1, i64 -2147483648)
@@ -941,7 +941,7 @@ define internal void @ff_tx_init_tab_9_int32() #6 {
   ret void
 }
 
-; Function Attrs: cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_init_tab_7_int32() #6 {
   %1 = tail call i64 @llvm.llrint.i64.f32(float 0x41D3F3A0E0000000)
   %2 = tail call i64 @llvm.smax.i64(i64 %1, i64 -2147483648)
@@ -1059,7 +1059,7 @@ define internal void @ff_tx_fft4_ns_int32_c(ptr readnone captures(none) %0, ptr 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_fft8_ns_int32_c(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 64)) %1, ptr noundef readonly captures(none) %2, i64 %3) #8 {
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_8_int32, i64 4), align 4, !tbaa !11
   %6 = load i32, ptr %2, align 4, !tbaa !49
@@ -1213,7 +1213,7 @@ define internal void @ff_tx_fft8_ns_int32_c(ptr readnone captures(none) %0, ptr 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_fft16_ns_int32_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 128)) %1, ptr noundef readonly captures(none) %2, i64 %3) #8 {
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_16_int32, i64 4), align 4, !tbaa !11
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tx_tab_16_int32, i64 8), align 8, !tbaa !11
@@ -1524,7 +1524,7 @@ define internal void @ff_tx_fft16_ns_int32_c(ptr readnone captures(none) %0, ptr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_fft32_ns_int32_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 128)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft16_ns_int32_c(ptr poison, ptr noundef %1, ptr noundef %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 128
@@ -2142,7 +2142,7 @@ define internal fastcc void @ff_tx_fft_sr_combine_int32_c(ptr noundef %0, ptr no
   br i1 %527, label %13, label %._crit_edge, !llvm.loop !52
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_fft64_ns_int32_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 128)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft16_ns_int32_c(ptr readnone poison, ptr noundef %1, ptr noundef readonly %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 128
@@ -2162,7 +2162,7 @@ define internal void @ff_tx_fft64_ns_int32_c(ptr readnone captures(none) %0, ptr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_fft128_ns_int32_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 128)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft16_ns_int32_c(ptr readnone poison, ptr noundef %1, ptr noundef readonly %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 128
@@ -2203,7 +2203,7 @@ define internal void @ff_tx_fft128_ns_int32_c(ptr readnone captures(none) %0, pt
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_fft256_ns_int32_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 128)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft128_ns_int32_c(ptr poison, ptr noundef %1, ptr noundef %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 1024
@@ -2244,7 +2244,7 @@ define internal void @ff_tx_fft256_ns_int32_c(ptr readnone captures(none) %0, pt
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_fft512_ns_int32_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 128)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft256_ns_int32_c(ptr poison, ptr noundef %1, ptr noundef %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2048
@@ -2257,7 +2257,7 @@ define internal void @ff_tx_fft512_ns_int32_c(ptr readnone captures(none) %0, pt
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_fft1024_ns_int32_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 128)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft256_ns_int32_c(ptr readnone poison, ptr noundef %1, ptr noundef readonly %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2048
@@ -2277,7 +2277,7 @@ define internal void @ff_tx_fft1024_ns_int32_c(ptr readnone captures(none) %0, p
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_fft2048_ns_int32_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 128)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft256_ns_int32_c(ptr readnone poison, ptr noundef %1, ptr noundef readonly %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2048
@@ -2318,7 +2318,7 @@ define internal void @ff_tx_fft2048_ns_int32_c(ptr readnone captures(none) %0, p
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_fft4096_ns_int32_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 128)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft2048_ns_int32_c(ptr poison, ptr noundef %1, ptr noundef %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16384
@@ -2359,7 +2359,7 @@ define internal void @ff_tx_fft4096_ns_int32_c(ptr readnone captures(none) %0, p
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_fft8192_ns_int32_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 128)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft4096_ns_int32_c(ptr poison, ptr noundef %1, ptr noundef %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32768
@@ -2372,7 +2372,7 @@ define internal void @ff_tx_fft8192_ns_int32_c(ptr readnone captures(none) %0, p
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_fft16384_ns_int32_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 128)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft4096_ns_int32_c(ptr readnone poison, ptr noundef %1, ptr noundef readonly %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32768
@@ -2392,7 +2392,7 @@ define internal void @ff_tx_fft16384_ns_int32_c(ptr readnone captures(none) %0, 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_fft32768_ns_int32_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 128)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft4096_ns_int32_c(ptr readnone poison, ptr noundef %1, ptr noundef readonly %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32768
@@ -2433,7 +2433,7 @@ define internal void @ff_tx_fft32768_ns_int32_c(ptr readnone captures(none) %0, 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_fft65536_ns_int32_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 128)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft32768_ns_int32_c(ptr poison, ptr noundef %1, ptr noundef %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 262144
@@ -2474,7 +2474,7 @@ define internal void @ff_tx_fft65536_ns_int32_c(ptr readnone captures(none) %0, 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_fft131072_ns_int32_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 128)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft65536_ns_int32_c(ptr poison, ptr noundef %1, ptr noundef %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 524288
@@ -2487,7 +2487,7 @@ define internal void @ff_tx_fft131072_ns_int32_c(ptr readnone captures(none) %0,
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_fft262144_ns_int32_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 128)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft65536_ns_int32_c(ptr readnone poison, ptr noundef %1, ptr noundef readonly %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 524288
@@ -2507,7 +2507,7 @@ define internal void @ff_tx_fft262144_ns_int32_c(ptr readnone captures(none) %0,
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_fft524288_ns_int32_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 128)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft65536_ns_int32_c(ptr readnone poison, ptr noundef %1, ptr noundef readonly %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 524288
@@ -2548,7 +2548,7 @@ define internal void @ff_tx_fft524288_ns_int32_c(ptr readnone captures(none) %0,
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_fft1048576_ns_int32_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 128)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft524288_ns_int32_c(ptr poison, ptr noundef %1, ptr noundef %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4194304
@@ -2589,7 +2589,7 @@ define internal void @ff_tx_fft1048576_ns_int32_c(ptr readnone captures(none) %0
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_fft2097152_ns_int32_c(ptr readnone captures(none) %0, ptr noundef initializes((0, 128)) %1, ptr noundef readonly captures(none) %2, i64 %3) #9 {
   tail call void @ff_tx_fft1048576_ns_int32_c(ptr poison, ptr noundef %1, ptr noundef %2, i64 poison)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8388608
@@ -2602,7 +2602,7 @@ define internal void @ff_tx_fft2097152_ns_int32_c(ptr readnone captures(none) %0
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_fft3_int32_c(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #8 {
   %5 = lshr i64 %3, 3
   %.sroa.08.0.copyload.i = load i32, ptr %2, align 4, !tbaa !11
@@ -2699,7 +2699,7 @@ declare i32 @ff_tx_gen_pfa_input_map(ptr noundef, ptr noundef, i32 noundef, i32 
 
 declare i32 @ff_tx_gen_default_map(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_fft5_int32_c(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #8 {
   %5 = lshr i64 %3, 3
   %.sroa.057.0.copyload.i = load i32, ptr %2, align 4, !tbaa !11
@@ -2834,7 +2834,7 @@ define internal void @ff_tx_fft5_int32_c(ptr readnone captures(none) %0, ptr nou
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_fft7_int32_c(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #8 {
   %5 = lshr i64 %3, 3
   %.sroa.0103.0.copyload.i = load i32, ptr %2, align 4, !tbaa !11
@@ -3055,7 +3055,7 @@ define internal void @ff_tx_fft7_int32_c(ptr readnone captures(none) %0, ptr nou
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_fft9_int32_c(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #8 {
   %5 = lshr i64 %3, 3
   %.sroa.0130.0.copyload.i = load i32, ptr %2, align 4, !tbaa !11
@@ -3324,7 +3324,7 @@ define internal void @ff_tx_fft9_int32_c(ptr readnone captures(none) %0, ptr nou
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_fft15_int32_c(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #11 {
   %5 = alloca [15 x %struct.AVComplexInt32], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -4477,7 +4477,7 @@ define internal void @ff_tx_fft_naive_int32_c(ptr noundef readonly captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ff_tx_fft_naive_small_int32_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #11 {
   %5 = load i32, ptr %0, align 8, !tbaa !17
   %6 = lshr i64 %3, 3
@@ -11645,13 +11645,13 @@ attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "st
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold nofree norecurse nosync nounwind optsize memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

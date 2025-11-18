@@ -1491,7 +1491,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_116itanium_demangle4Node5visitINSt
   br label %171
 
 170:                                              ; preds = %2
-  tail call void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 2644, ptr noundef nonnull @.str.6) #29
+  tail call void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 2644, ptr noundef nonnull @.str.6) #30
   unreachable
 
 171:                                              ; preds = %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82
@@ -1521,7 +1521,7 @@ define dso_local ptr @__cxa_demangle(ptr noundef %0, ptr noundef %1, ptr noundef
 
 13:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #30
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #31
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %14
   store ptr %0, ptr %5, align 16, !tbaa !173
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1631,12 +1631,12 @@ _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParse
   br i1 %57, label %58, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_9DotSuffixEJRPNS0_4NodeENSt3__117basic_string_viewIcNSB_11char_traitsIcEEEEEEES9_DpOT0_.exit.i
 
 58:                                               ; preds = %52
-  %59 = call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %59 = call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %60 = icmp eq ptr %59, null
   br i1 %60, label %61, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i
 
 61:                                               ; preds = %58
-  call void @_ZSt9terminatev() #32
+  call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i: ; preds = %58
@@ -1834,7 +1834,7 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %129, label %136, label %130
 
 130:                                              ; preds = %122
-  invoke void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 396, ptr noundef nonnull @.str) #29
+  invoke void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 396, ptr noundef nonnull @.str) #30
           to label %131 unwind label %134
 
 131:                                              ; preds = %130
@@ -1888,7 +1888,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   %spec.select.i.i = call i64 @llvm.umax.i64(i64 %152, i64 %151)
   store i64 %spec.select.i.i, ptr %125, align 8, !tbaa !225
   %153 = load ptr, ptr %123, align 8, !tbaa !222
-  %154 = call ptr @realloc(ptr noundef %153, i64 noundef %spec.select.i.i) #33
+  %154 = call ptr @realloc(ptr noundef %153, i64 noundef %spec.select.i.i) #34
   store ptr %154, ptr %123, align 8, !tbaa !222
   %155 = icmp eq ptr %154, null
   br i1 %155, label %156, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i
@@ -1899,7 +1899,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %157
 
 156:                                              ; preds = %150
-  call void @abort() #32
+  call void @abort() #33
   unreachable
 
 157:                                              ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -1949,7 +1949,7 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %.not3.i.i.i.i, label %171, label %170
 
 170:                                              ; preds = %.lr.ph.i.i.i.i
-  call void @free(ptr noundef nonnull %168) #34
+  call void @free(ptr noundef nonnull %168) #35
   %.pre.i.i.i.i = load ptr, ptr %37, align 16, !tbaa !209
   br label %171
 
@@ -1966,7 +1966,7 @@ _ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i:   ; preds = %171, %166
   br i1 %174, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit.i, label %175
 
 175:                                              ; preds = %_ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i
-  call void @free(ptr noundef %173) #34
+  call void @free(ptr noundef %173) #35
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit.i
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit.i: ; preds = %175, %_ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i
@@ -1975,7 +1975,7 @@ _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateRefere
   br i1 %177, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EED2Ev.exit.i, label %178
 
 178:                                              ; preds = %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit.i
-  call void @free(ptr noundef %176) #34
+  call void @free(ptr noundef %176) #35
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EED2Ev.exit.i
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EED2Ev.exit.i: ; preds = %178, %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit.i
@@ -1984,7 +1984,7 @@ _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EE
   br i1 %180, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i, label %181
 
 181:                                              ; preds = %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EED2Ev.exit.i
-  call void @free(ptr noundef %179) #34
+  call void @free(ptr noundef %179) #35
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i: ; preds = %181, %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EED2Ev.exit.i
@@ -1993,7 +1993,7 @@ _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i:
   br i1 %183, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit.i, label %184
 
 184:                                              ; preds = %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i
-  call void @free(ptr noundef %182) #34
+  call void @free(ptr noundef %182) #35
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit.i
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit.i: ; preds = %184, %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i
@@ -2002,7 +2002,7 @@ _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit.i
   br i1 %186, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_ED2Ev.exit, label %187
 
 187:                                              ; preds = %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit.i
-  call void @free(ptr noundef %185) #34
+  call void @free(ptr noundef %185) #35
   br label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_ED2Ev.exit
 
 _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_ED2Ev.exit: ; preds = %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit.i, %187
@@ -2011,7 +2011,7 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
 
 188:                                              ; preds = %163, %119
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %163 ], [ %120, %119 ]
-  call fastcc void @_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_ED2Ev(ptr noundef nonnull align 16 dereferenceable(4928) %5) #34
+  call fastcc void @_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_ED2Ev(ptr noundef nonnull align 16 dereferenceable(4928) %5) #35
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn
 
@@ -2033,7 +2033,7 @@ define internal void @_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferD2Ev(ptr 
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nounwind uwtable
+; Function Attrs: inlinehint mustprogress nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_ED2Ev(ptr noundef nonnull align 16 dereferenceable(4928) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
@@ -2049,7 +2049,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116itanium_demangle22AbstractMangli
   br i1 %.not3.i.i.i, label %8, label %7
 
 7:                                                ; preds = %.lr.ph.i.i.i
-  tail call void @free(ptr noundef nonnull %5) #34
+  tail call void @free(ptr noundef nonnull %5) #35
   %.pre.i.i.i = load ptr, ptr %3, align 16, !tbaa !209
   br label %8
 
@@ -2068,7 +2068,7 @@ _ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit:     ; preds = %8, %1
   br i1 %13, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit, label %14
 
 14:                                               ; preds = %_ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit
-  tail call void @free(ptr noundef %11) #34
+  tail call void @free(ptr noundef %11) #35
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit: ; preds = %_ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit, %14
@@ -2079,7 +2079,7 @@ _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateRefere
   br i1 %18, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EED2Ev.exit, label %19
 
 19:                                               ; preds = %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit
-  tail call void @free(ptr noundef %16) #34
+  tail call void @free(ptr noundef %16) #35
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EED2Ev.exit
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EED2Ev.exit: ; preds = %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit, %19
@@ -2090,7 +2090,7 @@ _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EE
   br i1 %23, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit, label %24
 
 24:                                               ; preds = %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EED2Ev.exit
-  tail call void @free(ptr noundef %21) #34
+  tail call void @free(ptr noundef %21) #35
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit: ; preds = %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EED2Ev.exit, %24
@@ -2101,7 +2101,7 @@ _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit: ;
   br i1 %28, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit, label %29
 
 29:                                               ; preds = %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit
-  tail call void @free(ptr noundef %26) #34
+  tail call void @free(ptr noundef %26) #35
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit: ; preds = %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit, %29
@@ -2112,7 +2112,7 @@ _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit: 
   br i1 %33, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit1, label %34
 
 34:                                               ; preds = %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit
-  tail call void @free(ptr noundef %31) #34
+  tail call void @free(ptr noundef %31) #35
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit1
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit1: ; preds = %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit, %34
@@ -2124,8 +2124,8 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #34
-  tail call void @_ZSt9terminatev() #32
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #35
+  tail call void @_ZSt9terminatev() #33
   unreachable
 }
 
@@ -2139,7 +2139,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferD0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #10 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #35
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #36
   ret void
 }
 
@@ -2187,7 +2187,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.10) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.10) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.0.0.copyload.i = load ptr, ptr %8, align 8, !tbaa !230
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -2277,7 +2277,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111DumpVisitor5printENS_16itanium_d
 
 16:                                               ; preds = %14
   %17 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %18 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %17) #37
+  %18 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %17) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor5printEPKNS_16itanium_demangle4NodeE.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %12
@@ -2309,7 +2309,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit:    ; preds = %.lr.ph.i, %_ZN12_GL
 
 26:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit
   %27 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %28 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %27) #37
+  %28 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %27) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %25, %26
@@ -2330,7 +2330,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJPKNS_16itanium_demangle4NodeENSt
   %4 = add i32 %3, 2
   store i32 %4, ptr %0, align 4, !tbaa !4
   %5 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.16) #36
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.16) #37
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !216
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -2364,7 +2364,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit:    ; preds = %.lr.ph.i, %_ZN12_GL
 
 17:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit
   %18 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #37
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #38
   br label %20
 
 20:                                               ; preds = %17, %16
@@ -2390,7 +2390,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaINSt3__117basic_string_viewIcNS2_1
   store i8 0, ptr %15, align 4, !tbaa !10
   %27 = load ptr, ptr @stderr, align 8, !tbaa !11
   %28 = trunc i64 %.sroa.2.0.copyload.i to i32
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.17, i32 noundef %28, ptr noundef %.sroa.0.0.copyload.i) #36
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.17, i32 noundef %28, ptr noundef %.sroa.0.0.copyload.i) #37
   %30 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc.i = tail call i32 @fputc(i32 41, ptr %30)
   %31 = load i32, ptr %0, align 4, !tbaa !4
@@ -2407,7 +2407,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %6 = add i32 %5, 2
   store i32 %6, ptr %0, align 4, !tbaa !4
   %7 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.18) #36
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.18) #37
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !231
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2469,7 +2469,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle17VendorExtQualType5matchINS_11DumpVisitor14
 
 27:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle17VendorExtQualType5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %28 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %29 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %28) #37
+  %29 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %28) #38
   br label %30
 
 30:                                               ; preds = %27, %26
@@ -2496,7 +2496,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaINSt3__117basic_string_viewIcNS2_1
   store i8 0, ptr %31, align 4, !tbaa !10
   %38 = load ptr, ptr @stderr, align 8, !tbaa !11
   %39 = trunc i64 %.sroa.2.0.copyload.i to i32
-  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.17, i32 noundef %39, ptr noundef %.sroa.0.0.copyload.i) #36
+  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.17, i32 noundef %39, ptr noundef %.sroa.0.0.copyload.i) #37
   %41 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc = tail call i32 @fputc(i32 44, ptr %41)
   %42 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -2525,7 +2525,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %_ZN12_
 
 48:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %49 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %50 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %49) #37
+  %50 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %49) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %47, %48
@@ -2546,7 +2546,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJPKNS_16itanium_demangle4NodeENS2
   %4 = add i32 %3, 2
   store i32 %4, ptr %0, align 4, !tbaa !4
   %5 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.19) #36
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.19) #37
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !237
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -2578,7 +2578,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit:    ; preds = %.lr.ph.i, %_ZN12_GL
 
 18:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit
   %19 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %20 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %19) #37
+  %20 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %19) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %17, %18
@@ -2601,7 +2601,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaINS_1
   br i1 %5, label %9, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 2, i64 1, ptr %6) #37
+  %8 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 2, i64 1, ptr %6) #38
   br label %15
 
 9:                                                ; preds = %2
@@ -2631,7 +2631,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit:    ; preds = %.lr.ph.i, %9
 
 16:                                               ; preds = %15
   %17 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %18 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 8, i64 1, ptr %17) #37
+  %18 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 8, i64 1, ptr %17) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle10QualifiersEEEvT_.exit
 
 .preheader.i.i:                                   ; preds = %15, %27
@@ -2647,7 +2647,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit:    ; preds = %.lr.ph.i, %9
   %.sroa.52.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.012.ptr3.i.i, i64 8
   %.sroa.52.0.copyload.i.i = load ptr, ptr %.sroa.52.0..sroa_idx.i.i, align 8, !tbaa !219
   %21 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %fputs.i19.i.i = tail call i32 @fputs(ptr readonly %.sroa.52.0.copyload.i.i, ptr %21) #37
+  %fputs.i19.i.i = tail call i32 @fputs(ptr readonly %.sroa.52.0.copyload.i.i, ptr %21) #38
   %22 = xor i32 %.sroa.0.0.copyload.i.i, -1
   %23 = and i32 %.02.i.i, %22
   %.not18.i.i = icmp eq i32 %23, 0
@@ -2655,7 +2655,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit:    ; preds = %.lr.ph.i, %9
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %26 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 3, i64 1, ptr %25) #37
+  %26 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 3, i64 1, ptr %25) #38
   br label %27
 
 27:                                               ; preds = %24, %20, %.preheader.i.i
@@ -2675,7 +2675,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.25) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.25) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !240
   %10 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -2705,7 +2705,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle22ConversionOperatorType5matchINS_11DumpVisi
 
 17:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle22ConversionOperatorType5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %18 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #37
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %16, %17
@@ -2726,7 +2726,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJPKNS_16itanium_demangle4NodeENSt
   %4 = add i32 %3, 2
   store i32 %4, ptr %0, align 4, !tbaa !4
   %5 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.26) #36
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.26) #37
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !242
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -2760,7 +2760,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit:    ; preds = %.lr.ph.i, %_ZN12_GL
 
 17:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit
   %18 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #37
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #38
   br label %20
 
 20:                                               ; preds = %17, %16
@@ -2786,7 +2786,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaINSt3__117basic_string_viewIcNS2_1
   store i8 0, ptr %15, align 4, !tbaa !10
   %27 = load ptr, ptr @stderr, align 8, !tbaa !11
   %28 = trunc i64 %.sroa.2.0.copyload.i to i32
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.17, i32 noundef %28, ptr noundef %.sroa.0.0.copyload.i) #36
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.17, i32 noundef %28, ptr noundef %.sroa.0.0.copyload.i) #37
   %30 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc.i = tail call i32 @fputc(i32 41, ptr %30)
   %31 = load i32, ptr %0, align 4, !tbaa !4
@@ -2803,7 +2803,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJNSt3__117basic_string_viewIcNS2_
   %4 = add i32 %3, 2
   store i32 %4, ptr %0, align 4, !tbaa !4
   %5 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.27) #36
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.27) #37
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.0.0.copyload.i = load ptr, ptr %7, align 8, !tbaa !219
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -2830,7 +2830,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit:    ; preds = %.lr.ph.i, %_ZN12_GL
   store i8 0, ptr %15, align 4, !tbaa !10
   %16 = load ptr, ptr @stderr, align 8, !tbaa !11
   %17 = trunc i64 %.sroa.2.0.copyload.i to i32
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.17, i32 noundef %17, ptr noundef %.sroa.0.0.copyload.i) #36
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.17, i32 noundef %17, ptr noundef %.sroa.0.0.copyload.i) #37
   %19 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc = tail call i32 @fputc(i32 44, ptr %19)
   %20 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -2859,7 +2859,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %_ZN12_
 
 26:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %27 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %28 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %27) #37
+  %28 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %27) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %25, %26
@@ -2880,7 +2880,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJNSt3__117basic_string_viewIcNS2_
   %4 = add i32 %3, 2
   store i32 %4, ptr %0, align 4, !tbaa !4
   %5 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.28) #36
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.28) #37
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.0.0.copyload.i = load ptr, ptr %7, align 8, !tbaa !219
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -2907,7 +2907,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit:    ; preds = %.lr.ph.i, %_ZN12_GL
   store i8 0, ptr %15, align 4, !tbaa !10
   %16 = load ptr, ptr @stderr, align 8, !tbaa !11
   %17 = trunc i64 %.sroa.2.0.copyload.i to i32
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.17, i32 noundef %17, ptr noundef %.sroa.0.0.copyload.i) #36
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.17, i32 noundef %17, ptr noundef %.sroa.0.0.copyload.i) #37
   %19 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc = tail call i32 @fputc(i32 44, ptr %19)
   %20 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -2936,7 +2936,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %_ZN12_
 
 26:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %27 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %28 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %27) #37
+  %28 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %27) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %25, %26
@@ -2955,14 +2955,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_111DumpVisitorclINS_16itanium_deman
   %4 = add i32 %3, 2
   store i32 %4, ptr %0, align 4, !tbaa !4
   %5 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.29) #36
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.29) #37
   %7 = getelementptr i8, ptr %1, i64 16
   %.val = load ptr, ptr %7, align 8, !tbaa !219
   %8 = getelementptr i8, ptr %1, i64 24
   %.val2 = load i64, ptr %8, align 8, !tbaa !220
   %9 = load ptr, ptr @stderr, align 8, !tbaa !11
   %10 = trunc i64 %.val2 to i32
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.17, i32 noundef %10, ptr noundef %.val) #36
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.17, i32 noundef %10, ptr noundef %.val) #37
   %12 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc = tail call i32 @fputc(i32 41, ptr %12)
   %13 = load i32, ptr %0, align 4, !tbaa !4
@@ -2979,7 +2979,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJPNS_16itanium_demangle4NodeENSt3
   %4 = add i32 %3, 2
   store i32 %4, ptr %0, align 4, !tbaa !4
   %5 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.30) #36
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.30) #37
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !248
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -3013,7 +3013,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit:    ; preds = %.lr.ph.i, %_ZN12_GL
 
 17:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit
   %18 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #37
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #38
   br label %20
 
 20:                                               ; preds = %17, %16
@@ -3039,7 +3039,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaINSt3__117basic_string_viewIcNS2_1
   store i8 0, ptr %15, align 4, !tbaa !10
   %27 = load ptr, ptr @stderr, align 8, !tbaa !11
   %28 = trunc i64 %.sroa.2.0.copyload.i to i32
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.17, i32 noundef %28, ptr noundef %.sroa.0.0.copyload.i) #36
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.17, i32 noundef %28, ptr noundef %.sroa.0.0.copyload.i) #37
   %30 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc.i = tail call i32 @fputc(i32 41, ptr %30)
   %31 = load i32, ptr %0, align 4, !tbaa !4
@@ -3055,7 +3055,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.31) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.31) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.0.0.copyload.i = load ptr, ptr %8, align 8, !tbaa !230
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -3107,7 +3107,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJPKNS_16itanium_demangle4NodeENSt
   %4 = add i32 %3, 2
   store i32 %4, ptr %0, align 4, !tbaa !4
   %5 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.32) #36
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.32) #37
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !250
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -3141,7 +3141,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit:    ; preds = %.lr.ph.i, %_ZN12_GL
 
 17:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit
   %18 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #37
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #38
   br label %20
 
 20:                                               ; preds = %17, %16
@@ -3167,7 +3167,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaINSt3__117basic_string_viewIcNS2_1
   store i8 0, ptr %15, align 4, !tbaa !10
   %27 = load ptr, ptr @stderr, align 8, !tbaa !11
   %28 = trunc i64 %.sroa.2.0.copyload.i to i32
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.17, i32 noundef %28, ptr noundef %.sroa.0.0.copyload.i) #36
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.17, i32 noundef %28, ptr noundef %.sroa.0.0.copyload.i) #37
   %30 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc.i = tail call i32 @fputc(i32 41, ptr %30)
   %31 = load i32, ptr %0, align 4, !tbaa !4
@@ -3183,7 +3183,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.33) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.33) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !252
   %10 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -3213,7 +3213,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle11PointerType5matchINS_11DumpVisitor14CtorAr
 
 17:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle11PointerType5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %18 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #37
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %16, %17
@@ -3234,7 +3234,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJPKNS_16itanium_demangle4NodeENS2
   %4 = add i32 %3, 2
   store i32 %4, ptr %0, align 4, !tbaa !4
   %5 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.34) #36
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.34) #37
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !254
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -3266,7 +3266,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit:    ; preds = %.lr.ph.i, %_ZN12_GL
 
 18:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit
   %19 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %20 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %19) #37
+  %20 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %19) #38
   br label %21
 
 21:                                               ; preds = %18, %17
@@ -3301,7 +3301,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit:    ; preds = %.lr.ph.i, %_ZN12_GL
 .sink.split.i.i.i:                                ; preds = %28, %.loopexit
   %.str.36.sink.i.i.i = phi ptr [ @.str.36, %28 ], [ @.str.35, %.loopexit ]
   %29 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %30 = tail call i64 @fwrite(ptr nonnull %.str.36.sink.i.i.i, i64 21, i64 1, ptr %29) #37
+  %30 = tail call i64 @fwrite(ptr nonnull %.str.36.sink.i.i.i, i64 21, i64 1, ptr %29) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaINS_16itanium_demangle13ReferenceKindEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaINS_16itanium_demangle13ReferenceKindEEEvT_.exit: ; preds = %.loopexit, %.sink.split.i.i.i
@@ -3320,7 +3320,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.37) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.37) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !257
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -3352,7 +3352,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle19PointerToMemberType5matchINS_11DumpVisitor
 
 19:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle19PointerToMemberType5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %20 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %21 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %20) #37
+  %21 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %20) #38
   br label %22
 
 22:                                               ; preds = %19, %18
@@ -3385,7 +3385,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %22
 
 30:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %31 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %32 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %31) #37
+  %32 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %31) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %29, %30
@@ -3405,7 +3405,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.38) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.38) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !260
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -3437,7 +3437,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle9ArrayType5matchINS_11DumpVisitor14CtorArgPr
 
 19:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle9ArrayType5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %20 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %21 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %20) #37
+  %21 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %20) #38
   br label %22
 
 22:                                               ; preds = %19, %18
@@ -3470,7 +3470,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %22
 
 30:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %31 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %32 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %31) #37
+  %32 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %31) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %29, %30
@@ -3491,7 +3491,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %6 = add i32 %5, 2
   store i32 %6, ptr %0, align 4, !tbaa !4
   %7 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.39) #36
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.39) #37
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !263
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -3563,7 +3563,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle12FunctionType5matchINS_11DumpVisitor14CtorA
 
 35:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle12FunctionType5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %36 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %37 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %36) #37
+  %37 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %36) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %34, %35
@@ -3600,7 +3600,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %_ZN12_
 
 46:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %47 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %48 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %47) #37
+  %48 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %47) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %45, %46
@@ -3641,7 +3641,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaINS_1
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !14
 
 .thread:                                          ; preds = %3
-  %15 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 2, i64 1, ptr %8) #37
+  %15 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 2, i64 1, ptr %8) #38
   tail call fastcc void @_ZN12_GLOBAL__N_111DumpVisitor5printENS_16itanium_demangle9NodeArrayE(ptr noundef nonnull align 4 dereferenceable(5) %0, ptr %1, i64 0)
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle9NodeArrayEEEvT_.exit
 
@@ -3668,7 +3668,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaINS_1
   br i1 %5, label %9, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 2, i64 1, ptr %6) #37
+  %8 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 2, i64 1, ptr %6) #38
   br label %15
 
 9:                                                ; preds = %2
@@ -3701,17 +3701,17 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit:    ; preds = %.lr.ph.i, %9
 
 16:                                               ; preds = %15
   %17 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %18 = tail call i64 @fwrite(ptr nonnull @.str.40, i64 29, i64 1, ptr %17) #37
+  %18 = tail call i64 @fwrite(ptr nonnull @.str.40, i64 29, i64 1, ptr %17) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle15FunctionRefQualEEEvT_.exit
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %21 = tail call i64 @fwrite(ptr nonnull @.str.41, i64 31, i64 1, ptr %20) #37
+  %21 = tail call i64 @fwrite(ptr nonnull @.str.41, i64 31, i64 1, ptr %20) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle15FunctionRefQualEEEvT_.exit
 
 22:                                               ; preds = %15
   %23 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %24 = tail call i64 @fwrite(ptr nonnull @.str.42, i64 31, i64 1, ptr %23) #37
+  %24 = tail call i64 @fwrite(ptr nonnull @.str.42, i64 31, i64 1, ptr %23) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle15FunctionRefQualEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle15FunctionRefQualEEEvT_.exit: ; preds = %15, %16, %19, %22
@@ -3725,7 +3725,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.43) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.43) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !269
   %10 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -3755,7 +3755,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle12NoexceptSpec5matchINS_11DumpVisitor14CtorA
 
 17:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle12NoexceptSpec5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %18 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #37
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %16, %17
@@ -3775,7 +3775,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.44) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.44) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.0.0.copyload.i = load ptr, ptr %8, align 8, !tbaa !230
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -3827,7 +3827,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %6 = add i32 %5, 2
   store i32 %6, ptr %0, align 4, !tbaa !4
   %7 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.45) #36
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.45) #37
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !271
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -3907,7 +3907,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle16FunctionEncoding5matchINS_11DumpVisitor14C
 
 41:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle16FunctionEncoding5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %42 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %43 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %42) #37
+  %43 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %42) #38
   br label %44
 
 44:                                               ; preds = %41, %40
@@ -3941,7 +3941,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i20: ; preds = %.lr.ph.i.i16, %44
 
 53:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i20
   %54 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %55 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %54) #37
+  %55 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %54) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit23
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit23: ; preds = %52, %53
@@ -3975,7 +3975,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i9: ; preds = %.lr.ph.i.i5, %_ZN12
 
 63:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i9
   %64 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %65 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %64) #37
+  %65 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %64) #38
   br label %66
 
 66:                                               ; preds = %63, %62
@@ -4008,7 +4008,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %66
 
 74:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %75 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %76 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %75) #37
+  %76 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %75) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %73, %74
@@ -4030,7 +4030,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.46) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.46) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !278
   %10 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -4060,7 +4060,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle15LiteralOperator5matchINS_11DumpVisitor14Ct
 
 17:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle15LiteralOperator5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %18 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #37
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %16, %17
@@ -4081,7 +4081,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJNSt3__117basic_string_viewIcNS2_
   %4 = add i32 %3, 2
   store i32 %4, ptr %0, align 4, !tbaa !4
   %5 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.47) #36
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.47) #37
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.0.0.copyload.i = load ptr, ptr %7, align 8, !tbaa !219
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -4108,7 +4108,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit:    ; preds = %.lr.ph.i, %_ZN12_GL
   store i8 0, ptr %15, align 4, !tbaa !10
   %16 = load ptr, ptr @stderr, align 8, !tbaa !11
   %17 = trunc i64 %.sroa.2.0.copyload.i to i32
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.17, i32 noundef %17, ptr noundef %.sroa.0.0.copyload.i) #36
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.17, i32 noundef %17, ptr noundef %.sroa.0.0.copyload.i) #37
   %19 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc = tail call i32 @fputc(i32 44, ptr %19)
   %20 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -4137,7 +4137,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %_ZN12_
 
 26:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %27 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %28 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %27) #37
+  %28 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %27) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %25, %26
@@ -4157,7 +4157,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.48) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.48) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !282
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -4189,7 +4189,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle21CtorVtableSpecialName5matchINS_11DumpVisit
 
 19:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle21CtorVtableSpecialName5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %20 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %21 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %20) #37
+  %21 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %20) #38
   br label %22
 
 22:                                               ; preds = %19, %18
@@ -4222,7 +4222,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %22
 
 30:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %31 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %32 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %31) #37
+  %32 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %31) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %29, %30
@@ -4242,7 +4242,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.49) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.49) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !285
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -4274,7 +4274,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle13QualifiedName5matchINS_11DumpVisitor14Ctor
 
 19:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle13QualifiedName5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %20 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %21 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %20) #37
+  %21 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %20) #38
   br label %22
 
 22:                                               ; preds = %19, %18
@@ -4307,7 +4307,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %22
 
 30:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %31 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %32 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %31) #37
+  %32 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %31) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %29, %30
@@ -4327,7 +4327,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.50) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.50) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !288
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -4359,7 +4359,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle10NestedName5matchINS_11DumpVisitor14CtorArg
 
 19:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle10NestedName5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %20 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %21 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %20) #37
+  %21 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %20) #38
   br label %22
 
 22:                                               ; preds = %19, %18
@@ -4392,7 +4392,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %22
 
 30:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %31 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %32 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %31) #37
+  %32 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %31) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %29, %30
@@ -4412,7 +4412,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.51) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.51) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !291
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -4444,7 +4444,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle20MemberLikeFriendName5matchINS_11DumpVisito
 
 19:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle20MemberLikeFriendName5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %20 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %21 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %20) #37
+  %21 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %20) #38
   br label %22
 
 22:                                               ; preds = %19, %18
@@ -4477,7 +4477,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %22
 
 30:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %31 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %32 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %31) #37
+  %32 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %31) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %29, %30
@@ -4497,7 +4497,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.52) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.52) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !294
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -4529,7 +4529,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle9LocalName5matchINS_11DumpVisitor14CtorArgPr
 
 19:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle9LocalName5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %20 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %21 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %20) #37
+  %21 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %20) #38
   br label %22
 
 22:                                               ; preds = %19, %18
@@ -4562,7 +4562,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %22
 
 30:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %31 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %32 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %31) #37
+  %32 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %31) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %29, %30
@@ -4583,7 +4583,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %6 = add i32 %5, 2
   store i32 %6, ptr %0, align 4, !tbaa !4
   %7 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.53) #36
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.53) #37
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !297
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -4643,7 +4643,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle10ModuleName5matchINS_11DumpVisitor14CtorArg
 
 28:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle10ModuleName5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %29 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %30 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %29) #37
+  %30 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %29) #38
   br label %31
 
 31:                                               ; preds = %28, %27
@@ -4677,7 +4677,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i9: ; preds = %.lr.ph.i.i5, %31
 
 40:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i9
   %41 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %42 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %41) #37
+  %42 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %41) #38
   br label %43
 
 43:                                               ; preds = %40, %39
@@ -4704,7 +4704,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIbEEvT_.exit: ; preds = %.lr.ph.i.
   store i8 0, ptr %32, align 4, !tbaa !10
   %51 = select i1 %50, ptr @.str.54, ptr @.str.55
   %52 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %fputs.i.i.i.i = tail call i32 @fputs(ptr nonnull readonly %51, ptr %52) #37
+  %fputs.i.i.i.i = tail call i32 @fputs(ptr nonnull readonly %51, ptr %52) #38
   %53 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc.i = tail call i32 @fputc(i32 41, ptr %53)
   %54 = load i32, ptr %0, align 4, !tbaa !4
@@ -4720,7 +4720,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.56) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.56) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !301
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -4752,7 +4752,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle12ModuleEntity5matchINS_11DumpVisitor14CtorA
 
 19:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle12ModuleEntity5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %20 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %21 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %20) #37
+  %21 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %20) #38
   br label %22
 
 22:                                               ; preds = %19, %18
@@ -4785,7 +4785,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %22
 
 30:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %31 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %32 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %31) #37
+  %32 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %31) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %29, %30
@@ -4805,7 +4805,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.57) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.57) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !304
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -4837,7 +4837,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle10VectorType5matchINS_11DumpVisitor14CtorArg
 
 19:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle10VectorType5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %20 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %21 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %20) #37
+  %21 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %20) #38
   br label %22
 
 22:                                               ; preds = %19, %18
@@ -4870,7 +4870,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %22
 
 30:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %31 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %32 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %31) #37
+  %32 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %31) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %29, %30
@@ -4890,7 +4890,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.58) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.58) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !307
   %10 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -4920,7 +4920,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle15PixelVectorType5matchINS_11DumpVisitor14Ct
 
 17:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle15PixelVectorType5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %18 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #37
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %16, %17
@@ -4940,7 +4940,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.59) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.59) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !309
   %10 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -4970,7 +4970,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle12BinaryFPType5matchINS_11DumpVisitor14CtorA
 
 17:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle12BinaryFPType5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %18 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #37
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %16, %17
@@ -4991,7 +4991,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJPKNS_16itanium_demangle4NodeEbEE
   %4 = add i32 %3, 2
   store i32 %4, ptr %0, align 4, !tbaa !4
   %5 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.60) #36
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.60) #37
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !311
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -5023,7 +5023,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit:    ; preds = %.lr.ph.i, %_ZN12_GL
 
 18:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit
   %19 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %20 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %19) #37
+  %20 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %19) #38
   br label %21
 
 21:                                               ; preds = %18, %17
@@ -5050,7 +5050,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIbEEvT_.exit: ; preds = %.lr.ph.i.
   store i8 0, ptr %16, align 4, !tbaa !10
   %29 = select i1 %28, ptr @.str.54, ptr @.str.55
   %30 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %fputs.i.i.i.i = tail call i32 @fputs(ptr nonnull readonly %29, ptr %30) #37
+  %fputs.i.i.i.i = tail call i32 @fputs(ptr nonnull readonly %29, ptr %30) #38
   %31 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc.i = tail call i32 @fputc(i32 41, ptr %31)
   %32 = load i32, ptr %0, align 4, !tbaa !4
@@ -5065,7 +5065,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111DumpVisitorclINS_16itanium_deman
   %4 = add i32 %3, 2
   store i32 %4, ptr %0, align 4, !tbaa !4
   %5 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.61) #36
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.61) #37
   %7 = getelementptr i8, ptr %1, i64 12
   %.val = load i32, ptr %7, align 4, !tbaa !314
   %8 = getelementptr i8, ptr %1, i64 16
@@ -5078,17 +5078,17 @@ define internal fastcc void @_ZN12_GLOBAL__N_111DumpVisitorclINS_16itanium_deman
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %11 = tail call i64 @fwrite(ptr nonnull @.str.62, i64 23, i64 1, ptr %10) #37
+  %11 = tail call i64 @fwrite(ptr nonnull @.str.62, i64 23, i64 1, ptr %10) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle17TemplateParamKindEEEvT_.exit.i.i
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %14 = tail call i64 @fwrite(ptr nonnull @.str.63, i64 26, i64 1, ptr %13) #37
+  %14 = tail call i64 @fwrite(ptr nonnull @.str.63, i64 26, i64 1, ptr %13) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle17TemplateParamKindEEEvT_.exit.i.i
 
 15:                                               ; preds = %2
   %16 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %17 = tail call i64 @fwrite(ptr nonnull @.str.64, i64 27, i64 1, ptr %16) #37
+  %17 = tail call i64 @fwrite(ptr nonnull @.str.64, i64 27, i64 1, ptr %16) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle17TemplateParamKindEEEvT_.exit.i.i
 
 _ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle17TemplateParamKindEEEvT_.exit.i.i: ; preds = %15, %12, %9, %2
@@ -5099,7 +5099,7 @@ _ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle17T
   br i1 %20, label %24, label %22
 
 22:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle17TemplateParamKindEEEvT_.exit.i.i
-  %23 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 2, i64 1, ptr %21) #37
+  %23 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 2, i64 1, ptr %21) #38
   br label %_ZNK12_GLOBAL__N_116itanium_demangle26SyntheticTemplateParamName5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
 
 24:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle17TemplateParamKindEEEvT_.exit.i.i
@@ -5126,7 +5126,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i, 
 _ZNK12_GLOBAL__N_116itanium_demangle26SyntheticTemplateParamName5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit: ; preds = %22, %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i.i.i
   %30 = load ptr, ptr @stderr, align 8, !tbaa !11
   %31 = zext i32 %.val2 to i64
-  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.65, i64 noundef %31) #36
+  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.65, i64 noundef %31) #37
   %33 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc = tail call i32 @fputc(i32 41, ptr %33)
   %34 = load i32, ptr %0, align 4, !tbaa !4
@@ -5142,7 +5142,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.66) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.66) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !317
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -5174,7 +5174,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle25TemplateParamQualifiedArg5matchINS_11DumpV
 
 19:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle25TemplateParamQualifiedArg5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %20 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %21 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %20) #37
+  %21 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %20) #38
   br label %22
 
 22:                                               ; preds = %19, %18
@@ -5207,7 +5207,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %22
 
 30:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %31 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %32 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %31) #37
+  %32 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %31) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %29, %30
@@ -5227,7 +5227,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.67) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.67) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !320
   %10 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -5257,7 +5257,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle21TypeTemplateParamDecl5matchINS_11DumpVisit
 
 17:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle21TypeTemplateParamDecl5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %18 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #37
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %16, %17
@@ -5277,7 +5277,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.68) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.68) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !322
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -5309,7 +5309,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle32ConstrainedTypeTemplateParamDecl5matchINS_
 
 19:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle32ConstrainedTypeTemplateParamDecl5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %20 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %21 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %20) #37
+  %21 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %20) #38
   br label %22
 
 22:                                               ; preds = %19, %18
@@ -5342,7 +5342,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %22
 
 30:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %31 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %32 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %31) #37
+  %32 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %31) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %29, %30
@@ -5362,7 +5362,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.69) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.69) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !325
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -5394,7 +5394,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle24NonTypeTemplateParamDecl5matchINS_11DumpVi
 
 19:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle24NonTypeTemplateParamDecl5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %20 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %21 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %20) #37
+  %21 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %20) #38
   br label %22
 
 22:                                               ; preds = %19, %18
@@ -5427,7 +5427,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %22
 
 30:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %31 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %32 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %31) #37
+  %32 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %31) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %29, %30
@@ -5448,7 +5448,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %6 = add i32 %5, 2
   store i32 %6, ptr %0, align 4, !tbaa !4
   %7 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.70) #36
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.70) #37
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !328
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -5512,7 +5512,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle25TemplateTemplateParamDecl5matchINS_11DumpV
 
 29:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle25TemplateTemplateParamDecl5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %30 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %31 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %30) #37
+  %31 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %30) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %28, %29
@@ -5547,7 +5547,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %_ZN12_
 
 40:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %41 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %42 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %41) #37
+  %42 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %41) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %39, %40
@@ -5567,7 +5567,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.71) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.71) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !331
   %10 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -5597,7 +5597,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle21TemplateParamPackDecl5matchINS_11DumpVisit
 
 17:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle21TemplateParamPackDecl5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %18 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #37
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %16, %17
@@ -5617,7 +5617,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.72) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.72) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.0.0.copyload.i = load ptr, ptr %8, align 8, !tbaa !230
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -5668,7 +5668,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.73) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.73) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.0.0.copyload.i = load ptr, ptr %8, align 8, !tbaa !230
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -5719,7 +5719,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.74) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.74) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !333
   %10 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -5749,7 +5749,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle22ParameterPackExpansion5matchINS_11DumpVisi
 
 17:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle22ParameterPackExpansion5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %18 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #37
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %16, %17
@@ -5770,7 +5770,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJNS_16itanium_demangle9NodeArrayE
   %4 = add i32 %3, 2
   store i32 %4, ptr %0, align 4, !tbaa !4
   %5 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.75) #36
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.75) #37
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.0.0.copyload.i = load ptr, ptr %7, align 8, !tbaa !230
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -5832,7 +5832,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %_ZN12_
 
 24:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %25 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %26 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %25) #37
+  %26 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %25) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %23, %24
@@ -5852,7 +5852,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i64 @fwrite(ptr nonnull @.str.76, i64 25, i64 1, ptr %6) #37
+  %7 = tail call i64 @fwrite(ptr nonnull @.str.76, i64 25, i64 1, ptr %6) #38
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !337
   %.not.i = icmp eq ptr %9, null
@@ -5893,7 +5893,7 @@ _ZN12_GLOBAL__N_111DumpVisitor5printEPKNS_16itanium_demangle4NodeE.exit: ; preds
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %23 = load i64, ptr %22, align 8, !tbaa !340
   %24 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.65, i64 noundef %23) #36
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.65, i64 noundef %23) #37
   br label %_ZN12_GLOBAL__N_111DumpVisitorclEPKNS_16itanium_demangle24ForwardTemplateReferenceE.exit
 
 _ZN12_GLOBAL__N_111DumpVisitorclEPKNS_16itanium_demangle24ForwardTemplateReferenceE.exit: ; preds = %_ZN12_GLOBAL__N_111DumpVisitor5printEPKNS_16itanium_demangle4NodeE.exit, %21
@@ -5912,7 +5912,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.77) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.77) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !341
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -5944,7 +5944,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle20NameWithTemplateArgs5matchINS_11DumpVisito
 
 19:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle20NameWithTemplateArgs5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %20 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %21 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %20) #37
+  %21 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %20) #38
   br label %22
 
 22:                                               ; preds = %19, %18
@@ -5977,7 +5977,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %22
 
 30:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %31 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %32 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %31) #37
+  %32 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %31) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %29, %30
@@ -5997,7 +5997,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.78) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.78) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !344
   %10 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -6027,7 +6027,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle19GlobalQualifiedName5matchINS_11DumpVisitor
 
 17:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle19GlobalQualifiedName5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %18 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #37
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %16, %17
@@ -6046,7 +6046,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111DumpVisitorclINS_16itanium_deman
   %4 = add i32 %3, 2
   store i32 %4, ptr %0, align 4, !tbaa !4
   %5 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.79) #36
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.79) #37
   %7 = getelementptr i8, ptr %1, i64 12
   %.val = load i32, ptr %7, align 4, !tbaa !346
   tail call fastcc void @_ZN12_GLOBAL__N_111DumpVisitor14CtorArgPrinterclINS_16itanium_demangle14SpecialSubKindEJEEEvT_DpT0_(i32 noundef %.val)
@@ -6071,32 +6071,32 @@ define internal fastcc void @_ZN12_GLOBAL__N_111DumpVisitor14CtorArgPrinterclINS
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %4 = tail call i64 @fwrite(ptr nonnull @.str.80, i64 25, i64 1, ptr %3) #37
+  %4 = tail call i64 @fwrite(ptr nonnull @.str.80, i64 25, i64 1, ptr %3) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle14SpecialSubKindEEEvT_.exit
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i64 @fwrite(ptr nonnull @.str.81, i64 28, i64 1, ptr %6) #37
+  %7 = tail call i64 @fwrite(ptr nonnull @.str.81, i64 28, i64 1, ptr %6) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle14SpecialSubKindEEEvT_.exit
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %10 = tail call i64 @fwrite(ptr nonnull @.str.82, i64 22, i64 1, ptr %9) #37
+  %10 = tail call i64 @fwrite(ptr nonnull @.str.82, i64 22, i64 1, ptr %9) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle14SpecialSubKindEEEvT_.exit
 
 11:                                               ; preds = %1
   %12 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %13 = tail call i64 @fwrite(ptr nonnull @.str.83, i64 23, i64 1, ptr %12) #37
+  %13 = tail call i64 @fwrite(ptr nonnull @.str.83, i64 23, i64 1, ptr %12) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle14SpecialSubKindEEEvT_.exit
 
 14:                                               ; preds = %1
   %15 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %16 = tail call i64 @fwrite(ptr nonnull @.str.84, i64 23, i64 1, ptr %15) #37
+  %16 = tail call i64 @fwrite(ptr nonnull @.str.84, i64 23, i64 1, ptr %15) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle14SpecialSubKindEEEvT_.exit
 
 17:                                               ; preds = %1
   %18 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.85, i64 24, i64 1, ptr %18) #37
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.85, i64 24, i64 1, ptr %18) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle14SpecialSubKindEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle14SpecialSubKindEEEvT_.exit: ; preds = %1, %2, %5, %8, %11, %14, %17
@@ -6109,7 +6109,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111DumpVisitorclINS_16itanium_deman
   %4 = add i32 %3, 2
   store i32 %4, ptr %0, align 4, !tbaa !4
   %5 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.86) #36
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.86) #37
   %7 = getelementptr i8, ptr %1, i64 12
   %.val = load i32, ptr %7, align 4, !tbaa !346
   tail call fastcc void @_ZN12_GLOBAL__N_111DumpVisitor14CtorArgPrinterclINS_16itanium_demangle14SpecialSubKindEJEEEvT_DpT0_(i32 noundef %.val)
@@ -6129,7 +6129,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %6 = add i32 %5, 2
   store i32 %6, ptr %0, align 4, !tbaa !4
   %7 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.87) #36
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.87) #37
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !348
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -6190,7 +6190,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle12CtorDtorName5matchINS_11DumpVisitor14CtorA
 
 29:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle12CtorDtorName5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %30 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %31 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %30) #37
+  %31 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %30) #38
   br label %32
 
 32:                                               ; preds = %29, %28
@@ -6217,14 +6217,14 @@ _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIbEEvT_.exit: ; preds = %.lr.ph.i.
   store i8 0, ptr %33, align 4, !tbaa !10
   %40 = select i1 %20, ptr @.str.54, ptr @.str.55
   %41 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %fputs.i.i.i.i = tail call i32 @fputs(ptr nonnull readonly %40, ptr %41) #37
+  %fputs.i.i.i.i = tail call i32 @fputs(ptr nonnull readonly %40, ptr %41) #38
   %42 = load i8, ptr %33, align 4, !tbaa !10, !range !235, !noundef !236
   %43 = trunc nuw i8 %42 to i1
   %44 = load ptr, ptr @stderr, align 8, !tbaa !11
   br i1 %43, label %47, label %45
 
 45:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIbEEvT_.exit
-  %46 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 2, i64 1, ptr %44) #37
+  %46 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 2, i64 1, ptr %44) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIiEEvT_.exit
 
 47:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIbEEvT_.exit
@@ -6251,7 +6251,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %47
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIiEEvT_.exit: ; preds = %45, %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %53 = load ptr, ptr @stderr, align 8, !tbaa !11
   %54 = sext i32 %14 to i64
-  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.88, i64 noundef %54) #36
+  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.88, i64 noundef %54) #37
   %56 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc.i = tail call i32 @fputc(i32 41, ptr %56)
   %57 = load i32, ptr %0, align 4, !tbaa !4
@@ -6267,7 +6267,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.89) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.89) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !352
   %10 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -6297,7 +6297,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle8DtorName5matchINS_11DumpVisitor14CtorArgPri
 
 17:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle8DtorName5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %18 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #37
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %16, %17
@@ -6316,14 +6316,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_111DumpVisitorclINS_16itanium_deman
   %4 = add i32 %3, 2
   store i32 %4, ptr %0, align 4, !tbaa !4
   %5 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.90) #36
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.90) #37
   %7 = getelementptr i8, ptr %1, i64 16
   %.val = load ptr, ptr %7, align 8, !tbaa !219
   %8 = getelementptr i8, ptr %1, i64 24
   %.val2 = load i64, ptr %8, align 8, !tbaa !220
   %9 = load ptr, ptr @stderr, align 8, !tbaa !11
   %10 = trunc i64 %.val2 to i32
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.17, i32 noundef %10, ptr noundef %.val) #36
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.17, i32 noundef %10, ptr noundef %.val) #37
   %12 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc = tail call i32 @fputc(i32 41, ptr %12)
   %13 = load i32, ptr %0, align 4, !tbaa !4
@@ -6340,7 +6340,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %6 = add i32 %5, 2
   store i32 %6, ptr %0, align 4, !tbaa !4
   %7 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.91) #36
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.91) #37
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.01.0.copyload.i = load ptr, ptr %9, align 8, !tbaa !230
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -6447,7 +6447,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i17: ; preds = %.lr.ph.i.i13, %_ZN
 
 44:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i17
   %45 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %46 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %45) #37
+  %46 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %45) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit20
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit20: ; preds = %43, %44
@@ -6481,7 +6481,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i9: ; preds = %.lr.ph.i.i5, %_ZN12
 
 54:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i9
   %55 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %56 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %55) #37
+  %56 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %55) #38
   br label %57
 
 57:                                               ; preds = %54, %53
@@ -6507,7 +6507,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaINSt3__117basic_string_viewIcNS2_1
   store i8 0, ptr %36, align 4, !tbaa !10
   %64 = load ptr, ptr @stderr, align 8, !tbaa !11
   %65 = trunc i64 %.sroa.4.0.copyload to i32
-  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %64, ptr noundef nonnull @.str.17, i32 noundef %65, ptr noundef %.sroa.031.0.copyload) #36
+  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %64, ptr noundef nonnull @.str.17, i32 noundef %65, ptr noundef %.sroa.031.0.copyload) #37
   %67 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc.i = tail call i32 @fputc(i32 41, ptr %67)
   %68 = load i32, ptr %0, align 4, !tbaa !4
@@ -6523,7 +6523,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.92) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.92) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.0.0.copyload.i = load ptr, ptr %8, align 8, !tbaa !230
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -6575,7 +6575,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %6 = add i32 %5, 2
   store i32 %6, ptr %0, align 4, !tbaa !4
   %7 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.93) #36
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.93) #37
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !357
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -6641,7 +6641,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle10BinaryExpr5matchINS_11DumpVisitor14CtorArg
 
 29:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle10BinaryExpr5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %30 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %31 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %30) #37
+  %31 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %30) #38
   br label %32
 
 32:                                               ; preds = %29, %28
@@ -6668,7 +6668,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaINSt3__117basic_string_viewIcNS2_1
   store i8 0, ptr %33, align 4, !tbaa !10
   %40 = load ptr, ptr @stderr, align 8, !tbaa !11
   %41 = trunc i64 %.sroa.2.0.copyload.i to i32
-  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.17, i32 noundef %41, ptr noundef %.sroa.0.0.copyload.i) #36
+  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.17, i32 noundef %41, ptr noundef %.sroa.0.0.copyload.i) #37
   %43 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc = tail call i32 @fputc(i32 44, ptr %43)
   %44 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -6697,7 +6697,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %_ZN12_
 
 50:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %51 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %52 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %51) #37
+  %52 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %51) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %49, %50
@@ -6722,7 +6722,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaINS_1
   br i1 %5, label %9, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 2, i64 1, ptr %6) #37
+  %8 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 2, i64 1, ptr %6) #38
   br label %15
 
 9:                                                ; preds = %2
@@ -6772,102 +6772,102 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit:    ; preds = %.lr.ph.i, %9
 
 16:                                               ; preds = %15
   %17 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %18 = tail call i64 @fwrite(ptr nonnull @.str.94, i64 19, i64 1, ptr %17) #37
+  %18 = tail call i64 @fwrite(ptr nonnull @.str.94, i64 19, i64 1, ptr %17) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle4Node4PrecEEEvT_.exit
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %21 = tail call i64 @fwrite(ptr nonnull @.str.95, i64 19, i64 1, ptr %20) #37
+  %21 = tail call i64 @fwrite(ptr nonnull @.str.95, i64 19, i64 1, ptr %20) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle4Node4PrecEEEvT_.exit
 
 22:                                               ; preds = %15
   %23 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %24 = tail call i64 @fwrite(ptr nonnull @.str.96, i64 17, i64 1, ptr %23) #37
+  %24 = tail call i64 @fwrite(ptr nonnull @.str.96, i64 17, i64 1, ptr %23) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle4Node4PrecEEEvT_.exit
 
 25:                                               ; preds = %15
   %26 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %27 = tail call i64 @fwrite(ptr nonnull @.str.97, i64 16, i64 1, ptr %26) #37
+  %27 = tail call i64 @fwrite(ptr nonnull @.str.97, i64 16, i64 1, ptr %26) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle4Node4PrecEEEvT_.exit
 
 28:                                               ; preds = %15
   %29 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %30 = tail call i64 @fwrite(ptr nonnull @.str.98, i64 18, i64 1, ptr %29) #37
+  %30 = tail call i64 @fwrite(ptr nonnull @.str.98, i64 18, i64 1, ptr %29) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle4Node4PrecEEEvT_.exit
 
 31:                                               ; preds = %15
   %32 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %33 = tail call i64 @fwrite(ptr nonnull @.str.99, i64 26, i64 1, ptr %32) #37
+  %33 = tail call i64 @fwrite(ptr nonnull @.str.99, i64 26, i64 1, ptr %32) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle4Node4PrecEEEvT_.exit
 
 34:                                               ; preds = %15
   %35 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %36 = tail call i64 @fwrite(ptr nonnull @.str.100, i64 20, i64 1, ptr %35) #37
+  %36 = tail call i64 @fwrite(ptr nonnull @.str.100, i64 20, i64 1, ptr %35) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle4Node4PrecEEEvT_.exit
 
 37:                                               ; preds = %15
   %38 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %39 = tail call i64 @fwrite(ptr nonnull @.str.101, i64 17, i64 1, ptr %38) #37
+  %39 = tail call i64 @fwrite(ptr nonnull @.str.101, i64 17, i64 1, ptr %38) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle4Node4PrecEEEvT_.exit
 
 40:                                               ; preds = %15
   %41 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %42 = tail call i64 @fwrite(ptr nonnull @.str.102, i64 21, i64 1, ptr %41) #37
+  %42 = tail call i64 @fwrite(ptr nonnull @.str.102, i64 21, i64 1, ptr %41) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle4Node4PrecEEEvT_.exit
 
 43:                                               ; preds = %15
   %44 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %45 = tail call i64 @fwrite(ptr nonnull @.str.103, i64 22, i64 1, ptr %44) #37
+  %45 = tail call i64 @fwrite(ptr nonnull @.str.103, i64 22, i64 1, ptr %44) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle4Node4PrecEEEvT_.exit
 
 46:                                               ; preds = %15
   %47 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %48 = tail call i64 @fwrite(ptr nonnull @.str.104, i64 20, i64 1, ptr %47) #37
+  %48 = tail call i64 @fwrite(ptr nonnull @.str.104, i64 20, i64 1, ptr %47) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle4Node4PrecEEEvT_.exit
 
 49:                                               ; preds = %15
   %50 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %51 = tail call i64 @fwrite(ptr nonnull @.str.105, i64 15, i64 1, ptr %50) #37
+  %51 = tail call i64 @fwrite(ptr nonnull @.str.105, i64 15, i64 1, ptr %50) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle4Node4PrecEEEvT_.exit
 
 52:                                               ; preds = %15
   %53 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %54 = tail call i64 @fwrite(ptr nonnull @.str.106, i64 15, i64 1, ptr %53) #37
+  %54 = tail call i64 @fwrite(ptr nonnull @.str.106, i64 15, i64 1, ptr %53) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle4Node4PrecEEEvT_.exit
 
 55:                                               ; preds = %15
   %56 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %57 = tail call i64 @fwrite(ptr nonnull @.str.107, i64 15, i64 1, ptr %56) #37
+  %57 = tail call i64 @fwrite(ptr nonnull @.str.107, i64 15, i64 1, ptr %56) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle4Node4PrecEEEvT_.exit
 
 58:                                               ; preds = %15
   %59 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %60 = tail call i64 @fwrite(ptr nonnull @.str.108, i64 17, i64 1, ptr %59) #37
+  %60 = tail call i64 @fwrite(ptr nonnull @.str.108, i64 17, i64 1, ptr %59) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle4Node4PrecEEEvT_.exit
 
 61:                                               ; preds = %15
   %62 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %63 = tail call i64 @fwrite(ptr nonnull @.str.109, i64 16, i64 1, ptr %62) #37
+  %63 = tail call i64 @fwrite(ptr nonnull @.str.109, i64 16, i64 1, ptr %62) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle4Node4PrecEEEvT_.exit
 
 64:                                               ; preds = %15
   %65 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %66 = tail call i64 @fwrite(ptr nonnull @.str.110, i64 23, i64 1, ptr %65) #37
+  %66 = tail call i64 @fwrite(ptr nonnull @.str.110, i64 23, i64 1, ptr %65) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle4Node4PrecEEEvT_.exit
 
 67:                                               ; preds = %15
   %68 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %69 = tail call i64 @fwrite(ptr nonnull @.str.111, i64 18, i64 1, ptr %68) #37
+  %69 = tail call i64 @fwrite(ptr nonnull @.str.111, i64 18, i64 1, ptr %68) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle4Node4PrecEEEvT_.exit
 
 70:                                               ; preds = %15
   %71 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %72 = tail call i64 @fwrite(ptr nonnull @.str.112, i64 17, i64 1, ptr %71) #37
+  %72 = tail call i64 @fwrite(ptr nonnull @.str.112, i64 17, i64 1, ptr %71) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle4Node4PrecEEEvT_.exit
 
 73:                                               ; preds = %15
   %74 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %75 = tail call i64 @fwrite(ptr nonnull @.str.113, i64 19, i64 1, ptr %74) #37
+  %75 = tail call i64 @fwrite(ptr nonnull @.str.113, i64 19, i64 1, ptr %74) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle4Node4PrecEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle4Node4PrecEEEvT_.exit: ; preds = %15, %16, %19, %22, %25, %28, %31, %34, %37, %40, %43, %46, %49, %52, %55, %58, %61, %64, %67, %70, %73
@@ -6882,7 +6882,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %6 = add i32 %5, 2
   store i32 %6, ptr %0, align 4, !tbaa !4
   %7 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.114) #36
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.114) #37
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !360
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -6942,7 +6942,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle18ArraySubscriptExpr5matchINS_11DumpVisitor1
 
 27:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle18ArraySubscriptExpr5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %28 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %29 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %28) #37
+  %29 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %28) #38
   br label %30
 
 30:                                               ; preds = %27, %26
@@ -6976,7 +6976,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %30
 
 39:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %40 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %41 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %40) #37
+  %41 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %40) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %38, %39
@@ -7000,7 +7000,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %6 = add i32 %5, 2
   store i32 %6, ptr %0, align 4, !tbaa !4
   %7 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.115) #36
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.115) #37
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !363
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -7062,7 +7062,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle11PostfixExpr5matchINS_11DumpVisitor14CtorAr
 
 26:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle11PostfixExpr5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %27 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %28 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %27) #37
+  %28 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %27) #38
   br label %29
 
 29:                                               ; preds = %26, %25
@@ -7091,7 +7091,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaINSt3__117basic_string_viewIcNS2_1
   store i8 0, ptr %30, align 4, !tbaa !10
   %39 = load ptr, ptr @stderr, align 8, !tbaa !11
   %40 = trunc i64 %.sroa.2.0.copyload.i to i32
-  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.17, i32 noundef %40, ptr noundef %.sroa.0.0.copyload.i) #36
+  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.17, i32 noundef %40, ptr noundef %.sroa.0.0.copyload.i) #37
   tail call fastcc void @_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaINS_16itanium_demangle4Node4PrecEEEvT_(ptr noundef nonnull align 4 dereferenceable(5) %0, i8 noundef zeroext range(i8 0, 64) %38)
   %42 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc.i = tail call i32 @fputc(i32 41, ptr %42)
@@ -7109,7 +7109,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %6 = add i32 %5, 2
   store i32 %6, ptr %0, align 4, !tbaa !4
   %7 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.116) #36
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.116) #37
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !365
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -7173,7 +7173,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle15ConditionalExpr5matchINS_11DumpVisitor14Ct
 
 30:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle15ConditionalExpr5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %31 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %32 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %31) #37
+  %32 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %31) #38
   br label %33
 
 33:                                               ; preds = %30, %29
@@ -7207,7 +7207,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i9: ; preds = %.lr.ph.i.i5, %33
 
 42:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i9
   %43 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %44 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %43) #37
+  %44 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %43) #38
   br label %45
 
 45:                                               ; preds = %42, %41
@@ -7240,7 +7240,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %45
 
 53:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %54 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %55 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %54) #37
+  %55 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %54) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %52, %53
@@ -7264,7 +7264,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %6 = add i32 %5, 2
   store i32 %6, ptr %0, align 4, !tbaa !4
   %7 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.117) #36
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.117) #37
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !369
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -7330,7 +7330,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle10MemberExpr5matchINS_11DumpVisitor14CtorArg
 
 29:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle10MemberExpr5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %30 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %31 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %30) #37
+  %31 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %30) #38
   br label %32
 
 32:                                               ; preds = %29, %28
@@ -7357,7 +7357,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaINSt3__117basic_string_viewIcNS2_1
   store i8 0, ptr %33, align 4, !tbaa !10
   %40 = load ptr, ptr @stderr, align 8, !tbaa !11
   %41 = trunc i64 %.sroa.2.0.copyload.i to i32
-  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.17, i32 noundef %41, ptr noundef %.sroa.0.0.copyload.i) #36
+  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.17, i32 noundef %41, ptr noundef %.sroa.0.0.copyload.i) #37
   %43 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc = tail call i32 @fputc(i32 44, ptr %43)
   %44 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -7386,7 +7386,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %_ZN12_
 
 50:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %51 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %52 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %51) #37
+  %52 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %51) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %49, %50
@@ -7410,7 +7410,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %6 = add i32 %5, 2
   store i32 %6, ptr %0, align 4, !tbaa !4
   %7 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.118) #36
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.118) #37
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !372
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -7484,7 +7484,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle13SubobjectExpr5matchINS_11DumpVisitor14Ctor
 
 34:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle13SubobjectExpr5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %35 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %36 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %35) #37
+  %36 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %35) #38
   br label %37
 
 37:                                               ; preds = %34, %33
@@ -7518,7 +7518,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i17: ; preds = %.lr.ph.i.i13, %37
 
 46:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i17
   %47 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %48 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %47) #37
+  %48 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %47) #38
   br label %49
 
 49:                                               ; preds = %46, %45
@@ -7544,7 +7544,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaINSt3__117basic_string_viewIcNS2_1
   store i8 0, ptr %38, align 4, !tbaa !10
   %56 = load ptr, ptr @stderr, align 8, !tbaa !11
   %57 = trunc i64 %.sroa.2.0.copyload.i to i32
-  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef nonnull @.str.17, i32 noundef %57, ptr noundef %.sroa.0.0.copyload.i) #36
+  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef nonnull @.str.17, i32 noundef %57, ptr noundef %.sroa.0.0.copyload.i) #37
   tail call fastcc void @_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaINS_16itanium_demangle9NodeArrayEEEvT_(ptr noundef nonnull align 4 dereferenceable(5) %0, ptr %.sroa.028.0.copyload, i64 %.sroa.429.0.copyload)
   %59 = load i8, ptr %38, align 4, !tbaa !10, !range !235, !noundef !236
   %60 = trunc nuw i8 %59 to i1
@@ -7552,7 +7552,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaINSt3__117basic_string_viewIcNS2_1
   br i1 %60, label %64, label %62
 
 62:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaINSt3__117basic_string_viewIcNS2_11char_traitsIcEEEEEEvT_.exit
-  %63 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 2, i64 1, ptr %61) #37
+  %63 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 2, i64 1, ptr %61) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIbEEvT_.exit
 
 64:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaINSt3__117basic_string_viewIcNS2_11char_traitsIcEEEEEEvT_.exit
@@ -7580,7 +7580,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIbEEvT_.exit: ; preds = %62, %_ZN1
   %70 = trunc nuw i8 %16 to i1
   %71 = select i1 %70, ptr @.str.54, ptr @.str.55
   %72 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %fputs.i.i.i.i = tail call i32 @fputs(ptr nonnull readonly %71, ptr %72) #37
+  %fputs.i.i.i.i = tail call i32 @fputs(ptr nonnull readonly %71, ptr %72) #38
   %73 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc.i = tail call i32 @fputc(i32 41, ptr %73)
   %74 = load i32, ptr %0, align 4, !tbaa !4
@@ -7597,7 +7597,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %6 = add i32 %5, 2
   store i32 %6, ptr %0, align 4, !tbaa !4
   %7 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.119) #36
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.119) #37
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.0.0.copyload.i = load ptr, ptr %9, align 8, !tbaa !219
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -7652,7 +7652,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit:    ; preds = %.lr.ph.i, %18
 _ZNK12_GLOBAL__N_116itanium_demangle13EnclosingExpr5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit: ; preds = %_ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJNSt3__117basic_string_viewIcNS2_11char_traitsIcEEEEPKNS_16itanium_demangle4NodeENS8_4PrecEEEEbDpT_.exit, %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit
   %25 = load ptr, ptr @stderr, align 8, !tbaa !11
   %26 = trunc i64 %.sroa.2.0.copyload.i to i32
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.17, i32 noundef %26, ptr noundef %.sroa.0.0.copyload.i) #36
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.17, i32 noundef %26, ptr noundef %.sroa.0.0.copyload.i) #37
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %29 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc = tail call i32 @fputc(i32 44, ptr %29)
@@ -7682,7 +7682,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %_ZNK12
 
 36:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %37 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %38 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %37) #37
+  %38 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %37) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %35, %36
@@ -7706,7 +7706,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %6 = add i32 %5, 2
   store i32 %6, ptr %0, align 4, !tbaa !4
   %7 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.120) #36
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.120) #37
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.0.0.copyload.i = load ptr, ptr %9, align 8, !tbaa !219
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -7765,7 +7765,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit:    ; preds = %.lr.ph.i, %21
 _ZNK12_GLOBAL__N_116itanium_demangle8CastExpr5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit: ; preds = %_ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJNSt3__117basic_string_viewIcNS2_11char_traitsIcEEEEPKNS_16itanium_demangle4NodeESA_NS8_4PrecEEEEbDpT_.exit, %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit
   %28 = load ptr, ptr @stderr, align 8, !tbaa !11
   %29 = trunc i64 %.sroa.2.0.copyload.i to i32
-  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.17, i32 noundef %29, ptr noundef %.sroa.0.0.copyload.i) #36
+  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.17, i32 noundef %29, ptr noundef %.sroa.0.0.copyload.i) #37
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %32 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc = tail call i32 @fputc(i32 44, ptr %32)
@@ -7795,7 +7795,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i9: ; preds = %.lr.ph.i.i5, %_ZNK1
 
 39:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i9
   %40 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %41 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %40) #37
+  %41 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %40) #38
   br label %42
 
 42:                                               ; preds = %39, %38
@@ -7828,7 +7828,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %42
 
 50:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %51 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %52 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %51) #37
+  %52 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %51) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %49, %50
@@ -7851,7 +7851,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.121) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.121) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !381
   %10 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -7881,7 +7881,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle19SizeofParamPackExpr5matchINS_11DumpVisitor
 
 17:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle19SizeofParamPackExpr5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %18 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #37
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %16, %17
@@ -7902,7 +7902,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %6 = add i32 %5, 2
   store i32 %6, ptr %0, align 4, !tbaa !4
   %7 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.122) #36
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.122) #37
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !383
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -7970,7 +7970,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle8CallExpr5matchINS_11DumpVisitor14CtorArgPri
 
 31:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle8CallExpr5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %32 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %33 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %32) #37
+  %33 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %32) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %30, %31
@@ -7983,7 +7983,7 @@ _ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4
   br i1 %36, label %40, label %38
 
 38:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit
-  %39 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 2, i64 1, ptr %37) #37
+  %39 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 2, i64 1, ptr %37) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIbEEvT_.exit
 
 40:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit
@@ -8013,7 +8013,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIbEEvT_.exit: ; preds = %38, %_ZN1
   %48 = trunc nuw i8 %13 to i1
   %49 = select i1 %48, ptr @.str.54, ptr @.str.55
   %50 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %fputs.i.i.i.i = tail call i32 @fputs(ptr nonnull readonly %49, ptr %50) #37
+  %fputs.i.i.i.i = tail call i32 @fputs(ptr nonnull readonly %49, ptr %50) #38
   tail call fastcc void @_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaINS_16itanium_demangle4Node4PrecEEEvT_(ptr noundef nonnull align 4 dereferenceable(5) %0, i8 noundef zeroext range(i8 0, 64) %47)
   %51 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc.i = tail call i32 @fputc(i32 41, ptr %51)
@@ -8031,7 +8031,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %6 = add i32 %5, 2
   store i32 %6, ptr %0, align 4, !tbaa !4
   %7 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.123) #36
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.123) #37
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.01.0.copyload.i = load ptr, ptr %9, align 8, !tbaa !230
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -8141,7 +8141,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i19: ; preds = %.lr.ph.i.i15, %_ZN
 
 48:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i19
   %49 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %50 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %49) #37
+  %50 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %49) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %47, %48
@@ -8153,7 +8153,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_
   br i1 %52, label %56, label %54
 
 54:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit
-  %55 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 2, i64 1, ptr %53) #37
+  %55 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 2, i64 1, ptr %53) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIbEEvT_.exit12
 
 56:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit
@@ -8180,14 +8180,14 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i11: ; preds = %.lr.ph.i.i7, %56
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIbEEvT_.exit12: ; preds = %54, %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i11
   %62 = select i1 %30, ptr @.str.54, ptr @.str.55
   %63 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %fputs.i.i.i.i3 = tail call i32 @fputs(ptr nonnull readonly %62, ptr %63) #37
+  %fputs.i.i.i.i3 = tail call i32 @fputs(ptr nonnull readonly %62, ptr %63) #38
   %64 = load i8, ptr %40, align 4, !tbaa !10, !range !235, !noundef !236
   %65 = trunc nuw i8 %64 to i1
   %66 = load ptr, ptr @stderr, align 8, !tbaa !11
   br i1 %65, label %69, label %67
 
 67:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIbEEvT_.exit12
-  %68 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 2, i64 1, ptr %66) #37
+  %68 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 2, i64 1, ptr %66) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIbEEvT_.exit
 
 69:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIbEEvT_.exit12
@@ -8217,7 +8217,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIbEEvT_.exit: ; preds = %67, %_ZN1
   %77 = trunc nuw i8 %16 to i1
   %78 = select i1 %77, ptr @.str.54, ptr @.str.55
   %79 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %fputs.i.i.i.i = tail call i32 @fputs(ptr nonnull readonly %78, ptr %79) #37
+  %fputs.i.i.i.i = tail call i32 @fputs(ptr nonnull readonly %78, ptr %79) #38
   tail call fastcc void @_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaINS_16itanium_demangle4Node4PrecEEEvT_(ptr noundef nonnull align 4 dereferenceable(5) %0, i8 noundef zeroext range(i8 0, 64) %76)
   %80 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc.i = tail call i32 @fputc(i32 41, ptr %80)
@@ -8235,7 +8235,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %6 = add i32 %5, 2
   store i32 %6, ptr %0, align 4, !tbaa !4
   %7 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.124) #36
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.124) #37
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !390
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -8300,7 +8300,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle10DeleteExpr5matchINS_11DumpVisitor14CtorArg
 
 31:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle10DeleteExpr5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %32 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %33 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %32) #37
+  %33 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %32) #38
   br label %34
 
 34:                                               ; preds = %31, %30
@@ -8327,14 +8327,14 @@ _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIbEEvT_.exit12: ; preds = %.lr.ph.
   store i8 0, ptr %35, align 4, !tbaa !10
   %42 = select i1 %22, ptr @.str.54, ptr @.str.55
   %43 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %fputs.i.i.i.i3 = tail call i32 @fputs(ptr nonnull readonly %42, ptr %43) #37
+  %fputs.i.i.i.i3 = tail call i32 @fputs(ptr nonnull readonly %42, ptr %43) #38
   %44 = load i8, ptr %35, align 4, !tbaa !10, !range !235, !noundef !236
   %45 = trunc nuw i8 %44 to i1
   %46 = load ptr, ptr @stderr, align 8, !tbaa !11
   br i1 %45, label %49, label %47
 
 47:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIbEEvT_.exit12
-  %48 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 2, i64 1, ptr %46) #37
+  %48 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 2, i64 1, ptr %46) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIbEEvT_.exit
 
 49:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIbEEvT_.exit12
@@ -8364,7 +8364,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIbEEvT_.exit: ; preds = %47, %_ZN1
   %57 = trunc nuw i8 %14 to i1
   %58 = select i1 %57, ptr @.str.54, ptr @.str.55
   %59 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %fputs.i.i.i.i = tail call i32 @fputs(ptr nonnull readonly %58, ptr %59) #37
+  %fputs.i.i.i.i = tail call i32 @fputs(ptr nonnull readonly %58, ptr %59) #38
   tail call fastcc void @_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaINS_16itanium_demangle4Node4PrecEEEvT_(ptr noundef nonnull align 4 dereferenceable(5) %0, i8 noundef zeroext range(i8 0, 64) %56)
   %60 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc.i = tail call i32 @fputc(i32 41, ptr %60)
@@ -8382,7 +8382,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %6 = add i32 %5, 2
   store i32 %6, ptr %0, align 4, !tbaa !4
   %7 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.125) #36
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.125) #37
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.0.0.copyload.i = load ptr, ptr %9, align 8, !tbaa !219
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -8437,7 +8437,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit:    ; preds = %.lr.ph.i, %18
 _ZNK12_GLOBAL__N_116itanium_demangle10PrefixExpr5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit: ; preds = %_ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJNSt3__117basic_string_viewIcNS2_11char_traitsIcEEEEPNS_16itanium_demangle4NodeENS8_4PrecEEEEbDpT_.exit, %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit
   %25 = load ptr, ptr @stderr, align 8, !tbaa !11
   %26 = trunc i64 %.sroa.2.0.copyload.i to i32
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.17, i32 noundef %26, ptr noundef %.sroa.0.0.copyload.i) #36
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.17, i32 noundef %26, ptr noundef %.sroa.0.0.copyload.i) #37
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %29 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc = tail call i32 @fputc(i32 44, ptr %29)
@@ -8467,7 +8467,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %_ZNK12
 
 36:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %37 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %38 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %37) #37
+  %38 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %37) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %35, %36
@@ -8489,14 +8489,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_111DumpVisitorclINS_16itanium_deman
   %4 = add i32 %3, 2
   store i32 %4, ptr %0, align 4, !tbaa !4
   %5 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.126) #36
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.126) #37
   %7 = getelementptr i8, ptr %1, i64 16
   %.val = load ptr, ptr %7, align 8, !tbaa !219
   %8 = getelementptr i8, ptr %1, i64 24
   %.val2 = load i64, ptr %8, align 8, !tbaa !220
   %9 = load ptr, ptr @stderr, align 8, !tbaa !11
   %10 = trunc i64 %.val2 to i32
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.17, i32 noundef %10, ptr noundef %.val) #36
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.17, i32 noundef %10, ptr noundef %.val) #37
   %12 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc = tail call i32 @fputc(i32 41, ptr %12)
   %13 = load i32, ptr %0, align 4, !tbaa !4
@@ -8513,7 +8513,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %6 = add i32 %5, 2
   store i32 %6, ptr %0, align 4, !tbaa !4
   %7 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.127) #36
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.127) #37
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !396
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -8577,7 +8577,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle14ConversionExpr5matchINS_11DumpVisitor14Cto
 
 28:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle14ConversionExpr5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %29 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %30 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %29) #37
+  %30 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %29) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %27, %28
@@ -8603,7 +8603,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %6 = add i32 %5, 2
   store i32 %6, ptr %0, align 4, !tbaa !4
   %7 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.128) #36
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.128) #37
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !398
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -8669,7 +8669,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle29PointerToMemberConversionExpr5matchINS_11D
 
 29:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle29PointerToMemberConversionExpr5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %30 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %31 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %30) #37
+  %31 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %30) #38
   br label %32
 
 32:                                               ; preds = %29, %28
@@ -8703,7 +8703,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i9: ; preds = %.lr.ph.i.i5, %32
 
 41:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i9
   %42 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %43 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %42) #37
+  %43 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %42) #38
   br label %44
 
 44:                                               ; preds = %41, %40
@@ -8731,7 +8731,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaINSt3__117basic_string_viewIcNS2_1
   store i8 0, ptr %33, align 4, !tbaa !10
   %53 = load ptr, ptr @stderr, align 8, !tbaa !11
   %54 = trunc i64 %.sroa.2.0.copyload.i to i32
-  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.17, i32 noundef %54, ptr noundef %.sroa.0.0.copyload.i) #36
+  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.17, i32 noundef %54, ptr noundef %.sroa.0.0.copyload.i) #37
   tail call fastcc void @_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaINS_16itanium_demangle4Node4PrecEEEvT_(ptr noundef nonnull align 4 dereferenceable(5) %0, i8 noundef zeroext range(i8 0, 64) %52)
   %56 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc.i = tail call i32 @fputc(i32 41, ptr %56)
@@ -8749,7 +8749,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJPKNS_16itanium_demangle4NodeENS2
   %4 = add i32 %3, 2
   store i32 %4, ptr %0, align 4, !tbaa !4
   %5 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.129) #36
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.129) #37
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !401
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -8783,7 +8783,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit:    ; preds = %.lr.ph.i, %_ZN12_GL
 
 17:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit
   %18 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #37
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %16, %17
@@ -8805,7 +8805,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %6 = add i32 %5, 2
   store i32 %6, ptr %0, align 4, !tbaa !4
   %7 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.130) #36
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.130) #37
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %10 = load i8, ptr %9, align 8, !tbaa !403, !range !235, !noundef !236
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -8865,7 +8865,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit:    ; preds = %.lr.ph.i, %23
 _ZNK12_GLOBAL__N_116itanium_demangle8FoldExpr5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit: ; preds = %_ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJbNSt3__117basic_string_viewIcNS2_11char_traitsIcEEEEPKNS_16itanium_demangle4NodeESA_EEEbDpT_.exit, %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit
   %30 = select i1 %22, ptr @.str.54, ptr @.str.55
   %31 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %fputs.i.i.i21 = tail call i32 @fputs(ptr nonnull readonly %30, ptr %31) #37
+  %fputs.i.i.i21 = tail call i32 @fputs(ptr nonnull readonly %30, ptr %31) #38
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %33 = load i8, ptr %32, align 4, !tbaa !10, !range !235, !noundef !236
   %34 = trunc nuw i8 %33 to i1
@@ -8873,7 +8873,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle8FoldExpr5matchINS_11DumpVisitor14CtorArgPri
   br i1 %34, label %38, label %36
 
 36:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle8FoldExpr5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
-  %37 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 2, i64 1, ptr %35) #37
+  %37 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 2, i64 1, ptr %35) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaINSt3__117basic_string_viewIcNS2_11char_traitsIcEEEEEEvT_.exit
 
 38:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle8FoldExpr5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
@@ -8900,7 +8900,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i20: ; preds = %.lr.ph.i.i16, %38
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaINSt3__117basic_string_viewIcNS2_11char_traitsIcEEEEEEvT_.exit: ; preds = %36, %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i20
   %44 = load ptr, ptr @stderr, align 8, !tbaa !11
   %45 = trunc i64 %.sroa.2.0.copyload.i to i32
-  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.17, i32 noundef %45, ptr noundef %.sroa.0.0.copyload.i) #36
+  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.17, i32 noundef %45, ptr noundef %.sroa.0.0.copyload.i) #37
   %47 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc = tail call i32 @fputc(i32 44, ptr %47)
   %48 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -8929,7 +8929,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i9: ; preds = %.lr.ph.i.i5, %_ZN12
 
 54:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i9
   %55 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %56 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %55) #37
+  %56 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %55) #38
   br label %57
 
 57:                                               ; preds = %54, %53
@@ -8962,7 +8962,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %57
 
 65:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %66 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %67 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %66) #37
+  %67 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %66) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %64, %65
@@ -8982,7 +8982,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.131) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.131) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !407
   %10 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -9012,7 +9012,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle9ThrowExpr5matchINS_11DumpVisitor14CtorArgPr
 
 17:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle9ThrowExpr5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %18 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #37
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %16, %17
@@ -9031,13 +9031,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_111DumpVisitorclINS_16itanium_deman
   %4 = add i32 %3, 2
   store i32 %4, ptr %0, align 4, !tbaa !4
   %5 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.132) #36
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.132) #37
   %7 = getelementptr i8, ptr %1, i64 11
   %.val = load i8, ptr %7, align 1, !tbaa !409, !range !235, !noundef !236
   %8 = trunc nuw i8 %.val to i1
   %9 = select i1 %8, ptr @.str.54, ptr @.str.55
   %10 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %fputs.i.i.i.i.i = tail call i32 @fputs(ptr nonnull readonly %9, ptr %10) #37
+  %fputs.i.i.i.i.i = tail call i32 @fputs(ptr nonnull readonly %9, ptr %10) #38
   %11 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc = tail call i32 @fputc(i32 41, ptr %11)
   %12 = load i32, ptr %0, align 4, !tbaa !4
@@ -9053,7 +9053,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.133) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.133) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !411
   %10 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -9083,7 +9083,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle13StringLiteral5matchINS_11DumpVisitor14Ctor
 
 17:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle13StringLiteral5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %18 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #37
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %16, %17
@@ -9103,7 +9103,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.134) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.134) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !413
   %10 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -9133,7 +9133,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle10LambdaExpr5matchINS_11DumpVisitor14CtorArg
 
 17:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle10LambdaExpr5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %18 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #37
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %16, %17
@@ -9154,7 +9154,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJPKNS_16itanium_demangle4NodeENSt
   %4 = add i32 %3, 2
   store i32 %4, ptr %0, align 4, !tbaa !4
   %5 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.135) #36
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.135) #37
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !415
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -9188,7 +9188,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit:    ; preds = %.lr.ph.i, %_ZN12_GL
 
 17:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit
   %18 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #37
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #38
   br label %20
 
 20:                                               ; preds = %17, %16
@@ -9214,7 +9214,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaINSt3__117basic_string_viewIcNS2_1
   store i8 0, ptr %15, align 4, !tbaa !10
   %27 = load ptr, ptr @stderr, align 8, !tbaa !11
   %28 = trunc i64 %.sroa.2.0.copyload.i to i32
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.17, i32 noundef %28, ptr noundef %.sroa.0.0.copyload.i) #36
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.17, i32 noundef %28, ptr noundef %.sroa.0.0.copyload.i) #37
   %30 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc.i = tail call i32 @fputc(i32 41, ptr %30)
   %31 = load i32, ptr %0, align 4, !tbaa !4
@@ -9229,7 +9229,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111DumpVisitorclINS_16itanium_deman
   %4 = add i32 %3, 2
   store i32 %4, ptr %0, align 4, !tbaa !4
   %5 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.136) #36
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.136) #37
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.01.0.copyload.i = load ptr, ptr %7, align 8, !tbaa !219
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -9252,7 +9252,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111DumpVisitor14CtorArgPrinterclINS
 _ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJNSt3__117basic_string_viewIcNS2_11char_traitsIcEEEES6_EEEbDpT_.exit:
   %4 = load ptr, ptr @stderr, align 8, !tbaa !11
   %5 = trunc i64 %1 to i32
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.17, i32 noundef %5, ptr noundef %0) #36
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.17, i32 noundef %5, ptr noundef %0) #37
   %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
   %8 = load i8, ptr %7, align 4, !tbaa !10, !range !235, !noundef !236
   %9 = trunc nuw i8 %8 to i1
@@ -9260,7 +9260,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJNSt3__117basic_string_viewIcNS2_
   br i1 %9, label %13, label %11
 
 11:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJNSt3__117basic_string_viewIcNS2_11char_traitsIcEEEES6_EEEbDpT_.exit
-  %12 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 2, i64 1, ptr %10) #37
+  %12 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 2, i64 1, ptr %10) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaINSt3__117basic_string_viewIcNS2_11char_traitsIcEEEEEEvT_.exit
 
 13:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJNSt3__117basic_string_viewIcNS2_11char_traitsIcEEEES6_EEEbDpT_.exit
@@ -9287,7 +9287,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %13
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaINSt3__117basic_string_viewIcNS2_11char_traitsIcEEEEEEvT_.exit: ; preds = %11, %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %19 = load ptr, ptr @stderr, align 8, !tbaa !11
   %20 = trunc i64 %3 to i32
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.17, i32 noundef %20, ptr noundef %2) #36
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.17, i32 noundef %20, ptr noundef %2) #37
   ret void
 }
 
@@ -9297,14 +9297,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_111DumpVisitorclINS_16itanium_deman
   %4 = add i32 %3, 2
   store i32 %4, ptr %0, align 4, !tbaa !4
   %5 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.137) #36
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.137) #37
   %7 = getelementptr i8, ptr %1, i64 16
   %.val = load ptr, ptr %7, align 8, !tbaa !219
   %8 = getelementptr i8, ptr %1, i64 24
   %.val2 = load i64, ptr %8, align 8, !tbaa !220
   %9 = load ptr, ptr @stderr, align 8, !tbaa !11
   %10 = trunc i64 %.val2 to i32
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.17, i32 noundef %10, ptr noundef %.val) #36
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.17, i32 noundef %10, ptr noundef %.val) #37
   %12 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc = tail call i32 @fputc(i32 41, ptr %12)
   %13 = load i32, ptr %0, align 4, !tbaa !4
@@ -9319,14 +9319,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_111DumpVisitorclINS_16itanium_deman
   %4 = add i32 %3, 2
   store i32 %4, ptr %0, align 4, !tbaa !4
   %5 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.138) #36
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.138) #37
   %7 = getelementptr i8, ptr %1, i64 16
   %.val = load ptr, ptr %7, align 8, !tbaa !219
   %8 = getelementptr i8, ptr %1, i64 24
   %.val2 = load i64, ptr %8, align 8, !tbaa !220
   %9 = load ptr, ptr @stderr, align 8, !tbaa !11
   %10 = trunc i64 %.val2 to i32
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.17, i32 noundef %10, ptr noundef %.val) #36
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.17, i32 noundef %10, ptr noundef %.val) #37
   %12 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc = tail call i32 @fputc(i32 41, ptr %12)
   %13 = load i32, ptr %0, align 4, !tbaa !4
@@ -9341,14 +9341,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_111DumpVisitorclINS_16itanium_deman
   %4 = add i32 %3, 2
   store i32 %4, ptr %0, align 4, !tbaa !4
   %5 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.139) #36
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.139) #37
   %7 = getelementptr i8, ptr %1, i64 16
   %.val = load ptr, ptr %7, align 8, !tbaa !219
   %8 = getelementptr i8, ptr %1, i64 24
   %.val2 = load i64, ptr %8, align 8, !tbaa !220
   %9 = load ptr, ptr @stderr, align 8, !tbaa !11
   %10 = trunc i64 %.val2 to i32
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.17, i32 noundef %10, ptr noundef %.val) #36
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.17, i32 noundef %10, ptr noundef %.val) #37
   %12 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc = tail call i32 @fputc(i32 41, ptr %12)
   %13 = load i32, ptr %0, align 4, !tbaa !4
@@ -9365,7 +9365,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %6 = add i32 %5, 2
   store i32 %6, ptr %0, align 4, !tbaa !4
   %7 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.140) #36
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.140) #37
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !417
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -9425,7 +9425,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle10BracedExpr5matchINS_11DumpVisitor14CtorArg
 
 28:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle10BracedExpr5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %29 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %30 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %29) #37
+  %30 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %29) #38
   br label %31
 
 31:                                               ; preds = %28, %27
@@ -9459,7 +9459,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i9: ; preds = %.lr.ph.i.i5, %31
 
 40:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i9
   %41 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %42 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %41) #37
+  %42 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %41) #38
   br label %43
 
 43:                                               ; preds = %40, %39
@@ -9486,7 +9486,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIbEEvT_.exit: ; preds = %.lr.ph.i.
   store i8 0, ptr %32, align 4, !tbaa !10
   %51 = select i1 %50, ptr @.str.54, ptr @.str.55
   %52 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %fputs.i.i.i.i = tail call i32 @fputs(ptr nonnull readonly %51, ptr %52) #37
+  %fputs.i.i.i.i = tail call i32 @fputs(ptr nonnull readonly %51, ptr %52) #38
   %53 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc.i = tail call i32 @fputc(i32 41, ptr %53)
   %54 = load i32, ptr %0, align 4, !tbaa !4
@@ -9503,7 +9503,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %6 = add i32 %5, 2
   store i32 %6, ptr %0, align 4, !tbaa !4
   %7 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.141) #36
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.141) #37
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !421
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -9563,7 +9563,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle15BracedRangeExpr5matchINS_11DumpVisitor14Ct
 
 28:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle15BracedRangeExpr5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %29 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %30 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %29) #37
+  %30 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %29) #38
   br label %31
 
 31:                                               ; preds = %28, %27
@@ -9597,7 +9597,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i9: ; preds = %.lr.ph.i.i5, %31
 
 40:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i9
   %41 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %42 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %41) #37
+  %42 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %41) #38
   br label %43
 
 43:                                               ; preds = %40, %39
@@ -9630,7 +9630,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %43
 
 51:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %52 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %53 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %52) #37
+  %53 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %52) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %50, %51
@@ -9650,7 +9650,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.142) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.142) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.01.0.copyload.i = load ptr, ptr %8, align 8, !tbaa !230
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -9719,7 +9719,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %6 = add i32 %5, 2
   store i32 %6, ptr %0, align 4, !tbaa !4
   %7 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.143) #36
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.143) #37
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !425
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -9780,7 +9780,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle15ExprRequirement5matchINS_11DumpVisitor14Ct
 
 29:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle15ExprRequirement5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %30 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %31 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %30) #37
+  %31 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %30) #38
   br label %32
 
 32:                                               ; preds = %29, %28
@@ -9807,7 +9807,7 @@ _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIbEEvT_.exit: ; preds = %.lr.ph.i.
   store i8 0, ptr %33, align 4, !tbaa !10
   %40 = select i1 %20, ptr @.str.54, ptr @.str.55
   %41 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %fputs.i.i.i.i = tail call i32 @fputs(ptr nonnull readonly %40, ptr %41) #37
+  %fputs.i.i.i.i = tail call i32 @fputs(ptr nonnull readonly %40, ptr %41) #38
   %42 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc = tail call i32 @fputc(i32 44, ptr %42)
   %43 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -9836,7 +9836,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %_ZN12_
 
 49:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
   %50 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %51 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %50) #37
+  %51 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %50) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %48, %49
@@ -9856,7 +9856,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.144) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.144) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !429
   %10 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -9886,7 +9886,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle15TypeRequirement5matchINS_11DumpVisitor14Ct
 
 17:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle15TypeRequirement5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %18 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #37
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %16, %17
@@ -9906,7 +9906,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.145) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.145) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !431
   %10 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -9936,7 +9936,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle17NestedRequirement5matchINS_11DumpVisitor14
 
 17:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle17NestedRequirement5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %18 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #37
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPKNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %16, %17
@@ -9956,7 +9956,7 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   %5 = add i32 %4, 2
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.146) #36
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.146) #37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !433
   %10 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -9986,7 +9986,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle23ExplicitObjectParameter5matchINS_11DumpVis
 
 17:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle23ExplicitObjectParameter5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %18 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #37
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %18) #38
   br label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPNS_16itanium_demangle4NodeEEEvT_.exit
 
 _ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineIPNS_16itanium_demangle4NodeEEEvT_.exit: ; preds = %16, %17
@@ -10270,12 +10270,12 @@ _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParse
   br i1 %110, label %111, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_11SpecialNameEJRA20_KcRPNS0_4NodeEEEESC_DpOT0_.exit
 
 111:                                              ; preds = %104
-  %112 = call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %112 = call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %113 = icmp eq ptr %112, null
   br i1 %113, label %114, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i147
 
 114:                                              ; preds = %111
-  call void @_ZSt9terminatev() #32
+  call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i147: ; preds = %111
@@ -10400,12 +10400,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %161, label %162, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_11SpecialNameEJRA24_KcRPNS0_10ModuleNameEEEEPNS0_4NodeEDpOT0_.exit
 
 162:                                              ; preds = %155
-  %163 = call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %163 = call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %164 = icmp eq ptr %163, null
   br i1 %164, label %165, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i138
 
 165:                                              ; preds = %162
-  call void @_ZSt9terminatev() #32
+  call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i138: ; preds = %162
@@ -10550,7 +10550,7 @@ _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateRefere
   br i1 %.not.i.i, label %229, label %230
 
 229:                                              ; preds = %._crit_edge.i
-  invoke void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 137, ptr noundef nonnull @.str.301) #29
+  invoke void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 137, ptr noundef nonnull @.str.301) #30
           to label %.noexc116 unwind label %197
 
 .noexc116:                                        ; preds = %229
@@ -10640,12 +10640,12 @@ _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1
   br i1 %269, label %271, label %277
 
 271:                                              ; preds = %264
-  %272 = call noalias ptr @malloc(i64 noundef %270) #31
+  %272 = call noalias ptr @malloc(i64 noundef %270) #32
   %273 = icmp eq ptr %272, null
   br i1 %273, label %274, label %275
 
 274:                                              ; preds = %271
-  call void @abort() #32
+  call void @abort() #33
   unreachable
 
 275:                                              ; preds = %271
@@ -10661,13 +10661,13 @@ _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 277:                                              ; preds = %264
-  %278 = call ptr @realloc(ptr noundef %.val.i119, i64 noundef %270) #33
+  %278 = call ptr @realloc(ptr noundef %.val.i119, i64 noundef %270) #34
   store ptr %278, ptr %241, align 16, !tbaa !189
   %279 = icmp eq ptr %278, null
   br i1 %279, label %280, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 280:                                              ; preds = %277
-  call void @abort() #32
+  call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %277, %_ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S6_.exit.i.i
@@ -10786,12 +10786,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %339, label %340, label %345
 
 340:                                              ; preds = %334
-  %341 = call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %341 = call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %342 = icmp eq ptr %341, null
   br i1 %342, label %343, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 343:                                              ; preds = %340
-  call void @_ZSt9terminatev() #32
+  call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %340
@@ -10840,12 +10840,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %340
   br i1 %367, label %369, label %375
 
 369:                                              ; preds = %362
-  %370 = call noalias ptr @malloc(i64 noundef %368) #31
+  %370 = call noalias ptr @malloc(i64 noundef %368) #32
   %371 = icmp eq ptr %370, null
   br i1 %371, label %372, label %373
 
 372:                                              ; preds = %369
-  call void @abort() #32
+  call void @abort() #33
   unreachable
 
 373:                                              ; preds = %369
@@ -10861,13 +10861,13 @@ _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i125
 
 375:                                              ; preds = %362
-  %376 = call ptr @realloc(ptr noundef %.val.i124, i64 noundef %368) #33
+  %376 = call ptr @realloc(ptr noundef %.val.i124, i64 noundef %368) #34
   store ptr %376, ptr %314, align 16, !tbaa !189
   %377 = icmp eq ptr %376, null
   br i1 %377, label %378, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i125
 
 378:                                              ; preds = %375
-  call void @abort() #32
+  call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i125: ; preds = %375, %_ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S6_.exit.i.i127
@@ -10967,18 +10967,18 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
 
 _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E16parseSpecialNameEv.exit: ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4lookEj.exit162, %61, %64, %180, %_ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4lookEj.exit150, %_ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4lookEj.exit153, %46, %43, %17, %.noexc, %23, %.noexc99, %29, %.noexc100, %35, %.noexc101, %41, %.noexc102, %51, %.noexc103, %.noexc105, %71, %57, %.noexc104, %77, %.noexc106, %83, %.noexc107, %96, %94, %.noexc108, %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_11SpecialNameEJRA20_KcRPNS0_4NodeEEEESC_DpOT0_.exit, %.noexc109, %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E9consumeIfEc.exit141, %148, %.noexc110, %.critedge62
   %.0 = phi ptr [ %.1, %.critedge62 ], [ %.16.i, %180 ], [ null, %46 ], [ null, %43 ], [ null, %_ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4lookEj.exit153 ], [ null, %_ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4lookEj.exit150 ], [ %18, %17 ], [ null, %.noexc ], [ %24, %23 ], [ null, %.noexc99 ], [ %30, %29 ], [ null, %.noexc100 ], [ %36, %35 ], [ null, %.noexc101 ], [ %42, %41 ], [ null, %.noexc102 ], [ %52, %51 ], [ null, %.noexc103 ], [ null, %.noexc104 ], [ null, %57 ], [ %72, %71 ], [ null, %.noexc105 ], [ %78, %77 ], [ null, %.noexc106 ], [ %84, %83 ], [ null, %.noexc107 ], [ %95, %94 ], [ %97, %96 ], [ null, %.noexc108 ], [ %121, %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_11SpecialNameEJRA20_KcRPNS0_4NodeEEEESC_DpOT0_.exit ], [ null, %.noexc109 ], [ null, %.noexc110 ], [ %149, %148 ], [ null, %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E9consumeIfEc.exit141 ], [ null, %64 ], [ null, %61 ], [ null, %_ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4lookEj.exit162 ]
-  call fastcc void @_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E18SaveTemplateParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %3) #34
+  call fastcc void @_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E18SaveTemplateParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %3) #35
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 
 410:                                              ; preds = %.body, %181
   %.pn57 = phi { ptr, i32 } [ %182, %181 ], [ %.pn51.pn.pn.pn.pn, %.body ]
-  call fastcc void @_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E18SaveTemplateParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %3) #34
+  call fastcc void @_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E18SaveTemplateParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %3) #35
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn57
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc { ptr, i64 } @_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E11parseNumberEb(ptr noundef nonnull align 16 captures(none) dereferenceable(4928) %0, i1 noundef zeroext %1) unnamed_addr #21 align 2 {
   %3 = load ptr, ptr %0, align 16, !tbaa !173
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11049,12 +11049,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %8, label %9, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle11SpecialNameEJRA34_KcRPNS2_4NodeEEEEPT_DpOT0_.exit
 
 9:                                                ; preds = %2
-  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 12:                                               ; preds = %9
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %9
@@ -11072,7 +11072,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle11SpecialNameE
   store i64 %17, ptr %16, align 8, !tbaa !211
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = getelementptr inbounds i8, ptr %18, i64 %14
-  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(34) %1) #34
+  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(34) %1) #35
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i8 21, ptr %21, align 8, !tbaa !16
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 9
@@ -11236,12 +11236,12 @@ _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParse
   br i1 %43, label %44, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_8NameTypeEJRA5_KcEEEPNS0_4NodeEDpOT0_.exit
 
 44:                                               ; preds = %36
-  %45 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %45 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 47:                                               ; preds = %44
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %44
@@ -11285,12 +11285,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %68, label %69, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_8NameTypeEJRA8_KcEEEPNS0_4NodeEDpOT0_.exit
 
 69:                                               ; preds = %61
-  %70 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %70 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %71 = icmp eq ptr %70, null
   br i1 %71, label %72, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i195
 
 72:                                               ; preds = %69
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i195: ; preds = %69
@@ -11334,12 +11334,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %93, label %94, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_8NameTypeEJRA5_KcEEEPNS0_4NodeEDpOT0_.exit198
 
 94:                                               ; preds = %86
-  %95 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %95 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %96 = icmp eq ptr %95, null
   br i1 %96, label %97, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i197
 
 97:                                               ; preds = %94
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i197: ; preds = %94
@@ -11383,12 +11383,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %118, label %119, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_8NameTypeEJRA5_KcEEEPNS0_4NodeEDpOT0_.exit201
 
 119:                                              ; preds = %111
-  %120 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %120 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %121 = icmp eq ptr %120, null
   br i1 %121, label %122, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i200
 
 122:                                              ; preds = %119
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i200: ; preds = %119
@@ -11432,12 +11432,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %143, label %144, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_8NameTypeEJRA12_KcEEEPNS0_4NodeEDpOT0_.exit
 
 144:                                              ; preds = %136
-  %145 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %145 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %146 = icmp eq ptr %145, null
   br i1 %146, label %147, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i203
 
 147:                                              ; preds = %144
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i203: ; preds = %144
@@ -11481,12 +11481,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %168, label %169, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_8NameTypeEJRA14_KcEEEPNS0_4NodeEDpOT0_.exit
 
 169:                                              ; preds = %161
-  %170 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %170 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %171 = icmp eq ptr %170, null
   br i1 %171, label %172, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i205
 
 172:                                              ; preds = %169
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i205: ; preds = %169
@@ -11530,12 +11530,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %193, label %194, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_8NameTypeEJRA6_KcEEEPNS0_4NodeEDpOT0_.exit
 
 194:                                              ; preds = %186
-  %195 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %195 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %196 = icmp eq ptr %195, null
   br i1 %196, label %197, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i207
 
 197:                                              ; preds = %194
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i207: ; preds = %194
@@ -11579,12 +11579,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %218, label %219, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_8NameTypeEJRA15_KcEEEPNS0_4NodeEDpOT0_.exit
 
 219:                                              ; preds = %211
-  %220 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %220 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %221 = icmp eq ptr %220, null
   br i1 %221, label %222, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i209
 
 222:                                              ; preds = %219
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i209: ; preds = %219
@@ -11628,12 +11628,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %243, label %244, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_8NameTypeEJRA4_KcEEEPNS0_4NodeEDpOT0_.exit
 
 244:                                              ; preds = %236
-  %245 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %245 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %246 = icmp eq ptr %245, null
   br i1 %246, label %247, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i211
 
 247:                                              ; preds = %244
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i211: ; preds = %244
@@ -11677,12 +11677,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %268, label %269, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_8NameTypeEJRA13_KcEEEPNS0_4NodeEDpOT0_.exit
 
 269:                                              ; preds = %261
-  %270 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %270 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %271 = icmp eq ptr %270, null
   br i1 %271, label %272, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i213
 
 272:                                              ; preds = %269
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i213: ; preds = %269
@@ -11726,12 +11726,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %293, label %294, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_8NameTypeEJRA5_KcEEEPNS0_4NodeEDpOT0_.exit216
 
 294:                                              ; preds = %286
-  %295 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %295 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %296 = icmp eq ptr %295, null
   br i1 %296, label %297, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i215
 
 297:                                              ; preds = %294
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i215: ; preds = %294
@@ -11775,12 +11775,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %318, label %319, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_8NameTypeEJRA14_KcEEEPNS0_4NodeEDpOT0_.exit219
 
 319:                                              ; preds = %311
-  %320 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %320 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %321 = icmp eq ptr %320, null
   br i1 %321, label %322, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i218
 
 322:                                              ; preds = %319
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i218: ; preds = %319
@@ -11824,12 +11824,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %343, label %344, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_8NameTypeEJRA10_KcEEEPNS0_4NodeEDpOT0_.exit
 
 344:                                              ; preds = %336
-  %345 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %345 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %346 = icmp eq ptr %345, null
   br i1 %346, label %347, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i221
 
 347:                                              ; preds = %344
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i221: ; preds = %344
@@ -11873,12 +11873,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %368, label %369, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
 369:                                              ; preds = %361
-  %370 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %370 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %371 = icmp eq ptr %370, null
   br i1 %371, label %372, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i223
 
 372:                                              ; preds = %369
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i223: ; preds = %369
@@ -11922,12 +11922,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %393, label %394, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_8NameTypeEJRA9_KcEEEPNS0_4NodeEDpOT0_.exit
 
 394:                                              ; preds = %386
-  %395 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %395 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %396 = icmp eq ptr %395, null
   br i1 %396, label %397, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i225
 
 397:                                              ; preds = %394
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i225: ; preds = %394
@@ -11971,12 +11971,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %418, label %419, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_8NameTypeEJRA18_KcEEEPNS0_4NodeEDpOT0_.exit
 
 419:                                              ; preds = %411
-  %420 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %420 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %421 = icmp eq ptr %420, null
   br i1 %421, label %422, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i227
 
 422:                                              ; preds = %419
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i227: ; preds = %419
@@ -12020,12 +12020,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %443, label %444, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_8NameTypeEJRA6_KcEEEPNS0_4NodeEDpOT0_.exit230
 
 444:                                              ; preds = %436
-  %445 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %445 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %446 = icmp eq ptr %445, null
   br i1 %446, label %447, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i229
 
 447:                                              ; preds = %444
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i229: ; preds = %444
@@ -12069,12 +12069,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %468, label %469, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_8NameTypeEJRA7_KcEEEPNS0_4NodeEDpOT0_.exit
 
 469:                                              ; preds = %461
-  %470 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %470 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %471 = icmp eq ptr %470, null
   br i1 %471, label %472, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i232
 
 472:                                              ; preds = %469
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i232: ; preds = %469
@@ -12118,12 +12118,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %493, label %494, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_8NameTypeEJRA12_KcEEEPNS0_4NodeEDpOT0_.exit235
 
 494:                                              ; preds = %486
-  %495 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %495 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %496 = icmp eq ptr %495, null
   br i1 %496, label %497, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i234
 
 497:                                              ; preds = %494
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i234: ; preds = %494
@@ -12167,12 +12167,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %518, label %519, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_8NameTypeEJRA11_KcEEEPNS0_4NodeEDpOT0_.exit
 
 519:                                              ; preds = %511
-  %520 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %520 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %521 = icmp eq ptr %520, null
   br i1 %521, label %522, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i237
 
 522:                                              ; preds = %519
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i237: ; preds = %519
@@ -12216,12 +12216,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %543, label %544, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_8NameTypeEJRA4_KcEEEPNS0_4NodeEDpOT0_.exit240
 
 544:                                              ; preds = %536
-  %545 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %545 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %546 = icmp eq ptr %545, null
   br i1 %546, label %547, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i239
 
 547:                                              ; preds = %544
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i239: ; preds = %544
@@ -13108,12 +13108,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %894, label %896, label %902
 
 896:                                              ; preds = %888
-  %897 = tail call noalias ptr @malloc(i64 noundef %895) #31
+  %897 = tail call noalias ptr @malloc(i64 noundef %895) #32
   %898 = icmp eq ptr %897, null
   br i1 %898, label %899, label %900
 
 899:                                              ; preds = %896
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 900:                                              ; preds = %896
@@ -13129,13 +13129,13 @@ _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 902:                                              ; preds = %888
-  %903 = tail call ptr @realloc(ptr noundef %.val.i308, i64 noundef %895) #33
+  %903 = tail call ptr @realloc(ptr noundef %.val.i308, i64 noundef %895) #34
   store ptr %903, ptr %882, align 8, !tbaa !189
   %904 = icmp eq ptr %903, null
   br i1 %904, label %905, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 905:                                              ; preds = %902
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %902, %_ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S6_.exit.i.i
@@ -13162,7 +13162,7 @@ _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backE
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E18SaveTemplateParamsC2EPS5_(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0, ptr noundef nonnull %1) unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8, !tbaa !448
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13244,7 +13244,7 @@ _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EE
   br i1 %36, label %39, label %38
 
 38:                                               ; preds = %37
-  tail call void @free(ptr noundef %31) #34
+  tail call void @free(ptr noundef %31) #35
   store ptr %.ptr2.i3, ptr %6, align 8, !tbaa !194
   store ptr %.ptr2.i3, ptr %7, align 8, !tbaa !195
   store ptr %9, ptr %8, align 8, !tbaa !196
@@ -13537,12 +13537,12 @@ _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParse
   br i1 %85, label %86, label %.thread144
 
 86:                                               ; preds = %.critedge.i
-  %87 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %87 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %88 = icmp eq ptr %87, null
   br i1 %88, label %89, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i56
 
 89:                                               ; preds = %86
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i56: ; preds = %86
@@ -13615,12 +13615,12 @@ _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParse
   br i1 %120, label %121, label %.thread224
 
 121:                                              ; preds = %114
-  %122 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %122 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %123 = icmp eq ptr %122, null
   br i1 %123, label %124, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i40
 
 124:                                              ; preds = %121
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i40: ; preds = %121
@@ -13707,12 +13707,12 @@ _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParse
   br i1 %154, label %156, label %162
 
 156:                                              ; preds = %149
-  %157 = tail call noalias ptr @malloc(i64 noundef %155) #31
+  %157 = tail call noalias ptr @malloc(i64 noundef %155) #32
   %158 = icmp eq ptr %157, null
   br i1 %158, label %159, label %160
 
 159:                                              ; preds = %156
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 160:                                              ; preds = %156
@@ -13728,13 +13728,13 @@ _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i36
 
 162:                                              ; preds = %149
-  %163 = tail call ptr @realloc(ptr noundef %.val.i35, i64 noundef %155) #33
+  %163 = tail call ptr @realloc(ptr noundef %.val.i35, i64 noundef %155) #34
   store ptr %163, ptr %53, align 8, !tbaa !189
   %164 = icmp eq ptr %163, null
   br i1 %164, label %165, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i36
 
 165:                                              ; preds = %162
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i36: ; preds = %162, %_ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S6_.exit.i.i38
@@ -13888,13 +13888,13 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
 
 _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E9consumeIfEc.exit84.thread: ; preds = %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E9consumeIfEc.exit84.thread.sink.split, %210, %215, %227, %221
   %.3.i = phi ptr [ null, %221 ], [ null, %227 ], [ null, %215 ], [ null, %210 ], [ %235, %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E9consumeIfEc.exit84.thread.sink.split ]
-  call fastcc void @_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E18SaveTemplateParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %3) #34
+  call fastcc void @_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E18SaveTemplateParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %3) #35
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E15parseNestedNameEPNS5_9NameStateE.exit
 
 236:                                              ; preds = %229, %223
   %.pn.i = phi { ptr, i32 } [ %224, %223 ], [ %230, %229 ]
-  call fastcc void @_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E18SaveTemplateParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %3) #34
+  call fastcc void @_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E18SaveTemplateParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %3) #35
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.i
 
@@ -13942,12 +13942,12 @@ _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParse
   br i1 %257, label %259, label %265
 
 259:                                              ; preds = %251
-  %260 = tail call noalias ptr @malloc(i64 noundef %258) #31
+  %260 = tail call noalias ptr @malloc(i64 noundef %258) #32
   %261 = icmp eq ptr %260, null
   br i1 %261, label %262, label %263
 
 262:                                              ; preds = %259
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 263:                                              ; preds = %259
@@ -13963,13 +13963,13 @@ _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 265:                                              ; preds = %251
-  %266 = tail call ptr @realloc(ptr noundef %.val.i31, i64 noundef %258) #33
+  %266 = tail call ptr @realloc(ptr noundef %.val.i31, i64 noundef %258) #34
   store ptr %266, ptr %245, align 8, !tbaa !189
   %267 = icmp eq ptr %266, null
   br i1 %267, label %268, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 268:                                              ; preds = %265
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %265, %_ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S6_.exit.i.i
@@ -14010,12 +14010,12 @@ _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backE
   br i1 %286, label %287, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeESA_EEES9_DpOT0_.exit
 
 287:                                              ; preds = %280
-  %288 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %288 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %289 = icmp eq ptr %288, null
   br i1 %289, label %290, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 290:                                              ; preds = %287
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %287
@@ -14157,12 +14157,12 @@ _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParse
   br i1 %49, label %51, label %57
 
 51:                                               ; preds = %44
-  %52 = tail call noalias ptr @malloc(i64 noundef %50) #31
+  %52 = tail call noalias ptr @malloc(i64 noundef %50) #32
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %55
 
 54:                                               ; preds = %51
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 55:                                               ; preds = %51
@@ -14178,13 +14178,13 @@ _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 57:                                               ; preds = %44
-  %58 = tail call ptr @realloc(ptr noundef %.val.i, i64 noundef %50) #33
+  %58 = tail call ptr @realloc(ptr noundef %.val.i, i64 noundef %50) #34
   store ptr %58, ptr %24, align 16, !tbaa !189
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 60:                                               ; preds = %57
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %57, %_ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S6_.exit.i.i
@@ -14218,12 +14218,12 @@ _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backE
   br i1 %76, label %77, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_20TemplateArgumentPackEJRNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit
 
 77:                                               ; preds = %66
-  %78 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %78 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %79 = icmp eq ptr %78, null
   br i1 %79, label %80, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 80:                                               ; preds = %77
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %77
@@ -14309,7 +14309,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParse
 
 _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E19isTemplateParamDeclEv.exit: ; preds = %113, %114
   %.0.i5.i = phi i32 [ %117, %114 ], [ 0, %113 ]
-  %118 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.285, i32 noundef %.0.i5.i, i64 noundef 5) #34
+  %118 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.285, i32 noundef %.0.i5.i, i64 noundef 5) #35
   %119 = icmp ne ptr %118, null
   %120 = ptrtoint ptr %118 to i64
   %121 = sub i64 %120, ptrtoint (ptr @.str.285 to i64)
@@ -14341,12 +14341,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %135, label %136, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_25TemplateParamQualifiedArgEJRPNS0_4NodeESA_EEES9_DpOT0_.exit
 
 136:                                              ; preds = %129
-  %137 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %137 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %138 = icmp eq ptr %137, null
   br i1 %138, label %139, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i35
 
 139:                                              ; preds = %136
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i35: ; preds = %136
@@ -14408,12 +14408,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVector
   br i1 %14, label %16, label %22
 
 16:                                               ; preds = %8
-  %17 = tail call noalias ptr @malloc(i64 noundef %15) #31
+  %17 = tail call noalias ptr @malloc(i64 noundef %15) #32
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %16
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 20:                                               ; preds = %16
@@ -14429,13 +14429,13 @@ _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit
 
 22:                                               ; preds = %8
-  %23 = tail call ptr @realloc(ptr noundef %.val, i64 noundef %15) #33
+  %23 = tail call ptr @realloc(ptr noundef %.val, i64 noundef %15) #34
   store ptr %23, ptr %0, align 8, !tbaa !189
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit
 
 25:                                               ; preds = %22
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit: ; preds = %_ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S6_.exit.i, %22
@@ -14465,12 +14465,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle12EnableIfAttrEJNS2_9NodeArrayEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -14517,7 +14517,7 @@ define internal fastcc { ptr, i64 } @_ZN12_GLOBAL__N_116itanium_demangle22Abstra
   br i1 %.not, label %9, label %10
 
 9:                                                ; preds = %2
-  tail call void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 2856, ptr noundef nonnull @.str) #29
+  tail call void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 2856, ptr noundef nonnull @.str) #30
   unreachable
 
 10:                                               ; preds = %2
@@ -14540,12 +14540,12 @@ define internal fastcc { ptr, i64 } @_ZN12_GLOBAL__N_116itanium_demangle22Abstra
 
 24:                                               ; preds = %22
   %25 = add nuw nsw i64 %15, 16
-  %26 = tail call noalias ptr @malloc(i64 noundef %25) #31
+  %26 = tail call noalias ptr @malloc(i64 noundef %25) #32
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %_ZN12_GLOBAL__N_120BumpPointerAllocator15allocateMassiveEm.exit.i.i.i
 
 28:                                               ; preds = %24
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator15allocateMassiveEm.exit.i.i.i: ; preds = %24
@@ -14558,12 +14558,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator15allocateMassiveEm.exit.i.i.i: ; preds =
   br label %_ZN12_GLOBAL__N_116DefaultAllocator17allocateNodeArrayEm.exit.i
 
 32:                                               ; preds = %22
-  %33 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %33 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 35:                                               ; preds = %32
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %32
@@ -14605,7 +14605,7 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %.not.i, label %45, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE12shrinkToSizeEm.exit
 
 45:                                               ; preds = %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SB_.exit
-  tail call void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 137, ptr noundef nonnull @.str.301) #29
+  tail call void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 137, ptr noundef nonnull @.str.301) #30
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE12shrinkToSizeEm.exit: ; preds = %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SB_.exit
@@ -14628,12 +14628,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %9, label %10, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle16FunctionEncodingEJRPNS2_4NodeES6_RNS2_9NodeArrayES6_S6_RNS2_10QualifiersERNS2_15FunctionRefQualEEEEPT_DpOT0_.exit
 
 10:                                               ; preds = %3
-  %11 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %11 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 13:                                               ; preds = %10
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %10
@@ -14680,7 +14680,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle16FunctionEnco
   ret ptr %20
 }
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E18SaveTemplateParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %0, align 8, !tbaa !448
@@ -14697,7 +14697,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116itanium_demangle22AbstractMangli
   br i1 %10, label %16, label %12
 
 12:                                               ; preds = %11
-  tail call void @free(ptr noundef %8) #34
+  tail call void @free(ptr noundef %8) #35
   store ptr %9, ptr %4, align 8, !tbaa !197
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 672
   store ptr %9, ptr %13, align 8, !tbaa !198
@@ -14792,7 +14792,7 @@ _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EE
   br i1 %56, label %62, label %58
 
 58:                                               ; preds = %57
-  tail call void @free(ptr noundef %54) #34
+  tail call void @free(ptr noundef %54) #35
   store ptr %55, ptr %50, align 8, !tbaa !194
   %59 = getelementptr inbounds nuw i8, ptr %48, i64 584
   store ptr %55, ptr %59, align 8, !tbaa !195
@@ -14876,7 +14876,7 @@ _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EEaSEOS4_.exit
   br i1 %94, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit, label %95
 
 95:                                               ; preds = %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EEaSEOS4_.exit
-  tail call void @free(ptr noundef %93) #34
+  tail call void @free(ptr noundef %93) #35
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit: ; preds = %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EEaSEOS4_.exit.thread, %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EEaSEOS4_.exit, %95
@@ -14885,7 +14885,7 @@ _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit: ;
   br i1 %97, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EED2Ev.exit, label %98
 
 98:                                               ; preds = %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit
-  tail call void @free(ptr noundef %96) #34
+  tail call void @free(ptr noundef %96) #35
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EED2Ev.exit
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EED2Ev.exit: ; preds = %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit, %98
@@ -14906,12 +14906,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle11SpecialNameEJRA31_KcRPNS2_4NodeEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -14957,12 +14957,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle11SpecialNameEJRA12_KcRPNS2_4NodeEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -15008,12 +15008,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle11SpecialNameEJRA9_KcRPNS2_4NodeEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -15059,12 +15059,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle11SpecialNameEJRA14_KcRPNS2_4NodeEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -15110,12 +15110,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle11SpecialNameEJRA19_KcRPNS2_4NodeEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -15150,7 +15150,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle11SpecialNameE
   ret ptr %18
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E15parseCallOffsetEv(ptr noundef nonnull align 16 captures(none) dereferenceable(4928) %0) unnamed_addr #21 align 2 {
   %2 = load ptr, ptr %0, align 16, !tbaa !173
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15355,12 +15355,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle11SpecialNameEJRA27_KcRPNS2_4NodeEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -15406,12 +15406,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle21CtorVtableSpecialNameEJRPNS2_4NodeES6_EEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -15455,12 +15455,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle11SpecialNameEJRA41_KcRPNS2_4NodeEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -15506,12 +15506,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle11SpecialNameEJRA18_KcRPNS2_4NodeEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -15557,12 +15557,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle11SpecialNameEJRA22_KcRPNS2_4NodeEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -15608,12 +15608,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle11SpecialNameEJRA25_KcRPNS2_4NodeEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -15703,12 +15703,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %29, label %30, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_10ModuleNameEJRPS7_RPNS0_4NodeERbEEESB_DpOT0_.exit
 
 30:                                               ; preds = %24
-  %31 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %31 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 33:                                               ; preds = %30
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %30
@@ -15757,12 +15757,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %57, label %59, label %65
 
 59:                                               ; preds = %52
-  %60 = tail call noalias ptr @malloc(i64 noundef %58) #31
+  %60 = tail call noalias ptr @malloc(i64 noundef %58) #32
   %61 = icmp eq ptr %60, null
   br i1 %61, label %62, label %63
 
 62:                                               ; preds = %59
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 63:                                               ; preds = %59
@@ -15778,13 +15778,13 @@ _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 65:                                               ; preds = %52
-  %66 = tail call ptr @realloc(ptr noundef %.val.i, i64 noundef %58) #33
+  %66 = tail call ptr @realloc(ptr noundef %.val.i, i64 noundef %58) #34
   store ptr %66, ptr %7, align 8, !tbaa !189
   %67 = icmp eq ptr %66, null
   br i1 %67, label %68, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 68:                                               ; preds = %65
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %65, %_ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S6_.exit.i.i
@@ -15843,8 +15843,8 @@ define internal { ptr, i64 } @_ZNK12_GLOBAL__N_116itanium_demangle4Node11getBase
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle11SpecialNameD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle11SpecialNameD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #36
   ret void
 }
 
@@ -15878,7 +15878,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle11SpecialName9printLef
   store i64 %spec.select.i.i, ptr %8, align 8, !tbaa !225
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !222
-  %16 = tail call ptr @realloc(ptr noundef %15, i64 noundef %spec.select.i.i) #33
+  %16 = tail call ptr @realloc(ptr noundef %15, i64 noundef %spec.select.i.i) #34
   store ptr %16, ptr %14, align 8, !tbaa !222
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -15888,7 +15888,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle11SpecialName9printLef
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 18:                                               ; preds = %11
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -15931,8 +15931,8 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle4Node10printRightERNS0
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle21CtorVtableSpecialNameD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle21CtorVtableSpecialNameD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #36
   ret void
 }
 
@@ -15958,7 +15958,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle21CtorVtableSpecialNam
   store i64 %spec.select.i.i, ptr %6, align 8, !tbaa !225
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !222
-  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #33
+  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #34
   store ptr %14, ptr %12, align 8, !tbaa !222
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -15968,7 +15968,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle21CtorVtableSpecialNam
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 16:                                               ; preds = %9
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -16017,7 +16017,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i11, ptr %6, align 8, !tbaa !225
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !222
-  %42 = tail call ptr @realloc(ptr noundef %41, i64 noundef %spec.select.i.i11) #33
+  %42 = tail call ptr @realloc(ptr noundef %41, i64 noundef %spec.select.i.i11) #34
   store ptr %42, ptr %40, align 8, !tbaa !222
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i12
@@ -16027,7 +16027,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i10
 
 44:                                               ; preds = %37
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i10: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i12, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i7
@@ -16126,12 +16126,12 @@ _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1
   br i1 %27, label %28, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E20parsePositiveIntegerEPm.exit.thread.sink.split
 
 28:                                               ; preds = %21
-  %29 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %29 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 31:                                               ; preds = %28
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %28
@@ -16151,12 +16151,12 @@ _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1
   br i1 %38, label %39, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E20parsePositiveIntegerEPm.exit.thread.sink.split
 
 39:                                               ; preds = %_ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1_11char_traitsIcEEEES5_.exit.thread
-  %40 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %40 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i6
 
 42:                                               ; preds = %39
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i6: ; preds = %39
@@ -16206,12 +16206,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %8, label %9, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA22_KcEEEPT_DpOT0_.exit
 
 9:                                                ; preds = %2
-  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 12:                                               ; preds = %9
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %9
@@ -16229,7 +16229,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA2
   store i64 %17, ptr %16, align 8, !tbaa !211
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = getelementptr inbounds i8, ptr %18, i64 %14
-  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(22) %1) #34
+  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(22) %1) #35
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i8 8, ptr %21, align 8, !tbaa !16
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 9
@@ -16256,12 +16256,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %8, label %9, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRNSt3__117basic_string_viewIcNS4_11char_traitsIcEEEEEEEPT_DpOT0_.exit
 
 9:                                                ; preds = %2
-  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 12:                                               ; preds = %9
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %9
@@ -16298,7 +16298,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRNS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal { ptr, i64 } @_ZNK12_GLOBAL__N_116itanium_demangle8NameType11getBaseNameEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #24 align 2 {
+define internal { ptr, i64 } @_ZNK12_GLOBAL__N_116itanium_demangle8NameType11getBaseNameEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #25 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !tbaa !219
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -16309,8 +16309,8 @@ define internal { ptr, i64 } @_ZNK12_GLOBAL__N_116itanium_demangle8NameType11get
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle8NameTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle8NameTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #36
   ret void
 }
 
@@ -16344,7 +16344,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle8NameType9printLeftERN
   store i64 %spec.select.i.i, ptr %8, align 8, !tbaa !225
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !222
-  %16 = tail call ptr @realloc(ptr noundef %15, i64 noundef %spec.select.i.i) #33
+  %16 = tail call ptr @realloc(ptr noundef %15, i64 noundef %spec.select.i.i) #34
   store ptr %16, ptr %14, align 8, !tbaa !222
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -16354,7 +16354,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle8NameType9printLeftERN
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 18:                                               ; preds = %11
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -16372,8 +16372,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle10ModuleNameD0Ev(ptr noundef nonnull align 8 dereferenceable(33) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle10ModuleNameD0Ev(ptr noundef nonnull align 8 dereferenceable(33) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #36
   ret void
 }
 
@@ -16433,7 +16433,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i, ptr %24, align 8, !tbaa !225
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !222
-  %32 = tail call ptr @realloc(ptr noundef %31, i64 noundef %spec.select.i.i) #33
+  %32 = tail call ptr @realloc(ptr noundef %31, i64 noundef %spec.select.i.i) #34
   store ptr %32, ptr %30, align 8, !tbaa !222
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i
@@ -16444,7 +16444,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit
 
 34:                                               ; preds = %27
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i
@@ -16508,12 +16508,12 @@ _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1
   br i1 %19, label %20, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_8NameTypeEJRA4_KcEEEPNS0_4NodeEDpOT0_.exit
 
 20:                                               ; preds = %12
-  %21 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %21 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 23:                                               ; preds = %20
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %20
@@ -16623,12 +16623,12 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_116itanium_demangle22Abstrac
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %19
-  %23 = tail call noalias ptr @malloc(i64 noundef 0) #31
+  %23 = tail call noalias ptr @malloc(i64 noundef 0) #32
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %_ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS2_4NodeELm8EEES8_EET0_T_SA_S9_.exit.i.i
 
 25:                                               ; preds = %22
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS2_4NodeELm8EEES8_EET0_T_SA_S9_.exit.i.i: ; preds = %22
@@ -16636,13 +16636,13 @@ _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EE7reserveEm.exit.i
 
 26:                                               ; preds = %19
-  %27 = tail call ptr @realloc(ptr noundef %13, i64 noundef 0) #33
+  %27 = tail call ptr @realloc(ptr noundef %13, i64 noundef 0) #34
   store ptr %27, ptr %12, align 8, !tbaa !197
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EE7reserveEm.exit.i
 
 29:                                               ; preds = %26
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EE7reserveEm.exit.i: ; preds = %26, %_ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS2_4NodeELm8EEES8_EET0_T_SA_S9_.exit.i.i
@@ -16727,13 +16727,13 @@ _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EE
   br i1 %75, label %80, label %77
 
 77:                                               ; preds = %70
-  %78 = tail call ptr @realloc(ptr noundef %.val.i32.us, i64 noundef %76) #33
+  %78 = tail call ptr @realloc(ptr noundef %.val.i32.us, i64 noundef %76) #34
   store ptr %78, ptr %45, align 16, !tbaa !189
   %79 = icmp eq ptr %78, null
   br i1 %79, label %.split77.us, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i.us
 
 80:                                               ; preds = %70
-  %81 = tail call noalias ptr @malloc(i64 noundef %76) #31
+  %81 = tail call noalias ptr @malloc(i64 noundef %76) #32
   %82 = icmp eq ptr %81, null
   br i1 %82, label %.split79.us, label %83
 
@@ -16781,7 +16781,7 @@ _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backE
   br i1 %98, label %99, label %_ZN12_GLOBAL__N_120BumpPointerAllocator8allocateEm.exit.i.i.us
 
 99:                                               ; preds = %91
-  %100 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %100 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %101 = icmp eq ptr %100, null
   br i1 %101, label %.split81.us, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.us
 
@@ -16907,13 +16907,13 @@ _ZNSt3__16all_ofB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeEZNS2_13Param
   br i1 %146, label %151, label %148
 
 148:                                              ; preds = %141
-  %149 = tail call ptr @realloc(ptr noundef %.val.i34.us, i64 noundef %147) #33
+  %149 = tail call ptr @realloc(ptr noundef %.val.i34.us, i64 noundef %147) #34
   store ptr %149, ptr %54, align 16, !tbaa !194
   %150 = icmp eq ptr %149, null
   br i1 %150, label %.split83.us, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EE7reserveEm.exit.i.us
 
 151:                                              ; preds = %141
-  %152 = tail call noalias ptr @malloc(i64 noundef %147) #31
+  %152 = tail call noalias ptr @malloc(i64 noundef %147) #32
   %153 = icmp eq ptr %152, null
   br i1 %153, label %.split85.us, label %154
 
@@ -16970,23 +16970,23 @@ _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EE9push_backER
   br i1 %.not, label %.critedge, label %172
 
 .split79.us:                                      ; preds = %80
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 .split77.us:                                      ; preds = %77
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 .split81.us:                                      ; preds = %99
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 .split85.us:                                      ; preds = %151
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 .split83.us:                                      ; preds = %148
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 172:                                              ; preds = %170
@@ -17006,12 +17006,12 @@ _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EE9push_backER
   br i1 %181, label %183, label %189
 
 183:                                              ; preds = %176
-  %184 = tail call noalias ptr @malloc(i64 noundef %182) #31
+  %184 = tail call noalias ptr @malloc(i64 noundef %182) #32
   %185 = icmp eq ptr %184, null
   br i1 %185, label %186, label %187
 
 186:                                              ; preds = %183
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 187:                                              ; preds = %183
@@ -17027,13 +17027,13 @@ _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i38
 
 189:                                              ; preds = %176
-  %190 = tail call ptr @realloc(ptr noundef %.val.i37, i64 noundef %182) #33
+  %190 = tail call ptr @realloc(ptr noundef %.val.i37, i64 noundef %182) #34
   store ptr %190, ptr %31, align 16, !tbaa !189
   %191 = icmp eq ptr %190, null
   br i1 %191, label %192, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i38
 
 192:                                              ; preds = %189
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i38: ; preds = %189, %_ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S6_.exit.i.i40
@@ -17113,12 +17113,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %226, label %227, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_12TemplateArgsEJNS0_9NodeArrayERPNS0_4NodeEEEESA_DpOT0_.exit
 
 227:                                              ; preds = %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E9consumeIfEc.exit31
-  %228 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %228 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %229 = icmp eq ptr %228, null
   br i1 %229, label %230, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i50
 
 230:                                              ; preds = %227
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i50: ; preds = %227
@@ -17168,12 +17168,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle20NameWithTemplateArgsEJRPNS2_4NodeES6_EEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -17351,12 +17351,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %59, label %60, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_8NameTypeEJNSt3__117basic_string_viewIcNS8_11char_traitsIcEEEEEEEPNS0_4NodeEDpOT0_.exit
 
 60:                                               ; preds = %50
-  %61 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %61 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %62 = icmp eq ptr %61, null
   br i1 %62, label %63, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 63:                                               ; preds = %60
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %60
@@ -17406,12 +17406,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %88, label %89, label %94
 
 89:                                               ; preds = %82
-  %90 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %90 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %91 = icmp eq ptr %90, null
   br i1 %91, label %92, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i61
 
 92:                                               ; preds = %89
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i61: ; preds = %89
@@ -17463,12 +17463,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i61: ; preds = %89
   br i1 %121, label %123, label %129
 
 123:                                              ; preds = %115
-  %124 = tail call noalias ptr @malloc(i64 noundef %122) #31
+  %124 = tail call noalias ptr @malloc(i64 noundef %122) #32
   %125 = icmp eq ptr %124, null
   br i1 %125, label %126, label %127
 
 126:                                              ; preds = %123
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 127:                                              ; preds = %123
@@ -17484,13 +17484,13 @@ _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle24ForwardTemplateRef
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EE7reserveEm.exit.i
 
 129:                                              ; preds = %115
-  %130 = tail call ptr @realloc(ptr noundef %.val.i, i64 noundef %122) #33
+  %130 = tail call ptr @realloc(ptr noundef %.val.i, i64 noundef %122) #34
   store ptr %130, ptr %109, align 16, !tbaa !202
   %131 = icmp eq ptr %130, null
   br i1 %131, label %132, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EE7reserveEm.exit.i
 
 132:                                              ; preds = %129
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EE7reserveEm.exit.i: ; preds = %129, %_ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle24ForwardTemplateReferenceES5_EET0_T_S7_S6_.exit.i.i
@@ -17625,12 +17625,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %31, label %32, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_13EnclosingExprEJRA9_KcRPNS0_4NodeEEEESC_DpOT0_.exit
 
 32:                                               ; preds = %24
-  %33 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %33 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 35:                                               ; preds = %32
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %32
@@ -17737,12 +17737,12 @@ _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParse
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %18
-  %27 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %27 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 29:                                               ; preds = %26
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %26
@@ -17795,12 +17795,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %26
   br i1 %58, label %60, label %66
 
 60:                                               ; preds = %52
-  %61 = tail call noalias ptr @malloc(i64 noundef %59) #31
+  %61 = tail call noalias ptr @malloc(i64 noundef %59) #32
   %62 = icmp eq ptr %61, null
   br i1 %62, label %63, label %64
 
 63:                                               ; preds = %60
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 64:                                               ; preds = %60
@@ -17816,13 +17816,13 @@ _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 66:                                               ; preds = %52
-  %67 = tail call ptr @realloc(ptr noundef %.val.i, i64 noundef %59) #33
+  %67 = tail call ptr @realloc(ptr noundef %.val.i, i64 noundef %59) #34
   store ptr %67, ptr %46, align 8, !tbaa !189
   %68 = icmp eq ptr %67, null
   br i1 %68, label %69, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 69:                                               ; preds = %66
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %66, %_ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S6_.exit.i.i
@@ -18052,12 +18052,12 @@ _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1
   br i1 %56, label %58, label %64
 
 58:                                               ; preds = %51
-  %59 = tail call noalias ptr @malloc(i64 noundef %57) #31
+  %59 = tail call noalias ptr @malloc(i64 noundef %57) #32
   %60 = icmp eq ptr %59, null
   br i1 %60, label %61, label %62
 
 61:                                               ; preds = %58
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 62:                                               ; preds = %58
@@ -18073,13 +18073,13 @@ _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 64:                                               ; preds = %51
-  %65 = tail call ptr @realloc(ptr noundef %.val.i, i64 noundef %57) #33
+  %65 = tail call ptr @realloc(ptr noundef %.val.i, i64 noundef %57) #34
   store ptr %65, ptr %37, align 16, !tbaa !189
   %66 = icmp eq ptr %65, null
   br i1 %66, label %67, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 67:                                               ; preds = %64
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %64, %_ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S6_.exit.i.i
@@ -18124,12 +18124,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %89, label %90, label %.critedge
 
 90:                                               ; preds = %79
-  %91 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %91 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %92 = icmp eq ptr %91, null
   br i1 %92, label %93, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 93:                                               ; preds = %90
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %90
@@ -18311,12 +18311,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %164, label %165, label %.thread174
 
 165:                                              ; preds = %158
-  %166 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %166 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %167 = icmp eq ptr %166, null
   br i1 %167, label %168, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i66
 
 168:                                              ; preds = %165
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i66: ; preds = %165
@@ -18369,12 +18369,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i66: ; preds = %165
   br i1 %193, label %194, label %.critedge23.sink.split
 
 194:                                              ; preds = %187
-  %195 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %195 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %196 = icmp eq ptr %195, null
   br i1 %196, label %197, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i67
 
 197:                                              ; preds = %194
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i67: ; preds = %194
@@ -18399,12 +18399,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i67: ; preds = %194
   br i1 %206, label %207, label %.critedge23.sink.split
 
 207:                                              ; preds = %200
-  %208 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %208 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %209 = icmp eq ptr %208, null
   br i1 %209, label %210, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i68
 
 210:                                              ; preds = %207
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i68: ; preds = %207
@@ -18454,12 +18454,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %8, label %9, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJNSt3__117basic_string_viewIcNS4_11char_traitsIcEEEEEEEPT_DpOT0_.exit
 
 9:                                                ; preds = %2
-  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 12:                                               ; preds = %9
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %9
@@ -18516,12 +18516,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVector
   br i1 %13, label %15, label %21
 
 15:                                               ; preds = %7
-  %16 = tail call noalias ptr @malloc(i64 noundef %14) #31
+  %16 = tail call noalias ptr @malloc(i64 noundef %14) #32
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %15
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 19:                                               ; preds = %15
@@ -18537,13 +18537,13 @@ _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EE7reserveEm.exit
 
 21:                                               ; preds = %7
-  %22 = tail call ptr @realloc(ptr noundef %.val, i64 noundef %14) #33
+  %22 = tail call ptr @realloc(ptr noundef %.val, i64 noundef %14) #34
   store ptr %22, ptr %0, align 8, !tbaa !197
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EE7reserveEm.exit
 
 24:                                               ; preds = %21
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EE7reserveEm.exit: ; preds = %_ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS2_4NodeELm8EEES8_EET0_T_SA_S9_.exit.i, %21
@@ -18572,12 +18572,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %8, label %9, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA5_KcEEEPT_DpOT0_.exit
 
 9:                                                ; preds = %2
-  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 12:                                               ; preds = %9
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %9
@@ -18595,7 +18595,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA5
   store i64 %17, ptr %16, align 8, !tbaa !211
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = getelementptr inbounds i8, ptr %18, i64 %14
-  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(5) %1) #34
+  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(5) %1) #35
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i8 8, ptr %21, align 8, !tbaa !16
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 9
@@ -18780,8 +18780,8 @@ define internal noundef ptr @_ZNK12_GLOBAL__N_116itanium_demangle24ForwardTempla
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle24ForwardTemplateReferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(33) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle24ForwardTemplateReferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(33) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #36
   ret void
 }
 
@@ -18941,7 +18941,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParse
   %.val113 = load i8, ptr %42, align 2, !tbaa !460
   %43 = getelementptr i8, ptr %36, i64 8
   %.val114 = load ptr, ptr %43, align 8, !tbaa !462
-  %44 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val114) #34
+  %44 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val114) #35
   %45 = and i64 %33, 1152921504606846975
   %46 = shl nuw i64 1, %45
   %47 = and i64 %46, 414331165718019679
@@ -18958,7 +18958,7 @@ _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1
   br i1 %50, label %51, label %_ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1_11char_traitsIcEEEES5_.exit.thread.i
 
 _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1_11char_traitsIcEEEES5_.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1_11char_traitsIcEEEES5_.exit.i213, %48
-  tail call void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 3025, ptr noundef nonnull @.str.246) #29
+  tail call void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 3025, ptr noundef nonnull @.str.246) #30
   unreachable
 
 51:                                               ; preds = %_ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1_11char_traitsIcEEEES5_.exit.i213
@@ -19034,12 +19034,12 @@ _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParse
   br i1 %82, label %83, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_10PrefixExprEJRNSt3__117basic_string_viewIcNS8_11char_traitsIcEEEERPNS0_4NodeERNSE_4PrecEEEESF_DpOT0_.exit
 
 83:                                               ; preds = %76
-  %84 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %84 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %85 = icmp eq ptr %84, null
   br i1 %85, label %86, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i375
 
 86:                                               ; preds = %83
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i375: ; preds = %83
@@ -19190,12 +19190,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %168, label %170, label %176
 
 170:                                              ; preds = %163
-  %171 = tail call noalias ptr @malloc(i64 noundef %169) #31
+  %171 = tail call noalias ptr @malloc(i64 noundef %169) #32
   %172 = icmp eq ptr %171, null
   br i1 %172, label %173, label %174
 
 173:                                              ; preds = %170
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 174:                                              ; preds = %170
@@ -19211,13 +19211,13 @@ _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 176:                                              ; preds = %163
-  %177 = tail call ptr @realloc(ptr noundef %.val.i233, i64 noundef %169) #33
+  %177 = tail call ptr @realloc(ptr noundef %.val.i233, i64 noundef %169) #34
   store ptr %177, ptr %143, align 16, !tbaa !189
   %178 = icmp eq ptr %177, null
   br i1 %178, label %179, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 179:                                              ; preds = %176
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %176, %_ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S6_.exit.i.i
@@ -19303,13 +19303,13 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %220, label %225, label %222
 
 222:                                              ; preds = %215
-  %223 = tail call ptr @realloc(ptr noundef %.val.i242.us, i64 noundef %221) #33
+  %223 = tail call ptr @realloc(ptr noundef %.val.i242.us, i64 noundef %221) #34
   store ptr %223, ptr %143, align 16, !tbaa !189
   %224 = icmp eq ptr %223, null
   br i1 %224, label %.split531.us, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i243.us
 
 225:                                              ; preds = %215
-  %226 = tail call noalias ptr @malloc(i64 noundef %221) #31
+  %226 = tail call noalias ptr @malloc(i64 noundef %221) #32
   %227 = icmp eq ptr %226, null
   br i1 %227, label %.split533.us, label %228
 
@@ -19356,11 +19356,11 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %240, label %.split528.us, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E15parseBinaryExprENSt3__117basic_string_viewIcNS6_11char_traitsIcEEEENS0_4Node4PrecE.exit
 
 .split533.us:                                     ; preds = %225
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 .split531.us:                                     ; preds = %222
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 .split528.us:                                     ; preds = %206, %235
@@ -19398,12 +19398,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %262, label %263, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_10DeleteExprEJRPNS0_4NodeERbbNS8_4PrecEEEES9_DpOT0_.exit
 
 263:                                              ; preds = %253
-  %264 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %264 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %265 = icmp eq ptr %264, null
   br i1 %265, label %266, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 266:                                              ; preds = %263
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %263
@@ -19490,12 +19490,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %313, label %315, label %321
 
 315:                                              ; preds = %308
-  %316 = tail call noalias ptr @malloc(i64 noundef %314) #31
+  %316 = tail call noalias ptr @malloc(i64 noundef %314) #32
   %317 = icmp eq ptr %316, null
   br i1 %317, label %318, label %319
 
 318:                                              ; preds = %315
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 319:                                              ; preds = %315
@@ -19511,13 +19511,13 @@ _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i251
 
 321:                                              ; preds = %308
-  %322 = tail call ptr @realloc(ptr noundef %.val.i250, i64 noundef %314) #33
+  %322 = tail call ptr @realloc(ptr noundef %.val.i250, i64 noundef %314) #34
   store ptr %322, ptr %288, align 16, !tbaa !189
   %323 = icmp eq ptr %322, null
   br i1 %323, label %324, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i251
 
 324:                                              ; preds = %321
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i251: ; preds = %321, %_ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S6_.exit.i.i253
@@ -19632,13 +19632,13 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %382, label %387, label %384
 
 384:                                              ; preds = %377
-  %385 = tail call ptr @realloc(ptr noundef %.val.i261.us, i64 noundef %383) #33
+  %385 = tail call ptr @realloc(ptr noundef %.val.i261.us, i64 noundef %383) #34
   store ptr %385, ptr %348, align 16, !tbaa !189
   %386 = icmp eq ptr %385, null
   br i1 %386, label %.split524.us, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i262.us
 
 387:                                              ; preds = %377
-  %388 = tail call noalias ptr @malloc(i64 noundef %383) #31
+  %388 = tail call noalias ptr @malloc(i64 noundef %383) #32
   %389 = icmp eq ptr %388, null
   br i1 %389, label %.split526.us, label %390
 
@@ -19703,12 +19703,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %414, label %416, label %421
 
 416:                                              ; preds = %409
-  %417 = tail call noalias ptr @malloc(i64 noundef %415) #31
+  %417 = tail call noalias ptr @malloc(i64 noundef %415) #32
   %418 = icmp eq ptr %417, null
   br i1 %418, label %.split526.us, label %419
 
 .split526.us:                                     ; preds = %387, %416
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 419:                                              ; preds = %416
@@ -19724,13 +19724,13 @@ _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i262
 
 421:                                              ; preds = %409
-  %422 = tail call ptr @realloc(ptr noundef %.val.i261, i64 noundef %415) #33
+  %422 = tail call ptr @realloc(ptr noundef %.val.i261, i64 noundef %415) #34
   store ptr %422, ptr %348, align 16, !tbaa !189
   %423 = icmp eq ptr %422, null
   br i1 %423, label %.split524.us, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i262
 
 .split524.us:                                     ; preds = %384, %421
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i262: ; preds = %421, %_ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S6_.exit.i.i264
@@ -19837,12 +19837,12 @@ _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backE
   br i1 %478, label %479, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_13EnclosingExprEJRNSt3__117basic_string_viewIcNS8_11char_traitsIcEEEERPNS0_4NodeENSE_4PrecEEEESF_DpOT0_.exit
 
 479:                                              ; preds = %471
-  %480 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %480 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %481 = icmp eq ptr %480, null
   br i1 %481, label %482, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i266
 
 482:                                              ; preds = %479
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i266: ; preds = %479
@@ -19985,12 +19985,12 @@ _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1
   br i1 %544, label %546, label %552
 
 546:                                              ; preds = %539
-  %547 = tail call noalias ptr @malloc(i64 noundef %545) #31
+  %547 = tail call noalias ptr @malloc(i64 noundef %545) #32
   %548 = icmp eq ptr %547, null
   br i1 %548, label %549, label %550
 
 549:                                              ; preds = %546
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 550:                                              ; preds = %546
@@ -20006,13 +20006,13 @@ _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i293
 
 552:                                              ; preds = %539
-  %553 = tail call ptr @realloc(ptr noundef %.val.i292, i64 noundef %545) #33
+  %553 = tail call ptr @realloc(ptr noundef %.val.i292, i64 noundef %545) #34
   store ptr %553, ptr %519, align 16, !tbaa !189
   %554 = icmp eq ptr %553, null
   br i1 %554, label %555, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i293
 
 555:                                              ; preds = %552
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i293: ; preds = %552, %_ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S6_.exit.i.i295
@@ -20438,12 +20438,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %8, label %9, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle11PostfixExprEJRPNS2_4NodeERNSt3__117basic_string_viewIcNS7_11char_traitsIcEEEENS4_4PrecEEEEPT_DpOT0_.exit
 
 9:                                                ; preds = %2
-  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 12:                                               ; preds = %9
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %9
@@ -20495,12 +20495,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle18ArraySubscriptExprEJRPNS2_4NodeES6_NS4_4PrecEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -20547,12 +20547,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %8, label %9, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle10MemberExprEJRPNS2_4NodeERNSt3__117basic_string_viewIcNS7_11char_traitsIcEEEES6_NS4_4PrecEEEEPT_DpOT0_.exit
 
 9:                                                ; preds = %2
-  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 12:                                               ; preds = %9
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %9
@@ -20606,12 +20606,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle7NewExprEJRNS2_9NodeArrayERPNS2_4NodeES5_RbbNS6_4PrecEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -20670,12 +20670,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8CallExprEJRPNS2_4NodeENS2_9NodeArrayEbNS4_4PrecEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -20727,12 +20727,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle14ConversionExprEJRPNS2_4NodeERNS2_9NodeArrayENS4_4PrecEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -20781,12 +20781,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle15ConditionalExprEJRPNS2_4NodeES6_S6_NS4_4PrecEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -20835,12 +20835,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %8, label %9, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8CastExprEJRNSt3__117basic_string_viewIcNS4_11char_traitsIcEEEERPNS2_4NodeESC_NSA_4PrecEEEEPT_DpOT0_.exit
 
 9:                                                ; preds = %2
-  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 12:                                               ; preds = %9
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %9
@@ -21094,12 +21094,12 @@ _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1
   br i1 %88, label %89, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_16FloatLiteralImplIfEEJRNSt3__117basic_string_viewIcNS9_11char_traitsIcEEEEEEEPNS0_4NodeEDpOT0_.exit.i
 
 89:                                               ; preds = %81
-  %90 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %90 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %91 = icmp eq ptr %90, null
   br i1 %91, label %92, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i
 
 92:                                               ; preds = %89
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i: ; preds = %89
@@ -21181,12 +21181,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %127, label %128, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_16FloatLiteralImplIdEEJRNSt3__117basic_string_viewIcNS9_11char_traitsIcEEEEEEEPNS0_4NodeEDpOT0_.exit.i
 
 128:                                              ; preds = %120
-  %129 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %129 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %130 = icmp eq ptr %129, null
   br i1 %130, label %131, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i37
 
 131:                                              ; preds = %128
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i37: ; preds = %128
@@ -21268,12 +21268,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %166, label %167, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_16FloatLiteralImplIeEEJRNSt3__117basic_string_viewIcNS9_11char_traitsIcEEEEEEEPNS0_4NodeEDpOT0_.exit.i
 
 167:                                              ; preds = %159
-  %168 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %168 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %169 = icmp eq ptr %168, null
   br i1 %169, label %170, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i52
 
 170:                                              ; preds = %167
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i52: ; preds = %167
@@ -21543,12 +21543,12 @@ _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1
   br i1 %17, label %18, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_8NameTypeEJRA5_KcEEEPNS0_4NodeEDpOT0_.exit
 
 18:                                               ; preds = %10
-  %19 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %19 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 21:                                               ; preds = %18
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %18
@@ -21696,12 +21696,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %79, label %80, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_13FunctionParamEJRNSt3__117basic_string_viewIcNS8_11char_traitsIcEEEEEEEPNS0_4NodeEDpOT0_.exit
 
 80:                                               ; preds = %72
-  %81 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %81 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %82 = icmp eq ptr %81, null
   br i1 %82, label %83, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i13
 
 83:                                               ; preds = %80
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i13: ; preds = %80
@@ -21999,7 +21999,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParse
 44:                                               ; preds = %41
   %45 = getelementptr i8, ptr %37, i64 8
   %.val17 = load ptr, ptr %45, align 8, !tbaa !462
-  %46 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val17) #34
+  %46 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val17) #35
   %47 = getelementptr i8, ptr %.val17, i64 %46
   %48 = getelementptr i8, ptr %47, i64 -1
   %49 = load i8, ptr %48, align 1, !tbaa !210
@@ -22030,7 +22030,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParse
   %.034 = phi ptr [ %50, %52 ], [ %spec.select43, %56 ]
   %58 = getelementptr i8, ptr %37, i64 8
   %.val14 = load ptr, ptr %58, align 8, !tbaa !462
-  %59 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val14) #34
+  %59 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val14) #35
   %60 = and i64 %34, 1152921504606846975
   %61 = shl nuw i64 1, %60
   %62 = and i64 %61, 414331165718019679
@@ -22047,7 +22047,7 @@ _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1
   br i1 %65, label %66, label %_ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1_11char_traitsIcEEEES5_.exit.thread.i
 
 _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1_11char_traitsIcEEEES5_.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1_11char_traitsIcEEEES5_.exit.i, %63
-  tail call void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 3025, ptr noundef nonnull @.str.246) #29
+  tail call void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 3025, ptr noundef nonnull @.str.246) #30
   unreachable
 
 66:                                               ; preds = %_ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1_11char_traitsIcEEEES5_.exit.i
@@ -22078,12 +22078,12 @@ _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParse
   br i1 %80, label %81, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_8FoldExprEJRbNSt3__117basic_string_viewIcNS9_11char_traitsIcEEEERPNS0_4NodeESG_EEESF_DpOT0_.exit
 
 81:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E12OperatorInfo9getSymbolEv.exit
-  %82 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %82 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %83 = icmp eq ptr %82, null
   br i1 %83, label %84, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 84:                                               ; preds = %81
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %81
@@ -22175,12 +22175,12 @@ _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParse
   br i1 %23, label %24, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_10BracedExprEJRPNS0_4NodeESA_bEEES9_DpOT0_.exit
 
 24:                                               ; preds = %17
-  %25 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %25 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 27:                                               ; preds = %24
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %24
@@ -22236,12 +22236,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %56, label %57, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_10BracedExprEJRPNS0_4NodeESA_bEEES9_DpOT0_.exit18
 
 57:                                               ; preds = %50
-  %58 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %58 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i17
 
 60:                                               ; preds = %57
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i17: ; preds = %57
@@ -22302,12 +22302,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %92, label %93, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_15BracedRangeExprEJRPNS0_4NodeESA_SA_EEES9_DpOT0_.exit
 
 93:                                               ; preds = %86
-  %94 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %94 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %95 = icmp eq ptr %94, null
   br i1 %95, label %96, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i19
 
 96:                                               ; preds = %93
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i19: ; preds = %93
@@ -22361,12 +22361,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle12InitListExprEJDnNS2_9NodeArrayEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -22487,12 +22487,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %37, label %38, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_29PointerToMemberConversionExprEJRPNS0_4NodeESA_RNSt3__117basic_string_viewIcNSB_11char_traitsIcEEEERNS8_4PrecEEEES9_DpOT0_.exit
 
 38:                                               ; preds = %30
-  %39 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %39 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 41:                                               ; preds = %38
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %38
@@ -22544,12 +22544,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle13EnclosingExprEJRA10_KcRPNS2_4NodeENS7_4PrecEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -22653,12 +22653,12 @@ _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1
   br i1 %37, label %39, label %45
 
 39:                                               ; preds = %32
-  %40 = tail call noalias ptr @malloc(i64 noundef %38) #31
+  %40 = tail call noalias ptr @malloc(i64 noundef %38) #32
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %39
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 43:                                               ; preds = %39
@@ -22674,13 +22674,13 @@ _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 45:                                               ; preds = %32
-  %46 = tail call ptr @realloc(ptr noundef %.val.i, i64 noundef %38) #33
+  %46 = tail call ptr @realloc(ptr noundef %.val.i, i64 noundef %38) #34
   store ptr %46, ptr %12, align 16, !tbaa !189
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 48:                                               ; preds = %45
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %45, %_ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S6_.exit.i.i
@@ -22795,12 +22795,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %97, label %98, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_15ExprRequirementEJRPNS0_4NodeERbSA_EEES9_DpOT0_.exit
 
 98:                                               ; preds = %.critedge32
-  %99 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %99 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %100 = icmp eq ptr %99, null
   br i1 %100, label %101, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 101:                                              ; preds = %98
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %98
@@ -22855,12 +22855,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %128, label %129, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_15TypeRequirementEJRPNS0_4NodeEEEES9_DpOT0_.exit
 
 129:                                              ; preds = %123
-  %130 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %130 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %131 = icmp eq ptr %130, null
   br i1 %131, label %132, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i61
 
 132:                                              ; preds = %129
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i61: ; preds = %129
@@ -22911,12 +22911,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %157, label %158, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_17NestedRequirementEJRPNS0_4NodeEEEES9_DpOT0_.exit
 
 158:                                              ; preds = %152
-  %159 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %159 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %160 = icmp eq ptr %159, null
   br i1 %160, label %161, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i65
 
 161:                                              ; preds = %158
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i65: ; preds = %158
@@ -22964,12 +22964,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %183, label %185, label %191
 
 185:                                              ; preds = %178
-  %186 = tail call noalias ptr @malloc(i64 noundef %184) #31
+  %186 = tail call noalias ptr @malloc(i64 noundef %184) #32
   %187 = icmp eq ptr %186, null
   br i1 %187, label %188, label %189
 
 188:                                              ; preds = %185
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 189:                                              ; preds = %185
@@ -22985,13 +22985,13 @@ _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i67
 
 191:                                              ; preds = %178
-  %192 = tail call ptr @realloc(ptr noundef %.val.i66, i64 noundef %184) #33
+  %192 = tail call ptr @realloc(ptr noundef %.val.i66, i64 noundef %184) #34
   store ptr %192, ptr %61, align 16, !tbaa !189
   %193 = icmp eq ptr %192, null
   br i1 %193, label %194, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i67
 
 194:                                              ; preds = %191
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i67: ; preds = %191, %_ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S6_.exit.i.i69
@@ -23034,12 +23034,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %214, label %215, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_12RequiresExprEJRNS0_9NodeArrayES8_EEEPNS0_4NodeEDpOT0_.exit
 
 215:                                              ; preds = %205
-  %216 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %216 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %217 = icmp eq ptr %216, null
   br i1 %217, label %218, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i74
 
 218:                                              ; preds = %215
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i74: ; preds = %215
@@ -23215,12 +23215,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %58, label %59, label %64
 
 59:                                               ; preds = %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E11parseNumberEb.exit29
-  %60 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %60 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %61 = icmp eq ptr %60, null
   br i1 %61, label %62, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 62:                                               ; preds = %59
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %59
@@ -23266,12 +23266,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %59
   br i1 %85, label %87, label %93
 
 87:                                               ; preds = %80
-  %88 = tail call noalias ptr @malloc(i64 noundef %86) #31
+  %88 = tail call noalias ptr @malloc(i64 noundef %86) #32
   %89 = icmp eq ptr %88, null
   br i1 %89, label %90, label %91
 
 90:                                               ; preds = %87
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 91:                                               ; preds = %87
@@ -23287,13 +23287,13 @@ _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 93:                                               ; preds = %80
-  %94 = tail call ptr @realloc(ptr noundef %.val.i, i64 noundef %86) #33
+  %94 = tail call ptr @realloc(ptr noundef %.val.i, i64 noundef %86) #34
   store ptr %94, ptr %27, align 16, !tbaa !189
   %95 = icmp eq ptr %94, null
   br i1 %95, label %96, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 96:                                               ; preds = %93
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %93, %_ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S6_.exit.i.i
@@ -23355,12 +23355,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %124, label %125, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_13SubobjectExprEJRPNS0_4NodeESA_RNSt3__117basic_string_viewIcNSB_11char_traitsIcEEEENS0_9NodeArrayERbEEES9_DpOT0_.exit
 
 125:                                              ; preds = %114
-  %126 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %126 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %127 = icmp eq ptr %126, null
   br i1 %127, label %128, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i37
 
 128:                                              ; preds = %125
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i37: ; preds = %125
@@ -23418,12 +23418,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle22ParameterPackExpansionEJRPNS2_4NodeEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -23465,12 +23465,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle19SizeofParamPackExprEJRPNS2_4NodeEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -23512,12 +23512,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle13EnclosingExprEJRA11_KcRPNS2_4NodeEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -23565,12 +23565,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle13NodeArrayNodeEJNS2_9NodeArrayEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -23614,12 +23614,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle12InitListExprEJRPNS2_4NodeENS2_9NodeArrayEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -23665,12 +23665,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %8, label %9, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA6_KcEEEPT_DpOT0_.exit
 
 9:                                                ; preds = %2
-  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 12:                                               ; preds = %9
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %9
@@ -23688,7 +23688,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA6
   store i64 %17, ptr %16, align 8, !tbaa !211
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = getelementptr inbounds i8, ptr %18, i64 %14
-  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(6) %1) #34
+  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(6) %1) #35
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i8 8, ptr %21, align 8, !tbaa !16
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 9
@@ -23715,12 +23715,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle9ThrowExprEJRPNS2_4NodeEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -23800,12 +23800,12 @@ _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParse
   br i1 %27, label %28, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeESA_EEES9_DpOT0_.exit
 
 28:                                               ; preds = %21
-  %29 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %29 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 31:                                               ; preds = %28
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %28
@@ -23868,12 +23868,12 @@ _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParse
   br i1 %61, label %62, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_13QualifiedNameEJRPNS0_4NodeESA_EEES9_DpOT0_.exit
 
 62:                                               ; preds = %56
-  %63 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %63 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %64 = icmp eq ptr %63, null
   br i1 %64, label %65, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i51
 
 65:                                               ; preds = %62
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i51: ; preds = %62
@@ -23921,12 +23921,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %89, label %90, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_13QualifiedNameEJRPNS0_4NodeESA_EEES9_DpOT0_.exit53
 
 90:                                               ; preds = %84
-  %91 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %91 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %92 = icmp eq ptr %91, null
   br i1 %92, label %93, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i52
 
 93:                                               ; preds = %90
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i52: ; preds = %90
@@ -23983,12 +23983,12 @@ _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1
   br i1 %119, label %120, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_19GlobalQualifiedNameEJRPNS0_4NodeEEEES9_DpOT0_.exit
 
 120:                                              ; preds = %113
-  %121 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %121 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %122 = icmp eq ptr %121, null
   br i1 %122, label %123, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i58
 
 123:                                              ; preds = %120
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i58: ; preds = %120
@@ -24055,7 +24055,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParse
   br i1 %149, label %151, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_13QualifiedNameEJRPNS0_4NodeESA_EEES9_DpOT0_.exit63.us
 
 151:                                              ; preds = %150
-  %152 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %152 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %153 = icmp eq ptr %152, null
   br i1 %153, label %.split.us, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i62.us
 
@@ -24092,7 +24092,7 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %149, label %169, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_19GlobalQualifiedNameEJRPNS0_4NodeEEEES9_DpOT0_.exit65.us
 
 169:                                              ; preds = %168
-  %170 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %170 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %171 = icmp eq ptr %170, null
   br i1 %171, label %.split101.us, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i64.us
 
@@ -24155,12 +24155,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %199, label %200, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_13QualifiedNameEJRPNS0_4NodeESA_EEES9_DpOT0_.exit63
 
 200:                                              ; preds = %194
-  %201 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %201 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %202 = icmp eq ptr %201, null
   br i1 %202, label %.split.us, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i62
 
 .split.us:                                        ; preds = %200, %151
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i62: ; preds = %200
@@ -24193,7 +24193,7 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br label %217
 
 .split101.us:                                     ; preds = %169
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 217:                                              ; preds = %.lr.ph.split, %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_13QualifiedNameEJRPNS0_4NodeESA_EEES9_DpOT0_.exit63
@@ -24251,12 +24251,12 @@ _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParse
   br i1 %240, label %241, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeESA_EEES9_DpOT0_.exit73
 
 241:                                              ; preds = %234
-  %242 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %242 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %243 = icmp eq ptr %242, null
   br i1 %243, label %244, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i72
 
 244:                                              ; preds = %241
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i72: ; preds = %241
@@ -24304,12 +24304,12 @@ _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParse
   br i1 %267, label %268, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_13QualifiedNameEJRPNS0_4NodeESA_EEES9_DpOT0_.exit75
 
 268:                                              ; preds = %261
-  %269 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %269 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %270 = icmp eq ptr %269, null
   br i1 %270, label %271, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i74
 
 271:                                              ; preds = %268
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i74: ; preds = %268
@@ -24357,12 +24357,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle10BinaryExprEJRPNS2_4NodeERNSt3__117basic_string_viewIcNS7_11char_traitsIcEEEES6_RNS4_4PrecEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -24403,8 +24403,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle10BinaryExprEJ
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle10BinaryExprD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle10BinaryExprD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #36
   ret void
 }
 
@@ -24457,7 +24457,7 @@ _ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EE
   store i64 %spec.select.i.i.i, ptr %12, align 8, !tbaa !225
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !222
-  %20 = tail call ptr @realloc(ptr noundef %19, i64 noundef %spec.select.i.i.i) #33
+  %20 = tail call ptr @realloc(ptr noundef %19, i64 noundef %spec.select.i.i.i) #34
   store ptr %20, ptr %18, align 8, !tbaa !222
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -24468,7 +24468,7 @@ _ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EE
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit
 
 22:                                               ; preds = %15
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -24525,7 +24525,7 @@ _ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EE
   store i64 %spec.select.i.i, ptr %39, align 8, !tbaa !225
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !222
-  %47 = tail call ptr @realloc(ptr noundef %46, i64 noundef %spec.select.i.i) #33
+  %47 = tail call ptr @realloc(ptr noundef %46, i64 noundef %spec.select.i.i) #34
   store ptr %47, ptr %45, align 8, !tbaa !222
   %48 = icmp eq ptr %47, null
   br i1 %48, label %49, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -24535,7 +24535,7 @@ _ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EE
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIcNS2_11char_traitsIcEEEE.exit
 
 49:                                               ; preds = %42
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIcNS2_11char_traitsIcEEEE.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -24579,7 +24579,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i38, ptr %58, align 8, !tbaa !225
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !222
-  %66 = tail call ptr @realloc(ptr noundef %65, i64 noundef %spec.select.i.i38) #33
+  %66 = tail call ptr @realloc(ptr noundef %65, i64 noundef %spec.select.i.i38) #34
   store ptr %66, ptr %64, align 8, !tbaa !222
   %67 = icmp eq ptr %66, null
   br i1 %67, label %68, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i39
@@ -24589,7 +24589,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i37
 
 68:                                               ; preds = %61
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i37: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i39, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i34
@@ -24623,7 +24623,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i47, ptr %77, align 8, !tbaa !225
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !222
-  %85 = tail call ptr @realloc(ptr noundef %84, i64 noundef %spec.select.i.i47) #33
+  %85 = tail call ptr @realloc(ptr noundef %84, i64 noundef %spec.select.i.i47) #34
   store ptr %85, ptr %83, align 8, !tbaa !222
   %86 = icmp eq ptr %85, null
   br i1 %86, label %87, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i48
@@ -24633,7 +24633,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i46
 
 87:                                               ; preds = %80
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i46: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i48, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i43
@@ -24674,7 +24674,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i46: ; preds = %._
   store i64 %spec.select.i.i.i55, ptr %77, align 8, !tbaa !225
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %108 = load ptr, ptr %107, align 8, !tbaa !222
-  %109 = tail call ptr @realloc(ptr noundef %108, i64 noundef %spec.select.i.i.i55) #33
+  %109 = tail call ptr @realloc(ptr noundef %108, i64 noundef %spec.select.i.i.i55) #34
   store ptr %109, ptr %107, align 8, !tbaa !222
   %110 = icmp eq ptr %109, null
   br i1 %110, label %111, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i56
@@ -24685,7 +24685,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i46: ; preds = %._
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit
 
 111:                                              ; preds = %104
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i51, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i56
@@ -24738,7 +24738,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_116itanium_demangle4Node14printAsO
   store i64 %spec.select.i.i.i, ptr %18, align 8, !tbaa !225
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !222
-  %26 = tail call ptr @realloc(ptr noundef %25, i64 noundef %spec.select.i.i.i) #33
+  %26 = tail call ptr @realloc(ptr noundef %25, i64 noundef %spec.select.i.i.i) #34
   store ptr %26, ptr %24, align 8, !tbaa !222
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -24749,7 +24749,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_116itanium_demangle4Node14printAsO
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit
 
 28:                                               ; preds = %21
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -24797,7 +24797,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i.i11, ptr %18, align 8, !tbaa !225
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !222
-  %51 = tail call ptr @realloc(ptr noundef %50, i64 noundef %spec.select.i.i.i11) #33
+  %51 = tail call ptr @realloc(ptr noundef %50, i64 noundef %spec.select.i.i.i11) #34
   store ptr %51, ptr %49, align 8, !tbaa !222
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i12
@@ -24808,7 +24808,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit
 
 53:                                               ; preds = %46
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i7, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i12
@@ -24852,12 +24852,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle10PrefixExprEJRNSt3__117basic_string_viewIcNS4_11char_traitsIcEEEERPNS2_4NodeERNSA_4PrecEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -24896,8 +24896,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle10PrefixExprEJ
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle10PrefixExprD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle10PrefixExprD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #36
   ret void
 }
 
@@ -24931,7 +24931,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle10PrefixExpr9printLeft
   store i64 %spec.select.i.i, ptr %8, align 8, !tbaa !225
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !222
-  %16 = tail call ptr @realloc(ptr noundef %15, i64 noundef %spec.select.i.i) #33
+  %16 = tail call ptr @realloc(ptr noundef %15, i64 noundef %spec.select.i.i) #34
   store ptr %16, ptr %14, align 8, !tbaa !222
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -24941,7 +24941,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle10PrefixExpr9printLeft
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 18:                                               ; preds = %11
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -24966,8 +24966,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle11PostfixExprD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle11PostfixExprD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #36
   ret void
 }
 
@@ -25008,7 +25008,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle11PostfixExpr9printLef
   store i64 %spec.select.i.i, ptr %13, align 8, !tbaa !225
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !222
-  %21 = tail call ptr @realloc(ptr noundef %20, i64 noundef %spec.select.i.i) #33
+  %21 = tail call ptr @realloc(ptr noundef %20, i64 noundef %spec.select.i.i) #34
   store ptr %21, ptr %19, align 8, !tbaa !222
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -25018,7 +25018,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle11PostfixExpr9printLef
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 23:                                               ; preds = %16
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -25036,8 +25036,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle18ArraySubscriptExprD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle18ArraySubscriptExprD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #36
   ret void
 }
 
@@ -25074,7 +25074,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle18ArraySubscriptExpr9p
   store i64 %spec.select.i.i.i, ptr %14, align 8, !tbaa !225
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !222
-  %22 = tail call ptr @realloc(ptr noundef %21, i64 noundef %spec.select.i.i.i) #33
+  %22 = tail call ptr @realloc(ptr noundef %21, i64 noundef %spec.select.i.i.i) #34
   store ptr %22, ptr %20, align 8, !tbaa !222
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -25085,7 +25085,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle18ArraySubscriptExpr9p
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit
 
 24:                                               ; preds = %17
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -25119,7 +25119,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %.
   store i64 %spec.select.i.i.i9, ptr %14, align 8, !tbaa !225
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !222
-  %41 = tail call ptr @realloc(ptr noundef %40, i64 noundef %spec.select.i.i.i9) #33
+  %41 = tail call ptr @realloc(ptr noundef %40, i64 noundef %spec.select.i.i.i9) #34
   store ptr %41, ptr %39, align 8, !tbaa !222
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i10
@@ -25130,7 +25130,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %.
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit
 
 43:                                               ; preds = %36
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i5, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i10
@@ -25144,8 +25144,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle10MemberExprD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle10MemberExprD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #36
   ret void
 }
 
@@ -25186,7 +25186,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle10MemberExpr9printLeft
   store i64 %spec.select.i.i, ptr %13, align 8, !tbaa !225
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !222
-  %21 = tail call ptr @realloc(ptr noundef %20, i64 noundef %spec.select.i.i) #33
+  %21 = tail call ptr @realloc(ptr noundef %20, i64 noundef %spec.select.i.i) #34
   store ptr %21, ptr %19, align 8, !tbaa !222
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -25196,7 +25196,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle10MemberExpr9printLeft
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 23:                                               ; preds = %16
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -25220,8 +25220,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle7NewExprD0Ev(ptr noundef nonnull align 8 dereferenceable(58) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle7NewExprD0Ev(ptr noundef nonnull align 8 dereferenceable(58) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #36
   ret void
 }
 
@@ -25253,7 +25253,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle7NewExpr9printLeftERNS
   store i64 %spec.select.i.i, ptr %10, align 8, !tbaa !225
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !222
-  %18 = tail call ptr @realloc(ptr noundef %17, i64 noundef %spec.select.i.i) #33
+  %18 = tail call ptr @realloc(ptr noundef %17, i64 noundef %spec.select.i.i) #34
   store ptr %18, ptr %16, align 8, !tbaa !222
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -25263,7 +25263,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle7NewExpr9printLeftERNS
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 20:                                               ; preds = %13
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -25297,7 +25297,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i18, ptr %29, align 8, !tbaa !225
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !222
-  %37 = tail call ptr @realloc(ptr noundef %36, i64 noundef %spec.select.i.i18) #33
+  %37 = tail call ptr @realloc(ptr noundef %36, i64 noundef %spec.select.i.i18) #34
   store ptr %37, ptr %35, align 8, !tbaa !222
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i19
@@ -25307,7 +25307,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i17
 
 39:                                               ; preds = %32
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i17: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i19, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i14
@@ -25341,7 +25341,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i17: ; preds = %._
   store i64 %spec.select.i.i27, ptr %29, align 8, !tbaa !225
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !222
-  %57 = tail call ptr @realloc(ptr noundef %56, i64 noundef %spec.select.i.i27) #33
+  %57 = tail call ptr @realloc(ptr noundef %56, i64 noundef %spec.select.i.i27) #34
   store ptr %57, ptr %55, align 8, !tbaa !222
   %58 = icmp eq ptr %57, null
   br i1 %58, label %59, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i28
@@ -25351,7 +25351,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i17: ; preds = %._
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i26
 
 59:                                               ; preds = %52
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i26: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i28, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i23
@@ -25394,7 +25394,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i.i, ptr %29, align 8, !tbaa !225
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !222
-  %81 = tail call ptr @realloc(ptr noundef %80, i64 noundef %spec.select.i.i.i) #33
+  %81 = tail call ptr @realloc(ptr noundef %80, i64 noundef %spec.select.i.i.i) #34
   store ptr %81, ptr %79, align 8, !tbaa !222
   %82 = icmp eq ptr %81, null
   br i1 %82, label %83, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -25405,7 +25405,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit
 
 83:                                               ; preds = %76
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -25437,7 +25437,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %.
   store i64 %spec.select.i.i.i35, ptr %29, align 8, !tbaa !225
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %97 = load ptr, ptr %96, align 8, !tbaa !222
-  %98 = tail call ptr @realloc(ptr noundef %97, i64 noundef %spec.select.i.i.i35) #33
+  %98 = tail call ptr @realloc(ptr noundef %97, i64 noundef %spec.select.i.i.i35) #34
   store ptr %98, ptr %96, align 8, !tbaa !222
   %99 = icmp eq ptr %98, null
   br i1 %99, label %100, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i36
@@ -25448,7 +25448,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %.
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit
 
 100:                                              ; preds = %93
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i31, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i36
@@ -25480,7 +25480,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = 
   store i64 %spec.select.i.i44, ptr %29, align 8, !tbaa !225
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %113 = load ptr, ptr %112, align 8, !tbaa !222
-  %114 = tail call ptr @realloc(ptr noundef %113, i64 noundef %spec.select.i.i44) #33
+  %114 = tail call ptr @realloc(ptr noundef %113, i64 noundef %spec.select.i.i44) #34
   store ptr %114, ptr %112, align 8, !tbaa !222
   %115 = icmp eq ptr %114, null
   br i1 %115, label %116, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i45
@@ -25490,7 +25490,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = 
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i43
 
 116:                                              ; preds = %109
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i43: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i45, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i40
@@ -25550,7 +25550,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i.i53, ptr %29, align 8, !tbaa !225
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %148 = load ptr, ptr %147, align 8, !tbaa !222
-  %149 = tail call ptr @realloc(ptr noundef %148, i64 noundef %spec.select.i.i.i53) #33
+  %149 = tail call ptr @realloc(ptr noundef %148, i64 noundef %spec.select.i.i.i53) #34
   store ptr %149, ptr %147, align 8, !tbaa !222
   %150 = icmp eq ptr %149, null
   br i1 %150, label %151, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i54
@@ -25561,7 +25561,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit57
 
 151:                                              ; preds = %144
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit57: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i49, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i54
@@ -25593,7 +25593,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit57: ; preds = 
   store i64 %spec.select.i.i.i62, ptr %29, align 8, !tbaa !225
   %164 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %165 = load ptr, ptr %164, align 8, !tbaa !222
-  %166 = tail call ptr @realloc(ptr noundef %165, i64 noundef %spec.select.i.i.i62) #33
+  %166 = tail call ptr @realloc(ptr noundef %165, i64 noundef %spec.select.i.i.i62) #34
   store ptr %166, ptr %164, align 8, !tbaa !222
   %167 = icmp eq ptr %166, null
   br i1 %167, label %168, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i63
@@ -25604,7 +25604,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit57: ; preds = 
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit66
 
 168:                                              ; preds = %161
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit66: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i58, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i63
@@ -25659,7 +25659,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_116itanium_demangle9NodeArray14pri
   %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %14, i64 %13)
   store i64 %spec.select.i.i, ptr %6, align 8, !tbaa !225
   %15 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !222
-  %16 = tail call ptr @realloc(ptr noundef %15, i64 noundef %spec.select.i.i) #33
+  %16 = tail call ptr @realloc(ptr noundef %15, i64 noundef %spec.select.i.i) #34
   store ptr %16, ptr %.phi.trans.insert.i, align 8, !tbaa !222
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -25669,7 +25669,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_116itanium_demangle9NodeArray14pri
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 18:                                               ; preds = %12
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -25710,8 +25710,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle10DeleteExprD0Ev(ptr noundef nonnull align 8 dereferenceable(26) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle10DeleteExprD0Ev(ptr noundef nonnull align 8 dereferenceable(26) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #36
   ret void
 }
 
@@ -25743,7 +25743,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle10DeleteExpr9printLeft
   store i64 %spec.select.i.i, ptr %10, align 8, !tbaa !225
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !222
-  %18 = tail call ptr @realloc(ptr noundef %17, i64 noundef %spec.select.i.i) #33
+  %18 = tail call ptr @realloc(ptr noundef %17, i64 noundef %spec.select.i.i) #34
   store ptr %18, ptr %16, align 8, !tbaa !222
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -25753,7 +25753,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle10DeleteExpr9printLeft
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 20:                                               ; preds = %13
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -25787,7 +25787,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i11, ptr %29, align 8, !tbaa !225
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !222
-  %37 = tail call ptr @realloc(ptr noundef %36, i64 noundef %spec.select.i.i11) #33
+  %37 = tail call ptr @realloc(ptr noundef %36, i64 noundef %spec.select.i.i11) #34
   store ptr %37, ptr %35, align 8, !tbaa !222
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i12
@@ -25797,7 +25797,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i10
 
 39:                                               ; preds = %32
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i10: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i12, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i7
@@ -25831,7 +25831,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i10: ; preds = %._
   store i64 %spec.select.i.i20, ptr %29, align 8, !tbaa !225
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !222
-  %57 = tail call ptr @realloc(ptr noundef %56, i64 noundef %spec.select.i.i20) #33
+  %57 = tail call ptr @realloc(ptr noundef %56, i64 noundef %spec.select.i.i20) #34
   store ptr %57, ptr %55, align 8, !tbaa !222
   %58 = icmp eq ptr %57, null
   br i1 %58, label %59, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i21
@@ -25841,7 +25841,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i10: ; preds = %._
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i19
 
 59:                                               ; preds = %52
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i19: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i21, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i16
@@ -25873,7 +25873,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i28, ptr %29, align 8, !tbaa !225
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !222
-  %74 = tail call ptr @realloc(ptr noundef %73, i64 noundef %spec.select.i.i28) #33
+  %74 = tail call ptr @realloc(ptr noundef %73, i64 noundef %spec.select.i.i28) #34
   store ptr %74, ptr %72, align 8, !tbaa !222
   %75 = icmp eq ptr %74, null
   br i1 %75, label %76, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i
@@ -25884,7 +25884,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit
 
 76:                                               ; preds = %69
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i24, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i
@@ -25918,8 +25918,8 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle8CallExprD0Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle8CallExprD0Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #36
   ret void
 }
 
@@ -25955,7 +25955,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle8CallExpr9printLeftERN
   store i64 %spec.select.i.i.i, ptr %13, align 8, !tbaa !225
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !222
-  %21 = tail call ptr @realloc(ptr noundef %20, i64 noundef %spec.select.i.i.i) #33
+  %21 = tail call ptr @realloc(ptr noundef %20, i64 noundef %spec.select.i.i.i) #34
   store ptr %21, ptr %19, align 8, !tbaa !222
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -25966,7 +25966,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle8CallExpr9printLeftERN
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit
 
 23:                                               ; preds = %16
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -26028,7 +26028,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i.i11, ptr %48, align 8, !tbaa !225
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !222
-  %56 = tail call ptr @realloc(ptr noundef %55, i64 noundef %spec.select.i.i.i11) #33
+  %56 = tail call ptr @realloc(ptr noundef %55, i64 noundef %spec.select.i.i.i11) #34
   store ptr %56, ptr %54, align 8, !tbaa !222
   %57 = icmp eq ptr %56, null
   br i1 %57, label %58, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i12
@@ -26039,7 +26039,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit
 
 58:                                               ; preds = %51
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i7, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i12
@@ -26076,7 +26076,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = 
   store i64 %spec.select.i.i.i19, ptr %69, align 8, !tbaa !225
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %76 = load ptr, ptr %75, align 8, !tbaa !222
-  %77 = tail call ptr @realloc(ptr noundef %76, i64 noundef %spec.select.i.i.i19) #33
+  %77 = tail call ptr @realloc(ptr noundef %76, i64 noundef %spec.select.i.i.i19) #34
   store ptr %77, ptr %75, align 8, !tbaa !222
   %78 = icmp eq ptr %77, null
   br i1 %78, label %79, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i20
@@ -26087,7 +26087,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = 
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit23
 
 79:                                               ; preds = %72
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit23: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i15, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i20
@@ -26120,7 +26120,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit23: ; preds = 
   store i64 %spec.select.i.i.i28, ptr %69, align 8, !tbaa !225
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %94 = load ptr, ptr %93, align 8, !tbaa !222
-  %95 = tail call ptr @realloc(ptr noundef %94, i64 noundef %spec.select.i.i.i28) #33
+  %95 = tail call ptr @realloc(ptr noundef %94, i64 noundef %spec.select.i.i.i28) #34
   store ptr %95, ptr %93, align 8, !tbaa !222
   %96 = icmp eq ptr %95, null
   br i1 %96, label %97, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i29
@@ -26131,7 +26131,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit23: ; preds = 
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit32
 
 97:                                               ; preds = %90
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit32: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i24, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i29
@@ -26145,8 +26145,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit32: ; preds 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle14ConversionExprD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle14ConversionExprD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #36
   ret void
 }
 
@@ -26176,7 +26176,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle14ConversionExpr9print
   store i64 %spec.select.i.i.i, ptr %9, align 8, !tbaa !225
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !222
-  %17 = tail call ptr @realloc(ptr noundef %16, i64 noundef %spec.select.i.i.i) #33
+  %17 = tail call ptr @realloc(ptr noundef %16, i64 noundef %spec.select.i.i.i) #34
   store ptr %17, ptr %15, align 8, !tbaa !222
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -26187,7 +26187,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle14ConversionExpr9print
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit
 
 19:                                               ; preds = %12
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -26238,7 +26238,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i.i11, ptr %9, align 8, !tbaa !225
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !222
-  %45 = tail call ptr @realloc(ptr noundef %44, i64 noundef %spec.select.i.i.i11) #33
+  %45 = tail call ptr @realloc(ptr noundef %44, i64 noundef %spec.select.i.i.i11) #34
   store ptr %45, ptr %43, align 8, !tbaa !222
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i12
@@ -26249,7 +26249,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit
 
 47:                                               ; preds = %40
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i7, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i12
@@ -26280,7 +26280,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = 
   store i64 %spec.select.i.i.i19, ptr %9, align 8, !tbaa !225
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !222
-  %62 = tail call ptr @realloc(ptr noundef %61, i64 noundef %spec.select.i.i.i19) #33
+  %62 = tail call ptr @realloc(ptr noundef %61, i64 noundef %spec.select.i.i.i19) #34
   store ptr %62, ptr %60, align 8, !tbaa !222
   %63 = icmp eq ptr %62, null
   br i1 %63, label %64, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i20
@@ -26291,7 +26291,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = 
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit23
 
 64:                                               ; preds = %57
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit23: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i15, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i20
@@ -26324,7 +26324,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit23: ; preds = 
   store i64 %spec.select.i.i.i28, ptr %9, align 8, !tbaa !225
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %79 = load ptr, ptr %78, align 8, !tbaa !222
-  %80 = tail call ptr @realloc(ptr noundef %79, i64 noundef %spec.select.i.i.i28) #33
+  %80 = tail call ptr @realloc(ptr noundef %79, i64 noundef %spec.select.i.i.i28) #34
   store ptr %80, ptr %78, align 8, !tbaa !222
   %81 = icmp eq ptr %80, null
   br i1 %81, label %82, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i29
@@ -26335,7 +26335,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit23: ; preds = 
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit32
 
 82:                                               ; preds = %75
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit32: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i24, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i29
@@ -26349,8 +26349,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit32: ; preds 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle15ConditionalExprD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle15ConditionalExprD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #36
   ret void
 }
 
@@ -26383,7 +26383,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle15ConditionalExpr9prin
   store i64 %spec.select.i.i, ptr %11, align 8, !tbaa !225
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !222
-  %19 = tail call ptr @realloc(ptr noundef %18, i64 noundef %spec.select.i.i) #33
+  %19 = tail call ptr @realloc(ptr noundef %18, i64 noundef %spec.select.i.i) #34
   store ptr %19, ptr %17, align 8, !tbaa !222
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -26393,7 +26393,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle15ConditionalExpr9prin
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 21:                                               ; preds = %14
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -26425,7 +26425,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   store i64 %spec.select.i.i11, ptr %11, align 8, !tbaa !225
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !222
-  %38 = tail call ptr @realloc(ptr noundef %37, i64 noundef %spec.select.i.i11) #33
+  %38 = tail call ptr @realloc(ptr noundef %37, i64 noundef %spec.select.i.i11) #34
   store ptr %38, ptr %36, align 8, !tbaa !222
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i12
@@ -26435,7 +26435,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i10
 
 40:                                               ; preds = %33
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i10: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i12, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i7
@@ -26453,8 +26453,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i10: ; preds = %._
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle8CastExprD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle8CastExprD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #36
   ret void
 }
 
@@ -26488,7 +26488,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle8CastExpr9printLeftERN
   store i64 %spec.select.i.i, ptr %6, align 8, !tbaa !225
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !222
-  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #33
+  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #34
   store ptr %14, ptr %12, align 8, !tbaa !222
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -26498,7 +26498,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle8CastExpr9printLeftERN
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 16:                                               ; preds = %9
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -26535,7 +26535,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i18, ptr %27, align 8, !tbaa !225
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !222
-  %35 = tail call ptr @realloc(ptr noundef %34, i64 noundef %spec.select.i.i18) #33
+  %35 = tail call ptr @realloc(ptr noundef %34, i64 noundef %spec.select.i.i18) #34
   store ptr %35, ptr %33, align 8, !tbaa !222
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i19
@@ -26545,7 +26545,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i17
 
 37:                                               ; preds = %30
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i17: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i19, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i14
@@ -26583,7 +26583,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i17: ; preds = %._
   store i64 %spec.select.i.i27, ptr %27, align 8, !tbaa !225
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !222
-  %58 = tail call ptr @realloc(ptr noundef %57, i64 noundef %spec.select.i.i27) #33
+  %58 = tail call ptr @realloc(ptr noundef %57, i64 noundef %spec.select.i.i27) #34
   store ptr %58, ptr %56, align 8, !tbaa !222
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i28
@@ -26593,7 +26593,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i17: ; preds = %._
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i26
 
 60:                                               ; preds = %53
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i26: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i28, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i23
@@ -26623,7 +26623,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i26: ; preds = %._
   store i64 %spec.select.i.i.i, ptr %27, align 8, !tbaa !225
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %74 = load ptr, ptr %73, align 8, !tbaa !222
-  %75 = tail call ptr @realloc(ptr noundef %74, i64 noundef %spec.select.i.i.i) #33
+  %75 = tail call ptr @realloc(ptr noundef %74, i64 noundef %spec.select.i.i.i) #34
   store ptr %75, ptr %73, align 8, !tbaa !222
   %76 = icmp eq ptr %75, null
   br i1 %76, label %77, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -26634,7 +26634,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i26: ; preds = %._
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit
 
 77:                                               ; preds = %70
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -26668,7 +26668,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %.
   store i64 %spec.select.i.i.i35, ptr %27, align 8, !tbaa !225
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %93 = load ptr, ptr %92, align 8, !tbaa !222
-  %94 = tail call ptr @realloc(ptr noundef %93, i64 noundef %spec.select.i.i.i35) #33
+  %94 = tail call ptr @realloc(ptr noundef %93, i64 noundef %spec.select.i.i.i35) #34
   store ptr %94, ptr %92, align 8, !tbaa !222
   %95 = icmp eq ptr %94, null
   br i1 %95, label %96, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i36
@@ -26679,7 +26679,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %.
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit
 
 96:                                               ; preds = %89
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i31, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i36
@@ -26699,8 +26699,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle13EnclosingExprD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle13EnclosingExprD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #36
   ret void
 }
 
@@ -26734,7 +26734,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle13EnclosingExpr9printL
   store i64 %spec.select.i.i, ptr %6, align 8, !tbaa !225
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !222
-  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #33
+  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #34
   store ptr %14, ptr %12, align 8, !tbaa !222
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -26744,7 +26744,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle13EnclosingExpr9printL
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 16:                                               ; preds = %9
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -26782,7 +26782,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i.i, ptr %28, align 8, !tbaa !225
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !222
-  %36 = tail call ptr @realloc(ptr noundef %35, i64 noundef %spec.select.i.i.i) #33
+  %36 = tail call ptr @realloc(ptr noundef %35, i64 noundef %spec.select.i.i.i) #34
   store ptr %36, ptr %34, align 8, !tbaa !222
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -26793,7 +26793,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit
 
 38:                                               ; preds = %31
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -26844,7 +26844,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i.i13, ptr %28, align 8, !tbaa !225
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !222
-  %64 = tail call ptr @realloc(ptr noundef %63, i64 noundef %spec.select.i.i.i13) #33
+  %64 = tail call ptr @realloc(ptr noundef %63, i64 noundef %spec.select.i.i.i13) #34
   store ptr %64, ptr %62, align 8, !tbaa !222
   %65 = icmp eq ptr %64, null
   br i1 %65, label %66, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i14
@@ -26855,7 +26855,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit
 
 66:                                               ; preds = %59
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i9, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i14
@@ -26891,7 +26891,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = 
   store i64 %spec.select.i.i22, ptr %28, align 8, !tbaa !225
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !222
-  %81 = tail call ptr @realloc(ptr noundef %80, i64 noundef %spec.select.i.i22) #33
+  %81 = tail call ptr @realloc(ptr noundef %80, i64 noundef %spec.select.i.i22) #34
   store ptr %81, ptr %79, align 8, !tbaa !222
   %82 = icmp eq ptr %81, null
   br i1 %82, label %83, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i23
@@ -26901,7 +26901,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = 
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i21
 
 83:                                               ; preds = %76
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i21: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i23, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i18
@@ -26990,12 +26990,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %35, label %36, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_14IntegerLiteralEJRNSt3__117basic_string_viewIcNS8_11char_traitsIcEEEESD_EEEPNS0_4NodeEDpOT0_.exit
 
 36:                                               ; preds = %28
-  %37 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %37 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 39:                                               ; preds = %36
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %36
@@ -27047,12 +27047,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8BoolExprEJiEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -27096,12 +27096,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle13StringLiteralEJRPNS2_4NodeEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -27143,12 +27143,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %8, label %9, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA8_KcEEEPT_DpOT0_.exit
 
 9:                                                ; preds = %2
-  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 12:                                               ; preds = %9
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %9
@@ -27166,7 +27166,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA8
   store i64 %17, ptr %16, align 8, !tbaa !211
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = getelementptr inbounds i8, ptr %18, i64 %14
-  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(8) %1) #34
+  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(8) %1) #35
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i8 8, ptr %21, align 8, !tbaa !16
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 9
@@ -27273,12 +27273,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %42, label %43, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_15UnnamedTypeNameEJRNSt3__117basic_string_viewIcNS8_11char_traitsIcEEEEEEEPNS0_4NodeEDpOT0_.exit
 
 43:                                               ; preds = %35
-  %44 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %44 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 46:                                               ; preds = %43
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %43
@@ -27355,12 +27355,12 @@ _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1
   br i1 %82, label %84, label %90
 
 84:                                               ; preds = %79
-  %85 = call noalias ptr @malloc(i64 noundef %83) #31
+  %85 = call noalias ptr @malloc(i64 noundef %83) #32
   %86 = icmp eq ptr %85, null
   br i1 %86, label %87, label %88
 
 87:                                               ; preds = %84
-  call void @abort() #32
+  call void @abort() #33
   unreachable
 
 88:                                               ; preds = %84
@@ -27376,7 +27376,7 @@ _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EE7reserveEm.exit.i.i
 
 90:                                               ; preds = %79
-  %91 = call ptr @realloc(ptr noundef %.val, i64 noundef %83) #33
+  %91 = call ptr @realloc(ptr noundef %.val, i64 noundef %83) #34
   store ptr %91, ptr %64, align 8, !tbaa !197
   %92 = icmp eq ptr %91, null
   br i1 %92, label %93, label %._ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EE7reserveEm.exit.i.i_crit_edge
@@ -27387,7 +27387,7 @@ _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EE7reserveEm.exit.i.i
 
 93:                                               ; preds = %90
-  call void @abort() #32
+  call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EE7reserveEm.exit.i.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EE7reserveEm.exit.i.i_crit_edge, %_ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS2_4NodeELm8EEES8_EET0_T_SA_S9_.exit.i.i.i
@@ -27444,7 +27444,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParse
 
 _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E19isTemplateParamDeclEv.exit: ; preds = %114, %115
   %.0.i5.i = phi i32 [ %118, %115 ], [ 0, %114 ]
-  %119 = call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.285, i32 noundef %.0.i5.i, i64 noundef 5) #34
+  %119 = call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.285, i32 noundef %.0.i5.i, i64 noundef 5) #35
   %120 = icmp ne ptr %119, null
   %121 = ptrtoint ptr %119 to i64
   %122 = sub i64 %121, ptrtoint (ptr @.str.285 to i64)
@@ -27482,12 +27482,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %139, label %141, label %147
 
 141:                                              ; preds = %134
-  %142 = call noalias ptr @malloc(i64 noundef %140) #31
+  %142 = call noalias ptr @malloc(i64 noundef %140) #32
   %143 = icmp eq ptr %142, null
   br i1 %143, label %144, label %145
 
 144:                                              ; preds = %141
-  call void @abort() #32
+  call void @abort() #33
   unreachable
 
 145:                                              ; preds = %141
@@ -27503,13 +27503,13 @@ _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 147:                                              ; preds = %134
-  %148 = call ptr @realloc(ptr noundef %.val.i65, i64 noundef %140) #33
+  %148 = call ptr @realloc(ptr noundef %.val.i65, i64 noundef %140) #34
   store ptr %148, ptr %100, align 16, !tbaa !189
   %149 = icmp eq ptr %148, null
   br i1 %149, label %150, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 150:                                              ; preds = %147
-  call void @abort() #32
+  call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %147, %_ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S6_.exit.i.i
@@ -27549,7 +27549,7 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %.not.i66, label %168, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EE8pop_backEv.exit
 
 168:                                              ; preds = %165
-  invoke void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 132, ptr noundef nonnull @.str.299) #29
+  invoke void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 132, ptr noundef nonnull @.str.299) #30
           to label %.noexc unwind label %170
 
 .noexc:                                           ; preds = %168
@@ -27654,12 +27654,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %206, label %208, label %214
 
 208:                                              ; preds = %201
-  %209 = call noalias ptr @malloc(i64 noundef %207) #31
+  %209 = call noalias ptr @malloc(i64 noundef %207) #32
   %210 = icmp eq ptr %209, null
   br i1 %210, label %211, label %212
 
 211:                                              ; preds = %208
-  call void @abort() #32
+  call void @abort() #33
   unreachable
 
 212:                                              ; preds = %208
@@ -27675,13 +27675,13 @@ _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i77
 
 214:                                              ; preds = %201
-  %215 = call ptr @realloc(ptr noundef %.val.i76, i64 noundef %207) #33
+  %215 = call ptr @realloc(ptr noundef %.val.i76, i64 noundef %207) #34
   store ptr %215, ptr %100, align 16, !tbaa !189
   %216 = icmp eq ptr %215, null
   br i1 %216, label %217, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i77
 
 217:                                              ; preds = %214
-  call void @abort() #32
+  call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i77: ; preds = %214, %_ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S6_.exit.i.i79
@@ -27849,7 +27849,7 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %.not.i119, label %280, label %282
 
 280:                                              ; preds = %.critedge37
-  invoke void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 2775, ptr noundef nonnull @.str) #29
+  invoke void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 2775, ptr noundef nonnull @.str) #30
           to label %281 unwind label %287
 
 281:                                              ; preds = %280
@@ -27863,14 +27863,14 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %285, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E23ScopedTemplateParamListD2Ev.exit, label %286
 
 286:                                              ; preds = %282
-  call void @free(ptr noundef %284) #34
+  call void @free(ptr noundef %284) #35
   br label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E23ScopedTemplateParamListD2Ev.exit
 
 287:                                              ; preds = %280
   %288 = landingpad { ptr, i32 }
           catch ptr null
   %289 = extractvalue { ptr, i32 } %288, 0
-  call void @__clang_call_terminate(ptr %289) #32
+  call void @__clang_call_terminate(ptr %289) #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E23ScopedTemplateParamListD2Ev.exit: ; preds = %282, %286
@@ -27880,7 +27880,7 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
 
 .body:                                            ; preds = %170, %243, %239, %183, %195, %128
   %.pn30 = phi { ptr, i32 } [ %129, %128 ], [ %171, %170 ], [ %196, %195 ], [ %184, %183 ], [ %244, %243 ], [ %240, %239 ]
-  call fastcc void @_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E23ScopedTemplateParamListD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3) #34
+  call fastcc void @_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E23ScopedTemplateParamListD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3) #35
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i64 %70, ptr %63, align 16, !tbaa !220
   resume { ptr, i32 } %.pn30
@@ -27939,12 +27939,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %312, label %313, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_8NameTypeEJRA16_KcEEEPNS0_4NodeEDpOT0_.exit
 
 313:                                              ; preds = %305
-  %314 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %314 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %315 = icmp eq ptr %314, null
   br i1 %315, label %316, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i143
 
 316:                                              ; preds = %313
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i143: ; preds = %313
@@ -27992,12 +27992,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle10LambdaExprEJRPNS2_4NodeEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -28039,12 +28039,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %8, label %9, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle11EnumLiteralEJRPNS2_4NodeERNSt3__117basic_string_viewIcNS7_11char_traitsIcEEEEEEEPT_DpOT0_.exit
 
 9:                                                ; preds = %2
-  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 12:                                               ; preds = %9
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %9
@@ -28083,8 +28083,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle11EnumLiteralE
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle14IntegerLiteralD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle14IntegerLiteralD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #36
   ret void
 }
 
@@ -28121,7 +28121,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle14IntegerLiteral9print
   store i64 %spec.select.i.i.i, ptr %14, align 8, !tbaa !225
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !222
-  %22 = tail call ptr @realloc(ptr noundef %21, i64 noundef %spec.select.i.i.i) #33
+  %22 = tail call ptr @realloc(ptr noundef %21, i64 noundef %spec.select.i.i.i) #34
   store ptr %22, ptr %20, align 8, !tbaa !222
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -28132,7 +28132,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle14IntegerLiteral9print
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit
 
 24:                                               ; preds = %17
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -28166,7 +28166,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %.
   store i64 %spec.select.i.i, ptr %14, align 8, !tbaa !225
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !222
-  %37 = tail call ptr @realloc(ptr noundef %36, i64 noundef %spec.select.i.i) #33
+  %37 = tail call ptr @realloc(ptr noundef %36, i64 noundef %spec.select.i.i) #34
   store ptr %37, ptr %35, align 8, !tbaa !222
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -28176,7 +28176,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %.
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 39:                                               ; preds = %32
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -28211,7 +28211,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i.i15, ptr %14, align 8, !tbaa !225
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !222
-  %56 = tail call ptr @realloc(ptr noundef %55, i64 noundef %spec.select.i.i.i15) #33
+  %56 = tail call ptr @realloc(ptr noundef %55, i64 noundef %spec.select.i.i.i15) #34
   store ptr %56, ptr %54, align 8, !tbaa !222
   %57 = icmp eq ptr %56, null
   br i1 %57, label %58, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i16
@@ -28222,7 +28222,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit
 
 58:                                               ; preds = %51
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i11, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i16
@@ -28262,7 +28262,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = 
   store i64 %spec.select.i.i.i23, ptr %71, align 8, !tbaa !225
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %78 = load ptr, ptr %77, align 8, !tbaa !222
-  %79 = tail call ptr @realloc(ptr noundef %78, i64 noundef %spec.select.i.i.i23) #33
+  %79 = tail call ptr @realloc(ptr noundef %78, i64 noundef %spec.select.i.i.i23) #34
   store ptr %79, ptr %77, align 8, !tbaa !222
   %80 = icmp eq ptr %79, null
   br i1 %80, label %81, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i24
@@ -28273,7 +28273,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = 
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferlsEc.exit
 
 81:                                               ; preds = %74
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferlsEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i19, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i24
@@ -28310,7 +28310,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferlsEc.exit: ; preds = %._ZN12_GL
   store i64 %spec.select.i.i.i30, ptr %71, align 8, !tbaa !225
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %99 = load ptr, ptr %98, align 8, !tbaa !222
-  %100 = tail call ptr @realloc(ptr noundef %99, i64 noundef %spec.select.i.i.i30) #33
+  %100 = tail call ptr @realloc(ptr noundef %99, i64 noundef %spec.select.i.i.i30) #34
   store ptr %100, ptr %98, align 8, !tbaa !222
   %101 = icmp eq ptr %100, null
   br i1 %101, label %102, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i
@@ -28320,7 +28320,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferlsEc.exit: ; preds = %._ZN12_GL
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i
 
 102:                                              ; preds = %95
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i27
@@ -28360,7 +28360,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._
   store i64 %spec.select.i.i36, ptr %113, align 8, !tbaa !225
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %120 = load ptr, ptr %119, align 8, !tbaa !222
-  %121 = tail call ptr @realloc(ptr noundef %120, i64 noundef %spec.select.i.i36) #33
+  %121 = tail call ptr @realloc(ptr noundef %120, i64 noundef %spec.select.i.i36) #34
   store ptr %121, ptr %119, align 8, !tbaa !222
   %122 = icmp eq ptr %121, null
   br i1 %122, label %123, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i37
@@ -28370,7 +28370,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i35
 
 123:                                              ; preds = %116
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i35: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i37, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i32
@@ -28414,7 +28414,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferlsENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i45, ptr %136, align 8, !tbaa !225
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %143 = load ptr, ptr %142, align 8, !tbaa !222
-  %144 = tail call ptr @realloc(ptr noundef %143, i64 noundef %spec.select.i.i45) #33
+  %144 = tail call ptr @realloc(ptr noundef %143, i64 noundef %spec.select.i.i45) #34
   store ptr %144, ptr %142, align 8, !tbaa !222
   %145 = icmp eq ptr %144, null
   br i1 %145, label %146, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i46
@@ -28424,7 +28424,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferlsENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i44
 
 146:                                              ; preds = %139
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i44: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i46, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i41
@@ -28442,8 +28442,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle8BoolExprD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle8BoolExprD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #36
   ret void
 }
 
@@ -28473,7 +28473,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle8BoolExpr9printLeftERN
   store i64 %spec.select.i.i, ptr %9, align 8, !tbaa !225
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !222
-  %17 = tail call ptr @realloc(ptr noundef %16, i64 noundef %spec.select.i.i) #33
+  %17 = tail call ptr @realloc(ptr noundef %16, i64 noundef %spec.select.i.i) #34
   store ptr %17, ptr %15, align 8, !tbaa !222
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -28483,7 +28483,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle8BoolExpr9printLeftERN
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 19:                                               ; preds = %12
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -28499,8 +28499,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle16FloatLiteralImplIfED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle16FloatLiteralImplIfED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #36
   ret void
 }
 
@@ -28566,7 +28566,7 @@ _ZNSt3__17reverseB8ne210000IPcEEvT_S2_.exit:      ; preds = %.lr.ph.i.i.i, %21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %27 = load float, ptr %3, align 4, !tbaa !210
   %28 = fpext float %27 to double
-  %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 24, ptr noundef nonnull @.str.273, double noundef %28) #34
+  %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 24, ptr noundef nonnull @.str.273, double noundef %28) #35
   %30 = sext i32 %29 to i64
   %.not.i = icmp eq i32 %29, 0
   br i1 %.not.i, label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIcNS2_11char_traitsIcEEEE.exit, label %31
@@ -28592,7 +28592,7 @@ _ZNSt3__17reverseB8ne210000IPcEEvT_S2_.exit:      ; preds = %.lr.ph.i.i.i, %21
   store i64 %spec.select.i.i, ptr %35, align 8, !tbaa !225
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !222
-  %43 = call ptr @realloc(ptr noundef %42, i64 noundef %spec.select.i.i) #33
+  %43 = call ptr @realloc(ptr noundef %42, i64 noundef %spec.select.i.i) #34
   store ptr %43, ptr %41, align 8, !tbaa !222
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -28602,7 +28602,7 @@ _ZNSt3__17reverseB8ne210000IPcEEvT_S2_.exit:      ; preds = %.lr.ph.i.i.i, %21
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 45:                                               ; preds = %38
-  call void @abort() #32
+  call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -28628,8 +28628,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
 declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle16FloatLiteralImplIdED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle16FloatLiteralImplIdED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #36
   ret void
 }
 
@@ -28694,7 +28694,7 @@ _ZNSt3__17reverseB8ne210000IPcEEvT_S2_.exit:      ; preds = %.lr.ph.i.i.i, %21
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %27 = load double, ptr %3, align 8, !tbaa !210
-  %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 32, ptr noundef nonnull @.str.274, double noundef %27) #34
+  %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 32, ptr noundef nonnull @.str.274, double noundef %27) #35
   %29 = sext i32 %28 to i64
   %.not.i = icmp eq i32 %28, 0
   br i1 %.not.i, label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIcNS2_11char_traitsIcEEEE.exit, label %30
@@ -28720,7 +28720,7 @@ _ZNSt3__17reverseB8ne210000IPcEEvT_S2_.exit:      ; preds = %.lr.ph.i.i.i, %21
   store i64 %spec.select.i.i, ptr %34, align 8, !tbaa !225
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !222
-  %42 = call ptr @realloc(ptr noundef %41, i64 noundef %spec.select.i.i) #33
+  %42 = call ptr @realloc(ptr noundef %41, i64 noundef %spec.select.i.i) #34
   store ptr %42, ptr %40, align 8, !tbaa !222
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -28730,7 +28730,7 @@ _ZNSt3__17reverseB8ne210000IPcEEvT_S2_.exit:      ; preds = %.lr.ph.i.i.i, %21
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 44:                                               ; preds = %37
-  call void @abort() #32
+  call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -28753,8 +28753,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle16FloatLiteralImplIeED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle16FloatLiteralImplIeED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #36
   ret void
 }
 
@@ -28819,7 +28819,7 @@ _ZNSt3__17reverseB8ne210000IPcEEvT_S2_.exit:      ; preds = %.lr.ph.i.i.i, %21
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(42) %4, i8 0, i64 42, i1 false)
   %27 = load x86_fp80, ptr %3, align 16, !tbaa !210
-  %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 42, ptr noundef nonnull @.str.275, x86_fp80 noundef %27) #34
+  %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 42, ptr noundef nonnull @.str.275, x86_fp80 noundef %27) #35
   %29 = sext i32 %28 to i64
   %.not.i = icmp eq i32 %28, 0
   br i1 %.not.i, label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIcNS2_11char_traitsIcEEEE.exit, label %30
@@ -28845,7 +28845,7 @@ _ZNSt3__17reverseB8ne210000IPcEEvT_S2_.exit:      ; preds = %.lr.ph.i.i.i, %21
   store i64 %spec.select.i.i, ptr %34, align 8, !tbaa !225
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !222
-  %42 = call ptr @realloc(ptr noundef %41, i64 noundef %spec.select.i.i) #33
+  %42 = call ptr @realloc(ptr noundef %41, i64 noundef %spec.select.i.i) #34
   store ptr %42, ptr %40, align 8, !tbaa !222
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -28855,7 +28855,7 @@ _ZNSt3__17reverseB8ne210000IPcEEvT_S2_.exit:      ; preds = %.lr.ph.i.i.i, %21
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 44:                                               ; preds = %37
-  call void @abort() #32
+  call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -28878,8 +28878,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle13StringLiteralD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle13StringLiteralD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #36
   ret void
 }
 
@@ -28905,7 +28905,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle13StringLiteral9printL
   store i64 %spec.select.i.i, ptr %6, align 8, !tbaa !225
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !222
-  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #33
+  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #34
   store ptr %14, ptr %12, align 8, !tbaa !222
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -28915,7 +28915,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle13StringLiteral9printL
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 16:                                               ; preds = %9
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -28964,7 +28964,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i10, ptr %6, align 8, !tbaa !225
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !222
-  %42 = tail call ptr @realloc(ptr noundef %41, i64 noundef %spec.select.i.i10) #33
+  %42 = tail call ptr @realloc(ptr noundef %41, i64 noundef %spec.select.i.i10) #34
   store ptr %42, ptr %40, align 8, !tbaa !222
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i11
@@ -28974,7 +28974,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i9
 
 44:                                               ; preds = %37
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i9: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i11, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i6
@@ -29020,12 +29020,12 @@ _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %13
-  %23 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %23 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 25:                                               ; preds = %22
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %22
@@ -29090,12 +29090,12 @@ _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1
   br i1 %56, label %57, label %62
 
 57:                                               ; preds = %49
-  %58 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %58 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i50
 
 60:                                               ; preds = %57
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i50: ; preds = %57
@@ -29155,12 +29155,12 @@ _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1
   br i1 %88, label %89, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_24NonTypeTemplateParamDeclEJRPNS0_4NodeESA_EEES9_DpOT0_.exit
 
 89:                                               ; preds = %82
-  %90 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %90 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %91 = icmp eq ptr %90, null
   br i1 %91, label %92, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i55
 
 92:                                               ; preds = %89
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i55: ; preds = %89
@@ -29243,12 +29243,12 @@ _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1
   br i1 %134, label %136, label %142
 
 136:                                              ; preds = %131
-  %137 = call noalias ptr @malloc(i64 noundef %135) #31
+  %137 = call noalias ptr @malloc(i64 noundef %135) #32
   %138 = icmp eq ptr %137, null
   br i1 %138, label %139, label %140
 
 139:                                              ; preds = %136
-  call void @abort() #32
+  call void @abort() #33
   unreachable
 
 140:                                              ; preds = %136
@@ -29264,13 +29264,13 @@ _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EE7reserveEm.exit.i.i
 
 142:                                              ; preds = %131
-  %143 = call ptr @realloc(ptr noundef %.val.i, i64 noundef %135) #33
+  %143 = call ptr @realloc(ptr noundef %.val.i, i64 noundef %135) #34
   store ptr %143, ptr %118, align 8, !tbaa !197
   %144 = icmp eq ptr %143, null
   br i1 %144, label %145, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EE7reserveEm.exit.i.i
 
 145:                                              ; preds = %142
-  call void @abort() #32
+  call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EE7reserveEm.exit.i.i: ; preds = %142, %_ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS2_4NodeELm8EEES8_EET0_T_SA_S9_.exit.i.i.i
@@ -29332,12 +29332,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %173, label %175, label %181
 
 175:                                              ; preds = %168
-  %176 = call noalias ptr @malloc(i64 noundef %174) #31
+  %176 = call noalias ptr @malloc(i64 noundef %174) #32
   %177 = icmp eq ptr %176, null
   br i1 %177, label %178, label %179
 
 178:                                              ; preds = %175
-  call void @abort() #32
+  call void @abort() #33
   unreachable
 
 179:                                              ; preds = %175
@@ -29353,13 +29353,13 @@ _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 181:                                              ; preds = %168
-  %182 = call ptr @realloc(ptr noundef %.val.i60, i64 noundef %174) #33
+  %182 = call ptr @realloc(ptr noundef %.val.i60, i64 noundef %174) #34
   store ptr %182, ptr %111, align 16, !tbaa !189
   %183 = icmp eq ptr %182, null
   br i1 %183, label %184, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 184:                                              ; preds = %181
-  call void @abort() #32
+  call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %181, %_ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S6_.exit.i.i
@@ -29438,12 +29438,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %220, label %221, label %226
 
 221:                                              ; preds = %212
-  %222 = call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %222 = call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %223 = icmp eq ptr %222, null
   br i1 %223, label %224, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i69
 
 224:                                              ; preds = %221
-  call void @_ZSt9terminatev() #32
+  call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i69: ; preds = %221
@@ -29500,7 +29500,7 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i69: ; preds = %221
   br i1 %.not.i72, label %251, label %253
 
 251:                                              ; preds = %.thread
-  invoke void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 2775, ptr noundef nonnull @.str) #29
+  invoke void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 2775, ptr noundef nonnull @.str) #30
           to label %252 unwind label %258
 
 252:                                              ; preds = %251
@@ -29514,19 +29514,19 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i69: ; preds = %221
   br i1 %256, label %261, label %257
 
 257:                                              ; preds = %253
-  call void @free(ptr noundef %255) #34
+  call void @free(ptr noundef %255) #35
   br label %261
 
 258:                                              ; preds = %251
   %259 = landingpad { ptr, i32 }
           catch ptr null
   %260 = extractvalue { ptr, i32 } %259, 0
-  call void @__clang_call_terminate(ptr %260) #32
+  call void @__clang_call_terminate(ptr %260) #33
   unreachable
 
 .body:                                            ; preds = %162, %201, %241
   %.pn = phi { ptr, i32 } [ %242, %241 ], [ %163, %162 ], [ %202, %201 ]
-  call fastcc void @_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E23ScopedTemplateParamListD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %4) #34
+  call fastcc void @_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E23ScopedTemplateParamListD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %4) #35
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %268
 
@@ -29571,12 +29571,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %9, label %10, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle15ClosureTypeNameEJRNS2_9NodeArrayERPNS2_4NodeES5_S8_RNSt3__117basic_string_viewIcNS9_11char_traitsIcEEEEEEEPT_DpOT0_.exit
 
 10:                                               ; preds = %2
-  %11 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %11 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 13:                                               ; preds = %10
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %10
@@ -29639,7 +29639,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116itanium_demangle22AbstractMangli
   br i1 %.not, label %11, label %13
 
 11:                                               ; preds = %1
-  invoke void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 2775, ptr noundef nonnull @.str) #29
+  invoke void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 2775, ptr noundef nonnull @.str) #30
           to label %12 unwind label %20
 
 12:                                               ; preds = %11
@@ -29655,7 +29655,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116itanium_demangle22AbstractMangli
   br i1 %18, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit, label %19
 
 19:                                               ; preds = %13
-  tail call void @free(ptr noundef %16) #34
+  tail call void @free(ptr noundef %16) #35
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit: ; preds = %13, %19
@@ -29665,7 +29665,7 @@ _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit: ;
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #32
+  tail call void @__clang_call_terminate(ptr %22) #33
   unreachable
 }
 
@@ -29680,12 +29680,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %8, label %9, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA16_KcEEEPT_DpOT0_.exit
 
 9:                                                ; preds = %2
-  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 12:                                               ; preds = %9
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %9
@@ -29703,7 +29703,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA1
   store i64 %17, ptr %16, align 8, !tbaa !211
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = getelementptr inbounds i8, ptr %18, i64 %14
-  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(16) %1) #34
+  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(16) %1) #35
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i8 8, ptr %21, align 8, !tbaa !16
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 9
@@ -29720,8 +29720,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA1
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle15UnnamedTypeNameD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle15UnnamedTypeNameD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #36
   ret void
 }
 
@@ -29747,7 +29747,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle15UnnamedTypeName9prin
   store i64 %spec.select.i.i, ptr %6, align 8, !tbaa !225
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !222
-  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #33
+  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #34
   store ptr %14, ptr %12, align 8, !tbaa !222
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -29757,7 +29757,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle15UnnamedTypeName9prin
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 16:                                               ; preds = %9
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -29793,7 +29793,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   store i64 %spec.select.i.i9, ptr %6, align 8, !tbaa !225
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !222
-  %32 = tail call ptr @realloc(ptr noundef %31, i64 noundef %spec.select.i.i9) #33
+  %32 = tail call ptr @realloc(ptr noundef %31, i64 noundef %spec.select.i.i9) #34
   store ptr %32, ptr %30, align 8, !tbaa !222
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i10
@@ -29803,7 +29803,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i8
 
 34:                                               ; preds = %27
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i8: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i10, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i5
@@ -29835,7 +29835,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i18, ptr %6, align 8, !tbaa !225
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !222
-  %49 = tail call ptr @realloc(ptr noundef %48, i64 noundef %spec.select.i.i18) #33
+  %49 = tail call ptr @realloc(ptr noundef %48, i64 noundef %spec.select.i.i18) #34
   store ptr %49, ptr %47, align 8, !tbaa !222
   %50 = icmp eq ptr %49, null
   br i1 %50, label %51, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i19
@@ -29845,7 +29845,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i17
 
 51:                                               ; preds = %44
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i17: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i19, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i14
@@ -29863,7 +29863,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i17: ; preds = %._
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E22parseTemplateParamDeclEPNS0_14PODSmallVectorIPNS0_4NodeELm8EEEENKUlNS0_17TemplateParamKindEE_clESB_(ptr captures(none) %.0.val, ptr readonly captures(none) %.8.val, i32 noundef range(i32 0, 3) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E22parseTemplateParamDeclEPNS0_14PODSmallVectorIPNS0_4NodeELm8EEEENKUlNS0_17TemplateParamKindEE_clESB_(ptr captures(none) %.0.val, ptr readonly captures(none) %.8.val, i32 noundef range(i32 0, 3) %0) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 792
   %3 = zext nneg i32 %0 to i64
   %4 = getelementptr inbounds nuw i32, ptr %2, i64 %3
@@ -29879,12 +29879,12 @@ define internal fastcc noundef nonnull ptr @_ZZN12_GLOBAL__N_116itanium_demangle
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %1
-  %14 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %14 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 16:                                               ; preds = %13
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %13
@@ -29938,12 +29938,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %13
   br i1 %45, label %47, label %53
 
 47:                                               ; preds = %39
-  %48 = tail call noalias ptr @malloc(i64 noundef %46) #31
+  %48 = tail call noalias ptr @malloc(i64 noundef %46) #32
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %51
 
 50:                                               ; preds = %47
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 51:                                               ; preds = %47
@@ -29959,13 +29959,13 @@ _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EE7reserveEm.exit.i
 
 53:                                               ; preds = %39
-  %54 = tail call ptr @realloc(ptr noundef %.val.i, i64 noundef %46) #33
+  %54 = tail call ptr @realloc(ptr noundef %.val.i, i64 noundef %46) #34
   store ptr %54, ptr %32, align 8, !tbaa !194
   %55 = icmp eq ptr %54, null
   br i1 %55, label %56, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EE7reserveEm.exit.i
 
 56:                                               ; preds = %53
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EE7reserveEm.exit.i: ; preds = %53, %_ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S6_.exit.i.i
@@ -29997,12 +29997,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle21TemplateParamPackDeclEJRPNS2_4NodeEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -30034,8 +30034,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle21TemplatePara
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle26SyntheticTemplateParamNameD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle26SyntheticTemplateParamNameD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #36
   ret void
 }
 
@@ -30071,7 +30071,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle26SyntheticTemplatePar
   store i64 %spec.select.i.i, ptr %10, align 8, !tbaa !225
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !222
-  %18 = tail call ptr @realloc(ptr noundef %17, i64 noundef %spec.select.i.i) #33
+  %18 = tail call ptr @realloc(ptr noundef %17, i64 noundef %spec.select.i.i) #34
   store ptr %18, ptr %16, align 8, !tbaa !222
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -30081,7 +30081,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle26SyntheticTemplatePar
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 20:                                               ; preds = %13
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -30115,7 +30115,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   store i64 %spec.select.i.i10, ptr %30, align 8, !tbaa !225
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !222
-  %38 = tail call ptr @realloc(ptr noundef %37, i64 noundef %spec.select.i.i10) #33
+  %38 = tail call ptr @realloc(ptr noundef %37, i64 noundef %spec.select.i.i10) #34
   store ptr %38, ptr %36, align 8, !tbaa !222
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i11
@@ -30125,7 +30125,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i9
 
 40:                                               ; preds = %33
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i9: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i11, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i6
@@ -30159,7 +30159,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i9: ; preds = %._Z
   store i64 %spec.select.i.i19, ptr %50, align 8, !tbaa !225
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !222
-  %58 = tail call ptr @realloc(ptr noundef %57, i64 noundef %spec.select.i.i19) #33
+  %58 = tail call ptr @realloc(ptr noundef %57, i64 noundef %spec.select.i.i19) #34
   store ptr %58, ptr %56, align 8, !tbaa !222
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i20
@@ -30169,7 +30169,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i9: ; preds = %._Z
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i18
 
 60:                                               ; preds = %53
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i18: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i20, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i15
@@ -30231,7 +30231,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i.i.i.i, ptr %85, align 8, !tbaa !225
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %92 = load ptr, ptr %91, align 8, !tbaa !222
-  %93 = call ptr @realloc(ptr noundef %92, i64 noundef %spec.select.i.i.i.i.i) #33
+  %93 = call ptr @realloc(ptr noundef %92, i64 noundef %spec.select.i.i.i.i.i) #34
   store ptr %93, ptr %91, align 8, !tbaa !222
   %94 = icmp eq ptr %93, null
   br i1 %94, label %95, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i.i.i
@@ -30241,7 +30241,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferlsEj.exit
 
 95:                                               ; preds = %88
-  call void @abort() #32
+  call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferlsEj.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i.i.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i.i.i
@@ -30260,8 +30260,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferlsEj.exit: ; preds = %._ZN12_GL
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle21TypeTemplateParamDeclD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle21TypeTemplateParamDeclD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #36
   ret void
 }
 
@@ -30287,7 +30287,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle21TypeTemplateParamDec
   store i64 %spec.select.i.i, ptr %6, align 8, !tbaa !225
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !222
-  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #33
+  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #34
   store ptr %14, ptr %12, align 8, !tbaa !222
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -30297,7 +30297,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle21TypeTemplateParamDec
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 16:                                               ; preds = %9
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -30337,8 +30337,8 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle32ConstrainedTypeTemplateParamDeclD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle32ConstrainedTypeTemplateParamDeclD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #36
   ret void
 }
 
@@ -30384,7 +30384,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i, ptr %17, align 8, !tbaa !225
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !222
-  %25 = tail call ptr @realloc(ptr noundef %24, i64 noundef %spec.select.i.i) #33
+  %25 = tail call ptr @realloc(ptr noundef %24, i64 noundef %spec.select.i.i) #34
   store ptr %25, ptr %23, align 8, !tbaa !222
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -30394,7 +30394,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 27:                                               ; preds = %20
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -30434,8 +30434,8 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle24NonTypeTemplateParamDeclD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle24NonTypeTemplateParamDeclD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #36
   ret void
 }
 
@@ -30484,7 +30484,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node15hasRHSComponentERNS0_12OutputBufferE.
   store i64 %spec.select.i.i, ptr %20, align 8, !tbaa !225
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !222
-  %28 = tail call ptr @realloc(ptr noundef %27, i64 noundef %spec.select.i.i) #33
+  %28 = tail call ptr @realloc(ptr noundef %27, i64 noundef %spec.select.i.i) #34
   store ptr %28, ptr %26, align 8, !tbaa !222
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -30494,7 +30494,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node15hasRHSComponentERNS0_12OutputBufferE.
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 30:                                               ; preds = %23
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -30543,8 +30543,8 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle25TemplateTemplateParamDeclD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle25TemplateTemplateParamDeclD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #36
   ret void
 }
 
@@ -30573,7 +30573,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle25TemplateTemplatePara
   store i64 %spec.select.i.i, ptr %8, align 8, !tbaa !225
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !222
-  %16 = tail call ptr @realloc(ptr noundef %15, i64 noundef %spec.select.i.i) #33
+  %16 = tail call ptr @realloc(ptr noundef %15, i64 noundef %spec.select.i.i) #34
   store ptr %16, ptr %14, align 8, !tbaa !222
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -30583,7 +30583,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle25TemplateTemplatePara
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 18:                                               ; preds = %11
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -30617,7 +30617,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   store i64 %spec.select.i.i14, ptr %8, align 8, !tbaa !225
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !222
-  %35 = tail call ptr @realloc(ptr noundef %34, i64 noundef %spec.select.i.i14) #33
+  %35 = tail call ptr @realloc(ptr noundef %34, i64 noundef %spec.select.i.i14) #34
   store ptr %35, ptr %33, align 8, !tbaa !222
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i15
@@ -30627,7 +30627,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i13
 
 37:                                               ; preds = %30
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i13: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i15, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i10
@@ -30696,7 +30696,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i, ptr %20, align 8, !tbaa !225
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !222
-  %28 = tail call ptr @realloc(ptr noundef %27, i64 noundef %spec.select.i.i) #33
+  %28 = tail call ptr @realloc(ptr noundef %27, i64 noundef %spec.select.i.i) #34
   store ptr %28, ptr %26, align 8, !tbaa !222
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -30706,7 +30706,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 30:                                               ; preds = %23
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -30740,8 +30740,8 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit7: ; pr
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle21TemplateParamPackDeclD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle21TemplateParamPackDeclD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #36
   ret void
 }
 
@@ -30773,7 +30773,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle21TemplateParamPackDec
   store i64 %spec.select.i.i, ptr %11, align 8, !tbaa !225
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !222
-  %19 = tail call ptr @realloc(ptr noundef %18, i64 noundef %spec.select.i.i) #33
+  %19 = tail call ptr @realloc(ptr noundef %18, i64 noundef %spec.select.i.i) #34
   store ptr %19, ptr %17, align 8, !tbaa !222
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -30783,7 +30783,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle21TemplateParamPackDec
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 21:                                               ; preds = %14
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -30809,8 +30809,8 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle21TemplateParamPackDec
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle15ClosureTypeNameD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 80) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle15ClosureTypeNameD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 80) #36
   ret void
 }
 
@@ -30836,7 +30836,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle15ClosureTypeName9prin
   store i64 %spec.select.i.i, ptr %6, align 8, !tbaa !225
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !222
-  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #33
+  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #34
   store ptr %14, ptr %12, align 8, !tbaa !222
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -30846,7 +30846,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle15ClosureTypeName9prin
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 16:                                               ; preds = %9
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -30882,7 +30882,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   store i64 %spec.select.i.i10, ptr %6, align 8, !tbaa !225
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !222
-  %32 = tail call ptr @realloc(ptr noundef %31, i64 noundef %spec.select.i.i10) #33
+  %32 = tail call ptr @realloc(ptr noundef %31, i64 noundef %spec.select.i.i10) #34
   store ptr %32, ptr %30, align 8, !tbaa !222
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i11
@@ -30892,7 +30892,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i9
 
 34:                                               ; preds = %27
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i9: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i11, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i6
@@ -30924,7 +30924,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i19, ptr %6, align 8, !tbaa !225
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !222
-  %49 = tail call ptr @realloc(ptr noundef %48, i64 noundef %spec.select.i.i19) #33
+  %49 = tail call ptr @realloc(ptr noundef %48, i64 noundef %spec.select.i.i19) #34
   store ptr %49, ptr %47, align 8, !tbaa !222
   %50 = icmp eq ptr %49, null
   br i1 %50, label %51, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i20
@@ -30934,7 +30934,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i18
 
 51:                                               ; preds = %44
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i18: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i20, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i15
@@ -30981,7 +30981,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_116itanium_demangle15ClosureTypeNa
   store i64 %spec.select.i.i, ptr %12, align 8, !tbaa !225
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !222
-  %20 = tail call ptr @realloc(ptr noundef %19, i64 noundef %spec.select.i.i) #33
+  %20 = tail call ptr @realloc(ptr noundef %19, i64 noundef %spec.select.i.i) #34
   store ptr %20, ptr %18, align 8, !tbaa !222
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -30991,7 +30991,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_116itanium_demangle15ClosureTypeNa
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 22:                                               ; preds = %15
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -31024,7 +31024,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   store i64 %spec.select.i.i24, ptr %12, align 8, !tbaa !225
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !222
-  %38 = tail call ptr @realloc(ptr noundef %37, i64 noundef %spec.select.i.i24) #33
+  %38 = tail call ptr @realloc(ptr noundef %37, i64 noundef %spec.select.i.i24) #34
   store ptr %38, ptr %36, align 8, !tbaa !222
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i25
@@ -31034,7 +31034,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i23
 
 40:                                               ; preds = %33
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i23: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i25, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i20
@@ -31081,7 +31081,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i23: ; preds = %._
   store i64 %spec.select.i.i33, ptr %53, align 8, !tbaa !225
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !222
-  %61 = tail call ptr @realloc(ptr noundef %60, i64 noundef %spec.select.i.i33) #33
+  %61 = tail call ptr @realloc(ptr noundef %60, i64 noundef %spec.select.i.i33) #34
   store ptr %61, ptr %59, align 8, !tbaa !222
   %62 = icmp eq ptr %61, null
   br i1 %62, label %63, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i34
@@ -31091,7 +31091,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i23: ; preds = %._
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i32
 
 63:                                               ; preds = %56
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i32: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i34, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i29
@@ -31139,7 +31139,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i43, ptr %53, align 8, !tbaa !225
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %87 = load ptr, ptr %86, align 8, !tbaa !222
-  %88 = tail call ptr @realloc(ptr noundef %87, i64 noundef %spec.select.i.i43) #33
+  %88 = tail call ptr @realloc(ptr noundef %87, i64 noundef %spec.select.i.i43) #34
   store ptr %88, ptr %86, align 8, !tbaa !222
   %89 = icmp eq ptr %88, null
   br i1 %89, label %90, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i44
@@ -31149,7 +31149,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i42
 
 90:                                               ; preds = %83
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i42: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i44, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i39
@@ -31187,7 +31187,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i.i, ptr %102, align 8, !tbaa !225
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %109 = load ptr, ptr %108, align 8, !tbaa !222
-  %110 = tail call ptr @realloc(ptr noundef %109, i64 noundef %spec.select.i.i.i) #33
+  %110 = tail call ptr @realloc(ptr noundef %109, i64 noundef %spec.select.i.i.i) #34
   store ptr %110, ptr %108, align 8, !tbaa !222
   %111 = icmp eq ptr %110, null
   br i1 %111, label %112, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -31198,7 +31198,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit
 
 112:                                              ; preds = %105
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -31231,7 +31231,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %.
   store i64 %spec.select.i.i.i51, ptr %102, align 8, !tbaa !225
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %127 = load ptr, ptr %126, align 8, !tbaa !222
-  %128 = tail call ptr @realloc(ptr noundef %127, i64 noundef %spec.select.i.i.i51) #33
+  %128 = tail call ptr @realloc(ptr noundef %127, i64 noundef %spec.select.i.i.i51) #34
   store ptr %128, ptr %126, align 8, !tbaa !222
   %129 = icmp eq ptr %128, null
   br i1 %129, label %130, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i52
@@ -31242,7 +31242,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %.
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit
 
 130:                                              ; preds = %123
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i47, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i52
@@ -31276,7 +31276,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = 
   store i64 %spec.select.i.i60, ptr %102, align 8, !tbaa !225
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %145 = load ptr, ptr %144, align 8, !tbaa !222
-  %146 = tail call ptr @realloc(ptr noundef %145, i64 noundef %spec.select.i.i60) #33
+  %146 = tail call ptr @realloc(ptr noundef %145, i64 noundef %spec.select.i.i60) #34
   store ptr %146, ptr %144, align 8, !tbaa !222
   %147 = icmp eq ptr %146, null
   br i1 %147, label %148, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i61
@@ -31286,7 +31286,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = 
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i59
 
 148:                                              ; preds = %141
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i59: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i61, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i56
@@ -31320,8 +31320,8 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit66: ; p
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle10LambdaExprD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle10LambdaExprD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #36
   ret void
 }
 
@@ -31347,7 +31347,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle10LambdaExpr9printLeft
   store i64 %spec.select.i.i, ptr %6, align 8, !tbaa !225
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !222
-  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #33
+  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #34
   store ptr %14, ptr %12, align 8, !tbaa !222
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -31357,7 +31357,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle10LambdaExpr9printLeft
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 16:                                               ; preds = %9
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -31399,7 +31399,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   store i64 %spec.select.i.i9, ptr %6, align 8, !tbaa !225
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !222
-  %37 = tail call ptr @realloc(ptr noundef %36, i64 noundef %spec.select.i.i9) #33
+  %37 = tail call ptr @realloc(ptr noundef %36, i64 noundef %spec.select.i.i9) #34
   store ptr %37, ptr %35, align 8, !tbaa !222
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i10
@@ -31409,7 +31409,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i8
 
 39:                                               ; preds = %32
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i8: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i10, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i5
@@ -31424,8 +31424,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i8: ; preds = %._Z
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle11EnumLiteralD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle11EnumLiteralD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #36
   ret void
 }
 
@@ -31455,7 +31455,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle11EnumLiteral9printLef
   store i64 %spec.select.i.i.i, ptr %9, align 8, !tbaa !225
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !222
-  %17 = tail call ptr @realloc(ptr noundef %16, i64 noundef %spec.select.i.i.i) #33
+  %17 = tail call ptr @realloc(ptr noundef %16, i64 noundef %spec.select.i.i.i) #34
   store ptr %17, ptr %15, align 8, !tbaa !222
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -31466,7 +31466,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle11EnumLiteral9printLef
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit
 
 19:                                               ; preds = %12
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -31517,7 +31517,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i.i10, ptr %9, align 8, !tbaa !225
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !222
-  %45 = tail call ptr @realloc(ptr noundef %44, i64 noundef %spec.select.i.i.i10) #33
+  %45 = tail call ptr @realloc(ptr noundef %44, i64 noundef %spec.select.i.i.i10) #34
   store ptr %45, ptr %43, align 8, !tbaa !222
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i11
@@ -31528,7 +31528,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit
 
 47:                                               ; preds = %40
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i6, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i11
@@ -31563,7 +31563,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = 
   store i64 %spec.select.i.i.i18, ptr %9, align 8, !tbaa !225
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !222
-  %65 = tail call ptr @realloc(ptr noundef %64, i64 noundef %spec.select.i.i.i18) #33
+  %65 = tail call ptr @realloc(ptr noundef %64, i64 noundef %spec.select.i.i.i18) #34
   store ptr %65, ptr %63, align 8, !tbaa !222
   %66 = icmp eq ptr %65, null
   br i1 %66, label %67, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i19
@@ -31574,7 +31574,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = 
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferlsEc.exit
 
 67:                                               ; preds = %60
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferlsEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i14, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i19
@@ -31611,7 +31611,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferlsEc.exit: ; preds = %._ZN12_GL
   store i64 %spec.select.i.i.i25, ptr %9, align 8, !tbaa !225
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !222
-  %86 = tail call ptr @realloc(ptr noundef %85, i64 noundef %spec.select.i.i.i25) #33
+  %86 = tail call ptr @realloc(ptr noundef %85, i64 noundef %spec.select.i.i.i25) #34
   store ptr %86, ptr %84, align 8, !tbaa !222
   %87 = icmp eq ptr %86, null
   br i1 %87, label %88, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i
@@ -31621,7 +31621,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferlsEc.exit: ; preds = %._ZN12_GL
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i
 
 88:                                               ; preds = %81
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i22
@@ -31656,7 +31656,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._
   store i64 %spec.select.i.i.i31, ptr %9, align 8, !tbaa !225
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %102 = load ptr, ptr %101, align 8, !tbaa !222
-  %103 = tail call ptr @realloc(ptr noundef %102, i64 noundef %spec.select.i.i.i31) #33
+  %103 = tail call ptr @realloc(ptr noundef %102, i64 noundef %spec.select.i.i.i31) #34
   store ptr %103, ptr %101, align 8, !tbaa !222
   %104 = icmp eq ptr %103, null
   br i1 %104, label %105, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i32
@@ -31666,7 +31666,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i30
 
 105:                                              ; preds = %98
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i30: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i32, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i27
@@ -31698,12 +31698,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle13FunctionParamEJRNSt3__117basic_string_viewIcNS4_11char_traitsIcEEEEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -31737,8 +31737,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle13FunctionPara
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle13FunctionParamD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle13FunctionParamD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #36
   ret void
 }
 
@@ -31764,7 +31764,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle13FunctionParam9printL
   store i64 %spec.select.i.i, ptr %6, align 8, !tbaa !225
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !222
-  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #33
+  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #34
   store ptr %14, ptr %12, align 8, !tbaa !222
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -31774,7 +31774,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle13FunctionParam9printL
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 16:                                               ; preds = %9
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -31810,7 +31810,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   store i64 %spec.select.i.i8, ptr %6, align 8, !tbaa !225
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !222
-  %32 = tail call ptr @realloc(ptr noundef %31, i64 noundef %spec.select.i.i8) #33
+  %32 = tail call ptr @realloc(ptr noundef %31, i64 noundef %spec.select.i.i8) #34
   store ptr %32, ptr %30, align 8, !tbaa !222
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i9
@@ -31820,7 +31820,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i7
 
 34:                                               ; preds = %27
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i7: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i9, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i4
@@ -31838,8 +31838,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle8FoldExprD0Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle8FoldExprD0Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #36
   ret void
 }
 
@@ -31869,7 +31869,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle8FoldExpr9printLeftERN
   store i64 %spec.select.i.i.i, ptr %9, align 8, !tbaa !225
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !222
-  %17 = tail call ptr @realloc(ptr noundef %16, i64 noundef %spec.select.i.i.i) #33
+  %17 = tail call ptr @realloc(ptr noundef %16, i64 noundef %spec.select.i.i.i) #34
   store ptr %17, ptr %15, align 8, !tbaa !222
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -31880,7 +31880,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle8FoldExpr9printLeftERN
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit
 
 19:                                               ; preds = %12
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -31933,7 +31933,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit._ZN12_GLOBAL_
   store i64 %spec.select.i.i.i22, ptr %9, align 8, !tbaa !225
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !222
-  %41 = tail call ptr @realloc(ptr noundef %40, i64 noundef %spec.select.i.i.i22) #33
+  %41 = tail call ptr @realloc(ptr noundef %40, i64 noundef %spec.select.i.i.i22) #34
   store ptr %41, ptr %39, align 8, !tbaa !222
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i
@@ -31943,7 +31943,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit._ZN12_GLOBAL_
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i
 
 43:                                               ; preds = %36
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i19
@@ -31979,7 +31979,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._
   store i64 %spec.select.i.i.i28, ptr %9, align 8, !tbaa !225
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !222
-  %59 = tail call ptr @realloc(ptr noundef %58, i64 noundef %spec.select.i.i.i28) #33
+  %59 = tail call ptr @realloc(ptr noundef %58, i64 noundef %spec.select.i.i.i28) #34
   store ptr %59, ptr %57, align 8, !tbaa !222
   %60 = icmp eq ptr %59, null
   br i1 %60, label %61, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i29
@@ -31989,7 +31989,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i27
 
 61:                                               ; preds = %54
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i27: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i29, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i24
@@ -32021,7 +32021,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferlsENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i.i37, ptr %9, align 8, !tbaa !225
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !222
-  %76 = tail call ptr @realloc(ptr noundef %75, i64 noundef %spec.select.i.i.i37) #33
+  %76 = tail call ptr @realloc(ptr noundef %75, i64 noundef %spec.select.i.i.i37) #34
   store ptr %76, ptr %74, align 8, !tbaa !222
   %77 = icmp eq ptr %76, null
   br i1 %77, label %78, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i38
@@ -32031,7 +32031,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferlsENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i36
 
 78:                                               ; preds = %71
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i36: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i38, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i33
@@ -32063,7 +32063,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferlsENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i.i46, ptr %9, align 8, !tbaa !225
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %92 = load ptr, ptr %91, align 8, !tbaa !222
-  %93 = tail call ptr @realloc(ptr noundef %92, i64 noundef %spec.select.i.i.i46) #33
+  %93 = tail call ptr @realloc(ptr noundef %92, i64 noundef %spec.select.i.i.i46) #34
   store ptr %93, ptr %91, align 8, !tbaa !222
   %94 = icmp eq ptr %93, null
   br i1 %94, label %95, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i47
@@ -32073,7 +32073,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferlsENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i45
 
 95:                                               ; preds = %88
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i45: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i47, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i42
@@ -32109,7 +32109,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i45: ; preds = %
   store i64 %spec.select.i.i.i55, ptr %9, align 8, !tbaa !225
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %112 = load ptr, ptr %111, align 8, !tbaa !222
-  %113 = tail call ptr @realloc(ptr noundef %112, i64 noundef %spec.select.i.i.i55) #33
+  %113 = tail call ptr @realloc(ptr noundef %112, i64 noundef %spec.select.i.i.i55) #34
   store ptr %113, ptr %111, align 8, !tbaa !222
   %114 = icmp eq ptr %113, null
   br i1 %114, label %115, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i56
@@ -32119,7 +32119,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i45: ; preds = %
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i54
 
 115:                                              ; preds = %108
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i54: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i56, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i51
@@ -32155,7 +32155,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i54: ; preds = %
   store i64 %spec.select.i.i.i64, ptr %9, align 8, !tbaa !225
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %130 = load ptr, ptr %129, align 8, !tbaa !222
-  %131 = tail call ptr @realloc(ptr noundef %130, i64 noundef %spec.select.i.i.i64) #33
+  %131 = tail call ptr @realloc(ptr noundef %130, i64 noundef %spec.select.i.i.i64) #34
   store ptr %131, ptr %129, align 8, !tbaa !222
   %132 = icmp eq ptr %131, null
   br i1 %132, label %133, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i65
@@ -32165,7 +32165,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i54: ; preds = %
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i63
 
 133:                                              ; preds = %126
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i63: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i65, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i60
@@ -32197,7 +32197,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferlsENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i.i73, ptr %9, align 8, !tbaa !225
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %147 = load ptr, ptr %146, align 8, !tbaa !222
-  %148 = tail call ptr @realloc(ptr noundef %147, i64 noundef %spec.select.i.i.i73) #33
+  %148 = tail call ptr @realloc(ptr noundef %147, i64 noundef %spec.select.i.i.i73) #34
   store ptr %148, ptr %146, align 8, !tbaa !222
   %149 = icmp eq ptr %148, null
   br i1 %149, label %150, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i74
@@ -32207,7 +32207,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferlsENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i72
 
 150:                                              ; preds = %143
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i72: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i74, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i69
@@ -32253,7 +32253,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i72: ; preds = %
   store i64 %spec.select.i.i.i81, ptr %9, align 8, !tbaa !225
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %172 = load ptr, ptr %171, align 8, !tbaa !222
-  %173 = tail call ptr @realloc(ptr noundef %172, i64 noundef %spec.select.i.i.i81) #33
+  %173 = tail call ptr @realloc(ptr noundef %172, i64 noundef %spec.select.i.i.i81) #34
   store ptr %173, ptr %171, align 8, !tbaa !222
   %174 = icmp eq ptr %173, null
   br i1 %174, label %175, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i82
@@ -32264,7 +32264,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i72: ; preds = %
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit
 
 175:                                              ; preds = %168
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i77, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i82
@@ -32304,7 +32304,7 @@ define internal fastcc void @_ZZNK12_GLOBAL__N_116itanium_demangle8FoldExpr9prin
   store i64 %spec.select.i.i.i, ptr %8, align 8, !tbaa !225
   %14 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !222
-  %16 = tail call ptr @realloc(ptr noundef %15, i64 noundef %spec.select.i.i.i) #33
+  %16 = tail call ptr @realloc(ptr noundef %15, i64 noundef %spec.select.i.i.i) #34
   store ptr %16, ptr %14, align 8, !tbaa !222
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -32315,7 +32315,7 @@ define internal fastcc void @_ZZNK12_GLOBAL__N_116itanium_demangle8FoldExpr9prin
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit
 
 18:                                               ; preds = %11
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -32374,7 +32374,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i.i7, ptr %8, align 8, !tbaa !225
   %44 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !222
-  %46 = call ptr @realloc(ptr noundef %45, i64 noundef %spec.select.i.i.i7) #33
+  %46 = call ptr @realloc(ptr noundef %45, i64 noundef %spec.select.i.i.i7) #34
   store ptr %46, ptr %44, align 8, !tbaa !222
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i8
@@ -32385,7 +32385,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit
 
 48:                                               ; preds = %41
-  call void @abort() #32
+  call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i3, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i8
@@ -32399,8 +32399,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle22ParameterPackExpansionD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle22ParameterPackExpansionD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #36
   ret void
 }
 
@@ -32472,7 +32472,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i, ptr %25, align 8, !tbaa !225
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !222
-  %33 = tail call ptr @realloc(ptr noundef %32, i64 noundef %spec.select.i.i) #33
+  %33 = tail call ptr @realloc(ptr noundef %32, i64 noundef %spec.select.i.i) #34
   store ptr %33, ptr %31, align 8, !tbaa !222
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -32482,7 +32482,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 35:                                               ; preds = %28
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -32525,7 +32525,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   %spec.select.i.i39 = tail call i64 @llvm.umax.i64(i64 %55, i64 %54)
   store i64 %spec.select.i.i39, ptr %21, align 8, !tbaa !225
   %56 = load ptr, ptr %.phi.trans.insert.i36, align 8, !tbaa !222
-  %57 = tail call ptr @realloc(ptr noundef %56, i64 noundef %spec.select.i.i39) #33
+  %57 = tail call ptr @realloc(ptr noundef %56, i64 noundef %spec.select.i.i39) #34
   store ptr %57, ptr %.phi.trans.insert.i36, align 8, !tbaa !222
   %58 = icmp eq ptr %57, null
   br i1 %58, label %59, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i40
@@ -32535,7 +32535,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i38
 
 59:                                               ; preds = %53
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i38: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i40, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i35
@@ -32596,8 +32596,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle10BracedExprD0Ev(ptr noundef nonnull align 8 dereferenceable(33) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle10BracedExprD0Ev(ptr noundef nonnull align 8 dereferenceable(33) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #36
   ret void
 }
 
@@ -32629,7 +32629,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle10BracedExpr9printLeft
   store i64 %spec.select.i.i, ptr %9, align 8, !tbaa !225
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !222
-  %18 = tail call ptr @realloc(ptr noundef %17, i64 noundef %spec.select.i.i) #33
+  %18 = tail call ptr @realloc(ptr noundef %17, i64 noundef %spec.select.i.i) #34
   store ptr %18, ptr %16, align 8, !tbaa !222
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i
@@ -32640,7 +32640,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle10BracedExpr9printLeft
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit
 
 20:                                               ; preds = %13
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i
@@ -32688,7 +32688,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i14, ptr %9, align 8, !tbaa !225
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !222
-  %44 = tail call ptr @realloc(ptr noundef %43, i64 noundef %spec.select.i.i14) #33
+  %44 = tail call ptr @realloc(ptr noundef %43, i64 noundef %spec.select.i.i14) #34
   store ptr %44, ptr %42, align 8, !tbaa !222
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i15
@@ -32699,7 +32699,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit18
 
 46:                                               ; preds = %39
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit18: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i10, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i15
@@ -32726,7 +32726,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit18: ; preds = %._ZN12_
   store i64 %spec.select.i.i23, ptr %9, align 8, !tbaa !225
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !222
-  %56 = tail call ptr @realloc(ptr noundef %55, i64 noundef %spec.select.i.i23) #33
+  %56 = tail call ptr @realloc(ptr noundef %55, i64 noundef %spec.select.i.i23) #34
   store ptr %56, ptr %54, align 8, !tbaa !222
   %57 = icmp eq ptr %56, null
   br i1 %57, label %58, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i24
@@ -32737,7 +32737,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit18: ; preds = %._ZN12_
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit27
 
 58:                                               ; preds = %51
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit27: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i19, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i24
@@ -32796,7 +32796,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit30: ; p
   store i64 %spec.select.i.i35, ptr %80, align 8, !tbaa !225
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %87 = load ptr, ptr %86, align 8, !tbaa !222
-  %88 = tail call ptr @realloc(ptr noundef %87, i64 noundef %spec.select.i.i35) #33
+  %88 = tail call ptr @realloc(ptr noundef %87, i64 noundef %spec.select.i.i35) #34
   store ptr %88, ptr %86, align 8, !tbaa !222
   %89 = icmp eq ptr %88, null
   br i1 %89, label %90, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -32806,7 +32806,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit30: ; p
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 90:                                               ; preds = %83
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i32
@@ -32844,8 +32844,8 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit38: ; p
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle15BracedRangeExprD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle15BracedRangeExprD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #36
   ret void
 }
 
@@ -32871,7 +32871,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle15BracedRangeExpr9prin
   store i64 %spec.select.i.i, ptr %6, align 8, !tbaa !225
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !222
-  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #33
+  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #34
   store ptr %14, ptr %12, align 8, !tbaa !222
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i
@@ -32882,7 +32882,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle15BracedRangeExpr9prin
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit
 
 16:                                               ; preds = %9
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i
@@ -32930,7 +32930,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i14, ptr %6, align 8, !tbaa !225
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !222
-  %40 = tail call ptr @realloc(ptr noundef %39, i64 noundef %spec.select.i.i14) #33
+  %40 = tail call ptr @realloc(ptr noundef %39, i64 noundef %spec.select.i.i14) #34
   store ptr %40, ptr %38, align 8, !tbaa !222
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -32940,7 +32940,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 42:                                               ; preds = %35
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i11
@@ -32989,7 +32989,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit17: ; p
   store i64 %spec.select.i.i23, ptr %6, align 8, !tbaa !225
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %67 = load ptr, ptr %66, align 8, !tbaa !222
-  %68 = tail call ptr @realloc(ptr noundef %67, i64 noundef %spec.select.i.i23) #33
+  %68 = tail call ptr @realloc(ptr noundef %67, i64 noundef %spec.select.i.i23) #34
   store ptr %68, ptr %66, align 8, !tbaa !222
   %69 = icmp eq ptr %68, null
   br i1 %69, label %70, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i24
@@ -33000,7 +33000,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit17: ; p
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit27
 
 70:                                               ; preds = %63
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit27: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i18, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i24
@@ -33037,7 +33037,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit27: ; preds = %._ZN12_
   store i64 %spec.select.i.i33, ptr %6, align 8, !tbaa !225
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %86 = load ptr, ptr %85, align 8, !tbaa !222
-  %87 = tail call ptr @realloc(ptr noundef %86, i64 noundef %spec.select.i.i33) #33
+  %87 = tail call ptr @realloc(ptr noundef %86, i64 noundef %spec.select.i.i33) #34
   store ptr %87, ptr %85, align 8, !tbaa !222
   %88 = icmp eq ptr %87, null
   br i1 %88, label %89, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i34
@@ -33047,7 +33047,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit27: ; preds = %._ZN12_
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i32
 
 89:                                               ; preds = %82
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i32: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i34, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i29
@@ -33085,8 +33085,8 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit39: ; p
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle12InitListExprD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle12InitListExprD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #36
   ret void
 }
 
@@ -33145,7 +33145,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i, ptr %25, align 8, !tbaa !225
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !222
-  %33 = tail call ptr @realloc(ptr noundef %32, i64 noundef %spec.select.i.i) #33
+  %33 = tail call ptr @realloc(ptr noundef %32, i64 noundef %spec.select.i.i) #34
   store ptr %33, ptr %31, align 8, !tbaa !222
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i
@@ -33156,7 +33156,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit
 
 35:                                               ; preds = %28
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i
@@ -33186,7 +33186,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit: ; preds = %._ZN12_GL
   store i64 %spec.select.i.i10, ptr %25, align 8, !tbaa !225
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !222
-  %49 = tail call ptr @realloc(ptr noundef %48, i64 noundef %spec.select.i.i10) #33
+  %49 = tail call ptr @realloc(ptr noundef %48, i64 noundef %spec.select.i.i10) #34
   store ptr %49, ptr %47, align 8, !tbaa !222
   %50 = icmp eq ptr %49, null
   br i1 %50, label %51, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i11
@@ -33197,7 +33197,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit: ; preds = %._ZN12_GL
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit14
 
 51:                                               ; preds = %44
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit14: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i6, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i11
@@ -33214,8 +33214,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit14: ; preds = %._ZN12_
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle29PointerToMemberConversionExprD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle29PointerToMemberConversionExprD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #36
   ret void
 }
 
@@ -33245,7 +33245,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle29PointerToMemberConve
   store i64 %spec.select.i.i.i, ptr %9, align 8, !tbaa !225
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !222
-  %17 = tail call ptr @realloc(ptr noundef %16, i64 noundef %spec.select.i.i.i) #33
+  %17 = tail call ptr @realloc(ptr noundef %16, i64 noundef %spec.select.i.i.i) #34
   store ptr %17, ptr %15, align 8, !tbaa !222
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -33256,7 +33256,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle29PointerToMemberConve
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit
 
 19:                                               ; preds = %12
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -33307,7 +33307,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i.i11, ptr %9, align 8, !tbaa !225
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !222
-  %45 = tail call ptr @realloc(ptr noundef %44, i64 noundef %spec.select.i.i.i11) #33
+  %45 = tail call ptr @realloc(ptr noundef %44, i64 noundef %spec.select.i.i.i11) #34
   store ptr %45, ptr %43, align 8, !tbaa !222
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i12
@@ -33318,7 +33318,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit
 
 47:                                               ; preds = %40
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i7, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i12
@@ -33349,7 +33349,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = 
   store i64 %spec.select.i.i.i19, ptr %9, align 8, !tbaa !225
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !222
-  %62 = tail call ptr @realloc(ptr noundef %61, i64 noundef %spec.select.i.i.i19) #33
+  %62 = tail call ptr @realloc(ptr noundef %61, i64 noundef %spec.select.i.i.i19) #34
   store ptr %62, ptr %60, align 8, !tbaa !222
   %63 = icmp eq ptr %62, null
   br i1 %63, label %64, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i20
@@ -33360,7 +33360,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = 
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit23
 
 64:                                               ; preds = %57
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit23: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i15, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i20
@@ -33411,7 +33411,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit26: ; p
   store i64 %spec.select.i.i.i31, ptr %9, align 8, !tbaa !225
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %89 = load ptr, ptr %88, align 8, !tbaa !222
-  %90 = tail call ptr @realloc(ptr noundef %89, i64 noundef %spec.select.i.i.i31) #33
+  %90 = tail call ptr @realloc(ptr noundef %89, i64 noundef %spec.select.i.i.i31) #34
   store ptr %90, ptr %88, align 8, !tbaa !222
   %91 = icmp eq ptr %90, null
   br i1 %91, label %92, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i32
@@ -33422,7 +33422,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit26: ; p
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit35
 
 92:                                               ; preds = %85
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit35: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i27, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i32
@@ -33436,8 +33436,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit35: ; preds 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle15ExprRequirementD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle15ExprRequirementD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #36
   ret void
 }
 
@@ -33463,7 +33463,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle15ExprRequirement9prin
   store i64 %spec.select.i.i, ptr %6, align 8, !tbaa !225
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !222
-  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #33
+  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #34
   store ptr %14, ptr %12, align 8, !tbaa !222
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -33473,7 +33473,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle15ExprRequirement9prin
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 16:                                               ; preds = %9
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -33515,7 +33515,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   store i64 %spec.select.i.i.i, ptr %6, align 8, !tbaa !225
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !222
-  %39 = tail call ptr @realloc(ptr noundef %38, i64 noundef %spec.select.i.i.i) #33
+  %39 = tail call ptr @realloc(ptr noundef %38, i64 noundef %spec.select.i.i.i) #34
   store ptr %39, ptr %37, align 8, !tbaa !222
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -33526,7 +33526,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit
 
 41:                                               ; preds = %34
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -33589,7 +33589,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i.i21, ptr %6, align 8, !tbaa !225
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !222
-  %73 = tail call ptr @realloc(ptr noundef %72, i64 noundef %spec.select.i.i.i21) #33
+  %73 = tail call ptr @realloc(ptr noundef %72, i64 noundef %spec.select.i.i.i21) #34
   store ptr %73, ptr %71, align 8, !tbaa !222
   %74 = icmp eq ptr %73, null
   br i1 %74, label %75, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i22
@@ -33600,7 +33600,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %76
 
 75:                                               ; preds = %68
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 76:                                               ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i22, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i17
@@ -33633,7 +33633,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i30, ptr %6, align 8, !tbaa !225
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %90 = load ptr, ptr %89, align 8, !tbaa !222
-  %91 = tail call ptr @realloc(ptr noundef %90, i64 noundef %spec.select.i.i30) #33
+  %91 = tail call ptr @realloc(ptr noundef %90, i64 noundef %spec.select.i.i30) #34
   store ptr %91, ptr %89, align 8, !tbaa !222
   %92 = icmp eq ptr %91, null
   br i1 %92, label %93, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i31
@@ -33643,7 +33643,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i29
 
 93:                                               ; preds = %86
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i29: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i31, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i26
@@ -33680,7 +33680,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i39, ptr %6, align 8, !tbaa !225
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %108 = load ptr, ptr %107, align 8, !tbaa !222
-  %109 = tail call ptr @realloc(ptr noundef %108, i64 noundef %spec.select.i.i39) #33
+  %109 = tail call ptr @realloc(ptr noundef %108, i64 noundef %spec.select.i.i39) #34
   store ptr %109, ptr %107, align 8, !tbaa !222
   %110 = icmp eq ptr %109, null
   br i1 %110, label %111, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i40
@@ -33690,7 +33690,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i38
 
 111:                                              ; preds = %104
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i38: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i40, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i35
@@ -33738,7 +33738,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit45: ; p
   store i64 %spec.select.i.i50, ptr %6, align 8, !tbaa !225
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %135 = load ptr, ptr %134, align 8, !tbaa !222
-  %136 = tail call ptr @realloc(ptr noundef %135, i64 noundef %spec.select.i.i50) #33
+  %136 = tail call ptr @realloc(ptr noundef %135, i64 noundef %spec.select.i.i50) #34
   store ptr %136, ptr %134, align 8, !tbaa !222
   %137 = icmp eq ptr %136, null
   br i1 %137, label %138, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i
@@ -33749,7 +33749,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit45: ; p
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit
 
 138:                                              ; preds = %131
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i46, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i
@@ -33763,8 +33763,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit: ; preds = %._ZN12_GL
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle15TypeRequirementD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle15TypeRequirementD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #36
   ret void
 }
 
@@ -33790,7 +33790,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle15TypeRequirement9prin
   store i64 %spec.select.i.i, ptr %6, align 8, !tbaa !225
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !222
-  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #33
+  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #34
   store ptr %14, ptr %12, align 8, !tbaa !222
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -33800,7 +33800,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle15TypeRequirement9prin
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 16:                                               ; preds = %9
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -33849,7 +33849,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i9, ptr %6, align 8, !tbaa !225
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !222
-  %42 = tail call ptr @realloc(ptr noundef %41, i64 noundef %spec.select.i.i9) #33
+  %42 = tail call ptr @realloc(ptr noundef %41, i64 noundef %spec.select.i.i9) #34
   store ptr %42, ptr %40, align 8, !tbaa !222
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i
@@ -33860,7 +33860,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit
 
 44:                                               ; preds = %37
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i5, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i
@@ -33874,8 +33874,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit: ; preds = %._ZN12_GL
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle17NestedRequirementD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle17NestedRequirementD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #36
   ret void
 }
 
@@ -33901,7 +33901,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle17NestedRequirement9pr
   store i64 %spec.select.i.i, ptr %6, align 8, !tbaa !225
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !222
-  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #33
+  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #34
   store ptr %14, ptr %12, align 8, !tbaa !222
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -33911,7 +33911,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle17NestedRequirement9pr
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 16:                                               ; preds = %9
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -33960,7 +33960,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i9, ptr %6, align 8, !tbaa !225
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !222
-  %42 = tail call ptr @realloc(ptr noundef %41, i64 noundef %spec.select.i.i9) #33
+  %42 = tail call ptr @realloc(ptr noundef %41, i64 noundef %spec.select.i.i9) #34
   store ptr %42, ptr %40, align 8, !tbaa !222
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i
@@ -33971,7 +33971,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit
 
 44:                                               ; preds = %37
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i5, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i
@@ -33985,8 +33985,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit: ; preds = %._ZN12_GL
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle12RequiresExprD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle12RequiresExprD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #36
   ret void
 }
 
@@ -34012,7 +34012,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle12RequiresExpr9printLe
   store i64 %spec.select.i.i, ptr %6, align 8, !tbaa !225
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !222
-  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #33
+  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #34
   store ptr %14, ptr %12, align 8, !tbaa !222
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -34022,7 +34022,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle12RequiresExpr9printLe
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 16:                                               ; preds = %9
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -34057,7 +34057,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   store i64 %spec.select.i.i25, ptr %6, align 8, !tbaa !225
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !222
-  %34 = tail call ptr @realloc(ptr noundef %33, i64 noundef %spec.select.i.i25) #33
+  %34 = tail call ptr @realloc(ptr noundef %33, i64 noundef %spec.select.i.i25) #34
   store ptr %34, ptr %32, align 8, !tbaa !222
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i
@@ -34068,7 +34068,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit
 
 36:                                               ; preds = %29
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i21, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i
@@ -34100,7 +34100,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit: ; preds = %._ZN12_GL
   store i64 %spec.select.i.i.i, ptr %6, align 8, !tbaa !225
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !222
-  %52 = tail call ptr @realloc(ptr noundef %51, i64 noundef %spec.select.i.i.i) #33
+  %52 = tail call ptr @realloc(ptr noundef %51, i64 noundef %spec.select.i.i.i) #34
   store ptr %52, ptr %50, align 8, !tbaa !222
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -34111,7 +34111,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit: ; preds = %._ZN12_GL
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit
 
 54:                                               ; preds = %47
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -34143,7 +34143,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %.
   store i64 %spec.select.i.i.i30, ptr %6, align 8, !tbaa !225
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %68 = load ptr, ptr %67, align 8, !tbaa !222
-  %69 = tail call ptr @realloc(ptr noundef %68, i64 noundef %spec.select.i.i.i30) #33
+  %69 = tail call ptr @realloc(ptr noundef %68, i64 noundef %spec.select.i.i.i30) #34
   store ptr %69, ptr %67, align 8, !tbaa !222
   %70 = icmp eq ptr %69, null
   br i1 %70, label %71, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i31
@@ -34154,7 +34154,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %.
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit
 
 71:                                               ; preds = %64
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i26, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i31
@@ -34186,7 +34186,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = 
   store i64 %spec.select.i.i39, ptr %6, align 8, !tbaa !225
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !222
-  %85 = tail call ptr @realloc(ptr noundef %84, i64 noundef %spec.select.i.i39) #33
+  %85 = tail call ptr @realloc(ptr noundef %84, i64 noundef %spec.select.i.i39) #34
   store ptr %85, ptr %83, align 8, !tbaa !222
   %86 = icmp eq ptr %85, null
   br i1 %86, label %87, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i40
@@ -34197,7 +34197,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = 
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit43
 
 87:                                               ; preds = %80
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit43: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i34, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i40
@@ -34229,7 +34229,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit43: ; preds = %._ZN12_
   store i64 %spec.select.i.i.i48, ptr %6, align 8, !tbaa !225
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %102 = load ptr, ptr %101, align 8, !tbaa !222
-  %103 = tail call ptr @realloc(ptr noundef %102, i64 noundef %spec.select.i.i.i48) #33
+  %103 = tail call ptr @realloc(ptr noundef %102, i64 noundef %spec.select.i.i.i48) #34
   store ptr %103, ptr %101, align 8, !tbaa !222
   %104 = icmp eq ptr %103, null
   br i1 %104, label %105, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i49
@@ -34240,7 +34240,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit43: ; preds = %._ZN12_
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit52
 
 105:                                              ; preds = %98
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit52: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i44, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i49
@@ -34278,7 +34278,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit52: ; preds = 
   store i64 %spec.select.i.i58, ptr %6, align 8, !tbaa !225
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %120 = load ptr, ptr %119, align 8, !tbaa !222
-  %121 = tail call ptr @realloc(ptr noundef %120, i64 noundef %spec.select.i.i58) #33
+  %121 = tail call ptr @realloc(ptr noundef %120, i64 noundef %spec.select.i.i58) #34
   store ptr %121, ptr %119, align 8, !tbaa !222
   %122 = icmp eq ptr %121, null
   br i1 %122, label %123, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i59
@@ -34289,7 +34289,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit52: ; preds = 
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit62
 
 123:                                              ; preds = %116
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit62: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i53, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i59
@@ -34320,7 +34320,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit62: ; preds = %._ZN12_
   store i64 %spec.select.i.i.i67, ptr %6, align 8, !tbaa !225
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %137 = load ptr, ptr %136, align 8, !tbaa !222
-  %138 = tail call ptr @realloc(ptr noundef %137, i64 noundef %spec.select.i.i.i67) #33
+  %138 = tail call ptr @realloc(ptr noundef %137, i64 noundef %spec.select.i.i.i67) #34
   store ptr %138, ptr %136, align 8, !tbaa !222
   %139 = icmp eq ptr %138, null
   br i1 %139, label %140, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i68
@@ -34331,7 +34331,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit62: ; preds = %._ZN12_
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit71
 
 140:                                              ; preds = %133
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit71: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i63, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i68
@@ -34370,8 +34370,8 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle13SubobjectExprD0Ev(ptr noundef nonnull align 8 dereferenceable(65) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle13SubobjectExprD0Ev(ptr noundef nonnull align 8 dereferenceable(65) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #36
   ret void
 }
 
@@ -34417,7 +34417,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i, ptr %17, align 8, !tbaa !225
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !222
-  %25 = tail call ptr @realloc(ptr noundef %24, i64 noundef %spec.select.i.i) #33
+  %25 = tail call ptr @realloc(ptr noundef %24, i64 noundef %spec.select.i.i) #34
   store ptr %25, ptr %23, align 8, !tbaa !222
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -34427,7 +34427,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 27:                                               ; preds = %20
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -34476,7 +34476,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit13: ; p
   store i64 %spec.select.i.i19, ptr %17, align 8, !tbaa !225
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !222
-  %53 = tail call ptr @realloc(ptr noundef %52, i64 noundef %spec.select.i.i19) #33
+  %53 = tail call ptr @realloc(ptr noundef %52, i64 noundef %spec.select.i.i19) #34
   store ptr %53, ptr %51, align 8, !tbaa !222
   %54 = icmp eq ptr %53, null
   br i1 %54, label %55, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i20
@@ -34486,7 +34486,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit13: ; p
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i18
 
 55:                                               ; preds = %48
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i18: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i20, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i15
@@ -34521,7 +34521,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i18: ; preds = %._
   store i64 %spec.select.i.i28, ptr %17, align 8, !tbaa !225
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !222
-  %74 = tail call ptr @realloc(ptr noundef %73, i64 noundef %spec.select.i.i28) #33
+  %74 = tail call ptr @realloc(ptr noundef %73, i64 noundef %spec.select.i.i28) #34
   store ptr %74, ptr %72, align 8, !tbaa !222
   %75 = icmp eq ptr %74, null
   br i1 %75, label %76, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i29
@@ -34531,7 +34531,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i18: ; preds = %._
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i27
 
 76:                                               ; preds = %69
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i27: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i29, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i24
@@ -34565,7 +34565,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i27: ; preds = %._
   store i64 %spec.select.i.i37, ptr %17, align 8, !tbaa !225
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %92 = load ptr, ptr %91, align 8, !tbaa !222
-  %93 = tail call ptr @realloc(ptr noundef %92, i64 noundef %spec.select.i.i37) #33
+  %93 = tail call ptr @realloc(ptr noundef %92, i64 noundef %spec.select.i.i37) #34
   store ptr %93, ptr %91, align 8, !tbaa !222
   %94 = icmp eq ptr %93, null
   br i1 %94, label %95, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i38
@@ -34575,7 +34575,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i27: ; preds = %._
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i36
 
 95:                                               ; preds = %88
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i36: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i38, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i33
@@ -34611,7 +34611,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i36: ; preds = %._
   store i64 %spec.select.i.i46, ptr %17, align 8, !tbaa !225
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %113 = load ptr, ptr %112, align 8, !tbaa !222
-  %114 = tail call ptr @realloc(ptr noundef %113, i64 noundef %spec.select.i.i46) #33
+  %114 = tail call ptr @realloc(ptr noundef %113, i64 noundef %spec.select.i.i46) #34
   store ptr %114, ptr %112, align 8, !tbaa !222
   %115 = icmp eq ptr %114, null
   br i1 %115, label %116, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i47
@@ -34621,7 +34621,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i36: ; preds = %._
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i45
 
 116:                                              ; preds = %109
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i45: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i47, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i42
@@ -34648,7 +34648,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i45: ; preds = %._
   store i64 %spec.select.i.i55, ptr %17, align 8, !tbaa !225
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %127 = load ptr, ptr %126, align 8, !tbaa !222
-  %128 = tail call ptr @realloc(ptr noundef %127, i64 noundef %spec.select.i.i55) #33
+  %128 = tail call ptr @realloc(ptr noundef %127, i64 noundef %spec.select.i.i55) #34
   store ptr %128, ptr %126, align 8, !tbaa !222
   %129 = icmp eq ptr %128, null
   br i1 %129, label %130, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i56
@@ -34658,7 +34658,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i45: ; preds = %._
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i54
 
 130:                                              ; preds = %123
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i54: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i56, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i51
@@ -34694,7 +34694,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i64, ptr %17, align 8, !tbaa !225
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %144 = load ptr, ptr %143, align 8, !tbaa !222
-  %145 = tail call ptr @realloc(ptr noundef %144, i64 noundef %spec.select.i.i64) #33
+  %145 = tail call ptr @realloc(ptr noundef %144, i64 noundef %spec.select.i.i64) #34
   store ptr %145, ptr %143, align 8, !tbaa !222
   %146 = icmp eq ptr %145, null
   br i1 %146, label %147, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i65
@@ -34704,7 +34704,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i63
 
 147:                                              ; preds = %140
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i63: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i65, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i60
@@ -34719,8 +34719,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i63: ; preds = %._
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle19SizeofParamPackExprD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle19SizeofParamPackExprD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #36
   ret void
 }
 
@@ -34747,7 +34747,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle19SizeofParamPackExpr9
   store i64 %spec.select.i.i, ptr %7, align 8, !tbaa !225
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !222
-  %15 = tail call ptr @realloc(ptr noundef %14, i64 noundef %spec.select.i.i) #33
+  %15 = tail call ptr @realloc(ptr noundef %14, i64 noundef %spec.select.i.i) #34
   store ptr %15, ptr %13, align 8, !tbaa !222
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -34757,7 +34757,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle19SizeofParamPackExpr9
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 17:                                               ; preds = %10
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -34789,7 +34789,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   store i64 %spec.select.i.i.i, ptr %7, align 8, !tbaa !225
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !222
-  %34 = tail call ptr @realloc(ptr noundef %33, i64 noundef %spec.select.i.i.i) #33
+  %34 = tail call ptr @realloc(ptr noundef %33, i64 noundef %spec.select.i.i.i) #34
   store ptr %34, ptr %32, align 8, !tbaa !222
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -34800,7 +34800,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit
 
 36:                                               ; preds = %29
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -34842,7 +34842,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %.
   store i64 %spec.select.i.i.i9, ptr %7, align 8, !tbaa !225
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !222
-  %56 = tail call ptr @realloc(ptr noundef %55, i64 noundef %spec.select.i.i.i9) #33
+  %56 = tail call ptr @realloc(ptr noundef %55, i64 noundef %spec.select.i.i.i9) #34
   store ptr %56, ptr %54, align 8, !tbaa !222
   %57 = icmp eq ptr %56, null
   br i1 %57, label %58, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i10
@@ -34853,7 +34853,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %.
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit
 
 58:                                               ; preds = %51
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i5, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i10
@@ -34868,8 +34868,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle13NodeArrayNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle13NodeArrayNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #36
   ret void
 }
 
@@ -34881,8 +34881,8 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle13NodeArrayNode9printL
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle9ThrowExprD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle9ThrowExprD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #36
   ret void
 }
 
@@ -34908,7 +34908,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle9ThrowExpr9printLeftER
   store i64 %spec.select.i.i, ptr %6, align 8, !tbaa !225
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !222
-  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #33
+  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #34
   store ptr %14, ptr %12, align 8, !tbaa !222
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -34918,7 +34918,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle9ThrowExpr9printLeftER
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 16:                                               ; preds = %9
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -34993,12 +34993,12 @@ _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParse
   br i1 %20, label %22, label %28
 
 22:                                               ; preds = %14
-  %23 = tail call noalias ptr @malloc(i64 noundef %21) #31
+  %23 = tail call noalias ptr @malloc(i64 noundef %21) #32
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %22
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 26:                                               ; preds = %22
@@ -35014,13 +35014,13 @@ _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 28:                                               ; preds = %14
-  %29 = tail call ptr @realloc(ptr noundef %.val.i, i64 noundef %21) #33
+  %29 = tail call ptr @realloc(ptr noundef %.val.i, i64 noundef %21) #34
   store ptr %29, ptr %8, align 8, !tbaa !189
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 31:                                               ; preds = %28
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %28, %_ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S6_.exit.i.i
@@ -35063,12 +35063,12 @@ _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backE
   br i1 %53, label %55, label %61
 
 55:                                               ; preds = %47
-  %56 = tail call noalias ptr @malloc(i64 noundef %54) #31
+  %56 = tail call noalias ptr @malloc(i64 noundef %54) #32
   %57 = icmp eq ptr %56, null
   br i1 %57, label %58, label %59
 
 58:                                               ; preds = %55
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 59:                                               ; preds = %55
@@ -35084,13 +35084,13 @@ _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i9
 
 61:                                               ; preds = %47
-  %62 = tail call ptr @realloc(ptr noundef %.val.i8, i64 noundef %54) #33
+  %62 = tail call ptr @realloc(ptr noundef %.val.i8, i64 noundef %54) #34
   store ptr %62, ptr %41, align 8, !tbaa !189
   %63 = icmp eq ptr %62, null
   br i1 %63, label %64, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i9
 
 64:                                               ; preds = %61
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i9: ; preds = %61, %_ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S6_.exit.i.i11
@@ -35149,12 +35149,12 @@ _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParse
   br i1 %17, label %18, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeESA_EEES9_DpOT0_.exit
 
 18:                                               ; preds = %11
-  %19 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %19 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 21:                                               ; preds = %18
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %18
@@ -35258,12 +35258,12 @@ _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParse
   br i1 %27, label %28, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_8DtorNameEJRPNS0_4NodeEEEES9_DpOT0_.exit
 
 28:                                               ; preds = %21
-  %29 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %29 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i15
 
 31:                                               ; preds = %28
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i15: ; preds = %28
@@ -35334,12 +35334,12 @@ _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParse
   br i1 %62, label %63, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeESA_EEES9_DpOT0_.exit
 
 63:                                               ; preds = %56
-  %64 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %64 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %65 = icmp eq ptr %64, null
   br i1 %65, label %66, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 66:                                               ; preds = %63
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %63
@@ -35388,8 +35388,8 @@ define internal { ptr, i64 } @_ZNK12_GLOBAL__N_116itanium_demangle13QualifiedNam
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle13QualifiedNameD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle13QualifiedNameD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #36
   ret void
 }
 
@@ -35435,7 +35435,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i, ptr %17, align 8, !tbaa !225
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !222
-  %25 = tail call ptr @realloc(ptr noundef %24, i64 noundef %spec.select.i.i) #33
+  %25 = tail call ptr @realloc(ptr noundef %24, i64 noundef %spec.select.i.i) #34
   store ptr %25, ptr %23, align 8, !tbaa !222
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -35445,7 +35445,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 27:                                               ; preds = %20
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -35593,12 +35593,12 @@ _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParse
   br i1 %55, label %56, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_22ConversionOperatorTypeEJRPNS0_4NodeEEEES9_DpOT0_.exit
 
 56:                                               ; preds = %49
-  %57 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %57 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %58 = icmp eq ptr %57, null
   br i1 %58, label %59, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 59:                                               ; preds = %56
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %56
@@ -35654,7 +35654,7 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
 82:                                               ; preds = %79, %77
   %83 = getelementptr i8, ptr %25, i64 8
   %.val35 = load ptr, ptr %83, align 8, !tbaa !462
-  %84 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val35) #34
+  %84 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val35) #35
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %86 = load ptr, ptr %85, align 16, !tbaa !209
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
@@ -35664,12 +35664,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %90, label %91, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_8NameTypeEJNSt3__117basic_string_viewIcNS8_11char_traitsIcEEEEEEEPNS0_4NodeEDpOT0_.exit
 
 91:                                               ; preds = %82
-  %92 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %92 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %93 = icmp eq ptr %92, null
   br i1 %93, label %94, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i37
 
 94:                                               ; preds = %91
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i37: ; preds = %91
@@ -35723,12 +35723,12 @@ _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1
   br i1 %119, label %120, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_15LiteralOperatorEJRPNS0_4NodeEEEES9_DpOT0_.exit
 
 120:                                              ; preds = %113
-  %121 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %121 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %122 = icmp eq ptr %121, null
   br i1 %122, label %123, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i38
 
 123:                                              ; preds = %120
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i38: ; preds = %120
@@ -35796,12 +35796,12 @@ _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParse
   br i1 %154, label %155, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_22ConversionOperatorTypeEJRPNS0_4NodeEEEES9_DpOT0_.exit76
 
 155:                                              ; preds = %148
-  %156 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %156 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %157 = icmp eq ptr %156, null
   br i1 %157, label %158, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i75
 
 158:                                              ; preds = %155
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i75: ; preds = %155
@@ -35837,8 +35837,8 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle8DtorNameD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle8DtorNameD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #36
   ret void
 }
 
@@ -35864,7 +35864,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle8DtorName9printLeftERN
   store i64 %spec.select.i.i, ptr %6, align 8, !tbaa !225
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !222
-  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #33
+  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #34
   store ptr %14, ptr %12, align 8, !tbaa !222
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -35874,7 +35874,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle8DtorName9printLeftERN
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 16:                                               ; preds = %9
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -35895,8 +35895,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle22ConversionOperatorTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle22ConversionOperatorTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #36
   ret void
 }
 
@@ -35922,7 +35922,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle22ConversionOperatorTy
   store i64 %spec.select.i.i, ptr %6, align 8, !tbaa !225
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !222
-  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #33
+  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #34
   store ptr %14, ptr %12, align 8, !tbaa !222
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -35932,7 +35932,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle22ConversionOperatorTy
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 16:                                               ; preds = %9
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -35967,8 +35967,8 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle15LiteralOperatorD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle15LiteralOperatorD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #36
   ret void
 }
 
@@ -35994,7 +35994,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle15LiteralOperator9prin
   store i64 %spec.select.i.i, ptr %6, align 8, !tbaa !225
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !222
-  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #33
+  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #34
   store ptr %14, ptr %12, align 8, !tbaa !222
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -36004,7 +36004,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle15LiteralOperator9prin
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 16:                                               ; preds = %9
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -36050,8 +36050,8 @@ define internal { ptr, i64 } @_ZNK12_GLOBAL__N_116itanium_demangle19GlobalQualif
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle19GlobalQualifiedNameD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle19GlobalQualifiedNameD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #36
   ret void
 }
 
@@ -36077,7 +36077,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle19GlobalQualifiedName9
   store i64 %spec.select.i.i, ptr %6, align 8, !tbaa !225
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !222
-  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #33
+  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #34
   store ptr %14, ptr %12, align 8, !tbaa !222
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -36087,7 +36087,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle19GlobalQualifiedName9
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 16:                                               ; preds = %9
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -36197,12 +36197,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %35, label %36, label %41
 
 36:                                               ; preds = %30
-  %37 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %37 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 39:                                               ; preds = %36
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %36
@@ -36281,7 +36281,7 @@ _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1
   br i1 %8, label %9, label %_ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1_11char_traitsIcEEEES5_.exit.thread
 
 _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1_11char_traitsIcEEEES5_.exit.thread: ; preds = %_ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1_11char_traitsIcEEEES5_.exit
-  tail call void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 1742, ptr noundef nonnull @.str) #29
+  tail call void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 1742, ptr noundef nonnull @.str) #30
   unreachable
 
 9:                                                ; preds = %_ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1_11char_traitsIcEEEES5_.exit
@@ -36297,8 +36297,8 @@ _ZNK12_GLOBAL__N_116itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle19SpecialSubstitutionD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle19SpecialSubstitutionD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #36
   ret void
 }
 
@@ -36324,7 +36324,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle19SpecialSubstitution9
   store i64 %spec.select.i.i.i, ptr %6, align 8, !tbaa !225
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !222
-  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i.i) #33
+  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i.i) #34
   store ptr %14, ptr %12, align 8, !tbaa !222
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i
@@ -36334,7 +36334,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle19SpecialSubstitution9
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i
 
 16:                                               ; preds = %9
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i
@@ -36377,7 +36377,7 @@ _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1
   br i1 %28, label %29, label %_ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1_11char_traitsIcEEEES5_.exit.thread.i
 
 _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1_11char_traitsIcEEEES5_.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1_11char_traitsIcEEEES5_.exit.i
-  tail call void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 1742, ptr noundef nonnull @.str) #29
+  tail call void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 1742, ptr noundef nonnull @.str) #30
   unreachable
 
 29:                                               ; preds = %_ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1_11char_traitsIcEEEES5_.exit.i
@@ -36404,7 +36404,7 @@ _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1
   store i64 %spec.select.i.i.i7, ptr %6, align 8, !tbaa !225
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !222
-  %40 = tail call ptr @realloc(ptr noundef %39, i64 noundef %spec.select.i.i.i7) #33
+  %40 = tail call ptr @realloc(ptr noundef %39, i64 noundef %spec.select.i.i.i7) #34
   store ptr %40, ptr %38, align 8, !tbaa !222
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i8
@@ -36414,7 +36414,7 @@ _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferlsENSt3__117basic_string_viewIcNS2_11char_traitsIcEEEE.exit10
 
 42:                                               ; preds = %35
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferlsENSt3__117basic_string_viewIcNS2_11char_traitsIcEEEE.exit10: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i3, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i8
@@ -36429,7 +36429,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferlsENSt3__117basic_string_viewIc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal { ptr, i64 } @_ZNK12_GLOBAL__N_116itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #24 align 2 {
+define internal { ptr, i64 } @_ZNK12_GLOBAL__N_116itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #25 align 2 {
 switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %2 = load i32, ptr %1, align 4, !tbaa !346
@@ -36445,8 +36445,8 @@ switch.lookup:
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle27ExpandedSpecialSubstitutionD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle27ExpandedSpecialSubstitutionD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #36
   ret void
 }
 
@@ -36472,7 +36472,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle27ExpandedSpecialSubst
   store i64 %spec.select.i.i.i, ptr %6, align 8, !tbaa !225
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !222
-  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i.i) #33
+  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i.i) #34
   store ptr %14, ptr %12, align 8, !tbaa !222
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i
@@ -36482,7 +36482,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle27ExpandedSpecialSubst
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i
 
 16:                                               ; preds = %9
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i
@@ -36521,7 +36521,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._
   store i64 %spec.select.i.i.i10, ptr %6, align 8, !tbaa !225
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !222
-  %38 = tail call ptr @realloc(ptr noundef %37, i64 noundef %spec.select.i.i.i10) #33
+  %38 = tail call ptr @realloc(ptr noundef %37, i64 noundef %spec.select.i.i.i10) #34
   store ptr %38, ptr %36, align 8, !tbaa !222
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i11
@@ -36531,7 +36531,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i9
 
 40:                                               ; preds = %33
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i9: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i11, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i6
@@ -36569,7 +36569,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferlsENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i.i19, ptr %6, align 8, !tbaa !225
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !222
-  %58 = tail call ptr @realloc(ptr noundef %57, i64 noundef %spec.select.i.i.i19) #33
+  %58 = tail call ptr @realloc(ptr noundef %57, i64 noundef %spec.select.i.i.i19) #34
   store ptr %58, ptr %56, align 8, !tbaa !222
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i20
@@ -36579,7 +36579,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferlsENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i18
 
 60:                                               ; preds = %53
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i18: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i20, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i15
@@ -36612,7 +36612,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i18: ; preds = %
   store i64 %spec.select.i.i.i28, ptr %6, align 8, !tbaa !225
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !222
-  %76 = tail call ptr @realloc(ptr noundef %75, i64 noundef %spec.select.i.i.i28) #33
+  %76 = tail call ptr @realloc(ptr noundef %75, i64 noundef %spec.select.i.i.i28) #34
   store ptr %76, ptr %74, align 8, !tbaa !222
   %77 = icmp eq ptr %76, null
   br i1 %77, label %78, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i29
@@ -36622,7 +36622,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i18: ; preds = %
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i27
 
 78:                                               ; preds = %71
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i27: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i29, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i24
@@ -36654,7 +36654,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferlsENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i.i37, ptr %6, align 8, !tbaa !225
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %92 = load ptr, ptr %91, align 8, !tbaa !222
-  %93 = tail call ptr @realloc(ptr noundef %92, i64 noundef %spec.select.i.i.i37) #33
+  %93 = tail call ptr @realloc(ptr noundef %92, i64 noundef %spec.select.i.i.i37) #34
   store ptr %93, ptr %91, align 8, !tbaa !222
   %94 = icmp eq ptr %93, null
   br i1 %94, label %95, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i38
@@ -36664,7 +36664,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferlsENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i36
 
 95:                                               ; preds = %88
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i36: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i38, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i33
@@ -36693,8 +36693,8 @@ define internal { ptr, i64 } @_ZNK12_GLOBAL__N_116itanium_demangle10AbiTagAttr11
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle10AbiTagAttrD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle10AbiTagAttrD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #36
   ret void
 }
 
@@ -36726,7 +36726,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle10AbiTagAttr9printLeft
   store i64 %spec.select.i.i, ptr %11, align 8, !tbaa !225
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !222
-  %19 = tail call ptr @realloc(ptr noundef %18, i64 noundef %spec.select.i.i) #33
+  %19 = tail call ptr @realloc(ptr noundef %18, i64 noundef %spec.select.i.i) #34
   store ptr %19, ptr %17, align 8, !tbaa !222
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -36736,7 +36736,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle10AbiTagAttr9printLeft
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 21:                                               ; preds = %14
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -36772,7 +36772,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   store i64 %spec.select.i.i10, ptr %11, align 8, !tbaa !225
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !222
-  %37 = tail call ptr @realloc(ptr noundef %36, i64 noundef %spec.select.i.i10) #33
+  %37 = tail call ptr @realloc(ptr noundef %36, i64 noundef %spec.select.i.i10) #34
   store ptr %37, ptr %35, align 8, !tbaa !222
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i11
@@ -36782,7 +36782,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i9
 
 39:                                               ; preds = %32
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i9: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i11, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i6
@@ -36814,7 +36814,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i19, ptr %11, align 8, !tbaa !225
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !222
-  %54 = tail call ptr @realloc(ptr noundef %53, i64 noundef %spec.select.i.i19) #33
+  %54 = tail call ptr @realloc(ptr noundef %53, i64 noundef %spec.select.i.i19) #34
   store ptr %54, ptr %52, align 8, !tbaa !222
   %55 = icmp eq ptr %54, null
   br i1 %55, label %56, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i20
@@ -36824,7 +36824,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i18
 
 56:                                               ; preds = %49
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i18: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i20, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i15
@@ -36839,8 +36839,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i18: ; preds = %._
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle21StructuredBindingNameD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle21StructuredBindingNameD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #36
   ret void
 }
 
@@ -36870,7 +36870,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle21StructuredBindingNam
   store i64 %spec.select.i.i.i, ptr %9, align 8, !tbaa !225
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !222
-  %17 = tail call ptr @realloc(ptr noundef %16, i64 noundef %spec.select.i.i.i) #33
+  %17 = tail call ptr @realloc(ptr noundef %16, i64 noundef %spec.select.i.i.i) #34
   store ptr %17, ptr %15, align 8, !tbaa !222
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -36881,7 +36881,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle21StructuredBindingNam
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit
 
 19:                                               ; preds = %12
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -36914,7 +36914,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %.
   store i64 %spec.select.i.i.i8, ptr %9, align 8, !tbaa !225
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !222
-  %35 = tail call ptr @realloc(ptr noundef %34, i64 noundef %spec.select.i.i.i8) #33
+  %35 = tail call ptr @realloc(ptr noundef %34, i64 noundef %spec.select.i.i.i8) #34
   store ptr %35, ptr %33, align 8, !tbaa !222
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i9
@@ -36925,7 +36925,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %.
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit
 
 37:                                               ; preds = %30
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i4, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i9
@@ -36949,12 +36949,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle27ExpandedSpecialSubstitutionEJPNS2_19SpecialSubstitutionEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -36998,12 +36998,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle12CtorDtorNameEJRPNS2_4NodeEbRiEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -37040,8 +37040,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle12CtorDtorName
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle12CtorDtorNameD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle12CtorDtorNameD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #36
   ret void
 }
 
@@ -37073,7 +37073,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle12CtorDtorName9printLe
   store i64 %spec.select.i.i, ptr %10, align 8, !tbaa !225
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !222
-  %18 = tail call ptr @realloc(ptr noundef %17, i64 noundef %spec.select.i.i) #33
+  %18 = tail call ptr @realloc(ptr noundef %17, i64 noundef %spec.select.i.i) #34
   store ptr %18, ptr %16, align 8, !tbaa !222
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -37083,7 +37083,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle12CtorDtorName9printLe
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 20:                                               ; preds = %13
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -37129,7 +37129,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i8, ptr %38, align 8, !tbaa !225
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !222
-  %46 = tail call ptr @realloc(ptr noundef %45, i64 noundef %spec.select.i.i8) #33
+  %46 = tail call ptr @realloc(ptr noundef %45, i64 noundef %spec.select.i.i8) #34
   store ptr %46, ptr %44, align 8, !tbaa !222
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i9
@@ -37139,7 +37139,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i7
 
 48:                                               ; preds = %41
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i7: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i9, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i4
@@ -37168,8 +37168,8 @@ define internal { ptr, i64 } @_ZNK12_GLOBAL__N_116itanium_demangle12ModuleEntity
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle12ModuleEntityD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle12ModuleEntityD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #36
   ret void
 }
 
@@ -37215,7 +37215,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i, ptr %17, align 8, !tbaa !225
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !222
-  %25 = tail call ptr @realloc(ptr noundef %24, i64 noundef %spec.select.i.i) #33
+  %25 = tail call ptr @realloc(ptr noundef %24, i64 noundef %spec.select.i.i) #34
   store ptr %25, ptr %23, align 8, !tbaa !222
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i
@@ -37226,7 +37226,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit
 
 27:                                               ; preds = %20
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i
@@ -37271,8 +37271,8 @@ define internal { ptr, i64 } @_ZNK12_GLOBAL__N_116itanium_demangle20MemberLikeFr
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle20MemberLikeFriendNameD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle20MemberLikeFriendNameD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #36
   ret void
 }
 
@@ -37318,7 +37318,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i, ptr %17, align 8, !tbaa !225
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !222
-  %25 = tail call ptr @realloc(ptr noundef %24, i64 noundef %spec.select.i.i) #33
+  %25 = tail call ptr @realloc(ptr noundef %24, i64 noundef %spec.select.i.i) #34
   store ptr %25, ptr %23, align 8, !tbaa !222
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -37328,7 +37328,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 27:                                               ; preds = %20
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -37374,8 +37374,8 @@ define internal { ptr, i64 } @_ZNK12_GLOBAL__N_116itanium_demangle10NestedName11
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle10NestedNameD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle10NestedNameD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #36
   ret void
 }
 
@@ -37421,7 +37421,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i, ptr %17, align 8, !tbaa !225
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !222
-  %25 = tail call ptr @realloc(ptr noundef %24, i64 noundef %spec.select.i.i) #33
+  %25 = tail call ptr @realloc(ptr noundef %24, i64 noundef %spec.select.i.i) #34
   store ptr %25, ptr %23, align 8, !tbaa !222
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -37431,7 +37431,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 27:                                               ; preds = %20
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -37466,7 +37466,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit7: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_116itanium_demangle19parse_discriminatorEPKcS2_(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address, ret: address, provenance) %1) unnamed_addr #24 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_116itanium_demangle19parse_discriminatorEPKcS2_(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address, ret: address, provenance) %1) unnamed_addr #25 {
   %.not = icmp eq ptr %0, %1
   br i1 %.not, label %.critedge46, label %3
 
@@ -37552,12 +37552,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %8, label %9, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA15_KcEEEPT_DpOT0_.exit
 
 9:                                                ; preds = %2
-  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 12:                                               ; preds = %9
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %9
@@ -37575,7 +37575,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA1
   store i64 %17, ptr %16, align 8, !tbaa !211
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = getelementptr inbounds i8, ptr %18, i64 %14
-  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(15) %1) #34
+  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(15) %1) #35
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i8 8, ptr %21, align 8, !tbaa !16
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 9
@@ -37602,12 +37602,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle9LocalNameEJRPNS2_4NodeES6_EEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -37641,8 +37641,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle9LocalNameEJRP
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle9LocalNameD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle9LocalNameD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #36
   ret void
 }
 
@@ -37688,7 +37688,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i, ptr %17, align 8, !tbaa !225
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !222
-  %25 = tail call ptr @realloc(ptr noundef %24, i64 noundef %spec.select.i.i) #33
+  %25 = tail call ptr @realloc(ptr noundef %24, i64 noundef %spec.select.i.i) #34
   store ptr %25, ptr %23, align 8, !tbaa !222
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -37698,7 +37698,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 27:                                               ; preds = %20
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -37954,8 +37954,8 @@ _ZNK12_GLOBAL__N_116itanium_demangle13ParameterPack23initializePackExpansionERNS
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle13ParameterPackD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle13ParameterPackD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #36
   ret void
 }
 
@@ -38050,8 +38050,8 @@ _ZNK12_GLOBAL__N_116itanium_demangle13ParameterPack23initializePackExpansionERNS
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle12TemplateArgsD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle12TemplateArgsD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #36
   ret void
 }
 
@@ -38080,7 +38080,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle12TemplateArgs9printLe
   store i64 %spec.select.i.i, ptr %8, align 8, !tbaa !225
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !222
-  %16 = tail call ptr @realloc(ptr noundef %15, i64 noundef %spec.select.i.i) #33
+  %16 = tail call ptr @realloc(ptr noundef %15, i64 noundef %spec.select.i.i) #34
   store ptr %16, ptr %14, align 8, !tbaa !222
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -38090,7 +38090,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle12TemplateArgs9printLe
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 18:                                               ; preds = %11
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -38124,7 +38124,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   store i64 %spec.select.i.i14, ptr %8, align 8, !tbaa !225
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !222
-  %35 = tail call ptr @realloc(ptr noundef %34, i64 noundef %spec.select.i.i14) #33
+  %35 = tail call ptr @realloc(ptr noundef %34, i64 noundef %spec.select.i.i14) #34
   store ptr %35, ptr %33, align 8, !tbaa !222
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i15
@@ -38134,7 +38134,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i13
 
 37:                                               ; preds = %30
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i13: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i15, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i10
@@ -38167,8 +38167,8 @@ define internal { ptr, i64 } @_ZNK12_GLOBAL__N_116itanium_demangle20NameWithTemp
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle20NameWithTemplateArgsD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle20NameWithTemplateArgsD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #36
   ret void
 }
 
@@ -38218,8 +38218,8 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit5: ; pr
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle20TemplateArgumentPackD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle20TemplateArgumentPackD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #36
   ret void
 }
 
@@ -38231,8 +38231,8 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle20TemplateArgumentPack
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle25TemplateParamQualifiedArgD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle25TemplateParamQualifiedArgD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #36
   ret void
 }
 
@@ -38262,8 +38262,8 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle12EnableIfAttrD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle12EnableIfAttrD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #36
   ret void
 }
 
@@ -38289,7 +38289,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle12EnableIfAttr9printLe
   store i64 %spec.select.i.i, ptr %6, align 8, !tbaa !225
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !222
-  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #33
+  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #34
   store ptr %14, ptr %12, align 8, !tbaa !222
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -38299,7 +38299,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle12EnableIfAttr9printLe
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 16:                                               ; preds = %9
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -38330,7 +38330,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   store i64 %spec.select.i.i8, ptr %6, align 8, !tbaa !225
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !222
-  %32 = tail call ptr @realloc(ptr noundef %31, i64 noundef %spec.select.i.i8) #33
+  %32 = tail call ptr @realloc(ptr noundef %31, i64 noundef %spec.select.i.i8) #34
   store ptr %32, ptr %30, align 8, !tbaa !222
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i
@@ -38341,7 +38341,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit
 
 34:                                               ; preds = %27
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i4, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i
@@ -38355,8 +38355,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit: ; preds = %._ZN12_GL
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle23ExplicitObjectParameterD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle23ExplicitObjectParameterD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #36
   ret void
 }
 
@@ -38382,7 +38382,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle23ExplicitObjectParame
   store i64 %spec.select.i.i, ptr %6, align 8, !tbaa !225
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !222
-  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #33
+  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #34
   store ptr %14, ptr %12, align 8, !tbaa !222
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -38392,7 +38392,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle23ExplicitObjectParame
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 16:                                               ; preds = %9
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -38437,8 +38437,8 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_116itanium_demangle16Functi
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle16FunctionEncodingD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle16FunctionEncodingD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #36
   ret void
 }
 
@@ -38491,7 +38491,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node15hasRHSComponentERNS0_12OutputBufferE.
   store i64 %spec.select.i.i, ptr %21, align 8, !tbaa !225
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !222
-  %29 = tail call ptr @realloc(ptr noundef %28, i64 noundef %spec.select.i.i) #33
+  %29 = tail call ptr @realloc(ptr noundef %28, i64 noundef %spec.select.i.i) #34
   store ptr %29, ptr %27, align 8, !tbaa !222
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -38501,7 +38501,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node15hasRHSComponentERNS0_12OutputBufferE.
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 31:                                               ; preds = %24
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -38564,7 +38564,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle16FunctionEncoding10pr
   store i64 %spec.select.i.i.i, ptr %9, align 8, !tbaa !225
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !222
-  %17 = tail call ptr @realloc(ptr noundef %16, i64 noundef %spec.select.i.i.i) #33
+  %17 = tail call ptr @realloc(ptr noundef %16, i64 noundef %spec.select.i.i.i) #34
   store ptr %17, ptr %15, align 8, !tbaa !222
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -38575,7 +38575,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle16FunctionEncoding10pr
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit
 
 19:                                               ; preds = %12
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -38608,7 +38608,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %.
   store i64 %spec.select.i.i.i24, ptr %9, align 8, !tbaa !225
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !222
-  %35 = tail call ptr @realloc(ptr noundef %34, i64 noundef %spec.select.i.i.i24) #33
+  %35 = tail call ptr @realloc(ptr noundef %34, i64 noundef %spec.select.i.i.i24) #34
   store ptr %35, ptr %33, align 8, !tbaa !222
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i25
@@ -38619,7 +38619,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %.
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit
 
 37:                                               ; preds = %30
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i20, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i25
@@ -38667,7 +38667,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = 
   store i64 %spec.select.i.i, ptr %9, align 8, !tbaa !225
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !222
-  %61 = tail call ptr @realloc(ptr noundef %60, i64 noundef %spec.select.i.i) #33
+  %61 = tail call ptr @realloc(ptr noundef %60, i64 noundef %spec.select.i.i) #34
   store ptr %61, ptr %59, align 8, !tbaa !222
   %62 = icmp eq ptr %61, null
   br i1 %62, label %63, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -38677,7 +38677,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = 
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 63:                                               ; preds = %56
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -38716,7 +38716,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i33, ptr %9, align 8, !tbaa !225
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !222
-  %81 = tail call ptr @realloc(ptr noundef %80, i64 noundef %spec.select.i.i33) #33
+  %81 = tail call ptr @realloc(ptr noundef %80, i64 noundef %spec.select.i.i33) #34
   store ptr %81, ptr %79, align 8, !tbaa !222
   %82 = icmp eq ptr %81, null
   br i1 %82, label %83, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i34
@@ -38726,7 +38726,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i32
 
 83:                                               ; preds = %76
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i32: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i34, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i29
@@ -38765,7 +38765,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i42, ptr %9, align 8, !tbaa !225
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %100 = load ptr, ptr %99, align 8, !tbaa !222
-  %101 = tail call ptr @realloc(ptr noundef %100, i64 noundef %spec.select.i.i42) #33
+  %101 = tail call ptr @realloc(ptr noundef %100, i64 noundef %spec.select.i.i42) #34
   store ptr %101, ptr %99, align 8, !tbaa !222
   %102 = icmp eq ptr %101, null
   br i1 %102, label %103, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i43
@@ -38775,7 +38775,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i41
 
 103:                                              ; preds = %96
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i41: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i43, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i38
@@ -38815,7 +38815,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i51, ptr %9, align 8, !tbaa !225
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %120 = load ptr, ptr %119, align 8, !tbaa !222
-  %121 = tail call ptr @realloc(ptr noundef %120, i64 noundef %spec.select.i.i51) #33
+  %121 = tail call ptr @realloc(ptr noundef %120, i64 noundef %spec.select.i.i51) #34
   store ptr %121, ptr %119, align 8, !tbaa !222
   %122 = icmp eq ptr %121, null
   br i1 %122, label %123, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i52
@@ -38825,7 +38825,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i50
 
 123:                                              ; preds = %116
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i50: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i52, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i47
@@ -38854,7 +38854,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i50: ; preds = %._
   store i64 %spec.select.i.i60, ptr %9, align 8, !tbaa !225
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %136 = load ptr, ptr %135, align 8, !tbaa !222
-  %137 = tail call ptr @realloc(ptr noundef %136, i64 noundef %spec.select.i.i60) #33
+  %137 = tail call ptr @realloc(ptr noundef %136, i64 noundef %spec.select.i.i60) #34
   store ptr %137, ptr %135, align 8, !tbaa !222
   %138 = icmp eq ptr %137, null
   br i1 %138, label %139, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i61
@@ -38864,7 +38864,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i50: ; preds = %._
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i59
 
 139:                                              ; preds = %132
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i59: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i61, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i56
@@ -38930,7 +38930,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i70, ptr %9, align 8, !tbaa !225
   %167 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %168 = load ptr, ptr %167, align 8, !tbaa !222
-  %169 = tail call ptr @realloc(ptr noundef %168, i64 noundef %spec.select.i.i70) #33
+  %169 = tail call ptr @realloc(ptr noundef %168, i64 noundef %spec.select.i.i70) #34
   store ptr %169, ptr %167, align 8, !tbaa !222
   %170 = icmp eq ptr %169, null
   br i1 %170, label %171, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i71
@@ -38940,7 +38940,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i69
 
 171:                                              ; preds = %164
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i69: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i71, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i66
@@ -38974,8 +38974,8 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit76: ; p
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle9DotSuffixD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle9DotSuffixD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #36
   ret void
 }
 
@@ -39021,7 +39021,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i, ptr %17, align 8, !tbaa !225
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !222
-  %25 = tail call ptr @realloc(ptr noundef %24, i64 noundef %spec.select.i.i) #33
+  %25 = tail call ptr @realloc(ptr noundef %24, i64 noundef %spec.select.i.i) #34
   store ptr %25, ptr %23, align 8, !tbaa !222
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -39031,7 +39031,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 27:                                               ; preds = %20
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -39067,7 +39067,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   store i64 %spec.select.i.i11, ptr %17, align 8, !tbaa !225
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !222
-  %43 = tail call ptr @realloc(ptr noundef %42, i64 noundef %spec.select.i.i11) #33
+  %43 = tail call ptr @realloc(ptr noundef %42, i64 noundef %spec.select.i.i11) #34
   store ptr %43, ptr %41, align 8, !tbaa !222
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i12
@@ -39077,7 +39077,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i10
 
 45:                                               ; preds = %38
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i10: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i12, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i7
@@ -39109,7 +39109,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i20, ptr %17, align 8, !tbaa !225
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !222
-  %60 = tail call ptr @realloc(ptr noundef %59, i64 noundef %spec.select.i.i20) #33
+  %60 = tail call ptr @realloc(ptr noundef %59, i64 noundef %spec.select.i.i20) #34
   store ptr %60, ptr %58, align 8, !tbaa !222
   %61 = icmp eq ptr %60, null
   br i1 %61, label %62, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i21
@@ -39119,7 +39119,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i19
 
 62:                                               ; preds = %55
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i19: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i21, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i16
@@ -39211,12 +39211,12 @@ _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1
   br i1 %37, label %38, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_8NameTypeEJRA9_KcEEEPNS0_4NodeEDpOT0_.exit
 
 38:                                               ; preds = %30
-  %39 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %39 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 41:                                               ; preds = %38
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %38
@@ -39283,12 +39283,12 @@ _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1
   br i1 %73, label %74, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_12NoexceptSpecEJRPNS0_4NodeEEEES9_DpOT0_.exit
 
 74:                                               ; preds = %66
-  %75 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %75 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %76 = icmp eq ptr %75, null
   br i1 %76, label %77, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i42
 
 77:                                               ; preds = %74
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i42: ; preds = %74
@@ -39371,12 +39371,12 @@ _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1
   br i1 %119, label %121, label %127
 
 121:                                              ; preds = %114
-  %122 = tail call noalias ptr @malloc(i64 noundef %120) #31
+  %122 = tail call noalias ptr @malloc(i64 noundef %120) #32
   %123 = icmp eq ptr %122, null
   br i1 %123, label %124, label %125
 
 124:                                              ; preds = %121
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 125:                                              ; preds = %121
@@ -39392,13 +39392,13 @@ _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 127:                                              ; preds = %114
-  %128 = tail call ptr @realloc(ptr noundef %.val.i, i64 noundef %120) #33
+  %128 = tail call ptr @realloc(ptr noundef %.val.i, i64 noundef %120) #34
   store ptr %128, ptr %94, align 16, !tbaa !189
   %129 = icmp eq ptr %128, null
   br i1 %129, label %130, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
 130:                                              ; preds = %127
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %127, %_ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S6_.exit.i.i
@@ -39432,12 +39432,12 @@ _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backE
   br i1 %146, label %147, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_20DynamicExceptionSpecEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit
 
 147:                                              ; preds = %136
-  %148 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %148 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %149 = icmp eq ptr %148, null
   br i1 %149, label %150, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i51
 
 150:                                              ; preds = %147
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i51: ; preds = %147
@@ -39593,12 +39593,12 @@ _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1
   br i1 %220, label %222, label %228
 
 222:                                              ; preds = %215
-  %223 = tail call noalias ptr @malloc(i64 noundef %221) #31
+  %223 = tail call noalias ptr @malloc(i64 noundef %221) #32
   %224 = icmp eq ptr %223, null
   br i1 %224, label %225, label %226
 
 225:                                              ; preds = %222
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 226:                                              ; preds = %222
@@ -39614,13 +39614,13 @@ _ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i77
 
 228:                                              ; preds = %215
-  %229 = tail call ptr @realloc(ptr noundef %.val.i76, i64 noundef %221) #33
+  %229 = tail call ptr @realloc(ptr noundef %.val.i76, i64 noundef %221) #34
   store ptr %229, ptr %187, align 16, !tbaa !189
   %230 = icmp eq ptr %229, null
   br i1 %230, label %231, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i77
 
 231:                                              ; preds = %228
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i77: ; preds = %228, %_ZNSt3__14copyB8ne210000IPPN12_GLOBAL__N_116itanium_demangle4NodeES5_EET0_T_S7_S6_.exit.i.i79
@@ -39657,12 +39657,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %246, label %247, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_12FunctionTypeEJRPNS0_4NodeERNS0_9NodeArrayERNS0_10QualifiersERNS0_15FunctionRefQualESA_EEES9_DpOT0_.exit
 
 247:                                              ; preds = %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E9consumeIfEc.exit64
-  %248 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %248 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %249 = icmp eq ptr %248, null
   br i1 %249, label %250, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i82
 
 250:                                              ; preds = %247
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i82: ; preds = %247
@@ -39847,12 +39847,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %59, label %60, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_13ObjCProtoNameEJRPNS0_4NodeERNSt3__117basic_string_viewIcNSB_11char_traitsIcEEEEEEES9_DpOT0_.exit
 
 60:                                               ; preds = %53
-  %61 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %61 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %62 = icmp eq ptr %61, null
   br i1 %62, label %63, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 63:                                               ; preds = %60
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %60
@@ -39916,12 +39916,12 @@ _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParse
   br i1 %91, label %92, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_17VendorExtQualTypeEJRPNS0_4NodeERNSt3__117basic_string_viewIcNSB_11char_traitsIcEEEESA_EEES9_DpOT0_.exit
 
 92:                                               ; preds = %85
-  %93 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %93 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %94 = icmp eq ptr %93, null
   br i1 %94, label %95, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i45
 
 95:                                               ; preds = %92
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i45: ; preds = %92
@@ -40021,12 +40021,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %139, label %140, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_8QualTypeEJRPNS0_4NodeERNS0_10QualifiersEEEES9_DpOT0_.exit
 
 140:                                              ; preds = %133
-  %141 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %141 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %142 = icmp eq ptr %141, null
   br i1 %142, label %143, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i47
 
 143:                                              ; preds = %140
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i47: ; preds = %140
@@ -40077,12 +40077,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %8, label %9, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA12_KcEEEPT_DpOT0_.exit
 
 9:                                                ; preds = %2
-  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 12:                                               ; preds = %9
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %9
@@ -40100,7 +40100,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA1
   store i64 %17, ptr %16, align 8, !tbaa !211
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = getelementptr inbounds i8, ptr %18, i64 %14
-  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(12) %1) #34
+  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(12) %1) #35
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i8 8, ptr %21, align 8, !tbaa !16
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 9
@@ -40127,12 +40127,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %8, label %9, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA13_KcEEEPT_DpOT0_.exit
 
 9:                                                ; preds = %2
-  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 12:                                               ; preds = %9
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %9
@@ -40150,7 +40150,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA1
   store i64 %17, ptr %16, align 8, !tbaa !211
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = getelementptr inbounds i8, ptr %18, i64 %14
-  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(13) %1) #34
+  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(13) %1) #35
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i8 8, ptr %21, align 8, !tbaa !16
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 9
@@ -40177,12 +40177,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %8, label %9, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA10_KcEEEPT_DpOT0_.exit
 
 9:                                                ; preds = %2
-  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 12:                                               ; preds = %9
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %9
@@ -40200,7 +40200,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA1
   store i64 %17, ptr %16, align 8, !tbaa !211
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = getelementptr inbounds i8, ptr %18, i64 %14
-  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(10) %1) #34
+  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(10) %1) #35
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i8 8, ptr %21, align 8, !tbaa !16
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 9
@@ -40227,12 +40227,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %8, label %9, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA9_KcEEEPT_DpOT0_.exit
 
 9:                                                ; preds = %2
-  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 12:                                               ; preds = %9
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %9
@@ -40250,7 +40250,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA9
   store i64 %17, ptr %16, align 8, !tbaa !211
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = getelementptr inbounds i8, ptr %18, i64 %14
-  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(9) %1) #34
+  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(9) %1) #35
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i8 8, ptr %21, align 8, !tbaa !16
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 9
@@ -40277,12 +40277,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %8, label %9, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA18_KcEEEPT_DpOT0_.exit
 
 9:                                                ; preds = %2
-  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 12:                                               ; preds = %9
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %9
@@ -40300,7 +40300,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA1
   store i64 %17, ptr %16, align 8, !tbaa !211
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = getelementptr inbounds i8, ptr %18, i64 %14
-  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(18) %1) #34
+  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(18) %1) #35
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i8 8, ptr %21, align 8, !tbaa !16
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 9
@@ -40327,12 +40327,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %8, label %9, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA7_KcEEEPT_DpOT0_.exit
 
 9:                                                ; preds = %2
-  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 12:                                               ; preds = %9
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %9
@@ -40350,7 +40350,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA7
   store i64 %17, ptr %16, align 8, !tbaa !211
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = getelementptr inbounds i8, ptr %18, i64 %14
-  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(7) %1) #34
+  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(7) %1) #35
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i8 8, ptr %21, align 8, !tbaa !16
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 9
@@ -40377,12 +40377,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %8, label %9, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA11_KcEEEPT_DpOT0_.exit
 
 9:                                                ; preds = %2
-  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 12:                                               ; preds = %9
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %9
@@ -40400,7 +40400,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA1
   store i64 %17, ptr %16, align 8, !tbaa !211
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = getelementptr inbounds i8, ptr %18, i64 %14
-  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(11) %1) #34
+  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(11) %1) #35
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i8 8, ptr %21, align 8, !tbaa !16
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 9
@@ -40427,12 +40427,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %8, label %9, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle15TransformedTypeEJRNSt3__117basic_string_viewIcNS4_11char_traitsIcEEEERPNS2_4NodeEEEEPT_DpOT0_.exit
 
 9:                                                ; preds = %2
-  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 12:                                               ; preds = %9
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %9
@@ -40481,12 +40481,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle12BinaryFPTypeEJRPNS2_4NodeEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -40528,12 +40528,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %8, label %9, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA21_KcEEEPT_DpOT0_.exit
 
 9:                                                ; preds = %2
-  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 12:                                               ; preds = %9
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %9
@@ -40551,7 +40551,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA2
   store i64 %17, ptr %16, align 8, !tbaa !211
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = getelementptr inbounds i8, ptr %18, i64 %14
-  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(21) %1) #34
+  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(21) %1) #35
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i8 8, ptr %21, align 8, !tbaa !16
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 9
@@ -40578,12 +40578,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %8, label %9, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA27_KcEEEPT_DpOT0_.exit
 
 9:                                                ; preds = %2
-  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 12:                                               ; preds = %9
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %9
@@ -40601,7 +40601,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA2
   store i64 %17, ptr %16, align 8, !tbaa !211
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = getelementptr inbounds i8, ptr %18, i64 %14
-  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(27) %1) #34
+  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(27) %1) #35
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i8 8, ptr %21, align 8, !tbaa !16
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 9
@@ -40628,12 +40628,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %8, label %9, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA17_KcEEEPT_DpOT0_.exit
 
 9:                                                ; preds = %2
-  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 12:                                               ; preds = %9
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %9
@@ -40651,7 +40651,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA1
   store i64 %17, ptr %16, align 8, !tbaa !211
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = getelementptr inbounds i8, ptr %18, i64 %14
-  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(17) %1) #34
+  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(17) %1) #35
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i8 8, ptr %21, align 8, !tbaa !16
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 9
@@ -40678,12 +40678,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %8, label %9, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA26_KcEEEPT_DpOT0_.exit
 
 9:                                                ; preds = %2
-  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 12:                                               ; preds = %9
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %9
@@ -40701,7 +40701,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle8NameTypeEJRA2
   store i64 %17, ptr %16, align 8, !tbaa !211
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = getelementptr inbounds i8, ptr %18, i64 %14
-  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(26) %1) #34
+  %20 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(26) %1) #35
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i8 8, ptr %21, align 8, !tbaa !16
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 9
@@ -40728,12 +40728,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle10BitIntTypeEJRPNS2_4NodeERbEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -40778,12 +40778,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %8, label %9, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle20PostfixQualifiedTypeEJRPNS2_4NodeERNSt3__117basic_string_viewIcNS7_11char_traitsIcEEEEEEEPT_DpOT0_.exit
 
 9:                                                ; preds = %2
-  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 12:                                               ; preds = %9
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %9
@@ -40883,12 +40883,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E11parseNumberEb.exit
-  %28 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %28 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 30:                                               ; preds = %27
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %27
@@ -40991,12 +40991,12 @@ _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParse
   br i1 %81, label %82, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_10VectorTypeEJRPNS0_4NodeESA_EEES9_DpOT0_.exit
 
 82:                                               ; preds = %75
-  %83 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %83 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %84 = icmp eq ptr %83, null
   br i1 %84, label %85, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i29
 
 85:                                               ; preds = %82
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i29: ; preds = %82
@@ -41045,12 +41045,12 @@ _ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParser
   br i1 %109, label %110, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_10VectorTypeEJRPNS0_4NodeEDnEEES9_DpOT0_.exit
 
 110:                                              ; preds = %103
-  %111 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %111 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %112 = icmp eq ptr %111, null
   br i1 %112, label %113, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i30
 
 113:                                              ; preds = %110
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i30: ; preds = %110
@@ -41136,12 +41136,12 @@ _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1
   br i1 %23, label %24, label %_ZN12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4makeINS0_22ElaboratedTypeSpefTypeEJRNSt3__117basic_string_viewIcNS8_11char_traitsIcEEEERPNS0_4NodeEEEESF_DpOT0_.exit
 
 24:                                               ; preds = %17
-  %25 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %25 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
 27:                                               ; preds = %24
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %24
@@ -41191,12 +41191,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle11PointerTypeEJRPNS2_4NodeEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -41242,12 +41242,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle13ReferenceTypeEJRPNS2_4NodeENS2_13ReferenceKindEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -41297,12 +41297,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle20PostfixQualifiedTypeEJRPNS2_4NodeERA9_KcEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -41348,12 +41348,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle20PostfixQualifiedTypeEJRPNS2_4NodeERA11_KcEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -41389,8 +41389,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle20PostfixQuali
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle12NoexceptSpecD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle12NoexceptSpecD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #36
   ret void
 }
 
@@ -41416,7 +41416,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle12NoexceptSpec9printLe
   store i64 %spec.select.i.i, ptr %6, align 8, !tbaa !225
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !222
-  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #33
+  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #34
   store ptr %14, ptr %12, align 8, !tbaa !222
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -41426,7 +41426,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle12NoexceptSpec9printLe
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 16:                                               ; preds = %9
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -41458,7 +41458,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   store i64 %spec.select.i.i.i, ptr %6, align 8, !tbaa !225
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !222
-  %33 = tail call ptr @realloc(ptr noundef %32, i64 noundef %spec.select.i.i.i) #33
+  %33 = tail call ptr @realloc(ptr noundef %32, i64 noundef %spec.select.i.i.i) #34
   store ptr %33, ptr %31, align 8, !tbaa !222
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -41469,7 +41469,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit
 
 35:                                               ; preds = %28
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -41503,7 +41503,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %.
   store i64 %spec.select.i.i.i9, ptr %6, align 8, !tbaa !225
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !222
-  %52 = tail call ptr @realloc(ptr noundef %51, i64 noundef %spec.select.i.i.i9) #33
+  %52 = tail call ptr @realloc(ptr noundef %51, i64 noundef %spec.select.i.i.i9) #34
   store ptr %52, ptr %50, align 8, !tbaa !222
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i10
@@ -41514,7 +41514,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %.
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit
 
 54:                                               ; preds = %47
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i5, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i10
@@ -41528,8 +41528,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle20DynamicExceptionSpecD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle20DynamicExceptionSpecD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #36
   ret void
 }
 
@@ -41555,7 +41555,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle20DynamicExceptionSpec
   store i64 %spec.select.i.i, ptr %6, align 8, !tbaa !225
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !222
-  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #33
+  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #34
   store ptr %14, ptr %12, align 8, !tbaa !222
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -41565,7 +41565,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle20DynamicExceptionSpec
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 16:                                               ; preds = %9
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -41597,7 +41597,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   store i64 %spec.select.i.i.i, ptr %6, align 8, !tbaa !225
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !222
-  %33 = tail call ptr @realloc(ptr noundef %32, i64 noundef %spec.select.i.i.i) #33
+  %33 = tail call ptr @realloc(ptr noundef %32, i64 noundef %spec.select.i.i.i) #34
   store ptr %33, ptr %31, align 8, !tbaa !222
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -41608,7 +41608,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit
 
 35:                                               ; preds = %28
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -41641,7 +41641,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %.
   store i64 %spec.select.i.i.i9, ptr %6, align 8, !tbaa !225
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !222
-  %51 = tail call ptr @realloc(ptr noundef %50, i64 noundef %spec.select.i.i.i9) #33
+  %51 = tail call ptr @realloc(ptr noundef %50, i64 noundef %spec.select.i.i.i9) #34
   store ptr %51, ptr %49, align 8, !tbaa !222
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i10
@@ -41652,7 +41652,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %.
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit
 
 53:                                               ; preds = %46
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i5, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i10
@@ -41676,8 +41676,8 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_116itanium_demangle12Functi
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle12FunctionTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle12FunctionTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #36
   ret void
 }
 
@@ -41709,7 +41709,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle12FunctionType9printLe
   store i64 %spec.select.i.i, ptr %11, align 8, !tbaa !225
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !222
-  %19 = tail call ptr @realloc(ptr noundef %18, i64 noundef %spec.select.i.i) #33
+  %19 = tail call ptr @realloc(ptr noundef %18, i64 noundef %spec.select.i.i) #34
   store ptr %19, ptr %17, align 8, !tbaa !222
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -41719,7 +41719,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle12FunctionType9printLe
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 21:                                               ; preds = %14
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -41759,7 +41759,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle12FunctionType10printR
   store i64 %spec.select.i.i.i, ptr %9, align 8, !tbaa !225
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !222
-  %17 = tail call ptr @realloc(ptr noundef %16, i64 noundef %spec.select.i.i.i) #33
+  %17 = tail call ptr @realloc(ptr noundef %16, i64 noundef %spec.select.i.i.i) #34
   store ptr %17, ptr %15, align 8, !tbaa !222
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -41770,7 +41770,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle12FunctionType10printR
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit
 
 19:                                               ; preds = %12
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -41803,7 +41803,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %.
   store i64 %spec.select.i.i.i19, ptr %9, align 8, !tbaa !225
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !222
-  %35 = tail call ptr @realloc(ptr noundef %34, i64 noundef %spec.select.i.i.i19) #33
+  %35 = tail call ptr @realloc(ptr noundef %34, i64 noundef %spec.select.i.i.i19) #34
   store ptr %35, ptr %33, align 8, !tbaa !222
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i20
@@ -41814,7 +41814,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %.
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit
 
 37:                                               ; preds = %30
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i15, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i20
@@ -41855,7 +41855,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = 
   store i64 %spec.select.i.i, ptr %9, align 8, !tbaa !225
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !222
-  %59 = tail call ptr @realloc(ptr noundef %58, i64 noundef %spec.select.i.i) #33
+  %59 = tail call ptr @realloc(ptr noundef %58, i64 noundef %spec.select.i.i) #34
   store ptr %59, ptr %57, align 8, !tbaa !222
   %60 = icmp eq ptr %59, null
   br i1 %60, label %61, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -41865,7 +41865,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = 
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 61:                                               ; preds = %54
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -41904,7 +41904,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i28, ptr %9, align 8, !tbaa !225
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %78 = load ptr, ptr %77, align 8, !tbaa !222
-  %79 = tail call ptr @realloc(ptr noundef %78, i64 noundef %spec.select.i.i28) #33
+  %79 = tail call ptr @realloc(ptr noundef %78, i64 noundef %spec.select.i.i28) #34
   store ptr %79, ptr %77, align 8, !tbaa !222
   %80 = icmp eq ptr %79, null
   br i1 %80, label %81, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i29
@@ -41914,7 +41914,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i27
 
 81:                                               ; preds = %74
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i27: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i29, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i24
@@ -41953,7 +41953,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i37, ptr %9, align 8, !tbaa !225
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !222
-  %99 = tail call ptr @realloc(ptr noundef %98, i64 noundef %spec.select.i.i37) #33
+  %99 = tail call ptr @realloc(ptr noundef %98, i64 noundef %spec.select.i.i37) #34
   store ptr %99, ptr %97, align 8, !tbaa !222
   %100 = icmp eq ptr %99, null
   br i1 %100, label %101, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i38
@@ -41963,7 +41963,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i36
 
 101:                                              ; preds = %94
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i36: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i38, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i33
@@ -42003,7 +42003,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i46, ptr %9, align 8, !tbaa !225
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %118 = load ptr, ptr %117, align 8, !tbaa !222
-  %119 = tail call ptr @realloc(ptr noundef %118, i64 noundef %spec.select.i.i46) #33
+  %119 = tail call ptr @realloc(ptr noundef %118, i64 noundef %spec.select.i.i46) #34
   store ptr %119, ptr %117, align 8, !tbaa !222
   %120 = icmp eq ptr %119, null
   br i1 %120, label %121, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i47
@@ -42013,7 +42013,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i45
 
 121:                                              ; preds = %114
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i45: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i47, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i42
@@ -42042,7 +42042,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i45: ; preds = %._
   store i64 %spec.select.i.i55, ptr %9, align 8, !tbaa !225
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %134 = load ptr, ptr %133, align 8, !tbaa !222
-  %135 = tail call ptr @realloc(ptr noundef %134, i64 noundef %spec.select.i.i55) #33
+  %135 = tail call ptr @realloc(ptr noundef %134, i64 noundef %spec.select.i.i55) #34
   store ptr %135, ptr %133, align 8, !tbaa !222
   %136 = icmp eq ptr %135, null
   br i1 %136, label %137, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i56
@@ -42052,7 +42052,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i45: ; preds = %._
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i54
 
 137:                                              ; preds = %130
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i54: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i56, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i51
@@ -42094,7 +42094,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i63, ptr %9, align 8, !tbaa !225
   %153 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %154 = load ptr, ptr %153, align 8, !tbaa !222
-  %155 = tail call ptr @realloc(ptr noundef %154, i64 noundef %spec.select.i.i63) #33
+  %155 = tail call ptr @realloc(ptr noundef %154, i64 noundef %spec.select.i.i63) #34
   store ptr %155, ptr %153, align 8, !tbaa !222
   %156 = icmp eq ptr %155, null
   br i1 %156, label %157, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i
@@ -42105,7 +42105,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit
 
 157:                                              ; preds = %150
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i59, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i
@@ -42138,8 +42138,8 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle13ObjCProtoNameD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle13ObjCProtoNameD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #36
   ret void
 }
 
@@ -42185,7 +42185,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i, ptr %17, align 8, !tbaa !225
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !222
-  %25 = tail call ptr @realloc(ptr noundef %24, i64 noundef %spec.select.i.i) #33
+  %25 = tail call ptr @realloc(ptr noundef %24, i64 noundef %spec.select.i.i) #34
   store ptr %25, ptr %23, align 8, !tbaa !222
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -42195,7 +42195,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 27:                                               ; preds = %20
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -42231,7 +42231,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   store i64 %spec.select.i.i11, ptr %17, align 8, !tbaa !225
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !222
-  %43 = tail call ptr @realloc(ptr noundef %42, i64 noundef %spec.select.i.i11) #33
+  %43 = tail call ptr @realloc(ptr noundef %42, i64 noundef %spec.select.i.i11) #34
   store ptr %43, ptr %41, align 8, !tbaa !222
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i12
@@ -42241,7 +42241,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i10
 
 45:                                               ; preds = %38
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i10: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i12, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i7
@@ -42273,7 +42273,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i20, ptr %17, align 8, !tbaa !225
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !222
-  %60 = tail call ptr @realloc(ptr noundef %59, i64 noundef %spec.select.i.i20) #33
+  %60 = tail call ptr @realloc(ptr noundef %59, i64 noundef %spec.select.i.i20) #34
   store ptr %60, ptr %58, align 8, !tbaa !222
   %61 = icmp eq ptr %60, null
   br i1 %61, label %62, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i21
@@ -42283,7 +42283,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i19
 
 62:                                               ; preds = %55
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i19: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i21, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i16
@@ -42298,8 +42298,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i19: ; preds = %._
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle17VendorExtQualTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle17VendorExtQualTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #36
   ret void
 }
 
@@ -42345,7 +42345,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i, ptr %17, align 8, !tbaa !225
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !222
-  %25 = tail call ptr @realloc(ptr noundef %24, i64 noundef %spec.select.i.i) #33
+  %25 = tail call ptr @realloc(ptr noundef %24, i64 noundef %spec.select.i.i) #34
   store ptr %25, ptr %23, align 8, !tbaa !222
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -42355,7 +42355,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 27:                                               ; preds = %20
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -42391,7 +42391,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   store i64 %spec.select.i.i11, ptr %17, align 8, !tbaa !225
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !222
-  %43 = tail call ptr @realloc(ptr noundef %42, i64 noundef %spec.select.i.i11) #33
+  %43 = tail call ptr @realloc(ptr noundef %42, i64 noundef %spec.select.i.i11) #34
   store ptr %43, ptr %41, align 8, !tbaa !222
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i12
@@ -42401,7 +42401,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i10
 
 45:                                               ; preds = %38
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i10: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i12, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i7
@@ -42525,8 +42525,8 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node11hasFunctionERNS0_12OutputBufferE.exit
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle8QualTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle8QualTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #36
   ret void
 }
 
@@ -42565,7 +42565,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle8QualType9printLeftERN
   store i64 %spec.select.i.i.i, ptr %15, align 8, !tbaa !225
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !222
-  %23 = tail call ptr @realloc(ptr noundef %22, i64 noundef %spec.select.i.i.i) #33
+  %23 = tail call ptr @realloc(ptr noundef %22, i64 noundef %spec.select.i.i.i) #34
   store ptr %23, ptr %21, align 8, !tbaa !222
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i
@@ -42575,7 +42575,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle8QualType9printLeftERN
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i
 
 25:                                               ; preds = %18
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i
@@ -42616,7 +42616,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i11.i, ptr %37, align 8, !tbaa !225
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !222
-  %45 = tail call ptr @realloc(ptr noundef %44, i64 noundef %spec.select.i.i11.i) #33
+  %45 = tail call ptr @realloc(ptr noundef %44, i64 noundef %spec.select.i.i11.i) #34
   store ptr %45, ptr %43, align 8, !tbaa !222
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i12.i
@@ -42626,7 +42626,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i10.i
 
 47:                                               ; preds = %40
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i10.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i12.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i7.i
@@ -42667,7 +42667,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i20.i, ptr %59, align 8, !tbaa !225
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !222
-  %67 = tail call ptr @realloc(ptr noundef %66, i64 noundef %spec.select.i.i20.i) #33
+  %67 = tail call ptr @realloc(ptr noundef %66, i64 noundef %spec.select.i.i20.i) #34
   store ptr %67, ptr %65, align 8, !tbaa !222
   %68 = icmp eq ptr %67, null
   br i1 %68, label %69, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i21.i
@@ -42677,7 +42677,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i19.i
 
 69:                                               ; preds = %62
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i19.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i21.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i16.i
@@ -42706,8 +42706,8 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle8QualType10printRightE
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle15TransformedTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle15TransformedTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #36
   ret void
 }
 
@@ -42741,7 +42741,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle15TransformedType9prin
   store i64 %spec.select.i.i, ptr %6, align 8, !tbaa !225
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !222
-  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #33
+  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #34
   store ptr %14, ptr %12, align 8, !tbaa !222
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -42751,7 +42751,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle15TransformedType9prin
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 16:                                               ; preds = %9
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -42785,7 +42785,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i9, ptr %25, align 8, !tbaa !225
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !222
-  %33 = tail call ptr @realloc(ptr noundef %32, i64 noundef %spec.select.i.i9) #33
+  %33 = tail call ptr @realloc(ptr noundef %32, i64 noundef %spec.select.i.i9) #34
   store ptr %33, ptr %31, align 8, !tbaa !222
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i
@@ -42796,7 +42796,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit
 
 35:                                               ; preds = %28
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i5, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i
@@ -42844,7 +42844,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i16, ptr %25, align 8, !tbaa !225
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !222
-  %59 = tail call ptr @realloc(ptr noundef %58, i64 noundef %spec.select.i.i16) #33
+  %59 = tail call ptr @realloc(ptr noundef %58, i64 noundef %spec.select.i.i16) #34
   store ptr %59, ptr %57, align 8, !tbaa !222
   %60 = icmp eq ptr %59, null
   br i1 %60, label %61, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i17
@@ -42855,7 +42855,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit20
 
 61:                                               ; preds = %54
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit20: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i11, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i17
@@ -42869,8 +42869,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit20: ; preds = %._ZN12_
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle12BinaryFPTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle12BinaryFPTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #36
   ret void
 }
 
@@ -42896,7 +42896,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle12BinaryFPType9printLe
   store i64 %spec.select.i.i, ptr %6, align 8, !tbaa !225
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !222
-  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #33
+  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #34
   store ptr %14, ptr %12, align 8, !tbaa !222
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -42906,7 +42906,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle12BinaryFPType9printLe
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 16:                                               ; preds = %9
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -42941,8 +42941,8 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle10BitIntTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle10BitIntTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #36
   ret void
 }
 
@@ -42974,7 +42974,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle10BitIntType9printLeft
   store i64 %spec.select.i.i, ptr %8, align 8, !tbaa !225
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !222
-  %16 = tail call ptr @realloc(ptr noundef %15, i64 noundef %spec.select.i.i) #33
+  %16 = tail call ptr @realloc(ptr noundef %15, i64 noundef %spec.select.i.i) #34
   store ptr %16, ptr %14, align 8, !tbaa !222
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -42984,7 +42984,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle10BitIntType9printLeft
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 18:                                               ; preds = %11
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -43018,7 +43018,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i11, ptr %27, align 8, !tbaa !225
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !222
-  %35 = tail call ptr @realloc(ptr noundef %34, i64 noundef %spec.select.i.i11) #33
+  %35 = tail call ptr @realloc(ptr noundef %34, i64 noundef %spec.select.i.i11) #34
   store ptr %35, ptr %33, align 8, !tbaa !222
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i12
@@ -43028,7 +43028,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i10
 
 37:                                               ; preds = %30
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i10: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i12, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i7
@@ -43060,7 +43060,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i10: ; preds = %._
   store i64 %spec.select.i.i.i, ptr %27, align 8, !tbaa !225
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !222
-  %54 = tail call ptr @realloc(ptr noundef %53, i64 noundef %spec.select.i.i.i) #33
+  %54 = tail call ptr @realloc(ptr noundef %53, i64 noundef %spec.select.i.i.i) #34
   store ptr %54, ptr %52, align 8, !tbaa !222
   %55 = icmp eq ptr %54, null
   br i1 %55, label %56, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -43071,7 +43071,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i10: ; preds = %._
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit
 
 56:                                               ; preds = %49
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -43105,7 +43105,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %.
   store i64 %spec.select.i.i.i19, ptr %27, align 8, !tbaa !225
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !222
-  %73 = tail call ptr @realloc(ptr noundef %72, i64 noundef %spec.select.i.i.i19) #33
+  %73 = tail call ptr @realloc(ptr noundef %72, i64 noundef %spec.select.i.i.i19) #34
   store ptr %73, ptr %71, align 8, !tbaa !222
   %74 = icmp eq ptr %73, null
   br i1 %74, label %75, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i20
@@ -43116,7 +43116,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %.
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit
 
 75:                                               ; preds = %68
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i15, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i20
@@ -43130,8 +43130,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle20PostfixQualifiedTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle20PostfixQualifiedTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #36
   ret void
 }
 
@@ -43171,7 +43171,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle20PostfixQualifiedType
   store i64 %spec.select.i.i, ptr %13, align 8, !tbaa !225
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !222
-  %21 = tail call ptr @realloc(ptr noundef %20, i64 noundef %spec.select.i.i) #33
+  %21 = tail call ptr @realloc(ptr noundef %20, i64 noundef %spec.select.i.i) #34
   store ptr %21, ptr %19, align 8, !tbaa !222
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -43181,7 +43181,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle20PostfixQualifiedType
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 23:                                               ; preds = %16
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -43209,12 +43209,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle15PixelVectorTypeEJRPNS2_4NodeEEEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -43256,12 +43256,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle10VectorTypeEJRPNS2_4NodeES6_EEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -43295,8 +43295,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle10VectorTypeEJ
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle15PixelVectorTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle15PixelVectorTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #36
   ret void
 }
 
@@ -43322,7 +43322,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle15PixelVectorType9prin
   store i64 %spec.select.i.i, ptr %6, align 8, !tbaa !225
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !222
-  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #33
+  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #34
   store ptr %14, ptr %12, align 8, !tbaa !222
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -43332,7 +43332,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle15PixelVectorType9prin
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 16:                                               ; preds = %9
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -43381,7 +43381,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i10, ptr %6, align 8, !tbaa !225
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !222
-  %42 = tail call ptr @realloc(ptr noundef %41, i64 noundef %spec.select.i.i10) #33
+  %42 = tail call ptr @realloc(ptr noundef %41, i64 noundef %spec.select.i.i10) #34
   store ptr %42, ptr %40, align 8, !tbaa !222
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i11
@@ -43391,7 +43391,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i9
 
 44:                                               ; preds = %37
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i9: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i11, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i6
@@ -43406,8 +43406,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i9: ; preds = %._Z
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle10VectorTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle10VectorTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #36
   ret void
 }
 
@@ -43453,7 +43453,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i, ptr %17, align 8, !tbaa !225
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !222
-  %25 = tail call ptr @realloc(ptr noundef %24, i64 noundef %spec.select.i.i) #33
+  %25 = tail call ptr @realloc(ptr noundef %24, i64 noundef %spec.select.i.i) #34
   store ptr %25, ptr %23, align 8, !tbaa !222
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -43463,7 +43463,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 27:                                               ; preds = %20
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -43516,7 +43516,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit8: ; pr
   store i64 %spec.select.i.i14, ptr %17, align 8, !tbaa !225
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !222
-  %54 = tail call ptr @realloc(ptr noundef %53, i64 noundef %spec.select.i.i14) #33
+  %54 = tail call ptr @realloc(ptr noundef %53, i64 noundef %spec.select.i.i14) #34
   store ptr %54, ptr %52, align 8, !tbaa !222
   %55 = icmp eq ptr %54, null
   br i1 %55, label %56, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i15
@@ -43526,7 +43526,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit8: ; pr
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i13
 
 56:                                               ; preds = %49
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i13: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i15, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i10
@@ -43551,12 +43551,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle9ArrayTypeEJRPNS2_4NodeES6_EEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -43642,7 +43642,7 @@ _ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EE
   store i64 %spec.select.i.i.i, ptr %15, align 8, !tbaa !225
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !222
-  %23 = tail call ptr @realloc(ptr noundef %22, i64 noundef %spec.select.i.i.i) #33
+  %23 = tail call ptr @realloc(ptr noundef %22, i64 noundef %spec.select.i.i.i) #34
   store ptr %23, ptr %21, align 8, !tbaa !222
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i
@@ -43653,7 +43653,7 @@ _ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EE
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit.i
 
 25:                                               ; preds = %18
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i
@@ -43795,7 +43795,7 @@ switch.early.test.i:                              ; preds = %63
   %spec.select.i.i114.i = tail call i64 @llvm.umax.i64(i64 %72, i64 %71)
   store i64 %spec.select.i.i114.i, ptr %15, align 8, !tbaa !225
   %73 = load ptr, ptr %.phi.trans.insert.i112.i, align 8, !tbaa !222
-  %74 = tail call ptr @realloc(ptr noundef %73, i64 noundef %spec.select.i.i114.i) #33
+  %74 = tail call ptr @realloc(ptr noundef %73, i64 noundef %spec.select.i.i114.i) #34
   store ptr %74, ptr %.phi.trans.insert.i112.i, align 8, !tbaa !222
   %75 = icmp eq ptr %74, null
   br i1 %75, label %76, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i
@@ -43805,7 +43805,7 @@ switch.early.test.i:                              ; preds = %63
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i
 
 76:                                               ; preds = %70
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i111.i
@@ -43848,7 +43848,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   %spec.select.i.i120.i = tail call i64 @llvm.umax.i64(i64 %89, i64 %88)
   store i64 %spec.select.i.i120.i, ptr %15, align 8, !tbaa !225
   %90 = load ptr, ptr %.phi.trans.insert.i112.i, align 8, !tbaa !222
-  %91 = tail call ptr @realloc(ptr noundef %90, i64 noundef %spec.select.i.i120.i) #33
+  %91 = tail call ptr @realloc(ptr noundef %90, i64 noundef %spec.select.i.i120.i) #34
   store ptr %91, ptr %.phi.trans.insert.i112.i, align 8, !tbaa !222
   %92 = icmp eq ptr %91, null
   br i1 %92, label %93, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i121.i
@@ -43858,7 +43858,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i119.i
 
 93:                                               ; preds = %87
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i119.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i121.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i116.i
@@ -43888,7 +43888,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i119.i: ; preds = 
   %spec.select.i.i129.i = tail call i64 @llvm.umax.i64(i64 %106, i64 %105)
   store i64 %spec.select.i.i129.i, ptr %15, align 8, !tbaa !225
   %107 = load ptr, ptr %.phi.trans.insert.i112.i, align 8, !tbaa !222
-  %108 = tail call ptr @realloc(ptr noundef %107, i64 noundef %spec.select.i.i129.i) #33
+  %108 = tail call ptr @realloc(ptr noundef %107, i64 noundef %spec.select.i.i129.i) #34
   store ptr %108, ptr %.phi.trans.insert.i112.i, align 8, !tbaa !222
   %109 = icmp eq ptr %108, null
   br i1 %109, label %110, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i130.i
@@ -43898,7 +43898,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i119.i: ; preds = 
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i128.i
 
 110:                                              ; preds = %104
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i128.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i130.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i125.i
@@ -43928,7 +43928,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i128.i: ; preds = 
   %spec.select.i.i138.i = tail call i64 @llvm.umax.i64(i64 %123, i64 %122)
   store i64 %spec.select.i.i138.i, ptr %15, align 8, !tbaa !225
   %124 = load ptr, ptr %.phi.trans.insert.i112.i, align 8, !tbaa !222
-  %125 = tail call ptr @realloc(ptr noundef %124, i64 noundef %spec.select.i.i138.i) #33
+  %125 = tail call ptr @realloc(ptr noundef %124, i64 noundef %spec.select.i.i138.i) #34
   store ptr %125, ptr %.phi.trans.insert.i112.i, align 8, !tbaa !222
   %126 = icmp eq ptr %125, null
   br i1 %126, label %127, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i139.i
@@ -43938,7 +43938,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i128.i: ; preds = 
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i137.i
 
 127:                                              ; preds = %121
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i137.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i139.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i134.i
@@ -43968,7 +43968,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i137.i: ; preds = 
   %spec.select.i.i147.i = tail call i64 @llvm.umax.i64(i64 %140, i64 %139)
   store i64 %spec.select.i.i147.i, ptr %15, align 8, !tbaa !225
   %141 = load ptr, ptr %.phi.trans.insert.i112.i, align 8, !tbaa !222
-  %142 = tail call ptr @realloc(ptr noundef %141, i64 noundef %spec.select.i.i147.i) #33
+  %142 = tail call ptr @realloc(ptr noundef %141, i64 noundef %spec.select.i.i147.i) #34
   store ptr %142, ptr %.phi.trans.insert.i112.i, align 8, !tbaa !222
   %143 = icmp eq ptr %142, null
   br i1 %143, label %144, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i148.i
@@ -43978,7 +43978,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i137.i: ; preds = 
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i146.i
 
 144:                                              ; preds = %138
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i146.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i148.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i143.i
@@ -44008,7 +44008,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i146.i: ; preds = 
   %spec.select.i.i156.i = tail call i64 @llvm.umax.i64(i64 %157, i64 %156)
   store i64 %spec.select.i.i156.i, ptr %15, align 8, !tbaa !225
   %158 = load ptr, ptr %.phi.trans.insert.i112.i, align 8, !tbaa !222
-  %159 = tail call ptr @realloc(ptr noundef %158, i64 noundef %spec.select.i.i156.i) #33
+  %159 = tail call ptr @realloc(ptr noundef %158, i64 noundef %spec.select.i.i156.i) #34
   store ptr %159, ptr %.phi.trans.insert.i112.i, align 8, !tbaa !222
   %160 = icmp eq ptr %159, null
   br i1 %160, label %161, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i157.i
@@ -44018,7 +44018,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i146.i: ; preds = 
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i155.i
 
 161:                                              ; preds = %155
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i155.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i157.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i152.i
@@ -44048,7 +44048,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i155.i: ; preds = 
   %spec.select.i.i165.i = tail call i64 @llvm.umax.i64(i64 %174, i64 %173)
   store i64 %spec.select.i.i165.i, ptr %15, align 8, !tbaa !225
   %175 = load ptr, ptr %.phi.trans.insert.i112.i, align 8, !tbaa !222
-  %176 = tail call ptr @realloc(ptr noundef %175, i64 noundef %spec.select.i.i165.i) #33
+  %176 = tail call ptr @realloc(ptr noundef %175, i64 noundef %spec.select.i.i165.i) #34
   store ptr %176, ptr %.phi.trans.insert.i112.i, align 8, !tbaa !222
   %177 = icmp eq ptr %176, null
   br i1 %177, label %178, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i166.i
@@ -44058,7 +44058,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i155.i: ; preds = 
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i164.i
 
 178:                                              ; preds = %172
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i164.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i166.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i161.i
@@ -44088,7 +44088,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i164.i: ; preds = 
   %spec.select.i.i174.i = tail call i64 @llvm.umax.i64(i64 %191, i64 %190)
   store i64 %spec.select.i.i174.i, ptr %15, align 8, !tbaa !225
   %192 = load ptr, ptr %.phi.trans.insert.i112.i, align 8, !tbaa !222
-  %193 = tail call ptr @realloc(ptr noundef %192, i64 noundef %spec.select.i.i174.i) #33
+  %193 = tail call ptr @realloc(ptr noundef %192, i64 noundef %spec.select.i.i174.i) #34
   store ptr %193, ptr %.phi.trans.insert.i112.i, align 8, !tbaa !222
   %194 = icmp eq ptr %193, null
   br i1 %194, label %195, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i175.i
@@ -44098,7 +44098,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i164.i: ; preds = 
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i173.i
 
 195:                                              ; preds = %189
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i173.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i175.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i170.i
@@ -44128,7 +44128,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i173.i: ; preds = 
   %spec.select.i.i183.i = tail call i64 @llvm.umax.i64(i64 %208, i64 %207)
   store i64 %spec.select.i.i183.i, ptr %15, align 8, !tbaa !225
   %209 = load ptr, ptr %.phi.trans.insert.i112.i, align 8, !tbaa !222
-  %210 = tail call ptr @realloc(ptr noundef %209, i64 noundef %spec.select.i.i183.i) #33
+  %210 = tail call ptr @realloc(ptr noundef %209, i64 noundef %spec.select.i.i183.i) #34
   store ptr %210, ptr %.phi.trans.insert.i112.i, align 8, !tbaa !222
   %211 = icmp eq ptr %210, null
   br i1 %211, label %212, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i184.i
@@ -44138,7 +44138,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i173.i: ; preds = 
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i182.i
 
 212:                                              ; preds = %206
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i182.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i184.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i179.i
@@ -44168,7 +44168,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i182.i: ; preds = 
   %spec.select.i.i192.i = tail call i64 @llvm.umax.i64(i64 %225, i64 %224)
   store i64 %spec.select.i.i192.i, ptr %15, align 8, !tbaa !225
   %226 = load ptr, ptr %.phi.trans.insert.i112.i, align 8, !tbaa !222
-  %227 = tail call ptr @realloc(ptr noundef %226, i64 noundef %spec.select.i.i192.i) #33
+  %227 = tail call ptr @realloc(ptr noundef %226, i64 noundef %spec.select.i.i192.i) #34
   store ptr %227, ptr %.phi.trans.insert.i112.i, align 8, !tbaa !222
   %228 = icmp eq ptr %227, null
   br i1 %228, label %229, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i193.i
@@ -44178,7 +44178,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i182.i: ; preds = 
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i191.i
 
 229:                                              ; preds = %223
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i191.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i193.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i188.i
@@ -44214,7 +44214,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i191.i: ; preds = 
   %spec.select.i.i201.i = tail call i64 @llvm.umax.i64(i64 %245, i64 %244)
   store i64 %spec.select.i.i201.i, ptr %15, align 8, !tbaa !225
   %246 = load ptr, ptr %.phi.trans.insert.i112.i, align 8, !tbaa !222
-  %247 = tail call ptr @realloc(ptr noundef %246, i64 noundef %spec.select.i.i201.i) #33
+  %247 = tail call ptr @realloc(ptr noundef %246, i64 noundef %spec.select.i.i201.i) #34
   store ptr %247, ptr %.phi.trans.insert.i112.i, align 8, !tbaa !222
   %248 = icmp eq ptr %247, null
   br i1 %248, label %249, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i202.i
@@ -44225,7 +44225,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i191.i: ; preds = 
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit205.i
 
 249:                                              ; preds = %243
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit205.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i202.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i196.i
@@ -44255,7 +44255,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit205.i: ; preds = %._ZN
   %spec.select.i.i211.i = tail call i64 @llvm.umax.i64(i64 %261, i64 %260)
   store i64 %spec.select.i.i211.i, ptr %15, align 8, !tbaa !225
   %262 = load ptr, ptr %.phi.trans.insert.i112.i, align 8, !tbaa !222
-  %263 = tail call ptr @realloc(ptr noundef %262, i64 noundef %spec.select.i.i211.i) #33
+  %263 = tail call ptr @realloc(ptr noundef %262, i64 noundef %spec.select.i.i211.i) #34
   store ptr %263, ptr %.phi.trans.insert.i112.i, align 8, !tbaa !222
   %264 = icmp eq ptr %263, null
   br i1 %264, label %265, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i212.i
@@ -44266,7 +44266,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit205.i: ; preds = %._ZN
   br label %266
 
 265:                                              ; preds = %259
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 266:                                              ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i212.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i206.i
@@ -44300,7 +44300,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit205.i: ; preds = %._ZN
   %spec.select.i.i221.i = tail call i64 @llvm.umax.i64(i64 %282, i64 %281)
   store i64 %spec.select.i.i221.i, ptr %15, align 8, !tbaa !225
   %283 = load ptr, ptr %.phi.trans.insert.i112.i, align 8, !tbaa !222
-  %284 = tail call ptr @realloc(ptr noundef %283, i64 noundef %spec.select.i.i221.i) #33
+  %284 = tail call ptr @realloc(ptr noundef %283, i64 noundef %spec.select.i.i221.i) #34
   store ptr %284, ptr %.phi.trans.insert.i112.i, align 8, !tbaa !222
   %285 = icmp eq ptr %284, null
   br i1 %285, label %286, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i222.i
@@ -44311,7 +44311,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit205.i: ; preds = %._ZN
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit225.i
 
 286:                                              ; preds = %280
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit225.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i222.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i216.i
@@ -44344,7 +44344,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit225.i: ; preds = %._ZN
   %spec.select.i.i231.i = tail call i64 @llvm.umax.i64(i64 %300, i64 %299)
   store i64 %spec.select.i.i231.i, ptr %15, align 8, !tbaa !225
   %301 = load ptr, ptr %.phi.trans.insert.i112.i, align 8, !tbaa !222
-  %302 = tail call ptr @realloc(ptr noundef %301, i64 noundef %spec.select.i.i231.i) #33
+  %302 = tail call ptr @realloc(ptr noundef %301, i64 noundef %spec.select.i.i231.i) #34
   store ptr %302, ptr %.phi.trans.insert.i112.i, align 8, !tbaa !222
   %303 = icmp eq ptr %302, null
   br i1 %303, label %304, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i232.i
@@ -44355,7 +44355,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit225.i: ; preds = %._ZN
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit235.i
 
 304:                                              ; preds = %298
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit235.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i232.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i226.i
@@ -44385,7 +44385,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit235.i: ; preds = %._ZN
   %spec.select.i.i241.i = tail call i64 @llvm.umax.i64(i64 %316, i64 %315)
   store i64 %spec.select.i.i241.i, ptr %15, align 8, !tbaa !225
   %317 = load ptr, ptr %.phi.trans.insert.i112.i, align 8, !tbaa !222
-  %318 = tail call ptr @realloc(ptr noundef %317, i64 noundef %spec.select.i.i241.i) #33
+  %318 = tail call ptr @realloc(ptr noundef %317, i64 noundef %spec.select.i.i241.i) #34
   store ptr %318, ptr %.phi.trans.insert.i112.i, align 8, !tbaa !222
   %319 = icmp eq ptr %318, null
   br i1 %319, label %320, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i242.i
@@ -44396,7 +44396,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit235.i: ; preds = %._ZN
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit245.i
 
 320:                                              ; preds = %314
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit245.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i242.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i236.i
@@ -44433,7 +44433,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i251.i, ptr %15, align 8, !tbaa !225
   %332 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %333 = load ptr, ptr %332, align 8, !tbaa !222
-  %334 = tail call ptr @realloc(ptr noundef %333, i64 noundef %spec.select.i.i251.i) #33
+  %334 = tail call ptr @realloc(ptr noundef %333, i64 noundef %spec.select.i.i251.i) #34
   store ptr %334, ptr %332, align 8, !tbaa !222
   %335 = icmp eq ptr %334, null
   br i1 %335, label %336, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i252.i
@@ -44444,7 +44444,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit255.i
 
 336:                                              ; preds = %329
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit255.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i252.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i246.i
@@ -44462,8 +44462,8 @@ _ZNK12_GLOBAL__N_116itanium_demangle9NodeArray13printAsStringERNS0_12OutputBuffe
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle9ArrayTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle9ArrayTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #36
   ret void
 }
 
@@ -44488,7 +44488,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle9ArrayType10printRight
   br i1 %.not.i, label %5, label %_ZNK12_GLOBAL__N_116itanium_demangle12OutputBuffer4backEv.exit
 
 5:                                                ; preds = %2
-  tail call void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.429, i32 noundef 200, ptr noundef nonnull @.str) #29
+  tail call void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.429, i32 noundef 200, ptr noundef nonnull @.str) #30
   unreachable
 
 _ZNK12_GLOBAL__N_116itanium_demangle12OutputBuffer4backEv.exit: ; preds = %2
@@ -44510,7 +44510,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle12OutputBuffer4backEv.exit: ; preds = %2
   %16 = shl i64 %12, 1
   %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %16, i64 %15)
   store i64 %spec.select.i.i, ptr %11, align 8, !tbaa !225
-  %17 = tail call ptr @realloc(ptr noundef nonnull %.val, i64 noundef %spec.select.i.i) #33
+  %17 = tail call ptr @realloc(ptr noundef nonnull %.val, i64 noundef %spec.select.i.i) #34
   store ptr %17, ptr %3, align 8, !tbaa !222
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -44520,7 +44520,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle12OutputBuffer4backEv.exit: ; preds = %2
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 19:                                               ; preds = %14
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %9, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -44551,7 +44551,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   %spec.select.i.i15 = tail call i64 @llvm.umax.i64(i64 %32, i64 %31)
   store i64 %spec.select.i.i15, ptr %27, align 8, !tbaa !225
   %33 = load ptr, ptr %3, align 8, !tbaa !222
-  %34 = tail call ptr @realloc(ptr noundef %33, i64 noundef %spec.select.i.i15) #33
+  %34 = tail call ptr @realloc(ptr noundef %33, i64 noundef %spec.select.i.i15) #34
   store ptr %34, ptr %3, align 8, !tbaa !222
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i16
@@ -44561,7 +44561,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i14
 
 36:                                               ; preds = %30
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i14: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i16, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i11
@@ -44612,7 +44612,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   %spec.select.i.i25 = tail call i64 @llvm.umax.i64(i64 %60, i64 %59)
   store i64 %spec.select.i.i25, ptr %27, align 8, !tbaa !225
   %61 = load ptr, ptr %3, align 8, !tbaa !222
-  %62 = tail call ptr @realloc(ptr noundef %61, i64 noundef %spec.select.i.i25) #33
+  %62 = tail call ptr @realloc(ptr noundef %61, i64 noundef %spec.select.i.i25) #34
   store ptr %62, ptr %3, align 8, !tbaa !222
   %63 = icmp eq ptr %62, null
   br i1 %63, label %64, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i26
@@ -44622,7 +44622,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i24
 
 64:                                               ; preds = %58
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i24: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i26, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i21
@@ -44653,12 +44653,12 @@ define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_116itanium_demangle2
   br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeINS_16itanium_demangle19PointerToMemberTypeEJRPNS2_4NodeES6_EEEPT_DpOT0_.exit
 
 8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #31
+  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
 11:                                               ; preds = %8
-  tail call void @_ZSt9terminatev() #32
+  tail call void @_ZSt9terminatev() #33
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
@@ -44722,8 +44722,8 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node15hasRHSComponentERNS0_12OutputBufferE.
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle19PointerToMemberTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle19PointerToMemberTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #36
   ret void
 }
 
@@ -44798,7 +44798,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node11hasFunctionERNS0_12OutputBufferE.exit
   store i64 %spec.select.i.i, ptr %32, align 8, !tbaa !225
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !222
-  %40 = tail call ptr @realloc(ptr noundef %39, i64 noundef %spec.select.i.i) #33
+  %40 = tail call ptr @realloc(ptr noundef %39, i64 noundef %spec.select.i.i) #34
   store ptr %40, ptr %38, align 8, !tbaa !222
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -44808,7 +44808,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node11hasFunctionERNS0_12OutputBufferE.exit
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 42:                                               ; preds = %35
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -44842,7 +44842,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   store i64 %spec.select.i.i16, ptr %52, align 8, !tbaa !225
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !222
-  %60 = tail call ptr @realloc(ptr noundef %59, i64 noundef %spec.select.i.i16) #33
+  %60 = tail call ptr @realloc(ptr noundef %59, i64 noundef %spec.select.i.i16) #34
   store ptr %60, ptr %58, align 8, !tbaa !222
   %61 = icmp eq ptr %60, null
   br i1 %61, label %62, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i17
@@ -44852,7 +44852,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i15
 
 62:                                               ; preds = %55
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i15: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i17, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i12
@@ -44906,7 +44906,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   store i64 %spec.select.i.i26, ptr %82, align 8, !tbaa !225
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %89 = load ptr, ptr %88, align 8, !tbaa !222
-  %90 = tail call ptr @realloc(ptr noundef %89, i64 noundef %spec.select.i.i26) #33
+  %90 = tail call ptr @realloc(ptr noundef %89, i64 noundef %spec.select.i.i26) #34
   store ptr %90, ptr %88, align 8, !tbaa !222
   %91 = icmp eq ptr %90, null
   br i1 %91, label %92, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i27
@@ -44916,7 +44916,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; pre
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i25
 
 92:                                               ; preds = %85
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i25: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i27, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i22
@@ -44996,7 +44996,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node11hasFunctionERNS0_12OutputBufferE.exit
   store i64 %spec.select.i.i, ptr %28, align 8, !tbaa !225
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !222
-  %36 = tail call ptr @realloc(ptr noundef %35, i64 noundef %spec.select.i.i) #33
+  %36 = tail call ptr @realloc(ptr noundef %35, i64 noundef %spec.select.i.i) #34
   store ptr %36, ptr %34, align 8, !tbaa !222
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -45006,7 +45006,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node11hasFunctionERNS0_12OutputBufferE.exit
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 38:                                               ; preds = %31
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -45029,8 +45029,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle22ElaboratedTypeSpefTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle22ElaboratedTypeSpefTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #36
   ret void
 }
 
@@ -45064,7 +45064,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle22ElaboratedTypeSpefTy
   store i64 %spec.select.i.i, ptr %6, align 8, !tbaa !225
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !222
-  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #33
+  %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %spec.select.i.i) #34
   store ptr %14, ptr %12, align 8, !tbaa !222
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -45074,7 +45074,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle22ElaboratedTypeSpefTy
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 16:                                               ; preds = %9
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -45108,7 +45108,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i8, ptr %25, align 8, !tbaa !225
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !222
-  %33 = tail call ptr @realloc(ptr noundef %32, i64 noundef %spec.select.i.i8) #33
+  %33 = tail call ptr @realloc(ptr noundef %32, i64 noundef %spec.select.i.i8) #34
   store ptr %33, ptr %31, align 8, !tbaa !222
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i
@@ -45119,7 +45119,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit
 
 35:                                               ; preds = %28
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i4, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge1.i
@@ -45179,8 +45179,8 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node15hasRHSComponentERNS0_12OutputBufferE.
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle11PointerTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle11PointerTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #36
   ret void
 }
 
@@ -45258,7 +45258,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node8hasArrayERNS0_12OutputBufferE.exit: ; 
   store i64 %spec.select.i.i, ptr %31, align 8, !tbaa !225
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !222
-  %39 = tail call ptr @realloc(ptr noundef %38, i64 noundef %spec.select.i.i) #33
+  %39 = tail call ptr @realloc(ptr noundef %38, i64 noundef %spec.select.i.i) #34
   store ptr %39, ptr %37, align 8, !tbaa !222
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -45268,7 +45268,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node8hasArrayERNS0_12OutputBufferE.exit: ; 
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 41:                                               ; preds = %34
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -45345,7 +45345,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node11hasFunctionERNS0_12OutputBufferE.exit
   store i64 %spec.select.i.i26, ptr %71, align 8, !tbaa !225
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %78 = load ptr, ptr %77, align 8, !tbaa !222
-  %79 = tail call ptr @realloc(ptr noundef %78, i64 noundef %spec.select.i.i26) #33
+  %79 = tail call ptr @realloc(ptr noundef %78, i64 noundef %spec.select.i.i26) #34
   store ptr %79, ptr %77, align 8, !tbaa !222
   %80 = icmp eq ptr %79, null
   br i1 %80, label %81, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i27
@@ -45355,7 +45355,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node11hasFunctionERNS0_12OutputBufferE.exit
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i25
 
 81:                                               ; preds = %74
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i25: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i27, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i22
@@ -45389,7 +45389,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i35, ptr %90, align 8, !tbaa !225
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %97 = load ptr, ptr %96, align 8, !tbaa !222
-  %98 = tail call ptr @realloc(ptr noundef %97, i64 noundef %spec.select.i.i35) #33
+  %98 = tail call ptr @realloc(ptr noundef %97, i64 noundef %spec.select.i.i35) #34
   store ptr %98, ptr %96, align 8, !tbaa !222
   %99 = icmp eq ptr %98, null
   br i1 %99, label %100, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i36
@@ -45399,7 +45399,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i34
 
 100:                                              ; preds = %93
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i34: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i36, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i31
@@ -45433,7 +45433,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i34: ; preds = %._
   store i64 %spec.select.i.i44, ptr %110, align 8, !tbaa !225
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %117 = load ptr, ptr %116, align 8, !tbaa !222
-  %118 = tail call ptr @realloc(ptr noundef %117, i64 noundef %spec.select.i.i44) #33
+  %118 = tail call ptr @realloc(ptr noundef %117, i64 noundef %spec.select.i.i44) #34
   store ptr %118, ptr %116, align 8, !tbaa !222
   %119 = icmp eq ptr %118, null
   br i1 %119, label %120, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i45
@@ -45443,7 +45443,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i34: ; preds = %._
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i43
 
 120:                                              ; preds = %113
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i43: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i45, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i40
@@ -45479,7 +45479,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i43: ; preds = %._
   store i64 %spec.select.i.i53, ptr %110, align 8, !tbaa !225
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %136 = load ptr, ptr %135, align 8, !tbaa !222
-  %137 = tail call ptr @realloc(ptr noundef %136, i64 noundef %spec.select.i.i53) #33
+  %137 = tail call ptr @realloc(ptr noundef %136, i64 noundef %spec.select.i.i53) #34
   store ptr %137, ptr %135, align 8, !tbaa !222
   %138 = icmp eq ptr %137, null
   br i1 %138, label %139, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i54
@@ -45489,7 +45489,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i43: ; preds = %._
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i52
 
 139:                                              ; preds = %132
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i52: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i54, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i49
@@ -45521,7 +45521,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i62, ptr %110, align 8, !tbaa !225
   %152 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %153 = load ptr, ptr %152, align 8, !tbaa !222
-  %154 = tail call ptr @realloc(ptr noundef %153, i64 noundef %spec.select.i.i62) #33
+  %154 = tail call ptr @realloc(ptr noundef %153, i64 noundef %spec.select.i.i62) #34
   store ptr %154, ptr %152, align 8, !tbaa !222
   %155 = icmp eq ptr %154, null
   br i1 %155, label %156, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i63
@@ -45531,7 +45531,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i61
 
 156:                                              ; preds = %149
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i61: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i63, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i58
@@ -45641,7 +45641,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node11hasFunctionERNS0_12OutputBufferE.exit
   store i64 %spec.select.i.i, ptr %37, align 8, !tbaa !225
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !222
-  %45 = tail call ptr @realloc(ptr noundef %44, i64 noundef %spec.select.i.i) #33
+  %45 = tail call ptr @realloc(ptr noundef %44, i64 noundef %spec.select.i.i) #34
   store ptr %45, ptr %43, align 8, !tbaa !222
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -45651,7 +45651,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node11hasFunctionERNS0_12OutputBufferE.exit
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 47:                                               ; preds = %40
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -45708,8 +45708,8 @@ define internal void @_ZN12_GLOBAL__N_116itanium_demangle4NodeD2Ev(ptr nonnull r
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116itanium_demangle13ReferenceTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(29) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #35
+define internal void @_ZN12_GLOBAL__N_116itanium_demangle13ReferenceTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(29) %0) unnamed_addr #24 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #36
   ret void
 }
 
@@ -45790,7 +45790,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node8hasArrayERNS0_12OutputBufferE.exit: ; 
   store i64 %spec.select.i.i, ptr %34, align 8, !tbaa !225
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !222
-  %42 = tail call ptr @realloc(ptr noundef %41, i64 noundef %spec.select.i.i) #33
+  %42 = tail call ptr @realloc(ptr noundef %41, i64 noundef %spec.select.i.i) #34
   store ptr %42, ptr %40, align 8, !tbaa !222
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -45800,7 +45800,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node8hasArrayERNS0_12OutputBufferE.exit: ; 
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 44:                                               ; preds = %37
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -45878,7 +45878,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node11hasFunctionERNS0_12OutputBufferE.exit
   store i64 %spec.select.i.i33, ptr %73, align 8, !tbaa !225
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !222
-  %81 = tail call ptr @realloc(ptr noundef %80, i64 noundef %spec.select.i.i33) #33
+  %81 = tail call ptr @realloc(ptr noundef %80, i64 noundef %spec.select.i.i33) #34
   store ptr %81, ptr %79, align 8, !tbaa !222
   %82 = icmp eq ptr %81, null
   br i1 %82, label %83, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i34
@@ -45888,7 +45888,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node11hasFunctionERNS0_12OutputBufferE.exit
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i32
 
 83:                                               ; preds = %76
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i32: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i34, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i29
@@ -45925,7 +45925,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   store i64 %spec.select.i.i42, ptr %95, align 8, !tbaa !225
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %102 = load ptr, ptr %101, align 8, !tbaa !222
-  %103 = tail call ptr @realloc(ptr noundef %102, i64 noundef %spec.select.i.i42) #33
+  %103 = tail call ptr @realloc(ptr noundef %102, i64 noundef %spec.select.i.i42) #34
   store ptr %103, ptr %101, align 8, !tbaa !222
   %104 = icmp eq ptr %103, null
   br i1 %104, label %105, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i43
@@ -45935,7 +45935,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i41
 
 105:                                              ; preds = %98
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i41: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i43, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i38
@@ -46049,7 +46049,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node11hasFunctionERNS0_12OutputBufferE.exit
   store i64 %spec.select.i.i, ptr %39, align 8, !tbaa !225
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !222
-  %47 = tail call ptr @realloc(ptr noundef %46, i64 noundef %spec.select.i.i) #33
+  %47 = tail call ptr @realloc(ptr noundef %46, i64 noundef %spec.select.i.i) #34
   store ptr %47, ptr %45, align 8, !tbaa !222
   %48 = icmp eq ptr %47, null
   br i1 %48, label %49, label %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i
@@ -46059,7 +46059,7 @@ _ZNK12_GLOBAL__N_116itanium_demangle4Node11hasFunctionERNS0_12OutputBufferE.exit
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i
 
 49:                                               ; preds = %42
-  tail call void @abort() #32
+  tail call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge4.i, %._ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
@@ -46143,12 +46143,12 @@ define internal fastcc { i32, ptr } @_ZNK12_GLOBAL__N_116itanium_demangle13Refer
   br i1 %26, label %28, label %34
 
 28:                                               ; preds = %21
-  %29 = call noalias ptr @malloc(i64 noundef %27) #31
+  %29 = call noalias ptr @malloc(i64 noundef %27) #32
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %28
-  call void @abort() #32
+  call void @abort() #33
   unreachable
 
 32:                                               ; preds = %28
@@ -46164,13 +46164,13 @@ _ZNSt3__14copyB8ne210000IPPKN12_GLOBAL__N_116itanium_demangle4NodeES6_EET0_T_S8_
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EE7reserveEm.exit.i
 
 34:                                               ; preds = %21
-  %35 = call ptr @realloc(ptr noundef %.pre, i64 noundef %27) #33
+  %35 = call ptr @realloc(ptr noundef %.pre, i64 noundef %27) #34
   store ptr %35, ptr %2, align 8, !tbaa !495
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EE7reserveEm.exit.i
 
 37:                                               ; preds = %34
-  call void @abort() #32
+  call void @abort() #33
   unreachable
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EE7reserveEm.exit.i: ; preds = %34, %_ZNSt3__14copyB8ne210000IPPKN12_GLOBAL__N_116itanium_demangle4NodeES6_EET0_T_S8_S7_.exit.i.i
@@ -46200,7 +46200,7 @@ _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EE7reserveEm.
   br i1 %52, label %54, label %53
 
 53:                                               ; preds = %49
-  invoke void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 151, ptr noundef nonnull @.str.173) #29
+  invoke void (ptr, ...) @__abort_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 151, ptr noundef nonnull @.str.173) #30
           to label %.noexc unwind label %58
 
 .noexc:                                           ; preds = %53
@@ -46227,7 +46227,7 @@ _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EE7reserveEm.
   br i1 %62, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EED2Ev.exit, label %63
 
 63:                                               ; preds = %60
-  call void @free(ptr noundef %61) #34
+  call void @free(ptr noundef %61) #35
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EED2Ev.exit
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EED2Ev.exit: ; preds = %60, %63
@@ -46242,7 +46242,7 @@ _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EED2Ev.exit: 
   br i1 %66, label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EED2Ev.exit20, label %67
 
 67:                                               ; preds = %64
-  call void @free(ptr noundef %65) #34
+  call void @free(ptr noundef %65) #35
   br label %_ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EED2Ev.exit20
 
 _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EED2Ev.exit20: ; preds = %64, %67
@@ -46253,38 +46253,38 @@ _ZN12_GLOBAL__N_116itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EED2Ev.exit20
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #25
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #26
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #25
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #26
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #26
+declare i32 @llvm.fshl.i32(i32, i32, i32) #27
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #27
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #28
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #27
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #28
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #27
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #28
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #28
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #29
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #26
+declare i64 @llvm.umax.i64(i64, i64) #27
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #26
+declare i32 @llvm.smin.i32(i32, i32) #27
 
 attributes #0 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint mustprogress nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { cold nofree noreturn }
@@ -46300,23 +46300,24 @@ attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #18 = { cold mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { cold mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #23 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #26 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #27 = { nofree nounwind }
-attributes #28 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #29 = { noreturn }
-attributes #30 = { nounwind willreturn memory(read) }
-attributes #31 = { nounwind allocsize(0) }
-attributes #32 = { noreturn nounwind }
-attributes #33 = { nounwind allocsize(1) }
-attributes #34 = { nounwind }
-attributes #35 = { builtin nounwind }
-attributes #36 = { cold nounwind }
-attributes #37 = { cold }
+attributes #24 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #27 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #28 = { nofree nounwind }
+attributes #29 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #30 = { noreturn }
+attributes #31 = { nounwind willreturn memory(read) }
+attributes #32 = { nounwind allocsize(0) }
+attributes #33 = { noreturn nounwind }
+attributes #34 = { nounwind allocsize(1) }
+attributes #35 = { nounwind }
+attributes #36 = { builtin nounwind }
+attributes #37 = { cold nounwind }
+attributes #38 = { cold }
 
 !llvm.linker.options = !{}
 !llvm.module.flags = !{!0, !1, !2, !3}

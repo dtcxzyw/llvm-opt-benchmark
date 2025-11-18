@@ -12302,7 +12302,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %entry, %if.then.i.i
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK8facebook5velox6common24BigintValuesUsingBitmask9testInt64El(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %value) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %min_ = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -12336,7 +12336,7 @@ return:                                           ; preds = %entry, %if.end
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK8facebook5velox6common24BigintValuesUsingBitmask14testInt64RangeEllb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %min, i64 noundef %max, i1 noundef zeroext %hasNull) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nullAllowed_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -12622,7 +12622,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit43:                  ; preds = %ehcleanup, %if.then
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK8facebook5velox6common26BigintValuesUsingHashTable9testInt64El(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this, i64 noundef %value) unnamed_addr #7 align 2 {
 entry:
   %containsEmptyMarker_ = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -13260,7 +13260,7 @@ _ZNK8facebook5velox6common26BigintValuesUsingHashTable10testValuesEN5xsimd5batch
   ret <4 x i64> %retval.sroa.0.0.copyload.i.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK8facebook5velox6common26BigintValuesUsingHashTable14testInt64RangeEllb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this, i64 noundef %min, i64 noundef %max, i1 noundef zeroext %hasNull) unnamed_addr #7 align 2 {
 entry:
   %nullAllowed_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -13789,7 +13789,7 @@ _ZN5folly11F14ValueSetInNS_23HeterogeneousAccessHashInvEENS_26HeterogeneousAcces
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK8facebook5velox6common27HugeintValuesUsingHashTable10testInt128En(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %this, i64 noundef %value.coerce0, i64 noundef %value.coerce1) unnamed_addr #10 align 2 {
 entry:
   %value.sroa.2.0.insert.ext = zext i64 %value.coerce1 to i128
@@ -14134,7 +14134,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
   resume { ptr, i32 } %eh.lpad-body
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK8facebook5velox6common31NegatedBigintValuesUsingBitmask14testInt64RangeEllb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i64 noundef %min, i64 noundef %max, i1 noundef zeroext %hasNull) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nullAllowed_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -14286,7 +14286,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
   resume { ptr, i32 } %eh.lpad-body
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK8facebook5velox6common33NegatedBigintValuesUsingHashTable14testInt64RangeEllb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i64 noundef %min, i64 noundef %max, i1 noundef zeroext %hasNull) unnamed_addr #7 align 2 {
 entry:
   %nullAllowed_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -16652,7 +16652,7 @@ lpad:                                             ; preds = %entry
   resume { ptr, i32 } %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK8facebook5velox6common16BigintMultiRange9testInt64El(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, i64 noundef %value) unnamed_addr #7 align 2 {
 entry:
   %lowerBounds_ = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -16749,7 +16749,7 @@ entry:
   ret i1 %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK8facebook5velox6common16BigintMultiRange14testInt64RangeEllb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, i64 noundef %min, i64 noundef %max, i1 noundef zeroext %hasNull) unnamed_addr #7 align 2 {
 entry:
   %nullAllowed_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -50052,10 +50052,10 @@ attributes #3 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #6 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #8 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #13 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

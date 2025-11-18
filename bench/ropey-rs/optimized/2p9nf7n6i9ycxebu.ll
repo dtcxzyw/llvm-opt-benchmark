@@ -2977,7 +2977,7 @@ _ZN5ropey4tree13node_children12NodeChildren9search_by17hc5b243de1fdf9abdE.llvm.1
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @"_ZN5ropey4tree13node_children12NodeChildren15search_byte_idx28_$u7b$$u7b$closure$u7d$$u7d$17h13d0111f2bf16355E.llvm.1041312438752767756"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readnone align 8 captures(none) dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #8 {
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !662, !noundef !4
   %5 = load i64, ptr %4, align 8, !noundef !4
@@ -3060,7 +3060,7 @@ _ZN5ropey4tree13node_children12NodeChildren9search_by17h6eeff1bfaf1e9a15E.llvm.1
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @"_ZN5ropey4tree13node_children12NodeChildren15search_char_idx28_$u7b$$u7b$closure$u7d$$u7d$17h83e645eabbadb20cE.llvm.1041312438752767756"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readnone align 8 captures(none) dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #8 {
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !662, !noundef !4
   %5 = load i64, ptr %4, align 8, !noundef !4
@@ -3145,7 +3145,7 @@ _ZN5ropey4tree13node_children12NodeChildren9search_by17hcf55ee8a6021a16dE.llvm.1
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @"_ZN5ropey4tree13node_children12NodeChildren26search_utf16_code_unit_idx28_$u7b$$u7b$closure$u7d$$u7d$17hb8919f45c116775fE.llvm.1041312438752767756"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readnone align 8 captures(none) dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #8 {
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !662, !noundef !4
   %5 = load i64, ptr %4, align 8, !noundef !4
@@ -3232,7 +3232,7 @@ _ZN5ropey4tree13node_children12NodeChildren9search_by17hde606ec2850a28a5E.llvm.1
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @"_ZN5ropey4tree13node_children12NodeChildren21search_line_break_idx28_$u7b$$u7b$closure$u7d$$u7d$17h0486c2b009b28236E.llvm.1041312438752767756"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readnone align 8 captures(none) dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #8 {
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !662, !noundef !4
   %5 = load i64, ptr %4, align 8, !noundef !4
@@ -3733,7 +3733,7 @@ attributes #4 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x
 attributes #5 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #8 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #8 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

@@ -3318,7 +3318,7 @@ define range(i32 -192, 1) i32 @CheckBitString(ptr noundef %0, ptr noundef captur
   ret i32 %.01321
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 3, 2) i32 @SetBitString(i32 noundef %0, i8 noundef zeroext %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #9 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %.thread
@@ -4090,7 +4090,7 @@ GetASNHeader.exit:                                ; preds = %48, %4, %6, %.threa
   ret i32 %.4.i.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 -2147483647, -2147483648) i32 @SetObjectId(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #9 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %.thread
@@ -6304,7 +6304,7 @@ SetOctetString.exit440:                           ; preds = %.thread.i.i.i.i427.
 
 declare i32 @wc_RNG_GenerateBlock(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 2, 1) i32 @SetOctetString(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #9 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %3, label %.thread.i
@@ -6386,7 +6386,7 @@ SetHeader.exit:                                   ; preds = %3, %7, %15, %.threa
   ret i32 %26
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 2, 1) i32 @SetSequence(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #9 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %3, label %.thread.i
@@ -9109,7 +9109,7 @@ wc_Time.exit:                                     ; preds = %8, %10
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @wc_SetTimeCb(ptr noundef %0) local_unnamed_addr #14 {
   store ptr %0, ptr @timeFunc, align 8, !tbaa !123
   ret i32 0
@@ -11684,7 +11684,7 @@ SetLength.exit:                                   ; preds = %.loopexit.loopexit3
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 2, 1) i32 @SetHeader(i8 noundef zeroext %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i8 noundef zeroext %3) local_unnamed_addr #9 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %.thread
@@ -11776,7 +11776,7 @@ SetLengthEx.exit:                                 ; preds = %5, %8, %10, %18, %.
   ret i32 %29
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 2, 1) i32 @SetSequenceEx(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, i8 noundef zeroext %2) local_unnamed_addr #9 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %4, label %.thread.i
@@ -11868,7 +11868,7 @@ SetHeader.exit:                                   ; preds = %4, %7, %9, %17, %.t
   ret i32 %28
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 2, 1) i32 @SetOctetStringEx(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, i8 noundef zeroext %2) local_unnamed_addr #9 {
   %.not = icmp eq i8 %2, 0
   %.not.i.i7 = icmp eq ptr %1, null
@@ -11967,7 +11967,7 @@ SetHeader.exit:                                   ; preds = %5, %4, %SetOctetStr
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 2, 1) i32 @SetSet(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #9 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %3, label %.thread.i
@@ -12049,7 +12049,7 @@ SetHeader.exit:                                   ; preds = %3, %7, %15, %.threa
   ret i32 %26
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 2, 1) i32 @SetImplicit(i8 noundef zeroext %0, i8 noundef zeroext %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, i8 noundef zeroext %4) local_unnamed_addr #9 {
   %6 = icmp eq i8 %0, 4
   %7 = icmp ne i8 %4, 0
@@ -12160,7 +12160,7 @@ SetHeader.exit:                                   ; preds = %17, %20, %22, %30, 
   ret i32 %41
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 2, 1) i32 @SetExplicit(i8 noundef zeroext %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i8 noundef zeroext %3) local_unnamed_addr #9 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %5, label %.thread.i
@@ -13499,7 +13499,7 @@ define i32 @wc_ParseCert(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nou
   ret i32 %5
 }
 
-; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @findSignerByName(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #15 {
   %.not8 = icmp eq ptr %0, null
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -14923,7 +14923,7 @@ FreeDer.exit:                                     ; preds = %ForceZero.exit.i, %
   ret i32 %.028
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 -202, 1) i32 @wc_GetPubKeyDerFromCert(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #17 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %2, null
@@ -16211,7 +16211,7 @@ declare i32 @wc_Sha3_384Hash(ptr noundef, i32 noundef, ptr noundef) local_unname
 
 declare i32 @wc_Sha3_512Hash(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 2) i32 @MatchBaseName(i32 noundef range(i32 0, 256) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #18 {
   %6 = icmp eq ptr %3, null
   %7 = icmp slt i32 %4, 1
@@ -16386,16 +16386,16 @@ attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nosync nounwind memory(write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { inlinehint nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree norecurse nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nofree nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #21 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }

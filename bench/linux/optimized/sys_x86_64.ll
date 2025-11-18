@@ -19,14 +19,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @stack_guard_gap = external dso_local local_unnamed_addr global i64, align 8
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__setup_control_va_addr_alignment], section "llvm.metadata"
 
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, target_mem0: none, target_mem1: none)
 define dso_local i64 @align_vdso_addr(i64 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load i32, ptr @va_align, align 64
   %3 = icmp slt i32 %2, 0
   br i1 %3, label %38, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8
+  %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9
   %6 = inttoptr i64 %5 to ptr
   %7 = load volatile i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
@@ -125,12 +125,12 @@ sub_13:                                           ; preds = %4
   br label %30
 
 .tail1.thread:                                    ; preds = %4, %.tail, %sub_1, %sub_13
-  %18 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(4) @.str.2) #9
+  %18 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(4) @.str.2) #10
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %22, label %sub_07
 
 .thread:                                          ; preds = %.tail1
-  %20 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(4) @.str.2) #9
+  %20 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(4) @.str.2) #10
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %.tail6.thread
 
@@ -159,7 +159,7 @@ sub_18:                                           ; preds = %sub_07
   br label %30
 
 .tail6.thread:                                    ; preds = %.thread, %sub_18, %sub_07, %.tail6
-  %29 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, ptr noundef %0) #10
+  %29 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, ptr noundef %0) #11
   br label %30
 
 30:                                               ; preds = %4, %.tail6.thread, %28, %22, %17, %11, %1
@@ -167,7 +167,7 @@ sub_18:                                           ; preds = %sub_07
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_mmap(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
+define dso_local i64 @__x64_sys_mmap(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4095
@@ -186,7 +186,7 @@ define dso_local i64 @__x64_sys_mmap(ptr noundef readonly captures(none) %0) loc
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %16 = load i64, ptr %15, align 8
   %17 = lshr exact i64 %3, 12
-  %18 = tail call i64 @ksys_mmap_pgoff(i64 noundef %16, i64 noundef %14, i64 noundef %12, i64 noundef %10, i64 noundef %8, i64 noundef %17) #9
+  %18 = tail call i64 @ksys_mmap_pgoff(i64 noundef %16, i64 noundef %14, i64 noundef %12, i64 noundef %10, i64 noundef %8, i64 noundef %17) #10
   br label %19
 
 19:                                               ; preds = %6, %1
@@ -195,7 +195,7 @@ define dso_local i64 @__x64_sys_mmap(ptr noundef readonly captures(none) %0) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_mmap(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
+define dso_local i64 @__ia32_sys_mmap(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4095
@@ -220,7 +220,7 @@ define dso_local i64 @__ia32_sys_mmap(ptr noundef readonly captures(none) %0) lo
   %21 = and i64 %20, 4294967295
   %22 = lshr exact i64 %3, 12
   %23 = and i64 %22, 1048575
-  %24 = tail call i64 @ksys_mmap_pgoff(i64 noundef %21, i64 noundef %18, i64 noundef %15, i64 noundef %12, i64 noundef %9, i64 noundef %23) #9
+  %24 = tail call i64 @ksys_mmap_pgoff(i64 noundef %21, i64 noundef %18, i64 noundef %15, i64 noundef %12, i64 noundef %9, i64 noundef %23) #10
   br label %25
 
 25:                                               ; preds = %6, %1
@@ -229,9 +229,9 @@ define dso_local i64 @__ia32_sys_mmap(ptr noundef readonly captures(none) %0) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @arch_get_unmapped_area(ptr noundef readnone captures(address_is_null) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local i64 @arch_get_unmapped_area(ptr noundef readnone captures(address_is_null) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #2 align 16 {
   %6 = alloca %struct.vm_unmapped_area_info, align 8
-  %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !5
+  %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !5
   %8 = inttoptr i64 %7 to ptr
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1192
   %10 = load ptr, ptr %9, align 8
@@ -258,24 +258,24 @@ define dso_local i64 @arch_get_unmapped_area(ptr noundef readnone captures(addre
   br i1 %25, label %39, label %26
 
 26:                                               ; preds = %21
-  %27 = tail call i64 @randomize_page(i64 noundef 1073741824, i64 noundef 33554432) #9
+  %27 = tail call i64 @randomize_page(i64 noundef 1073741824, i64 noundef 33554432) #10
   br label %39
 
 28:                                               ; preds = %13
-  %29 = tail call i64 @get_mmap_base(i32 noundef 1) #9
+  %29 = tail call i64 @get_mmap_base(i32 noundef 1) #10
   %30 = load i32, ptr %14, align 8
   %31 = and i32 %30, 2
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %35, label %33
 
 33:                                               ; preds = %28
-  %34 = tail call i64 @task_size_32bit() #9
+  %34 = tail call i64 @task_size_32bit() #10
   br label %39
 
 35:                                               ; preds = %28
   %36 = icmp ugt i64 %1, 140737488351232
   %37 = zext i1 %36 to i32
-  %38 = tail call i64 @task_size_64bit(i32 noundef %37) #9
+  %38 = tail call i64 @task_size_64bit(i32 noundef %37) #10
   br label %39
 
 39:                                               ; preds = %35, %33, %26, %21
@@ -291,7 +291,7 @@ define dso_local i64 @arch_get_unmapped_area(ptr noundef readnone captures(addre
 45:                                               ; preds = %43
   %46 = add i64 %1, 4095
   %47 = and i64 %46, -4096
-  %48 = tail call ptr @find_vma(ptr noundef %10, i64 noundef %47) #9
+  %48 = tail call ptr @find_vma(ptr noundef %10, i64 noundef %47) #10
   %49 = sub i64 %41, %2
   %50 = icmp ult i64 %49, %47
   br i1 %50, label %64, label %51
@@ -383,7 +383,7 @@ define dso_local i64 @arch_get_unmapped_area(ptr noundef readnone captures(addre
   br label %110
 
 110:                                              ; preds = %.critedge, %64
-  %111 = call i64 @vm_unmapped_area(ptr noundef nonnull %6) #9
+  %111 = call i64 @vm_unmapped_area(ptr noundef nonnull %6) #10
   br label %112
 
 112:                                              ; preds = %110, %53, %51, %39, %5
@@ -393,18 +393,18 @@ define dso_local i64 @arch_get_unmapped_area(ptr noundef readnone captures(addre
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @find_vma(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare dso_local ptr @find_vma(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @vm_unmapped_area(ptr noundef) local_unnamed_addr #3
+declare dso_local i64 @vm_unmapped_area(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @arch_get_unmapped_area_topdown(ptr noundef readnone captures(address_is_null) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local i64 @arch_get_unmapped_area_topdown(ptr noundef readnone captures(address_is_null) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #2 align 16 {
   %6 = alloca %struct.vm_unmapped_area_info, align 8
-  %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !5
+  %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !5
   %8 = inttoptr i64 %7 to ptr
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1192
   %10 = load ptr, ptr %9, align 8
@@ -424,7 +424,7 @@ define dso_local i64 @arch_get_unmapped_area_topdown(ptr noundef readnone captur
   br label %22
 
 20:                                               ; preds = %5
-  %21 = tail call i64 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movq $2,$0\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (16*32+16)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09movq $3,$0\0A6651:\0A.popsection\0A", "=r,i,i,i,~{dirflag},~{fpsr},~{flags}"(i32 0, i64 140737488351232, i64 72057594037923840) #9, !srcloc !7
+  %21 = tail call i64 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movq $2,$0\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (16*32+16)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09movq $3,$0\0A6651:\0A.popsection\0A", "=r,i,i,i,~{dirflag},~{fpsr},~{flags}"(i32 0, i64 140737488351232, i64 72057594037923840) #10, !srcloc !7
   br label %22
 
 22:                                               ; preds = %20, %14
@@ -453,11 +453,11 @@ define dso_local i64 @arch_get_unmapped_area_topdown(ptr noundef readnone captur
 
 38:                                               ; preds = %36
   %39 = and i64 %1, -4096
-  %40 = tail call zeroext i1 @mmap_address_hint_valid(i64 noundef %39, i64 noundef %2) #9
+  %40 = tail call zeroext i1 @mmap_address_hint_valid(i64 noundef %39, i64 noundef %2) #10
   br i1 %40, label %41, label %55
 
 41:                                               ; preds = %38
-  %42 = tail call ptr @find_vma(ptr noundef %10, i64 noundef %39) #9
+  %42 = tail call ptr @find_vma(ptr noundef %10, i64 noundef %39) #10
   %43 = icmp eq ptr %42, null
   br i1 %43, label %126, label %44
 
@@ -488,7 +488,7 @@ define dso_local i64 @arch_get_unmapped_area_topdown(ptr noundef readnone captur
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %65 = select i1 %63, i64 4096, i64 4294967296
   store i64 %65, ptr %64, align 8
-  %66 = tail call i64 @get_mmap_base(i32 noundef 0) #9
+  %66 = tail call i64 @get_mmap_base(i32 noundef 0) #10
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %66, ptr %67, align 8
   %68 = icmp ugt i64 %56, 140737488351232
@@ -501,7 +501,7 @@ define dso_local i64 @arch_get_unmapped_area_topdown(ptr noundef readnone captur
   br i1 %72, label %73, label %77
 
 73:                                               ; preds = %69
-  %74 = tail call i64 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movq $2,$0\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (16*32+16)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09movq $3,$0\0A6651:\0A.popsection\0A", "=r,i,i,i,~{dirflag},~{fpsr},~{flags}"(i32 0, i64 140737488351232, i64 72057594037923840) #9, !srcloc !7
+  %74 = tail call i64 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movq $2,$0\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (16*32+16)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09movq $3,$0\0A6651:\0A.popsection\0A", "=r,i,i,i,~{dirflag},~{fpsr},~{flags}"(i32 0, i64 140737488351232, i64 72057594037923840) #10, !srcloc !7
   %75 = add i64 %66, -140737488351232
   %76 = add i64 %75, %74
   store i64 %76, ptr %67, align 8
@@ -570,7 +570,7 @@ define dso_local i64 @arch_get_unmapped_area_topdown(ptr noundef readnone captur
   br label %120
 
 120:                                              ; preds = %.critedge, %77
-  %121 = call i64 @vm_unmapped_area(ptr noundef nonnull %6) #9
+  %121 = call i64 @vm_unmapped_area(ptr noundef nonnull %6) #10
   %122 = and i64 %121, 4095
   %123 = icmp eq i64 %122, 0
   br i1 %123, label %126, label %124
@@ -586,49 +586,50 @@ define dso_local i64 @arch_get_unmapped_area_topdown(ptr noundef readnone captur
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i1 @mmap_address_hint_valid(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare dso_local zeroext i1 @mmap_address_hint_valid(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @get_mmap_base(i32 noundef) local_unnamed_addr #3
+declare dso_local i64 @get_mmap_base(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
+declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @ksys_mmap_pgoff(i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare dso_local i64 @ksys_mmap_pgoff(i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @randomize_page(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare dso_local i64 @randomize_page(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @task_size_32bit() local_unnamed_addr #3
+declare dso_local i64 @task_size_32bit() local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @task_size_64bit(i32 noundef) local_unnamed_addr #3
+declare dso_local i64 @task_size_64bit(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #6
+declare i64 @llvm.usub.sat.i64(i64, i64) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
-attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, target_mem0: none, target_mem1: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #5 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { cold nounwind }
+attributes #2 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #6 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nounwind memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

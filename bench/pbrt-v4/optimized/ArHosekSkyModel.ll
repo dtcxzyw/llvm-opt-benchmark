@@ -496,7 +496,7 @@ declare double @cos(double noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @sqrt(double noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree nounwind uwtable
+; Function Attrs: nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local noalias noundef ptr @arhosekskymodelstate_alloc_init(double noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #4 {
   %4 = tail call noalias dereferenceable_or_null(1088) ptr @malloc(i64 noundef 1088) #13
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 888
@@ -551,7 +551,7 @@ define dso_local double @art_blackbody_dd_value(double noundef %0, double nounde
   ret double %10
 }
 
-; Function Attrs: nofree nounwind uwtable
+; Function Attrs: nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local noalias noundef ptr @arhosekskymodelstate_alienworld_alloc_init(double noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4) local_unnamed_addr #4 {
   %6 = tail call noalias dereferenceable_or_null(1088) ptr @malloc(i64 noundef 1088) #13
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 880
@@ -771,7 +771,7 @@ define dso_local double @arhosekskymodel_radiance(ptr noundef readonly captures(
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @fmod(double noundef, double noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree nounwind uwtable
+; Function Attrs: nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local noalias noundef ptr @arhosek_xyz_skymodelstate_alloc_init(double noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #4 {
   %4 = tail call noalias dereferenceable_or_null(1088) ptr @malloc(i64 noundef 1088) #13
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 888
@@ -804,7 +804,7 @@ define dso_local noalias noundef ptr @arhosek_xyz_skymodelstate_alloc_init(doubl
   ret ptr %4
 }
 
-; Function Attrs: nofree nounwind uwtable
+; Function Attrs: nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local noalias noundef ptr @arhosek_rgb_skymodelstate_alloc_init(double noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #4 {
   %4 = tail call noalias dereferenceable_or_null(1088) ptr @malloc(i64 noundef 1088) #13
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 888
@@ -887,7 +887,7 @@ define dso_local double @arhosek_tristim_skymodel_radiance(ptr noundef readonly 
   ret double %49
 }
 
-; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none, errnomem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none, errnomem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local double @arhosekskymodel_sr_internal(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #9 {
   %5 = fmul double %3, 2.000000e+00
   %6 = fdiv double %5, 0x400921FB54442D18
@@ -932,7 +932,7 @@ define dso_local double @arhosekskymodel_sr_internal(ptr noundef readonly captur
   ret double %33
 }
 
-; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none, errnomem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none, errnomem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local double @arhosekskymodel_solar_radiance_internal2(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #9 {
   %5 = alloca [6 x double], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 888
@@ -1167,7 +1167,7 @@ arhosekskymodel_sr_internal.exit89:               ; preds = %109
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @sin(double noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none, errnomem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none, errnomem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local double @arhosekskymodel_solar_radiance(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #9 {
   %5 = fsub double 0x3FF921FB54442D18, %1
   %6 = tail call double @arhosekskymodel_solar_radiance_internal2(ptr noundef %0, double noundef %3, double noundef %5, double noundef %2)
@@ -1192,12 +1192,12 @@ attributes #0 = { nofree norecurse nounwind memory(argmem: readwrite, errnomem: 
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #3 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree norecurse nounwind memory(read, inaccessiblemem: none, errnomem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nounwind memory(read, inaccessiblemem: none, errnomem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nounwind }

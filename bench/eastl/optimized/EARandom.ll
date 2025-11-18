@@ -824,7 +824,7 @@ for.end32:                                        ; preds = %for.body20
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef i32 @_ZN2EA4StdC21RandomMersenneTwister19RandomUint32UniformEv(ptr noundef nonnull align 8 dereferenceable(2508) %this) local_unnamed_addr #6 align 2 {
 entry:
   %mnCountRemaining = getelementptr inbounds nuw i8, ptr %this, i64 2504
@@ -933,7 +933,7 @@ if.end:                                           ; preds = %entry.if.end_crit_e
   ret i32 %xor9
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef range(i32 0, -1) i32 @_ZN2EA4StdC21RandomMersenneTwister19RandomUint32UniformEj(ptr noundef nonnull align 8 dereferenceable(2508) %this, i32 noundef %nLimit) local_unnamed_addr #6 align 2 {
 entry:
   %0 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %nLimit)
@@ -961,7 +961,7 @@ _ZN2EA4StdC11RandomLimitINS0_21RandomMersenneTwisterEEEjRT_j.exit: ; preds = %do
   ret i32 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef double @_ZN2EA4StdC21RandomMersenneTwister19RandomDoubleUniformEv(ptr noundef nonnull align 8 dereferenceable(2508) %this) local_unnamed_addr #6 align 2 {
 entry:
   %call = tail call noundef i32 @_ZN2EA4StdC21RandomMersenneTwister19RandomUint32UniformEv(ptr noundef nonnull align 8 dereferenceable(2508) %this)
@@ -972,7 +972,7 @@ entry:
   ret double %dResult.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef i32 @_ZN2EA4StdC21RandomMersenneTwister4HashEii(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(2508) %this, i32 noundef %t, i32 noundef %c) local_unnamed_addr #7 align 2 {
 entry:
   %t.addr = alloca i32, align 4
@@ -1035,8 +1035,8 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #3 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind }
 attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }

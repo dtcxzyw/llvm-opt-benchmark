@@ -11569,7 +11569,7 @@ define noundef zeroext i1 @_ZN12pingora_core10connectors4http2v213ConnectionRef2
   ret i1 %.sroa.0.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZN12pingora_core10connectors4http2v213ConnectionRef7is_idle17h468d4dd7f0321527E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8, !nonnull !29, !noundef !29
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 136
@@ -11578,7 +11578,7 @@ define noundef zeroext i1 @_ZN12pingora_core10connectors4http2v213ConnectionRef7
   ret i1 %5
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN12pingora_core10connectors4http2v213ConnectionRef14release_stream17h6a4726cf8b76e919E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8, !nonnull !29, !noundef !29
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 136
@@ -11586,7 +11586,7 @@ define void @_ZN12pingora_core10connectors4http2v213ConnectionRef14release_strea
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZN12pingora_core10connectors4http2v213ConnectionRef2id17hd5a3c7adfb750c80E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #8 {
   %2 = load ptr, ptr %0, align 8, !nonnull !29, !noundef !29
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
@@ -11601,7 +11601,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @_ZN12pingora_core10conne
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef align 8 dereferenceable_or_null(48) ptr @_ZN12pingora_core10connectors4http2v213ConnectionRef10digest_mut17h3366ab0addcad1bbE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #7 {
   %.val = load ptr, ptr %0, align 8, !nonnull !29, !noundef !29
   %2 = getelementptr inbounds nuw i8, ptr %.val, i64 8
@@ -11623,7 +11623,7 @@ define noundef align 8 dereferenceable_or_null(48) ptr @_ZN12pingora_core10conne
   ret ptr %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZN12pingora_core10connectors4http2v213ConnectionRef13ping_timedout17head932e5d6f38cd6E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8, !nonnull !29, !noundef !29
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 112
@@ -11649,7 +11649,7 @@ define noundef zeroext i1 @_ZN12pingora_core10connectors4http2v213ConnectionRef9
   ret i1 %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZN12pingora_core10connectors4http2v213ConnectionRef16is_shutting_down17hcba10e473c66da98E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8, !nonnull !29, !noundef !29
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 148
@@ -15325,8 +15325,8 @@ attributes #3 = { nofree norecurse nounwind nonlazybind memory(argmem: readwrite
 attributes #4 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #7 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #7 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

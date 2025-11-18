@@ -999,7 +999,7 @@ define hidden void @"_ZN169_$LT$$LT$alloc..collections..vec_deque..drain..Drain$
   ret void
 }
 
-; Function Attrs: cold mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: cold mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef nonnull ptr @"_ZN3std3sys12thread_local6native4lazy20Storage$LT$T$C$D$GT$10initialize17h29ca262e45611a55E"(ptr noundef nonnull writeonly align 8 captures(ret: address, provenance) initializes((0, 16)) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %3
@@ -6978,7 +6978,7 @@ define noundef range(i32 0, 1114112) i32 @_ZN4fish6common17get_ellipsis_char17he
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { ptr, i64 } @_ZN4fish6common16get_ellipsis_str17h81e2200e790857abE() unnamed_addr #11 {
   %1 = load atomic ptr, ptr @_ZN4fish6common15ELLIPSIS_STRING17he81acd6be0ecf4cdE monotonic, align 8
   %2 = load ptr, ptr %1, align 8, !nonnull !3, !align !10, !noundef !3
@@ -6989,7 +6989,7 @@ define { ptr, i64 } @_ZN4fish6common16get_ellipsis_str17h81e2200e790857abE() unn
   ret { ptr, i64 } %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { ptr, i64 } @_ZN4fish6common23get_omitted_newline_str17ha6999e1dafe62232E() unnamed_addr #11 {
   %1 = load atomic ptr, ptr @_ZN4fish6common19OMITTED_NEWLINE_STR17h9ea256aabb004ffaE monotonic, align 8
   %2 = load ptr, ptr %1, align 8, !nonnull !3, !align !10, !noundef !3
@@ -7000,7 +7000,7 @@ define { ptr, i64 } @_ZN4fish6common23get_omitted_newline_str17ha6999e1dafe62232
   ret { ptr, i64 } %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i64 @_ZN4fish6common25get_omitted_newline_width17hc82981a80af47e65E() unnamed_addr #11 {
   %1 = load atomic ptr, ptr @_ZN4fish6common19OMITTED_NEWLINE_STR17h9ea256aabb004ffaE monotonic, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -18869,7 +18869,7 @@ define void @_ZN4fish4flog35activate_flog_categories_by_pattern17h95965bcc1ee4e1
   resume { ptr, i32 } %lpad.phi
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN4fish4flog16set_flog_file_fd17h972bc4c4224c514aE(i32 noundef %0) unnamed_addr #15 {
   store atomic i32 %0, ptr @_ZN4fish4flog7FLOG_FD17hfb5c1fb7811199b4E monotonic, align 4
   ret void
@@ -33247,13 +33247,13 @@ _ZN4fish10parse_util19error_for_character17hfc31071c0440b905E.exit: ; preds = %"
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN4fish6signal19signal_clear_cancel17h667f8316daf986e7E() unnamed_addr #15 {
   store atomic i32 0, ptr @_ZN4fish6signal19CANCELLATION_SIGNAL17hca4ed416380f5070E.0 monotonic, align 4
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZN4fish6signal19signal_check_cancel17h11924faa90d83cb1E() unnamed_addr #15 {
   %1 = load atomic i32, ptr @_ZN4fish6signal19CANCELLATION_SIGNAL17hca4ed416380f5070E.0 monotonic, align 4
   ret i32 %1
@@ -36054,7 +36054,7 @@ _ZN4fish9tokenizer9Tokenizer10call_error17hb4dcb6cba060213aE.exit: ; preds = %19
   br label %26
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4fish9tokenizer15iswspace_not_nl17h10e297cd5b349f50E(i32 noundef range(i32 0, 1114112) %0) unnamed_addr #19 {
   %switch.tableidx = add nsw i32 %0, -9
   %2 = icmp ult i32 %switch.tableidx, 24
@@ -46753,7 +46753,7 @@ declare i64 @llvm.smax.i64(i64, i64) #33
 declare i64 @llvm.umax.i64(i64, i64) #33
 
 attributes #0 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #1 = { cold mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #1 = { cold mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -46763,15 +46763,15 @@ attributes #7 = { alwaysinline mustprogress nofree norecurse nosync nounwind non
 attributes #8 = { nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #10 = { noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #11 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #11 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #12 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #14 = { noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #15 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #15 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #16 = { nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #17 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #18 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #19 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #20 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #22 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

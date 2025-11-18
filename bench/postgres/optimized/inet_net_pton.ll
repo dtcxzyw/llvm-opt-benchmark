@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @getv4.digits = internal constant [11 x i8] c"0123456789\00", align 1
 @getbits.digits = internal constant [11 x i8] c"0123456789\00", align 1
 
-; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   switch i32 %0, label %232 [
     i32 2, label %5
@@ -523,7 +523,7 @@ inet_net_pton_ipv4.exit:                          ; preds = %218, %.loopexit.sin
   ret i32 %.0
 }
 
-; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 -2147483648, 129) i32 @inet_cidr_pton_ipv6(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef range(i64 0, -1) %2) unnamed_addr #0 {
   %4 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -900,7 +900,7 @@ declare i64 @llvm.smax.i64(i64, i64) #6
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6
 
-attributes #0 = { nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

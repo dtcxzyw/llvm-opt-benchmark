@@ -333,7 +333,7 @@ define void @quantize_row_q8_K(ptr noalias noundef %0, ptr noalias noundef %1, i
 
 declare void @quantize_row_q8_K_ref(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @ggml_vec_dot_q4_0_q8_0(i32 noundef %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noalias noundef readonly captures(none) %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #4 {
   %9 = sdiv i32 %0, 32
   %10 = icmp sgt i32 %0, 31
@@ -465,7 +465,7 @@ declare <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8>, <32 x i8>) #3
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare <8 x float> @llvm.fma.v8f32(<8 x float>, <8 x float>, <8 x float>) #5
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @ggml_vec_dot_q4_1_q8_1(i32 noundef %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noalias noundef readonly captures(none) %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #4 {
   %9 = sdiv i32 %0, 32
   %10 = icmp sgt i32 %0, 31
@@ -609,7 +609,7 @@ define void @ggml_vec_dot_q4_1_q8_1(i32 noundef %0, ptr noalias noundef writeonl
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @ggml_vec_dot_q5_0_q8_0(i32 noundef %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noalias noundef readonly captures(none) %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #4 {
   %9 = sdiv i32 %0, 32
   %10 = icmp sgt i32 %0, 31
@@ -757,7 +757,7 @@ define void @ggml_vec_dot_q5_0_q8_0(i32 noundef %0, ptr noalias noundef writeonl
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8>, <32 x i8>) #3
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @ggml_vec_dot_q5_1_q8_1(i32 noundef %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noalias noundef readonly captures(none) %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #4 {
   %9 = sdiv i32 %0, 32
   %10 = icmp sgt i32 %0, 31
@@ -921,7 +921,7 @@ define void @ggml_vec_dot_q5_1_q8_1(i32 noundef %0, ptr noalias noundef writeonl
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @ggml_vec_dot_q8_0_q8_0(i32 noundef %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noalias noundef readonly captures(none) %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #4 {
   %9 = sdiv i32 %0, 32
   %10 = icmp sgt i32 %0, 31
@@ -1025,7 +1025,7 @@ define void @ggml_vec_dot_q8_0_q8_0(i32 noundef %0, ptr noalias noundef writeonl
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @ggml_vec_dot_tq1_0_q8_K(i32 noundef %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noalias noundef readonly captures(none) %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #4 {
   %9 = icmp sgt i32 %0, 255
   br i1 %9, label %.lr.ph.preheader, label %._crit_edge
@@ -1233,7 +1233,7 @@ declare <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16>, <8 x i16>) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <8 x i32> @llvm.x86.avx2.pmadd.wd(<16 x i16>, <16 x i16>) #3
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @ggml_vec_dot_tq2_0_q8_K(i32 noundef %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noalias noundef readonly captures(none) %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #4 {
   %9 = icmp sgt i32 %0, 255
   br i1 %9, label %.preheader.preheader, label %._crit_edge
@@ -1325,7 +1325,7 @@ define void @ggml_vec_dot_tq2_0_q8_K(i32 noundef %0, ptr noalias noundef writeon
   br i1 %41, label %38, label %20, !llvm.loop !40
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @ggml_vec_dot_q2_K_q8_K(i32 noundef %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noalias noundef readonly captures(none) %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #4 {
   %9 = icmp sgt i32 %0, 255
   br i1 %9, label %.lr.ph, label %._crit_edge
@@ -1452,7 +1452,7 @@ define void @ggml_vec_dot_q2_K_q8_K(i32 noundef %0, ptr noalias noundef writeonl
   br i1 %63, label %62, label %44, !llvm.loop !42
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @ggml_vec_dot_q3_K_q8_K(i32 noundef %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noalias noundef readonly captures(none) %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #4 {
   %9 = icmp sgt i32 %0, 255
   br i1 %9, label %.lr.ph, label %._crit_edge
@@ -1620,7 +1620,7 @@ define void @ggml_vec_dot_q3_K_q8_K(i32 noundef %0, ptr noalias noundef writeonl
   br i1 %66, label %65, label %59, !llvm.loop !46
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @ggml_vec_dot_q4_K_q8_K(i32 noundef %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noalias noundef readonly captures(none) %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #4 {
   %9 = icmp sgt i32 %0, 255
   br i1 %9, label %.lr.ph.preheader, label %._crit_edge
@@ -1765,7 +1765,7 @@ declare <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16>, <8 x i16>) #3
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare <4 x float> @llvm.fma.v4f32(<4 x float>, <4 x float>, <4 x float>) #5
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @ggml_vec_dot_q5_K_q8_K(i32 noundef %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noalias noundef readonly captures(none) %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #4 {
   %9 = icmp sgt i32 %0, 255
   br i1 %9, label %.lr.ph.preheader, label %._crit_edge
@@ -1923,7 +1923,7 @@ define void @ggml_vec_dot_q5_K_q8_K(i32 noundef %0, ptr noalias noundef writeonl
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <4 x i32> @llvm.x86.ssse3.phadd.d.128(<4 x i32>, <4 x i32>) #3
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @ggml_vec_dot_q6_K_q8_K(i32 noundef %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noalias noundef readonly captures(none) %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #4 {
   %9 = icmp sgt i32 %0, 255
   br i1 %9, label %.lr.ph.preheader, label %._crit_edge
@@ -2064,7 +2064,7 @@ define void @ggml_vec_dot_q6_K_q8_K(i32 noundef %0, ptr noalias noundef writeonl
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8>, <16 x i8>) #3
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @ggml_vec_dot_iq2_xxs_q8_K(i32 noundef %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noalias noundef readonly captures(none) %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #4 {
   %9 = icmp sgt i32 %0, 255
   br i1 %9, label %.lr.ph.preheader, label %._crit_edge
@@ -2248,7 +2248,7 @@ define void @ggml_vec_dot_iq2_xxs_q8_K(i32 noundef %0, ptr noalias noundef write
   br i1 %143, label %34, label %27, !llvm.loop !58
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @ggml_vec_dot_iq2_xs_q8_K(i32 noundef %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noalias noundef readonly captures(none) %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #4 {
   %9 = icmp sgt i32 %0, 255
   br i1 %9, label %.lr.ph.preheader, label %._crit_edge
@@ -2478,7 +2478,7 @@ define void @ggml_vec_dot_iq2_xs_q8_K(i32 noundef %0, ptr noalias noundef writeo
   br i1 %49, label %48, label %41, !llvm.loop !62
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @ggml_vec_dot_iq2_s_q8_K(i32 noundef %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noalias noundef readonly captures(none) %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #4 {
   %9 = icmp sgt i32 %0, 255
   br i1 %9, label %.lr.ph.preheader, label %._crit_edge
@@ -2678,7 +2678,7 @@ define void @ggml_vec_dot_iq2_s_q8_K(i32 noundef %0, ptr noalias noundef writeon
   br i1 %173, label %47, label %40, !llvm.loop !66
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @ggml_vec_dot_iq3_xxs_q8_K(i32 noundef %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noalias noundef readonly captures(none) %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #4 {
   %9 = icmp sgt i32 %0, 255
   br i1 %9, label %.lr.ph.preheader, label %._crit_edge
@@ -2912,7 +2912,7 @@ define void @ggml_vec_dot_iq3_xxs_q8_K(i32 noundef %0, ptr noalias noundef write
   br i1 %208, label %35, label %28, !llvm.loop !70
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @ggml_vec_dot_iq3_s_q8_K(i32 noundef %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noalias noundef readonly captures(none) %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #4 {
   %9 = icmp sgt i32 %0, 255
   br i1 %9, label %.lr.ph.preheader, label %._crit_edge
@@ -3122,7 +3122,7 @@ define void @ggml_vec_dot_iq3_s_q8_K(i32 noundef %0, ptr noalias noundef writeon
   br i1 %168, label %36, label %29, !llvm.loop !74
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @ggml_vec_dot_iq1_s_q8_K(i32 noundef %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noalias noundef readonly captures(none) %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #4 {
   %9 = icmp sgt i32 %0, 255
   br i1 %9, label %.lr.ph.preheader, label %._crit_edge
@@ -3326,7 +3326,7 @@ define void @ggml_vec_dot_iq1_s_q8_K(i32 noundef %0, ptr noalias noundef writeon
   br i1 %175, label %37, label %24, !llvm.loop !79
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @ggml_vec_dot_iq1_m_q8_K(i32 noundef %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noalias noundef readonly captures(none) %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #4 {
   %9 = icmp sgt i32 %0, 255
   br i1 %9, label %.lr.ph.preheader, label %._crit_edge
@@ -3579,7 +3579,7 @@ define void @ggml_vec_dot_iq1_m_q8_K(i32 noundef %0, ptr noalias noundef writeon
   br i1 %217, label %57, label %36, !llvm.loop !81
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @ggml_vec_dot_iq4_nl_q8_0(i32 noundef %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noalias noundef readonly captures(none) %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #4 {
   %9 = sdiv i32 %0, 32
   %10 = icmp sgt i32 %0, 63
@@ -3750,7 +3750,7 @@ define void @ggml_vec_dot_iq4_nl_q8_0(i32 noundef %0, ptr noalias noundef writeo
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @ggml_vec_dot_iq4_xs_q8_K(i32 noundef %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noalias noundef readonly captures(none) %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #4 {
   %9 = icmp sgt i32 %0, 255
   br i1 %9, label %.lr.ph.preheader, label %._crit_edge
@@ -3897,7 +3897,7 @@ attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #4 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #4 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 attributes #5 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }

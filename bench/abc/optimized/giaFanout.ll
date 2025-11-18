@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [14 x i8] c"   Fanouts : \00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"%5d \00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @Gia_ManFanoutStart(ptr noundef captures(none) initializes((232, 244)) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %2, align 8, !tbaa !3
@@ -19,7 +19,7 @@ define void @Gia_ManFanoutStart(ptr noundef captures(none) initializes((232, 244
   %5 = mul i32 %4, 10
   %6 = sext i32 %5 to i64
   %7 = shl nsw i64 %6, 2
-  %8 = tail call noalias ptr @malloc(i64 noundef %7) #13
+  %8 = tail call noalias ptr @malloc(i64 noundef %7) #14
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %8, ptr %9, align 8, !tbaa !29
   %10 = sext i32 %spec.select to i64
@@ -85,7 +85,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @Gia_ObjAddFanout(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %4, align 8, !tbaa !30
@@ -117,7 +117,7 @@ define void @Gia_ObjAddFanout(ptr noundef captures(none) %0, ptr noundef %1, ptr
   br i1 %.not53, label %25, label %23
 
 23:                                               ; preds = %._crit_edge
-  %24 = tail call ptr @realloc(ptr noundef nonnull %19, i64 noundef %22) #14
+  %24 = tail call ptr @realloc(ptr noundef nonnull %19, i64 noundef %22) #15
   %.pre = load i32, ptr %10, align 8, !tbaa !28
   %.val57.pre.pre = load ptr, ptr %4, align 8, !tbaa !30
   %.pre69 = ptrtoint ptr %.val57.pre.pre to i64
@@ -127,7 +127,7 @@ define void @Gia_ObjAddFanout(ptr noundef captures(none) %0, ptr noundef %1, ptr
   br label %27
 
 25:                                               ; preds = %._crit_edge
-  %26 = tail call noalias ptr @malloc(i64 noundef %22) #13
+  %26 = tail call noalias ptr @malloc(i64 noundef %22) #14
   br label %27
 
 27:                                               ; preds = %25, %23
@@ -250,7 +250,7 @@ Gia_ObjWhatFanin.exit:                            ; preds = %36, %42, %Gia_ObjFa
   ret void
 }
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @Gia_ManFanoutStop(ptr noundef captures(none) initializes((240, 244)) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8, !tbaa !29
@@ -258,7 +258,7 @@ define void @Gia_ManFanoutStop(ptr noundef captures(none) initializes((240, 244)
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %3) #15
+  tail call void @free(ptr noundef nonnull %3) #16
   store ptr null, ptr %2, align 8, !tbaa !29
   br label %5
 
@@ -274,7 +274,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @Gia_ObjRemoveFanout(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr i8, ptr %0, i64 32
   %.val33 = load ptr, ptr %4, align 8, !tbaa !30
@@ -392,7 +392,7 @@ Gia_ObjWhatFanin.exit:                            ; preds = %3, %15, %Gia_ObjFan
   ret void
 }
 
-; Function Attrs: nofree nounwind uwtable
+; Function Attrs: nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noalias noundef ptr @Gia_ManStartFanoutMap(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %3, align 8, !tbaa !3
@@ -416,7 +416,7 @@ define noalias noundef ptr @Gia_ManStartFanoutMap(ptr noundef readonly captures(
   %17 = add i32 %5, %.val3.i
   %18 = sub i32 %17, %.val24
   %19 = add i32 %18, %15
-  %20 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
+  %20 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
   %21 = add i32 %19, -1
   %or.cond.i.i = icmp ult i32 %21, 15
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 16, i32 %19
@@ -434,7 +434,7 @@ Vec_IntAlloc.exit.thread.i:                       ; preds = %2
 Vec_IntAlloc.exit.i:                              ; preds = %2
   %24 = sext i32 %spec.store.select.i.i to i64
   %25 = shl nsw i64 %24, 2
-  %26 = tail call noalias ptr @malloc(i64 noundef %25) #13
+  %26 = tail call noalias ptr @malloc(i64 noundef %25) #14
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %26, ptr %27, align 8, !tbaa !41
   store i32 %19, ptr %22, align 4, !tbaa !37
@@ -481,15 +481,15 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManStaticFanoutStart(ptr noundef %0) local_unnamed_addr #0 {
+define void @Gia_ManStaticFanoutStart(ptr noundef %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8, !tbaa !43
   store ptr null, ptr %2, align 8, !tbaa !43
-  tail call void @Gia_ManCreateRefs(ptr noundef %0) #15
+  tail call void @Gia_ManCreateRefs(ptr noundef %0) #16
   %4 = load ptr, ptr %2, align 8, !tbaa !43
   %5 = getelementptr i8, ptr %0, i64 24
   %.val71 = load i32, ptr %5, align 8, !tbaa !3
-  %6 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
+  %6 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %.val71, ptr %7, align 4, !tbaa !37
   store i32 %.val71, ptr %6, align 8, !tbaa !40
@@ -511,7 +511,7 @@ define void @Gia_ManStaticFanoutStart(ptr noundef %0) local_unnamed_addr #0 {
 Vec_IntAlloc.exit.i:                              ; preds = %1
   %13 = sext i32 %spec.store.select.i.i to i64
   %14 = shl nsw i64 %13, 2
-  %15 = tail call noalias ptr @malloc(i64 noundef %14) #13
+  %15 = tail call noalias ptr @malloc(i64 noundef %14) #14
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %Vec_IntStart.exit, label %16
 
@@ -646,21 +646,21 @@ Gia_ObjIsMux.exit.thread:                         ; preds = %.thread, %Gia_ObjIs
   br i1 %.not.i110, label %Vec_IntFree.exit, label %80
 
 80:                                               ; preds = %.critedge2
-  tail call void @free(ptr noundef nonnull %19) #15
+  tail call void @free(ptr noundef nonnull %19) #16
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %.critedge2, %80
   ret void
 }
 
-declare void @Gia_ManCreateRefs(ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManCreateRefs(ptr noundef) local_unnamed_addr #9
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noalias noundef ptr @Gia_ManStartMappingFanoutMap(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %3, align 8, !tbaa !3
   %4 = shl nsw i32 %.val, 1
-  %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
+  %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
   %6 = add i32 %4, -1
   %or.cond.i = icmp ult i32 %6, 15
   %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %4
@@ -672,7 +672,7 @@ define noalias noundef ptr @Gia_ManStartMappingFanoutMap(ptr noundef readonly ca
 Vec_IntAlloc.exit:                                ; preds = %2
   %8 = sext i32 %spec.store.select.i to i64
   %9 = shl nsw i64 %8, 2
-  %10 = tail call noalias ptr @malloc(i64 noundef %9) #13
+  %10 = tail call noalias ptr @malloc(i64 noundef %9) #14
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %10, ptr %11, align 8, !tbaa !41
   %.not.i.i = icmp slt i32 %spec.store.select.i, %.val
@@ -696,13 +696,13 @@ Vec_IntAlloc.exit.thread:                         ; preds = %2
   br i1 %.not9.i.i, label %20, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call ptr @realloc(ptr noundef nonnull %10, i64 noundef %17) #14
+  %19 = tail call ptr @realloc(ptr noundef nonnull %10, i64 noundef %17) #15
   br label %24
 
 20:                                               ; preds = %.thread, %15
   %21 = phi i64 [ %14, %.thread ], [ %17, %15 ]
   %22 = phi ptr [ %12, %.thread ], [ %11, %15 ]
-  %23 = tail call noalias ptr @malloc(i64 noundef %21) #13
+  %23 = tail call noalias ptr @malloc(i64 noundef %21) #14
   br label %24
 
 24:                                               ; preds = %20, %18
@@ -771,7 +771,7 @@ Vec_IntGrow.exit.sink.split.i:                    ; preds = %46
   %. = tail call i32 @llvm.smax.i32(i32 %44, i32 %48)
   %49 = sext i32 %. to i64
   %50 = shl nsw i64 %49, 2
-  %51 = tail call ptr @realloc(ptr noundef nonnull %.val21, i64 noundef %50) #14
+  %51 = tail call ptr @realloc(ptr noundef nonnull %.val21, i64 noundef %50) #15
   store ptr %51, ptr %28, align 8, !tbaa !41
   store i32 %., ptr %5, align 8, !tbaa !40
   br label %._crit_edge.i
@@ -805,21 +805,21 @@ Vec_IntFillExtra.exit:                            ; preds = %._crit_edge.i, %41,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @Gia_ObjCheckDupMappingFanins(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
+define void @Gia_ObjCheckDupMappingFanins(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
 ._crit_edge:
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManStaticMappingFanoutStart(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define void @Gia_ManStaticMappingFanoutStart(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8, !tbaa !48
   store ptr null, ptr %3, align 8, !tbaa !48
-  tail call void @Gia_ManSetLutRefs(ptr noundef %0) #15
+  tail call void @Gia_ManSetLutRefs(ptr noundef %0) #16
   %5 = load ptr, ptr %3, align 8, !tbaa !48
   %6 = getelementptr i8, ptr %0, i64 24
   %.val85 = load i32, ptr %6, align 8, !tbaa !3
-  %7 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
+  %7 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %.val85, ptr %8, align 4, !tbaa !37
   store i32 %.val85, ptr %7, align 8, !tbaa !40
@@ -837,7 +837,7 @@ define void @Gia_ManStaticMappingFanoutStart(ptr noundef %0, ptr noundef capture
 13:                                               ; preds = %2
   %14 = getelementptr i8, ptr %11, i64 4
   %.val90 = load i32, ptr %14, align 4, !tbaa !37
-  %15 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
+  %15 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
   %16 = add i32 %.val90, -1
   %or.cond.i.i = icmp ult i32 %16, 15
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 16, i32 %.val90
@@ -855,7 +855,7 @@ Vec_IntAlloc.exit.thread.i:                       ; preds = %13
 Vec_IntAlloc.exit.i:                              ; preds = %13
   %19 = sext i32 %spec.store.select.i.i to i64
   %20 = shl nsw i64 %19, 2
-  %21 = tail call noalias ptr @malloc(i64 noundef %20) #13
+  %21 = tail call noalias ptr @malloc(i64 noundef %20) #14
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %21, ptr %22, align 8, !tbaa !41
   store i32 %.val90, ptr %17, align 4, !tbaa !37
@@ -883,7 +883,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 Vec_IntAlloc.exit.i112:                           ; preds = %26
   %28 = sext i32 %spec.store.select.i.i110 to i64
   %29 = shl nsw i64 %28, 2
-  %30 = tail call noalias ptr @malloc(i64 noundef %29) #13
+  %30 = tail call noalias ptr @malloc(i64 noundef %29) #14
   %.not.i113 = icmp eq ptr %30, null
   br i1 %.not.i113, label %Vec_IntStart.exit115, label %31
 
@@ -1100,16 +1100,16 @@ Vec_IntStart.exit115:                             ; preds = %26, %Vec_IntAlloc.e
   br i1 %.not.i117, label %Vec_IntFree.exit, label %139
 
 139:                                              ; preds = %.critedge4
-  tail call void @free(ptr noundef nonnull %34) #15
+  tail call void @free(ptr noundef nonnull %34) #16
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %.critedge4, %139
   ret void
 }
 
-declare void @Gia_ManSetLutRefs(ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManSetLutRefs(ptr noundef) local_unnamed_addr #9
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @Gia_ManStaticFanoutStop(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8, !tbaa !49
@@ -1123,7 +1123,7 @@ define void @Gia_ManStaticFanoutStop(ptr noundef captures(none) %0) local_unname
   br i1 %.not.i, label %10, label %.thread.i
 
 .thread.i:                                        ; preds = %5
-  tail call void @free(ptr noundef nonnull %7) #15
+  tail call void @free(ptr noundef nonnull %7) #16
   %8 = load ptr, ptr %2, align 8, !tbaa !49
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr null, ptr %9, align 8, !tbaa !41
@@ -1131,7 +1131,7 @@ define void @Gia_ManStaticFanoutStop(ptr noundef captures(none) %0) local_unname
 
 10:                                               ; preds = %.thread.i, %5
   %11 = phi ptr [ %8, %.thread.i ], [ %3, %5 ]
-  tail call void @free(ptr noundef nonnull %11) #15
+  tail call void @free(ptr noundef nonnull %11) #16
   store ptr null, ptr %2, align 8, !tbaa !49
   br label %Vec_IntFreeP.exit
 
@@ -1148,7 +1148,7 @@ Vec_IntFreeP.exit:                                ; preds = %1, %10
   br i1 %.not.i2, label %20, label %.thread.i3
 
 .thread.i3:                                       ; preds = %15
-  tail call void @free(ptr noundef nonnull %17) #15
+  tail call void @free(ptr noundef nonnull %17) #16
   %18 = load ptr, ptr %12, align 8, !tbaa !49
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr null, ptr %19, align 8, !tbaa !41
@@ -1156,7 +1156,7 @@ Vec_IntFreeP.exit:                                ; preds = %1, %10
 
 20:                                               ; preds = %.thread.i3, %15
   %21 = phi ptr [ %18, %.thread.i3 ], [ %13, %15 ]
-  tail call void @free(ptr noundef nonnull %21) #15
+  tail call void @free(ptr noundef nonnull %21) #16
   store ptr null, ptr %12, align 8, !tbaa !49
   br label %Vec_IntFreeP.exit4
 
@@ -1165,7 +1165,7 @@ Vec_IntFreeP.exit4:                               ; preds = %Vec_IntFreeP.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManStaticFanoutTest(ptr noundef %0) local_unnamed_addr #0 {
+define void @Gia_ManStaticFanoutTest(ptr noundef %0) local_unnamed_addr #8 {
   tail call void @Gia_ManStaticFanoutStart(ptr noundef %0)
   %2 = getelementptr i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1186,7 +1186,7 @@ define void @Gia_ManStaticFanoutTest(ptr noundef %0) local_unnamed_addr #0 {
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val, i64 %indvars.iv
-  tail call void @Gia_ObjPrint(ptr noundef nonnull %0, ptr noundef nonnull %10) #15
+  tail call void @Gia_ObjPrint(ptr noundef nonnull %0, ptr noundef nonnull %10) #16
   %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str)
   %12 = ptrtoint ptr %10 to i64
   %.val2227 = load ptr, ptr %2, align 8, !tbaa !30
@@ -1252,7 +1252,7 @@ define void @Gia_ManStaticFanoutTest(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i.i, label %50, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %45
-  tail call void @free(ptr noundef nonnull %47) #15
+  tail call void @free(ptr noundef nonnull %47) #16
   %48 = load ptr, ptr %42, align 8, !tbaa !49
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr null, ptr %49, align 8, !tbaa !41
@@ -1260,7 +1260,7 @@ define void @Gia_ManStaticFanoutTest(ptr noundef %0) local_unnamed_addr #0 {
 
 50:                                               ; preds = %.thread.i.i, %45
   %51 = phi ptr [ %48, %.thread.i.i ], [ %43, %45 ]
-  tail call void @free(ptr noundef nonnull %51) #15
+  tail call void @free(ptr noundef nonnull %51) #16
   store ptr null, ptr %42, align 8, !tbaa !49
   br label %Vec_IntFreeP.exit.i
 
@@ -1277,7 +1277,7 @@ Vec_IntFreeP.exit.i:                              ; preds = %50, %.critedge
   br i1 %.not.i2.i, label %60, label %.thread.i3.i
 
 .thread.i3.i:                                     ; preds = %55
-  tail call void @free(ptr noundef nonnull %57) #15
+  tail call void @free(ptr noundef nonnull %57) #16
   %58 = load ptr, ptr %52, align 8, !tbaa !49
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr null, ptr %59, align 8, !tbaa !41
@@ -1285,7 +1285,7 @@ Vec_IntFreeP.exit.i:                              ; preds = %50, %.critedge
 
 60:                                               ; preds = %.thread.i3.i, %55
   %61 = phi ptr [ %58, %.thread.i3.i ], [ %53, %55 ]
-  tail call void @free(ptr noundef nonnull %61) #15
+  tail call void @free(ptr noundef nonnull %61) #16
   store ptr null, ptr %52, align 8, !tbaa !49
   br label %Gia_ManStaticFanoutStop.exit
 
@@ -1293,33 +1293,34 @@ Gia_ManStaticFanoutStop.exit:                     ; preds = %Vec_IntFreeP.exit.i
   ret void
 }
 
-declare void @Gia_ObjPrint(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Gia_ObjPrint(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #10
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
+declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #12
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #13
 
-attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nofree nounwind }
-attributes #13 = { nounwind allocsize(0) }
-attributes #14 = { nounwind allocsize(1) }
-attributes #15 = { nounwind }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nofree nounwind }
+attributes #14 = { nounwind allocsize(0) }
+attributes #15 = { nounwind allocsize(1) }
+attributes #16 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

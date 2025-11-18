@@ -40,13 +40,13 @@ target triple = "x86_64-pc-linux-gnu"
 @FLAC__STREAM_METADATA_CUESHEET_INDEX_NUMBER_LEN = external local_unnamed_addr constant i32, align 4
 @FLAC__STREAM_METADATA_CUESHEET_INDEX_RESERVED_LEN = external local_unnamed_addr constant i32, align 4
 
-; Function Attrs: nounwind sspstrong uwtable
+; Function Attrs: nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noalias noundef ptr @FLAC__metadata_object_new(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ugt i32 %0, 126
   br i1 %2, label %vorbiscomment_calculate_length_.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call noalias dereferenceable_or_null(176) ptr @calloc(i64 noundef 1, i64 noundef 176) #28
+  %4 = tail call noalias dereferenceable_or_null(176) ptr @calloc(i64 noundef 1, i64 noundef 176) #30
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %vorbiscomment_calculate_length_.exit, label %5
 
@@ -74,7 +74,7 @@ define noalias noundef ptr @FLAC__metadata_object_new(i32 noundef %0) local_unna
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr @FLAC__VENDOR_STRING, align 8, !tbaa !10
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #29
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #31
   %15 = trunc i64 %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %15, ptr %16, align 8, !tbaa !13
@@ -85,16 +85,16 @@ define noalias noundef ptr @FLAC__metadata_object_new(i32 noundef %0) local_unna
 
 19:                                               ; preds = %12
   %20 = zext i32 %18 to i64
-  %21 = tail call noalias noundef ptr @malloc(i64 noundef %20) #30
+  %21 = tail call noalias noundef ptr @malloc(i64 noundef %20) #32
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %.thread.i
 
 .thread.i:                                        ; preds = %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %21, ptr noundef nonnull readonly align 1 %13, i64 noundef %20, i1 noundef false) #31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %21, ptr noundef nonnull readonly align 1 %13, i64 noundef %20, i1 noundef false) #33
   br label %24
 
 23:                                               ; preds = %19
-  tail call void @free(ptr noundef nonnull %4) #31
+  tail call void @free(ptr noundef nonnull %4) #33
   br label %vorbiscomment_calculate_length_.exit
 
 24:                                               ; preds = %.thread.i, %12
@@ -145,18 +145,18 @@ define noalias noundef ptr @FLAC__metadata_object_new(i32 noundef %0) local_unna
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %60, ptr %61, align 8, !tbaa !8
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %63 = tail call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull @.str) #31
+  %63 = tail call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull @.str) #33
   %.not.i36 = icmp eq ptr %63, null
   br i1 %.not.i36, label %64, label %65
 
 64:                                               ; preds = %44
-  tail call void @free(ptr noundef nonnull %4) #31
+  tail call void @free(ptr noundef nonnull %4) #33
   br label %vorbiscomment_calculate_length_.exit
 
 65:                                               ; preds = %44
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %63, ptr %66, align 8, !tbaa !10
-  %67 = tail call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull @.str) #31
+  %67 = tail call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull @.str) #33
   %.not.i37 = icmp eq ptr %67, null
   br i1 %.not.i37, label %68, label %copy_cstring_.exit39
 
@@ -165,8 +165,8 @@ copy_cstring_.exit39:                             ; preds = %65
   br label %vorbiscomment_calculate_length_.exit
 
 68:                                               ; preds = %65
-  tail call void @free(ptr noundef nonnull %63) #31
-  tail call void @free(ptr noundef nonnull %4) #31
+  tail call void @free(ptr noundef nonnull %63) #33
+  tail call void @free(ptr noundef nonnull %4) #33
   br label %vorbiscomment_calculate_length_.exit
 
 vorbiscomment_calculate_length_.exit:             ; preds = %32, %24, %copy_cstring_.exit39, %3, %5, %8, %6, %1, %68, %64, %23
@@ -184,7 +184,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define noundef ptr @FLAC__metadata_object_clone(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+define noundef ptr @FLAC__metadata_object_clone(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 8, !tbaa !3
   %3 = tail call ptr @FLAC__metadata_object_new(i32 noundef %2)
   %.not = icmp eq ptr %3, null
@@ -214,7 +214,7 @@ define noundef ptr @FLAC__metadata_object_clone(ptr noundef readonly captures(no
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %13, ptr noundef nonnull align 1 dereferenceable(56) %14, i64 noundef 56, i1 noundef false) #31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %13, ptr noundef nonnull align 1 dereferenceable(56) %14, i64 noundef 56, i1 noundef false) #33
   br label %199
 
 15:                                               ; preds = %4
@@ -225,14 +225,14 @@ define noundef ptr @FLAC__metadata_object_clone(ptr noundef readonly captures(no
 
 19:                                               ; preds = %15
   tail call void @FLAC__metadata_object_delete_data(ptr noundef nonnull %3)
-  tail call void @free(ptr noundef nonnull %3) #31
+  tail call void @free(ptr noundef nonnull %3) #33
   br label %199
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = zext nneg i32 %17 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %21, ptr noundef nonnull align 1 %22, i64 noundef %23, i1 noundef false) #31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %21, ptr noundef nonnull align 1 %22, i64 noundef %23, i1 noundef false) #33
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load ptr, ptr %25, align 8, !tbaa !13
@@ -244,12 +244,12 @@ define noundef ptr @FLAC__metadata_object_clone(ptr noundef readonly captures(no
 29:                                               ; preds = %20
   %30 = sub nuw i32 %10, %17
   %31 = zext i32 %30 to i64
-  %32 = tail call noalias noundef ptr @malloc(i64 noundef %31) #30
+  %32 = tail call noalias noundef ptr @malloc(i64 noundef %31) #32
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %.thread.i
 
 .thread.i:                                        ; preds = %29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %32, ptr noundef nonnull readonly align 1 %26, i64 noundef %31, i1 noundef false) #31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %32, ptr noundef nonnull readonly align 1 %26, i64 noundef %31, i1 noundef false) #33
   br label %copy_bytes_.exit
 
 copy_bytes_.exit:                                 ; preds = %20, %.thread.i
@@ -259,7 +259,7 @@ copy_bytes_.exit:                                 ; preds = %20, %.thread.i
 
 34:                                               ; preds = %29
   tail call void @FLAC__metadata_object_delete_data(ptr noundef nonnull %3)
-  tail call void @free(ptr noundef nonnull %3) #31
+  tail call void @free(ptr noundef nonnull %3) #33
   br label %199
 
 35:                                               ; preds = %4
@@ -272,7 +272,7 @@ copy_bytes_.exit:                                 ; preds = %20, %.thread.i
 
 40:                                               ; preds = %35
   tail call void @FLAC__metadata_object_delete_data(ptr noundef nonnull %3)
-  tail call void @free(ptr noundef nonnull %3) #31
+  tail call void @free(ptr noundef nonnull %3) #33
   br label %199
 
 41:                                               ; preds = %35
@@ -287,12 +287,12 @@ copy_bytes_.exit:                                 ; preds = %20, %.thread.i
 47:                                               ; preds = %41
   %48 = mul nuw i32 %37, 24
   %49 = zext i32 %48 to i64
-  %50 = tail call noalias noundef ptr @malloc(i64 noundef %49) #30
+  %50 = tail call noalias noundef ptr @malloc(i64 noundef %49) #32
   %51 = icmp eq ptr %50, null
   br i1 %51, label %52, label %.thread.i95
 
 .thread.i95:                                      ; preds = %47
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %50, ptr noundef nonnull readonly align 1 %44, i64 noundef %49, i1 noundef false) #31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %50, ptr noundef nonnull readonly align 1 %44, i64 noundef %49, i1 noundef false) #33
   br label %copy_bytes_.exit96
 
 copy_bytes_.exit96:                               ; preds = %41, %.thread.i95
@@ -302,7 +302,7 @@ copy_bytes_.exit96:                               ; preds = %41, %.thread.i95
 
 52:                                               ; preds = %47
   tail call void @FLAC__metadata_object_delete_data(ptr noundef nonnull %3)
-  tail call void @free(ptr noundef nonnull %3) #31
+  tail call void @free(ptr noundef nonnull %3) #33
   br label %199
 
 53:                                               ; preds = %4
@@ -313,7 +313,7 @@ copy_bytes_.exit96:                               ; preds = %41, %.thread.i95
   br i1 %.not86, label %58, label %57
 
 57:                                               ; preds = %53
-  tail call void @free(ptr noundef nonnull %56) #31
+  tail call void @free(ptr noundef nonnull %56) #33
   store ptr null, ptr %55, align 8, !tbaa !13
   br label %58
 
@@ -327,7 +327,7 @@ copy_bytes_.exit96:                               ; preds = %41, %.thread.i95
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %58
-  %65 = tail call noalias noundef dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #30
+  %65 = tail call noalias noundef dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #32
   store ptr %65, ptr %55, align 8, !tbaa !17
   %66 = icmp eq ptr %65, null
   br i1 %66, label %74, label %67
@@ -339,12 +339,12 @@ copy_bytes_.exit96:                               ; preds = %41, %.thread.i95
 68:                                               ; preds = %58
   %69 = zext i32 %60 to i64
   %70 = add nuw nsw i64 %69, 1
-  %71 = tail call noalias noundef ptr @malloc(i64 noundef %70) #30
+  %71 = tail call noalias noundef ptr @malloc(i64 noundef %70) #32
   %72 = icmp eq ptr %71, null
   br i1 %72, label %74, label %.thread.i97
 
 .thread.i97:                                      ; preds = %68
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %71, ptr noundef nonnull align 1 %62, i64 noundef %69, i1 noundef false) #31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %71, ptr noundef nonnull align 1 %62, i64 noundef %69, i1 noundef false) #33
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 %69
   store i8 0, ptr %73, align 1, !tbaa !13
   store ptr %71, ptr %55, align 8, !tbaa !17
@@ -352,7 +352,7 @@ copy_bytes_.exit96:                               ; preds = %41, %.thread.i95
 
 74:                                               ; preds = %64, %68
   tail call void @FLAC__metadata_object_delete_data(ptr noundef nonnull %3)
-  tail call void @free(ptr noundef nonnull %3) #31
+  tail call void @free(ptr noundef nonnull %3) #33
   br label %199
 
 copy_vcentry_.exit:                               ; preds = %.thread.i97, %67
@@ -365,7 +365,7 @@ copy_vcentry_.exit:                               ; preds = %.thread.i97, %67
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %80 = load ptr, ptr %79, align 8, !tbaa !13
   %81 = zext i32 %76 to i64
-  %82 = tail call noalias noundef ptr @calloc(i64 noundef range(i64 1, 4294967296) %81, i64 noundef 16) #28
+  %82 = tail call noalias noundef ptr @calloc(i64 noundef range(i64 1, 4294967296) %81, i64 noundef 16) #30
   %.not.i = icmp eq ptr %82, null
   br i1 %.not.i, label %104, label %.preheader.i
 
@@ -381,7 +381,7 @@ copy_vcentry_.exit:                               ; preds = %.thread.i97, %67
   br i1 %88, label %89, label %94
 
 89:                                               ; preds = %.preheader.i
-  %90 = tail call noalias noundef dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #30
+  %90 = tail call noalias noundef dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #32
   %91 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store ptr %90, ptr %91, align 8, !tbaa !17
   %92 = icmp eq ptr %90, null
@@ -397,12 +397,12 @@ copy_vcentry_.exit:                               ; preds = %.thread.i97, %67
 94:                                               ; preds = %.preheader.i
   %95 = zext i32 %85 to i64
   %96 = add nuw nsw i64 %95, 1
-  %97 = tail call noalias noundef ptr @malloc(i64 noundef %96) #30
+  %97 = tail call noalias noundef ptr @malloc(i64 noundef %96) #32
   %98 = icmp eq ptr %97, null
   br i1 %98, label %.lr.ph.i.i.preheader, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %94
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %97, ptr noundef nonnull align 1 %87, i64 noundef %95, i1 noundef false) #31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %97, ptr noundef nonnull align 1 %87, i64 noundef %95, i1 noundef false) #33
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 %95
   store i8 0, ptr %99, align 1, !tbaa !13
   %100 = getelementptr inbounds nuw i8, ptr %83, i64 8
@@ -414,13 +414,13 @@ copy_vcentry_.exit:                               ; preds = %.thread.i97, %67
   %101 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %82, i64 %indvars.iv.i.i
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8, !tbaa !17
-  tail call void @free(ptr noundef %103) #31
+  tail call void @free(ptr noundef %103) #33
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %81
   br i1 %exitcond.not.i.i, label %vorbiscomment_entry_array_delete_.exit.i, label %.lr.ph.i.i, !llvm.loop !18
 
 vorbiscomment_entry_array_delete_.exit.i:         ; preds = %.lr.ph.i.i
-  tail call void @free(ptr noundef nonnull %82) #31
+  tail call void @free(ptr noundef nonnull %82) #33
   br label %104
 
 copy_vcentry_.exit.i:                             ; preds = %.thread.i.i, %93
@@ -434,7 +434,7 @@ copy_vcentry_.exit.i:                             ; preds = %.thread.i.i, %93
   %106 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 0, ptr %106, align 8, !tbaa !13
   tail call void @FLAC__metadata_object_delete_data(ptr noundef nonnull %3)
-  tail call void @free(ptr noundef nonnull %3) #31
+  tail call void @free(ptr noundef nonnull %3) #33
   br label %199
 
 vorbiscomment_entry_array_copy_.exit:             ; preds = %copy_vcentry_.exit.i, %copy_vcentry_.exit
@@ -448,7 +448,7 @@ vorbiscomment_entry_array_copy_.exit:             ; preds = %copy_vcentry_.exit.
 109:                                              ; preds = %4
   %110 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(160) %110, ptr noundef nonnull align 1 dereferenceable(160) %111, i64 noundef 160, i1 noundef false) #31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(160) %110, ptr noundef nonnull align 1 dereferenceable(160) %111, i64 noundef 160, i1 noundef false) #33
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %113 = load i32, ptr %112, align 4, !tbaa !13
   %114 = icmp eq i32 %113, 0
@@ -458,7 +458,7 @@ vorbiscomment_entry_array_copy_.exit:             ; preds = %copy_vcentry_.exit.
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %117 = load ptr, ptr %116, align 8, !tbaa !13
   %118 = zext i32 %113 to i64
-  %119 = tail call noalias noundef ptr @calloc(i64 noundef range(i64 1, 4294967296) %118, i64 noundef 32) #28
+  %119 = tail call noalias noundef ptr @calloc(i64 noundef range(i64 1, 4294967296) %118, i64 noundef 32) #30
   %.not.i99 = icmp eq ptr %119, null
   br i1 %.not.i99, label %143, label %.preheader.i100
 
@@ -466,7 +466,7 @@ vorbiscomment_entry_array_copy_.exit:             ; preds = %copy_vcentry_.exit.
   %indvars.iv.i101 = phi i64 [ %indvars.iv.next.i103, %141 ], [ 0, %115 ]
   %120 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %119, i64 %indvars.iv.i101
   %121 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %117, i64 %indvars.iv.i101
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %120, ptr noundef nonnull readonly align 1 dereferenceable(32) %121, i64 noundef 32, i1 noundef false) #31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %120, ptr noundef nonnull readonly align 1 dereferenceable(32) %121, i64 noundef 32, i1 noundef false) #33
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %123 = load ptr, ptr %122, align 8, !tbaa !21
   %124 = icmp eq ptr %123, null
@@ -476,7 +476,7 @@ vorbiscomment_entry_array_copy_.exit:             ; preds = %copy_vcentry_.exit.
   %126 = getelementptr inbounds nuw i8, ptr %121, i64 23
   %127 = load i8, ptr %126, align 1, !tbaa !24
   %128 = zext i8 %127 to i64
-  %129 = tail call ptr @safe_malloc_mul_2op_p(i64 noundef %128, i64 noundef 16) #31
+  %129 = tail call ptr @safe_malloc_mul_2op_p(i64 noundef %128, i64 noundef 16) #33
   %130 = icmp eq ptr %129, null
   br i1 %130, label %.lr.ph.i.i106, label %.thread.i.i102
 
@@ -485,7 +485,7 @@ vorbiscomment_entry_array_copy_.exit:             ; preds = %copy_vcentry_.exit.
   %132 = load i8, ptr %126, align 1, !tbaa !24
   %133 = zext i8 %132 to i64
   %134 = shl nuw nsw i64 %133, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %129, ptr noundef nonnull align 1 %131, i64 noundef %134, i1 noundef false) #31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %129, ptr noundef nonnull align 1 %131, i64 noundef %134, i1 noundef false) #33
   %135 = getelementptr inbounds nuw i8, ptr %120, i64 24
   store ptr %129, ptr %135, align 8, !tbaa !21
   br label %141
@@ -499,7 +499,7 @@ vorbiscomment_entry_array_copy_.exit:             ; preds = %copy_vcentry_.exit.
   br i1 %.not.i.i, label %140, label %139
 
 139:                                              ; preds = %.lr.ph.i.i106
-  tail call void @free(ptr noundef nonnull %138) #31
+  tail call void @free(ptr noundef nonnull %138) #33
   br label %140
 
 140:                                              ; preds = %139, %.lr.ph.i.i106
@@ -508,7 +508,7 @@ vorbiscomment_entry_array_copy_.exit:             ; preds = %copy_vcentry_.exit.
   br i1 %exitcond.not.i.i109, label %cuesheet_track_array_delete_.exit.i, label %.lr.ph.i.i106, !llvm.loop !25
 
 cuesheet_track_array_delete_.exit.i:              ; preds = %140
-  tail call void @free(ptr noundef nonnull %119) #31
+  tail call void @free(ptr noundef nonnull %119) #33
   br label %143
 
 141:                                              ; preds = %.thread.i.i102, %.preheader.i100
@@ -525,7 +525,7 @@ cuesheet_track_array_copy_.exit:                  ; preds = %141
   %144 = getelementptr inbounds nuw i8, ptr %3, i64 168
   store ptr null, ptr %144, align 8, !tbaa !13
   tail call void @FLAC__metadata_object_delete_data(ptr noundef nonnull %3)
-  tail call void @free(ptr noundef nonnull %3) #31
+  tail call void @free(ptr noundef nonnull %3) #33
   br label %199
 
 145:                                              ; preds = %4
@@ -535,35 +535,35 @@ cuesheet_track_array_copy_.exit:                  ; preds = %141
   store i32 %147, ptr %148, align 8, !tbaa !13
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %150 = load ptr, ptr %149, align 8, !tbaa !13
-  %151 = tail call noalias ptr @strdup(ptr noundef readonly %150) #31
+  %151 = tail call noalias ptr @strdup(ptr noundef readonly %150) #33
   %.not.i110 = icmp eq ptr %151, null
   br i1 %.not.i110, label %152, label %153
 
 152:                                              ; preds = %145
   tail call void @FLAC__metadata_object_delete_data(ptr noundef nonnull %3)
-  tail call void @free(ptr noundef nonnull %3) #31
+  tail call void @free(ptr noundef nonnull %3) #33
   br label %199
 
 153:                                              ; preds = %145
   %154 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %155 = load ptr, ptr %154, align 8, !tbaa !10
-  tail call void @free(ptr noundef %155) #31
+  tail call void @free(ptr noundef %155) #33
   store ptr %151, ptr %154, align 8, !tbaa !10
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %157 = load ptr, ptr %156, align 8, !tbaa !13
-  %158 = tail call noalias ptr @strdup(ptr noundef readonly %157) #31
+  %158 = tail call noalias ptr @strdup(ptr noundef readonly %157) #33
   %.not.i111 = icmp eq ptr %158, null
   br i1 %.not.i111, label %159, label %160
 
 159:                                              ; preds = %153
   tail call void @FLAC__metadata_object_delete_data(ptr noundef nonnull %3)
-  tail call void @free(ptr noundef nonnull %3) #31
+  tail call void @free(ptr noundef nonnull %3) #33
   br label %199
 
 160:                                              ; preds = %153
   %161 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %162 = load ptr, ptr %161, align 8, !tbaa !10
-  tail call void @free(ptr noundef %162) #31
+  tail call void @free(ptr noundef %162) #33
   store ptr %158, ptr %161, align 8, !tbaa !10
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %164 = load i32, ptr %163, align 8, !tbaa !13
@@ -595,12 +595,12 @@ cuesheet_track_array_copy_.exit:                  ; preds = %141
 
 183:                                              ; preds = %160
   %184 = zext i32 %176 to i64
-  %185 = tail call noalias noundef ptr @malloc(i64 noundef %184) #30
+  %185 = tail call noalias noundef ptr @malloc(i64 noundef %184) #32
   %186 = icmp eq ptr %185, null
   br i1 %186, label %187, label %.thread.i118
 
 .thread.i118:                                     ; preds = %183
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %185, ptr noundef nonnull readonly align 1 %180, i64 noundef %184, i1 noundef false) #31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %185, ptr noundef nonnull readonly align 1 %180, i64 noundef %184, i1 noundef false) #33
   br label %copy_bytes_.exit119
 
 copy_bytes_.exit119:                              ; preds = %160, %.thread.i118
@@ -610,7 +610,7 @@ copy_bytes_.exit119:                              ; preds = %160, %.thread.i118
 
 187:                                              ; preds = %183
   tail call void @FLAC__metadata_object_delete_data(ptr noundef nonnull %3)
-  tail call void @free(ptr noundef nonnull %3) #31
+  tail call void @free(ptr noundef nonnull %3) #33
   br label %199
 
 188:                                              ; preds = %4
@@ -624,12 +624,12 @@ copy_bytes_.exit119:                              ; preds = %160, %.thread.i118
 
 194:                                              ; preds = %188
   %195 = zext i32 %10 to i64
-  %196 = tail call noalias noundef ptr @malloc(i64 noundef %195) #30
+  %196 = tail call noalias noundef ptr @malloc(i64 noundef %195) #32
   %197 = icmp eq ptr %196, null
   br i1 %197, label %198, label %.thread.i124
 
 .thread.i124:                                     ; preds = %194
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %196, ptr noundef nonnull readonly align 1 %191, i64 noundef %195, i1 noundef false) #31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %196, ptr noundef nonnull readonly align 1 %191, i64 noundef %195, i1 noundef false) #33
   br label %copy_bytes_.exit125
 
 copy_bytes_.exit125:                              ; preds = %188, %.thread.i124
@@ -639,7 +639,7 @@ copy_bytes_.exit125:                              ; preds = %188, %.thread.i124
 
 198:                                              ; preds = %194
   tail call void @FLAC__metadata_object_delete_data(ptr noundef nonnull %3)
-  tail call void @free(ptr noundef nonnull %3) #31
+  tail call void @free(ptr noundef nonnull %3) #33
   br label %199
 
 199:                                              ; preds = %copy_bytes_.exit125, %copy_bytes_.exit119, %cuesheet_track_array_copy_.exit, %copy_bytes_.exit96, %copy_bytes_.exit, %1, %109, %vorbiscomment_entry_array_copy_.exit, %12, %4, %198, %187, %159, %152, %143, %104, %74, %52, %40, %34, %19
@@ -647,15 +647,15 @@ copy_bytes_.exit125:                              ; preds = %188, %.thread.i124
   ret ptr %.0
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define void @FLAC__metadata_object_delete(ptr noundef captures(none) %0) local_unnamed_addr #4 {
+; Function Attrs: nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define void @FLAC__metadata_object_delete(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   tail call void @FLAC__metadata_object_delete_data(ptr noundef %0)
-  tail call void @free(ptr noundef %0) #31
+  tail call void @free(ptr noundef %0) #33
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define hidden void @FLAC__metadata_object_delete_data(ptr noundef captures(none) %0) local_unnamed_addr #4 {
+; Function Attrs: nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define hidden void @FLAC__metadata_object_delete_data(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = load i32, ptr %0, align 8, !tbaa !3
   switch i32 %2, label %47 [
     i32 0, label %51
@@ -674,7 +674,7 @@ define hidden void @FLAC__metadata_object_delete_data(ptr noundef captures(none)
   br i1 %.not46, label %51, label %6
 
 6:                                                ; preds = %3
-  tail call void @free(ptr noundef nonnull %5) #31
+  tail call void @free(ptr noundef nonnull %5) #33
   store ptr null, ptr %4, align 8, !tbaa !13
   br label %51
 
@@ -685,7 +685,7 @@ define hidden void @FLAC__metadata_object_delete_data(ptr noundef captures(none)
   br i1 %.not45, label %51, label %10
 
 10:                                               ; preds = %7
-  tail call void @free(ptr noundef nonnull %9) #31
+  tail call void @free(ptr noundef nonnull %9) #33
   store ptr null, ptr %8, align 8, !tbaa !13
   br label %51
 
@@ -696,7 +696,7 @@ define hidden void @FLAC__metadata_object_delete_data(ptr noundef captures(none)
   br i1 %.not43, label %15, label %14
 
 14:                                               ; preds = %11
-  tail call void @free(ptr noundef nonnull %13) #31
+  tail call void @free(ptr noundef nonnull %13) #33
   store ptr null, ptr %12, align 8, !tbaa !13
   br label %15
 
@@ -721,13 +721,13 @@ define hidden void @FLAC__metadata_object_delete_data(ptr noundef captures(none)
   %21 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %17, i64 %indvars.iv.i
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !17
-  tail call void @free(ptr noundef %23) #31
+  tail call void @free(ptr noundef %23) #33
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %vorbiscomment_entry_array_delete_.exit, label %.lr.ph.i, !llvm.loop !18
 
 vorbiscomment_entry_array_delete_.exit:           ; preds = %.lr.ph.i, %18
-  tail call void @free(ptr noundef nonnull %17) #31
+  tail call void @free(ptr noundef nonnull %17) #33
   store ptr null, ptr %16, align 8, !tbaa !13
   store i32 0, ptr %19, align 8, !tbaa !13
   br label %51
@@ -757,7 +757,7 @@ vorbiscomment_entry_array_delete_.exit:           ; preds = %.lr.ph.i, %18
   br i1 %.not.i52, label %34, label %33
 
 33:                                               ; preds = %.lr.ph.i50
-  tail call void @free(ptr noundef nonnull %32) #31
+  tail call void @free(ptr noundef nonnull %32) #33
   br label %34
 
 34:                                               ; preds = %33, %.lr.ph.i50
@@ -766,7 +766,7 @@ vorbiscomment_entry_array_delete_.exit:           ; preds = %.lr.ph.i, %18
   br i1 %exitcond.not.i54, label %cuesheet_track_array_delete_.exit, label %.lr.ph.i50, !llvm.loop !25
 
 cuesheet_track_array_delete_.exit:                ; preds = %34, %27
-  tail call void @free(ptr noundef nonnull %26) #31
+  tail call void @free(ptr noundef nonnull %26) #33
   store ptr null, ptr %25, align 8, !tbaa !13
   store i32 0, ptr %28, align 4, !tbaa !13
   br label %51
@@ -778,7 +778,7 @@ cuesheet_track_array_delete_.exit:                ; preds = %34, %27
   br i1 %.not, label %39, label %38
 
 38:                                               ; preds = %35
-  tail call void @free(ptr noundef nonnull %37) #31
+  tail call void @free(ptr noundef nonnull %37) #33
   store ptr null, ptr %36, align 8, !tbaa !13
   br label %39
 
@@ -789,7 +789,7 @@ cuesheet_track_array_delete_.exit:                ; preds = %34, %27
   br i1 %.not40, label %43, label %42
 
 42:                                               ; preds = %39
-  tail call void @free(ptr noundef nonnull %41) #31
+  tail call void @free(ptr noundef nonnull %41) #33
   store ptr null, ptr %40, align 8, !tbaa !13
   br label %43
 
@@ -800,7 +800,7 @@ cuesheet_track_array_delete_.exit:                ; preds = %34, %27
   br i1 %.not41, label %51, label %46
 
 46:                                               ; preds = %43
-  tail call void @free(ptr noundef nonnull %45) #31
+  tail call void @free(ptr noundef nonnull %45) #33
   store ptr null, ptr %44, align 8, !tbaa !13
   br label %51
 
@@ -811,7 +811,7 @@ cuesheet_track_array_delete_.exit:                ; preds = %34, %27
   br i1 %.not47, label %51, label %50
 
 50:                                               ; preds = %47
-  tail call void @free(ptr noundef nonnull %49) #31
+  tail call void @free(ptr noundef nonnull %49) #33
   store ptr null, ptr %48, align 8, !tbaa !13
   br label %51
 
@@ -819,8 +819,8 @@ cuesheet_track_array_delete_.exit:                ; preds = %34, %27
   ret void
 }
 
-; Function Attrs: nofree norecurse nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @FLAC__metadata_object_is_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
+; Function Attrs: nofree norecurse nounwind sspstrong memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define range(i32 0, 2) i32 @FLAC__metadata_object_is_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = load i32, ptr %0, align 8, !tbaa !3
   %4 = load i32, ptr %1, align 8, !tbaa !3
   %.not = icmp eq i32 %3, %4
@@ -920,7 +920,7 @@ compare_block_data_unknown_.exit:                 ; preds = %43, %46
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @compare_block_data_streaminfo_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @compare_block_data_streaminfo_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #7 {
   %3 = load i32, ptr %0, align 8, !tbaa !29
   %4 = load i32, ptr %1, align 8, !tbaa !29
   %.not = icmp eq i32 %3, %4
@@ -995,8 +995,8 @@ define internal fastcc range(i32 0, 2) i32 @compare_block_data_streaminfo_(ptr n
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @compare_block_data_application_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #7 {
+; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @compare_block_data_application_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #8 {
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) %1, i64 4)
   %.not = icmp eq i32 %bcmp, 0
   br i1 %.not, label %4, label %13
@@ -1030,8 +1030,8 @@ define internal fastcc range(i32 0, 2) i32 @compare_block_data_application_(ptr 
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @compare_block_data_seektable_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #8 {
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @compare_block_data_seektable_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #9 {
   %3 = load i32, ptr %0, align 8, !tbaa !40
   %4 = load i32, ptr %1, align 8, !tbaa !40
   %.not = icmp eq i32 %3, %4
@@ -1097,8 +1097,8 @@ define internal fastcc range(i32 0, 2) i32 @compare_block_data_seektable_(ptr no
   ret i32 %.021
 }
 
-; Function Attrs: nofree norecurse nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @compare_block_data_vorbiscomment_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #5 {
+; Function Attrs: nofree norecurse nounwind sspstrong memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @compare_block_data_vorbiscomment_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #6 {
   %3 = load i32, ptr %0, align 8, !tbaa !48
   %4 = load i32, ptr %1, align 8, !tbaa !48
   %.not = icmp eq i32 %3, %4
@@ -1182,9 +1182,9 @@ define internal fastcc range(i32 0, 2) i32 @compare_block_data_vorbiscomment_(pt
   ret i32 %.028
 }
 
-; Function Attrs: nofree norecurse nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @compare_block_data_cuesheet_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #5 {
-  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #29
+; Function Attrs: nofree norecurse nounwind sspstrong memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @compare_block_data_cuesheet_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #6 {
+  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #31
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %.loopexit82
 
@@ -1334,8 +1334,8 @@ define internal fastcc range(i32 0, 2) i32 @compare_block_data_cuesheet_(ptr nou
   ret i32 %.064
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @compare_block_data_picture_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #7 {
+; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @compare_block_data_picture_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #8 {
   %3 = load i32, ptr %0, align 8, !tbaa !66
   %4 = load i32, ptr %1, align 8, !tbaa !66
   %.not = icmp eq i32 %3, %4
@@ -1356,7 +1356,7 @@ define internal fastcc range(i32 0, 2) i32 @compare_block_data_picture_(ptr noun
   br i1 %or.cond, label %61, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %9) #29
+  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %9) #31
   %.not39 = icmp eq i32 %14, 0
   br i1 %.not39, label %15, label %61
 
@@ -1375,7 +1375,7 @@ define internal fastcc range(i32 0, 2) i32 @compare_block_data_picture_(ptr noun
   br i1 %or.cond49, label %61, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %19) #29
+  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %19) #31
   %.not41 = icmp eq i32 %24, 0
   br i1 %.not41, label %25, label %61
 
@@ -1447,7 +1447,7 @@ define internal fastcc range(i32 0, 2) i32 @compare_block_data_picture_(ptr noun
   ret i32 %.0
 }
 
-; Function Attrs: nounwind sspstrong uwtable
+; Function Attrs: nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @FLAC__metadata_object_application_set_data(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !13
@@ -1462,18 +1462,18 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_application_set_data(ptr nound
 
 10:                                               ; preds = %7
   %11 = zext i32 %2 to i64
-  %12 = tail call noalias noundef ptr @malloc(i64 noundef %11) #30
+  %12 = tail call noalias noundef ptr @malloc(i64 noundef %11) #32
   %13 = icmp eq ptr %12, null
   br i1 %13, label %copy_bytes_.exit.thread, label %.thread.i
 
 .thread.i:                                        ; preds = %10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %12, ptr noundef nonnull readonly align 1 %1, i64 noundef %11, i1 noundef false) #31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %12, ptr noundef nonnull readonly align 1 %1, i64 noundef %11, i1 noundef false) #33
   br label %copy_bytes_.exit
 
 copy_bytes_.exit:                                 ; preds = %4, %.thread.i, %7
   %storemerge = phi ptr [ %12, %.thread.i ], [ null, %7 ], [ %1, %4 ]
   store ptr %storemerge, ptr %5, align 8, !tbaa !13
-  tail call void @free(ptr noundef %6) #31
+  tail call void @free(ptr noundef %6) #33
   %14 = load i32, ptr @FLAC__STREAM_METADATA_APPLICATION_ID_LEN, align 4, !tbaa !9
   %15 = lshr i32 %14, 3
   %16 = add i32 %15, %2
@@ -1487,7 +1487,7 @@ copy_bytes_.exit.thread:                          ; preds = %10, %copy_bytes_.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_resize_points(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_resize_points(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = zext i32 %1 to i64
   %4 = mul nuw nsw i64 %3, 18
   %5 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4, !tbaa !9
@@ -1508,7 +1508,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_resize_points(ptr no
   br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %13
-  %16 = tail call ptr @safe_malloc_mul_2op_p(i64 noundef %3, i64 noundef 24) #31
+  %16 = tail call ptr @safe_malloc_mul_2op_p(i64 noundef %3, i64 noundef 24) #33
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %seekpoint_array_new_.exit.thread, label %.preheader.i
 
@@ -1547,11 +1547,11 @@ seekpoint_array_new_.exit:                        ; preds = %18
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %26
-  tail call void @free(ptr noundef nonnull %11) #31
+  tail call void @free(ptr noundef nonnull %11) #33
   br label %31
 
 29:                                               ; preds = %26
-  %30 = tail call ptr @realloc(ptr noundef nonnull %11, i64 noundef %24) #32
+  %30 = tail call ptr @realloc(ptr noundef nonnull %11, i64 noundef %24) #34
   %.not39 = icmp eq ptr %30, null
   br i1 %.not39, label %.critedge, label %31
 
@@ -1601,10 +1601,10 @@ seekpoint_array_new_.exit:                        ; preds = %18
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @FLAC__metadata_object_seektable_set_point(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly byval(%struct.FLAC__StreamMetadata_SeekPoint) align 8 captures(none) %2) local_unnamed_addr #10 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define void @FLAC__metadata_object_seektable_set_point(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly byval(%struct.FLAC__StreamMetadata_SeekPoint) align 8 captures(none) %2) local_unnamed_addr #12 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !13
   %6 = zext i32 %1 to i64
@@ -1614,10 +1614,10 @@ define void @FLAC__metadata_object_seektable_set_point(ptr noundef readonly capt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_insert_point(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly byval(%struct.FLAC__StreamMetadata_SeekPoint) align 8 captures(none) %2) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_insert_point(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly byval(%struct.FLAC__StreamMetadata_SeekPoint) align 8 captures(none) %2) local_unnamed_addr #10 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !13
   %6 = add i32 %5, 1
@@ -1669,7 +1669,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_insert_point(ptr nou
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_delete_point(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_delete_point(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !13
   %5 = add i32 %4, -1
@@ -1701,16 +1701,16 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_delete_point(ptr nou
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__metadata_object_seektable_is_legal(ptr noundef %0) local_unnamed_addr #4 {
+define i32 @FLAC__metadata_object_seektable_is_legal(ptr noundef %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = tail call i32 @FLAC__format_seektable_is_legal(ptr noundef nonnull %2) #31
+  %3 = tail call i32 @FLAC__format_seektable_is_legal(ptr noundef nonnull %2) #33
   ret i32 %3
 }
 
-declare i32 @FLAC__format_seektable_is_legal(ptr noundef) local_unnamed_addr #12
+declare i32 @FLAC__format_seektable_is_legal(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_template_append_placeholders(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_template_append_placeholders(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %8, label %3
 
@@ -1727,7 +1727,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_template_append_plac
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_template_append_point(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_template_append_point(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !40
   %5 = add i32 %4, 1
@@ -1755,7 +1755,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_template_append_poin
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_template_append_points(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_template_append_points(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #10 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.thread, label %4
 
@@ -1796,7 +1796,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_template_append_poin
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_template_append_spaced_points(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_template_append_spaced_points(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #10 {
   %4 = icmp ne i32 %1, 0
   %5 = icmp ne i64 %2, 0
   %or.cond = and i1 %4, %5
@@ -1866,7 +1866,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_template_append_spac
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_template_append_spaced_points_by_samples(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_template_append_spaced_points_by_samples(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #10 {
   %4 = icmp ne i32 %1, 0
   %5 = icmp ne i64 %2, 0
   %or.cond = and i1 %4, %5
@@ -1925,9 +1925,9 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_template_append_spac
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_template_sort(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_template_sort(ptr noundef %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = tail call i32 @FLAC__format_seektable_sort(ptr noundef nonnull %3) #31
+  %4 = tail call i32 @FLAC__format_seektable_sort(ptr noundef nonnull %3) #33
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %7, label %5
 
@@ -1940,15 +1940,15 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_template_sort(ptr no
   ret i32 %8
 }
 
-declare i32 @FLAC__format_seektable_sort(ptr noundef) local_unnamed_addr #12
+declare i32 @FLAC__format_seektable_sort(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_set_vendor_string(ptr noundef captures(none) %0, i32 %1, ptr %2, i32 noundef %3) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_set_vendor_string(ptr noundef captures(none) %0, i32 %1, ptr %2, i32 noundef %3) local_unnamed_addr #10 {
   %5 = alloca %struct.FLAC__StreamMetadata_VorbisComment_Entry, align 8
   store i32 %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %6, align 8
-  %7 = tail call i32 @FLAC__format_vorbiscomment_entry_value_is_legal(ptr noundef %2, i32 noundef %1) #31
+  %7 = tail call i32 @FLAC__format_vorbiscomment_entry_value_is_legal(ptr noundef %2, i32 noundef %1) #33
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %11, label %8
 
@@ -1962,9 +1962,9 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_set_vendor_strin
   ret i32 %.0
 }
 
-declare i32 @FLAC__format_vorbiscomment_entry_value_is_legal(ptr noundef, i32 noundef) local_unnamed_addr #12
+declare i32 @FLAC__format_vorbiscomment_entry_value_is_legal(ptr noundef, i32 noundef) local_unnamed_addr #14
 
-; Function Attrs: nounwind sspstrong uwtable
+; Function Attrs: nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 2) i32 @vorbiscomment_set_entry_(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef nonnull captures(none) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !17
@@ -1982,12 +1982,12 @@ define internal fastcc range(i32 0, 2) i32 @vorbiscomment_set_entry_(ptr noundef
   store i32 %10, ptr %1, align 8, !tbaa !15
   %12 = zext i32 %10 to i64
   %13 = add nuw nsw i64 %12, 1
-  %14 = tail call noalias noundef ptr @malloc(i64 noundef %13) #30
+  %14 = tail call noalias noundef ptr @malloc(i64 noundef %13) #32
   %15 = icmp eq ptr %14, null
   br i1 %15, label %vorbiscomment_calculate_length_.exit, label %copy_vcentry_.exit
 
 copy_vcentry_.exit:                               ; preds = %11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %14, ptr noundef nonnull align 1 %8, i64 noundef %12, i1 noundef false) #31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %14, ptr noundef nonnull align 1 %8, i64 noundef %12, i1 noundef false) #33
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 %12
   store i8 0, ptr %16, align 1, !tbaa !13
   store ptr %14, ptr %5, align 8, !tbaa !17
@@ -1996,7 +1996,7 @@ copy_vcentry_.exit:                               ; preds = %11
 17:                                               ; preds = %9
   %18 = zext i32 %10 to i64
   %19 = add nuw nsw i64 %18, 1
-  %20 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %8, i64 noundef %19) #32
+  %20 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %8, i64 noundef %19) #34
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %vorbiscomment_calculate_length_.exit, label %21
 
@@ -2012,7 +2012,7 @@ copy_vcentry_.exit:                               ; preds = %11
   br label %24
 
 24:                                               ; preds = %copy_vcentry_.exit, %21, %23
-  tail call void @free(ptr noundef %6) #31
+  tail call void @free(ptr noundef %6) #33
   %25 = load i32, ptr @FLAC__STREAM_METADATA_VORBIS_COMMENT_ENTRY_LENGTH_LEN, align 4, !tbaa !9
   %26 = lshr i32 %25, 3
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2054,8 +2054,8 @@ vorbiscomment_calculate_length_.exit:             ; preds = %17, %11, %._crit_ed
   ret i32 %.0
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_resize_comments(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
+; Function Attrs: nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_resize_comments(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   %5 = icmp eq ptr %4, null
@@ -2067,7 +2067,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_resize_comments(
 
 8:                                                ; preds = %6
   %9 = zext i32 %1 to i64
-  %10 = tail call noalias noundef ptr @calloc(i64 noundef range(i64 1, 4294967296) %9, i64 noundef 16) #28
+  %10 = tail call noalias noundef ptr @calloc(i64 noundef range(i64 1, 4294967296) %9, i64 noundef 16) #30
   store ptr %10, ptr %3, align 8, !tbaa !13
   %11 = icmp eq ptr %10, null
   br i1 %11, label %vorbiscomment_calculate_length_.exit, label %.preheader
@@ -2077,7 +2077,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_resize_comments(
   %12 = load ptr, ptr %3, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %12, i64 %indvars.iv90
   store i32 0, ptr %13, align 8, !tbaa !15
-  %14 = tail call noalias noundef dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #30
+  %14 = tail call noalias noundef dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #32
   %15 = load ptr, ptr %3, align 8, !tbaa !13
   %16 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %15, i64 %indvars.iv90
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -2125,7 +2125,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_resize_comments(
   br i1 %.not69, label %42, label %41
 
 41:                                               ; preds = %.lr.ph
-  tail call void @free(ptr noundef nonnull %40) #31
+  tail call void @free(ptr noundef nonnull %40) #33
   %.pre = load i32, ptr %29, align 8, !tbaa !13
   br label %42
 
@@ -2142,11 +2142,11 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_resize_comments(
   br i1 %46, label %48, label %49
 
 48:                                               ; preds = %.loopexit
-  tail call void @free(ptr noundef %47) #31
+  tail call void @free(ptr noundef %47) #33
   br label %51
 
 49:                                               ; preds = %.loopexit
-  %50 = tail call ptr @realloc(ptr noundef %47, i64 noundef %32) #32
+  %50 = tail call ptr @realloc(ptr noundef %47, i64 noundef %32) #34
   %.not = icmp eq ptr %50, null
   br i1 %.not, label %vorbiscomment_calculate_length_.exit, label %51
 
@@ -2170,7 +2170,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_resize_comments(
   %56 = load ptr, ptr %3, align 8, !tbaa !13
   %57 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %56, i64 %indvars.iv87
   store i32 0, ptr %57, align 8, !tbaa !15
-  %58 = tail call noalias noundef dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #30
+  %58 = tail call noalias noundef dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #32
   %59 = load ptr, ptr %3, align 8, !tbaa !13
   %60 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %59, i64 %indvars.iv87
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
@@ -2236,12 +2236,12 @@ vorbiscomment_calculate_length_.exit:             ; preds = %49, %28, %63, %8, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_set_comment(ptr noundef captures(none) %0, i32 noundef %1, i32 %2, ptr %3, i32 noundef %4) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_set_comment(ptr noundef captures(none) %0, i32 noundef %1, i32 %2, ptr %3, i32 noundef %4) local_unnamed_addr #10 {
   %6 = alloca %struct.FLAC__StreamMetadata_VorbisComment_Entry, align 8
   store i32 %2, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %3, ptr %7, align 8
-  %8 = tail call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef %3, i32 noundef %2) #31
+  %8 = tail call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef %3, i32 noundef %2) #33
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %15, label %9
 
@@ -2258,14 +2258,14 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_set_comment(ptr 
   ret i32 %.0
 }
 
-declare i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef, i32 noundef) local_unnamed_addr #12
+declare i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef, i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_insert_comment(ptr noundef captures(none) %0, i32 noundef %1, i32 %2, ptr %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_insert_comment(ptr noundef captures(none) %0, i32 noundef %1, i32 %2, ptr %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = alloca %struct.FLAC__StreamMetadata_VorbisComment_Entry, align 8
   %7 = alloca %struct.FLAC__StreamMetadata_VorbisComment_Entry, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %8 = tail call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef %3, i32 noundef %2) #31
+  %8 = tail call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef %3, i32 noundef %2) #33
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %38, label %9
 
@@ -2294,7 +2294,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_insert_comment(p
   %27 = add i32 %17, %26
   %28 = zext i32 %27 to i64
   %29 = shl nuw nsw i64 %28, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %23, ptr noundef nonnull align 1 %25, i64 noundef range(i64 0, 137438953441) %29, i1 noundef false) #31
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %23, ptr noundef nonnull align 1 %25, i64 noundef range(i64 0, 137438953441) %29, i1 noundef false) #33
   %30 = load ptr, ptr %15, align 8, !tbaa !52
   %31 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %30, i64 %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !86
@@ -2302,7 +2302,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_insert_comment(p
   store i32 %2, ptr %6, align 8
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %3, ptr %32, align 8
-  %33 = tail call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef %3, i32 noundef %2) #31
+  %33 = tail call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef %3, i32 noundef %2) #33
   %.not.i = icmp eq i32 %33, 0
   br i1 %.not.i, label %FLAC__metadata_object_vorbiscomment_set_comment.exit, label %34
 
@@ -2324,7 +2324,7 @@ FLAC__metadata_object_vorbiscomment_set_comment.exit: ; preds = %14, %34
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_append_comment(ptr noundef captures(none) %0, i32 %1, ptr %2, i32 noundef %3) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_append_comment(ptr noundef captures(none) %0, i32 %1, ptr %2, i32 noundef %3) local_unnamed_addr #10 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8, !tbaa !13
   %7 = tail call i32 @FLAC__metadata_object_vorbiscomment_insert_comment(ptr noundef %0, i32 noundef %6, i32 %1, ptr %2, i32 noundef %3)
@@ -2332,15 +2332,15 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_append_comment(p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_replace_comment(ptr noundef captures(none) %0, i32 %1, ptr %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_replace_comment(ptr noundef captures(none) %0, i32 %1, ptr %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = alloca %struct.FLAC__StreamMetadata_VorbisComment_Entry, align 8
-  %7 = tail call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef %2, i32 noundef %1) #31
+  %7 = tail call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef %2, i32 noundef %1) #33
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %.loopexit, label %8
 
 8:                                                ; preds = %5
   %9 = zext i32 %1 to i64
-  %10 = tail call ptr @memchr(ptr noundef %2, i32 noundef 61, i64 noundef %9) #29
+  %10 = tail call ptr @memchr(ptr noundef %2, i32 noundef 61, i64 noundef %9) #31
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit, label %12
 
@@ -2368,7 +2368,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_replace_comment(
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = zext i32 %24 to i64
-  %28 = tail call ptr @memchr(ptr noundef %26, i32 noundef 61, i64 noundef %27) #29
+  %28 = tail call ptr @memchr(ptr noundef %26, i32 noundef 61, i64 noundef %27) #31
   %.not.i.i = icmp ne ptr %28, null
   %29 = ptrtoint ptr %28 to i64
   %30 = ptrtoint ptr %26 to i64
@@ -2379,7 +2379,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_replace_comment(
   br i1 %or.cond.i.i, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit.i, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i
 
 FLAC__metadata_object_vorbiscomment_entry_matches.exit.i: ; preds = %22
-  %34 = tail call i32 @strncasecmp(ptr noundef readonly %2, ptr noundef %26, i64 noundef %17) #29
+  %34 = tail call i32 @strncasecmp(ptr noundef readonly %2, ptr noundef %26, i64 noundef %17) #31
   %.not.i = icmp eq i32 %34, 0
   br i1 %.not.i, label %vorbiscomment_find_entry_from_.exit, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i
 
@@ -2398,7 +2398,7 @@ vorbiscomment_find_entry_from_.exit:              ; preds = %FLAC__metadata_obje
   store i32 %1, ptr %6, align 8
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %39, align 8
-  %40 = tail call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef %2, i32 noundef %1) #31
+  %40 = tail call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef %2, i32 noundef %1) #33
   %.not.i48 = icmp eq i32 %40, 0
   br i1 %.not.i48, label %FLAC__metadata_object_vorbiscomment_set_comment.exit.thread, label %FLAC__metadata_object_vorbiscomment_set_comment.exit
 
@@ -2439,7 +2439,7 @@ FLAC__metadata_object_vorbiscomment_set_comment.exit: ; preds = %38
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = zext i32 %54 to i64
-  %58 = tail call ptr @memchr(ptr noundef %56, i32 noundef 61, i64 noundef %57) #29
+  %58 = tail call ptr @memchr(ptr noundef %56, i32 noundef 61, i64 noundef %57) #31
   %.not.i.i52 = icmp ne ptr %58, null
   %59 = ptrtoint ptr %58 to i64
   %60 = ptrtoint ptr %56 to i64
@@ -2450,7 +2450,7 @@ FLAC__metadata_object_vorbiscomment_set_comment.exit: ; preds = %38
   br i1 %or.cond.i.i53, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit.i58, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i54
 
 FLAC__metadata_object_vorbiscomment_entry_matches.exit.i58: ; preds = %52
-  %64 = tail call i32 @strncasecmp(ptr noundef readonly %.sroa.631.0.copyload, ptr noundef %56, i64 noundef %17) #29
+  %64 = tail call i32 @strncasecmp(ptr noundef readonly %.sroa.631.0.copyload, ptr noundef %56, i64 noundef %17) #31
   %.not.i59 = icmp eq i32 %64, 0
   br i1 %.not.i59, label %vorbiscomment_find_entry_from_.exit61, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i54
 
@@ -2472,7 +2472,7 @@ vorbiscomment_find_entry_from_.exit61:            ; preds = %FLAC__metadata_obje
   %69 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %67, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !17
-  tail call void @free(ptr noundef %71) #31
+  tail call void @free(ptr noundef %71) #33
   %72 = load ptr, ptr %20, align 8, !tbaa !52
   %73 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %72, i64 %68
   %74 = add nuw i32 %.04082, 1
@@ -2483,7 +2483,7 @@ vorbiscomment_find_entry_from_.exit61:            ; preds = %FLAC__metadata_obje
   %79 = add i32 %77, %78
   %80 = zext i32 %79 to i64
   %81 = shl nuw nsw i64 %80, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %73, ptr noundef nonnull align 1 %76, i64 noundef range(i64 0, 137438953441) %81, i1 noundef false) #31
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %73, ptr noundef nonnull align 1 %76, i64 noundef range(i64 0, 137438953441) %81, i1 noundef false) #33
   %82 = load ptr, ptr %20, align 8, !tbaa !52
   %83 = load i32, ptr %18, align 8, !tbaa !51
   %84 = add i32 %83, -1
@@ -2512,7 +2512,7 @@ vorbiscomment_find_entry_from_.exit61:            ; preds = %FLAC__metadata_obje
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %97 = load ptr, ptr %96, align 8
   %98 = zext i32 %95 to i64
-  %99 = tail call ptr @memchr(ptr noundef %97, i32 noundef 61, i64 noundef %98) #29
+  %99 = tail call ptr @memchr(ptr noundef %97, i32 noundef 61, i64 noundef %98) #31
   %.not.i.i65 = icmp ne ptr %99, null
   %100 = ptrtoint ptr %99 to i64
   %101 = ptrtoint ptr %97 to i64
@@ -2523,7 +2523,7 @@ vorbiscomment_find_entry_from_.exit61:            ; preds = %FLAC__metadata_obje
   br i1 %or.cond.i.i66, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit.i71, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i67
 
 FLAC__metadata_object_vorbiscomment_entry_matches.exit.i71: ; preds = %93
-  %105 = tail call i32 @strncasecmp(ptr noundef readonly %.sroa.631.0.copyload, ptr noundef %97, i64 noundef %17) #29
+  %105 = tail call i32 @strncasecmp(ptr noundef readonly %.sroa.631.0.copyload, ptr noundef %97, i64 noundef %17) #31
   %.not.i72 = icmp eq i32 %105, 0
   br i1 %.not.i72, label %vorbiscomment_find_entry_from_.exit74, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i67
 
@@ -2551,14 +2551,14 @@ vorbiscomment_find_entry_from_.exit.thread:       ; preds = %FLAC__metadata_obje
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_delete_comment(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_delete_comment(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !52
   %5 = zext i32 %1 to i64
   %6 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !17
-  tail call void @free(ptr noundef %8) #31
+  tail call void @free(ptr noundef %8) #33
   %9 = load ptr, ptr %3, align 8, !tbaa !52
   %10 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %9, i64 %5
   %11 = add i32 %1, 1
@@ -2570,7 +2570,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_delete_comment(p
   %17 = add i32 %15, %16
   %18 = zext i32 %17 to i64
   %19 = shl nuw nsw i64 %18, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %10, ptr noundef nonnull align 1 %13, i64 noundef range(i64 0, 137438953441) %19, i1 noundef false) #31
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %10, ptr noundef nonnull align 1 %13, i64 noundef range(i64 0, 137438953441) %19, i1 noundef false) #33
   %20 = load ptr, ptr %3, align 8, !tbaa !52
   %21 = load i32, ptr %14, align 8, !tbaa !51
   %22 = add i32 %21, -1
@@ -2584,19 +2584,19 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_delete_comment(p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_entry_from_name_value_pair(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @FLAC__format_vorbiscomment_entry_name_is_legal(ptr noundef %1) #31
+define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_entry_from_name_value_pair(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+  %4 = tail call i32 @FLAC__format_vorbiscomment_entry_name_is_legal(ptr noundef %1) #33
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.thread, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @FLAC__format_vorbiscomment_entry_value_is_legal(ptr noundef %2, i32 noundef -1) #31
+  %6 = tail call i32 @FLAC__format_vorbiscomment_entry_value_is_legal(ptr noundef %2, i32 noundef -1) #33
   %.not24 = icmp eq i32 %6, 0
   br i1 %.not24, label %.thread, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #29
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #29
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #31
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #31
   %10 = add i64 %8, 1
   %11 = add i64 %10, %9
   %12 = trunc i64 %11 to i32
@@ -2617,18 +2617,18 @@ safe_malloc_add_4op_.exit.thread:                 ; preds = %7, %14
 
 safe_malloc_add_4op_.exit:                        ; preds = %14
   %18 = add nuw i64 %11, 1
-  %19 = tail call noalias noundef ptr @malloc(i64 noundef %18) #30
+  %19 = tail call noalias noundef ptr @malloc(i64 noundef %18) #32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %19, ptr %20, align 8, !tbaa !17
   %21 = icmp eq ptr %19, null
   br i1 %21, label %.thread, label %22
 
 22:                                               ; preds = %safe_malloc_add_4op_.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %19, ptr noundef nonnull align 1 %1, i64 noundef %8, i1 noundef false) #31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %19, ptr noundef nonnull align 1 %1, i64 noundef %8, i1 noundef false) #33
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 %8
   store i8 61, ptr %23, align 1, !tbaa !13
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %24, ptr noundef nonnull align 1 %2, i64 noundef %9, i1 noundef false) #31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %24, ptr noundef nonnull align 1 %2, i64 noundef %9, i1 noundef false) #33
   %25 = and i64 %11, 4294967295
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 %25
   store i8 0, ptr %26, align 1, !tbaa !13
@@ -2639,17 +2639,17 @@ safe_malloc_add_4op_.exit:                        ; preds = %14
   ret i32 %.022
 }
 
-declare i32 @FLAC__format_vorbiscomment_entry_name_is_legal(ptr noundef) local_unnamed_addr #12
+declare i32 @FLAC__format_vorbiscomment_entry_name_is_legal(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_entry_to_name_value_pair(i32 %0, ptr %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
-  %5 = tail call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef %1, i32 noundef %0) #31
+define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_entry_to_name_value_pair(i32 %0, ptr %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #4 {
+  %5 = tail call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef %1, i32 noundef %0) #33
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.thread, label %6
 
 6:                                                ; preds = %4
   %7 = zext i32 %0 to i64
-  %8 = tail call ptr @memchr(ptr noundef %1, i32 noundef 61, i64 noundef %7) #29
+  %8 = tail call ptr @memchr(ptr noundef %1, i32 noundef 61, i64 noundef %7) #31
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %1 to i64
   %11 = sub i64 %9, %10
@@ -2668,7 +2668,7 @@ safe_malloc_add_2op_.exit.thread:                 ; preds = %15
 
 safe_malloc_add_2op_.exit:                        ; preds = %15
   %17 = add nuw i64 %11, 1
-  %18 = tail call noalias noundef ptr @malloc(i64 noundef %17) #30
+  %18 = tail call noalias noundef ptr @malloc(i64 noundef %17) #32
   store ptr %18, ptr %2, align 8, !tbaa !10
   %19 = icmp eq ptr %18, null
   br i1 %19, label %.thread, label %20
@@ -2683,23 +2683,23 @@ safe_malloc_add_2op_.exit26.thread:               ; preds = %20
 
 safe_malloc_add_2op_.exit26:                      ; preds = %20
   %22 = sub i64 %7, %11
-  %23 = tail call noalias noundef ptr @malloc(i64 noundef %22) #30
+  %23 = tail call noalias noundef ptr @malloc(i64 noundef %22) #32
   store ptr %23, ptr %3, align 8, !tbaa !10
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %safe_malloc_add_2op_.exit26.thread, %safe_malloc_add_2op_.exit26
   %26 = load ptr, ptr %2, align 8, !tbaa !10
-  tail call void @free(ptr noundef %26) #31
+  tail call void @free(ptr noundef %26) #33
   br label %.thread
 
 27:                                               ; preds = %safe_malloc_add_2op_.exit26
   %28 = load ptr, ptr %2, align 8, !tbaa !10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %28, ptr noundef nonnull align 1 %1, i64 noundef %11, i1 noundef false) #31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %28, ptr noundef nonnull align 1 %1, i64 noundef %11, i1 noundef false) #33
   %29 = load ptr, ptr %3, align 8, !tbaa !10
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 %11
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %29, ptr noundef nonnull align 1 %31, i64 noundef %13, i1 noundef false) #31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %29, ptr noundef nonnull align 1 %31, i64 noundef %13, i1 noundef false) #33
   %32 = load ptr, ptr %2, align 8, !tbaa !10
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %11
   store i8 0, ptr %33, align 1, !tbaa !13
@@ -2714,9 +2714,9 @@ safe_malloc_add_2op_.exit26:                      ; preds = %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(read) uwtable
-define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_entry_matches(i32 %0, ptr %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_entry_matches(i32 %0, ptr %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #15 {
   %5 = zext i32 %0 to i64
-  %6 = tail call ptr @memchr(ptr noundef %1, i32 noundef 61, i64 noundef %5) #29
+  %6 = tail call ptr @memchr(ptr noundef %1, i32 noundef 61, i64 noundef %5) #31
   %.not = icmp ne ptr %6, null
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %1 to i64
@@ -2728,7 +2728,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_entry_matches(i3
 
 12:                                               ; preds = %4
   %13 = zext i32 %3 to i64
-  %14 = tail call i32 @strncasecmp(ptr noundef %2, ptr noundef %1, i64 noundef %13) #29
+  %14 = tail call i32 @strncasecmp(ptr noundef %2, ptr noundef %1, i64 noundef %13) #31
   %15 = icmp eq i32 %14, 0
   %16 = zext i1 %15 to i32
   br label %17
@@ -2739,11 +2739,11 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_entry_matches(i3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #14
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree norecurse nounwind sspstrong memory(read) uwtable
-define i32 @FLAC__metadata_object_vorbiscomment_find_entry_from(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #15 {
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #29
+define i32 @FLAC__metadata_object_vorbiscomment_find_entry_from(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #17 {
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #31
   %5 = trunc i64 %4 to i32
   %6 = and i64 %4, 4294967295
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2764,7 +2764,7 @@ define i32 @FLAC__metadata_object_vorbiscomment_find_entry_from(ptr noundef read
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = zext i32 %15 to i64
-  %19 = tail call ptr @memchr(ptr noundef %17, i32 noundef 61, i64 noundef %18) #29
+  %19 = tail call ptr @memchr(ptr noundef %17, i32 noundef 61, i64 noundef %18) #31
   %.not.i.i = icmp ne ptr %19, null
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %17 to i64
@@ -2775,7 +2775,7 @@ define i32 @FLAC__metadata_object_vorbiscomment_find_entry_from(ptr noundef read
   br i1 %or.cond.i.i, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit.i, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i
 
 FLAC__metadata_object_vorbiscomment_entry_matches.exit.i: ; preds = %13
-  %25 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %2, ptr noundef %17, i64 noundef %6) #29
+  %25 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %2, ptr noundef %17, i64 noundef %6) #31
   %.not.i = icmp eq i32 %25, 0
   br i1 %.not.i, label %._crit_edge.loopexit.split.loop.exit15.i, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i
 
@@ -2795,8 +2795,8 @@ vorbiscomment_find_entry_from_.exit:              ; preds = %FLAC__metadata_obje
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 -1, 2) i32 @FLAC__metadata_object_vorbiscomment_remove_entry_matching(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #29
+define range(i32 -1, 2) i32 @FLAC__metadata_object_vorbiscomment_remove_entry_matching(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #31
   %4 = trunc i64 %3 to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8, !tbaa !13
@@ -2817,7 +2817,7 @@ define range(i32 -1, 2) i32 @FLAC__metadata_object_vorbiscomment_remove_entry_ma
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %12 to i64
-  %16 = tail call ptr @memchr(ptr noundef %14, i32 noundef 61, i64 noundef %15) #29
+  %16 = tail call ptr @memchr(ptr noundef %14, i32 noundef 61, i64 noundef %15) #31
   %.not.i = icmp ne ptr %16, null
   %17 = ptrtoint ptr %16 to i64
   %18 = ptrtoint ptr %14 to i64
@@ -2828,13 +2828,13 @@ define range(i32 -1, 2) i32 @FLAC__metadata_object_vorbiscomment_remove_entry_ma
   br i1 %or.cond.i, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread
 
 FLAC__metadata_object_vorbiscomment_entry_matches.exit: ; preds = %10
-  %22 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %1, ptr noundef %14, i64 noundef %9) #29
+  %22 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %1, ptr noundef %14, i64 noundef %9) #31
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %23, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread
 
 23:                                               ; preds = %FLAC__metadata_object_vorbiscomment_entry_matches.exit
   %24 = trunc nuw i64 %indvars.iv to i32
-  tail call void @free(ptr noundef %14) #31
+  tail call void @free(ptr noundef %14) #33
   %25 = load ptr, ptr %7, align 8, !tbaa !52
   %26 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %25, i64 %indvars.iv
   %27 = add nuw i64 %indvars.iv, 1
@@ -2845,7 +2845,7 @@ FLAC__metadata_object_vorbiscomment_entry_matches.exit: ; preds = %10
   %32 = add i32 %30, %31
   %33 = zext i32 %32 to i64
   %34 = shl nuw nsw i64 %33, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %26, ptr noundef nonnull align 1 %29, i64 noundef range(i64 0, 137438953441) %34, i1 noundef false) #31
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %26, ptr noundef nonnull align 1 %29, i64 noundef range(i64 0, 137438953441) %34, i1 noundef false) #33
   %35 = load ptr, ptr %7, align 8, !tbaa !52
   %36 = load i32, ptr %5, align 8, !tbaa !51
   %37 = add i32 %36, -1
@@ -2870,8 +2870,8 @@ FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread: ; preds = %10, %F
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #29
+define i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #31
   %4 = trunc i64 %3 to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8, !tbaa !13
@@ -2894,7 +2894,7 @@ define i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noun
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = zext i32 %14 to i64
-  %18 = tail call ptr @memchr(ptr noundef %16, i32 noundef 61, i64 noundef %17) #29
+  %18 = tail call ptr @memchr(ptr noundef %16, i32 noundef 61, i64 noundef %17) #31
   %.not.i = icmp ne ptr %18, null
   %19 = ptrtoint ptr %18 to i64
   %20 = ptrtoint ptr %16 to i64
@@ -2905,13 +2905,13 @@ define i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noun
   br i1 %or.cond.i, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread
 
 FLAC__metadata_object_vorbiscomment_entry_matches.exit: ; preds = %11
-  %24 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %1, ptr noundef %16, i64 noundef %9) #29
+  %24 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %1, ptr noundef %16, i64 noundef %9) #31
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %25, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread
 
 25:                                               ; preds = %FLAC__metadata_object_vorbiscomment_entry_matches.exit
   %26 = add i32 %.01519, 1
-  tail call void @free(ptr noundef %16) #31
+  tail call void @free(ptr noundef %16) #33
   %27 = load ptr, ptr %8, align 8, !tbaa !52
   %28 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %27, i64 %indvars.iv.next
   %29 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %27, i64 %indvars.iv
@@ -2920,7 +2920,7 @@ FLAC__metadata_object_vorbiscomment_entry_matches.exit: ; preds = %11
   %32 = sub i32 %30, %31
   %33 = zext i32 %32 to i64
   %34 = shl nuw nsw i64 %33, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %28, ptr noundef nonnull align 1 %29, i64 noundef range(i64 0, 137438953441) %34, i1 noundef false) #31
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %28, ptr noundef nonnull align 1 %29, i64 noundef range(i64 0, 137438953441) %34, i1 noundef false) #33
   %35 = load ptr, ptr %8, align 8, !tbaa !52
   %36 = load i32, ptr %5, align 8, !tbaa !51
   %37 = add i32 %36, -1
@@ -2950,19 +2950,19 @@ FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread: ; preds = %11, %F
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @FLAC__metadata_object_cuesheet_track_new() local_unnamed_addr #16 {
-  %1 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #28
+define noalias noundef ptr @FLAC__metadata_object_cuesheet_track_new() local_unnamed_addr #18 {
+  %1 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #30
   ret ptr %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define noalias noundef ptr @FLAC__metadata_object_cuesheet_track_clone(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = tail call noalias noundef dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #28
+define noalias noundef ptr @FLAC__metadata_object_cuesheet_track_clone(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+  %2 = tail call noalias noundef dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #30
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %copy_track_.exit.thread, label %3
 
 3:                                                ; preds = %1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %2, ptr noundef nonnull readonly align 1 dereferenceable(32) %0, i64 noundef 32, i1 noundef false) #31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %2, ptr noundef nonnull readonly align 1 dereferenceable(32) %0, i64 noundef 32, i1 noundef false) #33
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !21
   %6 = icmp eq ptr %5, null
@@ -2972,7 +2972,7 @@ define noalias noundef ptr @FLAC__metadata_object_cuesheet_track_clone(ptr nound
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %9 = load i8, ptr %8, align 1, !tbaa !24
   %10 = zext i8 %9 to i64
-  %11 = tail call ptr @safe_malloc_mul_2op_p(i64 noundef %10, i64 noundef 16) #31
+  %11 = tail call ptr @safe_malloc_mul_2op_p(i64 noundef %10, i64 noundef 16) #33
   %12 = icmp eq ptr %11, null
   br i1 %12, label %copy_track_.exit, label %.thread.i
 
@@ -2981,7 +2981,7 @@ define noalias noundef ptr @FLAC__metadata_object_cuesheet_track_clone(ptr nound
   %14 = load i8, ptr %8, align 1, !tbaa !24
   %15 = zext i8 %14 to i64
   %16 = shl nuw nsw i64 %15, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %11, ptr noundef nonnull align 1 %13, i64 noundef %16, i1 noundef false) #31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %11, ptr noundef nonnull align 1 %13, i64 noundef %16, i1 noundef false) #33
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %11, ptr %17, align 8, !tbaa !21
   br label %copy_track_.exit.thread
@@ -2993,11 +2993,11 @@ copy_track_.exit:                                 ; preds = %7
   br i1 %.not.i.i, label %FLAC__metadata_object_cuesheet_track_delete.exit, label %20
 
 20:                                               ; preds = %copy_track_.exit
-  tail call void @free(ptr noundef nonnull %19) #31
+  tail call void @free(ptr noundef nonnull %19) #33
   br label %FLAC__metadata_object_cuesheet_track_delete.exit
 
 FLAC__metadata_object_cuesheet_track_delete.exit: ; preds = %copy_track_.exit, %20
-  tail call void @free(ptr noundef nonnull %2) #31
+  tail call void @free(ptr noundef nonnull %2) #33
   br label %copy_track_.exit.thread
 
 copy_track_.exit.thread:                          ; preds = %3, %.thread.i, %1, %FLAC__metadata_object_cuesheet_track_delete.exit
@@ -3005,38 +3005,38 @@ copy_track_.exit.thread:                          ; preds = %3, %.thread.i, %1, 
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define void @FLAC__metadata_object_cuesheet_track_delete(ptr noundef captures(none) %0) local_unnamed_addr #17 {
+; Function Attrs: mustprogress nounwind sspstrong willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define void @FLAC__metadata_object_cuesheet_track_delete(ptr noundef captures(none) %0) local_unnamed_addr #19 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !21
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %FLAC__metadata_object_cuesheet_track_delete_data.exit, label %4
 
 4:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %3) #31
+  tail call void @free(ptr noundef nonnull %3) #33
   br label %FLAC__metadata_object_cuesheet_track_delete_data.exit
 
 FLAC__metadata_object_cuesheet_track_delete_data.exit: ; preds = %1, %4
-  tail call void @free(ptr noundef nonnull %0) #31
+  tail call void @free(ptr noundef nonnull %0) #33
   ret void
 }
 
-; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden void @FLAC__metadata_object_cuesheet_track_delete_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
+; Function Attrs: mustprogress nounwind sspstrong willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define hidden void @FLAC__metadata_object_cuesheet_track_delete_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #19 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !21
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %3) #31
+  tail call void @free(ptr noundef nonnull %3) #33
   br label %5
 
 5:                                                ; preds = %4, %1
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
+; Function Attrs: nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_track_resize_indices(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8, !tbaa !13
@@ -3053,7 +3053,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_track_resize_indices(
 
 13:                                               ; preds = %11
   %14 = zext i32 %2 to i64
-  %15 = tail call noalias noundef ptr @calloc(i64 noundef range(i64 1, 4294967296) %14, i64 noundef 16) #28
+  %15 = tail call noalias noundef ptr @calloc(i64 noundef range(i64 1, 4294967296) %14, i64 noundef 16) #30
   store ptr %15, ptr %8, align 8, !tbaa !21
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.critedge35, label %.critedge
@@ -3073,11 +3073,11 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_track_resize_indices(
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %25
-  tail call void @free(ptr noundef nonnull %9) #31
+  tail call void @free(ptr noundef nonnull %9) #33
   br label %30
 
 28:                                               ; preds = %25
-  %29 = tail call ptr @realloc(ptr noundef nonnull %9, i64 noundef %23) #32
+  %29 = tail call ptr @realloc(ptr noundef nonnull %9, i64 noundef %23) #34
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %.critedge35, label %30
 
@@ -3092,7 +3092,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_track_resize_indices(
   %35 = zext i8 %34 to i64
   %36 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %31, i64 %35
   %37 = sub nuw nsw i64 %23, %21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %36, i8 noundef 0, i64 noundef range(i64 -137438953438, 137438953441) %37, i1 noundef false) #31
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %36, i8 noundef 0, i64 noundef range(i64 -137438953438, 137438953441) %37, i1 noundef false) #33
   br label %.critedge
 
 .critedge:                                        ; preds = %33, %30, %13
@@ -3166,7 +3166,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_track_resize_indices(
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_track_insert_index(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i64 %3, i8 %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_track_insert_index(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i64 %3, i8 %4) local_unnamed_addr #4 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %7 = load ptr, ptr %6, align 8, !tbaa !13
   %8 = zext i32 %1 to i64
@@ -3193,7 +3193,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_track_insert_index(pt
   %26 = add i32 %24, %25
   %27 = zext i32 %26 to i64
   %28 = shl nuw nsw i64 %27, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %20, ptr noundef nonnull align 1 %22, i64 noundef range(i64 0, 137438953441) %28, i1 noundef false) #31
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %20, ptr noundef nonnull align 1 %22, i64 noundef range(i64 0, 137438953441) %28, i1 noundef false) #33
   %29 = load ptr, ptr %16, align 8, !tbaa !21
   %30 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %29, i64 %21
   store i64 %3, ptr %30, align 8, !tbaa !76
@@ -3266,13 +3266,13 @@ cuesheet_calculate_length_.exit:                  ; preds = %._crit_edge.i, %15,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_track_insert_blank_index(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_track_insert_blank_index(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = tail call i32 @FLAC__metadata_object_cuesheet_track_insert_index(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 0, i8 0)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define noundef i32 @FLAC__metadata_object_cuesheet_track_delete_index(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define noundef i32 @FLAC__metadata_object_cuesheet_track_delete_index(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8, !tbaa !13
   %6 = zext i32 %1 to i64
@@ -3291,7 +3291,7 @@ define noundef i32 @FLAC__metadata_object_cuesheet_track_delete_index(ptr nounde
   %19 = add i32 %17, %18
   %20 = zext i32 %19 to i64
   %21 = shl nuw nsw i64 %20, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %11, ptr noundef nonnull align 1 %14, i64 noundef range(i64 0, 137438953441) %21, i1 noundef false) #31
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %11, ptr noundef nonnull align 1 %14, i64 noundef range(i64 0, 137438953441) %21, i1 noundef false) #33
   %22 = load i8, ptr %15, align 1, !tbaa !24
   %23 = zext i8 %22 to i32
   %24 = add nsw i32 %23, -1
@@ -3361,7 +3361,7 @@ cuesheet_calculate_length_.exit:                  ; preds = %3, %._crit_edge.i
   ret i32 1
 }
 
-; Function Attrs: nounwind sspstrong uwtable
+; Function Attrs: nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_resize_tracks(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8, !tbaa !13
@@ -3374,7 +3374,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_resize_tracks(ptr nou
 
 8:                                                ; preds = %6
   %9 = zext i32 %1 to i64
-  %10 = tail call noalias noundef ptr @calloc(i64 noundef range(i64 1, 4294967296) %9, i64 noundef 32) #28
+  %10 = tail call noalias noundef ptr @calloc(i64 noundef range(i64 1, 4294967296) %9, i64 noundef 32) #30
   store ptr %10, ptr %3, align 8, !tbaa !13
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.critedge, label %.critedge.thread
@@ -3399,7 +3399,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_resize_tracks(ptr nou
   %23 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %22, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !21
-  tail call void @free(ptr noundef %25) #31
+  tail call void @free(ptr noundef %25) #33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load i32, ptr %13, align 4, !tbaa !13
   %27 = zext i32 %26 to i64
@@ -3412,11 +3412,11 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_resize_tracks(ptr nou
   br i1 %29, label %31, label %32
 
 31:                                               ; preds = %.loopexit
-  tail call void @free(ptr noundef %30) #31
+  tail call void @free(ptr noundef %30) #33
   br label %34
 
 32:                                               ; preds = %.loopexit
-  %33 = tail call ptr @realloc(ptr noundef %30, i64 noundef %18) #32
+  %33 = tail call ptr @realloc(ptr noundef %30, i64 noundef %18) #34
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %.critedge, label %34
 
@@ -3431,7 +3431,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_resize_tracks(ptr nou
   %39 = zext i32 %38 to i64
   %40 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %35, i64 %39
   %41 = sub nuw nsw i64 %18, %16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %40, i8 noundef 0, i64 noundef range(i64 -137438953438, 137438953441) %41, i1 noundef false) #31
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %40, i8 noundef 0, i64 noundef range(i64 -137438953438, 137438953441) %41, i1 noundef false) #33
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %34, %37, %8
@@ -3502,7 +3502,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_resize_tracks(ptr nou
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_set_track(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_set_track(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = load ptr, ptr %5, align 8, !tbaa !13
   %7 = zext i32 %1 to i64
@@ -3523,7 +3523,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_set_track(ptr noundef
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 23
   %17 = load i8, ptr %16, align 1, !tbaa !24
   %18 = zext i8 %17 to i64
-  %19 = tail call ptr @safe_malloc_mul_2op_p(i64 noundef %18, i64 noundef 16) #31
+  %19 = tail call ptr @safe_malloc_mul_2op_p(i64 noundef %18, i64 noundef 16) #33
   %20 = icmp eq ptr %19, null
   br i1 %20, label %cuesheet_set_track_.exit, label %.thread.i.i
 
@@ -3532,12 +3532,12 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_set_track(ptr noundef
   %22 = load i8, ptr %16, align 1, !tbaa !24
   %23 = zext i8 %22 to i64
   %24 = shl nuw nsw i64 %23, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %19, ptr noundef nonnull align 1 %21, i64 noundef %24, i1 noundef false) #31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %19, ptr noundef nonnull align 1 %21, i64 noundef %24, i1 noundef false) #33
   store ptr %19, ptr %9, align 8, !tbaa !21
   br label %copy_track_.exit.thread.i
 
 copy_track_.exit.thread.i:                        ; preds = %4, %.thread.i.i, %11
-  tail call void @free(ptr noundef %10) #31
+  tail call void @free(ptr noundef %10) #33
   %25 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_MEDIA_CATALOG_NUMBER_LEN, align 4, !tbaa !9
   %26 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_LEAD_IN_LEN, align 4, !tbaa !9
   %27 = add i32 %26, %25
@@ -3605,7 +3605,7 @@ cuesheet_set_track_.exit:                         ; preds = %15, %copy_track_.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_insert_track(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_insert_track(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %6 = load i32, ptr %5, align 4, !tbaa !57
   %7 = add i32 %6, 1
@@ -3626,7 +3626,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_insert_track(ptr noun
   %19 = add i32 %17, %18
   %20 = zext i32 %19 to i64
   %21 = shl nuw nsw i64 %20, 5
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %14, ptr noundef nonnull align 1 %16, i64 noundef range(i64 0, 137438953441) %21, i1 noundef false) #31
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %14, ptr noundef nonnull align 1 %16, i64 noundef range(i64 0, 137438953441) %21, i1 noundef false) #33
   %22 = load ptr, ptr %10, align 8, !tbaa !58
   %23 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %22, i64 %15
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 23
@@ -3642,7 +3642,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_insert_track(ptr noun
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_insert_blank_track(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_insert_blank_track(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %4 = load i32, ptr %3, align 4, !tbaa !57
   %5 = add i32 %4, 1
@@ -3663,7 +3663,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_insert_blank_track(pt
   %17 = add i32 %15, %16
   %18 = zext i32 %17 to i64
   %19 = shl nuw nsw i64 %18, 5
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %12, ptr noundef nonnull align 1 %14, i64 noundef range(i64 0, 137438953441) %19, i1 noundef false) #31
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %12, ptr noundef nonnull align 1 %14, i64 noundef range(i64 0, 137438953441) %19, i1 noundef false) #33
   %20 = load ptr, ptr %8, align 8, !tbaa !58
   %21 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %20, i64 %13
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 23
@@ -3675,7 +3675,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_insert_blank_track(pt
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8, !tbaa !21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 32, i1 false)
-  tail call void @free(ptr noundef %27) #31
+  tail call void @free(ptr noundef %27) #33
   %28 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_MEDIA_CATALOG_NUMBER_LEN, align 4, !tbaa !9
   %29 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_LEAD_IN_LEN, align 4, !tbaa !9
   %30 = add i32 %29, %28
@@ -3742,14 +3742,14 @@ FLAC__metadata_object_cuesheet_insert_track.exit: ; preds = %._crit_edge.i.i.i, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_delete_track(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_delete_track(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8, !tbaa !58
   %5 = zext i32 %1 to i64
   %6 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !21
-  tail call void @free(ptr noundef %8) #31
+  tail call void @free(ptr noundef %8) #33
   %9 = load ptr, ptr %3, align 8, !tbaa !58
   %10 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %9, i64 %5
   %11 = add i32 %1, 1
@@ -3761,7 +3761,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_delete_track(ptr noun
   %17 = add i32 %15, %16
   %18 = zext i32 %17 to i64
   %19 = shl nuw nsw i64 %18, 5
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %10, ptr noundef nonnull align 1 %13, i64 noundef range(i64 0, 137438953441) %19, i1 noundef false) #31
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %10, ptr noundef nonnull align 1 %13, i64 noundef range(i64 0, 137438953441) %19, i1 noundef false) #33
   %20 = load ptr, ptr %3, align 8, !tbaa !58
   %21 = load i32, ptr %14, align 4, !tbaa !57
   %22 = add i32 %21, -1
@@ -3776,16 +3776,16 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_delete_track(ptr noun
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__metadata_object_cuesheet_is_legal(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define i32 @FLAC__metadata_object_cuesheet_is_legal(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #10 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = tail call i32 @FLAC__format_cuesheet_is_legal(ptr noundef nonnull %4, i32 noundef %1, ptr noundef %2) #31
+  %5 = tail call i32 @FLAC__format_cuesheet_is_legal(ptr noundef nonnull %4, i32 noundef %1, ptr noundef %2) #33
   ret i32 %5
 }
 
-declare i32 @FLAC__format_cuesheet_is_legal(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #12
+declare i32 @FLAC__format_cuesheet_is_legal(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #14
 
-; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define i32 @FLAC__metadata_object_cuesheet_calculate_cddb_id(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define i32 @FLAC__metadata_object_cuesheet_calculate_cddb_id(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %3 = load i32, ptr %2, align 4, !tbaa !57
   %4 = icmp ult i32 %3, 2
@@ -3924,7 +3924,7 @@ get_index_01_offset_.exit24:                      ; preds = %40, %59, %61, %.sin
   ret i32 %.015
 }
 
-; Function Attrs: nounwind sspstrong uwtable
+; Function Attrs: nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @FLAC__metadata_object_picture_set_mime_type(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !13
@@ -3932,13 +3932,13 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_picture_set_mime_type(ptr noun
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #29
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #31
   %8 = trunc i64 %7 to i32
   br label %9
 
 9:                                                ; preds = %3, %6
   %10 = phi i32 [ %8, %6 ], [ 0, %3 ]
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #29
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #31
   %.not18 = icmp eq i32 %2, 0
   br i1 %.not18, label %.copy_bytes_.exit_crit_edge, label %12
 
@@ -3958,19 +3958,19 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_picture_set_mime_type(ptr noun
 
 17:                                               ; preds = %14
   %18 = zext i32 %16 to i64
-  %19 = tail call noalias noundef ptr @malloc(i64 noundef %18) #30
+  %19 = tail call noalias noundef ptr @malloc(i64 noundef %18) #32
   %20 = icmp eq ptr %19, null
   br i1 %20, label %copy_bytes_.exit.thread, label %.thread.i
 
 .thread.i:                                        ; preds = %17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %19, ptr noundef nonnull readonly align 1 %1, i64 noundef %18, i1 noundef false) #31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %19, ptr noundef nonnull readonly align 1 %1, i64 noundef %18, i1 noundef false) #33
   br label %copy_bytes_.exit
 
 copy_bytes_.exit:                                 ; preds = %.copy_bytes_.exit_crit_edge, %.thread.i, %14
   %.pre-phi = phi i32 [ %.pre, %.copy_bytes_.exit_crit_edge ], [ %15, %.thread.i ], [ -1, %14 ]
   %storemerge = phi ptr [ %1, %.copy_bytes_.exit_crit_edge ], [ %19, %.thread.i ], [ null, %14 ]
   store ptr %storemerge, ptr %4, align 8, !tbaa !13
-  tail call void @free(ptr noundef %5) #31
+  tail call void @free(ptr noundef %5) #33
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load i32, ptr %21, align 8, !tbaa !8
   %23 = sub i32 %.pre-phi, %10
@@ -3983,7 +3983,7 @@ copy_bytes_.exit.thread:                          ; preds = %17, %12, %copy_byte
   ret i32 %.0
 }
 
-; Function Attrs: nounwind sspstrong uwtable
+; Function Attrs: nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @FLAC__metadata_object_picture_set_description(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !13
@@ -3991,13 +3991,13 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_picture_set_description(ptr no
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #29
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #31
   %8 = trunc i64 %7 to i32
   br label %9
 
 9:                                                ; preds = %3, %6
   %10 = phi i32 [ %8, %6 ], [ 0, %3 ]
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #29
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #31
   %.not18 = icmp eq i32 %2, 0
   br i1 %.not18, label %.copy_bytes_.exit_crit_edge, label %12
 
@@ -4017,19 +4017,19 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_picture_set_description(ptr no
 
 17:                                               ; preds = %14
   %18 = zext i32 %16 to i64
-  %19 = tail call noalias noundef ptr @malloc(i64 noundef %18) #30
+  %19 = tail call noalias noundef ptr @malloc(i64 noundef %18) #32
   %20 = icmp eq ptr %19, null
   br i1 %20, label %copy_bytes_.exit.thread, label %.thread.i
 
 .thread.i:                                        ; preds = %17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %19, ptr noundef nonnull readonly align 1 %1, i64 noundef %18, i1 noundef false) #31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %19, ptr noundef nonnull readonly align 1 %1, i64 noundef %18, i1 noundef false) #33
   br label %copy_bytes_.exit
 
 copy_bytes_.exit:                                 ; preds = %.copy_bytes_.exit_crit_edge, %.thread.i, %14
   %.pre-phi = phi i32 [ %.pre, %.copy_bytes_.exit_crit_edge ], [ %15, %.thread.i ], [ -1, %14 ]
   %storemerge = phi ptr [ %1, %.copy_bytes_.exit_crit_edge ], [ %19, %.thread.i ], [ null, %14 ]
   store ptr %storemerge, ptr %4, align 8, !tbaa !13
-  tail call void @free(ptr noundef %5) #31
+  tail call void @free(ptr noundef %5) #33
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load i32, ptr %21, align 8, !tbaa !8
   %23 = sub i32 %.pre-phi, %10
@@ -4042,7 +4042,7 @@ copy_bytes_.exit.thread:                          ; preds = %17, %12, %copy_byte
   ret i32 %.0
 }
 
-; Function Attrs: nounwind sspstrong uwtable
+; Function Attrs: nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @FLAC__metadata_object_picture_set_data(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8, !tbaa !13
@@ -4057,18 +4057,18 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_picture_set_data(ptr noundef c
 
 10:                                               ; preds = %7
   %11 = zext i32 %2 to i64
-  %12 = tail call noalias noundef ptr @malloc(i64 noundef %11) #30
+  %12 = tail call noalias noundef ptr @malloc(i64 noundef %11) #32
   %13 = icmp eq ptr %12, null
   br i1 %13, label %copy_bytes_.exit.thread, label %.thread.i
 
 .thread.i:                                        ; preds = %10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %12, ptr noundef nonnull readonly align 1 %1, i64 noundef %11, i1 noundef false) #31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %12, ptr noundef nonnull readonly align 1 %1, i64 noundef %11, i1 noundef false) #33
   br label %copy_bytes_.exit
 
 copy_bytes_.exit:                                 ; preds = %4, %.thread.i, %7
   %storemerge = phi ptr [ %12, %.thread.i ], [ null, %7 ], [ %1, %4 ]
   store ptr %storemerge, ptr %5, align 8, !tbaa !13
-  tail call void @free(ptr noundef %6) #31
+  tail call void @free(ptr noundef %6) #33
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load i32, ptr %14, align 8, !tbaa !13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4085,49 +4085,49 @@ copy_bytes_.exit.thread:                          ; preds = %10, %copy_bytes_.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @FLAC__metadata_object_picture_is_legal(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define i32 @FLAC__metadata_object_picture_is_legal(ptr noundef %0, ptr noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = tail call i32 @FLAC__format_picture_is_legal(ptr noundef nonnull %3, ptr noundef %1) #31
+  %4 = tail call i32 @FLAC__format_picture_is_legal(ptr noundef nonnull %3, ptr noundef %1) #33
   ret i32 %4
 }
 
-declare i32 @FLAC__format_picture_is_legal(ptr noundef, ptr noundef) local_unnamed_addr #12
+declare i32 @FLAC__format_picture_is_legal(ptr noundef, ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind sspstrong uwtable
-define noundef ptr @FLAC__metadata_object_get_raw(ptr noundef %0) local_unnamed_addr #0 {
+define noundef ptr @FLAC__metadata_object_get_raw(ptr noundef %0) local_unnamed_addr #4 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = tail call ptr @FLAC__bitwriter_new() #31
+  %4 = tail call ptr @FLAC__bitwriter_new() #33
   %5 = icmp eq ptr %4, null
   br i1 %5, label %28, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call i32 @FLAC__bitwriter_init(ptr noundef nonnull %4) #31
+  %7 = tail call i32 @FLAC__bitwriter_init(ptr noundef nonnull %4) #33
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %6
-  tail call void @FLAC__bitwriter_delete(ptr noundef nonnull %4) #31
+  tail call void @FLAC__bitwriter_delete(ptr noundef nonnull %4) #33
   br label %28
 
 9:                                                ; preds = %6
-  %10 = tail call i32 @FLAC__add_metadata_block(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 0) #31
+  %10 = tail call i32 @FLAC__add_metadata_block(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 0) #33
   %.not18 = icmp eq i32 %10, 0
   br i1 %.not18, label %11, label %12
 
 11:                                               ; preds = %9
-  tail call void @FLAC__bitwriter_delete(ptr noundef nonnull %4) #31
+  tail call void @FLAC__bitwriter_delete(ptr noundef nonnull %4) #33
   br label %28
 
 12:                                               ; preds = %9
-  %13 = call i32 @FLAC__bitwriter_get_buffer(ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %3) #31
+  %13 = call i32 @FLAC__bitwriter_get_buffer(ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %3) #33
   %.not19 = icmp eq i32 %13, 0
   br i1 %.not19, label %14, label %15
 
 14:                                               ; preds = %12
-  call void @FLAC__bitwriter_delete(ptr noundef nonnull %4) #31
+  call void @FLAC__bitwriter_delete(ptr noundef nonnull %4) #33
   br label %28
 
 15:                                               ; preds = %12
@@ -4140,23 +4140,23 @@ define noundef ptr @FLAC__metadata_object_get_raw(ptr noundef %0) local_unnamed_
   br i1 %.not20, label %22, label %21
 
 21:                                               ; preds = %15
-  call void @FLAC__bitwriter_delete(ptr noundef nonnull %4) #31
+  call void @FLAC__bitwriter_delete(ptr noundef nonnull %4) #33
   br label %28
 
 22:                                               ; preds = %15
   %spec.select.i = call i64 @llvm.umax.i64(i64 %16, i64 1)
-  %23 = call noalias noundef ptr @malloc(i64 noundef %spec.select.i) #30
+  %23 = call noalias noundef ptr @malloc(i64 noundef %spec.select.i) #32
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %22
-  call void @FLAC__bitwriter_delete(ptr noundef nonnull %4) #31
+  call void @FLAC__bitwriter_delete(ptr noundef nonnull %4) #33
   br label %28
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %2, align 8, !tbaa !10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %23, ptr noundef nonnull align 1 %27, i64 noundef %16, i1 noundef false) #31
-  call void @FLAC__bitwriter_delete(ptr noundef nonnull %4) #31
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %23, ptr noundef nonnull align 1 %27, i64 noundef %16, i1 noundef false) #33
+  call void @FLAC__bitwriter_delete(ptr noundef nonnull %4) #33
   br label %28
 
 28:                                               ; preds = %1, %26, %25, %21, %14, %11, %8
@@ -4166,18 +4166,18 @@ define noundef ptr @FLAC__metadata_object_get_raw(ptr noundef %0) local_unnamed_
   ret ptr %.0
 }
 
-declare ptr @FLAC__bitwriter_new() local_unnamed_addr #12
+declare ptr @FLAC__bitwriter_new() local_unnamed_addr #14
 
-declare i32 @FLAC__bitwriter_init(ptr noundef) local_unnamed_addr #12
+declare i32 @FLAC__bitwriter_init(ptr noundef) local_unnamed_addr #14
 
-declare void @FLAC__bitwriter_delete(ptr noundef) local_unnamed_addr #12
+declare void @FLAC__bitwriter_delete(ptr noundef) local_unnamed_addr #14
 
-declare i32 @FLAC__add_metadata_block(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #12
+declare i32 @FLAC__add_metadata_block(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #14
 
-declare i32 @FLAC__bitwriter_get_buffer(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #12
+declare i32 @FLAC__bitwriter_get_buffer(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind sspstrong uwtable
-define ptr @FLAC__metadata_object_set_raw(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define ptr @FLAC__metadata_object_set_raw(ptr noundef %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = alloca %struct.set_raw_client_data, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -4189,14 +4189,14 @@ define ptr @FLAC__metadata_object_set_raw(ptr noundef %0, i32 noundef %1) local_
   store ptr null, ptr %3, align 8, !tbaa !104
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 -4, ptr %7, align 4, !tbaa !105
-  %8 = tail call ptr @FLAC__stream_decoder_new() #31
+  %8 = tail call ptr @FLAC__stream_decoder_new() #33
   %9 = icmp eq ptr %8, null
   br i1 %9, label %34, label %10
 
 10:                                               ; preds = %2
-  %11 = tail call i32 @FLAC__stream_decoder_set_md5_checking(ptr noundef nonnull %8, i32 noundef 0) #31
-  %12 = tail call i32 @FLAC__stream_decoder_set_metadata_respond_all(ptr noundef nonnull %8) #31
-  %13 = call i32 @FLAC__stream_decoder_init_stream(ptr noundef nonnull %8, ptr noundef nonnull @read_callback_, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @write_callback_, ptr noundef nonnull @metadata_callback_, ptr noundef nonnull @error_callback_, ptr noundef nonnull %3) #31
+  %11 = tail call i32 @FLAC__stream_decoder_set_md5_checking(ptr noundef nonnull %8, i32 noundef 0) #33
+  %12 = tail call i32 @FLAC__stream_decoder_set_metadata_respond_all(ptr noundef nonnull %8) #33
+  %13 = call i32 @FLAC__stream_decoder_init_stream(ptr noundef nonnull %8, ptr noundef nonnull @read_callback_, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @write_callback_, ptr noundef nonnull @metadata_callback_, ptr noundef nonnull @error_callback_, ptr noundef nonnull %3) #33
   %14 = icmp ne i32 %13, 0
   %15 = load i32, ptr %6, align 8
   %16 = icmp ne i32 %15, 0
@@ -4204,17 +4204,17 @@ define ptr @FLAC__metadata_object_set_raw(ptr noundef %0, i32 noundef %1) local_
   br i1 %or.cond, label %17, label %19
 
 17:                                               ; preds = %10
-  %18 = call i32 @FLAC__stream_decoder_finish(ptr noundef nonnull %8) #31
-  call void @FLAC__stream_decoder_delete(ptr noundef nonnull %8) #31
+  %18 = call i32 @FLAC__stream_decoder_finish(ptr noundef nonnull %8) #33
+  call void @FLAC__stream_decoder_delete(ptr noundef nonnull %8) #33
   br label %34
 
 19:                                               ; preds = %10
-  %20 = call i32 @FLAC__stream_decoder_process_until_end_of_metadata(ptr noundef nonnull %8) #31
+  %20 = call i32 @FLAC__stream_decoder_process_until_end_of_metadata(ptr noundef nonnull %8) #33
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %21, label %26
 
 21:                                               ; preds = %19
-  %22 = call i32 @FLAC__stream_decoder_get_state(ptr noundef nonnull %8) #31
+  %22 = call i32 @FLAC__stream_decoder_get_state(ptr noundef nonnull %8) #33
   %23 = icmp ne i32 %22, 4
   %24 = load i32, ptr %6, align 8
   %25 = icmp ne i32 %24, 0
@@ -4227,20 +4227,20 @@ define ptr @FLAC__metadata_object_set_raw(ptr noundef %0, i32 noundef %1) local_
   br i1 %.old4.not, label %31, label %27
 
 27:                                               ; preds = %26, %21
-  %28 = call i32 @FLAC__stream_decoder_finish(ptr noundef nonnull %8) #31
-  call void @FLAC__stream_decoder_delete(ptr noundef nonnull %8) #31
+  %28 = call i32 @FLAC__stream_decoder_finish(ptr noundef nonnull %8) #33
+  call void @FLAC__stream_decoder_delete(ptr noundef nonnull %8) #33
   %29 = load ptr, ptr %3, align 8, !tbaa !104
   %.not21 = icmp eq ptr %29, null
   br i1 %.not21, label %34, label %30
 
 30:                                               ; preds = %27
   call void @FLAC__metadata_object_delete_data(ptr noundef nonnull %29)
-  call void @free(ptr noundef nonnull %29) #31
+  call void @free(ptr noundef nonnull %29) #33
   br label %34
 
 31:                                               ; preds = %21, %26
-  %32 = call i32 @FLAC__stream_decoder_finish(ptr noundef nonnull %8) #31
-  call void @FLAC__stream_decoder_delete(ptr noundef nonnull %8) #31
+  %32 = call i32 @FLAC__stream_decoder_finish(ptr noundef nonnull %8) #33
+  call void @FLAC__stream_decoder_delete(ptr noundef nonnull %8) #33
   %33 = load ptr, ptr %3, align 8, !tbaa !104
   br label %34
 
@@ -4250,16 +4250,16 @@ define ptr @FLAC__metadata_object_set_raw(ptr noundef %0, i32 noundef %1) local_
   ret ptr %.0
 }
 
-declare ptr @FLAC__stream_decoder_new() local_unnamed_addr #12
+declare ptr @FLAC__stream_decoder_new() local_unnamed_addr #14
 
-declare i32 @FLAC__stream_decoder_set_md5_checking(ptr noundef, i32 noundef) local_unnamed_addr #12
+declare i32 @FLAC__stream_decoder_set_md5_checking(ptr noundef, i32 noundef) local_unnamed_addr #14
 
-declare i32 @FLAC__stream_decoder_set_metadata_respond_all(ptr noundef) local_unnamed_addr #12
+declare i32 @FLAC__stream_decoder_set_metadata_respond_all(ptr noundef) local_unnamed_addr #14
 
-declare i32 @FLAC__stream_decoder_init_stream(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #12
+declare i32 @FLAC__stream_decoder_init_stream(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #14
 
-; Function Attrs: nofree norecurse nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 3) i32 @read_callback_(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) #18 {
+; Function Attrs: nofree norecurse nounwind sspstrong memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal range(i32 0, 3) i32 @read_callback_(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) #20 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %6 = load i32, ptr %5, align 4, !tbaa !105
   %7 = icmp eq i32 %6, -4
@@ -4314,7 +4314,7 @@ define internal range(i32 0, 3) i32 @read_callback_(ptr readnone captures(none) 
   %32 = load ptr, ptr %31, align 8, !tbaa !99
   %33 = zext nneg i32 %6 to i64
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 %33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %1, ptr noundef nonnull align 1 %34, i64 noundef %30, i1 noundef false) #31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %1, ptr noundef nonnull align 1 %34, i64 noundef %30, i1 noundef false) #33
   %35 = load i64, ptr %2, align 8, !tbaa !76
   %36 = load i32, ptr %5, align 4, !tbaa !105
   %37 = trunc i64 %35 to i32
@@ -4328,12 +4328,12 @@ define internal range(i32 0, 3) i32 @read_callback_(ptr readnone captures(none) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @write_callback_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #19 {
+define internal noundef i32 @write_callback_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #21 {
   ret i32 0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @metadata_callback_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) #4 {
+define internal void @metadata_callback_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) #10 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !103
   %.not = icmp eq i32 %5, 0
@@ -4359,7 +4359,7 @@ define internal void @metadata_callback_(ptr readnone captures(none) %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @error_callback_(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #20 {
+define internal void @error_callback_(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #22 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %6, label %4
 
@@ -4372,79 +4372,81 @@ define internal void @error_callback_(ptr readnone captures(none) %0, i32 nounde
   ret void
 }
 
-declare i32 @FLAC__stream_decoder_finish(ptr noundef) local_unnamed_addr #12
+declare i32 @FLAC__stream_decoder_finish(ptr noundef) local_unnamed_addr #14
 
-declare void @FLAC__stream_decoder_delete(ptr noundef) local_unnamed_addr #12
+declare void @FLAC__stream_decoder_delete(ptr noundef) local_unnamed_addr #14
 
-declare i32 @FLAC__stream_decoder_process_until_end_of_metadata(ptr noundef) local_unnamed_addr #12
+declare i32 @FLAC__stream_decoder_process_until_end_of_metadata(ptr noundef) local_unnamed_addr #14
 
-declare i32 @FLAC__stream_decoder_get_state(ptr noundef) local_unnamed_addr #12
+declare i32 @FLAC__stream_decoder_get_state(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #21
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
-declare ptr @safe_malloc_mul_2op_p(i64 noundef, i64 noundef) local_unnamed_addr #12
+declare ptr @safe_malloc_mul_2op_p(i64 noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #22
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #23
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #25
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #23
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #26
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #25
+declare i64 @llvm.umax.i64(i64, i64) #27
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #26
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #28
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #25
+declare i64 @llvm.umin.i64(i64, i64) #27
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #27
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #29
 
-attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="false" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="false" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nounwind sspstrong willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree norecurse nounwind sspstrong memory(read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nounwind sspstrong willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nounwind sspstrong willreturn uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nofree norecurse nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="false" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #24 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #25 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #26 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #27 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #28 = { nounwind allocsize(0,1) }
-attributes #29 = { nounwind willreturn memory(read) }
-attributes #30 = { nounwind allocsize(0) }
-attributes #31 = { nounwind }
-attributes #32 = { nounwind allocsize(1) }
+attributes #4 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="false" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nounwind sspstrong memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nounwind sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nounwind sspstrong willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree norecurse nounwind sspstrong memory(read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree nounwind sspstrong willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nounwind sspstrong willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nofree norecurse nounwind sspstrong memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="false" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #26 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #27 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #28 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #29 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #30 = { nounwind allocsize(0,1) }
+attributes #31 = { nounwind willreturn memory(read) }
+attributes #32 = { nounwind allocsize(0) }
+attributes #33 = { nounwind }
+attributes #34 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

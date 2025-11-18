@@ -36,27 +36,27 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -30, 1) i32 @archive_read_support_format_cpio(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 14594245, i32 noundef 1, ptr noundef nonnull @.str) #12
+  %2 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 14594245, i32 noundef 1, ptr noundef nonnull @.str) #13
   %.not = icmp eq i32 %2, -30
   br i1 %.not, label %10, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #13
+  %4 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #14
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.1) #12
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.1) #13
   br label %10
 
 7:                                                ; preds = %3
   store i32 320083222, ptr %4, align 8, !tbaa !4
-  %8 = tail call i32 @__archive_read_register_format(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull @.str.2, ptr noundef nonnull @archive_read_format_cpio_bid, ptr noundef nonnull @archive_read_format_cpio_options, ptr noundef nonnull @archive_read_format_cpio_read_header, ptr noundef nonnull @archive_read_format_cpio_read_data, ptr noundef nonnull @archive_read_format_cpio_skip, ptr noundef null, ptr noundef nonnull @archive_read_format_cpio_cleanup, ptr noundef null, ptr noundef null) #12
+  %8 = tail call i32 @__archive_read_register_format(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull @.str.2, ptr noundef nonnull @archive_read_format_cpio_bid, ptr noundef nonnull @archive_read_format_cpio_options, ptr noundef nonnull @archive_read_format_cpio_read_header, ptr noundef nonnull @archive_read_format_cpio_read_data, ptr noundef nonnull @archive_read_format_cpio_skip, ptr noundef null, ptr noundef nonnull @archive_read_format_cpio_cleanup, ptr noundef null, ptr noundef null) #13
   %.not13 = icmp eq i32 %8, 0
   br i1 %.not13, label %10, label %9
 
 9:                                                ; preds = %7
-  tail call void @free(ptr noundef nonnull %4) #12
+  tail call void @free(ptr noundef nonnull %4) #13
   br label %10
 
 10:                                               ; preds = %7, %9, %1, %6
@@ -78,7 +78,7 @@ define internal range(i32 -20, 49) i32 @archive_read_format_cpio_bid(ptr noundef
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   %5 = load ptr, ptr %4, align 8, !tbaa !28
-  %6 = tail call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 6, ptr noundef null) #12
+  %6 = tail call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 6, ptr noundef null) #13
   %7 = icmp eq ptr %6, null
   br i1 %7, label %30, label %8
 
@@ -136,7 +136,7 @@ define internal range(i32 -30, 1) i32 @archive_read_format_cpio_options(ptr noun
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   %5 = load ptr, ptr %4, align 8, !tbaa !13
   %6 = load ptr, ptr %5, align 8, !tbaa !28
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.19) #14
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.19) #15
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %12
 
@@ -148,7 +148,7 @@ define internal range(i32 -30, 1) i32 @archive_read_format_cpio_options(ptr noun
   br label %32
 
 12:                                               ; preds = %3
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.20) #14
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.20) #15
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %24
 
@@ -162,11 +162,11 @@ define internal range(i32 -30, 1) i32 @archive_read_format_cpio_options(ptr noun
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %17, %15
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.21) #12
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.21) #13
   br label %32
 
 21:                                               ; preds = %17
-  %22 = tail call ptr @archive_string_conversion_from_charset(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 0) #12
+  %22 = tail call ptr @archive_string_conversion_from_charset(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 0) #13
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr %22, ptr %23, align 8, !tbaa !33
   %.not20 = icmp eq ptr %22, null
@@ -174,7 +174,7 @@ define internal range(i32 -30, 1) i32 @archive_read_format_cpio_options(ptr noun
   br label %32
 
 24:                                               ; preds = %12
-  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.22) #14
+  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.22) #15
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %32
 
@@ -223,7 +223,7 @@ define internal i32 @archive_read_format_cpio_read_header(ptr noundef %0, ptr no
   br label %17
 
 14:                                               ; preds = %11
-  %15 = tail call ptr @archive_string_default_conversion_for_read(ptr noundef nonnull %0) #12
+  %15 = tail call ptr @archive_string_default_conversion_for_read(ptr noundef nonnull %0) #13
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr %15, ptr %16, align 8, !tbaa !35
   store i32 1, ptr %12, align 8, !tbaa !32
@@ -233,7 +233,7 @@ define internal i32 @archive_read_format_cpio_read_header(ptr noundef %0, ptr no
   %.046 = phi ptr [ %9, %2 ], [ %.pre, %._crit_edge ], [ %15, %14 ]
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !31
-  %20 = call i32 %19(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
+  %20 = call i32 %19(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #13
   %21 = icmp slt i32 %20, -20
   br i1 %21, label %record_hardlink.exit, label %22
 
@@ -241,29 +241,29 @@ define internal i32 @archive_read_format_cpio_read_header(ptr noundef %0, ptr no
   %23 = load i64, ptr %3, align 8, !tbaa !36
   %24 = load i64, ptr %4, align 8, !tbaa !36
   %25 = add i64 %24, %23
-  %26 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef %25, ptr noundef null) #12
+  %26 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef %25, ptr noundef null) #13
   %27 = icmp eq ptr %26, null
   br i1 %27, label %record_hardlink.exit, label %28
 
 28:                                               ; preds = %22
   %29 = load i64, ptr %3, align 8, !tbaa !36
-  %30 = call i32 @_archive_entry_copy_pathname_l(ptr noundef %1, ptr noundef nonnull %26, i64 noundef %29, ptr noundef %.046) #12
+  %30 = call i32 @_archive_entry_copy_pathname_l(ptr noundef %1, ptr noundef nonnull %26, i64 noundef %29, ptr noundef %.046) #13
   %.not54 = icmp eq i32 %30, 0
   br i1 %.not54, label %38, label %31
 
 31:                                               ; preds = %28
-  %32 = tail call ptr @__errno_location() #15
+  %32 = tail call ptr @__errno_location() #16
   %33 = load i32, ptr %32, align 4, !tbaa !37
   %34 = icmp eq i32 %33, 12
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %31
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.23) #12
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.23) #13
   br label %record_hardlink.exit
 
 36:                                               ; preds = %31
-  %37 = call ptr @archive_string_conversion_charset_name(ptr noundef %.046) #12
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.24, ptr noundef %37) #12
+  %37 = call ptr @archive_string_conversion_charset_name(ptr noundef %.046) #13
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.24, ptr noundef %37) #13
   br label %38
 
 38:                                               ; preds = %36, %28
@@ -273,8 +273,8 @@ define internal i32 @archive_read_format_cpio_read_header(ptr noundef %0, ptr no
   %40 = load i64, ptr %3, align 8, !tbaa !36
   %41 = load i64, ptr %4, align 8, !tbaa !36
   %42 = add i64 %41, %40
-  %43 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %42) #12
-  %44 = call i32 @archive_entry_filetype(ptr noundef %1) #12
+  %43 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %42) #13
+  %44 = call i32 @archive_entry_filetype(ptr noundef %1) #13
   %45 = icmp eq i32 %44, 40960
   br i1 %45, label %46, label %67
 
@@ -285,39 +285,39 @@ define internal i32 @archive_read_format_cpio_read_header(ptr noundef %0, ptr no
   br i1 %49, label %50, label %51
 
 50:                                               ; preds = %46
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.25) #12
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.25) #13
   br label %record_hardlink.exit
 
 51:                                               ; preds = %46
-  %52 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef %48, ptr noundef null) #12
+  %52 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef %48, ptr noundef null) #13
   %53 = icmp eq ptr %52, null
   br i1 %53, label %record_hardlink.exit, label %54
 
 54:                                               ; preds = %51
   %55 = load i64, ptr %47, align 8, !tbaa !39
-  %56 = call i32 @_archive_entry_copy_symlink_l(ptr noundef %1, ptr noundef nonnull %52, i64 noundef %55, ptr noundef %.046) #12
+  %56 = call i32 @_archive_entry_copy_symlink_l(ptr noundef %1, ptr noundef nonnull %52, i64 noundef %55, ptr noundef %.046) #13
   %.not55 = icmp eq i32 %56, 0
   br i1 %.not55, label %64, label %57
 
 57:                                               ; preds = %54
-  %58 = tail call ptr @__errno_location() #15
+  %58 = tail call ptr @__errno_location() #16
   %59 = load i32, ptr %58, align 4, !tbaa !37
   %60 = icmp eq i32 %59, 12
   br i1 %60, label %61, label %62
 
 61:                                               ; preds = %57
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.26) #12
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.26) #13
   br label %record_hardlink.exit
 
 62:                                               ; preds = %57
-  %63 = call ptr @archive_string_conversion_charset_name(ptr noundef %.046) #12
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.27, ptr noundef %63) #12
+  %63 = call ptr @archive_string_conversion_charset_name(ptr noundef %.046) #13
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.27, ptr noundef %63) #13
   br label %64
 
 64:                                               ; preds = %62, %54
   %.2 = phi i32 [ -20, %62 ], [ %.0, %54 ]
   %65 = load i64, ptr %47, align 8, !tbaa !39
-  %66 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %65) #12
+  %66 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %65) #13
   store i64 0, ptr %47, align 8, !tbaa !39
   br label %67
 
@@ -328,22 +328,22 @@ define internal i32 @archive_read_format_cpio_read_header(ptr noundef %0, ptr no
   br i1 %69, label %70, label %74
 
 70:                                               ; preds = %67
-  %71 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(11) @.str.28, i64 noundef 10) #14
+  %71 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(11) @.str.28, i64 noundef 10) #15
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %73, label %74
 
 73:                                               ; preds = %70
-  call void @archive_clear_error(ptr noundef nonnull %0) #12
+  call void @archive_clear_error(ptr noundef nonnull %0) #13
   br label %record_hardlink.exit
 
 74:                                               ; preds = %70, %67
-  %75 = call i32 @archive_entry_nlink(ptr noundef %1) #12
+  %75 = call i32 @archive_entry_nlink(ptr noundef %1) #13
   %76 = icmp ult i32 %75, 2
   br i1 %76, label %record_hardlink.exit, label %77
 
 77:                                               ; preds = %74
-  %78 = call i64 @archive_entry_dev(ptr noundef %1) #12
-  %79 = call i64 @archive_entry_ino64(ptr noundef %1) #12
+  %78 = call i64 @archive_entry_dev(ptr noundef %1) #13
+  %79 = call i64 @archive_entry_ino64(ptr noundef %1) #13
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.04554.i = load ptr, ptr %80, align 8, !tbaa !40
   %.not55.i = icmp eq ptr %.04554.i, null
@@ -365,7 +365,7 @@ define internal i32 @archive_read_format_cpio_read_header(ptr noundef %0, ptr no
 88:                                               ; preds = %84
   %89 = getelementptr inbounds nuw i8, ptr %.04556.i, i64 40
   %90 = load ptr, ptr %89, align 8, !tbaa !44
-  call void @archive_entry_copy_hardlink(ptr noundef %1, ptr noundef %90) #12
+  call void @archive_entry_copy_hardlink(ptr noundef %1, ptr noundef %90) #13
   %91 = getelementptr inbounds nuw i8, ptr %.04556.i, i64 16
   %92 = load i32, ptr %91, align 8, !tbaa !45
   %93 = add i32 %92, -1
@@ -404,8 +404,8 @@ define internal i32 @archive_read_format_cpio_read_header(ptr noundef %0, ptr no
 
 106:                                              ; preds = %105, %102
   %107 = load ptr, ptr %89, align 8, !tbaa !44
-  call void @free(ptr noundef %107) #12
-  call void @free(ptr noundef nonnull %.04556.i) #12
+  call void @free(ptr noundef %107) #13
+  call void @free(ptr noundef nonnull %.04556.i) #13
   br label %record_hardlink.exit
 
 108:                                              ; preds = %84, %.lr.ph.i
@@ -414,17 +414,17 @@ define internal i32 @archive_read_format_cpio_read_header(ptr noundef %0, ptr no
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !49
 
 ._crit_edge.i:                                    ; preds = %108
-  %109 = call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #16
+  %109 = call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #17
   %110 = icmp eq ptr %109, null
   br i1 %110, label %113, label %114
 
 ._crit_edge.thread.i:                             ; preds = %77
-  %111 = call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #16
+  %111 = call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #17
   %112 = icmp eq ptr %111, null
   br i1 %112, label %113, label %.thread.i
 
 113:                                              ; preds = %._crit_edge.thread.i, %._crit_edge.i
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.29) #12
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.29) #13
   br label %record_hardlink.exit
 
 114:                                              ; preds = %._crit_edge.i
@@ -442,19 +442,19 @@ define internal i32 @archive_read_format_cpio_read_header(ptr noundef %0, ptr no
   store i64 %78, ptr %118, align 8, !tbaa !41
   %119 = getelementptr inbounds nuw i8, ptr %116, i64 32
   store i64 %79, ptr %119, align 8, !tbaa !43
-  %120 = call i32 @archive_entry_nlink(ptr noundef %1) #12
+  %120 = call i32 @archive_entry_nlink(ptr noundef %1) #13
   %121 = add i32 %120, -1
   %122 = getelementptr inbounds nuw i8, ptr %116, i64 16
   store i32 %121, ptr %122, align 8, !tbaa !45
-  %123 = call ptr @archive_entry_pathname(ptr noundef %1) #12
-  %124 = call noalias ptr @strdup(ptr noundef %123) #12
+  %123 = call ptr @archive_entry_pathname(ptr noundef %1) #13
+  %124 = call noalias ptr @strdup(ptr noundef %123) #13
   %125 = getelementptr inbounds nuw i8, ptr %116, i64 40
   store ptr %124, ptr %125, align 8, !tbaa !44
   %126 = icmp eq ptr %124, null
   br i1 %126, label %127, label %record_hardlink.exit
 
 127:                                              ; preds = %.thread.i
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.29) #12
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.29) #13
   br label %record_hardlink.exit
 
 record_hardlink.exit:                             ; preds = %113, %127, %74, %106, %88, %.thread.i, %51, %22, %17, %73, %61, %50, %35
@@ -477,7 +477,7 @@ define internal range(i32 -30, 2) i32 @archive_read_format_cpio_read_data(ptr no
   br i1 %.not, label %13, label %11
 
 11:                                               ; preds = %4
-  %12 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %10) #12
+  %12 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %10) #13
   store i64 0, ptr %9, align 8, !tbaa !51
   br label %13
 
@@ -488,7 +488,7 @@ define internal range(i32 -30, 2) i32 @archive_read_format_cpio_read_data(ptr no
   br i1 %16, label %17, label %28
 
 17:                                               ; preds = %13
-  %18 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef 1, ptr noundef nonnull %5) #12
+  %18 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef 1, ptr noundef nonnull %5) #13
   store ptr %18, ptr %1, align 8, !tbaa !52
   %19 = load i64, ptr %5, align 8, !tbaa !36
   %20 = icmp slt i64 %19, 1
@@ -512,7 +512,7 @@ define internal range(i32 -30, 2) i32 @archive_read_format_cpio_read_data(ptr no
 28:                                               ; preds = %13
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %30 = load i64, ptr %29, align 8, !tbaa !53
-  %31 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %30) #12
+  %31 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %30) #13
   %.not27 = icmp eq i64 %30, %31
   br i1 %.not27, label %32, label %35
 
@@ -544,7 +544,7 @@ define internal range(i32 -30, 1) i32 @archive_read_format_cpio_skip(ptr noundef
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %11 = load i64, ptr %10, align 8, !tbaa !51
   %12 = add nsw i64 %9, %11
-  %13 = tail call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %12) #12
+  %13 = tail call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %12) #13
   %.not = icmp eq i64 %12, %13
   br i1 %.not, label %14, label %15
 
@@ -558,8 +558,8 @@ define internal range(i32 -30, 1) i32 @archive_read_format_cpio_skip(ptr noundef
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_read_format_cpio_cleanup(ptr noundef readonly captures(none) %0) #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal noundef i32 @archive_read_format_cpio_cleanup(ptr noundef readonly captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   %3 = load ptr, ptr %2, align 8, !tbaa !13
   %4 = load ptr, ptr %3, align 8, !tbaa !28
@@ -573,22 +573,22 @@ define internal noundef i32 @archive_read_format_cpio_cleanup(ptr noundef readon
   %8 = load ptr, ptr %7, align 8, !tbaa !47
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !44
-  tail call void @free(ptr noundef %10) #12
+  tail call void @free(ptr noundef %10) #13
   %11 = load ptr, ptr %5, align 8, !tbaa !48
-  tail call void @free(ptr noundef %11) #12
+  tail call void @free(ptr noundef %11) #13
   store ptr %8, ptr %5, align 8, !tbaa !48
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  tail call void @free(ptr noundef nonnull %4) #12
+  tail call void @free(ptr noundef nonnull %4) #13
   %12 = load ptr, ptr %2, align 8, !tbaa !13
   store ptr null, ptr %12, align 8, !tbaa !28
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @__archive_read_ahead(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -600,7 +600,7 @@ define internal range(i32 -30, 1) i32 @header_odc(ptr noundef initializes((16, 2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @.str.7, ptr %8, align 8, !tbaa !56
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %9 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 76, ptr noundef nonnull %6) #12
+  %9 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 76, ptr noundef nonnull %6) #13
   %10 = icmp eq ptr %9, null
   br i1 %10, label %find_odc_header.exit, label %.lr.ph127.i
 
@@ -1019,7 +1019,7 @@ is_octal.exit56.i:                                ; preds = %119, %is_octal.exit
   %.pre-phi.i = phi i64 [ %.pre.i, %is_octal.exit56.loopexit131.i ], [ %77, %119 ]
   %121 = ptrtoint ptr %11 to i64
   %122 = sub i64 %.pre-phi.i, %121
-  %123 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %122) #12
+  %123 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %122) #13
   %124 = add i64 %122, %.0125.i
   %125 = getelementptr inbounds nuw i8, ptr %.039124.i, i64 4
   %126 = load i8, ptr %125, align 1, !tbaa !30
@@ -1036,7 +1036,7 @@ is_octal.exit56.i:                                ; preds = %119, %is_octal.exit
 
 130:                                              ; preds = %129
   %131 = trunc i64 %124 to i32
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.8, i32 noundef %131) #12
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.8, i32 noundef %131) #13
   br label %.loopexit
 
 132:                                              ; preds = %65
@@ -1054,9 +1054,9 @@ is_afio_large.exit89.thread.i:                    ; preds = %switch.early.test.i
   %135 = ptrtoint ptr %.039.lcssa.i to i64
   %136 = ptrtoint ptr %11 to i64
   %137 = sub i64 %135, %136
-  %138 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %137) #12
+  %138 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %137) #13
   %139 = add i64 %137, %.0125.i
-  %140 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 76, ptr noundef nonnull %6) #12
+  %140 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 76, ptr noundef nonnull %6) #13
   %141 = icmp eq ptr %140, null
   br i1 %141, label %find_odc_header.exit, label %.lr.ph127.i
 
@@ -1075,7 +1075,7 @@ find_odc_header.exit:                             ; preds = %._crit_edge.i, %5
   %.038.i.ph126 = phi i32 [ 0, %.thread ], [ %.038.i.ph.ph, %.loopexit ]
   store i32 65542, ptr %7, align 8, !tbaa !55
   store ptr @.str.9, ptr %8, align 8, !tbaa !56
-  %144 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef 116, ptr noundef null) #12
+  %144 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef 116, ptr noundef null) #13
   %145 = icmp eq ptr %144, null
   br i1 %145, label %header_afiol.exit.thread, label %146
 
@@ -1128,7 +1128,7 @@ find_odc_header.exit:                             ; preds = %._crit_edge.i, %5
 
 atol16.exit.i:                                    ; preds = %164, %160
   %.016.lcssa.i.i = phi i64 [ %168, %164 ], [ %.01628.i.i, %160 ]
-  call void @archive_entry_set_dev(ptr noundef %2, i64 noundef %.016.lcssa.i.i) #12
+  call void @archive_entry_set_dev(ptr noundef %2, i64 noundef %.016.lcssa.i.i) #13
   %169 = getelementptr inbounds nuw i8, ptr %144, i64 14
   br label %170
 
@@ -1181,11 +1181,11 @@ atol16.exit48.i:                                  ; preds = %186, %182
   br i1 %191, label %192, label %193
 
 192:                                              ; preds = %atol16.exit48.i
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull @.str.10) #12
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull @.str.10) #13
   br label %header_afiol.exit.thread
 
 193:                                              ; preds = %atol16.exit48.i
-  call void @archive_entry_set_ino(ptr noundef %2, i64 noundef %.016.lcssa.i45.i) #12
+  call void @archive_entry_set_ino(ptr noundef %2, i64 noundef %.016.lcssa.i45.i) #13
   %194 = getelementptr inbounds nuw i8, ptr %144, i64 31
   br label %195
 
@@ -1210,7 +1210,7 @@ atol16.exit48.i:                                  ; preds = %186, %182
 
 atol8.exit.i:                                     ; preds = %198, %195
   %.010.lcssa.i.i = phi i32 [ %203, %198 ], [ %.01014.i.i, %195 ]
-  call void @archive_entry_set_mode(ptr noundef %2, i32 noundef %.010.lcssa.i.i) #12
+  call void @archive_entry_set_mode(ptr noundef %2, i32 noundef %.010.lcssa.i.i) #13
   %204 = getelementptr inbounds nuw i8, ptr %144, i64 37
   br label %205
 
@@ -1259,7 +1259,7 @@ atol8.exit.i:                                     ; preds = %198, %195
 
 atol16.exit61.i:                                  ; preds = %221, %217
   %.016.lcssa.i58.i = phi i64 [ %225, %221 ], [ %.01628.i53.i, %217 ]
-  call void @archive_entry_set_uid(ptr noundef %2, i64 noundef %.016.lcssa.i58.i) #12
+  call void @archive_entry_set_uid(ptr noundef %2, i64 noundef %.016.lcssa.i58.i) #13
   %226 = getelementptr inbounds nuw i8, ptr %144, i64 45
   br label %227
 
@@ -1308,7 +1308,7 @@ atol16.exit61.i:                                  ; preds = %221, %217
 
 atol16.exit71.i:                                  ; preds = %243, %239
   %.016.lcssa.i68.i = phi i64 [ %247, %243 ], [ %.01628.i63.i, %239 ]
-  call void @archive_entry_set_gid(ptr noundef %2, i64 noundef %.016.lcssa.i68.i) #12
+  call void @archive_entry_set_gid(ptr noundef %2, i64 noundef %.016.lcssa.i68.i) #13
   %248 = getelementptr inbounds nuw i8, ptr %144, i64 53
   br label %249
 
@@ -1356,7 +1356,7 @@ atol16.exit71.i:                                  ; preds = %243, %239
 
 atol16.exit81.i:                                  ; preds = %265, %261
   %.016.lcssa.i78.i = phi i32 [ %268, %265 ], [ %.01628.i73.i, %261 ]
-  call void @archive_entry_set_nlink(ptr noundef %2, i32 noundef %.016.lcssa.i78.i) #12
+  call void @archive_entry_set_nlink(ptr noundef %2, i32 noundef %.016.lcssa.i78.i) #13
   %269 = getelementptr inbounds nuw i8, ptr %144, i64 61
   br label %270
 
@@ -1405,7 +1405,7 @@ atol16.exit81.i:                                  ; preds = %265, %261
 
 atol16.exit91.i:                                  ; preds = %286, %282
   %.016.lcssa.i88.i = phi i64 [ %290, %286 ], [ %.01628.i83.i, %282 ]
-  call void @archive_entry_set_rdev(ptr noundef %2, i64 noundef %.016.lcssa.i88.i) #12
+  call void @archive_entry_set_rdev(ptr noundef %2, i64 noundef %.016.lcssa.i88.i) #13
   %291 = getelementptr inbounds nuw i8, ptr %144, i64 69
   br label %292
 
@@ -1454,7 +1454,7 @@ atol16.exit91.i:                                  ; preds = %286, %282
 
 atol16.exit101.i:                                 ; preds = %308, %304
   %.016.lcssa.i98.i = phi i64 [ %312, %308 ], [ %.01628.i93.i, %304 ]
-  call void @archive_entry_set_mtime(ptr noundef %2, i64 noundef %.016.lcssa.i98.i, i64 noundef 0) #12
+  call void @archive_entry_set_mtime(ptr noundef %2, i64 noundef %.016.lcssa.i98.i, i64 noundef 0) #13
   %313 = getelementptr inbounds nuw i8, ptr %144, i64 86
   br label %314
 
@@ -1557,20 +1557,20 @@ atol16.exit121.i:                                 ; preds = %352, %348
   br i1 %357, label %358, label %359
 
 358:                                              ; preds = %atol16.exit121.i
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull @.str.11) #12
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull @.str.11) #13
   br label %header_afiol.exit.thread
 
 359:                                              ; preds = %atol16.exit121.i
   %360 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %.016.lcssa.i118.i, ptr %360, align 8, !tbaa !39
-  call void @archive_entry_set_size(ptr noundef %2, i64 noundef %.016.lcssa.i118.i) #12
+  call void @archive_entry_set_size(ptr noundef %2, i64 noundef %.016.lcssa.i118.i) #13
   %361 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i64 0, ptr %361, align 8, !tbaa !53
-  %362 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef 116) #12
+  %362 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef 116) #13
   br label %header_afiol.exit.thread
 
 363:                                              ; preds = %.loopexit
-  %364 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef 76, ptr noundef null) #12
+  %364 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef 76, ptr noundef null) #13
   %365 = icmp eq ptr %364, null
   br i1 %365, label %header_afiol.exit.thread, label %366
 
@@ -1599,7 +1599,7 @@ atol16.exit121.i:                                 ; preds = %352, %348
 
 atol8.exit:                                       ; preds = %368, %371
   %.010.lcssa.i = phi i64 [ %376, %371 ], [ %.01014.i, %368 ]
-  call void @archive_entry_set_dev(ptr noundef %2, i64 noundef %.010.lcssa.i) #12
+  call void @archive_entry_set_dev(ptr noundef %2, i64 noundef %.010.lcssa.i) #13
   %377 = getelementptr inbounds nuw i8, ptr %364, i64 12
   br label %378
 
@@ -1624,7 +1624,7 @@ atol8.exit:                                       ; preds = %368, %371
 
 atol8.exit58:                                     ; preds = %378, %381
   %.010.lcssa.i55 = phi i64 [ %386, %381 ], [ %.01014.i52, %378 ]
-  call void @archive_entry_set_ino(ptr noundef %2, i64 noundef %.010.lcssa.i55) #12
+  call void @archive_entry_set_ino(ptr noundef %2, i64 noundef %.010.lcssa.i55) #13
   %387 = getelementptr inbounds nuw i8, ptr %364, i64 18
   br label %388
 
@@ -1649,7 +1649,7 @@ atol8.exit58:                                     ; preds = %378, %381
 
 atol8.exit66:                                     ; preds = %388, %391
   %.010.lcssa.i63 = phi i32 [ %396, %391 ], [ %.01014.i60, %388 ]
-  call void @archive_entry_set_mode(ptr noundef %2, i32 noundef %.010.lcssa.i63) #12
+  call void @archive_entry_set_mode(ptr noundef %2, i32 noundef %.010.lcssa.i63) #13
   %397 = getelementptr inbounds nuw i8, ptr %364, i64 24
   br label %398
 
@@ -1674,7 +1674,7 @@ atol8.exit66:                                     ; preds = %388, %391
 
 atol8.exit74:                                     ; preds = %398, %401
   %.010.lcssa.i71 = phi i64 [ %406, %401 ], [ %.01014.i68, %398 ]
-  call void @archive_entry_set_uid(ptr noundef %2, i64 noundef %.010.lcssa.i71) #12
+  call void @archive_entry_set_uid(ptr noundef %2, i64 noundef %.010.lcssa.i71) #13
   %407 = getelementptr inbounds nuw i8, ptr %364, i64 30
   br label %408
 
@@ -1699,7 +1699,7 @@ atol8.exit74:                                     ; preds = %398, %401
 
 atol8.exit82:                                     ; preds = %408, %411
   %.010.lcssa.i79 = phi i64 [ %416, %411 ], [ %.01014.i76, %408 ]
-  call void @archive_entry_set_gid(ptr noundef %2, i64 noundef %.010.lcssa.i79) #12
+  call void @archive_entry_set_gid(ptr noundef %2, i64 noundef %.010.lcssa.i79) #13
   %417 = getelementptr inbounds nuw i8, ptr %364, i64 36
   br label %418
 
@@ -1724,7 +1724,7 @@ atol8.exit82:                                     ; preds = %408, %411
 
 atol8.exit90:                                     ; preds = %418, %421
   %.010.lcssa.i87 = phi i32 [ %426, %421 ], [ %.01014.i84, %418 ]
-  call void @archive_entry_set_nlink(ptr noundef %2, i32 noundef %.010.lcssa.i87) #12
+  call void @archive_entry_set_nlink(ptr noundef %2, i32 noundef %.010.lcssa.i87) #13
   %427 = getelementptr inbounds nuw i8, ptr %364, i64 42
   br label %428
 
@@ -1749,7 +1749,7 @@ atol8.exit90:                                     ; preds = %418, %421
 
 atol8.exit98:                                     ; preds = %428, %431
   %.010.lcssa.i95 = phi i64 [ %436, %431 ], [ %.01014.i92, %428 ]
-  call void @archive_entry_set_rdev(ptr noundef %2, i64 noundef %.010.lcssa.i95) #12
+  call void @archive_entry_set_rdev(ptr noundef %2, i64 noundef %.010.lcssa.i95) #13
   %437 = getelementptr inbounds nuw i8, ptr %364, i64 48
   br label %438
 
@@ -1774,7 +1774,7 @@ atol8.exit98:                                     ; preds = %428, %431
 
 atol8.exit106:                                    ; preds = %438, %441
   %.010.lcssa.i103 = phi i64 [ %446, %441 ], [ %.01014.i100, %438 ]
-  call void @archive_entry_set_mtime(ptr noundef %2, i64 noundef %.010.lcssa.i103, i64 noundef 0) #12
+  call void @archive_entry_set_mtime(ptr noundef %2, i64 noundef %.010.lcssa.i103, i64 noundef 0) #13
   %447 = getelementptr inbounds nuw i8, ptr %364, i64 59
   br label %448
 
@@ -1827,10 +1827,10 @@ atol8.exit122:                                    ; preds = %458, %461
   %.010.lcssa.i119 = phi i64 [ %466, %461 ], [ %.01014.i116, %458 ]
   %467 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %.010.lcssa.i119, ptr %467, align 8, !tbaa !39
-  call void @archive_entry_set_size(ptr noundef %2, i64 noundef %.010.lcssa.i119) #12
+  call void @archive_entry_set_size(ptr noundef %2, i64 noundef %.010.lcssa.i119) #13
   %468 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i64 0, ptr %468, align 8, !tbaa !53
-  %469 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef 76) #12
+  %469 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef 76) #13
   br label %header_afiol.exit.thread
 
 header_afiol.exit.thread:                         ; preds = %143, %358, %192, %359, %find_odc_header.exit, %363, %atol8.exit122
@@ -1842,7 +1842,7 @@ header_afiol.exit.thread:                         ; preds = %143, %358, %192, %3
 define internal range(i32 -30, 1) i32 @header_newc(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %7 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 110, ptr noundef nonnull %6) #12
+  %7 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 110, ptr noundef nonnull %6) #13
   %8 = icmp eq ptr %7, null
   br i1 %8, label %find_newc_header.exit, label %.lr.ph63.i
 
@@ -1947,14 +1947,14 @@ is_hex.exit47.i:                                  ; preds = %28
   %30 = ptrtoint ptr %.03260.i to i64
   %31 = ptrtoint ptr %9 to i64
   %32 = sub i64 %30, %31
-  %33 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %32) #12
+  %33 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %32) #13
   %34 = add i64 %32, %.061.i
   %.not39.i = icmp eq i64 %34, 0
   br i1 %.not39.i, label %.loopexit, label %35
 
 35:                                               ; preds = %is_hex.exit47.i
   %36 = trunc i64 %34 to i32
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.8, i32 noundef %36) #12
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.8, i32 noundef %36) #13
   br label %.loopexit
 
 37:                                               ; preds = %.lr.ph.i
@@ -1972,9 +1972,9 @@ is_hex.exit47.thread.i:                           ; preds = %switch.early.test.i
   %40 = ptrtoint ptr %.032.lcssa.i to i64
   %41 = ptrtoint ptr %9 to i64
   %42 = sub i64 %40, %41
-  %43 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %42) #12
+  %43 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %42) #13
   %44 = add i64 %42, %.061.i
-  %45 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 110, ptr noundef nonnull %6) #12
+  %45 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 110, ptr noundef nonnull %6) #13
   %46 = icmp eq ptr %45, null
   br i1 %46, label %find_newc_header.exit, label %.lr.ph63.i
 
@@ -1985,7 +1985,7 @@ find_newc_header.exit:                            ; preds = %._crit_edge.i, %5
 .loopexit:                                        ; preds = %19, %35, %is_hex.exit47.i
   %.031.i.ph = phi i32 [ 0, %is_hex.exit47.i ], [ -20, %35 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %47 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 110, ptr noundef null) #12
+  %47 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 110, ptr noundef null) #13
   %48 = icmp eq ptr %47, null
   br i1 %48, label %331, label %49
 
@@ -2057,7 +2057,7 @@ find_newc_header.exit:                            ; preds = %._crit_edge.i, %5
 
 atol16.exit:                                      ; preds = %69, %73
   %.016.lcssa.i = phi i64 [ %77, %73 ], [ %.01628.i, %69 ]
-  call void @archive_entry_set_devmajor(ptr noundef %2, i64 noundef %.016.lcssa.i) #12
+  call void @archive_entry_set_devmajor(ptr noundef %2, i64 noundef %.016.lcssa.i) #13
   %78 = getelementptr inbounds nuw i8, ptr %47, i64 70
   br label %79
 
@@ -2106,7 +2106,7 @@ atol16.exit:                                      ; preds = %69, %73
 
 atol16.exit59:                                    ; preds = %91, %95
   %.016.lcssa.i56 = phi i64 [ %99, %95 ], [ %.01628.i51, %91 ]
-  call void @archive_entry_set_devminor(ptr noundef %2, i64 noundef %.016.lcssa.i56) #12
+  call void @archive_entry_set_devminor(ptr noundef %2, i64 noundef %.016.lcssa.i56) #13
   %100 = getelementptr inbounds nuw i8, ptr %47, i64 6
   br label %101
 
@@ -2155,7 +2155,7 @@ atol16.exit59:                                    ; preds = %91, %95
 
 atol16.exit69:                                    ; preds = %113, %117
   %.016.lcssa.i66 = phi i64 [ %121, %117 ], [ %.01628.i61, %113 ]
-  call void @archive_entry_set_ino(ptr noundef %2, i64 noundef %.016.lcssa.i66) #12
+  call void @archive_entry_set_ino(ptr noundef %2, i64 noundef %.016.lcssa.i66) #13
   %122 = getelementptr inbounds nuw i8, ptr %47, i64 14
   br label %123
 
@@ -2203,7 +2203,7 @@ atol16.exit69:                                    ; preds = %113, %117
 
 atol16.exit79:                                    ; preds = %135, %139
   %.016.lcssa.i76 = phi i32 [ %142, %139 ], [ %.01628.i71, %135 ]
-  call void @archive_entry_set_mode(ptr noundef %2, i32 noundef %.016.lcssa.i76) #12
+  call void @archive_entry_set_mode(ptr noundef %2, i32 noundef %.016.lcssa.i76) #13
   %143 = getelementptr inbounds nuw i8, ptr %47, i64 22
   br label %144
 
@@ -2252,7 +2252,7 @@ atol16.exit79:                                    ; preds = %135, %139
 
 atol16.exit89:                                    ; preds = %156, %160
   %.016.lcssa.i86 = phi i64 [ %164, %160 ], [ %.01628.i81, %156 ]
-  call void @archive_entry_set_uid(ptr noundef %2, i64 noundef %.016.lcssa.i86) #12
+  call void @archive_entry_set_uid(ptr noundef %2, i64 noundef %.016.lcssa.i86) #13
   %165 = getelementptr inbounds nuw i8, ptr %47, i64 30
   br label %166
 
@@ -2301,7 +2301,7 @@ atol16.exit89:                                    ; preds = %156, %160
 
 atol16.exit99:                                    ; preds = %178, %182
   %.016.lcssa.i96 = phi i64 [ %186, %182 ], [ %.01628.i91, %178 ]
-  call void @archive_entry_set_gid(ptr noundef %2, i64 noundef %.016.lcssa.i96) #12
+  call void @archive_entry_set_gid(ptr noundef %2, i64 noundef %.016.lcssa.i96) #13
   %187 = getelementptr inbounds nuw i8, ptr %47, i64 38
   br label %188
 
@@ -2349,7 +2349,7 @@ atol16.exit99:                                    ; preds = %178, %182
 
 atol16.exit109:                                   ; preds = %200, %204
   %.016.lcssa.i106 = phi i32 [ %207, %204 ], [ %.01628.i101, %200 ]
-  call void @archive_entry_set_nlink(ptr noundef %2, i32 noundef %.016.lcssa.i106) #12
+  call void @archive_entry_set_nlink(ptr noundef %2, i32 noundef %.016.lcssa.i106) #13
   %208 = getelementptr inbounds nuw i8, ptr %47, i64 78
   br label %209
 
@@ -2398,7 +2398,7 @@ atol16.exit109:                                   ; preds = %200, %204
 
 atol16.exit119:                                   ; preds = %221, %225
   %.016.lcssa.i116 = phi i64 [ %229, %225 ], [ %.01628.i111, %221 ]
-  call void @archive_entry_set_rdevmajor(ptr noundef %2, i64 noundef %.016.lcssa.i116) #12
+  call void @archive_entry_set_rdevmajor(ptr noundef %2, i64 noundef %.016.lcssa.i116) #13
   %230 = getelementptr inbounds nuw i8, ptr %47, i64 86
   br label %231
 
@@ -2447,7 +2447,7 @@ atol16.exit119:                                   ; preds = %221, %225
 
 atol16.exit129:                                   ; preds = %243, %247
   %.016.lcssa.i126 = phi i64 [ %251, %247 ], [ %.01628.i121, %243 ]
-  call void @archive_entry_set_rdevminor(ptr noundef %2, i64 noundef %.016.lcssa.i126) #12
+  call void @archive_entry_set_rdevminor(ptr noundef %2, i64 noundef %.016.lcssa.i126) #13
   %252 = getelementptr inbounds nuw i8, ptr %47, i64 46
   br label %253
 
@@ -2496,7 +2496,7 @@ atol16.exit129:                                   ; preds = %243, %247
 
 atol16.exit139:                                   ; preds = %265, %269
   %.016.lcssa.i136 = phi i64 [ %273, %269 ], [ %.01628.i131, %265 ]
-  call void @archive_entry_set_mtime(ptr noundef %2, i64 noundef %.016.lcssa.i136, i64 noundef 0) #12
+  call void @archive_entry_set_mtime(ptr noundef %2, i64 noundef %.016.lcssa.i136, i64 noundef 0) #13
   %274 = getelementptr inbounds nuw i8, ptr %47, i64 94
   br label %275
 
@@ -2555,7 +2555,7 @@ atol16.exit149:                                   ; preds = %287, %291
   br i1 %300, label %301, label %302
 
 301:                                              ; preds = %atol16.exit149
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.14) #12
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.14) #13
   br label %331
 
 302:                                              ; preds = %atol16.exit149
@@ -2609,13 +2609,13 @@ atol16.exit159:                                   ; preds = %316, %320
   %.016.lcssa.i156 = phi i64 [ %324, %320 ], [ %.01628.i151, %316 ]
   %325 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %.016.lcssa.i156, ptr %325, align 8, !tbaa !39
-  call void @archive_entry_set_size(ptr noundef %2, i64 noundef %.016.lcssa.i156) #12
+  call void @archive_entry_set_size(ptr noundef %2, i64 noundef %.016.lcssa.i156) #13
   %326 = load i64, ptr %325, align 8, !tbaa !39
   %327 = sub nsw i64 0, %326
   %328 = and i64 %327, 3
   %329 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i64 %328, ptr %329, align 8, !tbaa !53
-  %330 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 110) #12
+  %330 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 110) #13
   br label %331
 
 331:                                              ; preds = %find_newc_header.exit, %.loopexit, %atol16.exit159, %301
@@ -2629,12 +2629,12 @@ define internal range(i32 -30, 1) i32 @header_bin_be(ptr noundef initializes((16
   store i32 65539, ptr %6, align 8, !tbaa !55
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @.str.16, ptr %7, align 8, !tbaa !56
-  %8 = tail call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 26, ptr noundef null) #12
+  %8 = tail call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 26, ptr noundef null) #13
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %5
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull @.str.17) #12
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull @.str.17) #13
   br label %130
 
 11:                                               ; preds = %5
@@ -2646,7 +2646,7 @@ define internal range(i32 -30, 1) i32 @header_bin_be(ptr noundef initializes((16
   %17 = load i8, ptr %16, align 1, !tbaa !30
   %18 = zext i8 %17 to i64
   %19 = or disjoint i64 %15, %18
-  tail call void @archive_entry_set_dev(ptr noundef %2, i64 noundef %19) #12
+  tail call void @archive_entry_set_dev(ptr noundef %2, i64 noundef %19) #13
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %21 = load i8, ptr %20, align 1, !tbaa !30
   %22 = zext i8 %21 to i64
@@ -2655,7 +2655,7 @@ define internal range(i32 -30, 1) i32 @header_bin_be(ptr noundef initializes((16
   %25 = load i8, ptr %24, align 1, !tbaa !30
   %26 = zext i8 %25 to i64
   %27 = or disjoint i64 %23, %26
-  tail call void @archive_entry_set_ino(ptr noundef %2, i64 noundef %27) #12
+  tail call void @archive_entry_set_ino(ptr noundef %2, i64 noundef %27) #13
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 6
   %29 = load i8, ptr %28, align 1, !tbaa !30
   %30 = zext i8 %29 to i32
@@ -2664,25 +2664,25 @@ define internal range(i32 -30, 1) i32 @header_bin_be(ptr noundef initializes((16
   %33 = load i8, ptr %32, align 1, !tbaa !30
   %34 = zext i8 %33 to i32
   %35 = or disjoint i32 %31, %34
-  tail call void @archive_entry_set_mode(ptr noundef %2, i32 noundef %35) #12
+  tail call void @archive_entry_set_mode(ptr noundef %2, i32 noundef %35) #13
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %37 = load i32, ptr %36, align 4, !tbaa !34
   %.not = icmp eq i32 %37, 0
   br i1 %.not, label %47, label %38
 
 38:                                               ; preds = %11
-  %39 = tail call i32 @archive_entry_mode(ptr noundef %2) #12
+  %39 = tail call i32 @archive_entry_mode(ptr noundef %2) #13
   %40 = and i32 %39, 28671
-  tail call void @archive_entry_set_mode(ptr noundef %2, i32 noundef %40) #12
-  %41 = tail call i32 @archive_entry_mode(ptr noundef %2) #12
+  tail call void @archive_entry_set_mode(ptr noundef %2, i32 noundef %40) #13
+  %41 = tail call i32 @archive_entry_mode(ptr noundef %2) #13
   %42 = and i32 %41, 61440
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %38
-  %45 = tail call i32 @archive_entry_mode(ptr noundef %2) #12
+  %45 = tail call i32 @archive_entry_mode(ptr noundef %2) #13
   %46 = or i32 %45, 32768
-  tail call void @archive_entry_set_mode(ptr noundef %2, i32 noundef %46) #12
+  tail call void @archive_entry_set_mode(ptr noundef %2, i32 noundef %46) #13
   br label %47
 
 47:                                               ; preds = %38, %44, %11
@@ -2694,7 +2694,7 @@ define internal range(i32 -30, 1) i32 @header_bin_be(ptr noundef initializes((16
   %53 = load i8, ptr %52, align 1, !tbaa !30
   %54 = zext i8 %53 to i64
   %55 = or disjoint i64 %51, %54
-  tail call void @archive_entry_set_uid(ptr noundef %2, i64 noundef %55) #12
+  tail call void @archive_entry_set_uid(ptr noundef %2, i64 noundef %55) #13
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 10
   %57 = load i8, ptr %56, align 1, !tbaa !30
   %58 = zext i8 %57 to i64
@@ -2703,7 +2703,7 @@ define internal range(i32 -30, 1) i32 @header_bin_be(ptr noundef initializes((16
   %61 = load i8, ptr %60, align 1, !tbaa !30
   %62 = zext i8 %61 to i64
   %63 = or disjoint i64 %59, %62
-  tail call void @archive_entry_set_gid(ptr noundef %2, i64 noundef %63) #12
+  tail call void @archive_entry_set_gid(ptr noundef %2, i64 noundef %63) #13
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %65 = load i8, ptr %64, align 1, !tbaa !30
   %66 = zext i8 %65 to i32
@@ -2712,7 +2712,7 @@ define internal range(i32 -30, 1) i32 @header_bin_be(ptr noundef initializes((16
   %69 = load i8, ptr %68, align 1, !tbaa !30
   %70 = zext i8 %69 to i32
   %71 = or disjoint i32 %67, %70
-  tail call void @archive_entry_set_nlink(ptr noundef %2, i32 noundef %71) #12
+  tail call void @archive_entry_set_nlink(ptr noundef %2, i32 noundef %71) #13
   %72 = getelementptr inbounds nuw i8, ptr %8, i64 14
   %73 = load i8, ptr %72, align 1, !tbaa !30
   %74 = zext i8 %73 to i64
@@ -2721,7 +2721,7 @@ define internal range(i32 -30, 1) i32 @header_bin_be(ptr noundef initializes((16
   %77 = load i8, ptr %76, align 1, !tbaa !30
   %78 = zext i8 %77 to i64
   %79 = or disjoint i64 %75, %78
-  tail call void @archive_entry_set_rdev(ptr noundef %2, i64 noundef %79) #12
+  tail call void @archive_entry_set_rdev(ptr noundef %2, i64 noundef %79) #13
   %80 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %81 = load i8, ptr %80, align 1, !tbaa !30
   %82 = zext i8 %81 to i64
@@ -2740,7 +2740,7 @@ define internal range(i32 -30, 1) i32 @header_bin_be(ptr noundef initializes((16
   %95 = load i8, ptr %94, align 1, !tbaa !30
   %96 = zext i8 %95 to i64
   %97 = or disjoint i64 %93, %96
-  tail call void @archive_entry_set_mtime(ptr noundef %2, i64 noundef %97, i64 noundef 0) #12
+  tail call void @archive_entry_set_mtime(ptr noundef %2, i64 noundef %97, i64 noundef 0) #13
   %98 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %99 = load i8, ptr %98, align 1, !tbaa !30
   %100 = zext i8 %99 to i64
@@ -2772,12 +2772,12 @@ define internal range(i32 -30, 1) i32 @header_bin_be(ptr noundef initializes((16
   %124 = or disjoint i64 %120, %123
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %124, ptr %125, align 8, !tbaa !39
-  tail call void @archive_entry_set_size(ptr noundef %2, i64 noundef %124) #12
+  tail call void @archive_entry_set_size(ptr noundef %2, i64 noundef %124) #13
   %126 = load i64, ptr %125, align 8, !tbaa !39
   %127 = and i64 %126, 1
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i64 %127, ptr %128, align 8, !tbaa !53
-  %129 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef 26) #12
+  %129 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef 26) #13
   br label %130
 
 130:                                              ; preds = %47, %10
@@ -2791,64 +2791,64 @@ define internal range(i32 -30, 1) i32 @header_bin_le(ptr noundef initializes((16
   store i32 65538, ptr %6, align 8, !tbaa !55
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @.str.18, ptr %7, align 8, !tbaa !56
-  %8 = tail call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 26, ptr noundef null) #12
+  %8 = tail call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 26, ptr noundef null) #13
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %5
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull @.str.17) #12
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull @.str.17) #13
   br label %85
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %13 = load i16, ptr %12, align 1
   %14 = zext i16 %13 to i64
-  tail call void @archive_entry_set_dev(ptr noundef %2, i64 noundef %14) #12
+  tail call void @archive_entry_set_dev(ptr noundef %2, i64 noundef %14) #13
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %16 = load i16, ptr %15, align 1
   %17 = zext i16 %16 to i64
-  tail call void @archive_entry_set_ino(ptr noundef %2, i64 noundef %17) #12
+  tail call void @archive_entry_set_ino(ptr noundef %2, i64 noundef %17) #13
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 6
   %19 = load i16, ptr %18, align 1
   %20 = zext i16 %19 to i32
-  tail call void @archive_entry_set_mode(ptr noundef %2, i32 noundef %20) #12
+  tail call void @archive_entry_set_mode(ptr noundef %2, i32 noundef %20) #13
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %22 = load i32, ptr %21, align 4, !tbaa !34
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %32, label %23
 
 23:                                               ; preds = %11
-  %24 = tail call i32 @archive_entry_mode(ptr noundef %2) #12
+  %24 = tail call i32 @archive_entry_mode(ptr noundef %2) #13
   %25 = and i32 %24, 28671
-  tail call void @archive_entry_set_mode(ptr noundef %2, i32 noundef %25) #12
-  %26 = tail call i32 @archive_entry_mode(ptr noundef %2) #12
+  tail call void @archive_entry_set_mode(ptr noundef %2, i32 noundef %25) #13
+  %26 = tail call i32 @archive_entry_mode(ptr noundef %2) #13
   %27 = and i32 %26, 61440
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %23
-  %30 = tail call i32 @archive_entry_mode(ptr noundef %2) #12
+  %30 = tail call i32 @archive_entry_mode(ptr noundef %2) #13
   %31 = or i32 %30, 32768
-  tail call void @archive_entry_set_mode(ptr noundef %2, i32 noundef %31) #12
+  tail call void @archive_entry_set_mode(ptr noundef %2, i32 noundef %31) #13
   br label %32
 
 32:                                               ; preds = %23, %29, %11
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %34 = load i16, ptr %33, align 1
   %35 = zext i16 %34 to i64
-  tail call void @archive_entry_set_uid(ptr noundef %2, i64 noundef %35) #12
+  tail call void @archive_entry_set_uid(ptr noundef %2, i64 noundef %35) #13
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 10
   %37 = load i16, ptr %36, align 1
   %38 = zext i16 %37 to i64
-  tail call void @archive_entry_set_gid(ptr noundef %2, i64 noundef %38) #12
+  tail call void @archive_entry_set_gid(ptr noundef %2, i64 noundef %38) #13
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %40 = load i16, ptr %39, align 1
   %41 = zext i16 %40 to i32
-  tail call void @archive_entry_set_nlink(ptr noundef %2, i32 noundef %41) #12
+  tail call void @archive_entry_set_nlink(ptr noundef %2, i32 noundef %41) #13
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 14
   %43 = load i16, ptr %42, align 1
   %44 = zext i16 %43 to i64
-  tail call void @archive_entry_set_rdev(ptr noundef %2, i64 noundef %44) #12
+  tail call void @archive_entry_set_rdev(ptr noundef %2, i64 noundef %44) #13
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %46 = load i16, ptr %45, align 1
   %47 = zext i16 %46 to i64
@@ -2862,7 +2862,7 @@ define internal range(i32 -30, 1) i32 @header_bin_le(ptr noundef initializes((16
   %55 = zext i8 %54 to i64
   %56 = shl nuw nsw i64 %55, 8
   %57 = or disjoint i64 %52, %56
-  tail call void @archive_entry_set_mtime(ptr noundef %2, i64 noundef %57, i64 noundef 0) #12
+  tail call void @archive_entry_set_mtime(ptr noundef %2, i64 noundef %57, i64 noundef 0) #13
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %59 = load i8, ptr %58, align 1, !tbaa !30
   %60 = zext i8 %59 to i64
@@ -2889,12 +2889,12 @@ define internal range(i32 -30, 1) i32 @header_bin_le(ptr noundef initializes((16
   %79 = or disjoint i64 %74, %78
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %79, ptr %80, align 8, !tbaa !39
-  tail call void @archive_entry_set_size(ptr noundef %2, i64 noundef %79) #12
+  tail call void @archive_entry_set_size(ptr noundef %2, i64 noundef %79) #13
   %81 = load i64, ptr %80, align 8, !tbaa !39
   %82 = and i64 %81, 1
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i64 %82, ptr %83, align 8, !tbaa !53
-  %84 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef 26) #12
+  %84 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef 26) #13
   br label %85
 
 85:                                               ; preds = %32, %10
@@ -2933,7 +2933,7 @@ declare void @archive_entry_set_rdevminor(ptr noundef, i64 noundef) local_unname
 declare i32 @archive_entry_mode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @archive_string_conversion_from_charset(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2942,7 +2942,7 @@ declare ptr @archive_string_default_conversion_for_read(ptr noundef) local_unnam
 declare i32 @_archive_entry_copy_pathname_l(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #5
+declare ptr @__errno_location() local_unnamed_addr #6
 
 declare ptr @archive_string_conversion_charset_name(ptr noundef) local_unnamed_addr #1
 
@@ -2951,7 +2951,7 @@ declare i32 @archive_entry_filetype(ptr noundef) local_unnamed_addr #1
 declare i32 @_archive_entry_copy_symlink_l(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 declare void @archive_clear_error(ptr noundef) local_unnamed_addr #1
 
@@ -2964,45 +2964,46 @@ declare i64 @archive_entry_ino64(ptr noundef) local_unnamed_addr #1
 declare void @archive_entry_copy_hardlink(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #7
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 declare ptr @archive_entry_pathname(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #11
+declare i64 @llvm.smin.i64(i64, i64) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind allocsize(0,1) }
-attributes #14 = { nounwind willreturn memory(read) }
-attributes #15 = { nounwind willreturn memory(none) }
-attributes #16 = { nounwind allocsize(0) }
+attributes #3 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind allocsize(0,1) }
+attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { nounwind willreturn memory(none) }
+attributes #17 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

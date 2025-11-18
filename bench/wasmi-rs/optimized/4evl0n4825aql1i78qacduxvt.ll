@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.c1585662b09610e2fed74a2501d2b78e.3 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.c1585662b09610e2fed74a2501d2b78e.2, [16 x i8] c"\18\00\00\00\00\00\00\00Z\00\00\00\11\00\00\00" }>, align 8
 @anon.c1585662b09610e2fed74a2501d2b78e.4 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.c1585662b09610e2fed74a2501d2b78e.2, [16 x i8] c"\18\00\00\00\00\00\00\00^\00\00\00\11\00\00\00" }>, align 8
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden { i1, i8 } @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbd1f12fa8c9dad02E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !alias.scope !3, !nonnull !6, !noundef !6
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -446,7 +446,7 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

@@ -189,7 +189,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZN6google8protobuf8internal24GeneratedExtensionFinder4FindEiPNS1_13ExtensionInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %number, ptr noundef writeonly captures(none) %output) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
@@ -1006,7 +1006,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet3HasEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number) local_unnamed_addr #13 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
@@ -1025,7 +1025,7 @@ return:                                           ; preds = %entry, %if.end
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %key) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %flat_size_ = getelementptr inbounds nuw i8, ptr %this, i64 10
@@ -1163,7 +1163,7 @@ return:                                           ; preds = %while.body.i.i.i.i.
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet7HasLazyEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number) local_unnamed_addr #13 align 2 {
 entry:
   %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
@@ -1186,7 +1186,7 @@ land.end:                                         ; preds = %entry, %land.rhs, %
   ret i1 %1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZNK6google8protobuf8internal12ExtensionSet13NumExtensionsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #13 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 10
@@ -1406,7 +1406,7 @@ return:                                           ; preds = %sw.bb19, %sw.bb17, 
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i8 @_ZNK6google8protobuf8internal12ExtensionSet13ExtensionTypeEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number) local_unnamed_addr #13 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
@@ -1438,7 +1438,7 @@ return:                                           ; preds = %entry, %if.end
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %key) local_unnamed_addr #13 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %key)
@@ -1631,7 +1631,7 @@ if.end27:                                         ; preds = %_ZN6google8protobuf
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZNK6google8protobuf8internal12ExtensionSet8GetInt32Eii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, i32 noundef %default_value) local_unnamed_addr #13 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
@@ -1653,7 +1653,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf8internal12ExtensionSet11GetRefInt32EiRKi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, ptr noundef nonnull readnone align 4 captures(ret: address, provenance) dereferenceable(4) %default_value) local_unnamed_addr #13 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
@@ -1888,7 +1888,7 @@ _ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit: ; preds = %if.end, %if.then.i8
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i64 @_ZNK6google8protobuf8internal12ExtensionSet8GetInt64Eil(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, i64 noundef %default_value) local_unnamed_addr #13 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
@@ -1910,7 +1910,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8protobuf8internal12ExtensionSet11GetRefInt64EiRKl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(8) %default_value) local_unnamed_addr #13 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
@@ -2132,7 +2132,7 @@ _ZN6google8protobuf13RepeatedFieldIlE3AddEl.exit: ; preds = %if.end, %if.then.i8
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZNK6google8protobuf8internal12ExtensionSet9GetUInt32Eij(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, i32 noundef %default_value) local_unnamed_addr #13 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
@@ -2154,7 +2154,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf8internal12ExtensionSet12GetRefUInt32EiRKj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, ptr noundef nonnull readnone align 4 captures(ret: address, provenance) dereferenceable(4) %default_value) local_unnamed_addr #13 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
@@ -2376,7 +2376,7 @@ _ZN6google8protobuf13RepeatedFieldIjE3AddEj.exit: ; preds = %if.end, %if.then.i8
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i64 @_ZNK6google8protobuf8internal12ExtensionSet9GetUInt64Eim(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, i64 noundef %default_value) local_unnamed_addr #13 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
@@ -2398,7 +2398,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8protobuf8internal12ExtensionSet12GetRefUInt64EiRKm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(8) %default_value) local_unnamed_addr #13 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
@@ -2620,7 +2620,7 @@ _ZN6google8protobuf13RepeatedFieldImE3AddEm.exit: ; preds = %if.end, %if.then.i8
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef float @_ZNK6google8protobuf8internal12ExtensionSet8GetFloatEif(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, float noundef %default_value) local_unnamed_addr #13 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
@@ -2642,7 +2642,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
   ret float %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf8internal12ExtensionSet11GetRefFloatEiRKf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, ptr noundef nonnull readnone align 4 captures(ret: address, provenance) dereferenceable(4) %default_value) local_unnamed_addr #13 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
@@ -2864,7 +2864,7 @@ _ZN6google8protobuf13RepeatedFieldIfE3AddEf.exit: ; preds = %if.end, %if.then.i8
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef double @_ZNK6google8protobuf8internal12ExtensionSet9GetDoubleEid(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, double noundef %default_value) local_unnamed_addr #13 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
@@ -2886,7 +2886,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
   ret double %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8protobuf8internal12ExtensionSet12GetRefDoubleEiRKd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(8) %default_value) local_unnamed_addr #13 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
@@ -3108,7 +3108,7 @@ _ZN6google8protobuf13RepeatedFieldIdE3AddEd.exit: ; preds = %if.end, %if.then.i8
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet7GetBoolEib(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, i1 noundef zeroext %default_value) local_unnamed_addr #13 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
@@ -3131,7 +3131,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef nonnull align 1 dereferenceable(1) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetRefBoolEiRKb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, ptr noundef nonnull readnone align 1 captures(ret: address, provenance) dereferenceable(1) %default_value) local_unnamed_addr #13 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
@@ -3357,7 +3357,7 @@ _ZN6google8protobuf13RepeatedFieldIbE3AddEb.exit: ; preds = %if.end, %if.then.i8
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet19GetRawRepeatedFieldEiPKv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, ptr noundef readnone captures(ret: address, provenance) %default_value) local_unnamed_addr #13 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
@@ -3632,7 +3632,7 @@ cleanup.done:                                     ; preds = %entry
   ret ptr %1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZNK6google8protobuf8internal12ExtensionSet7GetEnumEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, i32 noundef %default_value) local_unnamed_addr #13 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
@@ -3654,7 +3654,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetRefEnumEiRKi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, ptr noundef nonnull readnone align 4 captures(ret: address, provenance) dereferenceable(4) %default_value) local_unnamed_addr #13 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
@@ -3876,7 +3876,7 @@ _ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit: ; preds = %if.end, %if.then.i8
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet9GetStringEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %number, ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(32) %default_value) local_unnamed_addr #13 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
@@ -7281,7 +7281,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet26GetPrototypeForLazyMessageEPKNS0_11MessageLiteEi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %extendee, i32 noundef %number) local_unnamed_addr #14 align 2 {
 entry:
   %finder = alloca %"class.google::protobuf::internal::GeneratedExtensionFinder", align 8
@@ -14937,7 +14937,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet20FindOrNullInLargeMapEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %key) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %map_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -15035,7 +15035,7 @@ _ZN4absl12lts_2023080218container_internal15btree_containerINS1_5btreeINS1_10map
   ret ptr %13
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @_ZN6google8protobuf8internal12ExtensionSet20FindOrNullInLargeMapEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %key) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %map_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -15817,7 +15817,7 @@ if.end3.i.i.i17.i:                                ; preds = %if.end.i.i.i13.i
   ret i64 %total_size.2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef ptr @_ZN6google8protobuf8internal30FindExtensionLazyEagerVerifyFnEPKNS0_11MessageLiteEi(ptr noundef %extendee, i32 noundef %number) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZN6google8protobuf8internal12_GLOBAL__N_115global_registryE, align 8
@@ -20658,7 +20658,7 @@ declare i64 @llvm.umin.i64(i64, i64) #29
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -20668,8 +20668,8 @@ attributes #9 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { cold nofree noreturn }
 attributes #12 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

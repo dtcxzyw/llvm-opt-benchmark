@@ -356,7 +356,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5Moves21WeightAllocNTNotvoid1ERK3pos(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1544) %1) #4 align 2 {
   %3 = load i32, ptr %0, align 8
   %4 = sext i32 %3 to i64
@@ -510,7 +510,7 @@ define void @_ZN5Moves21WeightAllocNTNotvoid1ERK3pos(ptr noundef nonnull readonl
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5Moves24WeightAllocTrumpNotvoid1ERK3pos(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1544) %1) #4 align 2 {
   %3 = load i32, ptr %0, align 8
   %4 = sext i32 %3 to i64
@@ -859,7 +859,7 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid1ERK3pos(ptr noundef nonnull read
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5Moves18WeightAllocNTVoid1ERK3pos(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1544) %1) #4 align 2 {
   %3 = load i32, ptr %0, align 8
   %4 = sext i32 %3 to i64
@@ -1011,7 +1011,7 @@ define void @_ZN5Moves18WeightAllocNTVoid1ERK3pos(ptr noundef nonnull readonly a
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5Moves21WeightAllocTrumpVoid1ERK3pos(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1544) %1) #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1477,7 +1477,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid1ERK3pos(ptr noundef nonnull readonl
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5Moves21WeightAllocNTNotvoid2ERK3pos(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1544) %1) #4 align 2 {
   %3 = load i32, ptr %0, align 8
   %4 = sext i32 %3 to i64
@@ -1853,7 +1853,7 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %160, %.critedge4.lo
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5Moves24WeightAllocTrumpNotvoid2ERK3pos(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1544) %1) #4 align 2 {
   %3 = load i32, ptr %0, align 8
   %4 = sext i32 %3 to i64
@@ -2436,7 +2436,7 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %104, %.critedge.i, 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5Moves18WeightAllocNTVoid2ERK3pos(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1544) %1) #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2508,7 +2508,7 @@ define void @_ZN5Moves18WeightAllocNTVoid2ERK3pos(ptr noundef nonnull readonly a
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5Moves21WeightAllocTrumpVoid2ERK3pos(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1544) %1) #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2806,7 +2806,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid2ERK3pos(ptr noundef nonnull readonl
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5Moves27WeightAllocCombinedNotvoid3ERK3pos(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, ptr nonnull readnone align 4 captures(none) %1) #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2896
   %4 = load ptr, ptr %3, align 8
@@ -2888,7 +2888,7 @@ define void @_ZN5Moves27WeightAllocCombinedNotvoid3ERK3pos(ptr noundef nonnull r
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5Moves18WeightAllocNTVoid3ERK3pos(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1544) %1) #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2960,7 +2960,7 @@ define void @_ZN5Moves18WeightAllocNTVoid3ERK3pos(ptr noundef nonnull readonly a
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5Moves21WeightAllocTrumpVoid3ERK3pos(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1544) %1) #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3252,7 +3252,7 @@ define void @_ZN5MovesD2Ev(ptr noundef nonnull align 8 dereferenceable(39992) %0
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5Moves4InitEiiPKiS1_PA4_Ktii(ptr noundef nonnull align 8 captures(none) dereferenceable(39992) initializes((16, 24)) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #6 align 2 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %1, ptr %9, align 8
@@ -3370,7 +3370,7 @@ define void @_ZN5Moves6ReinitEii(ptr noundef nonnull writeonly align 8 captures(
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZN5Moves8MoveGen0EiRK3posRK8moveTypeS5_PK12relRanksType(ptr noundef nonnull align 8 dereferenceable(39992) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(1544) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #4 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %8 = sext i32 %1 to i64
@@ -3548,7 +3548,7 @@ define noundef i32 @_ZN5Moves8MoveGen0EiRK3posRK8moveTypeS5_PK12relRanksType(ptr
   ret i32 %106
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 dereferenceable(1544) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #4 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load i32, ptr %0, align 8
@@ -4304,7 +4304,7 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5Moves14WeightAllocNT0ERK3posRK8moveTypeS5_PK12relRanksType(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1544) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #4 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
@@ -4666,7 +4666,7 @@ define void @_ZN5Moves14WeightAllocNT0ERK3posRK8moveTypeS5_PK12relRanksType(ptr 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 dereferenceable(39992) %0) local_unnamed_addr #4 align 2 {
   %.sroa.0 = alloca { i32, i32, i32 }, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -9321,7 +9321,7 @@ define noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 d
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK5Moves13RankForcesAceEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %struct.moveGroupType, ptr @groupData, i64 %3
@@ -9448,7 +9448,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK5Moves13RankForcesAce
   ret i32 %.031
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZNK5Moves12GetTopNumberEiiRiS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %3, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %4) local_unnamed_addr #6 align 2 {
   store i32 -10, ptr %3, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 14968
@@ -9540,7 +9540,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK5Moves9GetLengthEii(
   ret i32 %10
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5Moves12MakeSpecificERK8moveTypeii(ptr noundef nonnull align 8 dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = sext i32 %2 to i64
@@ -9723,7 +9723,7 @@ define void @_ZN5Moves12MakeSpecificERK8moveTypeii(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #4 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = sext i32 %1 to i64
@@ -9986,7 +9986,7 @@ define noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 derefer
   ret ptr %.087
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @_ZN5Moves14MakeNextSimpleEii(ptr noundef nonnull align 8 dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2904
   %5 = sext i32 %1 to i64
@@ -10349,7 +10349,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_trai
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #14
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5Moves4SortEii(ptr noundef nonnull align 8 dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2904
   %5 = sext i32 %1 to i64
@@ -12369,14 +12369,14 @@ attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

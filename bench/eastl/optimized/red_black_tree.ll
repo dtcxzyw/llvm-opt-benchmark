@@ -3,7 +3,7 @@ source_filename = "bench/eastl/original/red_black_tree.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef ptr @_ZN5eastl15RBTreeIncrementEPKNS_16rbtree_node_baseE(ptr noundef readonly captures(address, ret: address, provenance) %pNode) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %pNode, align 8
@@ -36,7 +36,7 @@ if.end12:                                         ; preds = %while.cond, %while.
   ret ptr %pNode.addr.1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef ptr @_ZN5eastl15RBTreeDecrementEPKNS_16rbtree_node_baseE(ptr noundef readonly captures(address) %pNode) local_unnamed_addr #0 {
 entry:
   %mpNodeParent = getelementptr inbounds nuw i8, ptr %pNode, i64 16
@@ -83,7 +83,7 @@ return:                                           ; preds = %while.cond, %while.
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef i64 @_ZN5eastl19RBTreeGetBlackCountEPKNS_16rbtree_node_baseES2_(ptr noundef readnone captures(address) %pNodeTop, ptr noundef readonly captures(address) %pNodeBottom) local_unnamed_addr #0 {
 entry:
   %tobool.not5 = icmp eq ptr %pNodeBottom, null
@@ -111,7 +111,7 @@ for.end:                                          ; preds = %for.inc, %for.body,
   ret i64 %nCount.1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef ptr @_ZN5eastl16RBTreeRotateLeftEPNS_16rbtree_node_baseES1_(ptr noundef %pNode, ptr noundef readnone captures(address, ret: address, provenance) %pNodeRoot) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %pNode, align 8
@@ -155,7 +155,7 @@ if.end17:                                         ; preds = %if.end, %if.then10,
   ret ptr %pNodeRoot.addr.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef ptr @_ZN5eastl17RBTreeRotateRightEPNS_16rbtree_node_baseES1_(ptr noundef %pNode, ptr noundef readnone captures(address, ret: address, provenance) %pNodeRoot) local_unnamed_addr #1 {
 entry:
   %mpNodeLeft = getelementptr inbounds nuw i8, ptr %pNode, i64 8
@@ -199,7 +199,7 @@ if.end17:                                         ; preds = %if.end, %if.then10,
   ret ptr %pNodeRoot.addr.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef initializes((0, 25)) %pNode, ptr noundef %pNodeParent, ptr noundef captures(address) %pNodeAnchor, i32 noundef %insertionSide) local_unnamed_addr #2 {
 entry:
   %mpNodeParent = getelementptr inbounds nuw i8, ptr %pNodeAnchor, i64 16
@@ -504,7 +504,7 @@ while.end:                                        ; preds = %land.rhs, %if.end80
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef captures(address) %pNode, ptr noundef captures(none) %pNodeAnchor) local_unnamed_addr #2 {
 entry:
   %mpNodeParent = getelementptr inbounds nuw i8, ptr %pNodeAnchor, i64 16
@@ -1164,9 +1164,9 @@ if.end223:                                        ; preds = %while.end218, %if.t
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

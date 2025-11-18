@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.asn1_get_sequence_of_cb_ctx_t = type { i32, ptr }
 %struct.mbedtls_asn1_buf = type { i32, i64, ptr }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden range(i32 -100, 1) i32 @mbedtls_asn1_get_len(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = ptrtoint ptr %1 to i64
@@ -75,7 +75,7 @@ define hidden range(i32 -100, 1) i32 @mbedtls_asn1_get_len(ptr noundef captures(
   ret i32 %.024
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden range(i32 -100, 1) i32 @mbedtls_asn1_get_tag(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8, !tbaa !3
   %6 = ptrtoint ptr %1 to i64
@@ -158,7 +158,7 @@ mbedtls_asn1_get_len.exit:                        ; preds = %.loopexit.i, %29, %
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden range(i32 -100, 1) i32 @mbedtls_asn1_get_bool(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = ptrtoint ptr %1 to i64
@@ -249,13 +249,13 @@ mbedtls_asn1_get_tag.exit.thread:                 ; preds = %.loopexit.i.i, %23,
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden range(i32 -100, 1) i32 @mbedtls_asn1_get_int(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @asn1_get_tagged_int(ptr noundef %0, ptr noundef %1, i32 noundef 2, ptr noundef %2)
   ret i32 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 -100, 1) i32 @asn1_get_tagged_int(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef range(i32 2, 11) %2, ptr noundef writeonly captures(none) %3) unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8, !tbaa !3
   %6 = ptrtoint ptr %1 to i64
@@ -398,7 +398,7 @@ mbedtls_asn1_get_tag.exit.thread:                 ; preds = %50, %.thread, %.loo
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden range(i32 -100, 1) i32 @mbedtls_asn1_get_enum(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @asn1_get_tagged_int(ptr noundef %0, ptr noundef %1, i32 noundef 10, ptr noundef %2)
   ret i32 %4
@@ -478,7 +478,7 @@ define hidden i32 @mbedtls_asn1_get_mpi(ptr noundef captures(none) %0, ptr nound
   br i1 %37, label %mbedtls_asn1_get_tag.exit.thread, label %mbedtls_asn1_get_tag.exit
 
 mbedtls_asn1_get_tag.exit:                        ; preds = %.loopexit.i.i
-  %38 = tail call i32 @mbedtls_mpi_read_binary(ptr noundef %2, ptr noundef nonnull %34, i64 noundef %.09) #10
+  %38 = tail call i32 @mbedtls_mpi_read_binary(ptr noundef %2, ptr noundef nonnull %34, i64 noundef %.09) #11
   %39 = load ptr, ptr %0, align 8, !tbaa !3
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 %.09
   store ptr %40, ptr %0, align 8, !tbaa !3
@@ -491,7 +491,7 @@ mbedtls_asn1_get_tag.exit.thread:                 ; preds = %.loopexit.i.i, %23,
 
 declare i32 @mbedtls_mpi_read_binary(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden range(i32 -102, 1) i32 @mbedtls_asn1_get_bitstring(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = ptrtoint ptr %1 to i64
@@ -825,7 +825,7 @@ mbedtls_asn1_get_len.exit:                        ; preds = %.loopexit.i
   br i1 %109, label %110, label %112
 
 110:                                              ; preds = %mbedtls_asn1_get_len.exit
-  %111 = tail call i32 %6(ptr noundef %7, i32 noundef %80, ptr noundef nonnull %104, i64 noundef %.4) #10
+  %111 = tail call i32 %6(ptr noundef %7, i32 noundef %80, ptr noundef nonnull %104, i64 noundef %.4) #11
   %.not37 = icmp eq i32 %111, 0
   br i1 %.not37, label %._crit_edge, label %mbedtls_asn1_get_tag.exit.thread
 
@@ -845,7 +845,7 @@ mbedtls_asn1_get_tag.exit.thread:                 ; preds = %112, %.lr.ph.split,
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden range(i32 -104, 1) i32 @mbedtls_asn1_get_bitstring_null(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = ptrtoint ptr %1 to i64
@@ -942,8 +942,8 @@ mbedtls_asn1_get_tag.exit.thread:                 ; preds = %.loopexit.i.i, %23,
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @mbedtls_asn1_sequence_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define hidden void @mbedtls_asn1_sequence_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not4 = icmp eq ptr %0, null
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
@@ -951,7 +951,7 @@ define hidden void @mbedtls_asn1_sequence_free(ptr noundef captures(address_is_n
   %.05 = phi ptr [ %3, %.lr.ph ], [ %0, %1 ]
   %2 = getelementptr inbounds nuw i8, ptr %.05, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !22
-  tail call void @free(ptr noundef nonnull %.05) #10
+  tail call void @free(ptr noundef nonnull %.05) #11
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
@@ -960,7 +960,7 @@ define hidden void @mbedtls_asn1_sequence_free(ptr noundef captures(address_is_n
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_asn1_get_sequence_of(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
@@ -979,10 +979,10 @@ define hidden i32 @mbedtls_asn1_get_sequence_of(ptr noundef captures(none) %0, p
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal range(i32 -106, 1) i32 @asn1_get_sequence_of_cb(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) #5 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal range(i32 -106, 1) i32 @asn1_get_sequence_of_cb(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) #6 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !29
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -991,7 +991,7 @@ define internal range(i32 -106, 1) i32 @asn1_get_sequence_of_cb(ptr noundef capt
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %4
-  %10 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #11
+  %10 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #12
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %10, ptr %11, align 8, !tbaa !22
   %12 = icmp eq ptr %10, null
@@ -1173,7 +1173,7 @@ mbedtls_asn1_get_tag.exit54:                      ; preds = %.loopexit.i.i52
   br i1 %78, label %79, label %80
 
 79:                                               ; preds = %mbedtls_asn1_get_tag.exit54
-  tail call void @mbedtls_platform_zeroize(ptr noundef %3, i64 noundef 24) #10
+  tail call void @mbedtls_platform_zeroize(ptr noundef %3, i64 noundef 24) #11
   br label %mbedtls_asn1_get_tag.exit.thread
 
 80:                                               ; preds = %mbedtls_asn1_get_tag.exit54
@@ -1294,19 +1294,19 @@ define hidden void @mbedtls_asn1_free_named_data(ptr noundef %0) local_unnamed_a
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !35
-  tail call void @free(ptr noundef %5) #10
+  tail call void @free(ptr noundef %5) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !38
-  tail call void @free(ptr noundef %7) #10
-  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %0, i64 noundef 64) #10
+  tail call void @free(ptr noundef %7) #11
+  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %0, i64 noundef 64) #11
   br label %8
 
 8:                                                ; preds = %1, %3
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @mbedtls_asn1_free_named_data_list(ptr noundef captures(none) %0) local_unnamed_addr #1 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define hidden void @mbedtls_asn1_free_named_data_list(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !tbaa !39
   %.not6 = icmp eq ptr %2, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
@@ -1318,11 +1318,11 @@ define hidden void @mbedtls_asn1_free_named_data_list(ptr noundef captures(none)
   store ptr %5, ptr %0, align 8, !tbaa !39
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !35
-  tail call void @free(ptr noundef %7) #10
+  tail call void @free(ptr noundef %7) #11
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %9 = load ptr, ptr %8, align 8, !tbaa !38
-  tail call void @free(ptr noundef %9) #10
-  tail call void @free(ptr noundef nonnull %3) #10
+  tail call void @free(ptr noundef %9) #11
+  tail call void @free(ptr noundef nonnull %3) #11
   %10 = load ptr, ptr %0, align 8, !tbaa !39
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
@@ -1331,8 +1331,8 @@ define hidden void @mbedtls_asn1_free_named_data_list(ptr noundef captures(none)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @mbedtls_asn1_free_named_data_list_shallow(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define hidden void @mbedtls_asn1_free_named_data_list_shallow(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not4 = icmp eq ptr %0, null
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
@@ -1343,13 +1343,13 @@ define hidden void @mbedtls_asn1_free_named_data_list_shallow(ptr noundef captur
   %.05 = phi ptr [ %3, %.lr.ph ], [ %0, %1 ]
   %2 = getelementptr inbounds nuw i8, ptr %.05, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !40
-  tail call void @free(ptr noundef nonnull %.05) #10
+  tail call void @free(ptr noundef nonnull %.05) #11
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 }
 
-; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @mbedtls_asn1_find_named_data(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #6 {
+; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define hidden ptr @mbedtls_asn1_find_named_data(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #7 {
   %.not8 = icmp eq ptr %0, null
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -1379,29 +1379,30 @@ define hidden ptr @mbedtls_asn1_find_named_data(ptr noundef readonly captures(ad
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
-attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nofree nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind allocsize(0,1) }
+attributes #3 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

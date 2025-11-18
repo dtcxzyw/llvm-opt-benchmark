@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 2) i32 @memCompare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %2) #19
+  %4 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %2) #21
   %5 = zext i32 %4 to i64
   br label %6
 
@@ -53,7 +53,7 @@ define void @sortAndUnique1(ptr noundef %0, ptr noundef captures(none) %1) local
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !9
   %5 = sext i32 %4 to i64
-  tail call void @qsort(ptr noundef %0, i64 noundef %5, i64 noundef 8, ptr noundef nonnull @compareWords1) #19
+  tail call void @qsort(ptr noundef %0, i64 noundef %5, i64 noundef 8, ptr noundef nonnull @compareWords1) #21
   %6 = icmp sgt i32 %4, 1
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -95,7 +95,7 @@ define void @sortAndUnique1(ptr noundef %0, ptr noundef captures(none) %1) local
 ; Function Attrs: nofree
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 -1, 2) i32 @compareWords2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = load ptr, ptr %0, align 8, !tbaa !15
   %4 = load i64, ptr %3, align 8, !tbaa !3
@@ -105,11 +105,11 @@ define range(i32 -1, 2) i32 @compareWords2(ptr noundef readonly captures(none) %
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 -1, 2) i32 @compareWords(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = load ptr, ptr %0, align 8, !tbaa !15
   %4 = load ptr, ptr %1, align 8, !tbaa !15
-  %5 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(8) %3, ptr noundef nonnull dereferenceable(8) %4, i64 noundef 8) #20
+  %5 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(8) %3, ptr noundef nonnull dereferenceable(8) %4, i64 noundef 8) #22
   %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %5, i32 0)
   ret i32 %.0
 }
@@ -121,7 +121,7 @@ declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 
 define range(i32 -1, 2) i32 @compareWords3(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !15
   %4 = load ptr, ptr %1, align 8, !tbaa !15
-  %5 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef 16) #19
+  %5 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef 16) #21
   %6 = zext i32 %5 to i64
   br label %7
 
@@ -155,7 +155,7 @@ define void @sortAndUnique(ptr noundef %0, ptr noundef captures(none) %1) local_
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !9
   %5 = sext i32 %4 to i64
-  tail call void @qsort(ptr noundef %0, i64 noundef %5, i64 noundef 8, ptr noundef nonnull @compareWords3) #19
+  tail call void @qsort(ptr noundef %0, i64 noundef %5, i64 noundef 8, ptr noundef nonnull @compareWords3) #21
   %6 = icmp sgt i32 %4, 1
   br i1 %6, label %.lr.ph, label %._crit_edge
 
@@ -199,9 +199,9 @@ define void @sortAndUnique(ptr noundef %0, ptr noundef captures(none) %1) local_
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define noalias noundef ptr @setCycleCtrPtr() local_unnamed_addr #8 {
-  %1 = tail call noalias dereferenceable_or_null(12) ptr @malloc(i64 noundef 12) #21
+  %1 = tail call noalias dereferenceable_or_null(12) ptr @malloc(i64 noundef 12) #23
   store i32 0, ptr %1, align 4, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %2, align 4, !tbaa !21
@@ -215,20 +215,20 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @freeCycleCtr(ptr noundef captures(none) %0) local_unnamed_addr #10 {
-  tail call void @free(ptr noundef %0) #19
+  tail call void @free(ptr noundef %0) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
-; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @makeArray(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+; Function Attrs: nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define noalias noundef ptr @makeArray(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !9
   %4 = sext i32 %3 to i64
   %5 = shl nsw i64 %4, 3
-  %6 = tail call noalias ptr @malloc(i64 noundef %5) #21
+  %6 = tail call noalias ptr @malloc(i64 noundef %5) #23
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -244,7 +244,7 @@ define noalias noundef ptr @makeArray(ptr noundef readonly captures(none) %0) lo
 
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %15 = tail call noalias ptr @malloc(i64 noundef %11) #21
+  %15 = tail call noalias ptr @malloc(i64 noundef %11) #23
   %16 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   store ptr %15, ptr %16, align 8, !tbaa !15
   %17 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
@@ -259,10 +259,10 @@ define noalias noundef ptr @makeArray(ptr noundef readonly captures(none) %0) lo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
-; Function Attrs: nounwind uwtable
-define void @freeArray(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define void @freeArray(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !9
   %5 = icmp sgt i32 %4, 0
@@ -272,7 +272,7 @@ define void @freeArray(ptr noundef captures(none) %0, ptr noundef readonly captu
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !15
-  tail call void @free(ptr noundef %7) #19
+  tail call void @free(ptr noundef %7) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load i32, ptr %3, align 8, !tbaa !9
   %9 = sext i32 %8 to i64
@@ -280,15 +280,15 @@ define void @freeArray(ptr noundef captures(none) %0, ptr noundef readonly captu
   br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  tail call void @free(ptr noundef %0) #19
+  tail call void @free(ptr noundef %0) #21
   ret void
 }
 
-; Function Attrs: nofree nounwind memory(readwrite, argmem: read) uwtable
-define noalias noundef ptr @makeArrayB(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #13 {
+; Function Attrs: nofree nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define noalias noundef ptr @makeArrayB(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #15 {
   %3 = sext i32 %1 to i64
   %4 = shl nsw i64 %3, 3
-  %5 = tail call noalias ptr @malloc(i64 noundef %4) #21
+  %5 = tail call noalias ptr @malloc(i64 noundef %4) #23
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -313,7 +313,7 @@ define noalias noundef ptr @makeArrayB(ptr noundef readonly captures(none) %0, i
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @freeArrayB(ptr noundef captures(none) %0) local_unnamed_addr #10 {
-  tail call void @free(ptr noundef %0) #19
+  tail call void @free(ptr noundef %0) #21
   ret void
 }
 
@@ -334,11 +334,11 @@ define void @printCCtrInfo(ptr noundef readonly captures(none) %0, i32 noundef %
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #14
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @minimalInitialFlip1(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %1) #19
+  %3 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %1) #21
   %4 = sext i32 %3 to i64
   %5 = getelementptr i64, ptr %0, i64 %4
   %6 = getelementptr i8, ptr %5, i64 -8
@@ -347,7 +347,7 @@ define range(i32 0, 2) i32 @minimalInitialFlip1(ptr noundef %0, i32 noundef %1) 
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %2
-  tail call void @Kit_TruthNot_64bit(ptr noundef nonnull %0, i32 noundef %1) #19
+  tail call void @Kit_TruthNot_64bit(ptr noundef nonnull %0, i32 noundef %1) #21
   br label %9
 
 9:                                                ; preds = %2, %8
@@ -359,18 +359,18 @@ declare void @Kit_TruthNot_64bit(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @minimalFlip1(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #19
+  %5 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #21
   %6 = shl i32 %5, 3
   %7 = sext i32 %6 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1, ptr align 8 %0, i64 %7, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %0, i64 %7, i1 false)
-  tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %3, i32 noundef 0) #19
+  tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %3, i32 noundef 0) #21
   %8 = icmp sgt i32 %3, 1
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %23
   %.03648 = phi i32 [ %24, %23 ], [ 1, %4 ]
-  %9 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #19
+  %9 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #21
   %10 = zext i32 %9 to i64
   br label %11
 
@@ -402,13 +402,13 @@ memCompare.exit:                                  ; preds = %21
   br label %23
 
 23:                                               ; preds = %memCompare.exit, %.loopexit
-  tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %3, i32 noundef %.03648) #19
+  tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %3, i32 noundef %.03648) #21
   %24 = add nuw nsw i32 %.03648, 1
   %exitcond.not = icmp eq i32 %24, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %23, %4
-  %25 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #19
+  %25 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #21
   %26 = zext i32 %25 to i64
   br label %27
 
@@ -446,12 +446,12 @@ declare void @Kit_TruthChangePhase_64bit(ptr noundef, i32 noundef, i32 noundef) 
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @minimalSwap1(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #19
+  %5 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #21
   %6 = shl i32 %5, 3
   %7 = sext i32 %6 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1, ptr align 8 %0, i64 %7, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %0, i64 %7, i1 false)
-  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %3, i32 noundef 0) #19
+  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %3, i32 noundef 0) #21
   %8 = icmp sgt i32 %3, 2
   br i1 %8, label %.lr.ph.preheader, label %._crit_edge
 
@@ -461,7 +461,7 @@ define range(i32 0, 2) i32 @minimalSwap1(ptr noundef %0, ptr noundef captures(no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %24
   %.03647 = phi i32 [ %25, %24 ], [ 1, %.lr.ph.preheader ]
-  %10 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #19
+  %10 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #21
   %11 = zext i32 %10 to i64
   br label %12
 
@@ -493,13 +493,13 @@ memCompare.exit:                                  ; preds = %22
   br label %24
 
 24:                                               ; preds = %memCompare.exit, %.loopexit
-  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %3, i32 noundef %.03647) #19
+  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %3, i32 noundef %.03647) #21
   %25 = add nuw nsw i32 %.03647, 1
   %exitcond.not = icmp eq i32 %.03647, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %24, %4
-  %26 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #19
+  %26 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #21
   %27 = zext i32 %26 to i64
   br label %28
 
@@ -537,7 +537,7 @@ declare void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef, i32 noundef, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @minimalInitialFlip(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %1) #19
+  %4 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %1) #21
   %5 = sext i32 %4 to i64
   %6 = getelementptr i64, ptr %0, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -8
@@ -546,7 +546,7 @@ define range(i32 0, 2) i32 @minimalInitialFlip(ptr noundef %0, i32 noundef %1, p
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %3
-  tail call void @Kit_TruthNot_64bit(ptr noundef nonnull %0, i32 noundef %1) #19
+  tail call void @Kit_TruthNot_64bit(ptr noundef nonnull %0, i32 noundef %1) #21
   %10 = shl nuw i32 1, %1
   %11 = load i32, ptr %2, align 4, !tbaa !29
   %12 = xor i32 %11, %10
@@ -561,12 +561,12 @@ define range(i32 0, 2) i32 @minimalInitialFlip(ptr noundef %0, i32 noundef %1, p
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @minimalFlip(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = load i32, ptr %4, align 4, !tbaa !29
-  %7 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #19
+  %7 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #21
   %8 = shl i32 %7, 3
   %9 = sext i32 %8 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1, ptr align 8 %0, i64 %9, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %0, i64 %9, i1 false)
-  tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %3, i32 noundef 0) #19
+  tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %3, i32 noundef 0) #21
   %10 = load i32, ptr %4, align 4, !tbaa !29
   %11 = xor i32 %10, 1
   store i32 %11, ptr %4, align 4, !tbaa !29
@@ -576,7 +576,7 @@ define range(i32 0, 2) i32 @minimalFlip(ptr noundef %0, ptr noundef captures(non
 .lr.ph:                                           ; preds = %5, %28
   %.04257 = phi i32 [ %.1, %28 ], [ %6, %5 ]
   %.04356 = phi i32 [ %32, %28 ], [ 1, %5 ]
-  %13 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #19
+  %13 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #21
   %14 = zext i32 %13 to i64
   br label %15
 
@@ -611,7 +611,7 @@ memCompare.exit:                                  ; preds = %25
 
 28:                                               ; preds = %.loopexit, %memCompare.exit
   %.1 = phi i32 [ %27, %memCompare.exit ], [ %.04257, %.loopexit ]
-  tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %3, i32 noundef %.04356) #19
+  tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %3, i32 noundef %.04356) #21
   %29 = shl nuw i32 1, %.04356
   %30 = load i32, ptr %4, align 4, !tbaa !29
   %31 = xor i32 %30, %29
@@ -622,7 +622,7 @@ memCompare.exit:                                  ; preds = %25
 
 ._crit_edge:                                      ; preds = %28, %5
   %.042.lcssa = phi i32 [ %6, %5 ], [ %.1, %28 ]
-  %33 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #19
+  %33 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #21
   %34 = zext i32 %33 to i64
   br label %35
 
@@ -658,7 +658,7 @@ memCompare.exit49.thread:                         ; preds = %35, %45, %memCompar
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @swapInfoAdjacentVars(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #15 {
+define void @swapInfoAdjacentVars(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #17 {
   %4 = sext i32 %0 to i64
   %5 = getelementptr inbounds i8, ptr %1, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !31
@@ -688,7 +688,7 @@ define void @swapInfoAdjacentVars(i32 noundef %0, ptr noundef captures(none) %1,
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @minimalSwap(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6) local_unnamed_addr #0 {
-  %8 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #19
+  %8 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #21
   %9 = shl i32 %8, 3
   %10 = sext i32 %3 to i64
   %11 = load i32, ptr %6, align 4, !tbaa !29
@@ -696,7 +696,7 @@ define range(i32 0, 2) i32 @minimalSwap(ptr noundef %0, ptr noundef captures(non
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1, ptr align 8 %0, i64 %12, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %0, i64 %12, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 %4, i64 %10, i1 false)
-  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %3, i32 noundef 0) #19
+  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %3, i32 noundef 0) #21
   %13 = load i8, ptr %4, align 1, !tbaa !31
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %15 = load i8, ptr %14, align 1, !tbaa !31
@@ -726,7 +726,7 @@ swapInfoAdjacentVars.exit:                        ; preds = %7, %20
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %swapInfoAdjacentVars.exit60
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %swapInfoAdjacentVars.exit60 ]
   %.072 = phi i32 [ %11, %.lr.ph.preheader ], [ %.1, %swapInfoAdjacentVars.exit60 ]
-  %24 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #19
+  %24 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #21
   %25 = zext i32 %24 to i64
   br label %26
 
@@ -764,7 +764,7 @@ memCompare.exit:                                  ; preds = %36
 39:                                               ; preds = %.loopexit, %memCompare.exit
   %.1 = phi i32 [ %38, %memCompare.exit ], [ %.072, %.loopexit ]
   %40 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %3, i32 noundef %40) #19
+  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %3, i32 noundef %40) #21
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %42 = load i8, ptr %41, align 1, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -793,7 +793,7 @@ swapInfoAdjacentVars.exit60:                      ; preds = %39, %51
 
 ._crit_edge:                                      ; preds = %swapInfoAdjacentVars.exit60, %swapInfoAdjacentVars.exit
   %.0.lcssa = phi i32 [ %11, %swapInfoAdjacentVars.exit ], [ %.1, %swapInfoAdjacentVars.exit60 ]
-  %54 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #19
+  %54 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #21
   %55 = zext i32 %54 to i64
   br label %56
 
@@ -835,7 +835,7 @@ define void @luckyCanonicizer(ptr noundef %0, ptr noundef captures(none) %1, ptr
   br label %9
 
 9:                                                ; preds = %7, %minimalInitialFlip.exit
-  %10 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #19
+  %10 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #21
   %11 = sext i32 %10 to i64
   %12 = getelementptr i64, ptr %0, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -8
@@ -844,7 +844,7 @@ define void @luckyCanonicizer(ptr noundef %0, ptr noundef captures(none) %1, ptr
   br i1 %.not.i, label %minimalInitialFlip.exit, label %15
 
 15:                                               ; preds = %9
-  tail call void @Kit_TruthNot_64bit(ptr noundef nonnull %0, i32 noundef %3) #19
+  tail call void @Kit_TruthNot_64bit(ptr noundef nonnull %0, i32 noundef %3) #21
   %16 = load i32, ptr %6, align 4, !tbaa !29
   %17 = xor i32 %16, %8
   store i32 %17, ptr %6, align 4, !tbaa !29
@@ -868,7 +868,7 @@ define noundef i32 @luckyCanonicizer1_simple(ptr noundef %0, ptr noundef capture
   br label %7
 
 7:                                                ; preds = %6, %minimalInitialFlip1.exit
-  %8 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #19
+  %8 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #21
   %9 = sext i32 %8 to i64
   %10 = getelementptr i64, ptr %0, i64 %9
   %11 = getelementptr i8, ptr %10, i64 -8
@@ -877,7 +877,7 @@ define noundef i32 @luckyCanonicizer1_simple(ptr noundef %0, ptr noundef capture
   br i1 %.not.i, label %minimalInitialFlip1.exit, label %13
 
 13:                                               ; preds = %7
-  tail call void @Kit_TruthNot_64bit(ptr noundef nonnull %0, i32 noundef %3) #19
+  tail call void @Kit_TruthNot_64bit(ptr noundef nonnull %0, i32 noundef %3) #21
   br label %minimalInitialFlip1.exit
 
 minimalInitialFlip1.exit:                         ; preds = %7, %13
@@ -895,11 +895,11 @@ minimalInitialFlip1.exit:                         ; preds = %7, %13
 
 ; Function Attrs: nounwind uwtable
 define void @luckyCanonicizer_final(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
-  tail call void @Kit_TruthSemiCanonicize_Yasha_simple(ptr noundef %0, i32 noundef %3, ptr noundef null) #19
+  tail call void @Kit_TruthSemiCanonicize_Yasha_simple(ptr noundef %0, i32 noundef %3, ptr noundef null) #21
   br label %5
 
 5:                                                ; preds = %minimalInitialFlip1.exit.i, %4
-  %6 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #19
+  %6 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #21
   %7 = sext i32 %6 to i64
   %8 = getelementptr i64, ptr %0, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -8
@@ -908,7 +908,7 @@ define void @luckyCanonicizer_final(ptr noundef %0, ptr noundef captures(none) %
   br i1 %.not.i.i, label %minimalInitialFlip1.exit.i, label %11
 
 11:                                               ; preds = %5
-  tail call void @Kit_TruthNot_64bit(ptr noundef nonnull %0, i32 noundef %3) #19
+  tail call void @Kit_TruthNot_64bit(ptr noundef nonnull %0, i32 noundef %3) #21
   br label %minimalInitialFlip1.exit.i
 
 minimalInitialFlip1.exit.i:                       ; preds = %11, %5
@@ -936,13 +936,13 @@ define i32 @Kit_TruthSemiCanonicize_new_internal(ptr noundef %0, i32 noundef %1,
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %8 = tail call i32 @Kit_TruthSemiCanonicize_Yasha(ptr noundef %0, i32 noundef %1, ptr noundef %2) #19
+  %8 = tail call i32 @Kit_TruthSemiCanonicize_Yasha(ptr noundef %0, i32 noundef %1, ptr noundef %2) #21
   store i32 %8, ptr %7, align 4, !tbaa !29
   %9 = shl nuw i32 1, %1
   br label %10
 
 10:                                               ; preds = %minimalInitialFlip.exit.i, %3
-  %11 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %1) #19
+  %11 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %1) #21
   %12 = sext i32 %11 to i64
   %13 = getelementptr i64, ptr %0, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -8
@@ -951,7 +951,7 @@ define i32 @Kit_TruthSemiCanonicize_new_internal(ptr noundef %0, i32 noundef %1,
   br i1 %.not.i.i, label %minimalInitialFlip.exit.i, label %16
 
 16:                                               ; preds = %10
-  tail call void @Kit_TruthNot_64bit(ptr noundef nonnull %0, i32 noundef %1) #19
+  tail call void @Kit_TruthNot_64bit(ptr noundef nonnull %0, i32 noundef %1) #21
   %17 = load i32, ptr %7, align 4, !tbaa !29
   %18 = xor i32 %17, %9
   store i32 %18, ptr %7, align 4, !tbaa !29
@@ -1007,42 +1007,44 @@ define i32 @Kit_TruthSemiCanonicize_new(ptr noundef %0, ptr noundef readnone cap
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #19
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #18
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #18
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #20
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nofree nounwind memory(readwrite, argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #18 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { nounwind }
-attributes #20 = { nounwind willreturn memory(read) }
-attributes #21 = { nounwind allocsize(0) }
+attributes #12 = { nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #20 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { nounwind }
+attributes #22 = { nounwind willreturn memory(read) }
+attributes #23 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

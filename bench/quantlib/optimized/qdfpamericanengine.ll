@@ -1750,7 +1750,7 @@ entry:
   ret i64 1
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZNK8QuantLib18QdFpLegendreScheme23getFixedPointIntegratorEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::shared_ptr.23") align 8 captures(none) initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fpIntegrator_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1772,7 +1772,7 @@ _ZN5boost10shared_ptrIN8QuantLib10IntegratorEEC2ERKS3_.exit: ; preds = %entry, %
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZNK8QuantLib18QdFpLegendreScheme36getExerciseBoundaryToPriceIntegratorEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::shared_ptr.23") align 8 captures(none) initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %exerciseBoundaryIntegrator_ = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -2010,7 +2010,7 @@ entry:
   ret i64 1
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZNK8QuantLib27QdFpTanhSinhIterationScheme23getFixedPointIntegratorEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::shared_ptr.23") align 8 captures(none) initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %integrator_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2032,7 +2032,7 @@ _ZN5boost10shared_ptrIN8QuantLib10IntegratorEEC2ERKS3_.exit: ; preds = %entry, %
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZNK8QuantLib27QdFpTanhSinhIterationScheme36getExerciseBoundaryToPriceIntegratorEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::shared_ptr.23") align 8 captures(none) initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %integrator_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -22461,7 +22461,7 @@ attributes #9 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

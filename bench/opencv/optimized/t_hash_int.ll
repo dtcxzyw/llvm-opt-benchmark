@@ -49,7 +49,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @_ZN2cv12ppf_match_3d4hashEj(
   ret i64 %20
 }
 
-; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noalias noundef ptr @_ZN2cv12ppf_match_3d15hashtableCreateEmPFmjE(i64 noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = icmp ult i64 %0, 16
   br i1 %3, label %19, label %4
@@ -73,19 +73,19 @@ define hidden noalias noundef ptr @_ZN2cv12ppf_match_3d15hashtableCreateEmPFmjE(
 
 19:                                               ; preds = %2, %4
   %.014 = phi i64 [ %18, %4 ], [ 16, %2 ]
-  %20 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #17
+  %20 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #18
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %29, label %21
 
 21:                                               ; preds = %19
-  %22 = tail call noalias ptr @calloc(i64 noundef %.014, i64 noundef 8) #18
+  %22 = tail call noalias ptr @calloc(i64 noundef %.014, i64 noundef 8) #19
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %22, ptr %23, align 8, !tbaa !3
   %.not18 = icmp eq ptr %22, null
   br i1 %.not18, label %24, label %25
 
 24:                                               ; preds = %21
-  tail call void @free(ptr noundef nonnull %20) #19
+  tail call void @free(ptr noundef nonnull %20) #20
   br label %29
 
 25:                                               ; preds = %21
@@ -116,7 +116,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN2cv12ppf_match_3d16hashtableDestroyEPNS0_8HSHTBL_iE(ptr noundef captures(none) %0) local_unnamed_addr #8 {
   %2 = load i64, ptr %0, align 8, !tbaa !11
   %.not17 = icmp eq i64 %2, 0
@@ -139,7 +139,7 @@ define hidden void @_ZN2cv12ppf_match_3d16hashtableDestroyEPNS0_8HSHTBL_iE(ptr n
   %.01012 = phi ptr [ %10, %.lr.ph ], [ %8, %4 ]
   %9 = getelementptr inbounds nuw i8, ptr %.01012, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !15
-  tail call void @free(ptr noundef nonnull %.01012) #19
+  tail call void @free(ptr noundef nonnull %.01012) #20
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !18
 
@@ -156,8 +156,8 @@ define hidden void @_ZN2cv12ppf_match_3d16hashtableDestroyEPNS0_8HSHTBL_iE(ptr n
 ._crit_edge16:                                    ; preds = %._crit_edge, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !3
-  tail call void @free(ptr noundef %15) #19
-  tail call void @free(ptr noundef nonnull %0) #19
+  tail call void @free(ptr noundef %15) #20
+  tail call void @free(ptr noundef nonnull %0) #20
   ret void
 }
 
@@ -193,7 +193,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN2cv12ppf_match_3d15hashtableInser
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %15, %3
-  %17 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #17
+  %17 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #18
   %.not24 = icmp eq ptr %17, null
   br i1 %.not24, label %21, label %18
 
@@ -211,7 +211,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN2cv12ppf_match_3d15hashtableInser
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind uwtable
+; Function Attrs: mustprogress nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef range(i32 -1, 1) i32 @_ZN2cv12ppf_match_3d21hashtableInsertHashedEPNS0_8HSHTBL_iEjPv(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #10 {
   %4 = zext i32 %1 to i64
   %5 = load i64, ptr %0, align 8, !tbaa !11
@@ -241,7 +241,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN2cv12ppf_match_3d21hashtableInser
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %13, %3
-  %15 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #17
+  %15 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #18
   %.not23 = icmp eq ptr %15, null
   br i1 %.not23, label %19, label %16
 
@@ -301,7 +301,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN2cv12ppf_match_3d15hashtableRemov
   br label %20
 
 20:                                               ; preds = %19, %17
-  tail call void @free(ptr noundef nonnull %.01825.lcssa) #19
+  tail call void @free(ptr noundef nonnull %.01825.lcssa) #20
   br label %.loopexit
 
 .lr.ph33:                                         ; preds = %.lr.ph.preheader, %.lr.ph
@@ -352,7 +352,7 @@ define hidden noundef ptr @_ZN2cv12ppf_match_3d12hashtableGetEPNS0_8HSHTBL_iEj(p
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef ptr @_ZN2cv12ppf_match_3d24hashtableGetBucketHashedEPNS0_8HSHTBL_iEj(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #11 {
   %3 = zext i32 %1 to i64
   %4 = load i64, ptr %0, align 8, !tbaa !11
@@ -368,7 +368,7 @@ define hidden noundef ptr @_ZN2cv12ppf_match_3d24hashtableGetBucketHashedEPNS0_8
 define hidden noundef range(i32 -1, 1) i32 @_ZN2cv12ppf_match_3d15hashtableResizeEPNS0_8HSHTBL_iEm(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !12
-  %5 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 8) #18
+  %5 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 8) #19
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %55, label %.preheader
 
@@ -422,7 +422,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN2cv12ppf_match_3d15hashtableResiz
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !23
 
 ._crit_edge.i:                                    ; preds = %24, %.lr.ph33
-  %26 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #17
+  %26 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #18
   %.not24.i = icmp eq ptr %26, null
   br i1 %.not24.i, label %_ZN2cv12ppf_match_3d15hashtableInsertEPNS0_8HSHTBL_iEjPv.exit, label %27
 
@@ -472,7 +472,7 @@ _ZN2cv12ppf_match_3d15hashtableInsertEPNS0_8HSHTBL_iEjPv.exit: ; preds = %22, %.
 
 48:                                               ; preds = %45, %41
   %.01825.i.lcssa52 = phi ptr [ %.01822.i, %45 ], [ %.018.i, %41 ]
-  tail call void @free(ptr noundef nonnull %.01825.i.lcssa52) #19
+  tail call void @free(ptr noundef nonnull %.01825.i.lcssa52) #20
   br label %_ZN2cv12ppf_match_3d15hashtableRemoveEPNS0_8HSHTBL_iEj.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.i21.preheader, %.lr.ph.i21
@@ -499,7 +499,7 @@ _ZN2cv12ppf_match_3d15hashtableRemoveEPNS0_8HSHTBL_iEj.exit: ; preds = %.lr.ph, 
 ._crit_edge36:                                    ; preds = %._crit_edge, %.preheader
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !3
-  tail call void @free(ptr noundef %54) #19
+  tail call void @free(ptr noundef %54) #20
   store i64 %1, ptr %0, align 8, !tbaa !11
   store ptr %5, ptr %53, align 8, !tbaa !3
   br label %55
@@ -510,7 +510,7 @@ _ZN2cv12ppf_match_3d15hashtableRemoveEPNS0_8HSHTBL_iEj.exit: ; preds = %.lr.ph, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef i32 @_ZN2cv12ppf_match_3d14hashtableWriteEPKNS0_8HSHTBL_iEmP8_IO_FILE(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #10 {
+define hidden noundef i32 @_ZN2cv12ppf_match_3d14hashtableWriteEPKNS0_8HSHTBL_iEmP8_IO_FILE(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #12 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -584,7 +584,7 @@ define hidden noundef i32 @_ZN2cv12ppf_match_3d14hashtableWriteEPKNS0_8HSHTBL_iE
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv12ppf_match_3d14hashtablePrintEPNS0_8HSHTBL_iE(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
@@ -627,7 +627,7 @@ define hidden void @_ZN2cv12ppf_match_3d14hashtablePrintEPNS0_8HSHTBL_iE(ptr nou
   br i1 %.not.i.i.i, label %25, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 25:                                               ; preds = %.lr.ph
-  tail call void @_ZSt16__throw_bad_castv() #20
+  tail call void @_ZSt16__throw_bad_castv() #21
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %.lr.ph
@@ -715,10 +715,10 @@ define hidden noalias noundef ptr @_ZN2cv12ppf_match_3d13hashtableReadEP8_IO_FIL
 
 _ZN2cv12ppf_match_3d15hashtableCreateEmPFmjE.exit: ; preds = %16, %11
   %.014.i = phi i64 [ %30, %16 ], [ 16, %11 ]
-  %31 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #17
+  %31 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #18
   %.not.i = icmp ne ptr %31, null
   tail call void @llvm.assume(i1 %.not.i)
-  %32 = tail call noalias ptr @calloc(i64 noundef %.014.i, i64 noundef 8) #18
+  %32 = tail call noalias ptr @calloc(i64 noundef %.014.i, i64 noundef 8) #19
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %32, ptr %33, align 8, !tbaa !3
   %.not18.i = icmp ne ptr %32, null
@@ -760,7 +760,7 @@ _ZN2cv12ppf_match_3d15hashtableCreateEmPFmjE.exit: ; preds = %16, %11
   store i32 0, ptr %5, align 4, !tbaa !61
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %43 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 4, i64 noundef 1, ptr noundef %0)
-  %44 = tail call noalias ptr @malloc(i64 noundef %.fr45) #17
+  %44 = tail call noalias ptr @malloc(i64 noundef %.fr45) #18
   %.not.us.us = icmp eq ptr %44, null
   br i1 %.not.us.us, label %.split.us, label %.critedge.us.us
 
@@ -795,7 +795,7 @@ _ZN2cv12ppf_match_3d15hashtableCreateEmPFmjE.exit: ; preds = %16, %11
   br i1 %.not.i37.us.us, label %._crit_edge.i38.us.us, label %.lr.ph.i35.us.us, !llvm.loop !23
 
 ._crit_edge.i38.us.us:                            ; preds = %56, %.critedge.us.us
-  %58 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #17
+  %58 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #18
   %.not24.i.us.us = icmp eq ptr %58, null
   br i1 %.not24.i.us.us, label %_ZN2cv12ppf_match_3d15hashtableInsertEPNS0_8HSHTBL_iEjPv.exit.us.us, label %59
 
@@ -866,7 +866,7 @@ _ZN2cv12ppf_match_3d15hashtableInsertEPNS0_8HSHTBL_iEjPv.exit.us.us: ; preds = %
   %.01012.i = phi ptr [ %80, %.lr.ph.i ], [ %78, %.lr.ph15.i ]
   %79 = getelementptr inbounds nuw i8, ptr %.01012.i, i64 16
   %80 = load ptr, ptr %79, align 8, !tbaa !15
-  tail call void @free(ptr noundef nonnull %.01012.i) #19
+  tail call void @free(ptr noundef nonnull %.01012.i) #20
   %.not.i34 = icmp eq ptr %80, null
   br i1 %.not.i34, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !18
 
@@ -877,8 +877,8 @@ _ZN2cv12ppf_match_3d15hashtableInsertEPNS0_8HSHTBL_iEjPv.exit.us.us: ; preds = %
 
 _ZN2cv12ppf_match_3d16hashtableDestroyEPNS0_8HSHTBL_iE.exit: ; preds = %._crit_edge.i, %.split.us
   %82 = load ptr, ptr %38, align 8, !tbaa !3
-  tail call void @free(ptr noundef %82) #19
-  tail call void @free(ptr noundef nonnull %31) #19
+  tail call void @free(ptr noundef %82) #20
+  tail call void @free(ptr noundef nonnull %31) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
@@ -901,7 +901,7 @@ _ZN2cv12ppf_match_3d16hashtableDestroyEPNS0_8HSHTBL_iE.exit: ; preds = %._crit_e
   br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i35, !llvm.loop !23
 
 ._crit_edge.i38:                                  ; preds = %86, %.critedge
-  %88 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #17
+  %88 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #18
   %.not24.i = icmp eq ptr %88, null
   br i1 %.not24.i, label %_ZN2cv12ppf_match_3d15hashtableInsertEPNS0_8HSHTBL_iEjPv.exit, label %89
 
@@ -940,7 +940,7 @@ _ZN2cv12ppf_match_3d15hashtableInsertEPNS0_8HSHTBL_iEjPv.exit: ; preds = %84, %.
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #0
 
@@ -949,7 +949,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt16__throw_bad_castv() local_unnamed_addr #13
+declare void @_ZSt16__throw_bad_castv() local_unnamed_addr #14
 
 declare void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570)) local_unnamed_addr #0
 
@@ -958,42 +958,43 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_t_hash_int.cpp() #14 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_t_hash_int.cpp() #15 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #19
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #20
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #16
+declare void @llvm.assume(i1 noundef) #17
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn memory(readwrite, argmem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #13 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #14 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #17 = { nounwind allocsize(0) }
-attributes #18 = { nounwind allocsize(0,1) }
-attributes #19 = { nounwind }
-attributes #20 = { noreturn }
+attributes #10 = { mustprogress nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #14 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #15 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #18 = { nounwind allocsize(0) }
+attributes #19 = { nounwind allocsize(0,1) }
+attributes #20 = { nounwind }
+attributes #21 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 

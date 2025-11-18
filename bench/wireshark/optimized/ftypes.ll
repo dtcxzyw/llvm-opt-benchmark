@@ -241,7 +241,7 @@ declare void @ftype_register_pseudofields_tvbuff(i32 noundef) local_unnamed_addr
 ; Function Attrs: null_pointer_is_valid
 declare void @proto_set_cant_toggle(i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @ftype_register(i32 noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = zext i32 %0 to i64
   %4 = getelementptr ptr, ptr @type_list, i64 %3
@@ -287,7 +287,7 @@ same_ftype.exit3:                                 ; preds = %same_ftype.exit, %s
   ret i1 %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef nonnull ptr @ftype_name(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr ptr, ptr @type_list, i64 %2
@@ -307,7 +307,7 @@ switch.lookup:                                    ; preds = %1
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef nonnull ptr @ftype_pretty_name(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr ptr, ptr @type_list, i64 %2
@@ -327,7 +327,7 @@ switch.lookup:                                    ; preds = %1
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden i32 @ftype_wire_size(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr ptr, ptr @type_list, i64 %2
@@ -337,7 +337,7 @@ define hidden i32 @ftype_wire_size(i32 noundef %0) local_unnamed_addr #4 {
   ret i32 %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_length(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr ptr, ptr @type_list, i64 %2
@@ -348,7 +348,7 @@ define zeroext i1 @ftype_can_length(i32 noundef %0) local_unnamed_addr #4 {
   ret i1 %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_slice(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr ptr, ptr @type_list, i64 %2
@@ -359,7 +359,7 @@ define zeroext i1 @ftype_can_slice(i32 noundef %0) local_unnamed_addr #4 {
   ret i1 %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_eq(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr ptr, ptr @type_list, i64 %2
@@ -370,7 +370,7 @@ define zeroext i1 @ftype_can_eq(i32 noundef %0) local_unnamed_addr #4 {
   ret i1 %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_cmp(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr ptr, ptr @type_list, i64 %2
@@ -381,7 +381,7 @@ define zeroext i1 @ftype_can_cmp(i32 noundef %0) local_unnamed_addr #4 {
   ret i1 %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_bitwise_and(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr ptr, ptr @type_list, i64 %2
@@ -392,7 +392,7 @@ define zeroext i1 @ftype_can_bitwise_and(i32 noundef %0) local_unnamed_addr #4 {
   ret i1 %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_unary_minus(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr ptr, ptr @type_list, i64 %2
@@ -403,7 +403,7 @@ define zeroext i1 @ftype_can_unary_minus(i32 noundef %0) local_unnamed_addr #4 {
   ret i1 %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_add(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr ptr, ptr @type_list, i64 %2
@@ -414,7 +414,7 @@ define zeroext i1 @ftype_can_add(i32 noundef %0) local_unnamed_addr #4 {
   ret i1 %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_subtract(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr ptr, ptr @type_list, i64 %2
@@ -425,7 +425,7 @@ define zeroext i1 @ftype_can_subtract(i32 noundef %0) local_unnamed_addr #4 {
   ret i1 %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_multiply(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr ptr, ptr @type_list, i64 %2
@@ -436,7 +436,7 @@ define zeroext i1 @ftype_can_multiply(i32 noundef %0) local_unnamed_addr #4 {
   ret i1 %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_divide(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr ptr, ptr @type_list, i64 %2
@@ -447,7 +447,7 @@ define zeroext i1 @ftype_can_divide(i32 noundef %0) local_unnamed_addr #4 {
   ret i1 %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_modulo(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr ptr, ptr @type_list, i64 %2
@@ -458,7 +458,7 @@ define zeroext i1 @ftype_can_modulo(i32 noundef %0) local_unnamed_addr #4 {
   ret i1 %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_contains(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr ptr, ptr @type_list, i64 %2
@@ -469,7 +469,7 @@ define zeroext i1 @ftype_can_contains(i32 noundef %0) local_unnamed_addr #4 {
   ret i1 %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_matches(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr ptr, ptr @type_list, i64 %2
@@ -480,7 +480,7 @@ define zeroext i1 @ftype_can_matches(i32 noundef %0) local_unnamed_addr #4 {
   ret i1 %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_is_zero(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr ptr, ptr @type_list, i64 %2
@@ -491,7 +491,7 @@ define zeroext i1 @ftype_can_is_zero(i32 noundef %0) local_unnamed_addr #4 {
   ret i1 %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_is_negative(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr ptr, ptr @type_list, i64 %2
@@ -502,7 +502,7 @@ define zeroext i1 @ftype_can_is_negative(i32 noundef %0) local_unnamed_addr #4 {
   ret i1 %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_val_to_sinteger(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr ptr, ptr @type_list, i64 %2
@@ -513,7 +513,7 @@ define zeroext i1 @ftype_can_val_to_sinteger(i32 noundef %0) local_unnamed_addr 
   ret i1 %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_val_to_uinteger(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr ptr, ptr @type_list, i64 %2
@@ -524,7 +524,7 @@ define zeroext i1 @ftype_can_val_to_uinteger(i32 noundef %0) local_unnamed_addr 
   ret i1 %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_val_to_sinteger64(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr ptr, ptr @type_list, i64 %2
@@ -535,7 +535,7 @@ define zeroext i1 @ftype_can_val_to_sinteger64(i32 noundef %0) local_unnamed_add
   ret i1 %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_val_to_uinteger64(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr ptr, ptr @type_list, i64 %2
@@ -546,7 +546,7 @@ define zeroext i1 @ftype_can_val_to_uinteger64(i32 noundef %0) local_unnamed_add
   ret i1 %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_val_to_double(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr ptr, ptr @type_list, i64 %2
@@ -1198,14 +1198,14 @@ fvalue_free.exit:                                 ; preds = %29, %33
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @fvalue_type_ftenum(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef nonnull ptr @fvalue_type_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i32, ptr %2, align 8
@@ -2533,9 +2533,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

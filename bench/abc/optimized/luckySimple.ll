@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.varInfo = type { i32, i32 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @nextSwap(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8, !tbaa !3
@@ -86,7 +86,7 @@ define range(i32 0, 2) i32 @nextSwap(ptr noundef captures(none) %0) local_unname
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @fillInSwapArray(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4, !tbaa !21
@@ -94,9 +94,9 @@ define void @fillInSwapArray(ptr noundef readonly captures(none) %0) local_unnam
   %5 = add nsw i32 %4, 2
   %6 = sext i32 %5 to i64
   %7 = shl nsw i64 %6, 3
-  %8 = tail call noalias ptr @malloc(i64 noundef %7) #10
+  %8 = tail call noalias ptr @malloc(i64 noundef %7) #11
   %9 = shl nsw i64 %6, 2
-  %10 = tail call noalias ptr @malloc(i64 noundef %9) #10
+  %10 = tail call noalias ptr @malloc(i64 noundef %9) #11
   %11 = add nsw i32 %4, 100
   store i32 %11, ptr %10, align 4, !tbaa !15
   %.not23.i = icmp slt i32 %4, 1
@@ -195,8 +195,8 @@ setSwapInfoPtr.exit:                              ; preds = %.lr.ph.i
   br label %.lr.ph.i13.preheader.us
 
 .loopexit16:                                      ; preds = %34, %1, %setSwapInfoPtr.exit
-  tail call void @free(ptr noundef %8) #11
-  tail call void @free(ptr noundef nonnull %10) #11
+  tail call void @free(ptr noundef %8) #12
+  tail call void @free(ptr noundef nonnull %10) #12
   ret void
 }
 
@@ -222,7 +222,7 @@ define range(i32 -2147483648, 2147483647) i32 @oneBitPosition(i32 noundef %0, i3
   ret i32 %.07
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @fillInFlipArray(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4, !tbaa !27
@@ -272,9 +272,9 @@ oneBitPosition.exit:                              ; preds = %.lr.ph.i, %15, %6
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noalias noundef ptr @setPermInfoPtr(i32 noundef %0) local_unnamed_addr #1 {
-  %2 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #10
+  %2 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #11
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 0, ptr %3, align 8, !tbaa !30
   store i32 %0, ptr %2, align 8, !tbaa !23
@@ -305,12 +305,12 @@ factorial.exit:                                   ; preds = %factorial.exit.loop
   store i32 %accumulator.tr.lcssa.i, ptr %10, align 4, !tbaa !21
   %11 = zext nneg i32 %4 to i64
   %12 = shl nuw nsw i64 %11, 2
-  %13 = tail call noalias ptr @malloc(i64 noundef %12) #10
+  %13 = tail call noalias ptr @malloc(i64 noundef %12) #11
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %13, ptr %14, align 8, !tbaa !28
   %15 = sext i32 %accumulator.tr.lcssa.i to i64
   %16 = shl nsw i64 %15, 2
-  %17 = tail call noalias ptr @malloc(i64 noundef %16) #10
+  %17 = tail call noalias ptr @malloc(i64 noundef %16) #11
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %17, ptr %18, align 8, !tbaa !25
   tail call void @fillInSwapArray(ptr noundef nonnull %2)
@@ -377,15 +377,15 @@ fillInFlipArray.exit:                             ; preds = %oneBitPosition.exit
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @freePermInfoPtr(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !28
-  tail call void @free(ptr noundef %3) #11
+  tail call void @free(ptr noundef %3) #12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !25
-  tail call void @free(ptr noundef %5) #11
-  tail call void @free(ptr noundef %0) #11
+  tail call void @free(ptr noundef %5) #12
+  tail call void @free(ptr noundef %0) #12
   ret void
 }
 
@@ -393,13 +393,13 @@ define void @freePermInfoPtr(ptr noundef captures(none) %0) local_unnamed_addr #
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @simpleMinimal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
-  tail call void @Kit_TruthCopy_64bit(ptr noundef %1, ptr noundef %0, i32 noundef %4) #11
-  tail call void @Kit_TruthNot_64bit(ptr noundef %0, i32 noundef %4) #11
-  %6 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %1, i32 noundef %4) #11
+define void @simpleMinimal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #7 {
+  tail call void @Kit_TruthCopy_64bit(ptr noundef %1, ptr noundef %0, i32 noundef %4) #12
+  tail call void @Kit_TruthNot_64bit(ptr noundef %0, i32 noundef %4) #12
+  %6 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %1, i32 noundef %4) #12
   %7 = icmp eq i32 %6, -1
   %..i = select i1 %7, ptr %0, ptr %1
-  tail call void @Kit_TruthCopy_64bit(ptr noundef %2, ptr noundef %..i, i32 noundef %4) #11
+  tail call void @Kit_TruthCopy_64bit(ptr noundef %2, ptr noundef %..i, i32 noundef %4) #12
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %9 = load i32, ptr %8, align 4, !tbaa !21
   %10 = icmp sgt i32 %9, 0
@@ -416,31 +416,31 @@ define void @simpleMinimal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %14 = load ptr, ptr %11, align 8, !tbaa !25
   %15 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.next
   %16 = load i32, ptr %15, align 4, !tbaa !15
-  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %4, i32 noundef %16) #11
+  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %4, i32 noundef %16) #12
   %17 = load ptr, ptr %11, align 8, !tbaa !25
   %18 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv.next
   %19 = load i32, ptr %18, align 4, !tbaa !15
-  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %1, i32 noundef %4, i32 noundef %19) #11
-  %20 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %1, i32 noundef %4) #11
+  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %1, i32 noundef %4, i32 noundef %19) #12
+  %20 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %1, i32 noundef %4) #12
   %21 = icmp slt i32 %20, 1
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %13
-  %23 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %2, i32 noundef %4) #11
+  %23 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %2, i32 noundef %4) #12
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %25, label %minWord3.exit
 
 25:                                               ; preds = %22
-  tail call void @Kit_TruthCopy_64bit(ptr noundef %2, ptr noundef %0, i32 noundef %4) #11
+  tail call void @Kit_TruthCopy_64bit(ptr noundef %2, ptr noundef %0, i32 noundef %4) #12
   br label %26
 
 26:                                               ; preds = %25, %13
-  %27 = tail call i32 @memCompare(ptr noundef %1, ptr noundef %2, i32 noundef %4) #11
+  %27 = tail call i32 @memCompare(ptr noundef %1, ptr noundef %2, i32 noundef %4) #12
   %28 = icmp slt i32 %27, 1
   br i1 %28, label %29, label %minWord3.exit
 
 29:                                               ; preds = %26
-  tail call void @Kit_TruthCopy_64bit(ptr noundef %2, ptr noundef %1, i32 noundef %4) #11
+  tail call void @Kit_TruthCopy_64bit(ptr noundef %2, ptr noundef %1, i32 noundef %4) #12
   br label %minWord3.exit
 
 minWord3.exit:                                    ; preds = %22, %26, %29
@@ -466,36 +466,36 @@ minWord3.exit:                                    ; preds = %22, %26, %29
 38:                                               ; preds = %.lr.ph69, %.loopexit
   %indvars.iv75 = phi i64 [ %36, %.lr.ph69 ], [ %indvars.iv.next76, %.loopexit ]
   %indvars.iv.next76 = add nsw i64 %indvars.iv75, -1
-  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %4, i32 noundef 0) #11
-  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %1, i32 noundef %4, i32 noundef 0) #11
+  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %4, i32 noundef 0) #12
+  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %1, i32 noundef %4, i32 noundef 0) #12
   %39 = load ptr, ptr %34, align 8, !tbaa !28
   %40 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv.next76
   %41 = load i32, ptr %40, align 4, !tbaa !15
-  tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %4, i32 noundef %41) #11
+  tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %4, i32 noundef %41) #12
   %42 = load ptr, ptr %34, align 8, !tbaa !28
   %43 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv.next76
   %44 = load i32, ptr %43, align 4, !tbaa !15
-  tail call void @Kit_TruthChangePhase_64bit(ptr noundef %1, i32 noundef %4, i32 noundef %44) #11
-  %45 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %1, i32 noundef %4) #11
+  tail call void @Kit_TruthChangePhase_64bit(ptr noundef %1, i32 noundef %4, i32 noundef %44) #12
+  %45 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %1, i32 noundef %4) #12
   %46 = icmp slt i32 %45, 1
   br i1 %46, label %47, label %51
 
 47:                                               ; preds = %38
-  %48 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %2, i32 noundef %4) #11
+  %48 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %2, i32 noundef %4) #12
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %50, label %minWord3.exit61
 
 50:                                               ; preds = %47
-  tail call void @Kit_TruthCopy_64bit(ptr noundef %2, ptr noundef %0, i32 noundef %4) #11
+  tail call void @Kit_TruthCopy_64bit(ptr noundef %2, ptr noundef %0, i32 noundef %4) #12
   br label %51
 
 51:                                               ; preds = %50, %38
-  %52 = tail call i32 @memCompare(ptr noundef %1, ptr noundef %2, i32 noundef %4) #11
+  %52 = tail call i32 @memCompare(ptr noundef %1, ptr noundef %2, i32 noundef %4) #12
   %53 = icmp slt i32 %52, 1
   br i1 %53, label %54, label %minWord3.exit61
 
 54:                                               ; preds = %51
-  tail call void @Kit_TruthCopy_64bit(ptr noundef %2, ptr noundef %1, i32 noundef %4) #11
+  tail call void @Kit_TruthCopy_64bit(ptr noundef %2, ptr noundef %1, i32 noundef %4) #12
   br label %minWord3.exit61
 
 minWord3.exit61:                                  ; preds = %47, %51, %54
@@ -513,31 +513,31 @@ minWord3.exit61:                                  ; preds = %47, %51, %54
   %58 = load ptr, ptr %35, align 8, !tbaa !25
   %59 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv.next73
   %60 = load i32, ptr %59, align 4, !tbaa !15
-  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %4, i32 noundef %60) #11
+  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %4, i32 noundef %60) #12
   %61 = load ptr, ptr %35, align 8, !tbaa !25
   %62 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv.next73
   %63 = load i32, ptr %62, align 4, !tbaa !15
-  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %1, i32 noundef %4, i32 noundef %63) #11
-  %64 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %1, i32 noundef %4) #11
+  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %1, i32 noundef %4, i32 noundef %63) #12
+  %64 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %1, i32 noundef %4) #12
   %65 = icmp slt i32 %64, 1
   br i1 %65, label %66, label %70
 
 66:                                               ; preds = %.lr.ph65
-  %67 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %2, i32 noundef %4) #11
+  %67 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %2, i32 noundef %4) #12
   %68 = icmp slt i32 %67, 0
   br i1 %68, label %69, label %minWord3.exit62
 
 69:                                               ; preds = %66
-  tail call void @Kit_TruthCopy_64bit(ptr noundef %2, ptr noundef %0, i32 noundef %4) #11
+  tail call void @Kit_TruthCopy_64bit(ptr noundef %2, ptr noundef %0, i32 noundef %4) #12
   br label %70
 
 70:                                               ; preds = %69, %.lr.ph65
-  %71 = tail call i32 @memCompare(ptr noundef %1, ptr noundef %2, i32 noundef %4) #11
+  %71 = tail call i32 @memCompare(ptr noundef %1, ptr noundef %2, i32 noundef %4) #12
   %72 = icmp slt i32 %71, 1
   br i1 %72, label %73, label %minWord3.exit62
 
 73:                                               ; preds = %70
-  tail call void @Kit_TruthCopy_64bit(ptr noundef %2, ptr noundef %1, i32 noundef %4) #11
+  tail call void @Kit_TruthCopy_64bit(ptr noundef %2, ptr noundef %1, i32 noundef %4) #12
   br label %minWord3.exit62
 
 minWord3.exit62:                                  ; preds = %66, %70, %73
@@ -545,23 +545,23 @@ minWord3.exit62:                                  ; preds = %66, %70, %73
   br i1 %74, label %.lr.ph65, label %.loopexit, !llvm.loop !34
 
 ._crit_edge70:                                    ; preds = %.loopexit, %._crit_edge
-  tail call void @Kit_TruthCopy_64bit(ptr noundef %0, ptr noundef %2, i32 noundef %4) #11
+  tail call void @Kit_TruthCopy_64bit(ptr noundef %0, ptr noundef %2, i32 noundef %4) #12
   ret void
 }
 
-declare void @Kit_TruthCopy_64bit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
+declare void @Kit_TruthCopy_64bit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
-declare void @Kit_TruthNot_64bit(ptr noundef, i32 noundef) local_unnamed_addr #7
+declare void @Kit_TruthNot_64bit(ptr noundef, i32 noundef) local_unnamed_addr #8
 
-declare void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
+declare void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
 
-declare void @Kit_TruthChangePhase_64bit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
+declare void @Kit_TruthChangePhase_64bit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define void @simpleMinimalGroups(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #1 {
+define void @simpleMinimalGroups(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #7 {
   %10 = sext i32 %4 to i64
   %11 = shl nsw i64 %10, 2
-  %12 = tail call noalias ptr @malloc(i64 noundef %11) #10
+  %12 = tail call noalias ptr @malloc(i64 noundef %11) #11
   %13 = icmp sgt i32 %4, 0
   br i1 %13, label %.lr.ph.preheader, label %._crit_edge
 
@@ -586,23 +586,23 @@ define void @simpleMinimalGroups(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not, label %21, label %18
 
 18:                                               ; preds = %._crit_edge
-  tail call void @Kit_TruthCopy_64bit(ptr noundef %1, ptr noundef %0, i32 noundef %6) #11
-  tail call void @Kit_TruthNot_64bit(ptr noundef %0, i32 noundef %6) #11
-  %19 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %1, i32 noundef %6) #11
+  tail call void @Kit_TruthCopy_64bit(ptr noundef %1, ptr noundef %0, i32 noundef %6) #12
+  tail call void @Kit_TruthNot_64bit(ptr noundef %0, i32 noundef %6) #12
+  %19 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %1, i32 noundef %6) #12
   %20 = icmp eq i32 %19, -1
   %..i = select i1 %20, ptr %0, ptr %1
   br label %21
 
 21:                                               ; preds = %._crit_edge, %18
   %.sink = phi ptr [ %..i, %18 ], [ %0, %._crit_edge ]
-  tail call void @Kit_TruthCopy_64bit(ptr noundef %2, ptr noundef %.sink, i32 noundef %6) #11
+  tail call void @Kit_TruthCopy_64bit(ptr noundef %2, ptr noundef %.sink, i32 noundef %6) #12
   %22 = shl i32 %4, 1
   %23 = or disjoint i32 %22, 1
   %24 = sext i32 %23 to i64
   %25 = shl nsw i64 %24, 2
-  %26 = tail call noalias ptr @malloc(i64 noundef %25) #10
-  %27 = tail call noalias ptr @malloc(i64 noundef %25) #10
-  %28 = tail call noalias ptr @malloc(i64 noundef %25) #10
+  %26 = tail call noalias ptr @malloc(i64 noundef %25) #11
+  %27 = tail call noalias ptr @malloc(i64 noundef %25) #11
+  %28 = tail call noalias ptr @malloc(i64 noundef %25) #11
   store i32 2, ptr %28, align 4, !tbaa !15
   %.not165185 = icmp slt i32 %4, 1
   br i1 %.not165185, label %.preheader178, label %.lr.ph188.preheader
@@ -723,7 +723,7 @@ define void @simpleMinimalGroups(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %87 = getelementptr inbounds i32, ptr %86, i64 %82
   %88 = load i32, ptr %87, align 4, !tbaa !15
   %89 = add nsw i32 %88, %84
-  tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %6, i32 noundef %89) #11
+  tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %6, i32 noundef %89) #12
   br i1 %.not, label %104, label %90
 
 90:                                               ; preds = %81
@@ -731,33 +731,33 @@ define void @simpleMinimalGroups(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %92 = getelementptr inbounds i32, ptr %91, i64 %82
   %93 = load i32, ptr %92, align 4, !tbaa !15
   %94 = add nsw i32 %93, %84
-  tail call void @Kit_TruthChangePhase_64bit(ptr noundef %1, i32 noundef %6, i32 noundef %94) #11
-  %95 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %1, i32 noundef %6) #11
+  tail call void @Kit_TruthChangePhase_64bit(ptr noundef %1, i32 noundef %6, i32 noundef %94) #12
+  %95 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %1, i32 noundef %6) #12
   %96 = icmp slt i32 %95, 1
   br i1 %96, label %97, label %101
 
 97:                                               ; preds = %90
-  %98 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %2, i32 noundef %6) #11
+  %98 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %2, i32 noundef %6) #12
   %99 = icmp slt i32 %98, 0
   br i1 %99, label %100, label %minWord3.exit
 
 100:                                              ; preds = %97
-  tail call void @Kit_TruthCopy_64bit(ptr noundef %2, ptr noundef %0, i32 noundef %6) #11
+  tail call void @Kit_TruthCopy_64bit(ptr noundef %2, ptr noundef %0, i32 noundef %6) #12
   br label %101
 
 101:                                              ; preds = %100, %90
-  %102 = tail call i32 @memCompare(ptr noundef %1, ptr noundef %2, i32 noundef %6) #11
+  %102 = tail call i32 @memCompare(ptr noundef %1, ptr noundef %2, i32 noundef %6) #12
   %103 = icmp slt i32 %102, 1
   br i1 %103, label %minWord3.exit.sink.split, label %minWord3.exit
 
 104:                                              ; preds = %81
-  %105 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %2, i32 noundef %6) #11
+  %105 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %2, i32 noundef %6) #12
   %106 = icmp slt i32 %105, 1
   br i1 %106, label %minWord3.exit.sink.split, label %minWord3.exit
 
 minWord3.exit.sink.split:                         ; preds = %104, %101
   %.sink254 = phi ptr [ %1, %101 ], [ %0, %104 ]
-  tail call void @Kit_TruthCopy_64bit(ptr noundef %2, ptr noundef %.sink254, i32 noundef %6) #11
+  tail call void @Kit_TruthCopy_64bit(ptr noundef %2, ptr noundef %.sink254, i32 noundef %6) #12
   br label %minWord3.exit
 
 minWord3.exit:                                    ; preds = %minWord3.exit.sink.split, %104, %101, %97, %62, %.lr.ph198
@@ -806,37 +806,37 @@ minWord3.exit:                                    ; preds = %minWord3.exit.sink.
   %133 = getelementptr inbounds i32, ptr %12, i64 %111
   %134 = load i32, ptr %133, align 4, !tbaa !15
   %135 = add nsw i32 %134, %.1155
-  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %6, i32 noundef %135) #11
+  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %6, i32 noundef %135) #12
   br i1 %.not, label %146, label %136
 
 136:                                              ; preds = %132
-  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %1, i32 noundef %6, i32 noundef %135) #11
-  %137 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %1, i32 noundef %6) #11
+  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %1, i32 noundef %6, i32 noundef %135) #12
+  %137 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %1, i32 noundef %6) #12
   %138 = icmp slt i32 %137, 1
   br i1 %138, label %139, label %143
 
 139:                                              ; preds = %136
-  %140 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %2, i32 noundef %6) #11
+  %140 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %2, i32 noundef %6) #12
   %141 = icmp slt i32 %140, 0
   br i1 %141, label %142, label %minWord3.exit175
 
 142:                                              ; preds = %139
-  tail call void @Kit_TruthCopy_64bit(ptr noundef %2, ptr noundef %0, i32 noundef %6) #11
+  tail call void @Kit_TruthCopy_64bit(ptr noundef %2, ptr noundef %0, i32 noundef %6) #12
   br label %143
 
 143:                                              ; preds = %142, %136
-  %144 = tail call i32 @memCompare(ptr noundef %1, ptr noundef %2, i32 noundef %6) #11
+  %144 = tail call i32 @memCompare(ptr noundef %1, ptr noundef %2, i32 noundef %6) #12
   %145 = icmp slt i32 %144, 1
   br i1 %145, label %minWord3.exit175.sink.split, label %minWord3.exit175
 
 146:                                              ; preds = %132
-  %147 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %2, i32 noundef %6) #11
+  %147 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %2, i32 noundef %6) #12
   %148 = icmp slt i32 %147, 1
   br i1 %148, label %minWord3.exit175.sink.split, label %minWord3.exit175
 
 minWord3.exit175.sink.split:                      ; preds = %146, %143
   %.sink255 = phi ptr [ %1, %143 ], [ %0, %146 ]
-  tail call void @Kit_TruthCopy_64bit(ptr noundef %2, ptr noundef %.sink255, i32 noundef %6) #11
+  tail call void @Kit_TruthCopy_64bit(ptr noundef %2, ptr noundef %.sink255, i32 noundef %6) #12
   br label %minWord3.exit175
 
 minWord3.exit175:                                 ; preds = %minWord3.exit175.sink.split, %146, %143, %139, %110, %.lr.ph201
@@ -891,46 +891,47 @@ minWord3.exit175:                                 ; preds = %minWord3.exit175.si
   br i1 %.not170, label %168, label %167
 
 167:                                              ; preds = %166
-  tail call void @free(ptr noundef nonnull %12) #11
+  tail call void @free(ptr noundef nonnull %12) #12
   br label %168
 
 168:                                              ; preds = %166, %167
-  tail call void @free(ptr noundef nonnull %26) #11
-  tail call void @free(ptr noundef %27) #11
-  tail call void @free(ptr noundef nonnull %28) #11
-  tail call void @Kit_TruthCopy_64bit(ptr noundef %0, ptr noundef %2, i32 noundef %6) #11
+  tail call void @free(ptr noundef nonnull %26) #12
+  tail call void @free(ptr noundef %27) #12
+  tail call void @free(ptr noundef nonnull %28) #12
+  tail call void @Kit_TruthCopy_64bit(ptr noundef %0, ptr noundef %2, i32 noundef %6) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
-declare i32 @memCompare(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #9
+declare i32 @memCompare(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #9
+declare i32 @llvm.smin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #9
+declare i32 @llvm.umax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #9
+declare i64 @llvm.umax.i64(i64, i64) #10
 
-attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #10
+
+attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind allocsize(0) }
-attributes #11 = { nounwind }
+attributes #7 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind allocsize(0) }
+attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

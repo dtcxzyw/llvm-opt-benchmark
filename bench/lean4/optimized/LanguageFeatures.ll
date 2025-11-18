@@ -3718,7 +3718,7 @@ lean_inc.exit:                                    ; preds = %9, %8, %6, %1
   ret ptr %0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Lean_Lsp_CompletionItemKind_noConfusion___rarg(i8 noundef zeroext %0, i8 noundef zeroext %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #4 {
   %4 = load ptr, ptr @l_Lean_Lsp_CompletionItemKind_noConfusion___rarg___closed__1, align 8, !tbaa !4
   ret ptr %4
@@ -7088,7 +7088,7 @@ lean_box_uint64.exit:                             ; preds = %lean_dec.exit
   ret ptr %11
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Lean_Lsp_instToJsonCompletionItemTag(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr @l_Lean_Lsp_instToJsonCompletionItemTag___closed__2, align 8, !tbaa !4
   ret ptr %2
@@ -28638,7 +28638,7 @@ l_Lean_Lsp_DocumentHighlightKind_toCtorIdx.exit:  ; preds = %lean_dec.exit, %13,
   ret ptr %.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Lean_Lsp_DocumentHighlightKind_noConfusion___rarg(i8 noundef zeroext %0, i8 noundef zeroext %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #4 {
   %4 = load ptr, ptr @l_Lean_Lsp_CompletionItemKind_noConfusion___rarg___closed__1, align 8, !tbaa !4
   ret ptr %4
@@ -28722,7 +28722,7 @@ lean_dec.exit:                                    ; preds = %21, %20, %18, %lean
   ret ptr %22
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Lean_Lsp_instToJsonDocumentHighlightKind(i8 noundef zeroext %0) local_unnamed_addr #4 {
   %switch.selectcmp = icmp eq i8 %0, 1
   %switch.selectcmp4 = icmp eq i8 %0, 0
@@ -29684,7 +29684,7 @@ l_Lean_Lsp_SymbolKind_toCtorIdx.exit:             ; preds = %lean_dec.exit, %13,
   ret ptr %.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Lean_Lsp_SymbolKind_noConfusion___rarg(i8 noundef zeroext %0, i8 noundef zeroext %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #4 {
   %4 = load ptr, ptr @l_Lean_Lsp_CompletionItemKind_noConfusion___rarg___closed__1, align 8, !tbaa !4
   ret ptr %4
@@ -41171,7 +41171,7 @@ lean_alloc_ctor.exit3639:                         ; preds = %lean_dec.exit
   ret ptr %.159
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Lean_Lsp_instToJsonSymbolKind(i8 noundef zeroext %0) local_unnamed_addr #5 {
   %2 = icmp ult i8 %0, 25
   br i1 %2, label %switch.lookup, label %4
@@ -58326,7 +58326,7 @@ lean_alloc_ctor.exit291:                          ; preds = %lean_dec.exit
   ret ptr %.9
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Lean_Lsp_instToJsonSymbolTag(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr @l_Lean_Lsp_instToJsonCompletionItemTag___closed__2, align 8, !tbaa !4
   ret ptr %2
@@ -71322,7 +71322,7 @@ l_Lean_Lsp_SemanticTokenType_toCtorIdx.exit:      ; preds = %lean_dec.exit, %13,
   ret ptr %.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Lean_Lsp_SemanticTokenType_noConfusion___rarg(i8 noundef zeroext %0, i8 noundef zeroext %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #4 {
   %4 = load ptr, ptr @l_Lean_Lsp_CompletionItemKind_noConfusion___rarg___closed__1, align 8, !tbaa !4
   ret ptr %4
@@ -71406,7 +71406,7 @@ lean_dec.exit:                                    ; preds = %21, %20, %18, %lean
   ret ptr %22
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonSemanticTokenType____x40_Lean_Data_Lsp_LanguageFeatures___hyg_7920_(i8 noundef zeroext %0) local_unnamed_addr #5 {
   %2 = icmp ult i8 %0, 23
   br i1 %2, label %switch.lookup, label %4
@@ -71466,7 +71466,7 @@ l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonSemanticTokenType__
   ret ptr %.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_fromJsonSemanticTokenType____x40_Lean_Data_Lsp_LanguageFeatures___hyg_8085____lambda__1(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr @l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_fromJsonSemanticTokenType____x40_Lean_Data_Lsp_LanguageFeatures___hyg_8085____lambda__1___closed__2, align 8, !tbaa !4
   ret ptr %2
@@ -76806,7 +76806,7 @@ l_Lean_Lsp_SemanticTokenModifier_toCtorIdx.exit:  ; preds = %lean_dec.exit, %13,
   ret ptr %.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Lean_Lsp_SemanticTokenModifier_noConfusion___rarg(i8 noundef zeroext %0, i8 noundef zeroext %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #4 {
   %4 = load ptr, ptr @l_Lean_Lsp_CompletionItemKind_noConfusion___rarg___closed__1, align 8, !tbaa !4
   ret ptr %4
@@ -76890,7 +76890,7 @@ lean_dec.exit:                                    ; preds = %21, %20, %18, %lean
   ret ptr %22
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonSemanticTokenModifier____x40_Lean_Data_Lsp_LanguageFeatures___hyg_9298_(i8 noundef zeroext %0) local_unnamed_addr #5 {
   %2 = icmp ult i8 %0, 9
   br i1 %2, label %switch.lookup, label %4
@@ -83856,7 +83856,7 @@ l_Lean_Lsp_FoldingRangeKind_toCtorIdx.exit:       ; preds = %lean_dec.exit, %13,
   ret ptr %.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Lean_Lsp_FoldingRangeKind_noConfusion___rarg(i8 noundef zeroext %0, i8 noundef zeroext %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #4 {
   %4 = load ptr, ptr @l_Lean_Lsp_CompletionItemKind_noConfusion___rarg___closed__1, align 8, !tbaa !4
   ret ptr %4
@@ -83940,7 +83940,7 @@ lean_dec.exit:                                    ; preds = %21, %20, %18, %lean
   ret ptr %22
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Lean_Lsp_instToJsonFoldingRangeKind(i8 noundef zeroext %0) local_unnamed_addr #4 {
   %switch.selectcmp = icmp eq i8 %0, 1
   %switch.selectcmp4 = icmp eq i8 %0, 0
@@ -95396,7 +95396,7 @@ lean_dec.exit:                                    ; preds = %10, %9, %7, %1
   ret ptr %spec.select.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Lean_Lsp_InlayHintKind_noConfusion___rarg(i8 noundef zeroext %0, i8 noundef zeroext %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #4 {
   %4 = load ptr, ptr @l_Lean_Lsp_CompletionItemKind_noConfusion___rarg___closed__1, align 8, !tbaa !4
   ret ptr %4
@@ -97045,7 +97045,7 @@ lean_alloc_ctor.exit423:                          ; preds = %lean_dec.exit
   ret ptr %.15
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Lean_Lsp_instToJsonInlayHintKind(i8 noundef zeroext %0) local_unnamed_addr #4 {
   %2 = icmp eq i8 %0, 0
   %l_Lean_Lsp_instToJsonCompletionItemTag___closed__2.val = load ptr, ptr @l_Lean_Lsp_instToJsonCompletionItemTag___closed__2, align 8
@@ -118135,8 +118135,8 @@ attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }

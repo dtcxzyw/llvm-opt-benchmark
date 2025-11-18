@@ -3,7 +3,7 @@ source_filename = "bench/yara-x-rs/original/axb5hwnhx04se8t9omqygl6vp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-; Function Attrs: inlinehint nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: inlinehint nounwind nonlazybind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN8protobuf7reflect4file14FileDescriptor5enums28_$u7b$$u7b$closure$u7d$$u7d$17h222e7685786a1965E"(ptr writeonly sret([24 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1, i64 %2, ptr readnone align 8 captures(none) %3) unnamed_addr #0 {
   %5 = load ptr, ptr %1, align 8
   %6 = load i64, ptr %5, align 8
@@ -35,7 +35,7 @@ define void @"_ZN8protobuf7reflect4file14FileDescriptor5enums28_$u7b$$u7b$closur
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
 declare void @llvm.trap() #1
 
-attributes #0 = { inlinehint nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #0 = { inlinehint nounwind nonlazybind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 
 !llvm.module.flags = !{!0, !1}

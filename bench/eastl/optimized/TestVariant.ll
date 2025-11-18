@@ -4540,7 +4540,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb3, %sw
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN5eastl18visitor_caller_one14invoke_visitorIZ24TestVariantVisitNoInlineRKNS_7variantIJibjEEEE9MyVisitorS5_Lm0EEEDcOT_OT0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %visitor, ptr nonnull readonly align 8 captures(none) %variant) #10 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
@@ -4548,7 +4548,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN5eastl18visitor_caller_one14invoke_visitorIZ24TestVariantVisitNoInlineRKNS_7variantIJibjEEEE9MyVisitorS5_Lm1EEEDcOT_OT0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %visitor, ptr nonnull readonly align 8 captures(none) %variant) #10 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
@@ -4556,7 +4556,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN5eastl18visitor_caller_one14invoke_visitorIZ24TestVariantVisitNoInlineRKNS_7variantIJibjEEEE9MyVisitorS5_Lm2EEEDcOT_OT0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %visitor, ptr nonnull readonly align 8 captures(none) %variant) #10 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
@@ -4584,7 +4584,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ25TestVariantVisit2NoInlineRKNS_7variantIJibEEES6_E9MyVisitorJS6_S6_EE19invoke_visitor_leafIJLm0ELm0EEEEvOS7_S6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %visitor, ptr nonnull readonly align 8 captures(none) %variants, ptr nonnull readonly align 8 captures(none) %variants1) #10 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
@@ -4592,7 +4592,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ25TestVariantVisit2NoInlineRKNS_7variantIJibEEES6_E9MyVisitorJS6_S6_EE19invoke_visitor_leafIJLm0ELm1EEEEvOS7_S6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %visitor, ptr nonnull readonly align 8 captures(none) %variants, ptr nonnull readonly align 8 captures(none) %variants1) #10 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
@@ -4600,7 +4600,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ25TestVariantVisit2NoInlineRKNS_7variantIJibEEES6_E9MyVisitorJS6_S6_EE19invoke_visitor_leafIJLm1ELm0EEEEvOS7_S6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %visitor, ptr nonnull readonly align 8 captures(none) %variants, ptr nonnull readonly align 8 captures(none) %variants1) #10 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
@@ -4608,7 +4608,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ25TestVariantVisit2NoInlineRKNS_7variantIJibEEES6_E9MyVisitorJS6_S6_EE19invoke_visitor_leafIJLm1ELm1EEEEvOS7_S6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %visitor, ptr nonnull readonly align 8 captures(none) %variants, ptr nonnull readonly align 8 captures(none) %variants1) #10 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
@@ -4656,7 +4656,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE19invoke_visitor_leafIJLm0ELm0ELm0EEEEvOS7_S6_S6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %visitor, ptr nonnull readonly align 8 captures(none) %variants, ptr nonnull readonly align 8 captures(none) %variants1, ptr nonnull readonly align 8 captures(none) %variants3) #10 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
@@ -4664,7 +4664,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE19invoke_visitor_leafIJLm0ELm0ELm1EEEEvOS7_S6_S6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %visitor, ptr nonnull readonly align 8 captures(none) %variants, ptr nonnull readonly align 8 captures(none) %variants1, ptr nonnull readonly align 8 captures(none) %variants3) #10 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
@@ -4672,7 +4672,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE19invoke_visitor_leafIJLm0ELm1ELm0EEEEvOS7_S6_S6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %visitor, ptr nonnull readonly align 8 captures(none) %variants, ptr nonnull readonly align 8 captures(none) %variants1, ptr nonnull readonly align 8 captures(none) %variants3) #10 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
@@ -4680,7 +4680,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE19invoke_visitor_leafIJLm0ELm1ELm1EEEEvOS7_S6_S6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %visitor, ptr nonnull readonly align 8 captures(none) %variants, ptr nonnull readonly align 8 captures(none) %variants1, ptr nonnull readonly align 8 captures(none) %variants3) #10 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
@@ -4708,7 +4708,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE19invoke_visitor_leafIJLm1ELm0ELm0EEEEvOS7_S6_S6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %visitor, ptr nonnull readonly align 8 captures(none) %variants, ptr nonnull readonly align 8 captures(none) %variants1, ptr nonnull readonly align 8 captures(none) %variants3) #10 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
@@ -4716,7 +4716,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE19invoke_visitor_leafIJLm1ELm0ELm1EEEEvOS7_S6_S6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %visitor, ptr nonnull readonly align 8 captures(none) %variants, ptr nonnull readonly align 8 captures(none) %variants1, ptr nonnull readonly align 8 captures(none) %variants3) #10 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
@@ -4724,7 +4724,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE19invoke_visitor_leafIJLm1ELm1ELm0EEEEvOS7_S6_S6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %visitor, ptr nonnull readonly align 8 captures(none) %variants, ptr nonnull readonly align 8 captures(none) %variants1, ptr nonnull readonly align 8 captures(none) %variants3) #10 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
@@ -4732,7 +4732,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE19invoke_visitor_leafIJLm1ELm1ELm1EEEEvOS7_S6_S6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %visitor, ptr nonnull readonly align 8 captures(none) %variants, ptr nonnull readonly align 8 captures(none) %variants1, ptr nonnull readonly align 8 captures(none) %variants3) #10 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
@@ -4911,7 +4911,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_0Z28TestVariantVisitorOverloadedvE3$_1Z28TestVariantVisitorOverloadedvE3$_2Z28TestVariantVisitorOverloadedvE3$_3EEERNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm0EEEDcOT_OT0_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %visitor, ptr nonnull readonly align 8 captures(none) %variant) #11 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
@@ -5001,7 +5001,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_0Z28TestVariantVisitorOverloadedvE3$_1Z28TestVariantVisitorOverloadedvE3$_2Z28TestVariantVisitorOverloadedvE3$_3EEERNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm2EEEDcOT_OT0_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %visitor, ptr nonnull readonly align 8 captures(none) %variant) #11 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %visitor, i64 16
@@ -5012,7 +5012,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_0Z28TestVariantVisitorOverloadedvE3$_1Z28TestVariantVisitorOverloadedvE3$_2Z28TestVariantVisitorOverloadedvE3$_3EEERNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm3EEEDcOT_OT0_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %visitor, ptr nonnull readonly align 8 captures(none) %variant) #11 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %visitor, i64 24
@@ -5104,7 +5104,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_4Z28TestVariantVisitorOverloadedvE3$_5Z28TestVariantVisitorOverloadedvE3$_6Z28TestVariantVisitorOverloadedvE3$_7EEERNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm2EEEDcOT_OT0_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %visitor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %variant) #10 align 2 {
 entry:
   %mStorage.i = getelementptr inbounds nuw i8, ptr %variant, i64 8
@@ -5120,7 +5120,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_8Z28TestVariantVisitorOverloadedvE3$_9Z28TestVariantVisitorOverloadedvE4$_10Z28TestVariantVisitorOverloadedvE4$_11EEERNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm0EEEDcOT_OT0_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %visitor, ptr nonnull readonly align 8 captures(none) %variant) #11 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
@@ -5210,7 +5210,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_8Z28TestVariantVisitorOverloadedvE3$_9Z28TestVariantVisitorOverloadedvE4$_10Z28TestVariantVisitorOverloadedvE4$_11EEERNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm2EEEDcOT_OT0_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %visitor, ptr nonnull readonly align 8 captures(none) %variant) #11 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %visitor, i64 16
@@ -5221,7 +5221,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_8Z28TestVariantVisitorOverloadedvE3$_9Z28TestVariantVisitorOverloadedvE4$_10Z28TestVariantVisitorOverloadedvE4$_11EEERNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm3EEEDcOT_OT0_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %visitor, ptr nonnull readonly align 8 captures(none) %variant) #11 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %visitor, i64 24
@@ -5313,7 +5313,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorINS_10overloadedIJZ28TestVariantVisitorOverloadedvE4$_12Z28TestVariantVisitorOverloadedvE4$_13Z28TestVariantVisitorOverloadedvE4$_14Z28TestVariantVisitorOverloadedvE4$_15EEERNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm2EEEDcOT_OT0_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %visitor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %variant) #10 align 2 {
 entry:
   %mStorage.i = getelementptr inbounds nuw i8, ptr %variant, i64 8
@@ -5329,7 +5329,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorIZ18TestVariantVisitorvE3$_0RNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm0EEEDcOT_OT0_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %visitor, ptr nonnull readonly align 8 captures(none) %variant) #11 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
@@ -5418,7 +5418,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorIZ18TestVariantVisitorvE3$_0RNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm2EEEDcOT_OT0_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %visitor, ptr nonnull readonly align 8 captures(none) %variant) #11 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
@@ -5428,7 +5428,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorIZ18TestVariantVisitorvE3$_0RNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm3EEEDcOT_OT0_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %visitor, ptr nonnull readonly align 8 captures(none) %variant) #11 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
@@ -5438,7 +5438,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN5eastl9visitor_rIvE16invoke_visitor_rIZ18TestVariantVisitorvE3$_1RNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm0EEEvOT_OT0_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %visitor, ptr nonnull readonly align 8 captures(none) %variant) #11 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
@@ -5527,7 +5527,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN5eastl9visitor_rIvE16invoke_visitor_rIZ18TestVariantVisitorvE3$_1RNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm2EEEvOT_OT0_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %visitor, ptr nonnull readonly align 8 captures(none) %variant) #11 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
@@ -5537,7 +5537,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN5eastl9visitor_rIvE16invoke_visitor_rIZ18TestVariantVisitorvE3$_1RNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEELm3EEEvOT_OT0_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %visitor, ptr nonnull readonly align 8 captures(none) %variant) #11 align 2 {
 entry:
   %call.val = load ptr, ptr %visitor, align 8
@@ -7640,8 +7640,8 @@ attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-m
 attributes #7 = { cold nofree noreturn }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #14 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }

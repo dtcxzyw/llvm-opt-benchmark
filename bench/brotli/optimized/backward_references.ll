@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.BankH42 = type { [512 x %struct.SlotH42] }
 %struct.SlotH42 = type { i16, i16 }
 
-; Function Attrs: nofree norecurse nosync nounwind uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @BrotliCreateBackwardReferences(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) local_unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %14 = load i64, ptr %13, align 8, !tbaa !3
@@ -149,7 +149,7 @@ define hidden void @BrotliCreateBackwardReferences(i64 noundef %0, i64 noundef %
   ret void
 }
 
-; Function Attrs: nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @CreateBackwardReferencesDH5(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) unnamed_addr #1 {
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !26
@@ -2647,7 +2647,7 @@ StoreRangeH5.exit:                                ; preds = %1266, %1239, %1207,
   ret void
 }
 
-; Function Attrs: nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @CreateBackwardReferencesDH6(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) unnamed_addr #1 {
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !26
@@ -5150,7 +5150,7 @@ StoreRangeH6.exit:                                ; preds = %1267, %1242, %1212,
   ret void
 }
 
-; Function Attrs: nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @CreateBackwardReferencesDH58(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) unnamed_addr #2 {
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !26
@@ -7819,7 +7819,7 @@ StoreRangeH58.exit:                               ; preds = %1372, %1339, %1301,
   ret void
 }
 
-; Function Attrs: nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @CreateBackwardReferencesDH68(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) unnamed_addr #2 {
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !26
@@ -10494,7 +10494,7 @@ StoreRangeH68.exit:                               ; preds = %1375, %1343, %1306,
   ret void
 }
 
-; Function Attrs: nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @CreateBackwardReferencesDH40(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) unnamed_addr #1 {
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -12890,7 +12890,7 @@ StoreRangeH40.exit:                               ; preds = %StoreRangeH40.exit.
   ret void
 }
 
-; Function Attrs: nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @CreateBackwardReferencesDH41(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) initializes((16, 40)) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) unnamed_addr #1 {
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -15317,7 +15317,7 @@ StoreRangeH41.exit:                               ; preds = %StoreRangeH41.exit.
   ret void
 }
 
-; Function Attrs: nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @CreateBackwardReferencesDH42(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) initializes((16, 64)) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) unnamed_addr #1 {
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -17784,7 +17784,7 @@ StoreRangeH42.exit:                               ; preds = %1253, %1216, %1174,
   ret void
 }
 
-; Function Attrs: nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @CreateBackwardReferencesDH55(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef %8, ptr noundef captures(none) %9, ptr noundef captures(none) %10) unnamed_addr #1 {
   %12 = alloca [4 x i64], align 16
   %13 = alloca [4 x i64], align 16
@@ -19851,7 +19851,7 @@ StoreRangeH54.exit:                               ; preds = %.lr.ph688, %.lr.ph6
   ret void
 }
 
-; Function Attrs: nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @CreateBackwardReferencesDH65(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) unnamed_addr #1 {
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !26
@@ -22714,7 +22714,7 @@ StoreRangeH65.exit:                               ; preds = %1417, %1392, %1362,
   ret void
 }
 
-; Function Attrs: nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @CreateBackwardReferencesNH2(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) unnamed_addr #1 {
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -23997,7 +23997,7 @@ StoreRangeH2.exit:                                ; preds = %.lr.ph457, %.lr.ph4
   ret void
 }
 
-; Function Attrs: nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @CreateBackwardReferencesNH3(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef %8, ptr noundef captures(none) %9, ptr noundef captures(none) %10) unnamed_addr #1 {
   %12 = alloca [2 x i64], align 16
   %13 = alloca [2 x i64], align 16
@@ -24983,7 +24983,7 @@ StoreRangeH3.exit:                                ; preds = %.lr.ph385, %.lr.ph3
   ret void
 }
 
-; Function Attrs: nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @CreateBackwardReferencesNH4(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) unnamed_addr #1 {
   %13 = alloca [4 x i64], align 16
   %14 = alloca [4 x i64], align 16
@@ -26401,7 +26401,7 @@ StoreRangeH4.exit:                                ; preds = %.lr.ph531, %.lr.ph5
   ret void
 }
 
-; Function Attrs: nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @CreateBackwardReferencesNH5(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) unnamed_addr #1 {
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !26
@@ -28178,7 +28178,7 @@ StoreRangeH5.exit:                                ; preds = %875, %933, %906, %8
   ret void
 }
 
-; Function Attrs: nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @CreateBackwardReferencesNH6(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) unnamed_addr #1 {
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !26
@@ -29960,7 +29960,7 @@ StoreRangeH6.exit:                                ; preds = %880, %934, %909, %8
   ret void
 }
 
-; Function Attrs: nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @CreateBackwardReferencesNH40(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) unnamed_addr #1 {
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -31631,7 +31631,7 @@ StoreRangeH40.exit:                               ; preds = %StoreRangeH40.exit.
   ret void
 }
 
-; Function Attrs: nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @CreateBackwardReferencesNH41(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) initializes((16, 40)) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) unnamed_addr #1 {
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -33333,7 +33333,7 @@ StoreRangeH41.exit:                               ; preds = %StoreRangeH41.exit.
   ret void
 }
 
-; Function Attrs: nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @CreateBackwardReferencesNH42(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) initializes((16, 64)) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) unnamed_addr #1 {
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -35075,7 +35075,7 @@ StoreRangeH42.exit:                               ; preds = %839, %917, %880, %8
   ret void
 }
 
-; Function Attrs: nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @CreateBackwardReferencesNH54(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef %8, ptr noundef captures(none) %9, ptr noundef captures(none) %10) unnamed_addr #1 {
   %12 = alloca [4 x i64], align 16
   %13 = alloca [4 x i64], align 16
@@ -36081,7 +36081,7 @@ StoreRangeH54.exit:                               ; preds = %.lr.ph385, %.lr.ph3
   ret void
 }
 
-; Function Attrs: nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @CreateBackwardReferencesNH58(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) unnamed_addr #2 {
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !26
@@ -38025,7 +38025,7 @@ StoreRangeH58.exit:                               ; preds = %966, %1036, %1003, 
   ret void
 }
 
-; Function Attrs: nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @CreateBackwardReferencesNH68(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) unnamed_addr #2 {
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !26
@@ -39975,7 +39975,7 @@ StoreRangeH68.exit:                               ; preds = %971, %1039, %1007, 
   ret void
 }
 
-; Function Attrs: nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @CreateBackwardReferencesNH35(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef %8, ptr noundef captures(none) %9, ptr noundef captures(none) %10) unnamed_addr #1 {
   %12 = alloca [2 x i64], align 16
   %13 = alloca [2 x i64], align 16
@@ -41315,7 +41315,7 @@ StoreRangeH35.exit:                               ; preds = %.lr.ph461, %.lr.ph4
   ret void
 }
 
-; Function Attrs: nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @CreateBackwardReferencesNH55(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef %8, ptr noundef captures(none) %9, ptr noundef captures(none) %10) unnamed_addr #1 {
   %12 = alloca [4 x i64], align 16
   %13 = alloca [4 x i64], align 16
@@ -42666,7 +42666,7 @@ StoreRangeH54.exit:                               ; preds = %.lr.ph481, %.lr.ph4
   ret void
 }
 
-; Function Attrs: nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @CreateBackwardReferencesNH65(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) unnamed_addr #1 {
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !26
@@ -44844,9 +44844,9 @@ declare i32 @llvm.fshr.i32(i32, i32, i32) #6
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.fshr.i16(i16, i16, i16) #6
 
-attributes #0 = { nofree norecurse nosync nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree noinline norecurse nosync nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree noinline norecurse nosync nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

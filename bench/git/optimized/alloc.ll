@@ -8,14 +8,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @allocate_alloc_state() local_unnamed_addr #0 {
-  %1 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 32) #7
+  %1 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 32) #8
   ret ptr %1
 }
 
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
-define dso_local void @clear_alloc_state(ptr noundef captures(none) %0) local_unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define dso_local void @clear_alloc_state(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8, !tbaa !4
   %4 = icmp sgt i32 %3, 0
@@ -33,7 +33,7 @@ define dso_local void @clear_alloc_state(ptr noundef captures(none) %0) local_un
   %10 = zext nneg i32 %8 to i64
   %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !11
-  tail call void @free(ptr noundef %12) #7
+  tail call void @free(ptr noundef %12) #8
   %13 = load i32, ptr %2, align 8, !tbaa !4
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %6, label %._crit_edge, !llvm.loop !12
@@ -41,13 +41,13 @@ define dso_local void @clear_alloc_state(ptr noundef captures(none) %0) local_un
 ._crit_edge:                                      ; preds = %6, %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !10
-  tail call void @free(ptr noundef %16) #7
+  tail call void @free(ptr noundef %16) #8
   store ptr null, ptr %15, align 8, !tbaa !10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @alloc_blob_node(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -61,7 +61,7 @@ define dso_local noundef ptr @alloc_blob_node(ptr noundef readonly captures(none
 
 7:                                                ; preds = %1
   store i32 1024, ptr %5, align 8, !tbaa !42
-  %8 = tail call ptr @xmalloc(i64 noundef 40960) #7
+  %8 = tail call ptr @xmalloc(i64 noundef 40960) #8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -88,14 +88,14 @@ define dso_local noundef ptr @alloc_blob_node(ptr noundef readonly captures(none
   br i1 %20, label %21, label %st_mult.exit.i
 
 21:                                               ; preds = %14
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %19) #8
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %19) #9
   unreachable
 
 st_mult.exit.i:                                   ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !10
   %24 = shl nuw nsw i64 %19, 3
-  %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #7
+  %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #8
   store ptr %25, ptr %22, align 8, !tbaa !10
   %.pre.i = load ptr, ptr %9, align 8, !tbaa !43
   %.pre30.i = load i32, ptr %10, align 8, !tbaa !4
@@ -139,7 +139,7 @@ define dso_local noundef ptr @alloc_tree_node(ptr noundef readonly captures(none
 
 7:                                                ; preds = %1
   store i32 1024, ptr %5, align 8, !tbaa !42
-  %8 = tail call ptr @xmalloc(i64 noundef 57344) #7
+  %8 = tail call ptr @xmalloc(i64 noundef 57344) #8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -166,14 +166,14 @@ define dso_local noundef ptr @alloc_tree_node(ptr noundef readonly captures(none
   br i1 %20, label %21, label %st_mult.exit.i
 
 21:                                               ; preds = %14
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %19) #8
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %19) #9
   unreachable
 
 st_mult.exit.i:                                   ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !10
   %24 = shl nuw nsw i64 %19, 3
-  %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #7
+  %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #8
   store ptr %25, ptr %22, align 8, !tbaa !10
   %.pre.i = load ptr, ptr %9, align 8, !tbaa !43
   %.pre30.i = load i32, ptr %10, align 8, !tbaa !4
@@ -217,7 +217,7 @@ define dso_local noundef ptr @alloc_tag_node(ptr noundef readonly captures(none)
 
 7:                                                ; preds = %1
   store i32 1024, ptr %5, align 8, !tbaa !42
-  %8 = tail call ptr @xmalloc(i64 noundef 65536) #7
+  %8 = tail call ptr @xmalloc(i64 noundef 65536) #8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -244,14 +244,14 @@ define dso_local noundef ptr @alloc_tag_node(ptr noundef readonly captures(none)
   br i1 %20, label %21, label %st_mult.exit.i
 
 21:                                               ; preds = %14
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %19) #8
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %19) #9
   unreachable
 
 st_mult.exit.i:                                   ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !10
   %24 = shl nuw nsw i64 %19, 3
-  %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #7
+  %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #8
   store ptr %25, ptr %22, align 8, !tbaa !10
   %.pre.i = load ptr, ptr %9, align 8, !tbaa !43
   %.pre30.i = load i32, ptr %10, align 8, !tbaa !4
@@ -295,7 +295,7 @@ define dso_local noundef ptr @alloc_object_node(ptr noundef readonly captures(no
 
 7:                                                ; preds = %1
   store i32 1024, ptr %5, align 8, !tbaa !42
-  %8 = tail call ptr @xmalloc(i64 noundef 73728) #7
+  %8 = tail call ptr @xmalloc(i64 noundef 73728) #8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -322,14 +322,14 @@ define dso_local noundef ptr @alloc_object_node(ptr noundef readonly captures(no
   br i1 %20, label %21, label %st_mult.exit.i
 
 21:                                               ; preds = %14
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %19) #8
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %19) #9
   unreachable
 
 st_mult.exit.i:                                   ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !10
   %24 = shl nuw nsw i64 %19, 3
-  %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #7
+  %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #8
   store ptr %25, ptr %22, align 8, !tbaa !10
   %.pre.i = load ptr, ptr %9, align 8, !tbaa !43
   %.pre30.i = load i32, ptr %10, align 8, !tbaa !4
@@ -359,8 +359,8 @@ alloc_node.exit:                                  ; preds = %1, %26
   ret ptr %36
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @init_commit_node(ptr noundef captures(none) initializes((64, 68)) %0) local_unnamed_addr #3 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define dso_local void @init_commit_node(ptr noundef captures(none) initializes((64, 68)) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, -15
   %4 = or disjoint i32 %3, 2
@@ -385,7 +385,7 @@ define dso_local noundef ptr @alloc_commit_node(ptr noundef readonly captures(no
 
 7:                                                ; preds = %1
   store i32 1024, ptr %5, align 8, !tbaa !42
-  %8 = tail call ptr @xmalloc(i64 noundef 73728) #7
+  %8 = tail call ptr @xmalloc(i64 noundef 73728) #8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -412,14 +412,14 @@ define dso_local noundef ptr @alloc_commit_node(ptr noundef readonly captures(no
   br i1 %20, label %21, label %st_mult.exit.i
 
 21:                                               ; preds = %14
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %19) #8
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %19) #9
   unreachable
 
 st_mult.exit.i:                                   ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !10
   %24 = shl nuw nsw i64 %19, 3
-  %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #7
+  %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #8
   store ptr %25, ptr %22, align 8, !tbaa !10
   %.pre.i = load ptr, ptr %9, align 8, !tbaa !43
   %.pre30.i = load i32, ptr %10, align 8, !tbaa !4
@@ -461,23 +461,24 @@ declare ptr @xmalloc(i64 noundef) local_unnamed_addr #1
 declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: noreturn
-declare void @die(ptr noundef, ...) local_unnamed_addr #5
+declare void @die(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #6
+declare i32 @llvm.smax.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
-attributes #8 = { noreturn nounwind }
+attributes #2 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

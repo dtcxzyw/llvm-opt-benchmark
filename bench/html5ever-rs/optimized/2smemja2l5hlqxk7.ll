@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.016dfb9ce9075adca8c7fec1e32a579b.11 = private unnamed_addr constant <{ ptr, [8 x i8], ptr, [8 x i8] }> <{ ptr @anon.016dfb9ce9075adca8c7fec1e32a579b.9, [8 x i8] c"\01\00\00\00\00\00\00\00", ptr @anon.016dfb9ce9075adca8c7fec1e32a579b.10, [8 x i8] c"\02\00\00\00\00\00\00\00" }>, align 8
 @anon.6dd4c94a770fa611fd0f90a1f94be9fc.1125.llvm.11517934075587973166 = external hidden unnamed_addr constant <{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8] }>, align 8
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @"_ZN121_$LT$markup5ever..interface..ExpandedName$u20$as$u20$core..cmp..PartialEq$LT$markup5ever..interface..ExpandedName$GT$$GT$2eq17h57cd4c62f666eeb7E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %4 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
@@ -169,7 +169,7 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #4
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

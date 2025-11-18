@@ -269,7 +269,7 @@ declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 
 declare ptr @av_get_pix_fmt_name(i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @yuv422p_bgr48_c(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef returned %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph588, label %._crit_edge589
@@ -1218,7 +1218,7 @@ define internal noundef i32 @yuv422p_bgr48_c(ptr noundef readonly %0, ptr nounde
   ret i32 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @yuv422p_rgb48_c(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef returned %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph588, label %._crit_edge589
@@ -2167,7 +2167,7 @@ define internal noundef i32 @yuv422p_rgb48_c(ptr noundef readonly %0, ptr nounde
   ret i32 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @yuva422p_argb_c(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef returned %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph493, label %._crit_edge494
@@ -3017,7 +3017,7 @@ define internal noundef i32 @yuva422p_argb_c(ptr noundef readonly %0, ptr nounde
   ret i32 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @yuva422p_rgba_c(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef returned %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph493, label %._crit_edge494
@@ -3895,7 +3895,7 @@ define internal noundef i32 @yuva422p_rgba_c(ptr noundef readonly %0, ptr nounde
   ret i32 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @yuv422p_rgb32_c(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef returned %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph448, label %._crit_edge449
@@ -4620,7 +4620,7 @@ define internal noundef i32 @yuv422p_rgb32_c(ptr noundef readonly %0, ptr nounde
   ret i32 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @yuv422p_rgb24_c(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef returned %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph504, label %._crit_edge505
@@ -5401,7 +5401,7 @@ define internal noundef i32 @yuv422p_rgb24_c(ptr noundef readonly %0, ptr nounde
   ret i32 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @yuv422p_bgr24_c(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef returned %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph504, label %._crit_edge505
@@ -6182,7 +6182,7 @@ define internal noundef i32 @yuv422p_bgr24_c(ptr noundef readonly %0, ptr nounde
   ret i32 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @yuv422p_bgr16(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef returned %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph541, label %._crit_edge542
@@ -7146,7 +7146,7 @@ define internal noundef i32 @yuv422p_bgr16(ptr noundef readonly %0, ptr noundef 
   ret i32 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @yuv422p_bgr15(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef returned %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph538, label %._crit_edge539
@@ -8078,7 +8078,7 @@ define internal noundef i32 @yuv422p_bgr15(ptr noundef readonly %0, ptr noundef 
   ret i32 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @yuv422p_bgr12(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef returned %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph535, label %._crit_edge536
@@ -8912,7 +8912,7 @@ define internal noundef i32 @yuv422p_bgr12(ptr noundef readonly %0, ptr noundef 
   ret i32 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @yuv422p_bgr8(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef returned %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph538, label %._crit_edge539
@@ -9926,7 +9926,7 @@ define internal noundef i32 @yuv422p_bgr8(ptr noundef readonly %0, ptr noundef r
   ret i32 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @yuv422p_bgr4(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef returned %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph552, label %._crit_edge553
@@ -10940,7 +10940,7 @@ define internal noundef i32 @yuv422p_bgr4(ptr noundef readonly %0, ptr noundef r
   ret i32 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @yuv422p_bgr4_byte(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef returned %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph538, label %._crit_edge539
@@ -11954,7 +11954,7 @@ define internal noundef i32 @yuv422p_bgr4_byte(ptr noundef readonly %0, ptr noun
   ret i32 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @yuv2rgb_c_1_ordered_dither(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef returned %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph352, label %._crit_edge353
@@ -12420,7 +12420,7 @@ define internal noundef i32 @yuv2rgb_c_1_ordered_dither(ptr noundef readonly cap
   ret i32 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @yuv422p_gbrp_c(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef returned %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph540, label %._crit_edge541
@@ -13229,7 +13229,7 @@ define internal noundef i32 @yuv422p_gbrp_c(ptr noundef readonly %0, ptr noundef
   ret i32 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @yuv2rgb_c_bgr48(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef returned %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph502, label %._crit_edge503
@@ -14045,7 +14045,7 @@ define internal noundef i32 @yuv2rgb_c_bgr48(ptr noundef readonly captures(none)
   ret i32 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @yuv2rgb_c_48(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef returned %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph502, label %._crit_edge503
@@ -14861,7 +14861,7 @@ define internal noundef i32 @yuv2rgb_c_48(ptr noundef readonly captures(none) %0
   ret i32 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @yuva2argb_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef returned %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph407, label %._crit_edge408
@@ -15578,7 +15578,7 @@ define internal noundef i32 @yuva2argb_c(ptr noundef readonly captures(none) %0,
   ret i32 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @yuva2rgba_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef returned %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph407, label %._crit_edge408
@@ -16323,7 +16323,7 @@ define internal noundef i32 @yuva2rgba_c(ptr noundef readonly captures(none) %0,
   ret i32 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @yuv2rgb_c_32(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef returned %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph362, label %._crit_edge363
@@ -16915,7 +16915,7 @@ define internal noundef i32 @yuv2rgb_c_32(ptr noundef readonly captures(none) %0
   ret i32 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @yuv2rgb_c_24_rgb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef returned %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph418, label %._crit_edge419
@@ -17563,7 +17563,7 @@ define internal noundef i32 @yuv2rgb_c_24_rgb(ptr noundef readonly captures(none
   ret i32 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @yuv2rgb_c_24_bgr(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef returned %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph418, label %._crit_edge419
@@ -18211,7 +18211,7 @@ define internal noundef i32 @yuv2rgb_c_24_bgr(ptr noundef readonly captures(none
   ret i32 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @yuv2rgb_c_16_ordered_dither(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef returned %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph455, label %._crit_edge456
@@ -19044,7 +19044,7 @@ define internal noundef i32 @yuv2rgb_c_16_ordered_dither(ptr noundef readonly ca
   ret i32 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @yuv2rgb_c_15_ordered_dither(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef returned %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph452, label %._crit_edge453
@@ -19845,7 +19845,7 @@ define internal noundef i32 @yuv2rgb_c_15_ordered_dither(ptr noundef readonly ca
   ret i32 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @yuv2rgb_c_12_ordered_dither(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef returned %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph449, label %._crit_edge450
@@ -20548,7 +20548,7 @@ define internal noundef i32 @yuv2rgb_c_12_ordered_dither(ptr noundef readonly ca
   ret i32 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @yuv2rgb_c_8_ordered_dither(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef returned %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph452, label %._crit_edge453
@@ -21429,7 +21429,7 @@ define internal noundef i32 @yuv2rgb_c_8_ordered_dither(ptr noundef readonly cap
   ret i32 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @yuv2rgb_c_4_ordered_dither(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef returned %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph466, label %._crit_edge467
@@ -22310,7 +22310,7 @@ define internal noundef i32 @yuv2rgb_c_4_ordered_dither(ptr noundef readonly cap
   ret i32 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @yuv2rgb_c_4b_ordered_dither(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef returned %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph452, label %._crit_edge453
@@ -23191,7 +23191,7 @@ define internal noundef i32 @yuv2rgb_c_4b_ordered_dither(ptr noundef readonly ca
   ret i32 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @yuv420p_gbrp_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef returned %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) #3 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph454, label %._crit_edge455
@@ -25377,7 +25377,7 @@ declare i32 @llvm.umin.i32(i32, i32) #6
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }

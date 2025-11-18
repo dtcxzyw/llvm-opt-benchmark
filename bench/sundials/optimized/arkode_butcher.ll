@@ -164,13 +164,13 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.159 = private unnamed_addr constant [40 x i8] c"  embedding fails order 6 conditions R\0A\00", align 1
 @.str.160 = private unnamed_addr constant [40 x i8] c"  embedding fails order 6 conditions S\0A\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @ARKodeButcherTable_Alloc(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp slt i32 %0, 1
   br i1 %3, label %37, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #15
+  %5 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #16
   %6 = icmp eq ptr %5, null
   br i1 %6, label %37, label %7
 
@@ -184,7 +184,7 @@ define noundef ptr @ARKodeButcherTable_Alloc(i32 noundef %0, i32 noundef %1) loc
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   store i32 %0, ptr %12, align 8, !tbaa !3
   %14 = zext nneg i32 %0 to i64
-  %15 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef 8) #16
+  %15 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef 8) #17
   store ptr %15, ptr %8, align 8, !tbaa !11
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %.lr.ph48.preheader
@@ -204,7 +204,7 @@ define noundef ptr @ARKodeButcherTable_Alloc(i32 noundef %0, i32 noundef %1) loc
 
 .lr.ph48:                                         ; preds = %.lr.ph48.preheader, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph48.preheader ], [ %indvars.iv.next, %18 ]
-  %19 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef 8) #16
+  %19 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef 8) #17
   %20 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   store ptr %19, ptr %20, align 8, !tbaa !12
   %21 = icmp eq ptr %19, null
@@ -215,7 +215,7 @@ define noundef ptr @ARKodeButcherTable_Alloc(i32 noundef %0, i32 noundef %1) loc
   br label %37
 
 ._crit_edge:                                      ; preds = %18
-  %23 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef 8) #16
+  %23 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef 8) #17
   store ptr %23, ptr %9, align 8, !tbaa !13
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
@@ -225,7 +225,7 @@ define noundef ptr @ARKodeButcherTable_Alloc(i32 noundef %0, i32 noundef %1) loc
   br label %37
 
 26:                                               ; preds = %._crit_edge
-  %27 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef 8) #16
+  %27 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef 8) #17
   store ptr %27, ptr %10, align 8, !tbaa !14
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %30
@@ -239,7 +239,7 @@ define noundef ptr @ARKodeButcherTable_Alloc(i32 noundef %0, i32 noundef %1) loc
   br i1 %.not, label %35, label %31
 
 31:                                               ; preds = %30
-  %32 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef 8) #16
+  %32 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef 8) #17
   store ptr %32, ptr %11, align 8, !tbaa !15
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %35
@@ -265,7 +265,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @ARKodeButcherTable_Free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %31, label %2
@@ -277,7 +277,7 @@ define void @ARKodeButcherTable_Free(ptr noundef captures(address_is_null) %0) l
   br i1 %.not21, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void @free(ptr noundef nonnull %4) #17
+  tail call void @free(ptr noundef nonnull %4) #18
   br label %6
 
 6:                                                ; preds = %5, %2
@@ -287,7 +287,7 @@ define void @ARKodeButcherTable_Free(ptr noundef captures(address_is_null) %0) l
   br i1 %.not22, label %10, label %9
 
 9:                                                ; preds = %6
-  tail call void @free(ptr noundef nonnull %8) #17
+  tail call void @free(ptr noundef nonnull %8) #18
   br label %10
 
 10:                                               ; preds = %9, %6
@@ -297,7 +297,7 @@ define void @ARKodeButcherTable_Free(ptr noundef captures(address_is_null) %0) l
   br i1 %.not23, label %14, label %13
 
 13:                                               ; preds = %10
-  tail call void @free(ptr noundef nonnull %12) #17
+  tail call void @free(ptr noundef nonnull %12) #18
   br label %14
 
 14:                                               ; preds = %13, %10
@@ -322,7 +322,7 @@ define void @ARKodeButcherTable_Free(ptr noundef captures(address_is_null) %0) l
   br i1 %.not25, label %25, label %24
 
 24:                                               ; preds = %.lr.ph
-  tail call void @free(ptr noundef nonnull %23) #17
+  tail call void @free(ptr noundef nonnull %23) #18
   %.pre = load i32, ptr %17, align 8, !tbaa !3
   br label %25
 
@@ -339,18 +339,18 @@ define void @ARKodeButcherTable_Free(ptr noundef captures(address_is_null) %0) l
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %29 = phi ptr [ %.pre28, %._crit_edge.loopexit ], [ %16, %.preheader ]
-  tail call void @free(ptr noundef %29) #17
+  tail call void @free(ptr noundef %29) #18
   br label %30
 
 30:                                               ; preds = %._crit_edge, %14
-  tail call void @free(ptr noundef nonnull %0) #17
+  tail call void @free(ptr noundef nonnull %0) #18
   br label %31
 
 31:                                               ; preds = %30, %1
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @ARKodeButcherTable_Create(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = icmp slt i32 %0, 1
   br i1 %8, label %.loopexit, label %9
@@ -433,7 +433,7 @@ define noundef ptr @ARKodeButcherTable_Create(i32 noundef %0, i32 noundef %1, i3
   ret ptr %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @ARKodeButcherTable_Copy(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
@@ -627,7 +627,7 @@ define void @ARKodeButcherTable_Write(ptr noundef readonly captures(address_is_n
   %31 = load ptr, ptr %30, align 8, !tbaa !12
   %32 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv74
   %33 = load double, ptr %32, align 8, !tbaa !18
-  %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.2, double noundef %33) #17
+  %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.2, double noundef %33) #18
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %35 = load i32, ptr %8, align 8, !tbaa !3
   %36 = sext i32 %35 to i64
@@ -653,7 +653,7 @@ define void @ARKodeButcherTable_Write(ptr noundef readonly captures(address_is_n
   %44 = load ptr, ptr %15, align 8, !tbaa !14
   %45 = getelementptr inbounds nuw double, ptr %44, i64 %indvars.iv80
   %46 = load double, ptr %45, align 8, !tbaa !18
-  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.2, double noundef %46) #17
+  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.2, double noundef %46) #18
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %48 = load i32, ptr %8, align 8, !tbaa !3
   %49 = sext i32 %48 to i64
@@ -672,7 +672,7 @@ define void @ARKodeButcherTable_Write(ptr noundef readonly captures(address_is_n
   %54 = load ptr, ptr %19, align 8, !tbaa !13
   %55 = getelementptr inbounds nuw double, ptr %54, i64 %indvars.iv83
   %56 = load double, ptr %55, align 8, !tbaa !18
-  %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.2, double noundef %56) #17
+  %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.2, double noundef %56) #18
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %58 = load i32, ptr %8, align 8, !tbaa !3
   %59 = sext i32 %58 to i64
@@ -697,7 +697,7 @@ define void @ARKodeButcherTable_Write(ptr noundef readonly captures(address_is_n
   %67 = load ptr, ptr %61, align 8, !tbaa !15
   %68 = getelementptr inbounds nuw double, ptr %67, i64 %indvars.iv86
   %69 = load double, ptr %68, align 8, !tbaa !18
-  %70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.2, double noundef %69) #17
+  %70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.2, double noundef %69) #18
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %71 = load i32, ptr %8, align 8, !tbaa !3
   %72 = sext i32 %71 to i64
@@ -715,7 +715,7 @@ define void @ARKodeButcherTable_Write(ptr noundef readonly captures(address_is_n
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @ARKodeButcherTable_IsStifflyAccurate(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !3
@@ -758,7 +758,7 @@ define range(i32 0, 2) i32 @ARKodeButcherTable_IsStifflyAccurate(ptr noundef rea
 declare double @llvm.fabs.f64(double) #8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 2) i32 @ARKodeButcherTable_CheckOrder(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) initializes((0, 4)) %1, ptr noundef captures(none) initializes((0, 4)) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 -2, 2) i32 @ARKodeButcherTable_CheckOrder(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) initializes((0, 4)) %1, ptr noundef captures(none) initializes((0, 4)) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #9 {
   store i32 0, ptr %2, align 4, !tbaa !22
   store i32 0, ptr %1, align 4, !tbaa !22
   %5 = icmp eq ptr %0, null
@@ -935,7 +935,7 @@ arkode_butcher_order2.exit:                       ; preds = %54
   br i1 %68, label %69, label %113
 
 69:                                               ; preds = %.thread1006, %67
-  %70 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
+  %70 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #17
   %71 = icmp eq ptr %70, null
   br i1 %71, label %arkode_butcher_order3a.exit, label %.preheader.i.i
 
@@ -963,7 +963,7 @@ arkode_butcher_order2.exit:                       ; preds = %54
   br i1 %exitcond.not.i16.i, label %82, label %.preheader1102
 
 82:                                               ; preds = %.preheader1102
-  tail call void @free(ptr noundef nonnull %70) #17
+  tail call void @free(ptr noundef nonnull %70) #18
   %83 = fadd double %81, 0xBFD5555555555555
   %84 = tail call double @llvm.fabs.f64(double %83)
   %85 = fcmp ule double %84, 0x3E50000000000000
@@ -980,7 +980,7 @@ arkode_butcher_order3a.exit:                      ; preds = %69, %82
 
 88:                                               ; preds = %arkode_butcher_order3a.exit, %86
   %.0.not = phi i1 [ %.0.i957, %arkode_butcher_order3a.exit ], [ false, %86 ]
-  %89 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
+  %89 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #17
   %90 = icmp eq ptr %89, null
   br i1 %90, label %arkode_butcher_order3b.exit, label %.preheader.us.i.i
 
@@ -1023,7 +1023,7 @@ arkode_butcher_order3a.exit:                      ; preds = %69, %82
   br i1 %exitcond.not.i15.i, label %107, label %.preheader
 
 107:                                              ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %89) #17
+  tail call void @free(ptr noundef nonnull %89) #18
   %108 = fadd double %106, 0xBFC5555555555555
   %109 = tail call double @llvm.fabs.f64(double %108)
   %110 = fcmp ule double %109, 0x3E50000000000000
@@ -1494,7 +1494,7 @@ thread-pre-split1025:                             ; preds = %arkode_butcher_rows
   %256 = load i32, ptr %1, align 4, !tbaa !22
   %. = tail call i32 @llvm.smax.i32(i32 %256, i32 %255)
   store i32 %., ptr %1, align 4, !tbaa !22
-  %257 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.46, i32 noundef %.) #17
+  %257 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.46, i32 noundef %.) #18
   %.not8261035 = icmp eq ptr %27, null
   br i1 %.not8261035, label %451, label %.thread1038
 
@@ -2089,7 +2089,7 @@ thread-pre-split1078:                             ; preds = %arkode_butcher_rows
   %447 = load i32, ptr %2, align 4, !tbaa !22
   %.942 = tail call i32 @llvm.smax.i32(i32 %447, i32 %446)
   store i32 %.942, ptr %2, align 4, !tbaa !22
-  %448 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.85, i32 noundef %.942) #17
+  %448 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.85, i32 noundef %.942) #18
   br label %451
 
 .critedge947:                                     ; preds = %443
@@ -2149,10 +2149,10 @@ thread-pre-split1078:                             ; preds = %arkode_butcher_rows
   ret i32 %.0702
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order3a(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order3a(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) unnamed_addr #10 {
   %5 = sext i32 %3 to i64
-  %6 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 8) #16
+  %6 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 8) #17
   %7 = icmp eq ptr %1, null
   %8 = icmp eq ptr %2, null
   %or.cond.i = or i1 %7, %8
@@ -2180,7 +2180,7 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order3a(ptr noundef r
   br i1 %exitcond.not.i, label %17, label %.preheader.i
 
 arkode_butcher_vv.exit:                           ; preds = %4
-  tail call void @free(ptr noundef %6) #17
+  tail call void @free(ptr noundef %6) #18
   br label %arkode_butcher_dot.exit
 
 17:                                               ; preds = %.preheader.i
@@ -2200,7 +2200,7 @@ arkode_butcher_vv.exit:                           ; preds = %4
   br i1 %exitcond.not.i16, label %25, label %.preheader
 
 25:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %6) #17
+  tail call void @free(ptr noundef nonnull %6) #18
   %26 = fadd double %24, 0xBFD5555555555555
   %27 = tail call double @llvm.fabs.f64(double %26)
   %28 = fcmp ule double %27, 0x3E50000000000000
@@ -2212,10 +2212,10 @@ arkode_butcher_dot.exit:                          ; preds = %17, %25, %arkode_bu
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order3b(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order3b(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) unnamed_addr #10 {
   %5 = sext i32 %3 to i64
-  %6 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 8) #16
+  %6 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 8) #17
   %7 = icmp eq ptr %1, null
   %8 = icmp eq ptr %2, null
   %or.cond.i = or i1 %7, %8
@@ -2256,7 +2256,7 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order3b(ptr noundef r
   br i1 %exitcond44.not.i, label %22, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %4
-  tail call void @free(ptr noundef %6) #17
+  tail call void @free(ptr noundef %6) #18
   br label %arkode_butcher_dot.exit
 
 22:                                               ; preds = %._crit_edge.us.i
@@ -2276,7 +2276,7 @@ arkode_butcher_mv.exit:                           ; preds = %4
   br i1 %exitcond.not.i15, label %30, label %.preheader
 
 30:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %6) #17
+  tail call void @free(ptr noundef nonnull %6) #18
   %31 = fadd double %29, 0xBFC5555555555555
   %32 = tail call double @llvm.fabs.f64(double %31)
   %33 = fcmp ule double %32, 0x3E50000000000000
@@ -2288,11 +2288,11 @@ arkode_butcher_dot.exit:                          ; preds = %22, %30, %arkode_bu
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order4a(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order4a(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #10 {
   %6 = sext i32 %4 to i64
-  %7 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #16
-  %8 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #16
+  %7 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #17
+  %8 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #17
   %9 = icmp eq ptr %1, null
   %10 = icmp eq ptr %2, null
   %or.cond.i = or i1 %9, %10
@@ -2320,8 +2320,8 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order4a(ptr noundef r
   br i1 %exitcond.not.i, label %19, label %.preheader.i
 
 arkode_butcher_vv.exit:                           ; preds = %5
-  tail call void @free(ptr noundef %7) #17
-  tail call void @free(ptr noundef %8) #17
+  tail call void @free(ptr noundef %7) #18
+  tail call void @free(ptr noundef %8) #18
   br label %arkode_butcher_dot.exit
 
 19:                                               ; preds = %.preheader.i
@@ -2344,8 +2344,8 @@ arkode_butcher_vv.exit:                           ; preds = %5
   br i1 %exitcond.not.i29, label %28, label %.preheader.i26
 
 arkode_butcher_vv.exit31:                         ; preds = %19
-  tail call void @free(ptr noundef nonnull %7) #17
-  tail call void @free(ptr noundef %8) #17
+  tail call void @free(ptr noundef nonnull %7) #18
+  tail call void @free(ptr noundef %8) #18
   br label %arkode_butcher_dot.exit
 
 28:                                               ; preds = %.preheader.i26
@@ -2365,8 +2365,8 @@ arkode_butcher_vv.exit31:                         ; preds = %19
   br i1 %exitcond.not.i37, label %36, label %.preheader
 
 36:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %7) #17
-  tail call void @free(ptr noundef nonnull %8) #17
+  tail call void @free(ptr noundef nonnull %7) #18
+  tail call void @free(ptr noundef nonnull %8) #18
   %37 = fadd double %35, -2.500000e-01
   %38 = tail call double @llvm.fabs.f64(double %37)
   %39 = fcmp ule double %38, 0x3E50000000000000
@@ -2378,11 +2378,11 @@ arkode_butcher_dot.exit:                          ; preds = %28, %36, %arkode_bu
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order4b(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order4b(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #10 {
   %6 = sext i32 %4 to i64
-  %7 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #16
-  %8 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #16
+  %7 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #17
+  %8 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #17
   %9 = icmp eq ptr %0, null
   %10 = icmp eq ptr %1, null
   %or.cond.i = or i1 %9, %10
@@ -2410,8 +2410,8 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order4b(ptr noundef r
   br i1 %exitcond.not.i, label %19, label %.preheader.i
 
 arkode_butcher_vv.exit:                           ; preds = %5
-  tail call void @free(ptr noundef %7) #17
-  tail call void @free(ptr noundef %8) #17
+  tail call void @free(ptr noundef %7) #18
+  tail call void @free(ptr noundef %8) #18
   br label %arkode_butcher_dot.exit
 
 19:                                               ; preds = %.preheader.i
@@ -2449,8 +2449,8 @@ arkode_butcher_vv.exit:                           ; preds = %5
   br i1 %exitcond44.not.i, label %.preheader, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %19
-  tail call void @free(ptr noundef nonnull %7) #17
-  tail call void @free(ptr noundef %8) #17
+  tail call void @free(ptr noundef nonnull %7) #18
+  tail call void @free(ptr noundef %8) #18
   br label %arkode_butcher_dot.exit
 
 .preheader:                                       ; preds = %._crit_edge.us.i, %.preheader
@@ -2466,8 +2466,8 @@ arkode_butcher_mv.exit:                           ; preds = %19
   br i1 %exitcond.not.i32, label %39, label %.preheader
 
 39:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %7) #17
-  tail call void @free(ptr noundef nonnull %8) #17
+  tail call void @free(ptr noundef nonnull %7) #18
+  tail call void @free(ptr noundef nonnull %8) #18
   %40 = fadd double %38, -1.250000e-01
   %41 = tail call double @llvm.fabs.f64(double %40)
   %42 = fcmp ule double %41, 0x3E50000000000000
@@ -2479,11 +2479,11 @@ arkode_butcher_dot.exit:                          ; preds = %39, %arkode_butcher
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order4c(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order4c(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #10 {
   %6 = sext i32 %4 to i64
-  %7 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #16
-  %8 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #16
+  %7 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #17
+  %8 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #17
   %9 = icmp eq ptr %2, null
   %10 = icmp eq ptr %3, null
   %or.cond.i = or i1 %9, %10
@@ -2511,8 +2511,8 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order4c(ptr noundef r
   br i1 %exitcond.not.i, label %19, label %.preheader.i
 
 arkode_butcher_vv.exit:                           ; preds = %5
-  tail call void @free(ptr noundef %7) #17
-  tail call void @free(ptr noundef %8) #17
+  tail call void @free(ptr noundef %7) #18
+  tail call void @free(ptr noundef %8) #18
   br label %arkode_butcher_dot.exit
 
 19:                                               ; preds = %.preheader.i
@@ -2548,8 +2548,8 @@ arkode_butcher_vv.exit:                           ; preds = %5
   br i1 %exitcond44.not.i, label %32, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %19
-  tail call void @free(ptr noundef nonnull %7) #17
-  tail call void @free(ptr noundef %8) #17
+  tail call void @free(ptr noundef nonnull %7) #18
+  tail call void @free(ptr noundef %8) #18
   br label %arkode_butcher_dot.exit
 
 32:                                               ; preds = %._crit_edge.us.i
@@ -2569,8 +2569,8 @@ arkode_butcher_mv.exit:                           ; preds = %19
   br i1 %exitcond.not.i32, label %40, label %.preheader
 
 40:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %7) #17
-  tail call void @free(ptr noundef nonnull %8) #17
+  tail call void @free(ptr noundef nonnull %7) #18
+  tail call void @free(ptr noundef nonnull %8) #18
   %41 = fadd double %39, 0xBFB5555555555555
   %42 = tail call double @llvm.fabs.f64(double %41)
   %43 = fcmp ule double %42, 0x3E50000000000000
@@ -2582,11 +2582,11 @@ arkode_butcher_dot.exit:                          ; preds = %32, %40, %arkode_bu
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order4d(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order4d(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #10 {
   %6 = sext i32 %4 to i64
-  %7 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #16
-  %8 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #16
+  %7 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #17
+  %8 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #17
   %9 = icmp eq ptr %2, null
   %10 = icmp eq ptr %3, null
   %or.cond.i = or i1 %9, %10
@@ -2627,8 +2627,8 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order4d(ptr noundef r
   br i1 %exitcond44.not.i, label %24, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %5
-  tail call void @free(ptr noundef %7) #17
-  tail call void @free(ptr noundef %8) #17
+  tail call void @free(ptr noundef %7) #18
+  tail call void @free(ptr noundef %8) #18
   br label %arkode_butcher_dot.exit
 
 24:                                               ; preds = %._crit_edge.us.i
@@ -2664,8 +2664,8 @@ arkode_butcher_mv.exit:                           ; preds = %5
   br i1 %exitcond44.not.i33, label %37, label %.preheader.us.i25
 
 arkode_butcher_mv.exit35:                         ; preds = %24
-  tail call void @free(ptr noundef nonnull %7) #17
-  tail call void @free(ptr noundef %8) #17
+  tail call void @free(ptr noundef nonnull %7) #18
+  tail call void @free(ptr noundef %8) #18
   br label %arkode_butcher_dot.exit
 
 37:                                               ; preds = %._crit_edge.us.i31
@@ -2685,8 +2685,8 @@ arkode_butcher_mv.exit35:                         ; preds = %24
   br i1 %exitcond.not.i40, label %45, label %.preheader
 
 45:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %7) #17
-  tail call void @free(ptr noundef nonnull %8) #17
+  tail call void @free(ptr noundef nonnull %7) #18
+  tail call void @free(ptr noundef nonnull %8) #18
   %46 = fadd double %44, 0xBFA5555555555555
   %47 = tail call double @llvm.fabs.f64(double %46)
   %48 = fcmp ule double %47, 0x3E50000000000000
@@ -2698,11 +2698,11 @@ arkode_butcher_dot.exit:                          ; preds = %37, %45, %arkode_bu
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5a(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5a(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #10 {
   %7 = sext i32 %5 to i64
-  %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
-  %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
+  %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #17
+  %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #17
   %10 = icmp eq ptr %1, null
   %11 = icmp eq ptr %2, null
   %or.cond.i = or i1 %10, %11
@@ -2730,8 +2730,8 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5a(ptr noundef r
   br i1 %exitcond.not.i, label %20, label %.preheader.i
 
 arkode_butcher_vv.exit:                           ; preds = %6
-  tail call void @free(ptr noundef %8) #17
-  tail call void @free(ptr noundef %9) #17
+  tail call void @free(ptr noundef %8) #18
+  tail call void @free(ptr noundef %9) #18
   br label %arkode_butcher_dot.exit
 
 20:                                               ; preds = %.preheader.i
@@ -2754,8 +2754,8 @@ arkode_butcher_vv.exit:                           ; preds = %6
   br i1 %exitcond.not.i36, label %29, label %.preheader.i33
 
 arkode_butcher_vv.exit38:                         ; preds = %20
-  tail call void @free(ptr noundef nonnull %8) #17
-  tail call void @free(ptr noundef %9) #17
+  tail call void @free(ptr noundef nonnull %8) #18
+  tail call void @free(ptr noundef %9) #18
   br label %arkode_butcher_dot.exit
 
 29:                                               ; preds = %.preheader.i33
@@ -2776,8 +2776,8 @@ arkode_butcher_vv.exit38:                         ; preds = %20
   br i1 %exitcond.not.i47, label %37, label %.preheader.i44
 
 arkode_butcher_vv.exit49:                         ; preds = %29
-  tail call void @free(ptr noundef nonnull %8) #17
-  tail call void @free(ptr noundef nonnull %9) #17
+  tail call void @free(ptr noundef nonnull %8) #18
+  tail call void @free(ptr noundef nonnull %9) #18
   br label %arkode_butcher_dot.exit
 
 37:                                               ; preds = %.preheader.i44
@@ -2797,8 +2797,8 @@ arkode_butcher_vv.exit49:                         ; preds = %29
   br i1 %exitcond.not.i55, label %45, label %.preheader
 
 45:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %8) #17
-  tail call void @free(ptr noundef nonnull %9) #17
+  tail call void @free(ptr noundef nonnull %8) #18
+  tail call void @free(ptr noundef nonnull %9) #18
   %46 = fadd double %44, -2.000000e-01
   %47 = tail call double @llvm.fabs.f64(double %46)
   %48 = fcmp ule double %47, 0x3E50000000000000
@@ -2810,11 +2810,11 @@ arkode_butcher_dot.exit:                          ; preds = %37, %45, %arkode_bu
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5b(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5b(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #10 {
   %7 = sext i32 %5 to i64
-  %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
-  %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
+  %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #17
+  %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #17
   %10 = icmp eq ptr %1, null
   %11 = icmp eq ptr %2, null
   %or.cond.i = or i1 %10, %11
@@ -2842,8 +2842,8 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5b(ptr noundef r
   br i1 %exitcond.not.i, label %20, label %.preheader.i
 
 arkode_butcher_vv.exit:                           ; preds = %6
-  tail call void @free(ptr noundef %8) #17
-  tail call void @free(ptr noundef %9) #17
+  tail call void @free(ptr noundef %8) #18
+  tail call void @free(ptr noundef %9) #18
   br label %arkode_butcher_dot.exit
 
 20:                                               ; preds = %.preheader.i
@@ -2866,8 +2866,8 @@ arkode_butcher_vv.exit:                           ; preds = %6
   br i1 %exitcond.not.i36, label %29, label %.preheader.i33
 
 arkode_butcher_vv.exit38:                         ; preds = %20
-  tail call void @free(ptr noundef nonnull %8) #17
-  tail call void @free(ptr noundef %9) #17
+  tail call void @free(ptr noundef nonnull %8) #18
+  tail call void @free(ptr noundef %9) #18
   br label %arkode_butcher_dot.exit
 
 29:                                               ; preds = %.preheader.i33
@@ -2908,8 +2908,8 @@ arkode_butcher_vv.exit38:                         ; preds = %20
   br i1 %exitcond44.not.i, label %.preheader, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %29
-  tail call void @free(ptr noundef nonnull %8) #17
-  tail call void @free(ptr noundef nonnull %9) #17
+  tail call void @free(ptr noundef nonnull %8) #18
+  tail call void @free(ptr noundef nonnull %9) #18
   br label %arkode_butcher_dot.exit
 
 .preheader:                                       ; preds = %._crit_edge.us.i, %.preheader
@@ -2925,8 +2925,8 @@ arkode_butcher_mv.exit:                           ; preds = %29
   br i1 %exitcond.not.i50, label %49, label %.preheader
 
 49:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %8) #17
-  tail call void @free(ptr noundef nonnull %9) #17
+  tail call void @free(ptr noundef nonnull %8) #18
+  tail call void @free(ptr noundef nonnull %9) #18
   %50 = fadd double %48, -1.000000e-01
   %51 = tail call double @llvm.fabs.f64(double %50)
   %52 = fcmp ule double %51, 0x3E50000000000000
@@ -2938,12 +2938,12 @@ arkode_butcher_dot.exit:                          ; preds = %49, %arkode_butcher
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5c(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5c(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #10 {
   %7 = sext i32 %5 to i64
-  %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
-  %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
-  %10 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
+  %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #17
+  %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #17
+  %10 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #17
   %11 = icmp eq ptr %1, null
   %12 = icmp eq ptr %2, null
   %or.cond.i = or i1 %11, %12
@@ -2984,9 +2984,9 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5c(ptr noundef r
   br i1 %exitcond44.not.i, label %26, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %6
-  tail call void @free(ptr noundef %8) #17
-  tail call void @free(ptr noundef %9) #17
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef %8) #18
+  tail call void @free(ptr noundef %9) #18
+  tail call void @free(ptr noundef %10) #18
   br label %arkode_butcher_dot.exit
 
 26:                                               ; preds = %._crit_edge.us.i
@@ -3024,9 +3024,9 @@ arkode_butcher_mv.exit:                           ; preds = %6
   br i1 %exitcond44.not.i45, label %40, label %.preheader.us.i37
 
 arkode_butcher_mv.exit47:                         ; preds = %26
-  tail call void @free(ptr noundef nonnull %8) #17
-  tail call void @free(ptr noundef %9) #17
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef nonnull %8) #18
+  tail call void @free(ptr noundef %9) #18
+  tail call void @free(ptr noundef %10) #18
   br label %arkode_butcher_dot.exit
 
 40:                                               ; preds = %._crit_edge.us.i43
@@ -3047,8 +3047,8 @@ arkode_butcher_mv.exit47:                         ; preds = %26
   br i1 %exitcond.not.i53, label %48, label %.preheader.i
 
 arkode_butcher_vv.exit:                           ; preds = %40
-  tail call void @free(ptr noundef %8) #17
-  tail call void @free(ptr noundef nonnull %9) #17
+  tail call void @free(ptr noundef %8) #18
+  tail call void @free(ptr noundef nonnull %9) #18
   br label %arkode_butcher_dot.exit
 
 48:                                               ; preds = %.preheader.i
@@ -3068,9 +3068,9 @@ arkode_butcher_vv.exit:                           ; preds = %40
   br i1 %exitcond.not.i59, label %56, label %.preheader
 
 56:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %8) #17
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %8) #18
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   %57 = fadd double %55, -5.000000e-02
   %58 = tail call double @llvm.fabs.f64(double %57)
   %59 = fcmp ule double %58, 0x3E50000000000000
@@ -3082,11 +3082,11 @@ arkode_butcher_dot.exit:                          ; preds = %48, %56, %arkode_bu
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5d(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5d(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #10 {
   %7 = sext i32 %5 to i64
-  %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
-  %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
+  %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #17
+  %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #17
   %10 = icmp eq ptr %3, null
   %11 = icmp eq ptr %4, null
   %or.cond.i = or i1 %10, %11
@@ -3114,8 +3114,8 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5d(ptr noundef r
   br i1 %exitcond.not.i, label %20, label %.preheader.i
 
 arkode_butcher_vv.exit:                           ; preds = %6
-  tail call void @free(ptr noundef %8) #17
-  tail call void @free(ptr noundef %9) #17
+  tail call void @free(ptr noundef %8) #18
+  tail call void @free(ptr noundef %9) #18
   br label %arkode_butcher_dot.exit
 
 20:                                               ; preds = %.preheader.i
@@ -3151,8 +3151,8 @@ arkode_butcher_vv.exit:                           ; preds = %6
   br i1 %exitcond44.not.i, label %33, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %20
-  tail call void @free(ptr noundef nonnull %8) #17
-  tail call void @free(ptr noundef %9) #17
+  tail call void @free(ptr noundef nonnull %8) #18
+  tail call void @free(ptr noundef %9) #18
   br label %arkode_butcher_dot.exit
 
 33:                                               ; preds = %._crit_edge.us.i
@@ -3175,8 +3175,8 @@ arkode_butcher_mv.exit:                           ; preds = %20
   br i1 %exitcond.not.i42, label %.preheader, label %.preheader.i39
 
 arkode_butcher_vv.exit44:                         ; preds = %33
-  tail call void @free(ptr noundef nonnull %8) #17
-  tail call void @free(ptr noundef nonnull %9) #17
+  tail call void @free(ptr noundef nonnull %8) #18
+  tail call void @free(ptr noundef nonnull %9) #18
   br label %arkode_butcher_dot.exit
 
 .preheader:                                       ; preds = %.preheader.i39, %.preheader
@@ -3192,8 +3192,8 @@ arkode_butcher_vv.exit44:                         ; preds = %33
   br i1 %exitcond.not.i50, label %48, label %.preheader
 
 48:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %8) #17
-  tail call void @free(ptr noundef nonnull %9) #17
+  tail call void @free(ptr noundef nonnull %8) #18
+  tail call void @free(ptr noundef nonnull %9) #18
   %49 = fadd double %47, 0xBFB1111111111111
   %50 = tail call double @llvm.fabs.f64(double %49)
   %51 = fcmp ule double %50, 0x3E50000000000000
@@ -3205,11 +3205,11 @@ arkode_butcher_dot.exit:                          ; preds = %48, %arkode_butcher
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5e(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5e(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #10 {
   %7 = sext i32 %5 to i64
-  %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
-  %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
+  %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #17
+  %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #17
   %10 = icmp eq ptr %2, null
   %11 = icmp eq ptr %3, null
   %or.cond.i = or i1 %10, %11
@@ -3237,8 +3237,8 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5e(ptr noundef r
   br i1 %exitcond.not.i, label %20, label %.preheader.i
 
 arkode_butcher_vv.exit:                           ; preds = %6
-  tail call void @free(ptr noundef %8) #17
-  tail call void @free(ptr noundef %9) #17
+  tail call void @free(ptr noundef %8) #18
+  tail call void @free(ptr noundef %9) #18
   br label %arkode_butcher_dot.exit
 
 20:                                               ; preds = %.preheader.i
@@ -3261,8 +3261,8 @@ arkode_butcher_vv.exit:                           ; preds = %6
   br i1 %exitcond.not.i36, label %29, label %.preheader.i33
 
 arkode_butcher_vv.exit38:                         ; preds = %20
-  tail call void @free(ptr noundef nonnull %8) #17
-  tail call void @free(ptr noundef %9) #17
+  tail call void @free(ptr noundef nonnull %8) #18
+  tail call void @free(ptr noundef %9) #18
   br label %arkode_butcher_dot.exit
 
 29:                                               ; preds = %.preheader.i33
@@ -3301,8 +3301,8 @@ arkode_butcher_vv.exit38:                         ; preds = %20
   br i1 %exitcond44.not.i, label %42, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %29
-  tail call void @free(ptr noundef nonnull %8) #17
-  tail call void @free(ptr noundef nonnull %9) #17
+  tail call void @free(ptr noundef nonnull %8) #18
+  tail call void @free(ptr noundef nonnull %9) #18
   br label %arkode_butcher_dot.exit
 
 42:                                               ; preds = %._crit_edge.us.i
@@ -3322,8 +3322,8 @@ arkode_butcher_mv.exit:                           ; preds = %29
   br i1 %exitcond.not.i50, label %50, label %.preheader
 
 50:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %8) #17
-  tail call void @free(ptr noundef nonnull %9) #17
+  tail call void @free(ptr noundef nonnull %8) #18
+  tail call void @free(ptr noundef nonnull %9) #18
   %51 = fadd double %49, -5.000000e-02
   %52 = tail call double @llvm.fabs.f64(double %51)
   %53 = fcmp ule double %52, 0x3E50000000000000
@@ -3335,11 +3335,11 @@ arkode_butcher_dot.exit:                          ; preds = %42, %50, %arkode_bu
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5f(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5f(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #10 {
   %7 = sext i32 %5 to i64
-  %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
-  %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
+  %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #17
+  %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #17
   %10 = icmp eq ptr %3, null
   %11 = icmp eq ptr %4, null
   %or.cond.i = or i1 %10, %11
@@ -3380,8 +3380,8 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5f(ptr noundef r
   br i1 %exitcond44.not.i, label %25, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %6
-  tail call void @free(ptr noundef %8) #17
-  tail call void @free(ptr noundef %9) #17
+  tail call void @free(ptr noundef %8) #18
+  tail call void @free(ptr noundef %9) #18
   br label %arkode_butcher_dot.exit
 
 25:                                               ; preds = %._crit_edge.us.i
@@ -3417,8 +3417,8 @@ arkode_butcher_mv.exit:                           ; preds = %6
   br i1 %exitcond44.not.i40, label %38, label %.preheader.us.i32
 
 arkode_butcher_mv.exit42:                         ; preds = %25
-  tail call void @free(ptr noundef nonnull %8) #17
-  tail call void @free(ptr noundef %9) #17
+  tail call void @free(ptr noundef nonnull %8) #18
+  tail call void @free(ptr noundef %9) #18
   br label %arkode_butcher_dot.exit
 
 38:                                               ; preds = %._crit_edge.us.i38
@@ -3441,8 +3441,8 @@ arkode_butcher_mv.exit42:                         ; preds = %25
   br i1 %exitcond.not.i48, label %.preheader, label %.preheader.i
 
 arkode_butcher_vv.exit:                           ; preds = %38
-  tail call void @free(ptr noundef nonnull %8) #17
-  tail call void @free(ptr noundef nonnull %9) #17
+  tail call void @free(ptr noundef nonnull %8) #18
+  tail call void @free(ptr noundef nonnull %9) #18
   br label %arkode_butcher_dot.exit
 
 .preheader:                                       ; preds = %.preheader.i, %.preheader
@@ -3458,8 +3458,8 @@ arkode_butcher_vv.exit:                           ; preds = %38
   br i1 %exitcond.not.i54, label %53, label %.preheader
 
 53:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %8) #17
-  tail call void @free(ptr noundef nonnull %9) #17
+  tail call void @free(ptr noundef nonnull %8) #18
+  tail call void @free(ptr noundef nonnull %9) #18
   %54 = fadd double %52, 0xBFA1111111111111
   %55 = tail call double @llvm.fabs.f64(double %54)
   %56 = fcmp ule double %55, 0x3E50000000000000
@@ -3471,11 +3471,11 @@ arkode_butcher_dot.exit:                          ; preds = %53, %arkode_butcher
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5g(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5g(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #10 {
   %7 = sext i32 %5 to i64
-  %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
-  %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
+  %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #17
+  %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #17
   %10 = icmp eq ptr %3, null
   %11 = icmp eq ptr %4, null
   %or.cond.i = or i1 %10, %11
@@ -3517,8 +3517,8 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5g(ptr noundef r
   br i1 %exitcond44.not.i, label %26, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %6
-  tail call void @free(ptr noundef %8) #17
-  tail call void @free(ptr noundef %9) #17
+  tail call void @free(ptr noundef %8) #18
+  tail call void @free(ptr noundef %9) #18
   br label %arkode_butcher_dot.exit
 
 26:                                               ; preds = %._crit_edge.us.i
@@ -3541,8 +3541,8 @@ arkode_butcher_mv.exit:                           ; preds = %6
   br i1 %exitcond.not.i33, label %35, label %.preheader.i
 
 arkode_butcher_vv.exit:                           ; preds = %26
-  tail call void @free(ptr noundef nonnull %8) #17
-  tail call void @free(ptr noundef %9) #17
+  tail call void @free(ptr noundef nonnull %8) #18
+  tail call void @free(ptr noundef %9) #18
   br label %arkode_butcher_dot.exit
 
 35:                                               ; preds = %.preheader.i
@@ -3580,8 +3580,8 @@ arkode_butcher_vv.exit:                           ; preds = %26
   br i1 %exitcond44.not.i46, label %47, label %.preheader.us.i38
 
 arkode_butcher_mv.exit48:                         ; preds = %35
-  tail call void @free(ptr noundef nonnull %8) #17
-  tail call void @free(ptr noundef nonnull %9) #17
+  tail call void @free(ptr noundef nonnull %8) #18
+  tail call void @free(ptr noundef nonnull %9) #18
   br label %arkode_butcher_dot.exit
 
 47:                                               ; preds = %._crit_edge.us.i44
@@ -3601,8 +3601,8 @@ arkode_butcher_mv.exit48:                         ; preds = %35
   br i1 %exitcond.not.i54, label %55, label %.preheader
 
 55:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %8) #17
-  tail call void @free(ptr noundef nonnull %9) #17
+  tail call void @free(ptr noundef nonnull %8) #18
+  tail call void @free(ptr noundef nonnull %9) #18
   %56 = fadd double %54, -2.500000e-02
   %57 = tail call double @llvm.fabs.f64(double %56)
   %58 = fcmp ule double %57, 0x3E50000000000000
@@ -3614,11 +3614,11 @@ arkode_butcher_dot.exit:                          ; preds = %47, %55, %arkode_bu
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5h(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5h(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #10 {
   %7 = sext i32 %5 to i64
-  %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
-  %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
+  %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #17
+  %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #17
   %10 = icmp eq ptr %3, null
   %11 = icmp eq ptr %4, null
   %or.cond.i = or i1 %10, %11
@@ -3646,8 +3646,8 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5h(ptr noundef r
   br i1 %exitcond.not.i, label %20, label %.preheader.i
 
 arkode_butcher_vv.exit:                           ; preds = %6
-  tail call void @free(ptr noundef %8) #17
-  tail call void @free(ptr noundef %9) #17
+  tail call void @free(ptr noundef %8) #18
+  tail call void @free(ptr noundef %9) #18
   br label %arkode_butcher_dot.exit
 
 20:                                               ; preds = %.preheader.i
@@ -3687,8 +3687,8 @@ arkode_butcher_vv.exit:                           ; preds = %6
   br i1 %exitcond44.not.i, label %34, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %20
-  tail call void @free(ptr noundef nonnull %8) #17
-  tail call void @free(ptr noundef %9) #17
+  tail call void @free(ptr noundef nonnull %8) #18
+  tail call void @free(ptr noundef %9) #18
   br label %arkode_butcher_dot.exit
 
 34:                                               ; preds = %._crit_edge.us.i
@@ -3726,8 +3726,8 @@ arkode_butcher_mv.exit:                           ; preds = %20
   br i1 %exitcond44.not.i46, label %46, label %.preheader.us.i38
 
 arkode_butcher_mv.exit48:                         ; preds = %34
-  tail call void @free(ptr noundef nonnull %8) #17
-  tail call void @free(ptr noundef nonnull %9) #17
+  tail call void @free(ptr noundef nonnull %8) #18
+  tail call void @free(ptr noundef nonnull %9) #18
   br label %arkode_butcher_dot.exit
 
 46:                                               ; preds = %._crit_edge.us.i44
@@ -3747,8 +3747,8 @@ arkode_butcher_mv.exit48:                         ; preds = %34
   br i1 %exitcond.not.i54, label %54, label %.preheader
 
 54:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %8) #17
-  tail call void @free(ptr noundef nonnull %9) #17
+  tail call void @free(ptr noundef nonnull %8) #18
+  tail call void @free(ptr noundef nonnull %9) #18
   %55 = fadd double %53, 0xBF91111111111111
   %56 = tail call double @llvm.fabs.f64(double %55)
   %57 = fcmp ule double %56, 0x3E50000000000000
@@ -3760,11 +3760,11 @@ arkode_butcher_dot.exit:                          ; preds = %46, %54, %arkode_bu
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5i(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5i(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #10 {
   %7 = sext i32 %5 to i64
-  %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
-  %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
+  %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #17
+  %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #17
   %10 = icmp eq ptr %3, null
   %11 = icmp eq ptr %4, null
   %or.cond.i = or i1 %10, %11
@@ -3806,8 +3806,8 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5i(ptr noundef r
   br i1 %exitcond44.not.i, label %26, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %6
-  tail call void @free(ptr noundef %8) #17
-  tail call void @free(ptr noundef %9) #17
+  tail call void @free(ptr noundef %8) #18
+  tail call void @free(ptr noundef %9) #18
   br label %arkode_butcher_dot.exit
 
 26:                                               ; preds = %._crit_edge.us.i
@@ -3843,8 +3843,8 @@ arkode_butcher_mv.exit:                           ; preds = %6
   br i1 %exitcond44.not.i40, label %39, label %.preheader.us.i32
 
 arkode_butcher_mv.exit42:                         ; preds = %26
-  tail call void @free(ptr noundef nonnull %8) #17
-  tail call void @free(ptr noundef %9) #17
+  tail call void @free(ptr noundef nonnull %8) #18
+  tail call void @free(ptr noundef %9) #18
   br label %arkode_butcher_dot.exit
 
 39:                                               ; preds = %._crit_edge.us.i38
@@ -3882,8 +3882,8 @@ arkode_butcher_mv.exit42:                         ; preds = %26
   br i1 %exitcond44.not.i55, label %51, label %.preheader.us.i47
 
 arkode_butcher_mv.exit57:                         ; preds = %39
-  tail call void @free(ptr noundef nonnull %8) #17
-  tail call void @free(ptr noundef nonnull %9) #17
+  tail call void @free(ptr noundef nonnull %8) #18
+  tail call void @free(ptr noundef nonnull %9) #18
   br label %arkode_butcher_dot.exit
 
 51:                                               ; preds = %._crit_edge.us.i53
@@ -3903,8 +3903,8 @@ arkode_butcher_mv.exit57:                         ; preds = %39
   br i1 %exitcond.not.i62, label %59, label %.preheader
 
 59:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %8) #17
-  tail call void @free(ptr noundef nonnull %9) #17
+  tail call void @free(ptr noundef nonnull %8) #18
+  tail call void @free(ptr noundef nonnull %9) #18
   %60 = fadd double %58, 0xBF81111111111111
   %61 = tail call double @llvm.fabs.f64(double %60)
   %62 = fcmp ule double %61, 0x3E50000000000000
@@ -3916,11 +3916,11 @@ arkode_butcher_dot.exit:                          ; preds = %51, %59, %arkode_bu
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6a(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6a(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
   %8 = sext i32 %6 to i64
-  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
-  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
+  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
+  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
   %11 = icmp eq ptr %1, null
   %12 = icmp eq ptr %2, null
   %or.cond.i = or i1 %11, %12
@@ -3948,8 +3948,8 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6a(ptr noundef r
   br i1 %exitcond.not.i, label %21, label %.preheader.i
 
 arkode_butcher_vv.exit:                           ; preds = %7
-  tail call void @free(ptr noundef %9) #17
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef %9) #18
+  tail call void @free(ptr noundef %10) #18
   br label %arkode_butcher_dot.exit
 
 21:                                               ; preds = %.preheader.i
@@ -3972,8 +3972,8 @@ arkode_butcher_vv.exit:                           ; preds = %7
   br i1 %exitcond.not.i43, label %30, label %.preheader.i40
 
 arkode_butcher_vv.exit45:                         ; preds = %21
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef %10) #18
   br label %arkode_butcher_dot.exit
 
 30:                                               ; preds = %.preheader.i40
@@ -3994,8 +3994,8 @@ arkode_butcher_vv.exit45:                         ; preds = %21
   br i1 %exitcond.not.i54, label %38, label %.preheader.i51
 
 arkode_butcher_vv.exit56:                         ; preds = %30
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   br label %arkode_butcher_dot.exit
 
 38:                                               ; preds = %.preheader.i51
@@ -4016,8 +4016,8 @@ arkode_butcher_vv.exit56:                         ; preds = %30
   br i1 %exitcond.not.i65, label %46, label %.preheader.i62
 
 arkode_butcher_vv.exit67:                         ; preds = %38
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   br label %arkode_butcher_dot.exit
 
 46:                                               ; preds = %.preheader.i62
@@ -4037,8 +4037,8 @@ arkode_butcher_vv.exit67:                         ; preds = %38
   br i1 %exitcond.not.i73, label %54, label %.preheader
 
 54:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   %55 = fadd double %53, 0xBFC5555555555555
   %56 = tail call double @llvm.fabs.f64(double %55)
   %57 = fcmp ule double %56, 0x3E50000000000000
@@ -4050,11 +4050,11 @@ arkode_butcher_dot.exit:                          ; preds = %46, %54, %arkode_bu
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6b(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6b(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
   %8 = sext i32 %6 to i64
-  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
-  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
+  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
+  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
   %11 = icmp eq ptr %0, null
   %12 = icmp eq ptr %1, null
   %or.cond.i = or i1 %11, %12
@@ -4082,8 +4082,8 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6b(ptr noundef r
   br i1 %exitcond.not.i, label %21, label %.preheader.i
 
 arkode_butcher_vv.exit:                           ; preds = %7
-  tail call void @free(ptr noundef %9) #17
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef %9) #18
+  tail call void @free(ptr noundef %10) #18
   br label %arkode_butcher_dot.exit
 
 21:                                               ; preds = %.preheader.i
@@ -4106,8 +4106,8 @@ arkode_butcher_vv.exit:                           ; preds = %7
   br i1 %exitcond.not.i43, label %30, label %.preheader.i40
 
 arkode_butcher_vv.exit45:                         ; preds = %21
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef %10) #18
   br label %arkode_butcher_dot.exit
 
 30:                                               ; preds = %.preheader.i40
@@ -4128,8 +4128,8 @@ arkode_butcher_vv.exit45:                         ; preds = %21
   br i1 %exitcond.not.i54, label %38, label %.preheader.i51
 
 arkode_butcher_vv.exit56:                         ; preds = %30
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   br label %arkode_butcher_dot.exit
 
 38:                                               ; preds = %.preheader.i51
@@ -4170,8 +4170,8 @@ arkode_butcher_vv.exit56:                         ; preds = %30
   br i1 %exitcond44.not.i, label %.preheader, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %38
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   br label %arkode_butcher_dot.exit
 
 .preheader:                                       ; preds = %._crit_edge.us.i, %.preheader
@@ -4187,8 +4187,8 @@ arkode_butcher_mv.exit:                           ; preds = %38
   br i1 %exitcond.not.i68, label %58, label %.preheader
 
 58:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   %59 = fadd double %57, 0xBFB5555555555555
   %60 = tail call double @llvm.fabs.f64(double %59)
   %61 = fcmp ule double %60, 0x3E50000000000000
@@ -4200,12 +4200,12 @@ arkode_butcher_dot.exit:                          ; preds = %58, %arkode_butcher
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6c(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6c(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
   %8 = sext i32 %6 to i64
-  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
-  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
-  %11 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
+  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
+  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
+  %11 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
   %12 = icmp eq ptr %4, null
   %13 = icmp eq ptr %5, null
   %or.cond.i = or i1 %12, %13
@@ -4246,9 +4246,9 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6c(ptr noundef r
   br i1 %exitcond44.not.i, label %27, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %7
-  tail call void @free(ptr noundef %9) #17
-  tail call void @free(ptr noundef %10) #17
-  tail call void @free(ptr noundef %11) #17
+  tail call void @free(ptr noundef %9) #18
+  tail call void @free(ptr noundef %10) #18
+  tail call void @free(ptr noundef %11) #18
   br label %arkode_butcher_dot.exit
 
 27:                                               ; preds = %._crit_edge.us.i
@@ -4286,9 +4286,9 @@ arkode_butcher_mv.exit:                           ; preds = %7
   br i1 %exitcond44.not.i53, label %41, label %.preheader.us.i45
 
 arkode_butcher_mv.exit55:                         ; preds = %27
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef %10) #17
-  tail call void @free(ptr noundef %11) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef %10) #18
+  tail call void @free(ptr noundef %11) #18
   br label %arkode_butcher_dot.exit
 
 41:                                               ; preds = %._crit_edge.us.i51
@@ -4309,8 +4309,8 @@ arkode_butcher_mv.exit55:                         ; preds = %27
   br i1 %exitcond.not.i61, label %49, label %.preheader.i
 
 arkode_butcher_vv.exit:                           ; preds = %41
-  tail call void @free(ptr noundef %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   br label %arkode_butcher_dot.exit
 
 49:                                               ; preds = %.preheader.i
@@ -4331,9 +4331,9 @@ arkode_butcher_vv.exit:                           ; preds = %41
   br i1 %exitcond.not.i70, label %57, label %.preheader.i67
 
 arkode_butcher_vv.exit72:                         ; preds = %49
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
-  tail call void @free(ptr noundef nonnull %11) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
+  tail call void @free(ptr noundef nonnull %11) #18
   br label %arkode_butcher_dot.exit
 
 57:                                               ; preds = %.preheader.i67
@@ -4353,9 +4353,9 @@ arkode_butcher_vv.exit72:                         ; preds = %49
   br i1 %exitcond.not.i78, label %65, label %.preheader
 
 65:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
-  tail call void @free(ptr noundef nonnull %11) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
+  tail call void @free(ptr noundef nonnull %11) #18
   %66 = fadd double %64, 0xBFA5555555555555
   %67 = tail call double @llvm.fabs.f64(double %66)
   %68 = fcmp ule double %67, 0x3E50000000000000
@@ -4367,12 +4367,12 @@ arkode_butcher_dot.exit:                          ; preds = %57, %65, %arkode_bu
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6d(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6d(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
   %8 = sext i32 %6 to i64
-  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
-  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
-  %11 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
+  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
+  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
+  %11 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
   %12 = icmp eq ptr %4, null
   %13 = icmp eq ptr %5, null
   %or.cond.i = or i1 %12, %13
@@ -4400,9 +4400,9 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6d(ptr noundef r
   br i1 %exitcond.not.i, label %22, label %.preheader.i
 
 arkode_butcher_vv.exit:                           ; preds = %7
-  tail call void @free(ptr noundef %9) #17
-  tail call void @free(ptr noundef %10) #17
-  tail call void @free(ptr noundef %11) #17
+  tail call void @free(ptr noundef %9) #18
+  tail call void @free(ptr noundef %10) #18
+  tail call void @free(ptr noundef %11) #18
   br label %arkode_butcher_dot.exit
 
 22:                                               ; preds = %.preheader.i
@@ -4438,9 +4438,9 @@ arkode_butcher_vv.exit:                           ; preds = %7
   br i1 %exitcond44.not.i, label %35, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %22
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef %10) #17
-  tail call void @free(ptr noundef %11) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef %10) #18
+  tail call void @free(ptr noundef %11) #18
   br label %arkode_butcher_dot.exit
 
 35:                                               ; preds = %._crit_edge.us.i
@@ -4463,9 +4463,9 @@ arkode_butcher_mv.exit:                           ; preds = %22
   br i1 %exitcond.not.i55, label %44, label %.preheader.i52
 
 arkode_butcher_vv.exit57:                         ; preds = %35
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
-  tail call void @free(ptr noundef %11) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
+  tail call void @free(ptr noundef %11) #18
   br label %arkode_butcher_dot.exit
 
 44:                                               ; preds = %.preheader.i52
@@ -4488,9 +4488,9 @@ arkode_butcher_vv.exit57:                         ; preds = %35
   br i1 %exitcond.not.i66, label %.preheader, label %.preheader.i63
 
 arkode_butcher_vv.exit68:                         ; preds = %44
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
-  tail call void @free(ptr noundef %11) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
+  tail call void @free(ptr noundef %11) #18
   br label %arkode_butcher_dot.exit
 
 .preheader:                                       ; preds = %.preheader.i63, %.preheader
@@ -4506,9 +4506,9 @@ arkode_butcher_vv.exit68:                         ; preds = %44
   br i1 %exitcond.not.i74, label %59, label %.preheader
 
 59:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
-  tail call void @free(ptr noundef nonnull %11) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
+  tail call void @free(ptr noundef nonnull %11) #18
   %60 = fadd double %58, 0xBFAC71C71C71C71C
   %61 = tail call double @llvm.fabs.f64(double %60)
   %62 = fcmp ule double %61, 0x3E50000000000000
@@ -4520,12 +4520,12 @@ arkode_butcher_dot.exit:                          ; preds = %59, %arkode_butcher
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6e(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6e(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
   %8 = sext i32 %6 to i64
-  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
-  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
-  %11 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
+  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
+  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
+  %11 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
   %12 = icmp eq ptr %1, null
   %13 = icmp eq ptr %2, null
   %or.cond.i = or i1 %12, %13
@@ -4553,9 +4553,9 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6e(ptr noundef r
   br i1 %exitcond.not.i, label %22, label %.preheader.i
 
 arkode_butcher_vv.exit:                           ; preds = %7
-  tail call void @free(ptr noundef %9) #17
-  tail call void @free(ptr noundef %10) #17
-  tail call void @free(ptr noundef %11) #17
+  tail call void @free(ptr noundef %9) #18
+  tail call void @free(ptr noundef %10) #18
+  tail call void @free(ptr noundef %11) #18
   br label %arkode_butcher_dot.exit
 
 22:                                               ; preds = %.preheader.i
@@ -4578,9 +4578,9 @@ arkode_butcher_vv.exit:                           ; preds = %7
   br i1 %exitcond.not.i49, label %31, label %.preheader.i46
 
 arkode_butcher_vv.exit51:                         ; preds = %22
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef %10) #17
-  tail call void @free(ptr noundef %11) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef %10) #18
+  tail call void @free(ptr noundef %11) #18
   br label %arkode_butcher_dot.exit
 
 31:                                               ; preds = %.preheader.i46
@@ -4621,9 +4621,9 @@ arkode_butcher_vv.exit51:                         ; preds = %22
   br i1 %exitcond44.not.i, label %45, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %31
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
-  tail call void @free(ptr noundef %11) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
+  tail call void @free(ptr noundef %11) #18
   br label %arkode_butcher_dot.exit
 
 45:                                               ; preds = %._crit_edge.us.i
@@ -4659,9 +4659,9 @@ arkode_butcher_mv.exit:                           ; preds = %31
   br i1 %exitcond44.not.i70, label %.preheader, label %.preheader.us.i62
 
 arkode_butcher_mv.exit72:                         ; preds = %45
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef %10) #17
-  tail call void @free(ptr noundef %11) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef %10) #18
+  tail call void @free(ptr noundef %11) #18
   br label %arkode_butcher_dot.exit
 
 .preheader:                                       ; preds = %._crit_edge.us.i68, %.preheader
@@ -4677,9 +4677,9 @@ arkode_butcher_mv.exit72:                         ; preds = %45
   br i1 %exitcond.not.i78, label %64, label %.preheader
 
 64:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
-  tail call void @free(ptr noundef nonnull %11) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
+  tail call void @free(ptr noundef nonnull %11) #18
   %65 = fadd double %63, 0xBF9C71C71C71C71C
   %66 = tail call double @llvm.fabs.f64(double %65)
   %67 = fcmp ule double %66, 0x3E50000000000000
@@ -4691,12 +4691,12 @@ arkode_butcher_dot.exit:                          ; preds = %64, %arkode_butcher
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6f(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6f(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
   %8 = sext i32 %6 to i64
-  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
-  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
-  %11 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
+  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
+  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
+  %11 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
   %12 = icmp eq ptr %2, null
   %13 = icmp eq ptr %3, null
   %or.cond.i = or i1 %12, %13
@@ -4738,9 +4738,9 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6f(ptr noundef r
   br i1 %exitcond44.not.i, label %28, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %7
-  tail call void @free(ptr noundef %9) #17
-  tail call void @free(ptr noundef %10) #17
-  tail call void @free(ptr noundef %11) #17
+  tail call void @free(ptr noundef %9) #18
+  tail call void @free(ptr noundef %10) #18
+  tail call void @free(ptr noundef %11) #18
   br label %arkode_butcher_dot.exit
 
 28:                                               ; preds = %._crit_edge.us.i
@@ -4776,9 +4776,9 @@ arkode_butcher_mv.exit:                           ; preds = %7
   br i1 %exitcond44.not.i53, label %41, label %.preheader.us.i45
 
 arkode_butcher_mv.exit55:                         ; preds = %28
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef %10) #17
-  tail call void @free(ptr noundef %11) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef %10) #18
+  tail call void @free(ptr noundef %11) #18
   br label %arkode_butcher_dot.exit
 
 41:                                               ; preds = %._crit_edge.us.i51
@@ -4818,9 +4818,9 @@ arkode_butcher_mv.exit55:                         ; preds = %28
   br i1 %exitcond44.not.i68, label %54, label %.preheader.us.i60
 
 arkode_butcher_mv.exit70:                         ; preds = %41
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
-  tail call void @free(ptr noundef %11) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
+  tail call void @free(ptr noundef %11) #18
   br label %arkode_butcher_dot.exit
 
 54:                                               ; preds = %._crit_edge.us.i66
@@ -4841,8 +4841,8 @@ arkode_butcher_mv.exit70:                         ; preds = %41
   br i1 %exitcond.not.i76, label %62, label %.preheader.i
 
 arkode_butcher_vv.exit:                           ; preds = %54
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef %10) #18
   br label %arkode_butcher_dot.exit
 
 62:                                               ; preds = %.preheader.i
@@ -4862,9 +4862,9 @@ arkode_butcher_vv.exit:                           ; preds = %54
   br i1 %exitcond.not.i82, label %70, label %.preheader
 
 70:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
-  tail call void @free(ptr noundef nonnull %11) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
+  tail call void @free(ptr noundef nonnull %11) #18
   %71 = fadd double %69, 0xBF8C71C71C71C71C
   %72 = tail call double @llvm.fabs.f64(double %71)
   %73 = fcmp ule double %72, 0x3E50000000000000
@@ -4876,11 +4876,11 @@ arkode_butcher_dot.exit:                          ; preds = %62, %70, %arkode_bu
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6g(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6g(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
   %8 = sext i32 %6 to i64
-  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
-  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
+  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
+  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
   %11 = icmp eq ptr %3, null
   %12 = icmp eq ptr %4, null
   %or.cond.i = or i1 %11, %12
@@ -4908,8 +4908,8 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6g(ptr noundef r
   br i1 %exitcond.not.i, label %21, label %.preheader.i
 
 arkode_butcher_vv.exit:                           ; preds = %7
-  tail call void @free(ptr noundef %9) #17
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef %9) #18
+  tail call void @free(ptr noundef %10) #18
   br label %arkode_butcher_dot.exit
 
 21:                                               ; preds = %.preheader.i
@@ -4932,8 +4932,8 @@ arkode_butcher_vv.exit:                           ; preds = %7
   br i1 %exitcond.not.i43, label %30, label %.preheader.i40
 
 arkode_butcher_vv.exit45:                         ; preds = %21
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef %10) #18
   br label %arkode_butcher_dot.exit
 
 30:                                               ; preds = %.preheader.i40
@@ -4972,8 +4972,8 @@ arkode_butcher_vv.exit45:                         ; preds = %21
   br i1 %exitcond44.not.i, label %43, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %30
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   br label %arkode_butcher_dot.exit
 
 43:                                               ; preds = %._crit_edge.us.i
@@ -4994,8 +4994,8 @@ arkode_butcher_mv.exit:                           ; preds = %30
   br i1 %exitcond.not.i60, label %51, label %.preheader.i57
 
 arkode_butcher_vv.exit62:                         ; preds = %43
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   br label %arkode_butcher_dot.exit
 
 51:                                               ; preds = %.preheader.i57
@@ -5015,8 +5015,8 @@ arkode_butcher_vv.exit62:                         ; preds = %43
   br i1 %exitcond.not.i68, label %59, label %.preheader
 
 59:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   %60 = fadd double %58, 0xBFA5555555555555
   %61 = tail call double @llvm.fabs.f64(double %60)
   %62 = fcmp ule double %61, 0x3E50000000000000
@@ -5028,11 +5028,11 @@ arkode_butcher_dot.exit:                          ; preds = %51, %59, %arkode_bu
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6h(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6h(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
   %8 = sext i32 %6 to i64
-  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
-  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
+  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
+  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
   %11 = icmp eq ptr %4, null
   %12 = icmp eq ptr %5, null
   %or.cond.i = or i1 %11, %12
@@ -5074,8 +5074,8 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6h(ptr noundef r
   br i1 %exitcond44.not.i, label %27, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %7
-  tail call void @free(ptr noundef %9) #17
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef %9) #18
+  tail call void @free(ptr noundef %10) #18
   br label %arkode_butcher_dot.exit
 
 27:                                               ; preds = %._crit_edge.us.i
@@ -5098,8 +5098,8 @@ arkode_butcher_mv.exit:                           ; preds = %7
   br i1 %exitcond.not.i40, label %36, label %.preheader.i
 
 arkode_butcher_vv.exit:                           ; preds = %27
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef %10) #18
   br label %arkode_butcher_dot.exit
 
 36:                                               ; preds = %.preheader.i
@@ -5137,8 +5137,8 @@ arkode_butcher_vv.exit:                           ; preds = %27
   br i1 %exitcond44.not.i53, label %48, label %.preheader.us.i45
 
 arkode_butcher_mv.exit55:                         ; preds = %36
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   br label %arkode_butcher_dot.exit
 
 48:                                               ; preds = %._crit_edge.us.i51
@@ -5159,8 +5159,8 @@ arkode_butcher_mv.exit55:                         ; preds = %36
   br i1 %exitcond.not.i64, label %56, label %.preheader.i61
 
 arkode_butcher_vv.exit66:                         ; preds = %48
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   br label %arkode_butcher_dot.exit
 
 56:                                               ; preds = %.preheader.i61
@@ -5180,8 +5180,8 @@ arkode_butcher_vv.exit66:                         ; preds = %48
   br i1 %exitcond.not.i72, label %64, label %.preheader
 
 64:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   %65 = fadd double %63, 0xBF95555555555555
   %66 = tail call double @llvm.fabs.f64(double %65)
   %67 = fcmp ule double %66, 0x3E50000000000000
@@ -5193,11 +5193,11 @@ arkode_butcher_dot.exit:                          ; preds = %56, %64, %arkode_bu
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6i(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6i(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
   %8 = sext i32 %6 to i64
-  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
-  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
+  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
+  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
   %11 = icmp eq ptr %4, null
   %12 = icmp eq ptr %5, null
   %or.cond.i = or i1 %11, %12
@@ -5225,8 +5225,8 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6i(ptr noundef r
   br i1 %exitcond.not.i, label %21, label %.preheader.i
 
 arkode_butcher_vv.exit:                           ; preds = %7
-  tail call void @free(ptr noundef %9) #17
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef %9) #18
+  tail call void @free(ptr noundef %10) #18
   br label %arkode_butcher_dot.exit
 
 21:                                               ; preds = %.preheader.i
@@ -5266,8 +5266,8 @@ arkode_butcher_vv.exit:                           ; preds = %7
   br i1 %exitcond44.not.i, label %35, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %21
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef %10) #18
   br label %arkode_butcher_dot.exit
 
 35:                                               ; preds = %._crit_edge.us.i
@@ -5305,8 +5305,8 @@ arkode_butcher_mv.exit:                           ; preds = %21
   br i1 %exitcond44.not.i53, label %47, label %.preheader.us.i45
 
 arkode_butcher_mv.exit55:                         ; preds = %35
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   br label %arkode_butcher_dot.exit
 
 47:                                               ; preds = %._crit_edge.us.i51
@@ -5327,8 +5327,8 @@ arkode_butcher_mv.exit55:                         ; preds = %35
   br i1 %exitcond.not.i64, label %55, label %.preheader.i61
 
 arkode_butcher_vv.exit66:                         ; preds = %47
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   br label %arkode_butcher_dot.exit
 
 55:                                               ; preds = %.preheader.i61
@@ -5348,8 +5348,8 @@ arkode_butcher_vv.exit66:                         ; preds = %47
   br i1 %exitcond.not.i72, label %63, label %.preheader
 
 63:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   %64 = fadd double %62, 0xBF8C71C71C71C71C
   %65 = tail call double @llvm.fabs.f64(double %64)
   %66 = fcmp ule double %65, 0x3E50000000000000
@@ -5361,11 +5361,11 @@ arkode_butcher_dot.exit:                          ; preds = %55, %63, %arkode_bu
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6j(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6j(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
   %8 = sext i32 %6 to i64
-  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
-  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
+  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
+  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
   %11 = icmp eq ptr %4, null
   %12 = icmp eq ptr %5, null
   %or.cond.i = or i1 %11, %12
@@ -5407,8 +5407,8 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6j(ptr noundef r
   br i1 %exitcond44.not.i, label %27, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %7
-  tail call void @free(ptr noundef %9) #17
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef %9) #18
+  tail call void @free(ptr noundef %10) #18
   br label %arkode_butcher_dot.exit
 
 27:                                               ; preds = %._crit_edge.us.i
@@ -5444,8 +5444,8 @@ arkode_butcher_mv.exit:                           ; preds = %7
   br i1 %exitcond44.not.i47, label %40, label %.preheader.us.i39
 
 arkode_butcher_mv.exit49:                         ; preds = %27
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef %10) #18
   br label %arkode_butcher_dot.exit
 
 40:                                               ; preds = %._crit_edge.us.i45
@@ -5483,8 +5483,8 @@ arkode_butcher_mv.exit49:                         ; preds = %27
   br i1 %exitcond44.not.i62, label %52, label %.preheader.us.i54
 
 arkode_butcher_mv.exit64:                         ; preds = %40
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   br label %arkode_butcher_dot.exit
 
 52:                                               ; preds = %._crit_edge.us.i60
@@ -5505,8 +5505,8 @@ arkode_butcher_mv.exit64:                         ; preds = %40
   br i1 %exitcond.not.i70, label %60, label %.preheader.i
 
 arkode_butcher_vv.exit:                           ; preds = %52
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   br label %arkode_butcher_dot.exit
 
 60:                                               ; preds = %.preheader.i
@@ -5526,8 +5526,8 @@ arkode_butcher_vv.exit:                           ; preds = %52
   br i1 %exitcond.not.i76, label %68, label %.preheader
 
 68:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   %69 = fadd double %67, 0xBF7C71C71C71C71C
   %70 = tail call double @llvm.fabs.f64(double %69)
   %71 = fcmp ule double %70, 0x3E50000000000000
@@ -5539,11 +5539,11 @@ arkode_butcher_dot.exit:                          ; preds = %60, %68, %arkode_bu
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6k(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6k(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
   %8 = sext i32 %6 to i64
-  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
-  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
+  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
+  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
   %11 = icmp eq ptr %2, null
   %12 = icmp eq ptr %3, null
   %or.cond.i = or i1 %11, %12
@@ -5571,8 +5571,8 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6k(ptr noundef r
   br i1 %exitcond.not.i, label %21, label %.preheader.i
 
 arkode_butcher_vv.exit:                           ; preds = %7
-  tail call void @free(ptr noundef %9) #17
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef %9) #18
+  tail call void @free(ptr noundef %10) #18
   br label %arkode_butcher_dot.exit
 
 21:                                               ; preds = %.preheader.i
@@ -5595,8 +5595,8 @@ arkode_butcher_vv.exit:                           ; preds = %7
   br i1 %exitcond.not.i43, label %30, label %.preheader.i40
 
 arkode_butcher_vv.exit45:                         ; preds = %21
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef %10) #18
   br label %arkode_butcher_dot.exit
 
 30:                                               ; preds = %.preheader.i40
@@ -5617,8 +5617,8 @@ arkode_butcher_vv.exit45:                         ; preds = %21
   br i1 %exitcond.not.i54, label %38, label %.preheader.i51
 
 arkode_butcher_vv.exit56:                         ; preds = %30
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   br label %arkode_butcher_dot.exit
 
 38:                                               ; preds = %.preheader.i51
@@ -5657,8 +5657,8 @@ arkode_butcher_vv.exit56:                         ; preds = %30
   br i1 %exitcond44.not.i, label %51, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %38
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   br label %arkode_butcher_dot.exit
 
 51:                                               ; preds = %._crit_edge.us.i
@@ -5678,8 +5678,8 @@ arkode_butcher_mv.exit:                           ; preds = %38
   br i1 %exitcond.not.i68, label %59, label %.preheader
 
 59:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   %60 = fadd double %58, 0xBFA1111111111111
   %61 = tail call double @llvm.fabs.f64(double %60)
   %62 = fcmp ule double %61, 0x3E50000000000000
@@ -5691,11 +5691,11 @@ arkode_butcher_dot.exit:                          ; preds = %51, %59, %arkode_bu
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6l(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6l(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
   %8 = sext i32 %6 to i64
-  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
-  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
+  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
+  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
   %11 = icmp eq ptr %4, null
   %12 = icmp eq ptr %5, null
   %or.cond.i = or i1 %11, %12
@@ -5737,8 +5737,8 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6l(ptr noundef r
   br i1 %exitcond44.not.i, label %27, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %7
-  tail call void @free(ptr noundef %9) #17
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef %9) #18
+  tail call void @free(ptr noundef %10) #18
   br label %arkode_butcher_dot.exit
 
 27:                                               ; preds = %._crit_edge.us.i
@@ -5761,8 +5761,8 @@ arkode_butcher_mv.exit:                           ; preds = %7
   br i1 %exitcond.not.i40, label %36, label %.preheader.i
 
 arkode_butcher_vv.exit:                           ; preds = %27
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef %10) #18
   br label %arkode_butcher_dot.exit
 
 36:                                               ; preds = %.preheader.i
@@ -5783,8 +5783,8 @@ arkode_butcher_vv.exit:                           ; preds = %27
   br i1 %exitcond.not.i49, label %44, label %.preheader.i46
 
 arkode_butcher_vv.exit51:                         ; preds = %36
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   br label %arkode_butcher_dot.exit
 
 44:                                               ; preds = %.preheader.i46
@@ -5822,8 +5822,8 @@ arkode_butcher_vv.exit51:                         ; preds = %36
   br i1 %exitcond44.not.i64, label %56, label %.preheader.us.i56
 
 arkode_butcher_mv.exit66:                         ; preds = %44
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   br label %arkode_butcher_dot.exit
 
 56:                                               ; preds = %._crit_edge.us.i62
@@ -5843,8 +5843,8 @@ arkode_butcher_mv.exit66:                         ; preds = %44
   br i1 %exitcond.not.i72, label %64, label %.preheader
 
 64:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   %65 = fadd double %63, 0xBF91111111111111
   %66 = tail call double @llvm.fabs.f64(double %65)
   %67 = fcmp ule double %66, 0x3E50000000000000
@@ -5856,12 +5856,12 @@ arkode_butcher_dot.exit:                          ; preds = %56, %64, %arkode_bu
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6m(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6m(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
   %8 = sext i32 %6 to i64
-  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
-  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
-  %11 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
+  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
+  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
+  %11 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
   %12 = icmp eq ptr %4, null
   %13 = icmp eq ptr %5, null
   %or.cond.i = or i1 %12, %13
@@ -5903,9 +5903,9 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6m(ptr noundef r
   br i1 %exitcond44.not.i, label %28, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %7
-  tail call void @free(ptr noundef %9) #17
-  tail call void @free(ptr noundef %10) #17
-  tail call void @free(ptr noundef %11) #17
+  tail call void @free(ptr noundef %9) #18
+  tail call void @free(ptr noundef %10) #18
+  tail call void @free(ptr noundef %11) #18
   br label %arkode_butcher_dot.exit
 
 28:                                               ; preds = %._crit_edge.us.i
@@ -5943,9 +5943,9 @@ arkode_butcher_mv.exit:                           ; preds = %7
   br i1 %exitcond44.not.i52, label %42, label %.preheader.us.i44
 
 arkode_butcher_mv.exit54:                         ; preds = %28
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef %10) #17
-  tail call void @free(ptr noundef %11) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef %10) #18
+  tail call void @free(ptr noundef %11) #18
   br label %arkode_butcher_dot.exit
 
 42:                                               ; preds = %._crit_edge.us.i50
@@ -5966,8 +5966,8 @@ arkode_butcher_mv.exit54:                         ; preds = %28
   br i1 %exitcond.not.i60, label %50, label %.preheader.i
 
 arkode_butcher_vv.exit:                           ; preds = %42
-  tail call void @free(ptr noundef %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   br label %arkode_butcher_dot.exit
 
 50:                                               ; preds = %.preheader.i
@@ -6005,9 +6005,9 @@ arkode_butcher_vv.exit:                           ; preds = %42
   br i1 %exitcond44.not.i73, label %62, label %.preheader.us.i65
 
 arkode_butcher_mv.exit75:                         ; preds = %50
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
-  tail call void @free(ptr noundef nonnull %11) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
+  tail call void @free(ptr noundef nonnull %11) #18
   br label %arkode_butcher_dot.exit
 
 62:                                               ; preds = %._crit_edge.us.i71
@@ -6027,9 +6027,9 @@ arkode_butcher_mv.exit75:                         ; preds = %50
   br i1 %exitcond.not.i81, label %70, label %.preheader
 
 70:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef %10) #17
-  tail call void @free(ptr noundef nonnull %11) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef %10) #18
+  tail call void @free(ptr noundef nonnull %11) #18
   %71 = fadd double %69, 0xBF81111111111111
   %72 = tail call double @llvm.fabs.f64(double %71)
   %73 = fcmp ule double %72, 0x3E50000000000000
@@ -6041,11 +6041,11 @@ arkode_butcher_dot.exit:                          ; preds = %62, %70, %arkode_bu
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6n(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6n(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
   %8 = sext i32 %6 to i64
-  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
-  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
+  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
+  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
   %11 = icmp eq ptr %4, null
   %12 = icmp eq ptr %5, null
   %or.cond.i = or i1 %11, %12
@@ -6073,8 +6073,8 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6n(ptr noundef r
   br i1 %exitcond.not.i, label %21, label %.preheader.i
 
 arkode_butcher_vv.exit:                           ; preds = %7
-  tail call void @free(ptr noundef %9) #17
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef %9) #18
+  tail call void @free(ptr noundef %10) #18
   br label %arkode_butcher_dot.exit
 
 21:                                               ; preds = %.preheader.i
@@ -6114,8 +6114,8 @@ arkode_butcher_vv.exit:                           ; preds = %7
   br i1 %exitcond44.not.i, label %35, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %21
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef %10) #18
   br label %arkode_butcher_dot.exit
 
 35:                                               ; preds = %._crit_edge.us.i
@@ -6136,8 +6136,8 @@ arkode_butcher_mv.exit:                           ; preds = %21
   br i1 %exitcond.not.i49, label %43, label %.preheader.i46
 
 arkode_butcher_vv.exit51:                         ; preds = %35
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   br label %arkode_butcher_dot.exit
 
 43:                                               ; preds = %.preheader.i46
@@ -6175,8 +6175,8 @@ arkode_butcher_vv.exit51:                         ; preds = %35
   br i1 %exitcond44.not.i64, label %55, label %.preheader.us.i56
 
 arkode_butcher_mv.exit66:                         ; preds = %43
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   br label %arkode_butcher_dot.exit
 
 55:                                               ; preds = %._crit_edge.us.i62
@@ -6196,8 +6196,8 @@ arkode_butcher_mv.exit66:                         ; preds = %43
   br i1 %exitcond.not.i72, label %63, label %.preheader
 
 63:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   %64 = fadd double %62, 0xBF86C16C16C16C17
   %65 = tail call double @llvm.fabs.f64(double %64)
   %66 = fcmp ule double %65, 0x3E50000000000000
@@ -6209,11 +6209,11 @@ arkode_butcher_dot.exit:                          ; preds = %55, %63, %arkode_bu
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6o(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6o(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
   %8 = sext i32 %6 to i64
-  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
-  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
+  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
+  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
   %11 = icmp eq ptr %4, null
   %12 = icmp eq ptr %5, null
   %or.cond.i = or i1 %11, %12
@@ -6255,8 +6255,8 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6o(ptr noundef r
   br i1 %exitcond44.not.i, label %27, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %7
-  tail call void @free(ptr noundef %9) #17
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef %9) #18
+  tail call void @free(ptr noundef %10) #18
   br label %arkode_butcher_dot.exit
 
 27:                                               ; preds = %._crit_edge.us.i
@@ -6292,8 +6292,8 @@ arkode_butcher_mv.exit:                           ; preds = %7
   br i1 %exitcond44.not.i47, label %40, label %.preheader.us.i39
 
 arkode_butcher_mv.exit49:                         ; preds = %27
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef %10) #18
   br label %arkode_butcher_dot.exit
 
 40:                                               ; preds = %._crit_edge.us.i45
@@ -6314,8 +6314,8 @@ arkode_butcher_mv.exit49:                         ; preds = %27
   br i1 %exitcond.not.i55, label %48, label %.preheader.i
 
 arkode_butcher_vv.exit:                           ; preds = %40
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   br label %arkode_butcher_dot.exit
 
 48:                                               ; preds = %.preheader.i
@@ -6353,8 +6353,8 @@ arkode_butcher_vv.exit:                           ; preds = %40
   br i1 %exitcond44.not.i68, label %60, label %.preheader.us.i60
 
 arkode_butcher_mv.exit70:                         ; preds = %48
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   br label %arkode_butcher_dot.exit
 
 60:                                               ; preds = %._crit_edge.us.i66
@@ -6374,8 +6374,8 @@ arkode_butcher_mv.exit70:                         ; preds = %48
   br i1 %exitcond.not.i76, label %68, label %.preheader
 
 68:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   %69 = fadd double %67, 0xBF76C16C16C16C17
   %70 = tail call double @llvm.fabs.f64(double %69)
   %71 = fcmp ule double %70, 0x3E50000000000000
@@ -6387,11 +6387,11 @@ arkode_butcher_dot.exit:                          ; preds = %60, %68, %arkode_bu
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6p(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6p(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
   %8 = sext i32 %6 to i64
-  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
-  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
+  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
+  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
   %11 = icmp eq ptr %3, null
   %12 = icmp eq ptr %4, null
   %or.cond.i = or i1 %11, %12
@@ -6419,8 +6419,8 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6p(ptr noundef r
   br i1 %exitcond.not.i, label %21, label %.preheader.i
 
 arkode_butcher_vv.exit:                           ; preds = %7
-  tail call void @free(ptr noundef %9) #17
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef %9) #18
+  tail call void @free(ptr noundef %10) #18
   br label %arkode_butcher_dot.exit
 
 21:                                               ; preds = %.preheader.i
@@ -6443,8 +6443,8 @@ arkode_butcher_vv.exit:                           ; preds = %7
   br i1 %exitcond.not.i43, label %30, label %.preheader.i40
 
 arkode_butcher_vv.exit45:                         ; preds = %21
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef %10) #18
   br label %arkode_butcher_dot.exit
 
 30:                                               ; preds = %.preheader.i40
@@ -6483,8 +6483,8 @@ arkode_butcher_vv.exit45:                         ; preds = %21
   br i1 %exitcond44.not.i, label %43, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %30
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   br label %arkode_butcher_dot.exit
 
 43:                                               ; preds = %._crit_edge.us.i
@@ -6522,8 +6522,8 @@ arkode_butcher_mv.exit:                           ; preds = %30
   br i1 %exitcond44.not.i64, label %55, label %.preheader.us.i56
 
 arkode_butcher_mv.exit66:                         ; preds = %43
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   br label %arkode_butcher_dot.exit
 
 55:                                               ; preds = %._crit_edge.us.i62
@@ -6543,8 +6543,8 @@ arkode_butcher_mv.exit66:                         ; preds = %43
   br i1 %exitcond.not.i72, label %63, label %.preheader
 
 63:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   %64 = fadd double %62, 0xBF81111111111111
   %65 = tail call double @llvm.fabs.f64(double %64)
   %66 = fcmp ule double %65, 0x3E50000000000000
@@ -6556,11 +6556,11 @@ arkode_butcher_dot.exit:                          ; preds = %55, %63, %arkode_bu
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6q(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6q(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
   %8 = sext i32 %6 to i64
-  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
-  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
+  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
+  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
   %11 = icmp eq ptr %4, null
   %12 = icmp eq ptr %5, null
   %or.cond.i = or i1 %11, %12
@@ -6602,8 +6602,8 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6q(ptr noundef r
   br i1 %exitcond44.not.i, label %27, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %7
-  tail call void @free(ptr noundef %9) #17
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef %9) #18
+  tail call void @free(ptr noundef %10) #18
   br label %arkode_butcher_dot.exit
 
 27:                                               ; preds = %._crit_edge.us.i
@@ -6626,8 +6626,8 @@ arkode_butcher_mv.exit:                           ; preds = %7
   br i1 %exitcond.not.i40, label %36, label %.preheader.i
 
 arkode_butcher_vv.exit:                           ; preds = %27
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef %10) #18
   br label %arkode_butcher_dot.exit
 
 36:                                               ; preds = %.preheader.i
@@ -6665,8 +6665,8 @@ arkode_butcher_vv.exit:                           ; preds = %27
   br i1 %exitcond44.not.i53, label %48, label %.preheader.us.i45
 
 arkode_butcher_mv.exit55:                         ; preds = %36
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   br label %arkode_butcher_dot.exit
 
 48:                                               ; preds = %._crit_edge.us.i51
@@ -6704,8 +6704,8 @@ arkode_butcher_mv.exit55:                         ; preds = %36
   br i1 %exitcond44.not.i68, label %60, label %.preheader.us.i60
 
 arkode_butcher_mv.exit70:                         ; preds = %48
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   br label %arkode_butcher_dot.exit
 
 60:                                               ; preds = %._crit_edge.us.i66
@@ -6725,8 +6725,8 @@ arkode_butcher_mv.exit70:                         ; preds = %48
   br i1 %exitcond.not.i76, label %68, label %.preheader
 
 68:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   %69 = fadd double %67, 0xBF71111111111111
   %70 = tail call double @llvm.fabs.f64(double %69)
   %71 = fcmp ule double %70, 0x3E50000000000000
@@ -6738,11 +6738,11 @@ arkode_butcher_dot.exit:                          ; preds = %60, %68, %arkode_bu
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6r(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6r(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
   %8 = sext i32 %6 to i64
-  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
-  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
+  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
+  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
   %11 = icmp eq ptr %4, null
   %12 = icmp eq ptr %5, null
   %or.cond.i = or i1 %11, %12
@@ -6770,8 +6770,8 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6r(ptr noundef r
   br i1 %exitcond.not.i, label %21, label %.preheader.i
 
 arkode_butcher_vv.exit:                           ; preds = %7
-  tail call void @free(ptr noundef %9) #17
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef %9) #18
+  tail call void @free(ptr noundef %10) #18
   br label %arkode_butcher_dot.exit
 
 21:                                               ; preds = %.preheader.i
@@ -6811,8 +6811,8 @@ arkode_butcher_vv.exit:                           ; preds = %7
   br i1 %exitcond44.not.i, label %35, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %21
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef %10) #18
   br label %arkode_butcher_dot.exit
 
 35:                                               ; preds = %._crit_edge.us.i
@@ -6850,8 +6850,8 @@ arkode_butcher_mv.exit:                           ; preds = %21
   br i1 %exitcond44.not.i53, label %47, label %.preheader.us.i45
 
 arkode_butcher_mv.exit55:                         ; preds = %35
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   br label %arkode_butcher_dot.exit
 
 47:                                               ; preds = %._crit_edge.us.i51
@@ -6889,8 +6889,8 @@ arkode_butcher_mv.exit55:                         ; preds = %35
   br i1 %exitcond44.not.i68, label %59, label %.preheader.us.i60
 
 arkode_butcher_mv.exit70:                         ; preds = %47
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   br label %arkode_butcher_dot.exit
 
 59:                                               ; preds = %._crit_edge.us.i66
@@ -6910,8 +6910,8 @@ arkode_butcher_mv.exit70:                         ; preds = %47
   br i1 %exitcond.not.i76, label %67, label %.preheader
 
 67:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   %68 = fadd double %66, 0xBF66C16C16C16C17
   %69 = tail call double @llvm.fabs.f64(double %68)
   %70 = fcmp ule double %69, 0x3E50000000000000
@@ -6923,11 +6923,11 @@ arkode_butcher_dot.exit:                          ; preds = %59, %67, %arkode_bu
   ret i32 %.0
 }
 
-; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6s(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6s(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
   %8 = sext i32 %6 to i64
-  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
-  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
+  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
+  %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
   %11 = icmp eq ptr %4, null
   %12 = icmp eq ptr %5, null
   %or.cond.i = or i1 %11, %12
@@ -6969,8 +6969,8 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6s(ptr noundef r
   br i1 %exitcond44.not.i, label %27, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %7
-  tail call void @free(ptr noundef %9) #17
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef %9) #18
+  tail call void @free(ptr noundef %10) #18
   br label %arkode_butcher_dot.exit
 
 27:                                               ; preds = %._crit_edge.us.i
@@ -7006,8 +7006,8 @@ arkode_butcher_mv.exit:                           ; preds = %7
   br i1 %exitcond44.not.i47, label %40, label %.preheader.us.i39
 
 arkode_butcher_mv.exit49:                         ; preds = %27
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef %10) #18
   br label %arkode_butcher_dot.exit
 
 40:                                               ; preds = %._crit_edge.us.i45
@@ -7045,8 +7045,8 @@ arkode_butcher_mv.exit49:                         ; preds = %27
   br i1 %exitcond44.not.i62, label %52, label %.preheader.us.i54
 
 arkode_butcher_mv.exit64:                         ; preds = %40
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   br label %arkode_butcher_dot.exit
 
 52:                                               ; preds = %._crit_edge.us.i60
@@ -7084,8 +7084,8 @@ arkode_butcher_mv.exit64:                         ; preds = %40
   br i1 %exitcond44.not.i77, label %64, label %.preheader.us.i69
 
 arkode_butcher_mv.exit79:                         ; preds = %52
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   br label %arkode_butcher_dot.exit
 
 64:                                               ; preds = %._crit_edge.us.i75
@@ -7105,8 +7105,8 @@ arkode_butcher_mv.exit79:                         ; preds = %52
   br i1 %exitcond.not.i84, label %72, label %.preheader
 
 72:                                               ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %9) #17
-  tail call void @free(ptr noundef nonnull %10) #17
+  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %10) #18
   %73 = fadd double %71, 0xBF56C16C16C16C17
   %74 = tail call double @llvm.fabs.f64(double %73)
   %75 = fcmp ule double %74, 0x3E50000000000000
@@ -7119,9 +7119,9 @@ arkode_butcher_dot.exit:                          ; preds = %64, %72, %arkode_bu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @__ButcherSimplifyingAssumptions(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @__ButcherSimplifyingAssumptions(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, i32 noundef %3) unnamed_addr #9 {
   %5 = sext i32 %3 to i64
-  %6 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 8) #16
+  %6 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 8) #17
   %7 = icmp eq ptr %6, null
   %8 = icmp slt i32 %3, 1
   %or.cond3.i = or i1 %8, %7
@@ -7138,7 +7138,7 @@ define internal fastcc i32 @__ButcherSimplifyingAssumptions(ptr noundef readonly
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %.preheader.i ]
   %10 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i
   %11 = load double, ptr %10, align 8, !tbaa !18
-  %12 = tail call double @SUNRpowerI(double noundef %11, i32 noundef range(i32 -2147483648, 999) %9) #17
+  %12 = tail call double @SUNRpowerI(double noundef %11, i32 noundef range(i32 -2147483648, 999) %9) #18
   %13 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.i
   store double %12, ptr %13, align 8, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -7195,7 +7195,7 @@ arkode_butcher_dot.exit:                          ; preds = %.preheader164
   %indvars.iv.i101.us = phi i64 [ 0, %.preheader.preheader.i98.us ], [ %indvars.iv.next.i102.us, %.preheader.i100.us ]
   %31 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i101.us
   %32 = load double, ptr %31, align 8, !tbaa !18
-  %33 = tail call double @SUNRpowerI(double noundef %32, i32 noundef range(i32 -2147483648, 999) %28) #17
+  %33 = tail call double @SUNRpowerI(double noundef %32, i32 noundef range(i32 -2147483648, 999) %28) #18
   %34 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.i101.us
   store double %33, ptr %34, align 8, !tbaa !18
   %indvars.iv.next.i102.us = add nuw nsw i64 %indvars.iv.i101.us, 1
@@ -7223,7 +7223,7 @@ arkode_butcher_dot.exit:                          ; preds = %.preheader164
 45:                                               ; preds = %.preheader
   %46 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
   %47 = load double, ptr %46, align 8, !tbaa !18
-  %48 = tail call double @SUNRpowerI(double noundef %47, i32 noundef %.075145.us) #17
+  %48 = tail call double @SUNRpowerI(double noundef %47, i32 noundef %.075145.us) #18
   %49 = fdiv double %48, %29
   %50 = fsub double %49, %44
   %51 = tail call double @llvm.fabs.f64(double %50)
@@ -7263,7 +7263,7 @@ arkode_butcher_dot.exit:                          ; preds = %.preheader164
   %64 = fmul double %61, %63
   %65 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv178
   %66 = load double, ptr %65, align 8, !tbaa !18
-  %67 = tail call double @SUNRpowerI(double noundef %66, i32 noundef %55) #17
+  %67 = tail call double @SUNRpowerI(double noundef %66, i32 noundef %55) #18
   %68 = tail call double @llvm.fmuladd.f64(double %64, double %67, double %.5148.us.us)
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %exitcond182.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count.i
@@ -7280,7 +7280,7 @@ arkode_butcher_dot.exit:                          ; preds = %.preheader164
   %72 = fdiv double %71, %56
   %73 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv183
   %74 = load double, ptr %73, align 8, !tbaa !18
-  %75 = tail call double @SUNRpowerI(double noundef %74, i32 noundef %.176154.us) #17
+  %75 = tail call double @SUNRpowerI(double noundef %74, i32 noundef %.176154.us) #18
   %76 = fsub double 1.000000e+00, %75
   %77 = fmul double %72, %76
   %78 = fsub double %77, %68
@@ -7312,12 +7312,12 @@ arkode_butcher_dot.exit:                          ; preds = %.preheader164
 
 arkode_butcher_vp.exit:                           ; preds = %35, %.loopexit, %.lr.ph.preheader, %4
   %.0 = phi i32 [ 0, %4 ], [ 0, %.loopexit ], [ %88, %.lr.ph.preheader ], [ 0, %35 ]
-  tail call void @free(ptr noundef %6) #17
+  tail call void @free(ptr noundef %6) #18
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @ARKodeButcherTable_CheckARKOrder(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) initializes((0, 4)) %2, ptr noundef captures(none) initializes((0, 4)) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @ARKodeButcherTable_CheckARKOrder(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) initializes((0, 4)) %2, ptr noundef captures(none) initializes((0, 4)) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #9 {
   %.sroa.05711 = alloca ptr, align 16
   %.sroa.121 = alloca ptr, align 8
   %.sroa.05591 = alloca ptr, align 16
@@ -7664,7 +7664,7 @@ thread-pre-split2563:                             ; preds = %thread-pre-split, %
   %124 = load ptr, ptr %indvars.iv3837.sroa.phi, align 8, !tbaa !12
   %125 = load ptr, ptr %indvars.iv3834.sroa.phi, align 8, !tbaa !12
   %126 = load ptr, ptr %indvars.iv3831.sroa.phi, align 8, !tbaa !12
-  %127 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
+  %127 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #17
   %128 = icmp eq ptr %125, null
   %129 = icmp eq ptr %126, null
   %or.cond.i.i2276 = or i1 %128, %129
@@ -7686,7 +7686,7 @@ thread-pre-split2563:                             ; preds = %thread-pre-split, %
   br i1 %exitcond.not.i.i2281, label %137, label %.preheader.i.i
 
 arkode_butcher_vv.exit.i:                         ; preds = %123
-  tail call void @free(ptr noundef %127) #17
+  tail call void @free(ptr noundef %127) #18
   br label %arkode_butcher_order3a.exit
 
 137:                                              ; preds = %.preheader.i.i
@@ -7706,7 +7706,7 @@ arkode_butcher_vv.exit.i:                         ; preds = %123
   br i1 %exitcond.not.i16.i, label %145, label %.preheader2936
 
 145:                                              ; preds = %.preheader2936
-  tail call void @free(ptr noundef nonnull %127) #17
+  tail call void @free(ptr noundef nonnull %127) #18
   %146 = fadd double %144, 0xBFD5555555555555
   %147 = tail call double @llvm.fabs.f64(double %146)
   %148 = fcmp ule double %147, 0x3E50000000000000
@@ -7758,7 +7758,7 @@ arkode_butcher_order3a.exit:                      ; preds = %145, %137, %arkode_
   %162 = load ptr, ptr %indvars.iv3846.sroa.phi, align 8, !tbaa !12
   %163 = load ptr, ptr %indvars.iv3843.sroa.phi, align 8, !tbaa !23
   %164 = load ptr, ptr %indvars.iv3840.sroa.phi, align 8, !tbaa !12
-  %165 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
+  %165 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #17
   %166 = icmp eq ptr %163, null
   %167 = icmp eq ptr %164, null
   %or.cond.i.i2283 = or i1 %166, %167
@@ -7793,7 +7793,7 @@ arkode_butcher_order3a.exit:                      ; preds = %145, %137, %arkode_
   br i1 %exitcond44.not.i.i, label %179, label %.preheader.us.i.i
 
 arkode_butcher_mv.exit.i:                         ; preds = %161
-  tail call void @free(ptr noundef %165) #17
+  tail call void @free(ptr noundef %165) #18
   br label %arkode_butcher_order3b.exit
 
 179:                                              ; preds = %._crit_edge.us.i.i
@@ -7813,7 +7813,7 @@ arkode_butcher_mv.exit.i:                         ; preds = %161
   br i1 %exitcond.not.i15.i, label %187, label %.preheader2933
 
 187:                                              ; preds = %.preheader2933
-  tail call void @free(ptr noundef nonnull %165) #17
+  tail call void @free(ptr noundef nonnull %165) #18
   %188 = fadd double %186, 0xBFC5555555555555
   %189 = tail call double @llvm.fabs.f64(double %188)
   %190 = fcmp ule double %189, 0x3E50000000000000
@@ -7884,8 +7884,8 @@ thread-pre-split2567:                             ; preds = %arkode_butcher_orde
   %207 = load ptr, ptr %indvars.iv3855.sroa.phi, align 8, !tbaa !12
   %208 = load ptr, ptr %indvars.iv3852.sroa.phi, align 8, !tbaa !12
   %209 = load ptr, ptr %indvars.iv3849.sroa.phi, align 8, !tbaa !12
-  %210 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
-  %211 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
+  %210 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #17
+  %211 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #17
   %212 = icmp eq ptr %207, null
   %213 = icmp eq ptr %208, null
   %or.cond.i.i2290 = or i1 %212, %213
@@ -7907,8 +7907,8 @@ thread-pre-split2567:                             ; preds = %arkode_butcher_orde
   br i1 %exitcond.not.i.i2298, label %221, label %.preheader.i.i2295
 
 arkode_butcher_vv.exit.i2300:                     ; preds = %205
-  tail call void @free(ptr noundef %210) #17
-  tail call void @free(ptr noundef %211) #17
+  tail call void @free(ptr noundef %210) #18
+  tail call void @free(ptr noundef %211) #18
   br label %arkode_butcher_order4a.exit
 
 221:                                              ; preds = %.preheader.i.i2295
@@ -7931,8 +7931,8 @@ arkode_butcher_vv.exit.i2300:                     ; preds = %205
   br i1 %exitcond.not.i29.i, label %230, label %.preheader.i26.i
 
 arkode_butcher_vv.exit31.i:                       ; preds = %221
-  tail call void @free(ptr noundef nonnull %210) #17
-  tail call void @free(ptr noundef %211) #17
+  tail call void @free(ptr noundef nonnull %210) #18
+  tail call void @free(ptr noundef %211) #18
   br label %arkode_butcher_order4a.exit
 
 230:                                              ; preds = %.preheader.i26.i
@@ -7952,8 +7952,8 @@ arkode_butcher_vv.exit31.i:                       ; preds = %221
   br i1 %exitcond.not.i37.i, label %238, label %.preheader2928
 
 238:                                              ; preds = %.preheader2928
-  tail call void @free(ptr noundef nonnull %210) #17
-  tail call void @free(ptr noundef nonnull %211) #17
+  tail call void @free(ptr noundef nonnull %210) #18
+  tail call void @free(ptr noundef nonnull %211) #18
   %239 = fadd double %237, -2.500000e-01
   %240 = tail call double @llvm.fabs.f64(double %239)
   %241 = fcmp ule double %240, 0x3E50000000000000
@@ -8015,8 +8015,8 @@ arkode_butcher_order4a.exit:                      ; preds = %238, %230, %arkode_
   %258 = load ptr, ptr %indvars.iv3867.sroa.phi, align 8, !tbaa !12
   %259 = load ptr, ptr %indvars.iv3864.sroa.phi, align 8, !tbaa !23
   %260 = load ptr, ptr %indvars.iv3861.sroa.phi, align 8, !tbaa !12
-  %261 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
-  %262 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
+  %261 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #17
+  %262 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #17
   %263 = icmp eq ptr %257, null
   %264 = icmp eq ptr %258, null
   %or.cond.i.i2301 = or i1 %263, %264
@@ -8038,8 +8038,8 @@ arkode_butcher_order4a.exit:                      ; preds = %238, %230, %arkode_
   br i1 %exitcond.not.i.i2309, label %272, label %.preheader.i.i2306
 
 arkode_butcher_vv.exit.i2319:                     ; preds = %256
-  tail call void @free(ptr noundef %261) #17
-  tail call void @free(ptr noundef %262) #17
+  tail call void @free(ptr noundef %261) #18
+  tail call void @free(ptr noundef %262) #18
   br label %arkode_butcher_order4b.exit
 
 272:                                              ; preds = %.preheader.i.i2306
@@ -8077,8 +8077,8 @@ arkode_butcher_vv.exit.i2319:                     ; preds = %256
   br i1 %exitcond44.not.i.i2316, label %.preheader2924, label %.preheader.us.i.i2311
 
 arkode_butcher_mv.exit.i2318:                     ; preds = %272
-  tail call void @free(ptr noundef nonnull %261) #17
-  tail call void @free(ptr noundef %262) #17
+  tail call void @free(ptr noundef nonnull %261) #18
+  tail call void @free(ptr noundef %262) #18
   br label %arkode_butcher_order4b.exit
 
 .preheader2924:                                   ; preds = %._crit_edge.us.i.i2314, %.preheader2924
@@ -8094,8 +8094,8 @@ arkode_butcher_mv.exit.i2318:                     ; preds = %272
   br i1 %exitcond.not.i32.i, label %292, label %.preheader2924
 
 292:                                              ; preds = %.preheader2924
-  tail call void @free(ptr noundef nonnull %261) #17
-  tail call void @free(ptr noundef nonnull %262) #17
+  tail call void @free(ptr noundef nonnull %261) #18
+  tail call void @free(ptr noundef nonnull %262) #18
   %293 = fadd double %291, -1.250000e-01
   %294 = tail call double @llvm.fabs.f64(double %293)
   %295 = fcmp ule double %294, 0x3E50000000000000
@@ -8157,8 +8157,8 @@ arkode_butcher_order4b.exit:                      ; preds = %292, %arkode_butche
   %312 = load ptr, ptr %indvars.iv3879.sroa.phi, align 8, !tbaa !23
   %313 = load ptr, ptr %indvars.iv3876.sroa.phi, align 8, !tbaa !12
   %314 = load ptr, ptr %indvars.iv3873.sroa.phi, align 8, !tbaa !12
-  %315 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
-  %316 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
+  %315 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #17
+  %316 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #17
   %317 = icmp eq ptr %313, null
   %318 = icmp eq ptr %314, null
   %or.cond.i.i2320 = or i1 %317, %318
@@ -8180,8 +8180,8 @@ arkode_butcher_order4b.exit:                      ; preds = %292, %arkode_butche
   br i1 %exitcond.not.i.i2328, label %326, label %.preheader.i.i2325
 
 arkode_butcher_vv.exit.i2344:                     ; preds = %310
-  tail call void @free(ptr noundef %315) #17
-  tail call void @free(ptr noundef %316) #17
+  tail call void @free(ptr noundef %315) #18
+  tail call void @free(ptr noundef %316) #18
   br label %arkode_butcher_order4c.exit
 
 326:                                              ; preds = %.preheader.i.i2325
@@ -8217,8 +8217,8 @@ arkode_butcher_vv.exit.i2344:                     ; preds = %310
   br i1 %exitcond44.not.i.i2338, label %339, label %.preheader.us.i.i2330
 
 arkode_butcher_mv.exit.i2343:                     ; preds = %326
-  tail call void @free(ptr noundef nonnull %315) #17
-  tail call void @free(ptr noundef %316) #17
+  tail call void @free(ptr noundef nonnull %315) #18
+  tail call void @free(ptr noundef %316) #18
   br label %arkode_butcher_order4c.exit
 
 339:                                              ; preds = %._crit_edge.us.i.i2336
@@ -8238,8 +8238,8 @@ arkode_butcher_mv.exit.i2343:                     ; preds = %326
   br i1 %exitcond.not.i32.i2341, label %347, label %.preheader2920
 
 347:                                              ; preds = %.preheader2920
-  tail call void @free(ptr noundef nonnull %315) #17
-  tail call void @free(ptr noundef nonnull %316) #17
+  tail call void @free(ptr noundef nonnull %315) #18
+  tail call void @free(ptr noundef nonnull %316) #18
   %348 = fadd double %346, 0xBFB5555555555555
   %349 = tail call double @llvm.fabs.f64(double %348)
   %350 = fcmp ule double %349, 0x3E50000000000000
@@ -8301,8 +8301,8 @@ arkode_butcher_order4c.exit:                      ; preds = %347, %339, %arkode_
   %367 = load ptr, ptr %indvars.iv3891.sroa.phi, align 8, !tbaa !23
   %368 = load ptr, ptr %indvars.iv3888.sroa.phi, align 8, !tbaa !23
   %369 = load ptr, ptr %indvars.iv3885.sroa.phi, align 8, !tbaa !12
-  %370 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
-  %371 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
+  %370 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #17
+  %371 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #17
   %372 = icmp eq ptr %368, null
   %373 = icmp eq ptr %369, null
   %or.cond.i.i2345 = or i1 %372, %373
@@ -8337,8 +8337,8 @@ arkode_butcher_order4c.exit:                      ; preds = %347, %339, %arkode_
   br i1 %exitcond44.not.i.i2357, label %385, label %.preheader.us.i.i2349
 
 arkode_butcher_mv.exit.i2360:                     ; preds = %365
-  tail call void @free(ptr noundef %370) #17
-  tail call void @free(ptr noundef %371) #17
+  tail call void @free(ptr noundef %370) #18
+  tail call void @free(ptr noundef %371) #18
   br label %arkode_butcher_order4d.exit
 
 385:                                              ; preds = %._crit_edge.us.i.i2355
@@ -8374,8 +8374,8 @@ arkode_butcher_mv.exit.i2360:                     ; preds = %365
   br i1 %exitcond44.not.i33.i, label %398, label %.preheader.us.i25.i
 
 arkode_butcher_mv.exit35.i:                       ; preds = %385
-  tail call void @free(ptr noundef nonnull %370) #17
-  tail call void @free(ptr noundef %371) #17
+  tail call void @free(ptr noundef nonnull %370) #18
+  tail call void @free(ptr noundef %371) #18
   br label %arkode_butcher_order4d.exit
 
 398:                                              ; preds = %._crit_edge.us.i31.i
@@ -8395,8 +8395,8 @@ arkode_butcher_mv.exit35.i:                       ; preds = %385
   br i1 %exitcond.not.i40.i, label %406, label %.preheader2916
 
 406:                                              ; preds = %.preheader2916
-  tail call void @free(ptr noundef nonnull %370) #17
-  tail call void @free(ptr noundef nonnull %371) #17
+  tail call void @free(ptr noundef nonnull %370) #18
+  tail call void @free(ptr noundef nonnull %371) #18
   %407 = fadd double %405, 0xBFA5555555555555
   %408 = tail call double @llvm.fabs.f64(double %407)
   %409 = fcmp ule double %408, 0x3E50000000000000
@@ -10791,7 +10791,7 @@ thread-pre-split2591:                             ; preds = %thread-pre-split258
   %1198 = load ptr, ptr %indvars.iv4386.sroa.phi, align 8, !tbaa !12
   %1199 = load ptr, ptr %indvars.iv4383.sroa.phi, align 8, !tbaa !12
   %1200 = load ptr, ptr %indvars.iv4380.sroa.phi, align 8, !tbaa !12
-  %1201 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
+  %1201 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #17
   %1202 = icmp eq ptr %1199, null
   %1203 = icmp eq ptr %1200, null
   %or.cond.i.i2415 = or i1 %1202, %1203
@@ -10813,7 +10813,7 @@ thread-pre-split2591:                             ; preds = %thread-pre-split258
   br i1 %exitcond.not.i.i2423, label %1211, label %.preheader.i.i2420
 
 arkode_butcher_vv.exit.i2428:                     ; preds = %1197
-  tail call void @free(ptr noundef %1201) #17
+  tail call void @free(ptr noundef %1201) #18
   br label %arkode_butcher_order3a.exit2429
 
 1211:                                             ; preds = %.preheader.i.i2420
@@ -10833,7 +10833,7 @@ arkode_butcher_vv.exit.i2428:                     ; preds = %1197
   br i1 %exitcond.not.i16.i2426, label %1219, label %.preheader2776
 
 1219:                                             ; preds = %.preheader2776
-  tail call void @free(ptr noundef nonnull %1201) #17
+  tail call void @free(ptr noundef nonnull %1201) #18
   %1220 = fadd double %1218, 0xBFD5555555555555
   %1221 = tail call double @llvm.fabs.f64(double %1220)
   %1222 = fcmp ule double %1221, 0x3E50000000000000
@@ -10885,7 +10885,7 @@ arkode_butcher_order3a.exit2429:                  ; preds = %1219, %1211, %arkod
   %1236 = load ptr, ptr %indvars.iv4395.sroa.phi, align 8, !tbaa !12
   %1237 = load ptr, ptr %indvars.iv4392.sroa.phi, align 8, !tbaa !23
   %1238 = load ptr, ptr %indvars.iv4389.sroa.phi, align 8, !tbaa !12
-  %1239 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
+  %1239 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #17
   %1240 = icmp eq ptr %1237, null
   %1241 = icmp eq ptr %1238, null
   %or.cond.i.i2430 = or i1 %1240, %1241
@@ -10920,7 +10920,7 @@ arkode_butcher_order3a.exit2429:                  ; preds = %1219, %1211, %arkod
   br i1 %exitcond44.not.i.i2442, label %1253, label %.preheader.us.i.i2434
 
 arkode_butcher_mv.exit.i2447:                     ; preds = %1235
-  tail call void @free(ptr noundef %1239) #17
+  tail call void @free(ptr noundef %1239) #18
   br label %arkode_butcher_order3b.exit2448
 
 1253:                                             ; preds = %._crit_edge.us.i.i2440
@@ -10940,7 +10940,7 @@ arkode_butcher_mv.exit.i2447:                     ; preds = %1235
   br i1 %exitcond.not.i15.i2445, label %1261, label %.preheader2773
 
 1261:                                             ; preds = %.preheader2773
-  tail call void @free(ptr noundef nonnull %1239) #17
+  tail call void @free(ptr noundef nonnull %1239) #18
   %1262 = fadd double %1260, 0xBFC5555555555555
   %1263 = tail call double @llvm.fabs.f64(double %1262)
   %1264 = fcmp ule double %1263, 0x3E50000000000000
@@ -11011,8 +11011,8 @@ thread-pre-split2595:                             ; preds = %arkode_butcher_orde
   %1281 = load ptr, ptr %indvars.iv4404.sroa.phi, align 8, !tbaa !12
   %1282 = load ptr, ptr %indvars.iv4401.sroa.phi, align 8, !tbaa !12
   %1283 = load ptr, ptr %indvars.iv4398.sroa.phi, align 8, !tbaa !12
-  %1284 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
-  %1285 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
+  %1284 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #17
+  %1285 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #17
   %1286 = icmp eq ptr %1281, null
   %1287 = icmp eq ptr %1282, null
   %or.cond.i.i2449 = or i1 %1286, %1287
@@ -11034,8 +11034,8 @@ thread-pre-split2595:                             ; preds = %arkode_butcher_orde
   br i1 %exitcond.not.i.i2457, label %1295, label %.preheader.i.i2454
 
 arkode_butcher_vv.exit.i2468:                     ; preds = %1279
-  tail call void @free(ptr noundef %1284) #17
-  tail call void @free(ptr noundef %1285) #17
+  tail call void @free(ptr noundef %1284) #18
+  tail call void @free(ptr noundef %1285) #18
   br label %arkode_butcher_order4a.exit2469
 
 1295:                                             ; preds = %.preheader.i.i2454
@@ -11058,8 +11058,8 @@ arkode_butcher_vv.exit.i2468:                     ; preds = %1279
   br i1 %exitcond.not.i29.i2462, label %1304, label %.preheader.i26.i2459
 
 arkode_butcher_vv.exit31.i2467:                   ; preds = %1295
-  tail call void @free(ptr noundef nonnull %1284) #17
-  tail call void @free(ptr noundef %1285) #17
+  tail call void @free(ptr noundef nonnull %1284) #18
+  tail call void @free(ptr noundef %1285) #18
   br label %arkode_butcher_order4a.exit2469
 
 1304:                                             ; preds = %.preheader.i26.i2459
@@ -11079,8 +11079,8 @@ arkode_butcher_vv.exit31.i2467:                   ; preds = %1295
   br i1 %exitcond.not.i37.i2465, label %1312, label %.preheader2768
 
 1312:                                             ; preds = %.preheader2768
-  tail call void @free(ptr noundef nonnull %1284) #17
-  tail call void @free(ptr noundef nonnull %1285) #17
+  tail call void @free(ptr noundef nonnull %1284) #18
+  tail call void @free(ptr noundef nonnull %1285) #18
   %1313 = fadd double %1311, -2.500000e-01
   %1314 = tail call double @llvm.fabs.f64(double %1313)
   %1315 = fcmp ule double %1314, 0x3E50000000000000
@@ -11142,8 +11142,8 @@ arkode_butcher_order4a.exit2469:                  ; preds = %1312, %1304, %arkod
   %1332 = load ptr, ptr %indvars.iv4416.sroa.phi, align 8, !tbaa !12
   %1333 = load ptr, ptr %indvars.iv4413.sroa.phi, align 8, !tbaa !23
   %1334 = load ptr, ptr %indvars.iv4410.sroa.phi, align 8, !tbaa !12
-  %1335 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
-  %1336 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
+  %1335 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #17
+  %1336 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #17
   %1337 = icmp eq ptr %1331, null
   %1338 = icmp eq ptr %1332, null
   %or.cond.i.i2470 = or i1 %1337, %1338
@@ -11165,8 +11165,8 @@ arkode_butcher_order4a.exit2469:                  ; preds = %1312, %1304, %arkod
   br i1 %exitcond.not.i.i2478, label %1346, label %.preheader.i.i2475
 
 arkode_butcher_vv.exit.i2495:                     ; preds = %1330
-  tail call void @free(ptr noundef %1335) #17
-  tail call void @free(ptr noundef %1336) #17
+  tail call void @free(ptr noundef %1335) #18
+  tail call void @free(ptr noundef %1336) #18
   br label %arkode_butcher_order4b.exit2496
 
 1346:                                             ; preds = %.preheader.i.i2475
@@ -11204,8 +11204,8 @@ arkode_butcher_vv.exit.i2495:                     ; preds = %1330
   br i1 %exitcond44.not.i.i2489, label %.preheader2764, label %.preheader.us.i.i2481
 
 arkode_butcher_mv.exit.i2494:                     ; preds = %1346
-  tail call void @free(ptr noundef nonnull %1335) #17
-  tail call void @free(ptr noundef %1336) #17
+  tail call void @free(ptr noundef nonnull %1335) #18
+  tail call void @free(ptr noundef %1336) #18
   br label %arkode_butcher_order4b.exit2496
 
 .preheader2764:                                   ; preds = %._crit_edge.us.i.i2487, %.preheader2764
@@ -11221,8 +11221,8 @@ arkode_butcher_mv.exit.i2494:                     ; preds = %1346
   br i1 %exitcond.not.i32.i2492, label %1366, label %.preheader2764
 
 1366:                                             ; preds = %.preheader2764
-  tail call void @free(ptr noundef nonnull %1335) #17
-  tail call void @free(ptr noundef nonnull %1336) #17
+  tail call void @free(ptr noundef nonnull %1335) #18
+  tail call void @free(ptr noundef nonnull %1336) #18
   %1367 = fadd double %1365, -1.250000e-01
   %1368 = tail call double @llvm.fabs.f64(double %1367)
   %1369 = fcmp ule double %1368, 0x3E50000000000000
@@ -11284,8 +11284,8 @@ arkode_butcher_order4b.exit2496:                  ; preds = %1366, %arkode_butch
   %1386 = load ptr, ptr %indvars.iv4428.sroa.phi, align 8, !tbaa !23
   %1387 = load ptr, ptr %indvars.iv4425.sroa.phi, align 8, !tbaa !12
   %1388 = load ptr, ptr %indvars.iv4422.sroa.phi, align 8, !tbaa !12
-  %1389 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
-  %1390 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
+  %1389 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #17
+  %1390 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #17
   %1391 = icmp eq ptr %1387, null
   %1392 = icmp eq ptr %1388, null
   %or.cond.i.i2497 = or i1 %1391, %1392
@@ -11307,8 +11307,8 @@ arkode_butcher_order4b.exit2496:                  ; preds = %1366, %arkode_butch
   br i1 %exitcond.not.i.i2505, label %1400, label %.preheader.i.i2502
 
 arkode_butcher_vv.exit.i2521:                     ; preds = %1384
-  tail call void @free(ptr noundef %1389) #17
-  tail call void @free(ptr noundef %1390) #17
+  tail call void @free(ptr noundef %1389) #18
+  tail call void @free(ptr noundef %1390) #18
   br label %arkode_butcher_order4c.exit2522
 
 1400:                                             ; preds = %.preheader.i.i2502
@@ -11344,8 +11344,8 @@ arkode_butcher_vv.exit.i2521:                     ; preds = %1384
   br i1 %exitcond44.not.i.i2515, label %1413, label %.preheader.us.i.i2507
 
 arkode_butcher_mv.exit.i2520:                     ; preds = %1400
-  tail call void @free(ptr noundef nonnull %1389) #17
-  tail call void @free(ptr noundef %1390) #17
+  tail call void @free(ptr noundef nonnull %1389) #18
+  tail call void @free(ptr noundef %1390) #18
   br label %arkode_butcher_order4c.exit2522
 
 1413:                                             ; preds = %._crit_edge.us.i.i2513
@@ -11365,8 +11365,8 @@ arkode_butcher_mv.exit.i2520:                     ; preds = %1400
   br i1 %exitcond.not.i32.i2518, label %1421, label %.preheader2760
 
 1421:                                             ; preds = %.preheader2760
-  tail call void @free(ptr noundef nonnull %1389) #17
-  tail call void @free(ptr noundef nonnull %1390) #17
+  tail call void @free(ptr noundef nonnull %1389) #18
+  tail call void @free(ptr noundef nonnull %1390) #18
   %1422 = fadd double %1420, 0xBFB5555555555555
   %1423 = tail call double @llvm.fabs.f64(double %1422)
   %1424 = fcmp ule double %1423, 0x3E50000000000000
@@ -11428,8 +11428,8 @@ arkode_butcher_order4c.exit2522:                  ; preds = %1421, %1413, %arkod
   %1441 = load ptr, ptr %indvars.iv4440.sroa.phi, align 8, !tbaa !23
   %1442 = load ptr, ptr %indvars.iv4437.sroa.phi, align 8, !tbaa !23
   %1443 = load ptr, ptr %indvars.iv4434.sroa.phi, align 8, !tbaa !12
-  %1444 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
-  %1445 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
+  %1444 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #17
+  %1445 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #17
   %1446 = icmp eq ptr %1442, null
   %1447 = icmp eq ptr %1443, null
   %or.cond.i.i2523 = or i1 %1446, %1447
@@ -11464,8 +11464,8 @@ arkode_butcher_order4c.exit2522:                  ; preds = %1421, %1413, %arkod
   br i1 %exitcond44.not.i.i2535, label %1459, label %.preheader.us.i.i2527
 
 arkode_butcher_mv.exit.i2551:                     ; preds = %1439
-  tail call void @free(ptr noundef %1444) #17
-  tail call void @free(ptr noundef %1445) #17
+  tail call void @free(ptr noundef %1444) #18
+  tail call void @free(ptr noundef %1445) #18
   br label %arkode_butcher_order4d.exit2552
 
 1459:                                             ; preds = %._crit_edge.us.i.i2533
@@ -11501,8 +11501,8 @@ arkode_butcher_mv.exit.i2551:                     ; preds = %1439
   br i1 %exitcond44.not.i33.i2545, label %1472, label %.preheader.us.i25.i2537
 
 arkode_butcher_mv.exit35.i2550:                   ; preds = %1459
-  tail call void @free(ptr noundef nonnull %1444) #17
-  tail call void @free(ptr noundef %1445) #17
+  tail call void @free(ptr noundef nonnull %1444) #18
+  tail call void @free(ptr noundef %1445) #18
   br label %arkode_butcher_order4d.exit2552
 
 1472:                                             ; preds = %._crit_edge.us.i31.i2543
@@ -11522,8 +11522,8 @@ arkode_butcher_mv.exit35.i2550:                   ; preds = %1459
   br i1 %exitcond.not.i40.i2548, label %1480, label %.preheader2756
 
 1480:                                             ; preds = %.preheader2756
-  tail call void @free(ptr noundef nonnull %1444) #17
-  tail call void @free(ptr noundef nonnull %1445) #17
+  tail call void @free(ptr noundef nonnull %1444) #18
+  tail call void @free(ptr noundef nonnull %1445) #18
   %1481 = fadd double %1479, 0xBFA5555555555555
   %1482 = tail call double @llvm.fabs.f64(double %1481)
   %1483 = fcmp ule double %1482, 0x3E50000000000000
@@ -13760,47 +13760,48 @@ thread-pre-split2603.thread:                      ; preds = %arkode_butcher_rows
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #8
 
-declare double @SUNRpowerI(double noundef, i32 noundef) local_unnamed_addr #10
+declare double @SUNRpowerI(double noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #14
+declare i32 @llvm.smax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #14
+declare i32 @llvm.umin.i32(i32, i32) #15
 
-attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind memory(readwrite, argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nofree nounwind }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nounwind allocsize(0) }
-attributes #16 = { nounwind allocsize(0,1) }
-attributes #17 = { nounwind }
+attributes #9 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nofree nounwind }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nounwind allocsize(0) }
+attributes #17 = { nounwind allocsize(0,1) }
+attributes #18 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

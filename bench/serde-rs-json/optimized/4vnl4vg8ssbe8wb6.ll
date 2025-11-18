@@ -378,7 +378,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.1870548275578993011.ex
   resume { ptr, i32 } %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i64 @_ZN10serde_json5error5Error4line17hfeba2cb354c61c13E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !34, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -386,7 +386,7 @@ define noundef i64 @_ZN10serde_json5error5Error4line17hfeba2cb354c61c13E(ptr noa
   ret i64 %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i64 @_ZN10serde_json5error5Error6column17h8c03cb3c75a1185cE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !34, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -394,7 +394,7 @@ define noundef i64 @_ZN10serde_json5error5Error6column17h8c03cb3c75a1185cE(ptr n
   ret i64 %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef range(i8 0, 4) i8 @_ZN10serde_json5error5Error8classify17h110cf38616d4c2e1E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #4 {
 switch.lookup:
   %1 = load ptr, ptr %0, align 8, !nonnull !4, !align !34, !noundef !4
@@ -404,7 +404,7 @@ switch.lookup:
   ret i8 %switch.load
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZN10serde_json5error5Error5is_io17h548baf2906aa40f2E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #5 {
 _ZN10serde_json5error5Error8classify17h110cf38616d4c2e1E.exit:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
@@ -414,7 +414,7 @@ _ZN10serde_json5error5Error8classify17h110cf38616d4c2e1E.exit:
   ret i1 %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZN10serde_json5error5Error9is_syntax17h53b6247af577faeaE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #5 {
 _ZN10serde_json5error5Error8classify17h110cf38616d4c2e1E.exit:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
@@ -424,7 +424,7 @@ _ZN10serde_json5error5Error8classify17h110cf38616d4c2e1E.exit:
   ret i1 %switch
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZN10serde_json5error5Error7is_data17hb978058e15943e03E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #5 {
 _ZN10serde_json5error5Error8classify17h110cf38616d4c2e1E.exit:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
@@ -434,7 +434,7 @@ _ZN10serde_json5error5Error8classify17h110cf38616d4c2e1E.exit:
   ret i1 %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZN10serde_json5error5Error6is_eof17h942e8fa240c19ef1E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #5 {
 _ZN10serde_json5error5Error8classify17h110cf38616d4c2e1E.exit:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
@@ -445,7 +445,7 @@ _ZN10serde_json5error5Error8classify17h110cf38616d4c2e1E.exit:
   ret i1 %switch
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define noundef range(i8 0, 42) i8 @_ZN10serde_json5error5Error13io_error_kind17h54e20009f791cb8dE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !34, !noundef !4
   %3 = load i64, ptr %2, align 8, !range !35, !noundef !4
@@ -1933,9 +1933,9 @@ attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "tar
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { inlinehint nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { alwaysinline nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

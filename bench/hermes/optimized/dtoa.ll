@@ -33,7 +33,7 @@ entry:
   ret ptr %mem
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @dtoa_alloc_done(ptr noundef readonly captures(address) %dalloc) local_unnamed_addr #1 {
 entry:
   %used_heap.i = getelementptr inbounds nuw i8, ptr %dalloc, i64 4
@@ -65,7 +65,7 @@ while.body.i:                                     ; preds = %for.body.i, %while.
   br i1 %or.cond.i, label %while.cond.backedge.i, label %if.end7.i
 
 if.end7.i:                                        ; preds = %while.body.i
-  tail call void @free(ptr noundef nonnull %p.012.i) #17
+  tail call void @free(ptr noundef nonnull %p.012.i) #18
   br label %while.cond.backedge.i
 
 while.cond.backedge.i:                            ; preds = %if.end7.i, %while.body.i
@@ -82,7 +82,7 @@ dalloc_done.exit:                                 ; preds = %for.inc.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden double @hermes_g_strtod(ptr noundef %s00, ptr noundef writeonly captures(address_is_null) %se) local_unnamed_addr #1 {
+define hidden double @hermes_g_strtod(ptr noundef %s00, ptr noundef writeonly captures(address_is_null) %se) local_unnamed_addr #2 {
 entry:
   %bbits.i.i = alloca i32, align 4
   %p2.i.i = alloca i32, align 4
@@ -645,7 +645,7 @@ if.then.i.i:                                      ; preds = %if.then298.i
   br i1 %cmp.i.i, label %if.then1.i.i, label %if.else.i.i
 
 if.then1.i.i:                                     ; preds = %if.then.i.i
-  call void @free(ptr noundef nonnull %bb.1.i) #17
+  call void @free(ptr noundef nonnull %bb.1.i) #18
   br label %Bfree.exit.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -668,7 +668,7 @@ if.then.i350.i:                                   ; preds = %Bfree.exit.i
   br i1 %cmp.i352.i, label %if.then1.i357.i, label %if.else.i353.i
 
 if.then1.i357.i:                                  ; preds = %if.then.i350.i
-  call void @free(ptr noundef nonnull %bd.1.i) #17
+  call void @free(ptr noundef nonnull %bd.1.i) #18
   br label %Bfree.exit358.i
 
 if.else.i353.i:                                   ; preds = %if.then.i350.i
@@ -691,7 +691,7 @@ if.then.i360.i:                                   ; preds = %Bfree.exit358.i
   br i1 %cmp.i362.i, label %if.then1.i367.i, label %if.else.i363.i
 
 if.then1.i367.i:                                  ; preds = %if.then.i360.i
-  call void @free(ptr noundef nonnull %bs.1.i) #17
+  call void @free(ptr noundef nonnull %bs.1.i) #18
   br label %if.then.i370.i
 
 if.else.i363.i:                                   ; preds = %if.then.i360.i
@@ -710,7 +710,7 @@ if.then.i370.i:                                   ; preds = %if.else.i363.i, %if
   br i1 %cmp.i372.i, label %if.then1.i377.i, label %if.else.i373.i
 
 if.then1.i377.i:                                  ; preds = %if.then.i370.i
-  call void @free(ptr noundef nonnull %bd0.1.i) #17
+  call void @free(ptr noundef nonnull %bd0.1.i) #18
   br label %Bfree.exit378.i
 
 if.else.i373.i:                                   ; preds = %if.then.i370.i
@@ -733,7 +733,7 @@ if.then.i380.i:                                   ; preds = %Bfree.exit378.i
   br i1 %cmp.i382.i, label %if.then1.i387.i, label %if.else.i383.i
 
 if.then1.i387.i:                                  ; preds = %if.then.i380.i
-  call void @free(ptr noundef nonnull %delta.1.i) #17
+  call void @free(ptr noundef nonnull %delta.1.i) #18
   br label %if.end299.i
 
 if.else.i383.i:                                   ; preds = %if.then.i380.i
@@ -746,7 +746,7 @@ if.else.i383.i:                                   ; preds = %if.then.i380.i
   br label %if.end299.i
 
 if.end299.i:                                      ; preds = %if.else.i383.i, %if.then1.i387.i, %Bfree.exit378.i, %range_err.i
-  %call.i = tail call ptr @__errno_location() #18
+  %call.i = tail call ptr @__errno_location() #19
   store i32 34, ptr %call.i, align 4
   br label %ret.i
 
@@ -1073,7 +1073,7 @@ if.else.i.i.i:                                    ; preds = %for.end.i.i
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 2
   %sub5.i.i.i = add nuw nsw i64 %mul.i.i.i, 39
   %mul20.i.i.i = and i64 %sub5.i.i.i, 17179869176
-  %call.i.i.i = call noalias ptr @malloc(i64 noundef %mul20.i.i.i) #19
+  %call.i.i.i = call noalias ptr @malloc(i64 noundef %mul20.i.i.i) #20
   %used_heap.i.i.i = getelementptr inbounds nuw i8, ptr %dalloc, i64 4
   store i32 1, ptr %used_heap.i.i.i, align 4
   br label %if.end.i.i.i
@@ -1246,7 +1246,7 @@ if.else18.i.i:                                    ; preds = %land.lhs.true9.i.i,
   %sub531.i.i = phi i64 [ %sub526.i.i, %land.lhs.true9.i.i ], [ %sub5.i.i, %if.else.i393.i ]
   %shl28.i.i = phi i32 [ %shl22.i.i, %land.lhs.true9.i.i ], [ %shl.i394.i, %if.else.i393.i ]
   %mul20.i.i = and i64 %sub531.i.i, 34359738360
-  %call.i.i = call noalias ptr @malloc(i64 noundef %mul20.i.i) #19
+  %call.i.i = call noalias ptr @malloc(i64 noundef %mul20.i.i) #20
   store i32 1, ptr %used_heap.i.i, align 4
   br label %if.end.i397.i
 
@@ -1297,7 +1297,7 @@ if.then15.i.i421.i:                               ; preds = %land.lhs.true9.i.i4
   br label %if.end.i.i423.i
 
 if.else18.i.i427.i:                               ; preds = %land.lhs.true9.i.i411.i
-  %call.i.i428.i = call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #19
+  %call.i.i428.i = call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
   store i32 1, ptr %used_heap.i.i, align 4
   br label %if.end.i.i423.i
 
@@ -1376,7 +1376,7 @@ if.then.i431.i:                                   ; preds = %if.then559.i
   br i1 %cmp.i433.i, label %if.then1.i438.i, label %if.else.i434.i
 
 if.then1.i438.i:                                  ; preds = %if.then.i431.i
-  call void @free(ptr noundef nonnull %call497.i) #17
+  call void @free(ptr noundef nonnull %call497.i) #18
   br label %if.end562.i
 
 if.else.i434.i:                                   ; preds = %if.then.i431.i
@@ -1930,7 +1930,7 @@ if.then.i515.i:                                   ; preds = %cont.i
   br i1 %cmp.i517.i, label %if.then1.i522.i, label %if.else.i518.i
 
 if.then1.i522.i:                                  ; preds = %if.then.i515.i
-  call void @free(ptr noundef nonnull %bb.4.i) #17
+  call void @free(ptr noundef nonnull %bb.4.i) #18
   br label %Bfree.exit523.i
 
 if.else.i518.i:                                   ; preds = %if.then.i515.i
@@ -1952,7 +1952,7 @@ if.then.i525.i:                                   ; preds = %Bfree.exit523.i
   br i1 %cmp.i527.i, label %if.then1.i532.i, label %if.else.i528.i
 
 if.then1.i532.i:                                  ; preds = %if.then.i525.i
-  call void @free(ptr noundef nonnull %bd.4.i) #17
+  call void @free(ptr noundef nonnull %bd.4.i) #18
   br label %Bfree.exit533.i
 
 if.else.i528.i:                                   ; preds = %if.then.i525.i
@@ -1974,7 +1974,7 @@ if.then.i535.i:                                   ; preds = %Bfree.exit533.i
   br i1 %cmp.i537.i, label %if.then1.i542.i, label %if.else.i538.i
 
 if.then1.i542.i:                                  ; preds = %if.then.i535.i
-  call void @free(ptr noundef nonnull %bs.4.i) #17
+  call void @free(ptr noundef nonnull %bs.4.i) #18
   br label %if.then.i545.i
 
 if.else.i538.i:                                   ; preds = %if.then.i535.i
@@ -1992,7 +1992,7 @@ if.then.i545.i:                                   ; preds = %if.else.i538.i, %if
   br i1 %cmp.i547.i, label %if.then1.i552.i, label %if.else.i548.i
 
 if.then1.i552.i:                                  ; preds = %if.then.i545.i
-  call void @free(ptr noundef nonnull %delta.5.i) #17
+  call void @free(ptr noundef nonnull %delta.5.i) #18
   br label %for.cond489.i.backedge
 
 if.else.i548.i:                                   ; preds = %if.then.i545.i
@@ -2020,7 +2020,7 @@ if.then.i555.i:                                   ; preds = %for.end919.i
   br i1 %cmp.i557.i, label %if.then1.i562.i, label %if.else.i558.i
 
 if.then1.i562.i:                                  ; preds = %if.then.i555.i
-  call void @free(ptr noundef nonnull %bb.4.i) #17
+  call void @free(ptr noundef nonnull %bb.4.i) #18
   br label %Bfree.exit563.i
 
 if.else.i558.i:                                   ; preds = %if.then.i555.i
@@ -2042,7 +2042,7 @@ if.then.i565.i:                                   ; preds = %Bfree.exit563.i
   br i1 %cmp.i567.i, label %if.then1.i572.i, label %if.else.i568.i
 
 if.then1.i572.i:                                  ; preds = %if.then.i565.i
-  call void @free(ptr noundef nonnull %bd.4.i) #17
+  call void @free(ptr noundef nonnull %bd.4.i) #18
   br label %Bfree.exit573.i
 
 if.else.i568.i:                                   ; preds = %if.then.i565.i
@@ -2064,7 +2064,7 @@ if.then.i575.i:                                   ; preds = %Bfree.exit573.i
   br i1 %cmp.i577.i, label %if.then1.i582.i, label %if.else.i578.i
 
 if.then1.i582.i:                                  ; preds = %if.then.i575.i
-  call void @free(ptr noundef nonnull %bs.4.i) #17
+  call void @free(ptr noundef nonnull %bs.4.i) #18
   br label %Bfree.exit583.i
 
 if.else.i578.i:                                   ; preds = %if.then.i575.i
@@ -2085,7 +2085,7 @@ if.then.i585.i:                                   ; preds = %Bfree.exit583.i
   br i1 %cmp.i587.i, label %if.then1.i592.i, label %if.else.i588.i
 
 if.then1.i592.i:                                  ; preds = %if.then.i585.i
-  call void @free(ptr noundef nonnull %b.2.lcssa.i.i) #17
+  call void @free(ptr noundef nonnull %b.2.lcssa.i.i) #18
   br label %if.then.i595.i
 
 if.else.i588.i:                                   ; preds = %if.then.i585.i
@@ -2103,7 +2103,7 @@ if.then.i595.i:                                   ; preds = %Bfree.exit583.i, %i
   br i1 %cmp.i597.i, label %if.then1.i602.i, label %if.else.i598.i
 
 if.then1.i602.i:                                  ; preds = %if.then.i595.i
-  call void @free(ptr noundef nonnull %delta.3.i) #17
+  call void @free(ptr noundef nonnull %delta.3.i) #18
   br label %Bfree.exit603.i
 
 if.else.i598.i:                                   ; preds = %if.then.i595.i
@@ -2153,7 +2153,7 @@ if.then15.i.i.i.i:                                ; preds = %land.lhs.true9.i.i.
   br label %if.end.i.i.i.i
 
 if.else18.i.i.i.i:                                ; preds = %land.lhs.true9.i.i.i.i
-  %call.i.i.i.i = call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #19
+  %call.i.i.i.i = call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
   store i32 1, ptr %used_heap.i.i, align 4
   br label %if.end.i.i.i.i
 
@@ -2230,7 +2230,7 @@ if.then15.i.i109.i.i:                             ; preds = %land.lhs.true9.i.i9
   br label %if.end.i.i111.i.i
 
 if.else18.i.i115.i.i:                             ; preds = %land.lhs.true9.i.i99.i.i
-  %call.i.i116.i.i = call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #19
+  %call.i.i116.i.i = call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
   store i32 1, ptr %used_heap.i.i, align 4
   br label %if.end.i.i111.i.i
 
@@ -2468,7 +2468,7 @@ if.then.i.i617.i:                                 ; preds = %ret.i.i, %ret.threa
   br i1 %cmp.i.i618.i, label %if.then1.i.i.i, label %if.else.i.i619.i
 
 if.then1.i.i.i:                                   ; preds = %if.then.i.i617.i
-  call void @free(ptr noundef nonnull %b.5155.i.i) #17
+  call void @free(ptr noundef nonnull %b.5155.i.i) #18
   br label %Bfree.exit.i.i
 
 if.else.i.i619.i:                                 ; preds = %if.then.i.i617.i
@@ -2491,7 +2491,7 @@ if.then.i122.i.i:                                 ; preds = %Bfree.exit.i.i
   br i1 %cmp.i124.i.i, label %if.then1.i129.i.i, label %if.else.i125.i.i
 
 if.then1.i129.i.i:                                ; preds = %if.then.i122.i.i
-  call void @free(ptr noundef nonnull %d.1.i.i) #17
+  call void @free(ptr noundef nonnull %d.1.i.i) #18
   br label %Bfree.exit130.i.i
 
 if.else.i125.i.i:                                 ; preds = %if.then.i122.i.i
@@ -2657,7 +2657,7 @@ if.then940.i:                                     ; preds = %if.end937.i
   br i1 %tobool946.not.i, label %if.then947.i, label %ret.i
 
 if.then947.i:                                     ; preds = %if.then940.i
-  %call948.i = tail call ptr @__errno_location() #18
+  %call948.i = tail call ptr @__errno_location() #19
   store i32 34, ptr %call948.i, align 4
   br label %ret.i
 
@@ -2704,7 +2704,7 @@ while.body.i:                                     ; preds = %for.body.i3, %while
   br i1 %or.cond.i6, label %while.cond.backedge.i, label %if.end7.i
 
 if.end7.i:                                        ; preds = %while.body.i
-  call void @free(ptr noundef nonnull %p.012.i) #17
+  call void @free(ptr noundef nonnull %p.012.i) #18
   br label %while.cond.backedge.i
 
 while.cond.backedge.i:                            ; preds = %if.end7.i, %while.body.i
@@ -2724,7 +2724,7 @@ dalloc_done.exit:                                 ; preds = %for.inc.i7, %_herme
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @g_freedtoa(ptr noundef captures(none) %dalloc, ptr noundef initializes((4, 12)) %s) local_unnamed_addr #2 {
+define hidden void @g_freedtoa(ptr noundef captures(none) %dalloc, ptr noundef initializes((4, 12)) %s) local_unnamed_addr #3 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %s, i64 -4
   %0 = load i32, ptr %add.ptr, align 4
@@ -2737,7 +2737,7 @@ entry:
   br i1 %cmp.i, label %if.then1.i, label %if.else.i
 
 if.then1.i:                                       ; preds = %entry
-  tail call void @free(ptr noundef nonnull %add.ptr) #17
+  tail call void @free(ptr noundef nonnull %add.ptr) #18
   br label %Bfree.exit
 
 if.else.i:                                        ; preds = %entry
@@ -2754,7 +2754,7 @@ Bfree.exit:                                       ; preds = %if.then1.i, %if.els
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden nonnull ptr @g_dtoa(ptr noundef %dalloc, double noundef %dd, i32 noundef %mode, i32 noundef %ndigits, ptr noundef writeonly captures(none) %decpt, ptr noundef writeonly captures(none) initializes((0, 4)) %sign, ptr noundef writeonly captures(address_is_null) %rve) local_unnamed_addr #1 {
+define hidden nonnull ptr @g_dtoa(ptr noundef %dalloc, double noundef %dd, i32 noundef %mode, i32 noundef %ndigits, ptr noundef writeonly captures(none) %decpt, ptr noundef writeonly captures(none) initializes((0, 4)) %sign, ptr noundef writeonly captures(address_is_null) %rve) local_unnamed_addr #2 {
 entry:
   %bbits = alloca i32, align 4
   %be = alloca i32, align 4
@@ -2819,7 +2819,7 @@ if.then15.i.i.i:                                  ; preds = %land.lhs.true9.i.i.
   br label %if.end.i.i.i
 
 if.else18.i.i.i:                                  ; preds = %land.lhs.true9.i.i.i
-  %call.i.i.i = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #19
+  %call.i.i.i = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #20
   %used_heap.i.i.i = getelementptr inbounds nuw i8, ptr %dalloc, i64 4
   store i32 1, ptr %used_heap.i.i.i, align 4
   br label %if.end.i.i.i
@@ -2886,7 +2886,7 @@ if.then15.i.i.i391:                               ; preds = %land.lhs.true9.i.i.
   br label %if.end.i.i.i393
 
 if.else18.i.i.i397:                               ; preds = %land.lhs.true9.i.i.i381
-  %call.i.i.i398 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #19
+  %call.i.i.i398 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #20
   %used_heap.i.i.i399 = getelementptr inbounds nuw i8, ptr %dalloc, i64 4
   store i32 1, ptr %used_heap.i.i.i399, align 4
   br label %if.end.i.i.i393
@@ -2962,7 +2962,7 @@ if.then15.i.i.i428:                               ; preds = %land.lhs.true9.i.i.
   br label %if.end.i.i.i430
 
 if.else18.i.i.i434:                               ; preds = %land.lhs.true9.i.i.i418
-  %call.i.i.i435 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #19
+  %call.i.i.i435 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #20
   %used_heap.i.i.i436 = getelementptr inbounds nuw i8, ptr %dalloc, i64 4
   store i32 1, ptr %used_heap.i.i.i436, align 4
   br label %if.end.i.i.i430
@@ -3212,7 +3212,7 @@ if.else18.i.i:                                    ; preds = %land.lhs.true9.i.i,
   %sub531.i.i = phi i64 [ %sub526.i.i, %land.lhs.true9.i.i ], [ %sub5.i.i, %if.else.i.i ]
   %shl28.i.i = phi i32 [ %shl22.i.i, %land.lhs.true9.i.i ], [ %shl.i.i, %if.else.i.i ]
   %mul20.i.i = and i64 %sub531.i.i, 34359738360
-  %call.i.i = tail call noalias ptr @malloc(i64 noundef %mul20.i.i) #19
+  %call.i.i = tail call noalias ptr @malloc(i64 noundef %mul20.i.i) #20
   %used_heap.i.i = getelementptr inbounds nuw i8, ptr %dalloc, i64 4
   store i32 1, ptr %used_heap.i.i, align 4
   br label %if.end.i.i
@@ -3711,7 +3711,7 @@ if.then15.i.i455:                                 ; preds = %land.lhs.true9.i.i4
   br label %if.end.i.i457
 
 if.else18.i.i461:                                 ; preds = %land.lhs.true9.i.i445
-  %call.i.i462 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #19
+  %call.i.i462 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
   %used_heap.i.i463 = getelementptr inbounds nuw i8, ptr %dalloc, i64 4
   store i32 1, ptr %used_heap.i.i463, align 4
   br label %if.end.i.i457
@@ -3773,7 +3773,7 @@ if.then.i465:                                     ; preds = %if.then408
   br i1 %cmp.i, label %if.then1.i, label %if.else.i
 
 if.then1.i:                                       ; preds = %if.then.i465
-  tail call void @free(ptr noundef nonnull %call19) #17
+  tail call void @free(ptr noundef nonnull %call19) #18
   br label %if.end420
 
 if.else.i:                                        ; preds = %if.then.i465
@@ -3822,7 +3822,7 @@ if.then15.i.i483:                                 ; preds = %land.lhs.true9.i.i4
   br label %if.end.i.i485
 
 if.else18.i.i489:                                 ; preds = %land.lhs.true9.i.i473
-  %call.i.i490 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #19
+  %call.i.i490 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
   %used_heap.i.i491 = getelementptr inbounds nuw i8, ptr %dalloc, i64 4
   store i32 1, ptr %used_heap.i.i491, align 4
   br label %if.end.i.i485
@@ -4134,7 +4134,7 @@ if.else18.i:                                      ; preds = %land.lhs.true9.i, %
   %sub531.i = phi i64 [ %sub526.i, %land.lhs.true9.i ], [ %sub5.i, %if.else.i524 ]
   %shl28.i = phi i32 [ %shl22.i, %land.lhs.true9.i ], [ %shl.i525, %if.else.i524 ]
   %mul20.i = and i64 %sub531.i, 34359738360
-  %call.i = tail call noalias ptr @malloc(i64 noundef %mul20.i) #19
+  %call.i = tail call noalias ptr @malloc(i64 noundef %mul20.i) #20
   %used_heap.i = getelementptr inbounds nuw i8, ptr %dalloc, i64 4
   store i32 1, ptr %used_heap.i, align 4
   br label %if.end.i528
@@ -4272,7 +4272,7 @@ if.then.i585:                                     ; preds = %cmp.exit559, %cond.
   br i1 %cmp.i587, label %if.then1.i592, label %if.else.i588
 
 if.then1.i592:                                    ; preds = %if.then.i585
-  tail call void @free(ptr noundef nonnull %call519) #17
+  tail call void @free(ptr noundef nonnull %call519) #18
   br label %Bfree.exit593
 
 if.else.i588:                                     ; preds = %if.then.i585
@@ -4588,7 +4588,7 @@ if.then.i643:                                     ; preds = %ret
   br i1 %cmp.i645, label %if.then1.i650, label %if.else.i646
 
 if.then1.i650:                                    ; preds = %if.then.i643
-  tail call void @free(ptr noundef nonnull %S.4) #17
+  tail call void @free(ptr noundef nonnull %S.4) #18
   br label %Bfree.exit651
 
 if.else.i646:                                     ; preds = %if.then.i643
@@ -4617,7 +4617,7 @@ if.then.i653:                                     ; preds = %if.then685
   br i1 %cmp.i655, label %if.then1.i660, label %if.else.i656
 
 if.then1.i660:                                    ; preds = %if.then.i653
-  tail call void @free(ptr noundef nonnull %mlo.2) #17
+  tail call void @free(ptr noundef nonnull %mlo.2) #18
   br label %if.then.i663
 
 if.else.i656:                                     ; preds = %if.then.i653
@@ -4636,7 +4636,7 @@ if.then.i663:                                     ; preds = %if.then685, %if.the
   br i1 %cmp.i665, label %if.then1.i670, label %if.else.i666
 
 if.then1.i670:                                    ; preds = %if.then.i663
-  tail call void @free(ptr noundef nonnull %mhi.7) #17
+  tail call void @free(ptr noundef nonnull %mhi.7) #18
   br label %ret1
 
 if.else.i666:                                     ; preds = %if.then.i663
@@ -4671,7 +4671,7 @@ if.then.i673:                                     ; preds = %ret1
   br i1 %cmp.i675, label %if.then1.i680, label %if.else.i676
 
 if.then1.i680:                                    ; preds = %if.then.i673
-  tail call void @free(ptr noundef nonnull %b.2) #17
+  tail call void @free(ptr noundef nonnull %b.2) #18
   br label %Bfree.exit681
 
 if.else.i676:                                     ; preds = %if.then.i673
@@ -4701,8 +4701,8 @@ return:                                           ; preds = %return.sink.split, 
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc ptr @d2b(ptr noundef %dalloc, ptr noundef nonnull captures(none) %d, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %e, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %bits) unnamed_addr #3 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc ptr @d2b(ptr noundef %dalloc, ptr noundef nonnull captures(none) %d, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %e, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %bits) unnamed_addr #4 {
 entry:
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %dalloc, i64 24
   %0 = load ptr, ptr %arrayidx.i, align 8
@@ -4734,7 +4734,7 @@ if.then15.i:                                      ; preds = %land.lhs.true9.i
   br label %if.end.i
 
 if.else18.i:                                      ; preds = %land.lhs.true9.i
-  %call.i = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #19
+  %call.i = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
   %used_heap.i = getelementptr inbounds nuw i8, ptr %dalloc, i64 4
   store i32 1, ptr %used_heap.i, align 4
   br label %if.end.i
@@ -4976,10 +4976,10 @@ if.end38:                                         ; preds = %if.else29, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #4
+declare double @llvm.fmuladd.f64(double, double, double) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @pow5mult(ptr noundef %dalloc, ptr noundef %b, i32 noundef range(i32 1, -2147483648) %k) unnamed_addr #1 {
+define internal fastcc ptr @pow5mult(ptr noundef %dalloc, ptr noundef %b, i32 noundef range(i32 1, -2147483648) %k) unnamed_addr #2 {
 entry:
   %and = and i32 %k, 3
   %tobool.not = icmp eq i32 %and, 0
@@ -5005,7 +5005,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %tobool4.not, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %if.end3
-  tail call void @ACQUIRE_DTOA_LOCK(i32 noundef 1) #17
+  tail call void @ACQUIRE_DTOA_LOCK(i32 noundef 1) #18
   %4 = load ptr, ptr @p5s, align 8
   %tobool6.not = icmp eq ptr %4, null
   br i1 %tobool6.not, label %if.then7, label %if.end9
@@ -5025,7 +5025,7 @@ if.then7:                                         ; preds = %if.then5
 
 if.end9:                                          ; preds = %if.then7, %if.then5
   %p5.1 = phi ptr [ %4, %if.then5 ], [ getelementptr inbounds nuw (i8, ptr @cache, i64 80), %if.then7 ]
-  tail call void @FREE_DTOA_LOCK(i32 noundef 1) #17
+  tail call void @FREE_DTOA_LOCK(i32 noundef 1) #18
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end9, %if.end3
@@ -5053,7 +5053,7 @@ if.then.i:                                        ; preds = %if.then13
   br i1 %cmp.i, label %if.then1.i, label %if.else.i
 
 if.then1.i:                                       ; preds = %if.then.i
-  tail call void @free(ptr noundef nonnull %b.addr.1) #17
+  tail call void @free(ptr noundef nonnull %b.addr.1) #18
   br label %if.end15
 
 if.else.i:                                        ; preds = %if.then.i
@@ -5076,7 +5076,7 @@ if.end19:                                         ; preds = %if.end15
   br i1 %tobool21.not, label %if.then22, label %for.cond.backedge
 
 if.then22:                                        ; preds = %if.end19
-  tail call void @ACQUIRE_DTOA_LOCK(i32 noundef 1) #17
+  tail call void @ACQUIRE_DTOA_LOCK(i32 noundef 1) #18
   %8 = load ptr, ptr %p5.2, align 8
   %tobool24.not = icmp eq ptr %8, null
   br i1 %tobool24.not, label %if.then25, label %if.end29
@@ -5089,7 +5089,7 @@ if.then25:                                        ; preds = %if.then22
 
 if.end29:                                         ; preds = %if.then25, %if.then22
   %p51.1 = phi ptr [ %8, %if.then22 ], [ %call26, %if.then25 ]
-  tail call void @FREE_DTOA_LOCK(i32 noundef 1) #17
+  tail call void @FREE_DTOA_LOCK(i32 noundef 1) #18
   br label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %if.end29, %if.end19
@@ -5101,8 +5101,8 @@ return:                                           ; preds = %if.end15, %if.end
   ret ptr %retval.0
 }
 
-; Function Attrs: nofree nounwind uwtable
-define internal fastcc ptr @mult(ptr noundef %dalloc, ptr noundef readonly captures(address) %a, ptr noundef readonly captures(address) %b) unnamed_addr #5 {
+; Function Attrs: nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc ptr @mult(ptr noundef %dalloc, ptr noundef readonly captures(address) %a, ptr noundef readonly captures(address) %b) unnamed_addr #6 {
 entry:
   %wds = getelementptr inbounds nuw i8, ptr %a, i64 20
   %0 = load i32, ptr %wds, align 4
@@ -5176,7 +5176,7 @@ if.else18.i:                                      ; preds = %land.lhs.true9.i, %
   %sub531.i = phi i64 [ %sub526.i, %land.lhs.true9.i ], [ %sub5.i, %if.else.i ]
   %shl28.i = phi i32 [ %shl22.i, %land.lhs.true9.i ], [ %shl.i, %if.else.i ]
   %mul20.i = and i64 %sub531.i, 34359738360
-  %call.i = tail call noalias ptr @malloc(i64 noundef %mul20.i) #19
+  %call.i = tail call noalias ptr @malloc(i64 noundef %mul20.i) #20
   %used_heap.i = getelementptr inbounds nuw i8, ptr %dalloc, i64 4
   store i32 1, ptr %used_heap.i, align 4
   br label %if.end.i
@@ -5290,7 +5290,7 @@ for.end50:                                        ; preds = %land.rhs, %for.inc4
   ret ptr %rv.0.i
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc ptr @lshift(ptr noundef %dalloc, ptr noundef %b, i32 noundef range(i32 -2147483593, -2147483648) %k) unnamed_addr #1 {
 entry:
   %shr = ashr i32 %k, 5
@@ -5367,7 +5367,7 @@ if.else18.i:                                      ; preds = %land.lhs.true9.i, %
   %sub531.i = phi i64 [ %sub526.i, %land.lhs.true9.i ], [ %sub5.i, %if.else.i ]
   %shl28.i = phi i32 [ %shl22.i, %land.lhs.true9.i ], [ %shl.i, %if.else.i ]
   %mul20.i = and i64 %sub531.i, 34359738360
-  %call.i = tail call noalias ptr @malloc(i64 noundef %mul20.i) #19
+  %call.i = tail call noalias ptr @malloc(i64 noundef %mul20.i) #20
   %used_heap.i = getelementptr inbounds nuw i8, ptr %dalloc, i64 4
   store i32 1, ptr %used_heap.i, align 4
   br label %if.end.i
@@ -5456,7 +5456,7 @@ if.then.i31:                                      ; preds = %do.body22, %do.end
   br i1 %cmp.i32, label %if.then1.i, label %if.else.i33
 
 if.then1.i:                                       ; preds = %if.then.i31
-  tail call void @free(ptr noundef nonnull %b) #17
+  tail call void @free(ptr noundef nonnull %b) #18
   br label %Bfree.exit
 
 if.else.i33:                                      ; preds = %if.then.i31
@@ -5472,7 +5472,7 @@ Bfree.exit:                                       ; preds = %if.then1.i, %if.els
   ret ptr %rv.0.i
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc ptr @multadd(ptr noundef %dalloc, ptr noundef %b, i32 noundef %m, i32 noundef range(i32 -176, 80) %a) unnamed_addr #1 {
 entry:
   %wds1 = getelementptr inbounds nuw i8, ptr %b, i64 20
@@ -5566,7 +5566,7 @@ if.else18.i:                                      ; preds = %land.lhs.true9.i, %
   %sub531.i = phi i64 [ %sub526.i, %land.lhs.true9.i ], [ %sub5.i, %if.else.i ]
   %shl28.i = phi i32 [ %shl22.i, %land.lhs.true9.i ], [ %shl.i, %if.else.i ]
   %mul20.i = and i64 %sub531.i, 34359738360
-  %call.i = tail call noalias ptr @malloc(i64 noundef %mul20.i) #19
+  %call.i = tail call noalias ptr @malloc(i64 noundef %mul20.i) #20
   %used_heap.i = getelementptr inbounds nuw i8, ptr %dalloc, i64 4
   store i32 1, ptr %used_heap.i, align 4
   br label %if.end.i
@@ -5597,7 +5597,7 @@ if.then.i20:                                      ; preds = %if.end.i, %if.then.
   br i1 %cmp.i21, label %if.then1.i, label %if.else.i22
 
 if.then1.i:                                       ; preds = %if.then.i20
-  tail call void @free(ptr noundef nonnull %b) #17
+  tail call void @free(ptr noundef nonnull %b) #18
   br label %if.end
 
 if.else.i22:                                      ; preds = %if.then.i20
@@ -5627,10 +5627,10 @@ if.end20:                                         ; preds = %if.end, %do.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @quorem(ptr noundef captures(none) %b, ptr noundef readonly captures(address) %S) unnamed_addr #7 {
+define internal fastcc i32 @quorem(ptr noundef captures(none) %b, ptr noundef readonly captures(address) %S) unnamed_addr #8 {
 entry:
   %wds = getelementptr inbounds nuw i8, ptr %S, i64 20
   %0 = load i32, ptr %wds, align 4
@@ -5820,8 +5820,8 @@ return:                                           ; preds = %if.then7.i, %cmp.ex
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree nounwind uwtable
-define internal fastcc ptr @diff(ptr noundef %dalloc, ptr noundef readonly captures(address) %a, ptr noundef readonly captures(address) %b) unnamed_addr #5 {
+; Function Attrs: nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc ptr @diff(ptr noundef %dalloc, ptr noundef readonly captures(address) %a, ptr noundef readonly captures(address) %b) unnamed_addr #6 {
 entry:
   %wds.i = getelementptr inbounds nuw i8, ptr %a, i64 20
   %0 = load i32, ptr %wds.i, align 4
@@ -5890,7 +5890,7 @@ if.then15.i:                                      ; preds = %land.lhs.true9.i
   br label %if.end.i33
 
 if.else18.i:                                      ; preds = %land.lhs.true9.i
-  %call.i = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #19
+  %call.i = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #20
   %used_heap.i = getelementptr inbounds nuw i8, ptr %dalloc, i64 4
   store i32 1, ptr %used_heap.i, align 4
   br label %if.end.i33
@@ -5974,7 +5974,7 @@ if.else18.i35:                                    ; preds = %land.lhs.true9.i48,
   %sub531.i = phi i64 [ %sub526.i, %land.lhs.true9.i48 ], [ %sub5.i, %if.else.i ]
   %shl28.i = phi i32 [ %shl22.i, %land.lhs.true9.i48 ], [ %shl.i, %if.else.i ]
   %mul20.i = and i64 %sub531.i, 34359738360
-  %call.i36 = tail call noalias ptr @malloc(i64 noundef %mul20.i) #19
+  %call.i36 = tail call noalias ptr @malloc(i64 noundef %mul20.i) #20
   %used_heap.i37 = getelementptr inbounds nuw i8, ptr %dalloc, i64 4
   store i32 1, ptr %used_heap.i37, align 4
   br label %if.end.i38
@@ -6071,7 +6071,7 @@ return:                                           ; preds = %while.end36, %Ballo
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden nonnull ptr @dtoa_fixedpoint(ptr noundef %dalloc, double noundef %dd, i32 noundef %mode, i32 noundef %ndigits, ptr noundef writeonly captures(none) %decpt, ptr noundef writeonly captures(none) initializes((0, 4)) %sign, ptr noundef writeonly captures(address_is_null) %rve) local_unnamed_addr #1 {
+define hidden nonnull ptr @dtoa_fixedpoint(ptr noundef %dalloc, double noundef %dd, i32 noundef %mode, i32 noundef %ndigits, ptr noundef writeonly captures(none) %decpt, ptr noundef writeonly captures(none) initializes((0, 4)) %sign, ptr noundef writeonly captures(address_is_null) %rve) local_unnamed_addr #2 {
 entry:
   %bbits = alloca i32, align 4
   %be = alloca i32, align 4
@@ -6136,7 +6136,7 @@ if.then15.i.i.i:                                  ; preds = %land.lhs.true9.i.i.
   br label %if.end.i.i.i
 
 if.else18.i.i.i:                                  ; preds = %land.lhs.true9.i.i.i
-  %call.i.i.i = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #19
+  %call.i.i.i = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #20
   %used_heap.i.i.i = getelementptr inbounds nuw i8, ptr %dalloc, i64 4
   store i32 1, ptr %used_heap.i.i.i, align 4
   br label %if.end.i.i.i
@@ -6203,7 +6203,7 @@ if.then15.i.i.i372:                               ; preds = %land.lhs.true9.i.i.
   br label %if.end.i.i.i374
 
 if.else18.i.i.i378:                               ; preds = %land.lhs.true9.i.i.i362
-  %call.i.i.i379 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #19
+  %call.i.i.i379 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #20
   %used_heap.i.i.i380 = getelementptr inbounds nuw i8, ptr %dalloc, i64 4
   store i32 1, ptr %used_heap.i.i.i380, align 4
   br label %if.end.i.i.i374
@@ -6279,7 +6279,7 @@ if.then15.i.i.i409:                               ; preds = %land.lhs.true9.i.i.
   br label %if.end.i.i.i411
 
 if.else18.i.i.i415:                               ; preds = %land.lhs.true9.i.i.i399
-  %call.i.i.i416 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #19
+  %call.i.i.i416 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #20
   %used_heap.i.i.i417 = getelementptr inbounds nuw i8, ptr %dalloc, i64 4
   store i32 1, ptr %used_heap.i.i.i417, align 4
   br label %if.end.i.i.i411
@@ -6529,7 +6529,7 @@ if.else18.i.i:                                    ; preds = %land.lhs.true9.i.i,
   %sub531.i.i = phi i64 [ %sub526.i.i, %land.lhs.true9.i.i ], [ %sub5.i.i, %if.else.i.i ]
   %shl28.i.i = phi i32 [ %shl22.i.i, %land.lhs.true9.i.i ], [ %shl.i.i, %if.else.i.i ]
   %mul20.i.i = and i64 %sub531.i.i, 34359738360
-  %call.i.i = tail call noalias ptr @malloc(i64 noundef %mul20.i.i) #19
+  %call.i.i = tail call noalias ptr @malloc(i64 noundef %mul20.i.i) #20
   %used_heap.i.i = getelementptr inbounds nuw i8, ptr %dalloc, i64 4
   store i32 1, ptr %used_heap.i.i, align 4
   br label %if.end.i.i
@@ -7014,7 +7014,7 @@ if.then15.i.i436:                                 ; preds = %land.lhs.true9.i.i4
   br label %if.end.i.i438
 
 if.else18.i.i442:                                 ; preds = %land.lhs.true9.i.i426
-  %call.i.i443 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #19
+  %call.i.i443 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
   %used_heap.i.i444 = getelementptr inbounds nuw i8, ptr %dalloc, i64 4
   store i32 1, ptr %used_heap.i.i444, align 4
   br label %if.end.i.i438
@@ -7076,7 +7076,7 @@ if.then.i446:                                     ; preds = %if.then402
   br i1 %cmp.i, label %if.then1.i, label %if.else.i
 
 if.then1.i:                                       ; preds = %if.then.i446
-  tail call void @free(ptr noundef nonnull %call19) #17
+  tail call void @free(ptr noundef nonnull %call19) #18
   br label %if.end414
 
 if.else.i:                                        ; preds = %if.then.i446
@@ -7125,7 +7125,7 @@ if.then15.i.i464:                                 ; preds = %land.lhs.true9.i.i4
   br label %if.end.i.i466
 
 if.else18.i.i470:                                 ; preds = %land.lhs.true9.i.i454
-  %call.i.i471 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #19
+  %call.i.i471 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
   %used_heap.i.i472 = getelementptr inbounds nuw i8, ptr %dalloc, i64 4
   store i32 1, ptr %used_heap.i.i472, align 4
   br label %if.end.i.i466
@@ -7437,7 +7437,7 @@ if.else18.i:                                      ; preds = %land.lhs.true9.i, %
   %sub531.i = phi i64 [ %sub526.i, %land.lhs.true9.i ], [ %sub5.i, %if.else.i505 ]
   %shl28.i = phi i32 [ %shl22.i, %land.lhs.true9.i ], [ %shl.i506, %if.else.i505 ]
   %mul20.i = and i64 %sub531.i, 34359738360
-  %call.i = tail call noalias ptr @malloc(i64 noundef %mul20.i) #19
+  %call.i = tail call noalias ptr @malloc(i64 noundef %mul20.i) #20
   %used_heap.i = getelementptr inbounds nuw i8, ptr %dalloc, i64 4
   store i32 1, ptr %used_heap.i, align 4
   br label %if.end.i509
@@ -7577,7 +7577,7 @@ if.then.i566:                                     ; preds = %cmp.exit540, %cond.
   br i1 %cmp.i568, label %if.then1.i573, label %if.else.i569
 
 if.then1.i573:                                    ; preds = %if.then.i566
-  tail call void @free(ptr noundef nonnull %call513) #17
+  tail call void @free(ptr noundef nonnull %call513) #18
   br label %Bfree.exit574
 
 if.else.i569:                                     ; preds = %if.then.i566
@@ -7847,7 +7847,7 @@ if.then.i624:                                     ; preds = %ret
   br i1 %cmp.i626, label %if.then1.i631, label %if.else.i627
 
 if.then1.i631:                                    ; preds = %if.then.i624
-  tail call void @free(ptr noundef nonnull %S.4) #17
+  tail call void @free(ptr noundef nonnull %S.4) #18
   br label %Bfree.exit632
 
 if.else.i627:                                     ; preds = %if.then.i624
@@ -7876,7 +7876,7 @@ if.then.i634:                                     ; preds = %if.then641
   br i1 %cmp.i636, label %if.then1.i641, label %if.else.i637
 
 if.then1.i641:                                    ; preds = %if.then.i634
-  tail call void @free(ptr noundef nonnull %mlo.2) #17
+  tail call void @free(ptr noundef nonnull %mlo.2) #18
   br label %if.then.i644
 
 if.else.i637:                                     ; preds = %if.then.i634
@@ -7895,7 +7895,7 @@ if.then.i644:                                     ; preds = %if.then641, %if.the
   br i1 %cmp.i646, label %if.then1.i651, label %if.else.i647
 
 if.then1.i651:                                    ; preds = %if.then.i644
-  tail call void @free(ptr noundef nonnull %mhi.7) #17
+  tail call void @free(ptr noundef nonnull %mhi.7) #18
   br label %ret1
 
 if.else.i647:                                     ; preds = %if.then.i644
@@ -7930,7 +7930,7 @@ if.then.i654:                                     ; preds = %ret1
   br i1 %cmp.i656, label %if.then1.i661, label %if.else.i657
 
 if.then1.i661:                                    ; preds = %if.then.i654
-  tail call void @free(ptr noundef nonnull %b.2) #17
+  tail call void @free(ptr noundef nonnull %b.2) #18
   br label %Bfree.exit662
 
 if.else.i657:                                     ; preds = %if.then.i654
@@ -7961,19 +7961,19 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare i32 @llvm.get.rounding() #10
+declare i32 @llvm.get.rounding() #11
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #11
+declare ptr @__errno_location() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc double @b2d(ptr noundef readonly captures(address) %a, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %e) unnamed_addr #12 {
+define internal fastcc double @b2d(ptr noundef readonly captures(address) %a, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %e) unnamed_addr #13 {
 entry:
   %x = getelementptr inbounds nuw i8, ptr %a, i64 24
   %wds = getelementptr inbounds nuw i8, ptr %a, i64 20
@@ -8079,57 +8079,58 @@ ret_d:                                            ; preds = %cond.end12, %cond.e
   ret double %d.sroa.0.0
 }
 
-declare void @ACQUIRE_DTOA_LOCK(i32 noundef) local_unnamed_addr #13
+declare void @ACQUIRE_DTOA_LOCK(i32 noundef) local_unnamed_addr #14
 
-declare void @FREE_DTOA_LOCK(i32 noundef) local_unnamed_addr #13
+declare void @FREE_DTOA_LOCK(i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #14
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #15
+declare i32 @llvm.smin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #15
+declare i32 @llvm.umax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #15
+declare i32 @llvm.smax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #15
+declare i64 @llvm.umax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #15
+declare i32 @llvm.umin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #15
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #16
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nounwind }
-attributes #18 = { nounwind willreturn memory(none) }
-attributes #19 = { nounwind allocsize(0) }
+attributes #1 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nounwind }
+attributes #19 = { nounwind willreturn memory(none) }
+attributes #20 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

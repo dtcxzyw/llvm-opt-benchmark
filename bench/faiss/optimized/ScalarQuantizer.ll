@@ -2475,7 +2475,7 @@ _ZN5faiss12_GLOBAL__N_118select_quantizer_1ILi1EEEPNS_15ScalarQuantizer10SQuanti
   ret ptr %.024.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EE13encode_vectorEPKfPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #18 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !70
@@ -2529,7 +2529,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bit
   br i1 %32, label %8, label %._crit_edge, !llvm.loop !99
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EE13decode_vectorEPKhPf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #18 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !70
@@ -2573,7 +2573,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bitE
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EE13encode_vectorEPKfPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #18 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !75
@@ -2685,7 +2685,7 @@ _ZN5faiss12_GLOBAL__N_19Codec6bit16encode_componentEfPhi.exit: ; preds = %34, %3
   br i1 %64, label %8, label %._crit_edge, !llvm.loop !101
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EE13decode_vectorEPKhPf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #18 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !75
@@ -2775,7 +2775,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitE
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EE13encode_vectorEPKfPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #18 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !79
@@ -2836,7 +2836,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bit
   br i1 %40, label %8, label %._crit_edge, !llvm.loop !103
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EE13decode_vectorEPKhPf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #18 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !79
@@ -4007,7 +4007,7 @@ define linkonce_odr void @_ZN5faiss16DistanceComputer17distances_batch_4EllllRfS
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
@@ -4077,7 +4077,7 @@ define linkonce_odr noundef float @_ZN5faiss15ScalarQuantizer18SQDistanceCompute
   ret float %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !tbaa !125
@@ -4125,7 +4125,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
@@ -4195,7 +4195,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !tbaa !129
@@ -4249,7 +4249,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
@@ -4314,7 +4314,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !tbaa !133
@@ -4366,7 +4366,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
@@ -4534,7 +4534,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !tbaa !137
@@ -4634,7 +4634,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
@@ -4710,7 +4710,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !tbaa !141
@@ -4770,7 +4770,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
@@ -4852,7 +4852,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val = load i64, ptr %3, align 8
@@ -4910,7 +4910,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
@@ -4962,7 +4962,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val = load i64, ptr %3, align 8
@@ -5005,7 +5005,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDir
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
@@ -5053,7 +5053,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDir
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val = load i64, ptr %3, align 8
@@ -5094,7 +5094,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDir
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
@@ -5143,7 +5143,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDir
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val = load i64, ptr %3, align 8
@@ -5186,7 +5186,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
@@ -5246,7 +5246,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !tbaa !153
@@ -5293,7 +5293,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
@@ -5362,7 +5362,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !tbaa !157
@@ -5415,7 +5415,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
@@ -5479,7 +5479,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !tbaa !161
@@ -5530,7 +5530,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
@@ -5697,7 +5697,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !tbaa !165
@@ -5796,7 +5796,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
@@ -5871,7 +5871,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !tbaa !169
@@ -5930,7 +5930,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
@@ -6011,7 +6011,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val = load i64, ptr %3, align 8
@@ -6068,7 +6068,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
@@ -6119,7 +6119,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val = load i64, ptr %3, align 8
@@ -6161,7 +6161,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDir
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
@@ -6208,7 +6208,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDir
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val = load i64, ptr %3, align 8
@@ -6248,7 +6248,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDir
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #23 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123
@@ -6299,7 +6299,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDir
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val = load i64, ptr %3, align 8
@@ -9557,7 +9557,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !125
@@ -9966,7 +9966,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !125
@@ -10371,7 +10371,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !125
@@ -10412,7 +10412,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0
   ret float %.sroa.7.0.lcssa.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -10873,7 +10873,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !129
@@ -11294,7 +11294,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !129
@@ -11717,7 +11717,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !129
@@ -11764,7 +11764,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0
   ret float %.sroa.7.0.lcssa.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -12122,7 +12122,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !133
@@ -12537,7 +12537,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !133
@@ -12954,7 +12954,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !133
@@ -12999,7 +12999,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0
   ret float %.sroa.7.0.lcssa.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -13466,7 +13466,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !141
@@ -13905,7 +13905,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !141
@@ -14346,7 +14346,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !141
@@ -14399,7 +14399,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0
   ret float %.sroa.7.0.lcssa.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -14766,7 +14766,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !137
@@ -15325,7 +15325,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !137
@@ -15886,7 +15886,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !tbaa !137
@@ -15979,7 +15979,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0
   ret float %.sroa.7.0.lcssa.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -16429,7 +16429,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %3, align 8
@@ -16862,7 +16862,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %3, align 8
@@ -17297,7 +17297,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %3, align 8
@@ -17348,7 +17348,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL
   ret float %.sroa.7.0.lcssa.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -17711,7 +17711,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %3, align 8
@@ -18174,7 +18174,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %3, align 8
@@ -18640,7 +18640,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %3, align 8
@@ -18676,7 +18676,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL
   ret float %.sroa.7.0.lcssa.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -19112,7 +19112,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %3, align 8
@@ -19567,7 +19567,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %3, align 8
@@ -20025,7 +20025,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %3, align 8
@@ -20059,7 +20059,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
   ret float %.sroa.7.0.lcssa.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -20487,7 +20487,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %3, align 8
@@ -20950,7 +20950,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %3, align 8
@@ -21416,7 +21416,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %3, align 8
@@ -21452,7 +21452,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_1
   ret float %.sroa.7.0.lcssa.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -21856,7 +21856,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %4 = load float, ptr %3, align 4, !tbaa !304
@@ -22201,7 +22201,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %4 = load float, ptr %3, align 4, !tbaa !307
@@ -22548,7 +22548,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %4 = load float, ptr %3, align 4, !tbaa !310
@@ -22591,7 +22591,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0
   ret float %25
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -22994,7 +22994,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %4 = load float, ptr %3, align 4, !tbaa !313
@@ -23357,7 +23357,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %4 = load float, ptr %3, align 4, !tbaa !316
@@ -23722,7 +23722,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %4 = load float, ptr %3, align 4, !tbaa !319
@@ -23771,7 +23771,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0
   ret float %32
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -24069,7 +24069,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load float, ptr %3, align 4, !tbaa !322
@@ -24426,7 +24426,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load float, ptr %3, align 4, !tbaa !325
@@ -24785,7 +24785,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load float, ptr %3, align 4, !tbaa !328
@@ -24832,7 +24832,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0
   ret float %29
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -25238,7 +25238,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load float, ptr %3, align 4, !tbaa !331
@@ -25619,7 +25619,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load float, ptr %3, align 4, !tbaa !334
@@ -26002,7 +26002,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load float, ptr %3, align 4, !tbaa !337
@@ -26057,7 +26057,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0
   ret float %37
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -26364,7 +26364,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load float, ptr %3, align 4, !tbaa !340
@@ -26865,7 +26865,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load float, ptr %3, align 4, !tbaa !343
@@ -27368,7 +27368,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load float, ptr %3, align 4, !tbaa !346
@@ -27463,7 +27463,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0
   ret float %57
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -27853,7 +27853,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load float, ptr %3, align 4, !tbaa !350
@@ -28228,7 +28228,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load float, ptr %3, align 4, !tbaa !353
@@ -28605,7 +28605,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load float, ptr %3, align 4, !tbaa !356
@@ -28658,7 +28658,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityI
   ret float %32
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -28961,7 +28961,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load float, ptr %3, align 4, !tbaa !360
@@ -29367,7 +29367,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load float, ptr %3, align 4, !tbaa !363
@@ -29776,7 +29776,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load float, ptr %3, align 4, !tbaa !366
@@ -29814,7 +29814,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityI
   ret float %18
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -30192,7 +30192,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load float, ptr %3, align 4, !tbaa !370
@@ -30590,7 +30590,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load float, ptr %3, align 4, !tbaa !373
@@ -30991,7 +30991,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load float, ptr %3, align 4, !tbaa !376
@@ -31027,7 +31027,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
   ret float %16
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -31397,7 +31397,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load float, ptr %3, align 4, !tbaa !380
@@ -31803,7 +31803,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load float, ptr %3, align 4, !tbaa !383
@@ -32212,7 +32212,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load float, ptr %3, align 4, !tbaa !386
@@ -32250,7 +32250,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_1
   ret float %18
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE10scan_codesEmPKhPKlPfPlm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i64 noundef %6) unnamed_addr #18 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -32652,12 +32652,12 @@ attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #15 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { alwaysinline norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { nounwind }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #22 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #24 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #25 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #26 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

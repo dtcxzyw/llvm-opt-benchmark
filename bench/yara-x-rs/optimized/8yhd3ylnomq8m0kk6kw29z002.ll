@@ -1171,7 +1171,7 @@ define void @_ZN13yara_x_parser9tokenizer9Tokenizer19enter_hex_jump_mode17h06fab
   unreachable
 }
 
-; Function Attrs: nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17h5bfc1a85b5dec45fE"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #1 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1646,7 +1646,7 @@ default.unreachable:                              ; preds = %8
   ret void
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1151_ctx1150_x17h18183995135911adE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -1904,7 +1904,7 @@ tailrecurse.backedge145:                          ; preds = %35, %104, %91, %77,
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex22goto1159_at1_ctx1150_x17h499710c9216c3bf4E.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1168_ctx1167_x17h30bd61b30dfa6b0eE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -1936,7 +1936,7 @@ tailrecurse:                                      ; preds = %8
   br i1 %exitcond.not, label %tailrecurse._crit_edge, label %8
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1170_ctx1169_x17hca4ea656dac8f893E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -2361,7 +2361,7 @@ tailrecurse.i:                                    ; preds = %.lr.ph.i
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %"_ZN83_$LT$logos..lexer..Lexer$LT$Token$GT$$u20$as$u20$logos..internal..LexerInternal$GT$4test17hda245d9030575c5dE.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1167_ctx1166_x17h911873c5ff5ab794E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -2700,7 +2700,7 @@ default.unreachable48:                            ; preds = %7
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex22goto1177_at1_ctx1166_x17h610727be7b9863c7E.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex12goto1225_at117haee53aa585fedba0E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -4159,7 +4159,7 @@ tailrecurse.i.i110.i:                             ; preds = %.lr.ph.i.i109.i
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex12goto1158_at217hf1a3dd3bf3d4bfffE.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto876_at3_ctx872_x17h507c74f1861ae12cE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4200,7 +4200,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto965_at3_ctx872_x17h381b4405aafc5d76E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4241,7 +4241,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto900_at3_ctx872_x17h9a90a781c6ecd7ecE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4282,7 +4282,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto995_at3_ctx872_x17h84e94bc016ccfe88E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -4337,7 +4337,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   br label %19
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto875_at3_ctx872_x17h453207825365daa6E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4378,7 +4378,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto881_at3_ctx872_x17h290311c52de91b13E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4419,7 +4419,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto877_at3_ctx872_x17h095d6d10364feb17E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4459,7 +4459,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex21goto1064_at3_ctx872_x17h1b8afbe0597f1168E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4500,7 +4500,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex21goto1069_at1_ctx872_x17h2d19d04733c093e0E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -4919,7 +4919,7 @@ default.unreachable35:                            ; preds = %143, %101, %78, %34
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex21goto1025_at2_ctx872_x17h19e81f892ef7f87aE.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto900_at2_ctx872_x17h2791b39209d72cf0E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4960,7 +4960,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto875_at2_ctx872_x17ha99df0796b0fbb7bE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5001,7 +5001,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto929_at1_ctx872_x17h610eebb72615848fE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -5257,7 +5257,7 @@ default.unreachable29:                            ; preds = %15
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto900_at2_ctx872_x17h2791b39209d72cf0E.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto942_at1_ctx872_x17ha9b6918fc4dfeca9E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -5482,7 +5482,7 @@ default.unreachable25:                            ; preds = %15
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto900_at2_ctx872_x17h2791b39209d72cf0E.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto881_at2_ctx872_x17h0052a11b42e18fa1E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5523,7 +5523,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto904_at1_ctx872_x17h81845154133fffa9E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -5672,7 +5672,7 @@ default.unreachable15:                            ; preds = %15
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto900_at2_ctx872_x17h2791b39209d72cf0E.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex16goto873_ctx872_x17h530ffb76cc4168c6E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -5914,7 +5914,7 @@ tailrecurse.backedge:                             ; preds = %26, %97, %.lr.ph, %
   br i1 %or.cond.i5, label %tailrecurse.backedge, label %92
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex21goto1069_at1_ctx873_x17h369ee8dd762eff50E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -6293,7 +6293,7 @@ default.unreachable40:                            ; preds = %167, %119, %83, %20
   br i1 %or.cond.i17, label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex21goto1025_at2_ctx873_x17h8f3bf9bc48c5bf2bE.exit.sink.split", label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex21goto1025_at2_ctx873_x17h8f3bf9bc48c5bf2bE.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1283_ctx873_x17h4cbb5d71b2fa74bcE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -6697,7 +6697,7 @@ default.unreachable51:                            ; preds = %145, %83, %32, %9
   br label %8
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1282_ctx873_x17hbfe9b1d5012ebc1dE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -6759,7 +6759,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1443_ctx873_x17h6dd2e1abdbcebe95E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -7193,7 +7193,7 @@ default.unreachable:                              ; preds = %161, %99, %48, %27
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1474_ctx872_x17h8b4ccbed69e6866dE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -8205,7 +8205,7 @@ default.unreachable42:                            ; preds = %219, %157, %138, %5
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto875_at1_ctx872_x17h3b8d17647c4975d2E.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1429_ctx873_x17h2533f30e0040abe7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -11071,7 +11071,7 @@ default.unreachable:                              ; preds = %1272, %1218, %1155,
   ret void
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1186_ctx1185_x17h371b1025167599e8E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -11162,7 +11162,7 @@ tailrecurse.backedge:                             ; preds = %24, %8, %40, %33
   br i1 %43, label %tailrecurse.backedge, label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex22goto1195_at1_ctx1185_x17h6681fb2b77b34ff0E.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1449_ctx873_x17h1dd4bb3c7e640892E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -15293,7 +15293,7 @@ default.unreachable:                              ; preds = %1857, %1803, %1741,
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1075_ctx1074_x17h23408e40036ee9a7E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -15325,7 +15325,7 @@ tailrecurse:                                      ; preds = %8
   br i1 %exitcond.not, label %tailrecurse._crit_edge, label %8
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1074_ctx1073_x17h7d68d1dc3209294dE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -15674,7 +15674,7 @@ tailrecurse.i:                                    ; preds = %.lr.ph.i
   br i1 %152, label %.lr.ph, label %.preheader
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex22goto1079_at1_ctx1087_x17h6e9d3c3ce397ce63E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -16242,7 +16242,7 @@ tailrecurse.i109.i:                               ; preds = %242
   br label %20
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1209_ctx1087_x17hc7c05db4e80c292fE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -16346,7 +16346,7 @@ tailrecurse:                                      ; preds = %.lr.ph
   br label %12
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1208_ctx1087_x17h5afdab73012074b4E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -16450,7 +16450,7 @@ tailrecurse:                                      ; preds = %.lr.ph
   br label %12
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1214_ctx1087_x17hf642553fb0303e0bE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -16641,7 +16641,7 @@ tailrecurse:                                      ; preds = %.lr.ph
   br i1 %exitcond.not, label %tailrecurse._crit_edge, label %.lr.ph
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1215_ctx1087_x17hee7e3d5f41833f0bE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -17004,7 +17004,7 @@ tailrecurse.i:                                    ; preds = %.lr.ph.i
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1216_ctx1087_x17h44ce2ad5bb3e2e8dE.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1437_ctx872_x17hb87e2c5582bd0ceeE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -17588,7 +17588,7 @@ default.unreachable40:                            ; preds = %149, %44, %14
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto875_at1_ctx872_x17h3b8d17647c4975d2E.exit"
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex12goto1187_at117hb4db7220a6c62a29E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -17695,7 +17695,7 @@ tailrecurse.backedge.i:                           ; preds = %49, %42, %33, %.lr.
   ret void
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex12goto1195_at117h096e385b11f0b563E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -17909,7 +17909,7 @@ tailrecurse.backedge.i.i2:                        ; preds = %99, %92, %83, %.lr.
   br i1 %102, label %tailrecurse.backedge.i.i2, label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex12goto1193_at217hb05fbf5e752d74faE.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1486_ctx873_x17ha672aefb84febabeE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -18337,7 +18337,7 @@ default.unreachable:                              ; preds = %157, %95, %44, %23
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1256_ctx873_x17h3db14fd998e38519E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -19165,7 +19165,7 @@ default.unreachable72:                            ; preds = %341, %278, %227, %1
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1258_ctx873_x17ha08270aab0240419E.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1254_ctx873_x17ha2837d7ea308abc2E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -19221,7 +19221,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto77_at2_ctx68_x17h8dbfec23ca6ba5a2E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -19262,7 +19262,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto96_at2_ctx68_x17h69b3d89c61e9a1ddE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -19303,7 +19303,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto71_at2_ctx68_x17h4f9d468686f48770E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -19344,7 +19344,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex19goto149_at2_ctx68_x17hf91f03e82f19ae53E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -19492,7 +19492,7 @@ default.unreachable15:                            ; preds = %15
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto73_at3_ctx68_x17h25b032611ebf7a68E.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex19goto221_at2_ctx68_x17he26931e43ef5d263E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -19751,7 +19751,7 @@ default.unreachable29:                            ; preds = %15
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto77_at3_ctx68_x17hfde714e95653a893E.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex19goto239_at2_ctx68_x17h6b805a432dd0e1e6E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -19931,7 +19931,7 @@ default.unreachable19:                            ; preds = %15
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto71_at3_ctx68_x17h496280c083b59933E.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex19goto245_at2_ctx68_x17h98f659fac714c979E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -19979,7 +19979,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex19goto137_at2_ctx68_x17hd10ad8bf1587c810E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -20027,7 +20027,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex19goto263_at2_ctx68_x17h0bacee7f93e5ade9E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -20207,7 +20207,7 @@ default.unreachable19:                            ; preds = %15
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto73_at3_ctx68_x17h25b032611ebf7a68E.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex19goto242_at2_ctx68_x17h464cfa12072c6b40E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -20255,7 +20255,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex19goto117_at2_ctx68_x17h0f63356c0d72a201E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -20308,7 +20308,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   br label %19
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex19goto110_at2_ctx68_x17h485e97e8e1254b90E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -20349,7 +20349,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto73_at2_ctx68_x17h1973538b2b27c74dE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -20389,7 +20389,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto72_at2_ctx68_x17ha40bdeff78972d1bE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -20430,7 +20430,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex19goto134_at2_ctx68_x17h7861bc50f284d4f3E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -20484,7 +20484,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   br label %20
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex14goto69_ctx68_x17h1bffc19b5a817979E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -20924,7 +20924,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %145, %124,
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex19goto100_at1_ctx68_x17h6e243fc12423f84fE.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1318_ctx872_x17h9c91bb31e6607698E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -21120,7 +21120,7 @@ default.unreachable33:                            ; preds = %8
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto875_at1_ctx872_x17h3b8d17647c4975d2E.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1328_ctx872_x17h8448a0f2d334feb0E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -21316,7 +21316,7 @@ default.unreachable33:                            ; preds = %8
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto875_at1_ctx872_x17h3b8d17647c4975d2E.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1325_ctx872_x17h1ab231e71b548c9cE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -22633,7 +22633,7 @@ default.unreachable48:                            ; preds = %294, %264, %245, %2
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto875_at1_ctx872_x17h3b8d17647c4975d2E.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1392_ctx872_x17hfd2326f5c1a40ad9E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -22829,7 +22829,7 @@ default.unreachable33:                            ; preds = %8
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto875_at1_ctx872_x17h3b8d17647c4975d2E.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1389_ctx872_x17h785deaaec7bf274aE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -27166,7 +27166,7 @@ default.unreachable239:                           ; preds = %1439, %1380, %1344,
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto943_at1_ctx872_x17h0fb6228ca924fe70E.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1304_ctx873_x17hab2074bcb97a3830E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -27570,7 +27570,7 @@ default.unreachable51:                            ; preds = %145, %83, %32, %9
   br label %8
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1288_ctx873_x17hc8576345ba1f4bcdE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -30512,7 +30512,7 @@ default.unreachable:                              ; preds = %1317, %1256, %1194,
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1097_ctx1096_x17h36c87565976c3738E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -30544,7 +30544,7 @@ tailrecurse:                                      ; preds = %8
   br i1 %exitcond.not, label %tailrecurse._crit_edge, label %8
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1096_ctx1087_x17h5f3b206c3138a59fE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -30845,7 +30845,7 @@ tailrecurse.i:                                    ; preds = %.lr.ph.i
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1089_ctx1088_x17h10467e0a39b49dd8E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -30877,7 +30877,7 @@ tailrecurse:                                      ; preds = %8
   br i1 %exitcond.not, label %tailrecurse._crit_edge, label %8
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1088_ctx1087_x17ha96f91354e054296E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -31313,7 +31313,7 @@ tailrecurse.i:                                    ; preds = %.lr.ph.i
   br i1 %exitcond.not, label %tailrecurse._crit_edge, label %"_ZN83_$LT$logos..lexer..Lexer$LT$Token$GT$$u20$as$u20$logos..internal..LexerInternal$GT$4test17h746760381586e18fE.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1201_ctx1087_x17hd9384c9c11c94c61E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -32833,7 +32833,7 @@ tailrecurse.i:                                    ; preds = %.lr.ph.i
   br i1 %exitcond.not.i, label %tailrecurse._crit_edge.i, label %.lr.ph.i
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1248_ctx872_x17h7d04b9dbf8d675d0E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -34409,7 +34409,7 @@ default.unreachable91:                            ; preds = %535, %409, %379, %2
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1240_ctx872_x17hb6de47bf2726e791E.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1397_ctx872_x17h6aad70012251dbe1E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -36027,7 +36027,7 @@ default.unreachable57:                            ; preds = %427, %365, %299, %2
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1409_ctx872_x17ha5ec05503b22910dE.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto675_at3_ctx671_x17hb0724414ab2aa685E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -36068,7 +36068,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto699_at3_ctx671_x17hf769576e0d130c54E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -36109,7 +36109,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto676_at3_ctx671_x17h905926e00b8a7672E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -36149,7 +36149,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto674_at3_ctx671_x17h69706184d3c4e930E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -36190,7 +36190,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto863_at3_ctx671_x17h69a3783a3417f193E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -36231,7 +36231,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto794_at3_ctx671_x17h5d245223a1c4717fE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -36286,7 +36286,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   br label %19
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto764_at3_ctx671_x17ha953501d6eb498adE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -36327,7 +36327,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto680_at3_ctx671_x17h7fa07b0a4faeef92E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -36368,7 +36368,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto868_at1_ctx671_x17hbab7ea09dee1cbf7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -36787,7 +36787,7 @@ default.unreachable35:                            ; preds = %162, %99, %76, %53,
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto845_at2_ctx671_x17hcc1b128d6328145cE.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto699_at2_ctx671_x17h2db5621777cb2927E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -36828,7 +36828,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto674_at2_ctx671_x17h1fa0f8f85b9ccb7eE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -36869,7 +36869,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto680_at2_ctx671_x17h4a2f498fed86727bE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -36910,7 +36910,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto741_at1_ctx671_x17he0a34e2654f62fe6E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -37135,7 +37135,7 @@ default.unreachable25:                            ; preds = %15
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto699_at2_ctx671_x17h2db5621777cb2927E.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto728_at1_ctx671_x17h316a99527ecb6258E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -37391,7 +37391,7 @@ default.unreachable29:                            ; preds = %15
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto699_at2_ctx671_x17h2db5621777cb2927E.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex16goto672_ctx671_x17h72afac7a8ea4c185E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -37633,7 +37633,7 @@ tailrecurse.backedge:                             ; preds = %26, %.lr.ph, %92, %
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto675_at1_ctx671_x17h44e1db3ab07dea06E.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1502_ctx671_x17he8ba4bd51f52cb4cE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -37984,7 +37984,7 @@ default.unreachable33:                            ; preds = %48, %14
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto675_at1_ctx671_x17h44e1db3ab07dea06E.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto273_at2_ctx269_x17h6e1af680ff0ef5e8E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -38025,7 +38025,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto272_at2_ctx269_x17he8ebe49a6595fbaaE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -38066,7 +38066,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto274_at2_ctx269_x17hc0ebe0e8f4f2966dE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -38106,7 +38106,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto335_at2_ctx269_x17hcde1a5425255ca55E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -38160,7 +38160,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   br label %20
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto297_at2_ctx269_x17hcc6cb82106cdaa6cE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -38201,7 +38201,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto278_at2_ctx269_x17h9006c39e00d8ab8eE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -38242,7 +38242,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto318_at2_ctx269_x17hae39e71eaec294ecE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -38295,7 +38295,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   br label %19
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto311_at2_ctx269_x17h544f3a67718add30E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -38336,7 +38336,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto350_at2_ctx269_x17hd21498ecb17afc98E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -38484,7 +38484,7 @@ default.unreachable15:                            ; preds = %15
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto274_at3_ctx269_x17he6f57af03bb08b11E.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto422_at2_ctx269_x17hc234d8d3794e6fe2E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -38743,7 +38743,7 @@ default.unreachable29:                            ; preds = %15
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto278_at3_ctx269_x17hc25407846c91ed14E.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto440_at2_ctx269_x17hb41f7609f92a48bcE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -38923,7 +38923,7 @@ default.unreachable19:                            ; preds = %15
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto297_at3_ctx269_x17h19ebf2111a75e96eE.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto443_at2_ctx269_x17h004ec08f27f93294E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -38971,7 +38971,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto446_at2_ctx269_x17h89055cfaac4e10feE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -39019,7 +39019,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto464_at2_ctx269_x17hf375847771e4445aE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -39199,7 +39199,7 @@ default.unreachable19:                            ; preds = %15
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto297_at3_ctx269_x17h19ebf2111a75e96eE.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto338_at2_ctx269_x17he134e2786d9f9244E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -39247,7 +39247,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex16goto270_ctx269_x17h0896425f53ef4161E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -39687,7 +39687,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %164, %127,
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto339_at1_ctx269_x17h1ba4ce9f6e47446bE.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1331_ctx873_x17he23c14b5b0af7f90E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -40091,7 +40091,7 @@ default.unreachable51:                            ; preds = %145, %83, %32, %9
   br label %8
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1330_ctx873_x17he2397d8d57396d33E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -40147,7 +40147,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex18goto1121_ctx1120_x17hae471f52c93f1eeaE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -40372,7 +40372,7 @@ tailrecurse.backedge101:                          ; preds = %37, %103, %89, %79,
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex22goto1129_at1_ctx1120_x17hac943c61b03ef7e8E.exit"
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex12goto1219_at117h6b9fb3500ebc9143E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -40948,7 +40948,7 @@ tailrecurse.backedge121.i:                        ; preds = %178, %247, %234, %2
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex12goto1129_at217h0b6879dbedc82b3fE.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1489_ctx873_x17he140e0319dd0ce77E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -42600,7 +42600,7 @@ default.unreachable:                              ; preds = %716, %654, %608, %5
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1264_ctx873_x17hdad56d4ee3bcd581E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -45918,7 +45918,7 @@ default.unreachable:                              ; preds = %1486, %1424, %1373,
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto536_at2_ctx470_x17hec5a37b4b8d4f4a9E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -45972,7 +45972,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   br label %20
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto475_at2_ctx470_x17h0bd10cf54a4d6151E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -46012,7 +46012,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto498_at2_ctx470_x17hede65343a60f3807E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -46053,7 +46053,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto474_at2_ctx470_x17h739f71ecba24b177E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -46094,7 +46094,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto473_at2_ctx470_x17h4845a5671e869d02E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -46135,7 +46135,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto512_at2_ctx470_x17h96143e28b4b1db6bE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -46176,7 +46176,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto519_at2_ctx470_x17h35298feaf2994c87E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -46229,7 +46229,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   br label %19
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto479_at2_ctx470_x17hf20014f728543608E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -46270,7 +46270,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto539_at2_ctx470_x17hc7dd7ce10b822ab0E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -46318,7 +46318,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto641_at2_ctx470_x17hd7f780adeabbf661E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -46498,7 +46498,7 @@ default.unreachable19:                            ; preds = %15
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto475_at3_ctx470_x17had23dc5b86d64407E.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto644_at2_ctx470_x17ha09653fd123dd72dE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -46546,7 +46546,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto551_at2_ctx470_x17h27cc494a8cbe5224E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -46694,7 +46694,7 @@ default.unreachable15:                            ; preds = %15
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto474_at3_ctx470_x17h565c1c1c9412f472E.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto623_at2_ctx470_x17hfa81780a6f18a48fE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -46953,7 +46953,7 @@ default.unreachable29:                            ; preds = %15
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto563_at3_ctx470_x17h24636c63b3c10187E.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto647_at2_ctx470_x17h3b3863f5b687da6dE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -47001,7 +47001,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto665_at2_ctx470_x17h5af2e0fe779ba86cE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -47181,7 +47181,7 @@ default.unreachable19:                            ; preds = %15
   br label %"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex20goto475_at3_ctx470_x17had23dc5b86d64407E.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex16goto471_ctx470_x17h0b5e7b61140280e4E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !align !14, !noundef !5
@@ -47621,7 +47621,7 @@ tailrecurse.backedge:                             ; preds = %50, %169, %.lr.ph, 
   br i1 %or.cond.i8, label %tailrecurse.backedge, label %164
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1441_ctx873_x17hfb5881042d61b0d1E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -48025,7 +48025,7 @@ default.unreachable51:                            ; preds = %145, %83, %32, %9
   br label %8
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u20$as$u20$logos..Logos$GT$3lex17goto1440_ctx873_x17h42840c477d5322b1E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -48087,7 +48087,7 @@ define internal fastcc void @"_ZN70_$LT$yara_x_parser..tokenizer..NormalToken$u2
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN74_$LT$yara_x_parser..tokenizer..HexPatternToken$u20$as$u20$logos..Logos$GT$3lex17hd17f7f3ebb69ebe4E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9167)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -49715,7 +49715,7 @@ tailrecurse.backedge.i.i:                         ; preds = %690, %683, %668, %.
   ret void
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN74_$LT$yara_x_parser..tokenizer..HexPatternToken$u20$as$u20$logos..Logos$GT$3lex14goto29_ctx28_x17hac66cdb8512dab1aE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -49746,7 +49746,7 @@ tailrecurse:                                      ; preds = %7
   br i1 %exitcond.not, label %tailrecurse._crit_edge, label %7
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN74_$LT$yara_x_parser..tokenizer..HexPatternToken$u20$as$u20$logos..Logos$GT$3lex14goto31_ctx30_x17hefbe3947d2b8d9abE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -50187,7 +50187,7 @@ tailrecurse.i:                                    ; preds = %.lr.ph.i
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %"_ZN83_$LT$logos..lexer..Lexer$LT$Token$GT$$u20$as$u20$logos..internal..LexerInternal$GT$4test17h02c32ba7eca5b002E.exit"
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN74_$LT$yara_x_parser..tokenizer..HexPatternToken$u20$as$u20$logos..Logos$GT$3lex14goto28_ctx27_x17h1b06a1261fc40dedE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -50541,7 +50541,7 @@ default.unreachable17:                            ; preds = %8
   br label %"_ZN74_$LT$yara_x_parser..tokenizer..HexPatternToken$u20$as$u20$logos..Logos$GT$3lex18goto37_at1_ctx27_x17h0830cce69a88dd13E.exit"
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN71_$LT$yara_x_parser..tokenizer..HexJumpToken$u20$as$u20$logos..Logos$GT$3lex17hf8abd88e5dfbbc92E"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9591)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -51650,7 +51650,7 @@ tailrecurse.backedge.i.i2.i.i:                    ; preds = %551, %544, %537, %.
   ret void
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZN71_$LT$yara_x_parser..tokenizer..HexJumpToken$u20$as$u20$logos..Logos$GT$3lex13goto12_ctx2_x17ha31fcf092366c104E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -51929,11 +51929,11 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #1 = { nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #2 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #3 = { inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #4 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #5 = { nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #1 = { nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #2 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #3 = { inlinehint nofree nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #4 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #5 = { nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #7 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

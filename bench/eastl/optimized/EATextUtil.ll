@@ -663,7 +663,7 @@ if.end44:                                         ; preds = %if.then2, %if.else2
   ret ptr %p.addr.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef i64 @_ZN2EA4StdC19UTF8TrimPartialCharEPcm(ptr noundef captures(none) %pString, i64 noundef %nLength) local_unnamed_addr #4 {
 entry:
   br label %while.cond
@@ -692,7 +692,7 @@ while.end:                                        ; preds = %while.body, %while.
   ret i64 %validPos.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef ptr @_ZN2EA4StdC22UTF8ReplaceInvalidCharEPKcmPcc(ptr noundef readonly captures(none) %pIn, i64 noundef %nLength, ptr noundef writeonly captures(ret: address, provenance) %pOut, i8 noundef signext %replaceWith) local_unnamed_addr #4 {
 entry:
   %cmp22.not = icmp eq i64 %nLength, 0
@@ -1319,7 +1319,7 @@ if.end18:                                         ; preds = %if.end18.sink.split
   ret ptr %pText.addr.1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN2EA4StdC18ParseDelimitedTextEPKcS2_cRS2_S3_PS2_(ptr noundef %pText, ptr noundef readnone captures(address) %pTextEnd, i8 noundef signext %cDelimiter, ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %pToken, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pTokenEnd, ptr noundef writeonly captures(address_is_null) %ppNewText) local_unnamed_addr #4 {
 entry:
   store ptr %pText, ptr %pToken, align 8
@@ -1511,7 +1511,7 @@ return:                                           ; preds = %for.end72, %if.then
   ret i1 %cmp547
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN2EA4StdC18ParseDelimitedTextEPKDsS2_DsRS2_S3_PS2_(ptr noundef %pText, ptr noundef readnone captures(address) %pTextEnd, i16 noundef zeroext %cDelimiter, ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %pToken, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pTokenEnd, ptr noundef writeonly captures(address_is_null) %ppNewText) local_unnamed_addr #4 {
 entry:
   store ptr %pText, ptr %pToken, align 8
@@ -1696,7 +1696,7 @@ return:                                           ; preds = %for.end72, %if.then
   ret i1 %cmp547
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN2EA4StdC18ParseDelimitedTextEPKDiS2_DiRS2_S3_PS2_(ptr noundef %pText, ptr noundef readnone captures(address) %pTextEnd, i32 noundef zeroext %cDelimiter, ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %pToken, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pTokenEnd, ptr noundef writeonly captures(address_is_null) %ppNewText) local_unnamed_addr #4 {
 entry:
   store ptr %pText, ptr %pToken, align 8
@@ -2204,7 +2204,7 @@ while.end:                                        ; preds = %for.end, %entry
   ret i1 %bReturnValue.0.lcssa
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN2EA4StdC19SplitTokenDelimitedEPKcmcPcmPS2_(ptr noundef readonly captures(address_is_null) %pSource, i64 noundef %nSourceLength, i8 noundef signext %cDelimiter, ptr noundef writeonly captures(address) %pToken, i64 noundef %nTokenLength, ptr noundef captures(address_is_null) %ppNewSource) local_unnamed_addr #9 {
 entry:
   %tobool = icmp ne ptr %pToken, null
@@ -2304,7 +2304,7 @@ return:                                           ; preds = %if.end20, %for.body
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN2EA4StdC19SplitTokenDelimitedEPKDsmDsPDsmPS2_(ptr noundef readonly captures(address_is_null) %pSource, i64 noundef %nSourceLength, i16 noundef zeroext %cDelimiter, ptr noundef writeonly captures(address) %pToken, i64 noundef %nTokenLength, ptr noundef captures(address_is_null) %ppNewSource) local_unnamed_addr #9 {
 entry:
   %tobool = icmp ne ptr %pToken, null
@@ -2404,7 +2404,7 @@ return:                                           ; preds = %if.end20, %for.body
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN2EA4StdC19SplitTokenDelimitedEPKDimDiPDimPS2_(ptr noundef readonly captures(address_is_null) %pSource, i64 noundef %nSourceLength, i32 noundef zeroext %cDelimiter, ptr noundef writeonly captures(address) %pToken, i64 noundef %nTokenLength, ptr noundef captures(address_is_null) %ppNewSource) local_unnamed_addr #9 {
 entry:
   %tobool = icmp ne ptr %pToken, null
@@ -2504,7 +2504,7 @@ return:                                           ; preds = %if.end19, %for.body
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN2EA4StdC19SplitTokenSeparatedEPKcmcPcmPS2_(ptr noundef readonly captures(address_is_null) %pSource, i64 noundef %nSourceLength, i8 noundef signext %c, ptr noundef writeonly captures(address) %pToken, i64 noundef %nTokenLength, ptr noundef captures(address_is_null) %ppNewSource) local_unnamed_addr #9 {
 entry:
   %tobool = icmp ne ptr %pToken, null
@@ -2637,7 +2637,7 @@ return:                                           ; preds = %if.then9, %if.then9
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN2EA4StdC19SplitTokenSeparatedEPKDsmDsPDsmPS2_(ptr noundef readonly captures(address_is_null) %pSource, i64 noundef %nSourceLength, i16 noundef zeroext %c, ptr noundef writeonly captures(address) %pToken, i64 noundef %nTokenLength, ptr noundef captures(address_is_null) %ppNewSource) local_unnamed_addr #9 {
 entry:
   %tobool = icmp ne ptr %pToken, null
@@ -2770,7 +2770,7 @@ return:                                           ; preds = %if.then9, %if.then9
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN2EA4StdC19SplitTokenSeparatedEPKDimDiPDimPS2_(ptr noundef readonly captures(address_is_null) %pSource, i64 noundef %nSourceLength, i32 noundef zeroext %c, ptr noundef writeonly captures(address) %pToken, i64 noundef %nTokenLength, ptr noundef captures(address_is_null) %ppNewSource) local_unnamed_addr #9 {
 entry:
   %tobool = icmp ne ptr %pToken, null
@@ -3240,12 +3240,12 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { builtin nounwind }
 

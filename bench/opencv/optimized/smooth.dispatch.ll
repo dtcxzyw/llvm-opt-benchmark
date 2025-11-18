@@ -9799,7 +9799,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLO
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114vlineSmooth1N1IhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKPKT0_S7_iPT_i(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) #16 {
   %6 = load ptr, ptr %0, align 8, !tbaa !900
   %7 = icmp sgt i32 %4, 0
@@ -9826,7 +9826,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114vlineSmooth1N1IhNS_12_
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NIhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKPKT0_S7_iPT_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) #16 {
   %6 = load ptr, ptr %0, align 8, !tbaa !900
   %7 = icmp sgt i32 %4, 0
@@ -9858,7 +9858,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NIhNS_12_G
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116vlineSmooth3N121IhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKPKT0_S7_iPT_i(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) #16 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -9899,7 +9899,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116vlineSmooth3N121IhNS_1
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKPKT0_S7_iPT_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) #16 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -9951,7 +9951,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_G
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118vlineSmooth5N14641IhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKPKT0_S7_iPT_i(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) #16 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -10005,7 +10005,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118vlineSmooth5N14641IhNS
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth5NIhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKPKT0_S7_iPT_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) #16 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -10077,7 +10077,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth5NIhNS_12_G
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120vlineSmoothONa_yzy_aIhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKPKT0_S7_iPT_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) #16 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph23, label %._crit_edge24
@@ -10153,7 +10153,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120vlineSmoothONa_yzy_aIh
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111vlineSmoothIhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKPKT0_S7_iPT_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) #16 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph23, label %._crit_edge24
@@ -16279,7 +16279,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLO
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114vlineSmooth1N1ItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) #16 {
   %6 = load ptr, ptr %0, align 8, !tbaa !1817
   %7 = icmp sgt i32 %4, 0
@@ -16306,7 +16306,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114vlineSmooth1N1ItNS_12_
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1818
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) #16 {
   %6 = load ptr, ptr %0, align 8, !tbaa !1817
   %7 = icmp sgt i32 %4, 0
@@ -16338,7 +16338,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NItNS_12_G
   br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !1822
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116vlineSmooth3N121ItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) #16 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -16379,7 +16379,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116vlineSmooth3N121ItNS_1
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) #16 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -16431,7 +16431,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_G
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !1833
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118vlineSmooth5N14641ItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) #16 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -16485,7 +16485,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118vlineSmooth5N14641ItNS
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth5NItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) #16 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -16557,7 +16557,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth5NItNS_12_G
   br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !1850
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120vlineSmoothONa_yzy_aItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) #16 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph23, label %._crit_edge24
@@ -16630,7 +16630,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120vlineSmoothONa_yzy_aIt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111vlineSmoothItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) #16 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph23, label %._crit_edge24
@@ -19754,7 +19754,7 @@ attributes #12 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-prote
 attributes #13 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #15 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #19 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

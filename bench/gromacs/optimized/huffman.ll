@@ -31,8 +31,8 @@ define void @Ptngc_comp_conv_to_huffman(ptr noundef readonly captures(none) %0, 
   br label %.preheader355
 
 21:                                               ; preds = %._crit_edge406, %11
-  %22 = tail call ptr @Ptngc_warnmalloc_x(i64 noundef %13, ptr noundef nonnull @.str, i32 noundef 285) #8
-  %23 = tail call ptr @Ptngc_warnmalloc_x(i64 noundef %14, ptr noundef nonnull @.str, i32 noundef 286) #8
+  %22 = tail call ptr @Ptngc_warnmalloc_x(i64 noundef %13, ptr noundef nonnull @.str, i32 noundef 285) #9
+  %23 = tail call ptr @Ptngc_warnmalloc_x(i64 noundef %14, ptr noundef nonnull @.str, i32 noundef 286) #9
   br i1 %15, label %.lr.ph, label %.loopexit.thread510
 
 .lr.ph:                                           ; preds = %21, %.lr.ph
@@ -51,13 +51,13 @@ define void @Ptngc_comp_conv_to_huffman(ptr noundef readonly captures(none) %0, 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  tail call void @Ptngc_merge_sort(ptr noundef nonnull %22, i64 noundef %12, i64 noundef 32, ptr noundef nonnull @comp_htree, ptr noundef null) #8
+  tail call void @Ptngc_merge_sort(ptr noundef nonnull %22, i64 noundef %12, i64 noundef 32, ptr noundef nonnull @comp_htree, ptr noundef null) #9
   br i1 %16, label %.loopexit.thread, label %.lr.ph389
 
 .loopexit.thread510:                              ; preds = %21
-  tail call void @Ptngc_merge_sort(ptr noundef %22, i64 noundef %12, i64 noundef 32, ptr noundef nonnull @comp_htree, ptr noundef null) #8
+  tail call void @Ptngc_merge_sort(ptr noundef %22, i64 noundef %12, i64 noundef 32, ptr noundef nonnull @comp_htree, ptr noundef null) #9
   tail call fastcc void @assign_codes(ptr noundef %22, ptr noundef %23, i32 noundef 0, i32 noundef 0, i32 noundef 1)
-  tail call void @Ptngc_merge_sort(ptr noundef %23, i64 noundef %12, i64 noundef 16, ptr noundef nonnull @comp_codes, ptr noundef null) #8
+  tail call void @Ptngc_merge_sort(ptr noundef %23, i64 noundef %12, i64 noundef 16, ptr noundef nonnull @comp_codes, ptr noundef null) #9
   br label %._crit_edge398
 
 .loopexit.thread:                                 ; preds = %._crit_edge
@@ -68,8 +68,8 @@ define void @Ptngc_comp_conv_to_huffman(ptr noundef readonly captures(none) %0, 
 
 .lr.ph389:                                        ; preds = %._crit_edge, %81
   %indvars.iv460 = phi i64 [ %indvars.iv.next461, %81 ], [ %18, %._crit_edge ]
-  %31 = tail call ptr @Ptngc_warnmalloc_x(i64 noundef 32, ptr noundef nonnull @.str, i32 noundef 320) #8
-  %32 = tail call ptr @Ptngc_warnmalloc_x(i64 noundef 32, ptr noundef nonnull @.str, i32 noundef 321) #8
+  %31 = tail call ptr @Ptngc_warnmalloc_x(i64 noundef 32, ptr noundef nonnull @.str, i32 noundef 320) #9
+  %32 = tail call ptr @Ptngc_warnmalloc_x(i64 noundef 32, ptr noundef nonnull @.str, i32 noundef 321) #9
   %33 = getelementptr %union.htree_nodeleaf, ptr %22, i64 %indvars.iv460
   %34 = getelementptr i8, ptr %33, i64 -32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %34, i64 32, i1 false), !tbaa.struct !13
@@ -192,7 +192,7 @@ split:                                            ; preds = %67
   br i1 %exitcond467.not, label %.lr.ph397.preheader, label %.lr.ph392, !llvm.loop !17
 
 .lr.ph397.preheader:                              ; preds = %.lr.ph392
-  tail call void @Ptngc_merge_sort(ptr noundef nonnull %23, i64 noundef %12, i64 noundef 16, ptr noundef nonnull @comp_codes, ptr noundef null) #8
+  tail call void @Ptngc_merge_sort(ptr noundef nonnull %23, i64 noundef %12, i64 noundef 16, ptr noundef nonnull @comp_codes, ptr noundef null) #9
   br label %.lr.ph397
 
 .lr.ph397:                                        ; preds = %.lr.ph397.preheader, %100
@@ -221,7 +221,7 @@ split:                                            ; preds = %67
 
 ._crit_edge398:                                   ; preds = %100, %.loopexit.thread510
   tail call fastcc void @free_nodes(ptr noundef %22, i32 noundef 1)
-  tail call void @free(ptr noundef %22) #8
+  tail call void @free(ptr noundef %22) #9
   br i1 %15, label %.lr.ph402, label %.preheader356
 
 .lr.ph402:                                        ; preds = %._crit_edge398, %.lr.ph402
@@ -252,7 +252,7 @@ split:                                            ; preds = %67
   br i1 %exitcond482.not, label %._crit_edge406, label %.lr.ph405, !llvm.loop !20
 
 ._crit_edge406:                                   ; preds = %.lr.ph405
-  tail call void @free(ptr noundef nonnull %23) #8
+  tail call void @free(ptr noundef nonnull %23) #9
   br label %21
 
 .preheader355:                                    ; preds = %.preheader355.lr.ph, %writebits.exit
@@ -481,7 +481,7 @@ writebits.exit229:                                ; preds = %.lr.ph.i26.i215, %.
   %200 = sub i64 %198, %199
   %201 = trunc i64 %200 to i32
   store i32 %201, ptr %6, align 4, !tbaa !6
-  tail call void @Ptngc_merge_sort(ptr noundef %23, i64 noundef %12, i64 noundef 16, ptr noundef nonnull @comp_codes_value, ptr noundef null) #8
+  tail call void @Ptngc_merge_sort(ptr noundef %23, i64 noundef %12, i64 noundef 16, ptr noundef nonnull @comp_codes_value, ptr noundef null) #9
   %202 = getelementptr %struct.codelength, ptr %23, i64 %12
   %203 = getelementptr i8, ptr %202, i64 -8
   %204 = load i32, ptr %203, align 4, !tbaa !15
@@ -738,7 +738,7 @@ writebits.exit277:                                ; preds = %.lr.ph.i26.i263, %.
   %322 = load i32, ptr %203, align 4, !tbaa !15
   %323 = add i32 %322, 4
   store i32 %323, ptr %10, align 4, !tbaa !6
-  tail call void @free(ptr noundef %23) #8
+  tail call void @free(ptr noundef %23) #9
   ret void
 }
 
@@ -762,7 +762,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @assign_codes(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #4 {
   %6 = load i32, ptr %0, align 8, !tbaa !3
   %7 = icmp eq i32 %6, 0
@@ -848,8 +848,8 @@ define internal range(i32 -1, 2) i32 @comp_codes(ptr noundef readonly captures(n
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc void @free_nodes(ptr noundef captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc void @free_nodes(ptr noundef captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #5 {
   %3 = load i32, ptr %0, align 8, !tbaa !3
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %6
@@ -869,7 +869,7 @@ define internal fastcc void @free_nodes(ptr noundef captures(none) %0, i32 nound
   br i1 %.not, label %.sink.split, label %11
 
 .sink.split:                                      ; preds = %6, %5
-  tail call void @free(ptr noundef nonnull %0) #8
+  tail call void @free(ptr noundef nonnull %0) #9
   br label %11
 
 11:                                               ; preds = %.sink.split, %6, %5
@@ -877,7 +877,7 @@ define internal fastcc void @free_nodes(ptr noundef captures(none) %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -1, 2) i32 @comp_codes_value(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #2 {
@@ -894,7 +894,7 @@ define internal range(i32 -1, 2) i32 @comp_codes_value(ptr noundef readonly capt
 define void @Ptngc_comp_conv_from_huffman(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = sext i32 %3 to i64
   %10 = shl nsw i64 %9, 4
-  %11 = tail call ptr @Ptngc_warnmalloc_x(i64 noundef %10, ptr noundef nonnull @.str, i32 noundef 543) #8
+  %11 = tail call ptr @Ptngc_warnmalloc_x(i64 noundef %10, ptr noundef nonnull @.str, i32 noundef 543) #9
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %34, label %12
 
@@ -1028,7 +1028,7 @@ readbits.exit97:                                  ; preds = %66
   br i1 %exitcond176.not, label %.loopexit, label %readbits.exit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %33, %73, %12
-  tail call void @Ptngc_merge_sort(ptr noundef %11, i64 noundef %9, i64 noundef 16, ptr noundef nonnull @comp_codes, ptr noundef null) #8
+  tail call void @Ptngc_merge_sort(ptr noundef %11, i64 noundef %9, i64 noundef 16, ptr noundef nonnull @comp_codes, ptr noundef null) #9
   %75 = icmp sgt i32 %3, 0
   br i1 %75, label %.lr.ph155, label %.preheader
 
@@ -1206,31 +1206,32 @@ readbits.exit118:                                 ; preds = %135
   br i1 %exitcond189.not, label %._crit_edge169, label %92, !llvm.loop !32
 
 ._crit_edge169:                                   ; preds = %._crit_edge, %.preheader
-  tail call void @free(ptr noundef %11) #8
+  tail call void @free(ptr noundef %11) #9
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #7
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #7
+declare i32 @llvm.umax.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
+attributes #4 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #5 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

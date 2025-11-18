@@ -1776,7 +1776,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang13CXXRecordDeclENS1_7TagDeclEEEDaPT0_.exit: ; 
   ret ptr %.0.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5clang9ArrayTypeC2ENS_4Type9TypeClassENS_8QualTypeES3_NS_17ArraySizeModifierEjPKNS_4ExprE(ptr noundef nonnull align 16 dereferenceable(40) %0, i32 noundef %1, i64 %2, i64 %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6) unnamed_addr #4 align 2 {
   %8 = and i64 %2, -16
   %9 = inttoptr i64 %8 to ptr
@@ -2658,7 +2658,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK5clang17Constan
 
 declare i64 @_ZNK5clang10ASTContext20getConstantArrayTypeENS_8QualTypeERKN4llvm5APIntEPKNS_4ExprENS_17ArraySizeModifierEj(ptr noundef nonnull align 8 dereferenceable(23216), i64, ptr noundef nonnull align 8 dereferenceable(12), ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5clang23DependentSizedArrayTypeC2ENS_8QualTypeES1_PNS_4ExprENS_17ArraySizeModifierEjNS_11SourceRangeE(ptr noundef nonnull align 16 dereferenceable(56) %0, i64 %1, i64 %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i64 %6) unnamed_addr #4 align 2 {
   %8 = and i64 %1, -16
   %9 = inttoptr i64 %8 to ptr
@@ -2825,7 +2825,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %_ZN4llvm16FoldingSe
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5clang19DependentVectorTypeC2ENS_8QualTypeES1_PNS_4ExprENS_14SourceLocationENS_10VectorKindE(ptr noundef nonnull align 16 dereferenceable(52) %0, i64 %1, i64 %2, ptr noundef %3, i32 %4, i32 noundef %5) unnamed_addr #4 align 2 {
   %7 = and i64 %1, -16
   %8 = inttoptr i64 %7 to ptr
@@ -2958,7 +2958,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit:    ; preds = %_ZN4llvm16FoldingSe
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5clang27DependentSizedExtVectorTypeC2ENS_8QualTypeES1_PNS_4ExprENS_14SourceLocationE(ptr noundef nonnull align 16 dereferenceable(52) %0, i64 %1, i64 %2, ptr noundef %3, i32 %4) unnamed_addr #4 align 2 {
   %6 = and i64 %1, -16
   %7 = inttoptr i64 %6 to ptr
@@ -3064,7 +3064,7 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit:  ; preds = %_ZN4llvm16FoldingSe
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5clang25DependentAddressSpaceTypeC2ENS_8QualTypeES1_PNS_4ExprENS_14SourceLocationE(ptr noundef nonnull align 16 dereferenceable(52) %0, i64 %1, i64 %2, ptr noundef %3, i32 %4) unnamed_addr #4 align 2 {
   %6 = and i64 %1, -16
   %7 = inttoptr i64 %6 to ptr
@@ -3170,7 +3170,7 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit:  ; preds = %_ZN4llvm16FoldingSe
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5clang10MatrixTypeC2ENS_4Type9TypeClassENS_8QualTypeES3_PKNS_4ExprES6_(ptr noundef nonnull align 16 dereferenceable(40) %0, i32 noundef %1, i64 %2, i64 %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5) unnamed_addr #4 align 2 {
   %.not = icmp eq ptr %4, null
   %7 = and i64 %2, -16
@@ -3236,7 +3236,7 @@ define dso_local void @_ZN5clang10MatrixTypeC2ENS_4Type9TypeClassENS_8QualTypeES
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5clang18ConstantMatrixTypeC2ENS_8QualTypeEjjS1_(ptr noundef nonnull align 16 dereferenceable(48) %0, i64 %1, i32 noundef %2, i32 noundef %3, i64 %4) unnamed_addr #4 align 2 {
   %6 = and i64 %1, -16
   %7 = inttoptr i64 %6 to ptr
@@ -3268,7 +3268,7 @@ define dso_local void @_ZN5clang18ConstantMatrixTypeC2ENS_8QualTypeEjjS1_(ptr no
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5clang18ConstantMatrixTypeC2ENS_4Type9TypeClassENS_8QualTypeEjjS3_(ptr noundef nonnull align 16 dereferenceable(48) %0, i32 noundef %1, i64 %2, i32 noundef %3, i32 noundef %4, i64 %5) unnamed_addr #4 align 2 {
   %7 = and i64 %2, -16
   %8 = inttoptr i64 %7 to ptr
@@ -3301,7 +3301,7 @@ define dso_local void @_ZN5clang18ConstantMatrixTypeC2ENS_4Type9TypeClassENS_8Qu
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5clang24DependentSizedMatrixTypeC2ENS_8QualTypeES1_PNS_4ExprES3_NS_14SourceLocationE(ptr noundef nonnull align 16 dereferenceable(64) %0, i64 %1, i64 %2, ptr noundef %3, ptr noundef %4, i32 %5) unnamed_addr #4 align 2 {
   %.not.i = icmp eq ptr %3, null
   %7 = and i64 %1, -16
@@ -3427,7 +3427,7 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit:  ; preds = %_ZN4llvm16FoldingSe
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5clang10VectorTypeC2ENS_8QualTypeEjS1_NS_10VectorKindE(ptr noundef nonnull align 16 dereferenceable(40) %0, i64 %1, i32 noundef %2, i64 %3, i32 noundef %4) unnamed_addr #4 align 2 {
   %6 = and i64 %1, -16
   %7 = inttoptr i64 %6 to ptr
@@ -3463,7 +3463,7 @@ define dso_local void @_ZN5clang10VectorTypeC2ENS_8QualTypeEjS1_NS_10VectorKindE
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5clang10VectorTypeC2ENS_4Type9TypeClassENS_8QualTypeEjS3_NS_10VectorKindE(ptr noundef nonnull align 16 dereferenceable(40) %0, i32 noundef %1, i64 %2, i32 noundef %3, i64 %4, i32 noundef %5) unnamed_addr #4 align 2 {
   %7 = and i64 %2, -16
   %8 = inttoptr i64 %7 to ptr
@@ -3611,7 +3611,7 @@ _ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit:    ; preds = %4, %9
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang20BoundsAttributedType20referencesFieldDeclsEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(56) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !482
@@ -5283,7 +5283,7 @@ _ZNK5clang9UsingType7desugarEv.exit:              ; preds = %46, %43, %184, %175
   ret i64 %.sroa.0.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang12DecltypeType9isSugaredEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(40) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !488
@@ -5293,7 +5293,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang12DecltypeType9isSugaredEv(ptr no
   ret i1 %.not
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i64 @_ZNK5clang12DecltypeType7desugarEv(ptr noundef nonnull align 16 dereferenceable(40) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !488
@@ -5495,7 +5495,7 @@ _ZNK5clang16PackIndexingType15getSelectedTypeEv.exit: ; preds = %25, %28, %_ZN4l
   ret i64 %.sroa.0.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang14TypeOfExprType9isSugaredEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(40) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !492
@@ -5674,7 +5674,7 @@ _ZNK5clang8QualType24getAtomicUnqualifiedTypeEv.exit: ; preds = %_ZNK5clang4Type
   ret i64 %.sroa.02.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i64 @_ZNK5clang11TypedefType7desugarEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(48) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i24, ptr %2, align 16
@@ -9120,7 +9120,7 @@ _ZNK5clang10RecordType7getDeclEv.exit:            ; preds = %.lr.ph.i.i.i, %15, 
   ret i1 %spec.select
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang4Type13isComplexTypeEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(24) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %2, align 8, !tbaa !374
@@ -9149,7 +9149,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4Type13isComplexTypeEv(ptr nounde
   ret i1 %spec.select
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang4Type14isFloatingTypeEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(24) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %2, align 8, !tbaa !374
@@ -10346,7 +10346,7 @@ _ZNK5clang21ObjCObjectPointerType24isObjCQualifiedClassTypeEv.exit: ; preds = %4
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5clang17ObjCTypeParamTypeC2EPKNS_17ObjCTypeParamDeclENS_8QualTypeEN4llvm8ArrayRefIPNS_16ObjCProtocolDeclEEE(ptr noundef nonnull align 16 dereferenceable(48) %0, ptr noundef %1, i64 %2, ptr readonly captures(none) %3, i64 %4) unnamed_addr #4 align 2 {
   %6 = and i64 %2, -16
   %7 = inttoptr i64 %6 to ptr
@@ -10391,7 +10391,7 @@ _ZN5clang22ObjCProtocolQualifiersINS_17ObjCTypeParamTypeEE10initializeEN4llvm8Ar
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5clang14ObjCObjectTypeC2ENS_8QualTypeES1_N4llvm8ArrayRefIS1_EENS3_IPNS_16ObjCProtocolDeclEEEb(ptr noundef nonnull align 16 dereferenceable(40) %0, i64 %1, i64 %2, ptr readonly captures(address) %3, i64 %4, ptr noundef readonly byval(%"class.llvm::ArrayRef.471") align 8 captures(none) %5, i1 noundef zeroext %6) unnamed_addr #10 align 2 {
   %8 = and i64 %2, -16
   %9 = inttoptr i64 %8 to ptr
@@ -13076,13 +13076,13 @@ define dso_local noundef zeroext i1 @_ZNK5clang4Type7hasAttrENS_4attr4KindE(ptr 
   ret i1 %.not.lcssa
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef ptr @_ZNK5clang4Type23getContainedDeducedTypeEv(ptr noundef nonnull readonly align 16 captures(ret: address, provenance) dereferenceable(24) %0) local_unnamed_addr #7 align 2 {
   %2 = tail call fastcc noundef ptr @_ZN5clang11TypeVisitorIN12_GLOBAL__N_130GetContainedDeducedTypeVisitorEPNS_4TypeEE5VisitEPKS3_(i8 0, ptr noundef nonnull %0)
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef ptr @_ZN5clang11TypeVisitorIN12_GLOBAL__N_130GetContainedDeducedTypeVisitorEPNS_4TypeEE5VisitEPKS3_(i8 %.0.val, ptr noundef readonly captures(ret: address, provenance) %0) unnamed_addr #7 align 2 {
   %2 = trunc nuw i8 %.0.val to i1
   br label %tailrecurse
@@ -13334,7 +13334,7 @@ _ZN12_GLOBAL__N_130GetContainedDeducedTypeVisitor5VisitEN5clang8QualTypeE.exit: 
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang4Type28hasAutoForTrailingReturnTypeEv(ptr noundef nonnull readonly align 16 captures(address) dereferenceable(24) %0) local_unnamed_addr #7 align 2 {
   %2 = tail call fastcc noundef ptr @_ZN5clang11TypeVisitorIN12_GLOBAL__N_130GetContainedDeducedTypeVisitorEPNS_4TypeEE5VisitEPKS3_(i8 1, ptr noundef nonnull %0)
   %.not.i.i = icmp eq ptr %2, null
@@ -13445,7 +13445,7 @@ _ZNK5clang4Type19isRVVVLSBuiltinTypeEv.exit.thread: ; preds = %15, %_ZNK5clang4T
   ret i1 %.1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang4Type19isSveVLSBuiltinTypeEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(24) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %2, align 8, !tbaa !374
@@ -13479,7 +13479,7 @@ switch.lookup:                                    ; preds = %9
   ret i1 %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang4Type19isRVVVLSBuiltinTypeEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(24) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %2, align 8, !tbaa !374
@@ -13719,7 +13719,7 @@ _ZNK5clang8EnumType7getDeclEv.exit:               ; preds = %.lr.ph.i.i.i, %15, 
   ret i1 %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang4Type10isCharTypeEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(24) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %2, align 8, !tbaa !374
@@ -13753,7 +13753,7 @@ switch.edge:                                      ; preds = %9, %switch.lookup, 
   ret i1 %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang4Type14isWideCharTypeEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(24) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %2, align 8, !tbaa !374
@@ -13781,7 +13781,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4Type14isWideCharTypeEv(ptr nound
   ret i1 %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang4Type11isChar8TypeEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(24) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %2, align 8, !tbaa !374
@@ -13806,7 +13806,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4Type11isChar8TypeEv(ptr noundef 
   ret i1 %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang4Type12isChar16TypeEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(24) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %2, align 8, !tbaa !374
@@ -13831,7 +13831,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4Type12isChar16TypeEv(ptr noundef
   ret i1 %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang4Type12isChar32TypeEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(24) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %2, align 8, !tbaa !374
@@ -13856,7 +13856,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4Type12isChar32TypeEv(ptr noundef
   ret i1 %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang4Type18isAnyCharacterTypeEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(24) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %2, align 8, !tbaa !374
@@ -14843,7 +14843,7 @@ _ZNK5clang4Type19isSveVLSBuiltinTypeEv.exit.thread: ; preds = %30, %22
   ret i1 %.1
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang4Type25hasFloatingRepresentationEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(24) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %2, align 8, !tbaa !374
@@ -14874,7 +14874,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4Type25hasFloatingRepresentationE
   ret i1 %14
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang4Type18isRealFloatingTypeEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(24) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %2, align 8, !tbaa !374
@@ -15130,7 +15130,7 @@ _ZNK5clang8EnumType7getDeclEv.exit29:             ; preds = %.lr.ph.i.i.i18, %36
   ret i1 %.1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef range(i32 0, 10) i32 @_ZNK5clang4Type17getScalarTypeKindEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(24) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.copyload.i.i.i.i = load i64, ptr %2, align 8
@@ -15301,7 +15301,7 @@ _ZNK5clang10RecordType7getDeclEv.exit:            ; preds = %.lr.ph.i.i.i, %15, 
   ret i1 %.2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang4Type18isConstantSizeTypeEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(24) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %2, align 8, !tbaa !374
@@ -15697,7 +15697,7 @@ _ZNK5clang4Type10isVoidTypeEv.exit:               ; preds = %113, %tailrecurse, 
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang4Type21isSizelessBuiltinTypeEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(24) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %2, align 8, !tbaa !374
@@ -15739,7 +15739,7 @@ _ZNK5clang4Type20isSizelessVectorTypeEv.exit.thread: ; preds = %1, %13, %_ZNK5cl
   ret i1 %.04
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang4Type20isSizelessVectorTypeEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(24) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %2, align 8, !tbaa !374
@@ -15772,7 +15772,7 @@ _ZNK5clang4Type24isRVVSizelessBuiltinTypeEv.exit: ; preds = %12, %1, %_ZNK5clang
   ret i1 %14
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang4Type26isWebAssemblyExternrefTypeEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(24) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %2, align 8, !tbaa !374
@@ -16051,7 +16051,7 @@ _ZNK5clang8QualType24isWebAssemblyFuncrefTypeEv.exit: ; preds = %.thread, %38, %
   ret i1 %44
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang4Type14isSizelessTypeEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(24) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %2, align 8, !tbaa !374
@@ -16090,7 +16090,7 @@ _ZNK5clang4Type21isSizelessBuiltinTypeEv.exit:    ; preds = %1, %_ZNK5clang4Type
   ret i1 %.04.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang4Type24isSVESizelessBuiltinTypeEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(24) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %2, align 8, !tbaa !374
@@ -16117,7 +16117,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4Type24isSVESizelessBuiltinTypeEv
   ret i1 %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang4Type24isRVVSizelessBuiltinTypeEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(24) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %2, align 8, !tbaa !374
@@ -17685,7 +17685,7 @@ define dso_local noundef range(i32 0, 5) i32 @_ZNK5clang8QualType38isNonTrivialT
   ret i32 %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang8QualType26isNonWeakInMRRWithObjCWeakERKNS_10ASTContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(23216) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 2160
   %4 = load ptr, ptr %3, align 8, !tbaa !438
@@ -17746,7 +17746,7 @@ define dso_local noundef zeroext i1 @_ZN5clang8QualType34hasNonTrivialToPrimitiv
   ret i1 %5
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang8QualType26isWebAssemblyExternrefTypeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #7 align 2 {
   %.0.copyload.i.i.i.i = load i64, ptr %0, align 8
   %2 = and i64 %.0.copyload.i.i.i.i, -16
@@ -21379,7 +21379,7 @@ define dso_local { ptr, i64 } @_ZNK5clang11BuiltinType7getNameERKNS_14PrintingPo
   ret { ptr, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i64 @_ZNK5clang8QualType23getNonPackExpansionTypeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #7 align 2 {
   %.0.copyload.i.i.i.i = load i64, ptr %0, align 8
   %2 = and i64 %.0.copyload.i.i.i.i, -16
@@ -21542,7 +21542,7 @@ switch.lookup:
   ret { ptr, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5clang17FunctionProtoType17ExceptionSpecInfo11instantiateEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((0, 4), (24, 32)) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !587
@@ -21613,7 +21613,7 @@ _ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit: ; preds = %1, %_ZNK4llvm1
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5clang17FunctionProtoTypeC2ENS_8QualTypeEN4llvm8ArrayRefIS1_EES1_RKNS0_12ExtProtoInfoE(ptr noundef nonnull align 16 dereferenceable(48) %0, i64 %1, ptr readonly captures(none) %2, i64 %3, i64 %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %5) unnamed_addr #10 align 2 {
   %7 = and i64 %1, -16
   %8 = inttoptr i64 %7 to ptr
@@ -22668,7 +22668,7 @@ _ZNK5clang17FunctionProtoType10exceptionsEv.exit: ; preds = %_ZNK5clang17Functio
   ret i1 %.1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang17FunctionProtoType38hasInstantiationDependentExceptionSpecEv(ptr noundef nonnull align 16 dereferenceable(48) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 16
@@ -22933,7 +22933,7 @@ _ZNK5clang4Type5getAsINS_17PackExpansionTypeEEEPKT_v.exit.thread10: ; preds = %_
   ret i32 %.06
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang17FunctionProtoType18isTemplateVariadicEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(48) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 16
@@ -23837,7 +23837,7 @@ define dso_local void @_ZN5clang22TypeCoupledDeclRefInfo18setFromOpaqueValueEPv(
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5clang20BoundsAttributedTypeC2ENS_4Type9TypeClassENS_8QualTypeES3_(ptr noundef nonnull align 16 dereferenceable(56) %0, i32 noundef %1, i64 %2, i64 %3) unnamed_addr #4 align 2 {
   %5 = and i64 %2, -16
   %6 = inttoptr i64 %5 to ptr
@@ -23868,7 +23868,7 @@ define dso_local void @_ZN5clang20BoundsAttributedTypeC2ENS_4Type9TypeClassENS_8
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5clang19CountAttributedTypeC2ENS_8QualTypeES1_PNS_4ExprEbbN4llvm8ArrayRefINS_22TypeCoupledDeclRefInfoEEE(ptr noundef nonnull align 16 dereferenceable(64) %0, i64 %1, i64 %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef readonly byval(%"class.llvm::ArrayRef") align 8 captures(none) %6) unnamed_addr #15 align 2 {
   %8 = and i64 %1, -16
   %9 = inttoptr i64 %8 to ptr
@@ -23936,7 +23936,7 @@ define dso_local void @_ZN5clang19CountAttributedTypeC2ENS_8QualTypeES1_PNS_4Exp
   br i1 %.not, label %._crit_edge, label %39, !llvm.loop !641
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5clang11TypedefTypeC2ENS_4Type9TypeClassEPKNS_15TypedefNameDeclENS_8QualTypeES6_(ptr noundef nonnull align 16 dereferenceable(48) %0, i32 noundef %1, ptr noundef %2, i64 %3, i64 %4) unnamed_addr #4 align 2 {
   %6 = and i64 %4, -16
   %7 = inttoptr i64 %6 to ptr
@@ -23979,7 +23979,7 @@ define dso_local void @_ZN5clang11TypedefTypeC2ENS_4Type9TypeClassEPKNS_15Typede
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5clang9UsingTypeC2EPKNS_15UsingShadowDeclENS_8QualTypeES4_(ptr noundef nonnull align 16 dereferenceable(48) %0, ptr noundef %1, i64 %2, i64 %3) unnamed_addr #4 align 2 {
   %5 = and i64 %3, -16
   %6 = inttoptr i64 %5 to ptr
@@ -24021,7 +24021,7 @@ define dso_local void @_ZN5clang9UsingTypeC2EPKNS_15UsingShadowDeclENS_8QualType
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i64 @_ZNK5clang9UsingType17getUnderlyingTypeEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(48) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i24, ptr %2, align 16
@@ -24050,7 +24050,7 @@ define dso_local i64 @_ZNK5clang9UsingType17getUnderlyingTypeEv(ptr noundef nonn
   ret i64 %.sroa.0.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i64 @_ZNK5clang18MacroQualifiedType15getModifiedTypeEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.0.0.copyload.i = load i64, ptr %2, align 8, !tbaa !374
@@ -24349,7 +24349,7 @@ _ZNK5clang8QualType24getAtomicUnqualifiedTypeEv.exit: ; preds = %_ZNK5clang4Type
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5clang12DecltypeTypeC2EPNS_4ExprENS_8QualTypeES3_(ptr noundef nonnull align 16 dereferenceable(40) %0, ptr noundef %1, i64 %2, i64 %3) unnamed_addr #4 align 2 {
   %5 = load i24, ptr %1, align 8
   %6 = lshr i24 %5, 14
@@ -24394,7 +24394,7 @@ define dso_local void @_ZN5clang12DecltypeTypeC2EPNS_4ExprENS_8QualTypeES3_(ptr 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5clang21DependentDecltypeTypeC2EPNS_4ExprENS_8QualTypeE(ptr noundef nonnull align 16 dereferenceable(48) %0, ptr noundef %1, i64 %2) unnamed_addr #4 align 2 {
   %4 = load i24, ptr %1, align 8
   %5 = lshr i24 %4, 14
@@ -24445,7 +24445,7 @@ define dso_local void @_ZN5clang21DependentDecltypeType7ProfileERN4llvm16Folding
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5clang16PackIndexingTypeC2ERKNS_10ASTContextENS_8QualTypeES4_PNS_4ExprEbN4llvm8ArrayRefIS4_EE(ptr noundef nonnull align 16 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1, i64 %2, i64 %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef readonly byval(%"class.llvm::ArrayRef.472") align 8 captures(none) %6) unnamed_addr #15 align 2 {
   %.sroa.0.0.copyload = load ptr, ptr %6, align 8, !tbaa !541
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -24566,7 +24566,7 @@ _ZSt18uninitialized_copyIPKN5clang8QualTypeEPS1_ET0_T_S6_S5_.exit: ; preds = %.l
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang16PackIndexingType17computeDependenceENS_8QualTypeEPNS_4ExprEN4llvm8ArrayRefIS1_EE(i64 %0, ptr noundef readonly captures(none) %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #7 align 2 {
   %5 = load i24, ptr %1, align 8
   %6 = lshr i24 %5, 14
@@ -24784,7 +24784,7 @@ _ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit:    ; preds = %_ZNK5clang8QualType
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5clang18UnaryTransformTypeC2ENS_8QualTypeES1_NS0_7UTTKindES1_(ptr noundef nonnull align 16 dereferenceable(44) %0, i64 %1, i64 %2, i32 noundef %3, i64 %4) unnamed_addr #4 align 2 {
   %6 = and i64 %1, -16
   %7 = inttoptr i64 %6 to ptr
@@ -24814,7 +24814,7 @@ define dso_local void @_ZN5clang18UnaryTransformTypeC2ENS_8QualTypeES1_NS0_7UTTK
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5clang27DependentUnaryTransformTypeC2ERKNS_10ASTContextENS_8QualTypeENS_18UnaryTransformType7UTTKindE(ptr noundef nonnull align 16 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(23216) %1, i64 %2, i32 noundef %3) unnamed_addr #4 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 18912
   %.sroa.0.0.copyload.i = load i64, ptr %5, align 8, !tbaa !374
@@ -25303,7 +25303,7 @@ _ZNSt6vectorIPKN5clang10RecordTypeESaIS3_EED2Ev.exit: ; preds = %.critedge17, %.
   ret i1 %168
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5clang14AttributedTypeC2ENS_8QualTypeEPKNS_4AttrES1_S1_(ptr noundef nonnull align 16 dereferenceable(56) %0, i64 %1, ptr noundef %2, i64 %3, i64 %4) unnamed_addr #4 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %7 = load i16, ptr %6, align 8
@@ -25343,7 +25343,7 @@ define dso_local void @_ZN5clang14AttributedTypeC2ENS_8QualTypeEPKNS_4AttrES1_S1
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5clang14AttributedTypeC2ENS_8QualTypeENS_4attr4KindEPKNS_4AttrES1_S1_(ptr noundef nonnull align 16 dereferenceable(56) %0, i64 %1, i32 noundef %2, ptr noundef %3, i64 %4, i64 %5) unnamed_addr #4 align 2 {
   %7 = and i64 %5, -16
   %8 = inttoptr i64 %7 to ptr
@@ -25441,7 +25441,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang14AttributedType13isCallingConvEv
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef ptr @_ZNK5clang20TemplateTypeParmType13getIdentifierEv(ptr noundef nonnull align 16 dereferenceable(40) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = ptrtoint ptr %0 to i64
@@ -25466,7 +25466,7 @@ define dso_local noundef ptr @_ZNK5clang20TemplateTypeParmType13getIdentifierEv(
   ret ptr %15
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5clang25SubstTemplateTypeParmTypeC2ENS_8QualTypeEPNS_4DeclEjSt8optionalIjENS_29SubstTemplateTypeParmTypeFlagE(ptr noundef nonnull align 16 dereferenceable(48) %0, i64 %1, ptr noundef %2, i32 noundef %3, i64 %4, i32 noundef %5) unnamed_addr #4 align 2 {
   %7 = and i64 %1, -16
   %8 = inttoptr i64 %7 to ptr
@@ -28824,7 +28824,7 @@ _ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.i.i.i.i.i: ; pre
   ret i1 %28
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local range(i16 0, 260) i16 @_ZN5clang14AttributedType21stripOuterNullabilityERNS_8QualTypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #4 align 2 {
   %2 = load i64, ptr %0, align 8, !tbaa !374
   %3 = and i64 %2, -16
@@ -29684,7 +29684,7 @@ _ZNK5clang4Type20isObjCRetainableTypeEv.exit:     ; preds = %_ZNK5clang4Type20ge
   ret i1 %45
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang4Type22isObjCARCBridgableTypeEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(24) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %2, align 8, !tbaa !374
@@ -42036,18 +42036,18 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

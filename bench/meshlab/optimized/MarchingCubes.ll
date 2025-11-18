@@ -863,7 +863,7 @@ define noundef zeroext i1 @_ZN15MarchingSquares8HasRootsEh(i8 noundef zeroext %0
   ret i1 %.not3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZN15MarchingSquares8AddEdgesEPKddP4Edge(ptr noundef readonly captures(none) %0, double noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 align 2 {
   %.sroa.0 = alloca [2 x [2 x double]], align 8
   %4 = load double, ptr %0, align 8
@@ -1027,7 +1027,7 @@ _ZN15MarchingSquares9SetVertexEiPKdd.exit:        ; preds = %49, %47, %23
   ret i32 %.030
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN15MarchingSquares9SetVertexEiPKdd(i32 noundef %0, ptr noundef readonly captures(none) %1, double noundef %2) local_unnamed_addr #4 align 2 {
 _ZN6Square15FactorEdgeIndexEiRiS0_.exit:
   %3 = icmp ult i32 %0, 4
@@ -1427,7 +1427,7 @@ define noundef zeroext i1 @_ZN13MarchingCubes8HasRootsEh(i8 noundef zeroext %0) 
   ret i1 %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZN13MarchingCubes12AddTrianglesEPKddP8Triangle(ptr noundef readonly captures(none) %0, double noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 align 2 {
   %.sroa.0 = alloca [3 x [3 x double]], align 8
   %4 = load double, ptr %0, align 8
@@ -1615,7 +1615,7 @@ _ZN13MarchingCubes9SetVertexEiPKdd.exit:          ; preds = %.sink.split.i, %40
   ret i32 %.034
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN13MarchingCubes9SetVertexEiPKdd(i32 noundef %0, ptr noundef readonly captures(none) %1, double noundef %2) local_unnamed_addr #4 align 2 {
   %4 = ashr i32 %0, 2
   %5 = and i32 %0, 1
@@ -2264,7 +2264,7 @@ _ZN4Cube11EdgeCornersEiRiS0_.exit:                ; preds = %7, %12, %16, %2
   ret i1 %29
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZN13MarchingCubes12AddTrianglesEPKffP8Triangle(ptr noundef readonly captures(none) %0, float noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 align 2 {
   %.sroa.0 = alloca [3 x [3 x double]], align 8
   %4 = load float, ptr %0, align 4
@@ -2455,7 +2455,7 @@ _ZN13MarchingCubes9SetVertexEiPKff.exit:          ; preds = %.sink.split.i, %40
   ret i32 %.034
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN13MarchingCubes9SetVertexEiPKff(i32 noundef %0, ptr noundef readonly captures(none) %1, float noundef %2) local_unnamed_addr #4 align 2 {
   %4 = ashr i32 %0, 2
   %5 = and i32 %0, 1
@@ -2673,8 +2673,8 @@ define noundef float @_ZN13MarchingCubes11InterpolateEff(float noundef %0, float
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

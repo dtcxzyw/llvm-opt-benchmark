@@ -128,7 +128,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.112 = private unnamed_addr constant [24 x i8] c"TwoFrameSatValue = %d.\0A\00", align 1
 @enable_dbg_outs = external local_unnamed_addr global i32, align 4
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @Abc_ObjCompareById(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   %4 = ptrtoint ptr %3 to i64
@@ -146,7 +146,7 @@ define i32 @Abc_ObjCompareById(ptr noundef readonly captures(none) %0, ptr nound
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @Abc_CollectTopOr_rec(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, 1
@@ -185,11 +185,11 @@ define void @Abc_CollectTopOr_rec(ptr noundef %0, ptr noundef captures(none) %1)
   br i1 %.not9.i.i, label %18, label %16
 
 16:                                               ; preds = %13
-  %17 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %15, i64 noundef 128) #19
+  %17 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %15, i64 noundef 128) #20
   br label %Vec_PtrGrow.exit.i
 
 18:                                               ; preds = %13
-  %19 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #20
+  %19 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #21
   br label %Vec_PtrGrow.exit.i
 
 Vec_PtrGrow.exit.i:                               ; preds = %18, %16
@@ -208,11 +208,11 @@ Vec_PtrGrow.exit.i:                               ; preds = %18, %16
   br i1 %.not9.i10.i, label %29, label %27
 
 27:                                               ; preds = %21
-  %28 = tail call ptr @realloc(ptr noundef nonnull %24, i64 noundef %26) #19
+  %28 = tail call ptr @realloc(ptr noundef nonnull %24, i64 noundef %26) #20
   br label %31
 
 29:                                               ; preds = %21
-  %30 = tail call noalias ptr @malloc(i64 noundef %26) #20
+  %30 = tail call noalias ptr @malloc(i64 noundef %26) #21
   br label %31
 
 31:                                               ; preds = %29, %27
@@ -274,7 +274,7 @@ tailrecurse:                                      ; preds = %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_CollectTopOr(ptr noundef %0, ptr noundef captures(none) initializes((4, 8)) %1) local_unnamed_addr #1 {
+define void @Abc_CollectTopOr(ptr noundef %0, ptr noundef captures(none) initializes((4, 8)) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %3, align 4, !tbaa !14
   %4 = ptrtoint ptr %0 to i64
@@ -294,7 +294,7 @@ Vec_PtrSort.exit.i:                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !17
   %13 = zext nneg i32 %9 to i64
-  tail call void @qsort(ptr noundef %12, i64 noundef %13, i64 noundef 8, ptr noundef nonnull @Abc_ObjCompareById) #21
+  tail call void @qsort(ptr noundef %12, i64 noundef %13, i64 noundef 8, ptr noundef nonnull @Abc_ObjCompareById) #22
   %14 = load i32, ptr %3, align 4, !tbaa !14
   %15 = icmp sgt i32 %14, 1
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
@@ -346,12 +346,12 @@ Vec_PtrSort.exit.i:                               ; preds = %6
   br i1 %.not9.i.i, label %37, label %35
 
 35:                                               ; preds = %34
-  %36 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %33, i64 noundef 128) #19
+  %36 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %33, i64 noundef 128) #20
   %.pre.pre = load i32, ptr %3, align 4, !tbaa !14
   br label %Vec_PtrGrow.exit.i
 
 37:                                               ; preds = %34
-  %38 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #20
+  %38 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #21
   br label %Vec_PtrGrow.exit.i
 
 Vec_PtrGrow.exit.i:                               ; preds = %37, %35
@@ -376,7 +376,7 @@ Vec_PtrUniqify.exit:                              ; preds = %._crit_edge.i, %6, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkToDarBmc(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
+define ptr @Abc_NtkToDarBmc(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8, !tbaa !38
   %5 = getelementptr i8, ptr %4, i64 4
@@ -432,29 +432,29 @@ define ptr @Abc_NtkToDarBmc(ptr noundef %0, ptr noundef captures(address_is_null
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %2, %22, %.critedge
-  %23 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
+  %23 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 0, ptr %24, align 4, !tbaa !14
   store i32 100, ptr %23, align 8, !tbaa !16
-  %25 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #20
+  %25 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #21
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %25, ptr %26, align 8, !tbaa !17
-  %27 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
+  %27 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 0, ptr %28, align 4, !tbaa !14
   store i32 100, ptr %27, align 8, !tbaa !16
-  %29 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #20
+  %29 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #21
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %29, ptr %30, align 8, !tbaa !17
   %.not124 = icmp eq ptr %1, null
   br i1 %.not124, label %36, label %31
 
 31:                                               ; preds = %.critedge.thread
-  %32 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
+  %32 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i32 0, ptr %33, align 4, !tbaa !41
   store i32 100, ptr %32, align 8, !tbaa !42
-  %34 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #20
+  %34 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #21
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %34, ptr %35, align 8, !tbaa !43
   store ptr %32, ptr %1, align 8, !tbaa !44
@@ -526,11 +526,11 @@ define ptr @Abc_NtkToDarBmc(ptr noundef %0, ptr noundef captures(address_is_null
   br i1 %.not9.i.i, label %71, label %69
 
 69:                                               ; preds = %67
-  %70 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %68, i64 noundef 128) #19
+  %70 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %68, i64 noundef 128) #20
   br label %Vec_PtrGrow.exit.i
 
 71:                                               ; preds = %67
-  %72 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #20
+  %72 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #21
   br label %Vec_PtrGrow.exit.i
 
 Vec_PtrGrow.exit.i:                               ; preds = %71, %69
@@ -548,11 +548,11 @@ Vec_PtrGrow.exit.i:                               ; preds = %71, %69
   br i1 %.not9.i10.i, label %81, label %79
 
 79:                                               ; preds = %74
-  %80 = tail call ptr @realloc(ptr noundef nonnull %76, i64 noundef %78) #19
+  %80 = tail call ptr @realloc(ptr noundef nonnull %76, i64 noundef %78) #20
   br label %83
 
 81:                                               ; preds = %74
-  %82 = tail call noalias ptr @malloc(i64 noundef %78) #20
+  %82 = tail call noalias ptr @malloc(i64 noundef %78) #21
   br label %83
 
 83:                                               ; preds = %81, %79
@@ -594,11 +594,11 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not9.i.i170, label %102, label %100
 
 100:                                              ; preds = %97
-  %101 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %99, i64 noundef 64) #19
+  %101 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %99, i64 noundef 64) #20
   br label %Vec_IntGrow.exit.i
 
 102:                                              ; preds = %97
-  %103 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #20
+  %103 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #21
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %102, %100
@@ -617,11 +617,11 @@ Vec_IntGrow.exit.i:                               ; preds = %102, %100
   br i1 %.not9.i9.i, label %113, label %111
 
 111:                                              ; preds = %105
-  %112 = tail call ptr @realloc(ptr noundef nonnull %108, i64 noundef %110) #19
+  %112 = tail call ptr @realloc(ptr noundef nonnull %108, i64 noundef %110) #20
   br label %115
 
 113:                                              ; preds = %105
-  %114 = tail call noalias ptr @malloc(i64 noundef %110) #20
+  %114 = tail call noalias ptr @malloc(i64 noundef %110) #21
   br label %115
 
 115:                                              ; preds = %113, %111
@@ -688,11 +688,11 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %.not9.i.i181.us, label %141, label %139
 
 139:                                              ; preds = %137
-  %140 = tail call ptr @realloc(ptr noundef nonnull %136, i64 noundef %138) #19
+  %140 = tail call ptr @realloc(ptr noundef nonnull %136, i64 noundef %138) #20
   br label %143
 
 141:                                              ; preds = %137
-  %142 = tail call noalias ptr @malloc(i64 noundef %138) #20
+  %142 = tail call noalias ptr @malloc(i64 noundef %138) #21
   br label %143
 
 143:                                              ; preds = %141, %139
@@ -706,11 +706,11 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %.not9.i.i181.us, label %149, label %147
 
 147:                                              ; preds = %146
-  %148 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %136, i64 noundef 128) #19
+  %148 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %136, i64 noundef 128) #20
   br label %Vec_PtrGrow.exit.i182.us
 
 149:                                              ; preds = %146
-  %150 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #20
+  %150 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #21
   br label %Vec_PtrGrow.exit.i182.us
 
 Vec_PtrGrow.exit.i182.us:                         ; preds = %149, %147
@@ -758,11 +758,11 @@ Vec_PtrPush.exit183.us:                           ; preds = %Vec_PtrGrow.exit.i1
   br i1 %.not9.i.i181, label %167, label %165
 
 165:                                              ; preds = %163
-  %166 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %164, i64 noundef 128) #19
+  %166 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %164, i64 noundef 128) #20
   br label %Vec_PtrGrow.exit.i182
 
 167:                                              ; preds = %163
-  %168 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #20
+  %168 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #21
   br label %Vec_PtrGrow.exit.i182
 
 Vec_PtrGrow.exit.i182:                            ; preds = %167, %165
@@ -780,11 +780,11 @@ Vec_PtrGrow.exit.i182:                            ; preds = %167, %165
   br i1 %.not9.i10.i180, label %177, label %175
 
 175:                                              ; preds = %170
-  %176 = tail call ptr @realloc(ptr noundef nonnull %172, i64 noundef %174) #19
+  %176 = tail call ptr @realloc(ptr noundef nonnull %172, i64 noundef %174) #20
   br label %179
 
 177:                                              ; preds = %170
-  %178 = tail call noalias ptr @malloc(i64 noundef %174) #20
+  %178 = tail call noalias ptr @malloc(i64 noundef %174) #21
   br label %179
 
 179:                                              ; preds = %177, %175
@@ -823,11 +823,11 @@ Vec_PtrPush.exit183:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not9.i.i188, label %197, label %195
 
 195:                                              ; preds = %192
-  %196 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %194, i64 noundef 64) #19
+  %196 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %194, i64 noundef 64) #20
   br label %Vec_IntGrow.exit.i189
 
 197:                                              ; preds = %192
-  %198 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #20
+  %198 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #21
   br label %Vec_IntGrow.exit.i189
 
 Vec_IntGrow.exit.i189:                            ; preds = %197, %195
@@ -846,11 +846,11 @@ Vec_IntGrow.exit.i189:                            ; preds = %197, %195
   br i1 %.not9.i9.i187, label %208, label %206
 
 206:                                              ; preds = %200
-  %207 = tail call ptr @realloc(ptr noundef nonnull %203, i64 noundef %205) #19
+  %207 = tail call ptr @realloc(ptr noundef nonnull %203, i64 noundef %205) #20
   br label %210
 
 208:                                              ; preds = %200
-  %209 = tail call noalias ptr @malloc(i64 noundef %205) #20
+  %209 = tail call noalias ptr @malloc(i64 noundef %205) #21
   br label %210
 
 210:                                              ; preds = %208, %206
@@ -892,15 +892,15 @@ Vec_IntPush.exit190:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %.not.i, label %Vec_PtrFree.exit, label %223
 
 223:                                              ; preds = %.critedge2
-  tail call void @free(ptr noundef nonnull %222) #21
+  tail call void @free(ptr noundef nonnull %222) #22
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge2, %223
-  tail call void @free(ptr noundef nonnull %23) #21
+  tail call void @free(ptr noundef nonnull %23) #22
   %224 = getelementptr i8, ptr %0, i64 124
   %.val154 = load i32, ptr %224, align 4, !tbaa !35
   %225 = add nsw i32 %.val154, 100
-  %226 = tail call ptr @Aig_ManStart(i32 noundef %225) #21
+  %226 = tail call ptr @Aig_ManStart(i32 noundef %225) #22
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %228 = load i32, ptr %227, align 8, !tbaa !46
   %229 = getelementptr inbounds nuw i8, ptr %226, i64 120
@@ -911,16 +911,16 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %223
   store i32 %231, ptr %232, align 4, !tbaa !59
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %234 = load ptr, ptr %233, align 8, !tbaa !60
-  %235 = tail call ptr @Extra_UtilStrsav(ptr noundef %234) #21
+  %235 = tail call ptr @Extra_UtilStrsav(ptr noundef %234) #22
   store ptr %235, ptr %226, align 8, !tbaa !61
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %237 = load ptr, ptr %236, align 8, !tbaa !62
-  %238 = tail call ptr @Extra_UtilStrsav(ptr noundef %237) #21
+  %238 = tail call ptr @Extra_UtilStrsav(ptr noundef %237) #22
   %239 = getelementptr inbounds nuw i8, ptr %226, i64 8
   store ptr %238, ptr %239, align 8, !tbaa !63
   %240 = getelementptr i8, ptr %226, i64 48
   %.val155 = load ptr, ptr %240, align 8, !tbaa !64
-  %241 = tail call ptr @Abc_AigConst1(ptr noundef nonnull %0) #21
+  %241 = tail call ptr @Abc_AigConst1(ptr noundef nonnull %0) #22
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 64
   store ptr %.val155, ptr %242, align 8, !tbaa !39
   %243 = getelementptr i8, ptr %0, i64 56
@@ -944,7 +944,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %223
   %.val157.val = load ptr, ptr %249, align 8, !tbaa !17
   %250 = getelementptr inbounds nuw ptr, ptr %.val157.val, i64 %indvars.iv262
   %251 = load ptr, ptr %250, align 8, !tbaa !18
-  %252 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %226) #21
+  %252 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %226) #22
   %253 = getelementptr inbounds nuw i8, ptr %251, i64 64
   store ptr %252, ptr %253, align 8, !tbaa !39
   %indvars.iv.next263 = add nuw nsw i64 %indvars.iv262, 1
@@ -1070,7 +1070,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %223
   %319 = zext nneg i32 %317 to i64
   %320 = xor i64 %318, %319
   %321 = inttoptr i64 %320 to ptr
-  %322 = tail call ptr @Aig_And(ptr noundef nonnull %226, ptr noundef %309, ptr noundef %321) #21
+  %322 = tail call ptr @Aig_And(ptr noundef nonnull %226, ptr noundef %309, ptr noundef %321) #22
   %323 = getelementptr inbounds nuw i8, ptr %290, i64 64
   store ptr %322, ptr %323, align 8, !tbaa !39
   %.pre281 = load ptr, ptr %257, align 8, !tbaa !21
@@ -1099,7 +1099,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %223
   %337 = xor i64 %335, %336
   %338 = xor i64 %337, 1
   %339 = inttoptr i64 %338 to ptr
-  %340 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %226, ptr noundef %339) #21
+  %340 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %226, ptr noundef %339) #22
   %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
   %exitcond275.not = icmp eq i64 %indvars.iv.next272, %wide.trip.count274
   br i1 %exitcond275.not, label %.critedge12.thread, label %.critedge10, !llvm.loop !70
@@ -1109,11 +1109,11 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %223
   br i1 %.not.i203, label %Vec_PtrFree.exit204, label %.critedge12.thread
 
 .critedge12.thread:                               ; preds = %.critedge10, %.critedge12
-  tail call void @free(ptr noundef nonnull %.pre282) #21
+  tail call void @free(ptr noundef nonnull %.pre282) #22
   br label %Vec_PtrFree.exit204
 
 Vec_PtrFree.exit204:                              ; preds = %.critedge12, %.critedge12.thread
-  tail call void @free(ptr noundef nonnull %27) #21
+  tail call void @free(ptr noundef nonnull %27) #22
   %341 = load ptr, ptr %3, align 8, !tbaa !38
   %342 = getelementptr i8, ptr %341, i64 4
   %.val141244 = load i32, ptr %342, align 4, !tbaa !14
@@ -1177,7 +1177,7 @@ Vec_PtrFree.exit204:                              ; preds = %.critedge12, %.crit
   %377 = zext i1 %376 to i64
   %378 = xor i64 %370, %377
   %379 = inttoptr i64 %378 to ptr
-  %380 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %226, ptr noundef %379) #21
+  %380 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %226, ptr noundef %379) #22
   %.pre283 = load ptr, ptr %3, align 8, !tbaa !38
   br label %381
 
@@ -1193,15 +1193,15 @@ Vec_PtrFree.exit204:                              ; preds = %.critedge12, %.crit
 ._crit_edge:                                      ; preds = %381, %Vec_PtrFree.exit204
   %386 = getelementptr i8, ptr %0, i64 128
   %.val167 = load i32, ptr %386, align 8, !tbaa !35
-  tail call void @Aig_ManSetRegNum(ptr noundef nonnull %226, i32 noundef %.val167) #21
-  %387 = tail call i32 @Aig_ManCleanup(ptr noundef nonnull %226) #21
-  %388 = tail call i32 @Aig_ManCheck(ptr noundef nonnull %226) #21
+  tail call void @Aig_ManSetRegNum(ptr noundef nonnull %226, i32 noundef %.val167) #22
+  %387 = tail call i32 @Aig_ManCleanup(ptr noundef nonnull %226) #22
+  %388 = tail call i32 @Aig_ManCheck(ptr noundef nonnull %226) #22
   %.not125 = icmp eq i32 %388, 0
   br i1 %.not125, label %389, label %390
 
 389:                                              ; preds = %._crit_edge
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4)
-  tail call void @Aig_ManStop(ptr noundef nonnull %226) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %226) #22
   br label %390
 
 390:                                              ; preds = %._crit_edge, %389
@@ -1210,7 +1210,7 @@ Vec_PtrFree.exit204:                              ; preds = %.critedge12, %.crit
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
+define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !35
@@ -1218,24 +1218,24 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
   br i1 %.not, label %18, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #21
+  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #22
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %7 = call i32 (...) @Abc_FrameIsBridgeMode() #21
+  %7 = call i32 (...) @Abc_FrameIsBridgeMode() #22
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
 
 8:                                                ; preds = %5
-  %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #21
+  %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #22
   %10 = load ptr, ptr @stdout, align 8, !tbaa !72
-  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #22
+  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #23
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #21
-  call void @free(ptr noundef %9) #21
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #22
+  call void @free(ptr noundef %9) #22
   br label %17
 
 14:                                               ; preds = %5
   %15 = load ptr, ptr @stdout, align 8, !tbaa !72, !noalias !74
-  %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #21
+  %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #22
   br label %17
 
 17:                                               ; preds = %14, %8
@@ -1247,31 +1247,31 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
   ret void
 }
 
-declare ptr @Aig_ManStart(i32 noundef) local_unnamed_addr #3
+declare ptr @Aig_ManStart(i32 noundef) local_unnamed_addr #4
 
-declare ptr @Extra_UtilStrsav(ptr noundef) local_unnamed_addr #3
+declare ptr @Extra_UtilStrsav(ptr noundef) local_unnamed_addr #4
 
-declare ptr @Abc_AigConst1(ptr noundef) local_unnamed_addr #3
+declare ptr @Abc_AigConst1(ptr noundef) local_unnamed_addr #4
 
-declare ptr @Aig_ObjCreateCi(ptr noundef) local_unnamed_addr #3
+declare ptr @Aig_ObjCreateCi(ptr noundef) local_unnamed_addr #4
 
-declare ptr @Aig_And(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @Aig_And(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @Aig_ObjCreateCo(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @Aig_ObjCreateCo(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @Aig_ManSetRegNum(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @Aig_ManSetRegNum(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @Aig_ManCleanup(ptr noundef) local_unnamed_addr #3
+declare i32 @Aig_ManCleanup(ptr noundef) local_unnamed_addr #4
 
-declare i32 @Aig_ManCheck(ptr noundef) local_unnamed_addr #3
+declare i32 @Aig_ManCheck(ptr noundef) local_unnamed_addr #4
 
-declare void @Aig_ManStop(ptr noundef) local_unnamed_addr #3
+declare void @Aig_ManStop(ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @Abc_NtkFindDcLatches(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+; Function Attrs: nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define noalias noundef ptr @Abc_NtkFindDcLatches(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr i8, ptr %0, i64 128
   %.val15 = load i32, ptr %2, align 8, !tbaa !35
-  %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
+  %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
   %4 = add i32 %.val15, -1
   %or.cond.i.i = icmp ult i32 %4, 15
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 16, i32 %.val15
@@ -1289,7 +1289,7 @@ Vec_IntAlloc.exit.thread.i:                       ; preds = %1
 Vec_IntAlloc.exit.i:                              ; preds = %1
   %7 = sext i32 %spec.store.select.i.i to i64
   %8 = shl nsw i64 %7, 2
-  %9 = tail call noalias ptr @malloc(i64 noundef %8) #20
+  %9 = tail call noalias ptr @malloc(i64 noundef %8) #21
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %9, ptr %10, align 8, !tbaa !43
   store i32 %.val15, ptr %5, align 4, !tbaa !41
@@ -1351,7 +1351,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.critedge4.thread, label %.preheader203
 
@@ -1508,7 +1508,7 @@ define ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_u
   %60 = getelementptr i8, ptr %0, i64 124
   %.val150 = load i32, ptr %60, align 4, !tbaa !35
   %61 = add nsw i32 %.val150, 100
-  %62 = tail call ptr @Aig_ManStart(i32 noundef %61) #21
+  %62 = tail call ptr @Aig_ManStart(i32 noundef %61) #22
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 316
   store i32 %1, ptr %63, align 4, !tbaa !83
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -1521,16 +1521,16 @@ define ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_u
   store i32 %68, ptr %69, align 4, !tbaa !59
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !60
-  %72 = tail call ptr @Extra_UtilStrsav(ptr noundef %71) #21
+  %72 = tail call ptr @Extra_UtilStrsav(ptr noundef %71) #22
   store ptr %72, ptr %62, align 8, !tbaa !61
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %74 = load ptr, ptr %73, align 8, !tbaa !62
-  %75 = tail call ptr @Extra_UtilStrsav(ptr noundef %74) #21
+  %75 = tail call ptr @Extra_UtilStrsav(ptr noundef %74) #22
   %76 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %75, ptr %76, align 8, !tbaa !63
   %77 = getelementptr i8, ptr %62, i64 48
   %.val151 = load ptr, ptr %77, align 8, !tbaa !64
-  %78 = tail call ptr @Abc_AigConst1(ptr noundef %0) #21
+  %78 = tail call ptr @Abc_AigConst1(ptr noundef %0) #22
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 64
   store ptr %.val151, ptr %79, align 8, !tbaa !39
   %80 = getelementptr i8, ptr %0, i64 56
@@ -1547,7 +1547,7 @@ define ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_u
   %.val154.val = load ptr, ptr %83, align 8, !tbaa !17
   %84 = getelementptr inbounds nuw ptr, ptr %.val154.val, i64 %indvars.iv243
   %85 = load ptr, ptr %84, align 8, !tbaa !18
-  %86 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %62) #21
+  %86 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %62) #22
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 64
   store ptr %86, ptr %87, align 8, !tbaa !39
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 20
@@ -1629,7 +1629,7 @@ define ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_u
   br i1 %128, label %.lr.ph225, label %.critedge8, !llvm.loop !85
 
 .critedge8:                                       ; preds = %124, %.preheader, %.critedge6
-  %129 = tail call ptr @Abc_NtkDfs(ptr noundef nonnull %0, i32 noundef 0) #21
+  %129 = tail call ptr @Abc_NtkDfs(ptr noundef nonnull %0, i32 noundef 0) #22
   %130 = getelementptr i8, ptr %129, i64 4
   %.val139226 = load i32, ptr %130, align 4, !tbaa !14
   %131 = icmp sgt i32 %.val139226, 0
@@ -1678,7 +1678,7 @@ define ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_u
   %160 = zext nneg i32 %158 to i64
   %161 = xor i64 %159, %160
   %162 = inttoptr i64 %161 to ptr
-  %163 = tail call ptr @Aig_And(ptr noundef nonnull %62, ptr noundef %150, ptr noundef %162) #21
+  %163 = tail call ptr @Aig_And(ptr noundef nonnull %62, ptr noundef %150, ptr noundef %162) #22
   %164 = getelementptr inbounds nuw i8, ptr %135, i64 64
   store ptr %163, ptr %164, align 8, !tbaa !39
   %indvars.iv.next250 = add nuw nsw i64 %indvars.iv249, 1
@@ -1694,11 +1694,11 @@ define ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_u
   br i1 %.not.i, label %Vec_PtrFree.exit, label %169
 
 169:                                              ; preds = %.critedge10
-  tail call void @free(ptr noundef nonnull %168) #21
+  tail call void @free(ptr noundef nonnull %168) #22
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge10, %169
-  tail call void @free(ptr noundef nonnull %129) #21
+  tail call void @free(ptr noundef nonnull %129) #22
   %170 = getelementptr inbounds nuw i8, ptr %62, i64 320
   store i32 0, ptr %170, align 8, !tbaa !87
   %171 = getelementptr i8, ptr %0, i64 64
@@ -1736,7 +1736,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge10, %169
   %189 = zext nneg i32 %187 to i64
   %190 = xor i64 %189, %188
   %191 = inttoptr i64 %190 to ptr
-  %192 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %62, ptr noundef %191) #21
+  %192 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %62, ptr noundef %191) #22
   %indvars.iv.next253 = add nuw nsw i64 %indvars.iv252, 1
   %.val169 = load ptr, ptr %171, align 8, !tbaa !78
   %193 = getelementptr i8, ptr %.val169, i64 4
@@ -1748,7 +1748,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge10, %169
 .critedge12:                                      ; preds = %.lr.ph233, %Vec_PtrFree.exit
   %196 = getelementptr i8, ptr %0, i64 128
   %.val165 = load i32, ptr %196, align 8, !tbaa !35
-  tail call void @Aig_ManSetRegNum(ptr noundef nonnull %62, i32 noundef %.val165) #21
+  tail call void @Aig_ManSetRegNum(ptr noundef nonnull %62, i32 noundef %.val165) #22
   br i1 %.not, label %.critedge14, label %197
 
 197:                                              ; preds = %.critedge12
@@ -1811,12 +1811,12 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge10, %169
   br i1 %exitcond.not, label %.critedge14, label %208, !llvm.loop !92
 
 .critedge14:                                      ; preds = %226, %197, %.critedge12
-  %227 = tail call i32 @Abc_NtkGetChoiceNum(ptr noundef nonnull %0) #21
+  %227 = tail call i32 @Abc_NtkGetChoiceNum(ptr noundef nonnull %0) #22
   %228 = icmp eq i32 %227, 0
   br i1 %228, label %229, label %.thread
 
 229:                                              ; preds = %.critedge14
-  %230 = tail call i32 @Aig_ManCleanup(ptr noundef nonnull %62) #21
+  %230 = tail call i32 @Aig_ManCleanup(ptr noundef nonnull %62) #22
   %231 = icmp eq i32 %1, 0
   %232 = icmp ne i32 %230, 0
   %or.cond = select i1 %231, i1 %232, i1 false
@@ -1831,10 +1831,10 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge10, %169
 
 234:                                              ; preds = %.thread
   %.val164 = load i32, ptr %196, align 8, !tbaa !35
-  tail call void @Aig_ManSetRegNum(ptr noundef nonnull %62, i32 noundef %.val164) #21
+  tail call void @Aig_ManSetRegNum(ptr noundef nonnull %62, i32 noundef %.val164) #22
   %235 = getelementptr inbounds nuw i8, ptr %62, i64 104
   %236 = load i32, ptr %235, align 8, !tbaa !89
-  %237 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
+  %237 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
   %238 = add i32 %236, -1
   %or.cond.i.i = icmp ult i32 %238, 15
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 16, i32 %236
@@ -1846,7 +1846,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge10, %169
 240:                                              ; preds = %234
   %241 = sext i32 %spec.store.select.i.i to i64
   %242 = shl nsw i64 %241, 2
-  %243 = tail call noalias ptr @malloc(i64 noundef %242) #20
+  %243 = tail call noalias ptr @malloc(i64 noundef %242) #21
   br label %Vec_IntAlloc.exit.i
 
 Vec_IntAlloc.exit.i:                              ; preds = %240, %234
@@ -1881,7 +1881,7 @@ Vec_IntStartNatural.exit:                         ; preds = %.lr.ph.i, %Vec_IntA
 252:                                              ; preds = %Vec_IntStartNatural.exit
   %253 = getelementptr i8, ptr %251, i64 4
   %.val.i188 = load i32, ptr %253, align 4, !tbaa !96
-  %254 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
+  %254 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
   %255 = add i32 %.val.i188, -1
   %or.cond.i.i189 = icmp ult i32 %255, 7
   %spec.store.select.i.i190 = select i1 %or.cond.i.i189, i32 8, i32 %.val.i188
@@ -1894,7 +1894,7 @@ Vec_IntStartNatural.exit:                         ; preds = %.lr.ph.i, %Vec_IntA
 257:                                              ; preds = %252
   %258 = sext i32 %spec.store.select.i.i190 to i64
   %259 = shl nsw i64 %258, 3
-  %260 = tail call noalias ptr @malloc(i64 noundef %259) #20
+  %260 = tail call noalias ptr @malloc(i64 noundef %259) #21
   br label %Vec_PtrAlloc.exit.i
 
 Vec_PtrAlloc.exit.i:                              ; preds = %257, %252
@@ -1914,7 +1914,7 @@ Vec_PtrAlloc.exit.i:                              ; preds = %257, %252
   %.val9.i = load ptr, ptr %264, align 8, !tbaa !98
   %267 = getelementptr inbounds nuw ptr, ptr %.val9.i, i64 %indvars.iv16.i
   %268 = load ptr, ptr %267, align 8, !tbaa !18
-  %269 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
+  %269 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
   %270 = getelementptr inbounds nuw i8, ptr %268, i64 4
   %271 = load i32, ptr %270, align 4, !tbaa !41
   %272 = getelementptr inbounds nuw i8, ptr %269, i64 4
@@ -1926,7 +1926,7 @@ Vec_PtrAlloc.exit.i:                              ; preds = %257, %252
 273:                                              ; preds = %265
   %274 = sext i32 %271 to i64
   %275 = shl nsw i64 %274, 2
-  %276 = tail call noalias ptr @malloc(i64 noundef %275) #20
+  %276 = tail call noalias ptr @malloc(i64 noundef %275) #21
   br label %Vec_IntDup.exit.i
 
 Vec_IntDup.exit.i:                                ; preds = %273, %265
@@ -1955,11 +1955,11 @@ Vec_IntDup.exit.i:                                ; preds = %273, %265
   br i1 %.not9.i.i.i, label %289, label %287
 
 287:                                              ; preds = %286
-  %288 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %285, i64 noundef 128) #19
+  %288 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %285, i64 noundef 128) #20
   br label %Vec_PtrGrow.exit.i.i
 
 289:                                              ; preds = %286
-  %290 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #20
+  %290 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #21
   br label %Vec_PtrGrow.exit.i.i
 
 Vec_PtrGrow.exit.i.i:                             ; preds = %289, %287
@@ -1972,11 +1972,11 @@ Vec_PtrGrow.exit.i.i:                             ; preds = %289, %287
   br i1 %.not9.i.i.i, label %296, label %294
 
 294:                                              ; preds = %292
-  %295 = tail call ptr @realloc(ptr noundef nonnull %285, i64 noundef %293) #19
+  %295 = tail call ptr @realloc(ptr noundef nonnull %285, i64 noundef %293) #20
   br label %298
 
 296:                                              ; preds = %292
-  %297 = tail call noalias ptr @malloc(i64 noundef %293) #20
+  %297 = tail call noalias ptr @malloc(i64 noundef %293) #21
   br label %298
 
 298:                                              ; preds = %296, %294
@@ -2008,13 +2008,13 @@ Vec_VecDupInt.exit:                               ; preds = %Vec_PtrAlloc.exit.i
   br label %308
 
 308:                                              ; preds = %Vec_IntStartNatural.exit, %Vec_VecDupInt.exit, %.thread
-  %309 = tail call i32 @Aig_ManCheck(ptr noundef nonnull %62) #21
+  %309 = tail call i32 @Aig_ManCheck(ptr noundef nonnull %62) #22
   %.not131 = icmp eq i32 %309, 0
   br i1 %.not131, label %310, label %311
 
 310:                                              ; preds = %308
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.8)
-  tail call void @Aig_ManStop(ptr noundef nonnull %62) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %62) #22
   br label %311
 
 311:                                              ; preds = %308, %310
@@ -2022,17 +2022,17 @@ Vec_VecDupInt.exit:                               ; preds = %Vec_PtrAlloc.exit.i
   ret ptr %.0124
 }
 
-declare ptr @Abc_NtkDfs(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Abc_NtkDfs(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @Abc_NtkGetChoiceNum(ptr noundef) local_unnamed_addr #3
+declare i32 @Abc_NtkGetChoiceNum(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkToDarChoices(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = tail call ptr @Abc_AigDfs(ptr noundef %0, i32 noundef 0, i32 noundef 0) #21
+define ptr @Abc_NtkToDarChoices(ptr noundef %0) local_unnamed_addr #2 {
+  %2 = tail call ptr @Abc_AigDfs(ptr noundef %0, i32 noundef 0, i32 noundef 0) #22
   %3 = getelementptr i8, ptr %0, i64 124
   %.val65 = load i32, ptr %3, align 4, !tbaa !35
   %4 = add nsw i32 %.val65, 100
-  %5 = tail call ptr @Aig_ManStart(i32 noundef %4) #21
+  %5 = tail call ptr @Aig_ManStart(i32 noundef %4) #22
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %7 = load i32, ptr %6, align 8, !tbaa !46
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 120
@@ -2043,14 +2043,14 @@ define ptr @Abc_NtkToDarChoices(ptr noundef %0) local_unnamed_addr #1 {
   store i32 %10, ptr %11, align 4, !tbaa !59
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !60
-  %14 = tail call ptr @Extra_UtilStrsav(ptr noundef %13) #21
+  %14 = tail call ptr @Extra_UtilStrsav(ptr noundef %13) #22
   store ptr %14, ptr %5, align 8, !tbaa !61
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !62
-  %17 = tail call ptr @Extra_UtilStrsav(ptr noundef %16) #21
+  %17 = tail call ptr @Extra_UtilStrsav(ptr noundef %16) #22
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %17, ptr %18, align 8, !tbaa !63
-  %19 = tail call i32 @Abc_NtkGetChoiceNum(ptr noundef %0) #21
+  %19 = tail call i32 @Abc_NtkGetChoiceNum(ptr noundef %0) #22
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %25, label %20
 
@@ -2067,7 +2067,7 @@ define ptr @Abc_NtkToDarChoices(ptr noundef %0) local_unnamed_addr #1 {
 25:                                               ; preds = %20, %1
   %26 = getelementptr i8, ptr %5, i64 48
   %.val66 = load ptr, ptr %26, align 8, !tbaa !64
-  %27 = tail call ptr @Abc_AigConst1(ptr noundef nonnull %0) #21
+  %27 = tail call ptr @Abc_AigConst1(ptr noundef nonnull %0) #22
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 64
   store ptr %.val66, ptr %28, align 8, !tbaa !39
   %29 = getelementptr i8, ptr %0, i64 56
@@ -2095,7 +2095,7 @@ define ptr @Abc_NtkToDarChoices(ptr noundef %0) local_unnamed_addr #1 {
   %.val68.val = load ptr, ptr %36, align 8, !tbaa !17
   %37 = getelementptr inbounds nuw ptr, ptr %.val68.val, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !18
-  %39 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %5) #21
+  %39 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %5) #22
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 64
   store ptr %39, ptr %40, align 8, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2145,7 +2145,7 @@ define ptr @Abc_NtkToDarChoices(ptr noundef %0) local_unnamed_addr #1 {
   %71 = zext nneg i32 %69 to i64
   %72 = xor i64 %70, %71
   %73 = inttoptr i64 %72 to ptr
-  %74 = tail call ptr @Aig_And(ptr noundef nonnull %5, ptr noundef %61, ptr noundef %73) #21
+  %74 = tail call ptr @Aig_And(ptr noundef nonnull %5, ptr noundef %61, ptr noundef %73) #22
   %75 = getelementptr inbounds nuw i8, ptr %46, i64 64
   store ptr %74, ptr %75, align 8, !tbaa !39
   %76 = getelementptr inbounds nuw i8, ptr %46, i64 56
@@ -2192,11 +2192,11 @@ Abc_AigNodeIsChoice.exit.thread:                  ; preds = %80, %44, %Abc_AigNo
   br i1 %.not.i82, label %Vec_PtrFree.exit, label %91
 
 91:                                               ; preds = %.critedge2
-  tail call void @free(ptr noundef nonnull %90) #21
+  tail call void @free(ptr noundef nonnull %90) #22
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge2, %91
-  tail call void @free(ptr noundef nonnull %2) #21
+  tail call void @free(ptr noundef nonnull %2) #22
   %92 = getelementptr i8, ptr %0, i64 64
   %.val69103 = load ptr, ptr %92, align 8, !tbaa !78
   %93 = getelementptr i8, ptr %.val69103, i64 4
@@ -2232,7 +2232,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %91
   %110 = zext nneg i32 %108 to i64
   %111 = xor i64 %110, %109
   %112 = inttoptr i64 %111 to ptr
-  %113 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %5, ptr noundef %112) #21
+  %113 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %5, ptr noundef %112) #22
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %.val69 = load ptr, ptr %92, align 8, !tbaa !78
   %114 = getelementptr i8, ptr %.val69, i64 4
@@ -2242,14 +2242,14 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %91
   br i1 %116, label %.lr.ph107, label %.critedge4, !llvm.loop !109
 
 .critedge4:                                       ; preds = %.lr.ph107, %Vec_PtrFree.exit
-  tail call void @Aig_ManSetRegNum(ptr noundef nonnull %5, i32 noundef 0) #21
-  %117 = tail call i32 @Aig_ManCheck(ptr noundef nonnull %5) #21
+  tail call void @Aig_ManSetRegNum(ptr noundef nonnull %5, i32 noundef 0) #22
+  %117 = tail call i32 @Aig_ManCheck(ptr noundef nonnull %5) #22
   %.not61 = icmp eq i32 %117, 0
   br i1 %.not61, label %118, label %119
 
 118:                                              ; preds = %.critedge4
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.8)
-  tail call void @Aig_ManStop(ptr noundef nonnull %5) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %5) #22
   br label %119
 
 119:                                              ; preds = %.critedge4, %118
@@ -2257,17 +2257,17 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %91
   ret ptr %.058
 }
 
-declare ptr @Abc_AigDfs(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Abc_AigDfs(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkFromDar(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = tail call ptr @Abc_NtkStartFrom(ptr noundef %0, i32 noundef 3, i32 noundef 3) #21
+define noundef ptr @Abc_NtkFromDar(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+  %3 = tail call ptr @Abc_NtkStartFrom(ptr noundef %0, i32 noundef 3, i32 noundef 3) #22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %5 = load i32, ptr %4, align 8, !tbaa !49
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 144
@@ -2276,7 +2276,7 @@ define noundef ptr @Abc_NtkFromDar(ptr noundef %0, ptr noundef %1) local_unnamed
   %8 = load i32, ptr %7, align 4, !tbaa !58
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 148
   store i32 %8, ptr %9, align 4, !tbaa !58
-  %10 = tail call ptr @Abc_AigConst1(ptr noundef %3) #21
+  %10 = tail call ptr @Abc_AigConst1(ptr noundef %3) #22
   %11 = getelementptr i8, ptr %1, i64 48
   %.val55 = load ptr, ptr %11, align 8, !tbaa !64
   %12 = getelementptr inbounds nuw i8, ptr %.val55, i64 40
@@ -2325,7 +2325,7 @@ define noundef ptr @Abc_NtkFromDar(ptr noundef %0, ptr noundef %1) local_unnamed
   br i1 %37, label %18, label %.critedge, !llvm.loop !111
 
 .critedge:                                        ; preds = %18, %2
-  %38 = tail call ptr @Aig_ManDfs(ptr noundef nonnull %1, i32 noundef 1) #21
+  %38 = tail call ptr @Aig_ManDfs(ptr noundef nonnull %1, i32 noundef 1) #22
   %39 = getelementptr i8, ptr %38, i64 4
   %.val5073 = load i32, ptr %39, align 4, !tbaa !14
   %40 = icmp sgt i32 %.val5073, 0
@@ -2405,7 +2405,7 @@ Aig_ObjChild0Copy.exit65:                         ; preds = %60, %65
 
 Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.exit65, %77
   %85 = phi ptr [ %84, %77 ], [ null, %Aig_ObjChild0Copy.exit65 ]
-  %86 = tail call ptr @Abc_AigAnd(ptr noundef %61, ptr noundef %73, ptr noundef %85) #21
+  %86 = tail call ptr @Abc_AigAnd(ptr noundef %61, ptr noundef %73, ptr noundef %85) #22
   br label %Aig_ObjChild0Copy.exit
 
 Aig_ObjChild0Copy.exit:                           ; preds = %52, %48, %Aig_ObjChild1Copy.exit
@@ -2425,11 +2425,11 @@ Aig_ObjChild0Copy.exit:                           ; preds = %52, %48, %Aig_ObjCh
   br i1 %.not.i67, label %Vec_PtrFree.exit, label %92
 
 92:                                               ; preds = %.critedge2
-  tail call void @free(ptr noundef nonnull %91) #21
+  tail call void @free(ptr noundef nonnull %91) #22
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge2, %92
-  tail call void @free(ptr noundef nonnull %38) #21
+  tail call void @free(ptr noundef nonnull %38) #22
   %93 = getelementptr i8, ptr %1, i64 140
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %95 = load ptr, ptr %94, align 8, !tbaa !90
@@ -2486,7 +2486,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %92
 
 Aig_ObjChild0Copy.exit69:                         ; preds = %110, %117
   %125 = phi ptr [ %124, %117 ], [ null, %110 ]
-  tail call void @Abc_ObjAddFanin(ptr noundef %113, ptr noundef %125) #21
+  tail call void @Abc_ObjAddFanin(ptr noundef %113, ptr noundef %125) #22
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %126 = load ptr, ptr %94, align 8, !tbaa !90
   %127 = getelementptr i8, ptr %126, i64 4
@@ -2496,7 +2496,7 @@ Aig_ObjChild0Copy.exit69:                         ; preds = %110, %117
   br i1 %129, label %100, label %.critedge4, !llvm.loop !116
 
 .critedge4:                                       ; preds = %106, %Aig_ObjChild0Copy.exit69, %Vec_PtrFree.exit
-  %130 = tail call i32 @Abc_NtkCheck(ptr noundef %3) #21
+  %130 = tail call i32 @Abc_NtkCheck(ptr noundef %3) #22
   %.not48 = icmp eq i32 %130, 0
   br i1 %.not48, label %131, label %132
 
@@ -2508,19 +2508,19 @@ Aig_ObjChild0Copy.exit69:                         ; preds = %110, %117
   ret ptr %3
 }
 
-declare ptr @Abc_NtkStartFrom(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Abc_NtkStartFrom(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @Aig_ManDfs(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Aig_ManDfs(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @Abc_AigAnd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @Abc_AigAnd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @Abc_ObjAddFanin(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @Abc_ObjAddFanin(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @Abc_NtkCheck(ptr noundef) local_unnamed_addr #3
+declare i32 @Abc_NtkCheck(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkFromDarSeqSweep(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = tail call ptr @Abc_NtkStartFromNoLatches(ptr noundef %0, i32 noundef 3, i32 noundef 3) #21
+define ptr @Abc_NtkFromDarSeqSweep(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+  %3 = tail call ptr @Abc_NtkStartFromNoLatches(ptr noundef %0, i32 noundef 3, i32 noundef 3) #22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %5 = load i32, ptr %4, align 8, !tbaa !49
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 144
@@ -2549,19 +2549,19 @@ define ptr @Abc_NtkFromDarSeqSweep(ptr noundef %0, ptr noundef %1) local_unnamed
 
 .lr.ph:                                           ; preds = %16, %.lr.ph
   %.0113171 = phi i32 [ %23, %.lr.ph ], [ %18, %16 ]
-  %20 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %3, i32 noundef 2) #21
-  %21 = tail call ptr @Abc_ObjName(ptr noundef %20) #21
-  %22 = tail call ptr @Abc_ObjAssignName(ptr noundef %20, ptr noundef %21, ptr noundef null) #21
+  %20 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %3, i32 noundef 2) #22
+  %21 = tail call ptr @Abc_ObjName(ptr noundef %20) #22
+  %22 = tail call ptr @Abc_ObjAssignName(ptr noundef %20, ptr noundef %21, ptr noundef null) #22
   %23 = add nsw i32 %.0113171, -1
   %24 = icmp samesign ugt i32 %.0113171, 1
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !117
 
 ._crit_edge:                                      ; preds = %.lr.ph, %16
-  tail call void @Abc_NtkOrderCisCos(ptr noundef nonnull %3) #21
+  tail call void @Abc_NtkOrderCisCos(ptr noundef nonnull %3) #22
   br label %25
 
 25:                                               ; preds = %._crit_edge, %2
-  %26 = tail call ptr @Abc_AigConst1(ptr noundef nonnull %3) #21
+  %26 = tail call ptr @Abc_AigConst1(ptr noundef nonnull %3) #22
   %27 = getelementptr i8, ptr %1, i64 48
   %.val131 = load ptr, ptr %27, align 8, !tbaa !64
   %28 = getelementptr inbounds nuw i8, ptr %.val131, i64 40
@@ -2628,17 +2628,17 @@ define ptr @Abc_NtkFromDarSeqSweep(ptr noundef %0, ptr noundef %1) local_unnamed
   %57 = sext i32 %55 to i64
   %58 = getelementptr inbounds ptr, ptr %.val.i162, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !18
-  %60 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %3, i32 noundef 8) #21
-  %61 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %3, i32 noundef 4) #21
+  %60 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %3, i32 noundef 8) #22
+  %61 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %3, i32 noundef 4) #22
   %62 = getelementptr inbounds nuw i8, ptr %53, i64 40
   store ptr %61, ptr %62, align 8, !tbaa !39
-  %63 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %3, i32 noundef 5) #21
+  %63 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %3, i32 noundef 5) #22
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 40
   store ptr %63, ptr %64, align 8, !tbaa !39
   %65 = load ptr, ptr %62, align 8, !tbaa !39
-  tail call void @Abc_ObjAddFanin(ptr noundef %60, ptr noundef %65) #21
+  tail call void @Abc_ObjAddFanin(ptr noundef %60, ptr noundef %65) #22
   %66 = load ptr, ptr %64, align 8, !tbaa !39
-  tail call void @Abc_ObjAddFanin(ptr noundef %66, ptr noundef %60) #21
+  tail call void @Abc_ObjAddFanin(ptr noundef %66, ptr noundef %60) #22
   %67 = getelementptr inbounds nuw i8, ptr %60, i64 56
   store ptr inttoptr (i64 1 to ptr), ptr %67, align 8, !tbaa !39
   %68 = add nuw nsw i32 %.2179, 1
@@ -2647,7 +2647,7 @@ define ptr @Abc_NtkFromDarSeqSweep(ptr noundef %0, ptr noundef %1) local_unnamed
   br i1 %69, label %.critedge, label %.critedge2, !llvm.loop !119
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
-  %70 = tail call ptr @Aig_ManDfs(ptr noundef nonnull %1, i32 noundef 1) #21
+  %70 = tail call ptr @Aig_ManDfs(ptr noundef nonnull %1, i32 noundef 1) #22
   %71 = getelementptr i8, ptr %70, i64 4
   %.val124182 = load i32, ptr %71, align 4, !tbaa !14
   %72 = icmp sgt i32 %.val124182, 0
@@ -2727,7 +2727,7 @@ Aig_ObjChild0Copy.exit164:                        ; preds = %92, %97
 
 Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.exit164, %109
   %117 = phi ptr [ %116, %109 ], [ null, %Aig_ObjChild0Copy.exit164 ]
-  %118 = tail call ptr @Abc_AigAnd(ptr noundef %93, ptr noundef %105, ptr noundef %117) #21
+  %118 = tail call ptr @Abc_AigAnd(ptr noundef %93, ptr noundef %105, ptr noundef %117) #22
   br label %Aig_ObjChild0Copy.exit
 
 Aig_ObjChild0Copy.exit:                           ; preds = %84, %80, %Aig_ObjChild1Copy.exit
@@ -2747,11 +2747,11 @@ Aig_ObjChild0Copy.exit:                           ; preds = %84, %80, %Aig_ObjCh
   br i1 %.not.i166, label %Vec_PtrFree.exit, label %124
 
 124:                                              ; preds = %.critedge4
-  tail call void @free(ptr noundef nonnull %123) #21
+  tail call void @free(ptr noundef nonnull %123) #22
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge4, %124
-  tail call void @free(ptr noundef nonnull %70) #21
+  tail call void @free(ptr noundef nonnull %70) #22
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %126 = load ptr, ptr %125, align 8, !tbaa !90
   %127 = getelementptr i8, ptr %126, i64 4
@@ -2778,8 +2778,8 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge4, %124
   %.val146.val = load ptr, ptr %138, align 8, !tbaa !17
   %139 = getelementptr inbounds nuw ptr, ptr %.val146.val, i64 %indvars.iv195
   %140 = load ptr, ptr %139, align 8, !tbaa !18
-  %141 = tail call ptr @Abc_ObjName(ptr noundef %140) #21
-  %142 = tail call i32 @Nm_ManFindIdByNameTwoTypes(ptr noundef %137, ptr noundef %141, i32 noundef 2, i32 noundef 5) #21
+  %141 = tail call ptr @Abc_ObjName(ptr noundef %140) #22
+  %142 = tail call i32 @Nm_ManFindIdByNameTwoTypes(ptr noundef %137, ptr noundef %141, i32 noundef 2, i32 noundef 5) #22
   %143 = icmp sgt i32 %142, -1
   br i1 %143, label %144, label %149
 
@@ -2817,7 +2817,7 @@ Aig_ObjChild0Copy.exit168:                        ; preds = %153, %149, %144
   %.val145.val = load ptr, ptr %161, align 8, !tbaa !17
   %162 = getelementptr inbounds nuw ptr, ptr %.val145.val, i64 %indvars.iv195
   %163 = load ptr, ptr %162, align 8, !tbaa !18
-  tail call void @Abc_ObjAddFanin(ptr noundef %163, ptr noundef %.0) #21
+  tail call void @Abc_ObjAddFanin(ptr noundef %163, ptr noundef %.0) #22
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %164 = load ptr, ptr %125, align 8, !tbaa !90
   %165 = getelementptr i8, ptr %164, i64 4
@@ -2833,7 +2833,7 @@ Aig_ObjChild0Copy.exit168:                        ; preds = %153, %149, %144
   br i1 %170, label %171, label %172
 
 171:                                              ; preds = %.critedge6
-  tail call void @Abc_NtkAddDummyBoxNames(ptr noundef nonnull %3) #21
+  tail call void @Abc_NtkAddDummyBoxNames(ptr noundef nonnull %3) #22
   br label %.critedge8
 
 172:                                              ; preds = %.critedge6
@@ -2905,15 +2905,15 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %172
   %204 = sext i32 %.val142.val to i64
   %205 = getelementptr inbounds ptr, ptr %.val141.val.val, i64 %204
   %206 = load ptr, ptr %205, align 8, !tbaa !18
-  %207 = tail call ptr @Abc_ObjName(ptr noundef %206) #21
-  %208 = tail call i32 @Nm_ManFindIdByName(ptr noundef %200, ptr noundef %207, i32 noundef 3) #21
+  %207 = tail call ptr @Abc_ObjName(ptr noundef %206) #22
+  %208 = tail call i32 @Nm_ManFindIdByName(ptr noundef %200, ptr noundef %207, i32 noundef 3) #22
   %209 = icmp sgt i32 %208, -1
   br i1 %209, label %210, label %230
 
 210:                                              ; preds = %191
   %211 = trunc nuw nsw i64 %indvars.iv198 to i32
-  %212 = tail call ptr @Abc_ObjNameDummy(ptr noundef nonnull @.str.10, i32 noundef %211, i32 noundef %.09.i) #21
-  %213 = tail call ptr @Abc_ObjAssignName(ptr noundef nonnull %188, ptr noundef %212, ptr noundef null) #21
+  %212 = tail call ptr @Abc_ObjNameDummy(ptr noundef nonnull @.str.10, i32 noundef %211, i32 noundef %.09.i) #22
+  %213 = tail call ptr @Abc_ObjAssignName(ptr noundef nonnull %188, ptr noundef %212, ptr noundef null) #22
   %.val120 = load ptr, ptr %188, align 8, !tbaa !19
   %214 = getelementptr i8, ptr %188, i64 32
   %.val121 = load ptr, ptr %214, align 8, !tbaa !20
@@ -2925,8 +2925,8 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %172
   %217 = sext i32 %.val121.val to i64
   %218 = getelementptr inbounds ptr, ptr %.val120.val.val, i64 %217
   %219 = load ptr, ptr %218, align 8, !tbaa !18
-  %220 = tail call ptr @Abc_ObjNameDummy(ptr noundef nonnull @.str.11, i32 noundef %211, i32 noundef %.09.i) #21
-  %221 = tail call ptr @Abc_ObjAssignName(ptr noundef %219, ptr noundef %220, ptr noundef null) #21
+  %220 = tail call ptr @Abc_ObjNameDummy(ptr noundef nonnull @.str.11, i32 noundef %211, i32 noundef %.09.i) #22
+  %221 = tail call ptr @Abc_ObjAssignName(ptr noundef %219, ptr noundef %220, ptr noundef null) #22
   %.val139 = load ptr, ptr %188, align 8, !tbaa !19
   %222 = getelementptr i8, ptr %188, i64 48
   %.val140 = load ptr, ptr %222, align 8, !tbaa !67
@@ -2938,13 +2938,13 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %172
   %225 = sext i32 %.val140.val to i64
   %226 = getelementptr inbounds ptr, ptr %.val139.val.val, i64 %225
   %227 = load ptr, ptr %226, align 8, !tbaa !18
-  %228 = tail call ptr @Abc_ObjNameDummy(ptr noundef nonnull @.str.12, i32 noundef %211, i32 noundef %.09.i) #21
-  %229 = tail call ptr @Abc_ObjAssignName(ptr noundef %227, ptr noundef %228, ptr noundef null) #21
+  %228 = tail call ptr @Abc_ObjNameDummy(ptr noundef nonnull @.str.12, i32 noundef %211, i32 noundef %.09.i) #22
+  %229 = tail call ptr @Abc_ObjAssignName(ptr noundef %227, ptr noundef %228, ptr noundef null) #22
   br label %260
 
 230:                                              ; preds = %191
-  %231 = tail call ptr @Abc_ObjName(ptr noundef nonnull %199) #21
-  %232 = tail call ptr @Abc_ObjAssignName(ptr noundef nonnull %188, ptr noundef %231, ptr noundef null) #21
+  %231 = tail call ptr @Abc_ObjName(ptr noundef nonnull %199) #22
+  %232 = tail call ptr @Abc_ObjAssignName(ptr noundef nonnull %188, ptr noundef %231, ptr noundef null) #22
   %.val118 = load ptr, ptr %188, align 8, !tbaa !19
   %233 = getelementptr i8, ptr %188, i64 32
   %.val119 = load ptr, ptr %233, align 8, !tbaa !20
@@ -2967,8 +2967,8 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %172
   %242 = sext i32 %.val117.val to i64
   %243 = getelementptr inbounds ptr, ptr %.val.val.val, i64 %242
   %244 = load ptr, ptr %243, align 8, !tbaa !18
-  %245 = tail call ptr @Abc_ObjName(ptr noundef %244) #21
-  %246 = tail call ptr @Abc_ObjAssignName(ptr noundef %238, ptr noundef %245, ptr noundef null) #21
+  %245 = tail call ptr @Abc_ObjName(ptr noundef %244) #22
+  %246 = tail call ptr @Abc_ObjAssignName(ptr noundef %238, ptr noundef %245, ptr noundef null) #22
   %.val137 = load ptr, ptr %188, align 8, !tbaa !19
   %247 = getelementptr i8, ptr %188, i64 48
   %.val138 = load ptr, ptr %247, align 8, !tbaa !67
@@ -2990,8 +2990,8 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %172
   %255 = sext i32 %.val136.val to i64
   %256 = getelementptr inbounds ptr, ptr %.val135.val.val, i64 %255
   %257 = load ptr, ptr %256, align 8, !tbaa !18
-  %258 = tail call ptr @Abc_ObjName(ptr noundef %257) #21
-  %259 = tail call ptr @Abc_ObjAssignName(ptr noundef %252, ptr noundef %258, ptr noundef null) #21
+  %258 = tail call ptr @Abc_ObjName(ptr noundef %257) #22
+  %259 = tail call ptr @Abc_ObjAssignName(ptr noundef %252, ptr noundef %258, ptr noundef null) #22
   br label %260
 
 260:                                              ; preds = %230, %184, %210
@@ -3004,7 +3004,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %172
   br i1 %264, label %184, label %.critedge8, !llvm.loop !124
 
 .critedge8:                                       ; preds = %260, %Abc_Base10Log.exit, %171
-  %265 = tail call i32 @Abc_NtkCheck(ptr noundef nonnull %3) #21
+  %265 = tail call i32 @Abc_NtkCheck(ptr noundef nonnull %3) #22
   %.not115 = icmp eq i32 %265, 0
   br i1 %.not115, label %266, label %267
 
@@ -3016,25 +3016,25 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %172
   ret ptr %3
 }
 
-declare ptr @Abc_NtkStartFromNoLatches(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Abc_NtkStartFromNoLatches(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @Abc_ObjAssignName(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @Abc_ObjAssignName(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @Abc_ObjName(ptr noundef) local_unnamed_addr #3
+declare ptr @Abc_ObjName(ptr noundef) local_unnamed_addr #4
 
-declare void @Abc_NtkOrderCisCos(ptr noundef) local_unnamed_addr #3
+declare void @Abc_NtkOrderCisCos(ptr noundef) local_unnamed_addr #4
 
-declare i32 @Nm_ManFindIdByNameTwoTypes(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @Nm_ManFindIdByNameTwoTypes(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @Abc_NtkAddDummyBoxNames(ptr noundef) local_unnamed_addr #3
+declare void @Abc_NtkAddDummyBoxNames(ptr noundef) local_unnamed_addr #4
 
-declare i32 @Nm_ManFindIdByName(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @Nm_ManFindIdByName(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @Abc_ObjNameDummy(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Abc_ObjNameDummy(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkFromAigPhase(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = tail call ptr @Abc_NtkAlloc(i32 noundef 3, i32 noundef 3, i32 noundef 1) #21
+define noundef ptr @Abc_NtkFromAigPhase(ptr noundef %0) local_unnamed_addr #2 {
+  %2 = tail call ptr @Abc_NtkAlloc(i32 noundef 3, i32 noundef 3, i32 noundef 1) #22
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i32, ptr %3, align 8, !tbaa !49
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 144
@@ -3043,7 +3043,7 @@ define noundef ptr @Abc_NtkFromAigPhase(ptr noundef %0) local_unnamed_addr #1 {
   %7 = load i32, ptr %6, align 4, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 148
   store i32 %7, ptr %8, align 4, !tbaa !58
-  %9 = tail call ptr @Abc_AigConst1(ptr noundef %2) #21
+  %9 = tail call ptr @Abc_AigConst1(ptr noundef %2) #22
   %10 = getelementptr i8, ptr %0, i64 48
   %.val82 = load ptr, ptr %10, align 8, !tbaa !64
   %11 = getelementptr inbounds nuw i8, ptr %.val82, i64 40
@@ -3077,7 +3077,7 @@ define noundef ptr @Abc_NtkFromAigPhase(ptr noundef %0) local_unnamed_addr #1 {
   %.val81 = load ptr, ptr %21, align 8, !tbaa !17
   %22 = getelementptr inbounds nuw ptr, ptr %.val81, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !18
-  %24 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %2, i32 noundef 2) #21
+  %24 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %2, i32 noundef 2) #22
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 40
   store ptr %24, ptr %25, align 8, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3105,7 +3105,7 @@ define noundef ptr @Abc_NtkFromAigPhase(ptr noundef %0) local_unnamed_addr #1 {
   %.val80 = load ptr, ptr %33, align 8, !tbaa !17
   %34 = getelementptr inbounds nuw ptr, ptr %.val80, i64 %indvars.iv125
   %35 = load ptr, ptr %34, align 8, !tbaa !18
-  %36 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %2, i32 noundef 3) #21
+  %36 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %2, i32 noundef 3) #22
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 40
   store ptr %36, ptr %37, align 8, !tbaa !39
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
@@ -3136,17 +3136,17 @@ define noundef ptr @Abc_NtkFromAigPhase(ptr noundef %0) local_unnamed_addr #1 {
   %51 = sext i32 %49 to i64
   %52 = getelementptr inbounds ptr, ptr %.val.i96, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !18
-  %54 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %2, i32 noundef 8) #21
-  %55 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %2, i32 noundef 4) #21
+  %54 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %2, i32 noundef 8) #22
+  %55 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %2, i32 noundef 4) #22
   %56 = getelementptr inbounds nuw i8, ptr %47, i64 40
   store ptr %55, ptr %56, align 8, !tbaa !39
-  %57 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %2, i32 noundef 5) #21
+  %57 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %2, i32 noundef 5) #22
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 40
   store ptr %57, ptr %58, align 8, !tbaa !39
   %59 = load ptr, ptr %56, align 8, !tbaa !39
-  tail call void @Abc_ObjAddFanin(ptr noundef %54, ptr noundef %59) #21
+  tail call void @Abc_ObjAddFanin(ptr noundef %54, ptr noundef %59) #22
   %60 = load ptr, ptr %58, align 8, !tbaa !39
-  tail call void @Abc_ObjAddFanin(ptr noundef %60, ptr noundef %54) #21
+  tail call void @Abc_ObjAddFanin(ptr noundef %60, ptr noundef %54) #22
   %61 = getelementptr inbounds nuw i8, ptr %54, i64 56
   store ptr inttoptr (i64 1 to ptr), ptr %61, align 8, !tbaa !39
   %62 = add nuw nsw i32 %.2115, 1
@@ -3155,7 +3155,7 @@ define noundef ptr @Abc_NtkFromAigPhase(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %63, label %.critedge2, label %.critedge4, !llvm.loop !127
 
 .critedge4:                                       ; preds = %.critedge2, %.critedge2.preheader
-  %64 = tail call ptr @Aig_ManDfs(ptr noundef nonnull %0, i32 noundef 1) #21
+  %64 = tail call ptr @Aig_ManDfs(ptr noundef nonnull %0, i32 noundef 1) #22
   %65 = getelementptr i8, ptr %64, i64 4
   %.val77118 = load i32, ptr %65, align 4, !tbaa !14
   %66 = icmp sgt i32 %.val77118, 0
@@ -3235,7 +3235,7 @@ Aig_ObjChild0Copy.exit98:                         ; preds = %86, %91
 
 Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.exit98, %103
   %111 = phi ptr [ %110, %103 ], [ null, %Aig_ObjChild0Copy.exit98 ]
-  %112 = tail call ptr @Abc_AigAnd(ptr noundef %87, ptr noundef %99, ptr noundef %111) #21
+  %112 = tail call ptr @Abc_AigAnd(ptr noundef %87, ptr noundef %99, ptr noundef %111) #22
   br label %Aig_ObjChild0Copy.exit
 
 Aig_ObjChild0Copy.exit:                           ; preds = %78, %74, %Aig_ObjChild1Copy.exit
@@ -3255,11 +3255,11 @@ Aig_ObjChild0Copy.exit:                           ; preds = %78, %74, %Aig_ObjCh
   br i1 %.not.i100, label %Vec_PtrFree.exit, label %118
 
 118:                                              ; preds = %.critedge6
-  tail call void @free(ptr noundef nonnull %117) #21
+  tail call void @free(ptr noundef nonnull %117) #22
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge6, %118
-  tail call void @free(ptr noundef nonnull %64) #21
+  tail call void @free(ptr noundef nonnull %64) #22
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %120 = load ptr, ptr %119, align 8, !tbaa !90
   %121 = getelementptr i8, ptr %120, i64 4
@@ -3302,7 +3302,7 @@ Aig_ObjChild0Copy.exit102:                        ; preds = %124, %132
   %.val83.val = load ptr, ptr %141, align 8, !tbaa !17
   %142 = getelementptr inbounds nuw ptr, ptr %.val83.val, i64 %indvars.iv131
   %143 = load ptr, ptr %142, align 8, !tbaa !18
-  tail call void @Abc_ObjAddFanin(ptr noundef %143, ptr noundef %140) #21
+  tail call void @Abc_ObjAddFanin(ptr noundef %143, ptr noundef %140) #22
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %144 = load ptr, ptr %119, align 8, !tbaa !90
   %145 = getelementptr i8, ptr %144, i64 4
@@ -3312,10 +3312,10 @@ Aig_ObjChild0Copy.exit102:                        ; preds = %124, %132
   br i1 %147, label %124, label %.critedge8, !llvm.loop !129
 
 .critedge8:                                       ; preds = %Aig_ObjChild0Copy.exit102, %Vec_PtrFree.exit
-  tail call void @Abc_NtkAddDummyPiNames(ptr noundef %2) #21
-  tail call void @Abc_NtkAddDummyPoNames(ptr noundef %2) #21
-  tail call void @Abc_NtkAddDummyBoxNames(ptr noundef %2) #21
-  %148 = tail call i32 @Abc_NtkCheck(ptr noundef %2) #21
+  tail call void @Abc_NtkAddDummyPiNames(ptr noundef %2) #22
+  tail call void @Abc_NtkAddDummyPoNames(ptr noundef %2) #22
+  tail call void @Abc_NtkAddDummyBoxNames(ptr noundef %2) #22
+  %148 = tail call i32 @Abc_NtkCheck(ptr noundef %2) #22
   %.not = icmp eq i32 %148, 0
   br i1 %.not, label %149, label %150
 
@@ -3327,25 +3327,25 @@ Aig_ObjChild0Copy.exit102:                        ; preds = %124, %132
   ret ptr %2
 }
 
-declare ptr @Abc_NtkAlloc(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Abc_NtkAlloc(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @Abc_NtkAddDummyPiNames(ptr noundef) local_unnamed_addr #3
+declare void @Abc_NtkAddDummyPiNames(ptr noundef) local_unnamed_addr #4
 
-declare void @Abc_NtkAddDummyPoNames(ptr noundef) local_unnamed_addr #3
+declare void @Abc_NtkAddDummyPoNames(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_NtkFromGiaCollapse(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = tail call ptr @Gia_ManToAig(ptr noundef %0, i32 noundef 0) #21
+define range(i32 0, 2) i32 @Abc_NtkFromGiaCollapse(ptr noundef %0) local_unnamed_addr #2 {
+  %2 = tail call ptr @Gia_ManToAig(ptr noundef %0, i32 noundef 0) #22
   %3 = tail call ptr @Abc_NtkFromAigPhase(ptr noundef %2)
-  tail call void @Aig_ManStop(ptr noundef %2) #21
-  %4 = tail call ptr @Abc_NtkCollapse(ptr noundef %3, i32 noundef 10000, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #21
-  tail call void @Abc_NtkDelete(ptr noundef %3) #21
+  tail call void @Aig_ManStop(ptr noundef %2) #22
+  %4 = tail call ptr @Abc_NtkCollapse(ptr noundef %3, i32 noundef 10000, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #22
+  tail call void @Abc_NtkDelete(ptr noundef %3) #22
   %5 = icmp eq ptr %4, null
   br i1 %5, label %10, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call i32 @Abc_NtkGetBddNodeNum(ptr noundef nonnull %4) #21
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %4) #21
+  %7 = tail call i32 @Abc_NtkGetBddNodeNum(ptr noundef nonnull %4) #22
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %4) #22
   %8 = icmp eq i32 %7, 0
   %9 = zext i1 %8 to i32
   br label %10
@@ -3355,16 +3355,16 @@ define range(i32 0, 2) i32 @Abc_NtkFromGiaCollapse(ptr noundef %0) local_unnamed
   ret i32 %.0
 }
 
-declare ptr @Gia_ManToAig(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Gia_ManToAig(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @Abc_NtkCollapse(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Abc_NtkCollapse(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #3
+declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #4
 
-declare i32 @Abc_NtkGetBddNodeNum(ptr noundef) local_unnamed_addr #3
+declare i32 @Abc_NtkGetBddNodeNum(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_ObjHopFromGia_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define ptr @Abc_ObjHopFromGia_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr i8, ptr %1, i64 176
   %.val27 = load i32, ptr %5, align 8, !tbaa !130
   %6 = getelementptr i8, ptr %1, i64 616
@@ -3413,7 +3413,7 @@ common.ret37:                                     ; preds = %13, %common.ret
   %32 = ptrtoint ptr %24 to i64
   %33 = xor i64 %31, %32
   %34 = inttoptr i64 %33 to ptr
-  %35 = tail call ptr @Hop_And(ptr noundef %0, ptr noundef %29, ptr noundef %34) #21
+  %35 = tail call ptr @Hop_And(ptr noundef %0, ptr noundef %29, ptr noundef %34) #22
   %36 = getelementptr i8, ptr %3, i64 8
   %.val36 = load ptr, ptr %36, align 8, !tbaa !17
   %37 = getelementptr inbounds ptr, ptr %.val36, i64 %7
@@ -3421,11 +3421,11 @@ common.ret37:                                     ; preds = %13, %common.ret
   br label %common.ret37
 }
 
-declare ptr @Hop_And(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @Hop_And(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_ObjHopFromGia(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
-  tail call void @Gia_ManIncrementTravId(ptr noundef %1) #21
+define ptr @Abc_ObjHopFromGia(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+  tail call void @Gia_ManIncrementTravId(ptr noundef %1) #22
   %5 = getelementptr i8, ptr %1, i64 264
   %6 = sext i32 %2 to i64
   %.val1921 = load ptr, ptr %5, align 8, !tbaa !144
@@ -3457,7 +3457,7 @@ define ptr @Abc_ObjHopFromGia(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %23 = getelementptr inbounds i32, ptr %.val17, i64 %22
   store i32 %.val, ptr %23, align 4, !tbaa !35
   %24 = trunc nuw nsw i64 %indvars.iv to i32
-  %25 = tail call ptr @Hop_IthVar(ptr noundef %0, i32 noundef %24) #21
+  %25 = tail call ptr @Hop_IthVar(ptr noundef %0, i32 noundef %24) #22
   %.val18 = load ptr, ptr %16, align 8, !tbaa !17
   %26 = getelementptr inbounds ptr, ptr %.val18, i64 %22
   store ptr %25, ptr %26, align 8, !tbaa !18
@@ -3479,12 +3479,12 @@ define ptr @Abc_ObjHopFromGia(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   ret ptr %35
 }
 
-declare void @Gia_ManIncrementTravId(ptr noundef) local_unnamed_addr #3
+declare void @Gia_ManIncrementTravId(ptr noundef) local_unnamed_addr #4
 
-declare ptr @Hop_IthVar(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Hop_IthVar(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkFromMappedGia_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define ptr @Abc_NtkFromMappedGia_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr i8, ptr %1, i64 32
   %.val36 = load ptr, ptr %5, align 8, !tbaa !143
   %6 = sext i32 %2 to i64
@@ -3516,7 +3516,7 @@ define ptr @Abc_NtkFromMappedGia_rec(ptr noundef %0, ptr noundef %1, i32 noundef
   %23 = and i32 %22, 536870911
   %24 = sub nsw i32 %2, %23
   %25 = tail call ptr @Abc_NtkFromMappedGia_rec(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %24, i32 noundef 0)
-  %26 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 7) #21
+  %26 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 7) #22
   %27 = load i64, ptr %7, align 4
   %28 = and i64 %27, 536870911
   %29 = sub nsw i64 0, %28
@@ -3530,7 +3530,7 @@ define ptr @Abc_NtkFromMappedGia_rec(ptr noundef %0, ptr noundef %1, i32 noundef
   %34 = sext i32 %.val43 to i64
   %35 = getelementptr inbounds ptr, ptr %.val34.val, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !18
-  tail call void @Abc_ObjAddFanin(ptr noundef %26, ptr noundef %36) #21
+  tail call void @Abc_ObjAddFanin(ptr noundef %26, ptr noundef %36) #22
   %37 = load i64, ptr %7, align 4
   %38 = lshr i64 %37, 32
   %39 = and i64 %38, 536870911
@@ -3544,10 +3544,10 @@ define ptr @Abc_NtkFromMappedGia_rec(ptr noundef %0, ptr noundef %1, i32 noundef
   %44 = sext i32 %.val44 to i64
   %45 = getelementptr inbounds ptr, ptr %.val33.val, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !18
-  tail call void @Abc_ObjAddFanin(ptr noundef %26, ptr noundef %46) #21
+  tail call void @Abc_ObjAddFanin(ptr noundef %26, ptr noundef %46) #22
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %48 = load ptr, ptr %47, align 8, !tbaa !112
-  %49 = tail call ptr @Abc_SopCreateAnd(ptr noundef %48, i32 noundef 2, ptr noundef null) #21
+  %49 = tail call ptr @Abc_SopCreateAnd(ptr noundef %48, i32 noundef 2, ptr noundef null) #22
   %50 = getelementptr inbounds nuw i8, ptr %26, i64 56
   store ptr %49, ptr %50, align 8, !tbaa !39
   %.val39 = load i64, ptr %7, align 4
@@ -3556,7 +3556,7 @@ define ptr @Abc_NtkFromMappedGia_rec(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not, label %53, label %52
 
 52:                                               ; preds = %16
-  tail call void @Abc_SopComplementVar(ptr noundef %49, i32 noundef 0) #21
+  tail call void @Abc_SopComplementVar(ptr noundef %49, i32 noundef 0) #22
   %.val40.pre = load i64, ptr %7, align 4
   br label %53
 
@@ -3568,7 +3568,7 @@ define ptr @Abc_NtkFromMappedGia_rec(ptr noundef %0, ptr noundef %1, i32 noundef
 
 55:                                               ; preds = %53
   %56 = load ptr, ptr %50, align 8, !tbaa !39
-  tail call void @Abc_SopComplementVar(ptr noundef %56, i32 noundef 1) #21
+  tail call void @Abc_SopComplementVar(ptr noundef %56, i32 noundef 1) #22
   br label %57
 
 57:                                               ; preds = %55, %53
@@ -3583,7 +3583,7 @@ define ptr @Abc_NtkFromMappedGia_rec(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not32, label %62, label %60
 
 60:                                               ; preds = %59
-  %61 = tail call ptr @Abc_NtkCreateNodeInv(ptr noundef nonnull %0, ptr noundef %.0) #21
+  %61 = tail call ptr @Abc_NtkCreateNodeInv(ptr noundef nonnull %0, ptr noundef %.0) #22
   br label %62
 
 62:                                               ; preds = %60, %59
@@ -3591,32 +3591,32 @@ define ptr @Abc_NtkFromMappedGia_rec(ptr noundef %0, ptr noundef %1, i32 noundef
   ret ptr %.1
 }
 
-declare ptr @Abc_SopCreateAnd(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @Abc_SopCreateAnd(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @Abc_SopComplementVar(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @Abc_SopComplementVar(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @Abc_NtkCreateNodeInv(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @Abc_NtkCreateNodeInv(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkFromMappedGia(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define ptr @Abc_NtkFromMappedGia(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = getelementptr i8, ptr %0, i64 264
   %.val309 = load ptr, ptr %6, align 8, !tbaa !144
   %.not368 = icmp eq ptr %.val309, null
   %7 = select i1 %.not368, i32 1, i32 3
-  %8 = tail call ptr @Abc_NtkAlloc(i32 noundef 2, i32 noundef %7, i32 noundef 1) #21
+  %8 = tail call ptr @Abc_NtkAlloc(i32 noundef 2, i32 noundef %7, i32 noundef 1) #22
   %9 = load ptr, ptr %0, align 8, !tbaa !148
-  %10 = tail call ptr @Extra_UtilStrsav(ptr noundef %9) #21
+  %10 = tail call ptr @Extra_UtilStrsav(ptr noundef %9) #22
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %11, align 8, !tbaa !60
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !149
-  %14 = tail call ptr @Extra_UtilStrsav(ptr noundef %13) #21
+  %14 = tail call ptr @Extra_UtilStrsav(ptr noundef %13) #22
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %14, ptr %15, align 8, !tbaa !62
-  tail call void @Gia_ManFillValue(ptr noundef nonnull %0) #21
-  %16 = tail call ptr @Abc_NtkCreateNodeConst0(ptr noundef %8) #21
+  tail call void @Gia_ManFillValue(ptr noundef nonnull %0) #22
+  %16 = tail call ptr @Abc_NtkCreateNodeConst0(ptr noundef %8) #22
   %17 = getelementptr i8, ptr %16, i64 16
   %.val270 = load i32, ptr %17, align 8, !tbaa !8
   %18 = getelementptr i8, ptr %0, i64 32
@@ -3652,7 +3652,7 @@ define ptr @Abc_NtkFromMappedGia(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   %26 = load i32, ptr %25, align 4, !tbaa !35
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val317466, i64 %27
-  %29 = tail call ptr @Abc_NtkCreateObj(ptr noundef %8, i32 noundef 2) #21
+  %29 = tail call ptr @Abc_NtkCreateObj(ptr noundef %8, i32 noundef 2) #22
   %30 = getelementptr i8, ptr %29, i64 16
   %.val269 = load i32, ptr %30, align 8, !tbaa !8
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -3699,7 +3699,7 @@ define ptr @Abc_NtkFromMappedGia(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   %41 = load i32, ptr %40, align 4, !tbaa !35
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val325473, i64 %42
-  %44 = tail call ptr @Abc_NtkCreateObj(ptr noundef %8, i32 noundef 3) #21
+  %44 = tail call ptr @Abc_NtkCreateObj(ptr noundef %8, i32 noundef 3) #22
   %45 = getelementptr i8, ptr %44, i64 16
   %.val268 = load i32, ptr %45, align 8, !tbaa !8
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -3753,11 +3753,11 @@ define ptr @Abc_NtkFromMappedGia(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   %67 = load i32, ptr %66, align 4, !tbaa !35
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val327, i64 %68
-  %70 = tail call ptr @Abc_NtkCreateObj(ptr noundef %8, i32 noundef 8) #21
-  %71 = tail call ptr @Abc_NtkCreateObj(ptr noundef %8, i32 noundef 4) #21
-  %72 = tail call ptr @Abc_NtkCreateObj(ptr noundef %8, i32 noundef 5) #21
-  tail call void @Abc_ObjAddFanin(ptr noundef %70, ptr noundef %71) #21
-  tail call void @Abc_ObjAddFanin(ptr noundef %72, ptr noundef %70) #21
+  %70 = tail call ptr @Abc_NtkCreateObj(ptr noundef %8, i32 noundef 8) #22
+  %71 = tail call ptr @Abc_NtkCreateObj(ptr noundef %8, i32 noundef 4) #22
+  %72 = tail call ptr @Abc_NtkCreateObj(ptr noundef %8, i32 noundef 5) #22
+  tail call void @Abc_ObjAddFanin(ptr noundef %70, ptr noundef %71) #22
+  tail call void @Abc_ObjAddFanin(ptr noundef %72, ptr noundef %70) #22
   %73 = getelementptr i8, ptr %71, i64 16
   %.val267 = load i32, ptr %73, align 8, !tbaa !8
   %74 = getelementptr inbounds nuw i8, ptr %61, i64 8
@@ -3824,7 +3824,7 @@ Gia_ObjIsRi.exit:                                 ; preds = %92
 100:                                              ; preds = %Gia_ObjIsRi.exit
   %101 = sub nsw i64 0, %94
   %102 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %91, i64 %101
-  %103 = call i32 @Gia_ObjIsMuxType(ptr noundef nonnull %102) #21
+  %103 = call i32 @Gia_ObjIsMuxType(ptr noundef nonnull %102) #22
   %.not263 = icmp eq i32 %103, 0
   %.val336.pre444 = load ptr, ptr %18, align 8, !tbaa !143
   %.val.i346.pre = load i64, ptr %91, align 4
@@ -3860,7 +3860,7 @@ Gia_ObjIsRi.exit:                                 ; preds = %92
   %122 = and i64 %.val.i346.pre, 536870911
   %123 = sub nsw i64 0, %122
   %124 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %91, i64 %123
-  %125 = call i32 @Gia_ObjRecognizeMuxLits(ptr noundef nonnull %0, ptr noundef nonnull %124, ptr noundef nonnull %5, ptr noundef nonnull %4) #21
+  %125 = call i32 @Gia_ObjRecognizeMuxLits(ptr noundef nonnull %0, ptr noundef nonnull %124, ptr noundef nonnull %5, ptr noundef nonnull %4) #22
   %126 = load i32, ptr %4, align 4, !tbaa !35
   %.val292 = load i64, ptr %91, align 4
   %127 = trunc i64 %.val292 to i32
@@ -3906,12 +3906,12 @@ Gia_ObjIsRi.exit:                                 ; preds = %92
   %150 = ashr i32 %149, 1
   %151 = and i32 %149, 1
   %152 = call ptr @Abc_NtkFromMappedGia_rec(ptr noundef %8, ptr noundef nonnull %0, i32 noundef %150, i32 noundef %151)
-  %153 = call ptr @Abc_NtkCreateObj(ptr noundef %8, i32 noundef 7) #21
-  call void @Abc_ObjAddFanin(ptr noundef %153, ptr noundef %144) #21
-  call void @Abc_ObjAddFanin(ptr noundef %153, ptr noundef %148) #21
-  call void @Abc_ObjAddFanin(ptr noundef %153, ptr noundef %152) #21
+  %153 = call ptr @Abc_NtkCreateObj(ptr noundef %8, i32 noundef 7) #22
+  call void @Abc_ObjAddFanin(ptr noundef %153, ptr noundef %144) #22
+  call void @Abc_ObjAddFanin(ptr noundef %153, ptr noundef %148) #22
+  call void @Abc_ObjAddFanin(ptr noundef %153, ptr noundef %152) #22
   %154 = load ptr, ptr %83, align 8, !tbaa !112
-  %155 = call ptr @Abc_SopCreateMux(ptr noundef %154) #21
+  %155 = call ptr @Abc_SopCreateMux(ptr noundef %154) #22
   %156 = getelementptr inbounds nuw i8, ptr %153, i64 56
   store ptr %155, ptr %156, align 8, !tbaa !39
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3941,7 +3941,7 @@ Gia_ObjIsRi.exit:                                 ; preds = %92
   %.val281.val = load ptr, ptr %169, align 8, !tbaa !17
   %170 = getelementptr inbounds nuw ptr, ptr %.val281.val, i64 %indvars.iv423
   %171 = load ptr, ptr %170, align 8, !tbaa !18
-  call void @Abc_ObjAddFanin(ptr noundef %171, ptr noundef %.2) #21
+  call void @Abc_ObjAddFanin(ptr noundef %171, ptr noundef %.2) #22
   %indvars.iv.next424 = add nuw nsw i64 %indvars.iv423, 1
   %172 = load ptr, ptr %36, align 8, !tbaa !153
   %173 = getelementptr i8, ptr %172, i64 4
@@ -3985,7 +3985,7 @@ Gia_ObjIsRi.exit:                                 ; preds = %92
   br i1 %narrow.i.not, label %311, label %190
 
 190:                                              ; preds = %186
-  %191 = tail call ptr @Abc_NtkCreateObj(ptr noundef %8, i32 noundef 7) #21
+  %191 = tail call ptr @Abc_NtkCreateObj(ptr noundef %8, i32 noundef 7) #22
   %.val338 = load ptr, ptr %177, align 8, !tbaa !157
   %.not.i347 = icmp eq ptr %.val338, null
   br i1 %.not.i347, label %Gia_ObjIsMuxId.exit.thread, label %Gia_ObjIsMuxId.exit
@@ -4017,7 +4017,7 @@ Gia_ObjFanin2.exit:                               ; preds = %Gia_ObjIsMuxId.exit
   %206 = sext i32 %.val308 to i64
   %207 = getelementptr inbounds ptr, ptr %.val279.val, i64 %206
   %208 = load ptr, ptr %207, align 8, !tbaa !18
-  tail call void @Abc_ObjAddFanin(ptr noundef %191, ptr noundef %208) #21
+  tail call void @Abc_ObjAddFanin(ptr noundef %191, ptr noundef %208) #22
   %209 = load i64, ptr %185, align 4
   %210 = lshr i64 %209, 32
   %211 = and i64 %210, 536870911
@@ -4031,7 +4031,7 @@ Gia_ObjFanin2.exit:                               ; preds = %Gia_ObjIsMuxId.exit
   %216 = sext i32 %.val307 to i64
   %217 = getelementptr inbounds ptr, ptr %.val278.val, i64 %216
   %218 = load ptr, ptr %217, align 8, !tbaa !18
-  tail call void @Abc_ObjAddFanin(ptr noundef %191, ptr noundef %218) #21
+  tail call void @Abc_ObjAddFanin(ptr noundef %191, ptr noundef %218) #22
   %219 = load i64, ptr %185, align 4
   %220 = and i64 %219, 536870911
   %221 = sub nsw i64 0, %220
@@ -4044,9 +4044,9 @@ Gia_ObjFanin2.exit:                               ; preds = %Gia_ObjIsMuxId.exit
   %225 = sext i32 %.val306 to i64
   %226 = getelementptr inbounds ptr, ptr %.val277.val, i64 %225
   %227 = load ptr, ptr %226, align 8, !tbaa !18
-  tail call void @Abc_ObjAddFanin(ptr noundef %191, ptr noundef %227) #21
+  tail call void @Abc_ObjAddFanin(ptr noundef %191, ptr noundef %227) #22
   %228 = load ptr, ptr %182, align 8, !tbaa !112
-  %229 = tail call ptr @Abc_SopCreateMux(ptr noundef %228) #21
+  %229 = tail call ptr @Abc_SopCreateMux(ptr noundef %228) #22
   %230 = getelementptr inbounds nuw i8, ptr %191, i64 56
   store ptr %229, ptr %230, align 8, !tbaa !39
   %231 = load ptr, ptr %177, align 8, !tbaa !157
@@ -4067,7 +4067,7 @@ Gia_ObjFaninC2.exit:                              ; preds = %Gia_ObjFanin2.exit
   br i1 %.not254, label %Gia_ObjFaninC2.exit.thread, label %239
 
 239:                                              ; preds = %Gia_ObjFaninC2.exit
-  tail call void @Abc_SopComplementVar(ptr noundef %229, i32 noundef 0) #21
+  tail call void @Abc_SopComplementVar(ptr noundef %229, i32 noundef 0) #22
   br label %Gia_ObjFaninC2.exit.thread
 
 Gia_ObjFaninC2.exit.thread:                       ; preds = %Gia_ObjFanin2.exit, %239, %Gia_ObjFaninC2.exit
@@ -4078,7 +4078,7 @@ Gia_ObjFaninC2.exit.thread:                       ; preds = %Gia_ObjFanin2.exit,
 
 241:                                              ; preds = %Gia_ObjFaninC2.exit.thread
   %242 = load ptr, ptr %230, align 8, !tbaa !39
-  tail call void @Abc_SopComplementVar(ptr noundef %242, i32 noundef 1) #21
+  tail call void @Abc_SopComplementVar(ptr noundef %242, i32 noundef 1) #22
   %.val289.pre = load i64, ptr %185, align 4
   br label %243
 
@@ -4090,7 +4090,7 @@ Gia_ObjFaninC2.exit.thread:                       ; preds = %Gia_ObjFanin2.exit,
 
 245:                                              ; preds = %243
   %246 = load ptr, ptr %230, align 8, !tbaa !39
-  tail call void @Abc_SopComplementVar(ptr noundef %246, i32 noundef 2) #21
+  tail call void @Abc_SopComplementVar(ptr noundef %246, i32 noundef 2) #22
   br label %308
 
 Gia_ObjIsMuxId.exit.thread:                       ; preds = %190, %Gia_ObjIsMuxId.exit
@@ -4122,7 +4122,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
   %260 = sext i32 %.val305 to i64
   %261 = getelementptr inbounds ptr, ptr %.val276.val, i64 %260
   %262 = load ptr, ptr %261, align 8, !tbaa !18
-  tail call void @Abc_ObjAddFanin(ptr noundef %191, ptr noundef %262) #21
+  tail call void @Abc_ObjAddFanin(ptr noundef %191, ptr noundef %262) #22
   %263 = load i64, ptr %185, align 4
   %264 = lshr i64 %263, 32
   %265 = and i64 %264, 536870911
@@ -4136,9 +4136,9 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
   %270 = sext i32 %.val304 to i64
   %271 = getelementptr inbounds ptr, ptr %.val275.val, i64 %270
   %272 = load ptr, ptr %271, align 8, !tbaa !18
-  tail call void @Abc_ObjAddFanin(ptr noundef %191, ptr noundef %272) #21
+  tail call void @Abc_ObjAddFanin(ptr noundef %191, ptr noundef %272) #22
   %273 = load ptr, ptr %182, align 8, !tbaa !112
-  %274 = tail call ptr @Abc_SopCreateXor(ptr noundef %273, i32 noundef 2) #21
+  %274 = tail call ptr @Abc_SopCreateXor(ptr noundef %273, i32 noundef 2) #22
   %275 = getelementptr inbounds nuw i8, ptr %191, i64 56
   store ptr %274, ptr %275, align 8, !tbaa !39
   %.val288 = load i64, ptr %185, align 4
@@ -4147,7 +4147,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
   br i1 %.not252, label %278, label %277
 
 277:                                              ; preds = %255
-  tail call void @Abc_SopComplementVar(ptr noundef %274, i32 noundef 0) #21
+  tail call void @Abc_SopComplementVar(ptr noundef %274, i32 noundef 0) #22
   %.val294.pre = load i64, ptr %185, align 4
   br label %278
 
@@ -4159,7 +4159,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
 
 280:                                              ; preds = %278
   %281 = load ptr, ptr %275, align 8, !tbaa !39
-  tail call void @Abc_SopComplementVar(ptr noundef %281, i32 noundef 1) #21
+  tail call void @Abc_SopComplementVar(ptr noundef %281, i32 noundef 1) #22
   br label %308
 
 Gia_ObjIsXor.exit.thread:                         ; preds = %Gia_ObjIsMuxId.exit.thread, %Gia_ObjIsXor.exit
@@ -4173,7 +4173,7 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %Gia_ObjIsMuxId.exit
   %286 = sext i32 %.val303 to i64
   %287 = getelementptr inbounds ptr, ptr %.val274.val, i64 %286
   %288 = load ptr, ptr %287, align 8, !tbaa !18
-  tail call void @Abc_ObjAddFanin(ptr noundef %191, ptr noundef %288) #21
+  tail call void @Abc_ObjAddFanin(ptr noundef %191, ptr noundef %288) #22
   %289 = load i64, ptr %185, align 4
   %290 = lshr i64 %289, 32
   %291 = and i64 %290, 536870911
@@ -4187,9 +4187,9 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %Gia_ObjIsMuxId.exit
   %296 = sext i32 %.val302 to i64
   %297 = getelementptr inbounds ptr, ptr %.val273.val, i64 %296
   %298 = load ptr, ptr %297, align 8, !tbaa !18
-  tail call void @Abc_ObjAddFanin(ptr noundef %191, ptr noundef %298) #21
+  tail call void @Abc_ObjAddFanin(ptr noundef %191, ptr noundef %298) #22
   %299 = load ptr, ptr %182, align 8, !tbaa !112
-  %300 = tail call ptr @Abc_SopCreateAnd(ptr noundef %299, i32 noundef 2, ptr noundef null) #21
+  %300 = tail call ptr @Abc_SopCreateAnd(ptr noundef %299, i32 noundef 2, ptr noundef null) #22
   %301 = getelementptr inbounds nuw i8, ptr %191, i64 56
   store ptr %300, ptr %301, align 8, !tbaa !39
   %.val287 = load i64, ptr %185, align 4
@@ -4198,7 +4198,7 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %Gia_ObjIsMuxId.exit
   br i1 %.not250, label %304, label %303
 
 303:                                              ; preds = %Gia_ObjIsXor.exit.thread
-  tail call void @Abc_SopComplementVar(ptr noundef %300, i32 noundef 0) #21
+  tail call void @Abc_SopComplementVar(ptr noundef %300, i32 noundef 0) #22
   %.val293.pre = load i64, ptr %185, align 4
   br label %304
 
@@ -4210,7 +4210,7 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %Gia_ObjIsMuxId.exit
 
 306:                                              ; preds = %304
   %307 = load ptr, ptr %301, align 8, !tbaa !39
-  tail call void @Abc_SopComplementVar(ptr noundef %307, i32 noundef 1) #21
+  tail call void @Abc_SopComplementVar(ptr noundef %307, i32 noundef 1) #22
   br label %308
 
 308:                                              ; preds = %280, %278, %306, %304, %243, %245
@@ -4229,7 +4229,7 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %Gia_ObjIsMuxId.exit
   br i1 %314, label %183, label %.critedge6, !llvm.loop !159
 
 315:                                              ; preds = %176
-  %316 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
+  %316 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
   %317 = add i32 %.val340, -1
   %or.cond.i.i = icmp ult i32 %317, 7
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 8, i32 %.val340
@@ -4240,7 +4240,7 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %Gia_ObjIsMuxId.exit
 318:                                              ; preds = %315
   %319 = sext i32 %spec.store.select.i.i to i64
   %320 = shl nsw i64 %319, 3
-  %321 = tail call noalias ptr @malloc(i64 noundef %320) #20
+  %321 = tail call noalias ptr @malloc(i64 noundef %320) #21
   br label %Vec_PtrStart.exit
 
 Vec_PtrStart.exit:                                ; preds = %315, %318
@@ -4289,7 +4289,7 @@ Vec_PtrStart.exit:                                ; preds = %315, %318
   br label %419
 
 344:                                              ; preds = %336
-  %345 = tail call ptr @Abc_NtkCreateObj(ptr noundef %8, i32 noundef 7) #21
+  %345 = tail call ptr @Abc_NtkCreateObj(ptr noundef %8, i32 noundef 7) #22
   %.val297407 = load ptr, ptr %6, align 8, !tbaa !144
   %346 = getelementptr i8, ptr %.val297407, i64 8
   %.val297.val408 = load ptr, ptr %346, align 8, !tbaa !43
@@ -4318,7 +4318,7 @@ Vec_PtrStart.exit:                                ; preds = %315, %318
   %361 = sext i32 %.val301 to i64
   %362 = getelementptr inbounds ptr, ptr %.val272.val, i64 %361
   %363 = load ptr, ptr %362, align 8, !tbaa !18
-  tail call void @Abc_ObjAddFanin(ptr noundef %345, ptr noundef %363) #21
+  tail call void @Abc_ObjAddFanin(ptr noundef %345, ptr noundef %363) #22
   %indvars.iv.next430 = add nuw nsw i64 %indvars.iv429, 1
   %.val297 = load ptr, ptr %6, align 8, !tbaa !144
   %364 = getelementptr i8, ptr %.val297, i64 8
@@ -4334,7 +4334,7 @@ Vec_PtrStart.exit:                                ; preds = %315, %318
 
 .critedge10:                                      ; preds = %.lr.ph410, %344
   %372 = load ptr, ptr %329, align 8, !tbaa !112
-  tail call void @Gia_ManIncrementTravId(ptr noundef nonnull %0) #21
+  tail call void @Gia_ManIncrementTravId(ptr noundef nonnull %0) #22
   %.val1921.i = load ptr, ptr %6, align 8, !tbaa !144
   %373 = getelementptr i8, ptr %.val1921.i, i64 8
   %.val19.val22.i = load ptr, ptr %373, align 8, !tbaa !43
@@ -4358,7 +4358,7 @@ Vec_PtrStart.exit:                                ; preds = %315, %318
   %385 = getelementptr inbounds i32, ptr %.val17.i, i64 %384
   store i32 %.val.i355, ptr %385, align 4, !tbaa !35
   %386 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %387 = tail call ptr @Hop_IthVar(ptr noundef %372, i32 noundef %386) #21
+  %387 = tail call ptr @Hop_IthVar(ptr noundef %372, i32 noundef %386) #22
   %.val18.i = load ptr, ptr %324, align 8, !tbaa !17
   %388 = getelementptr inbounds ptr, ptr %.val18.i, i64 %384
   store ptr %387, ptr %388, align 8, !tbaa !18
@@ -4425,11 +4425,11 @@ Abc_ObjHopFromGia.exit:                           ; preds = %.lr.ph.i, %.critedg
   br i1 %.not.i356, label %Vec_PtrFree.exit, label %423
 
 423:                                              ; preds = %._crit_edge
-  tail call void @free(ptr noundef nonnull %422) #21
+  tail call void @free(ptr noundef nonnull %422) #22
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %._crit_edge, %423
-  tail call void @free(ptr noundef nonnull %316) #21
+  tail call void @free(ptr noundef nonnull %316) #22
   br label %.critedge6
 
 .critedge6:                                       ; preds = %168, %85, %183, %311, %Vec_PtrFree.exit
@@ -4483,7 +4483,7 @@ Vec_PtrFree.exit:                                 ; preds = %._crit_edge, %423
   %451 = ptrtoint ptr %445 to i64
   %452 = xor i64 %450, %451
   %453 = inttoptr i64 %452 to ptr
-  call void @Abc_ObjAddFanin(ptr noundef %448, ptr noundef %453) #21
+  call void @Abc_ObjAddFanin(ptr noundef %448, ptr noundef %453) #22
   %indvars.iv.next436 = add nuw nsw i64 %indvars.iv435, 1
   %454 = load ptr, ptr %36, align 8, !tbaa !153
   %455 = getelementptr i8, ptr %454, i64 4
@@ -4493,12 +4493,12 @@ Vec_PtrFree.exit:                                 ; preds = %._crit_edge, %423
   br i1 %457, label %429, label %.critedge12, !llvm.loop !162
 
 .critedge12:                                      ; preds = %431, %429, %.preheader375, %.preheader, %.critedge6
-  call void @Abc_NtkAddDummyPiNames(ptr noundef %8) #21
-  call void @Abc_NtkAddDummyPoNames(ptr noundef %8) #21
-  call void @Abc_NtkAddDummyBoxNames(ptr noundef %8) #21
+  call void @Abc_NtkAddDummyPiNames(ptr noundef %8) #22
+  call void @Abc_NtkAddDummyPoNames(ptr noundef %8) #22
+  call void @Abc_NtkAddDummyBoxNames(ptr noundef %8) #22
   %.not259 = icmp eq i32 %2, 0
   %458 = zext i1 %.not259 to i32
-  %459 = call i32 @Abc_NtkLogicMakeSimpleCos(ptr noundef %8, i32 noundef %458) #21
+  %459 = call i32 @Abc_NtkLogicMakeSimpleCos(ptr noundef %8, i32 noundef %458) #22
   %460 = getelementptr i8, ptr %16, i64 20
   %.val344 = load i32, ptr %460, align 4
   %461 = and i32 %.val344, 15
@@ -4512,11 +4512,11 @@ Vec_PtrFree.exit:                                 ; preds = %._crit_edge, %423
   br i1 %464, label %465, label %466
 
 465:                                              ; preds = %462
-  call void @Abc_NtkDeleteObj(ptr noundef nonnull %16) #21
+  call void @Abc_NtkDeleteObj(ptr noundef nonnull %16) #22
   br label %466
 
 466:                                              ; preds = %465, %462, %.critedge12
-  %467 = call i32 @Abc_NtkCheck(ptr noundef %8) #21
+  %467 = call i32 @Abc_NtkCheck(ptr noundef %8) #22
   %.not261 = icmp eq i32 %467, 0
   br i1 %.not261, label %468, label %469
 
@@ -4528,44 +4528,44 @@ Vec_PtrFree.exit:                                 ; preds = %._crit_edge, %423
   ret ptr %8
 }
 
-declare void @Gia_ManFillValue(ptr noundef) local_unnamed_addr #3
+declare void @Gia_ManFillValue(ptr noundef) local_unnamed_addr #4
 
-declare ptr @Abc_NtkCreateNodeConst0(ptr noundef) local_unnamed_addr #3
+declare ptr @Abc_NtkCreateNodeConst0(ptr noundef) local_unnamed_addr #4
 
-declare i32 @Gia_ObjIsMuxType(ptr noundef) local_unnamed_addr #3
+declare i32 @Gia_ObjIsMuxType(ptr noundef) local_unnamed_addr #4
 
-declare i32 @Gia_ObjRecognizeMuxLits(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @Gia_ObjRecognizeMuxLits(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @Abc_SopCreateMux(ptr noundef) local_unnamed_addr #3
+declare ptr @Abc_SopCreateMux(ptr noundef) local_unnamed_addr #4
 
-declare ptr @Abc_SopCreateXor(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Abc_SopCreateXor(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @Abc_NtkLogicMakeSimpleCos(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @Abc_NtkLogicMakeSimpleCos(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @Abc_NtkDeleteObj(ptr noundef) local_unnamed_addr #3
+declare void @Abc_NtkDeleteObj(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkFromCellMappedGia(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
+define ptr @Abc_NtkFromCellMappedGia(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca i32, align 4
   %4 = alloca [2 x i32], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
-  %5 = call ptr @Mio_CollectRootsNewDefault2(i32 noundef 6, ptr noundef nonnull %3, i32 noundef 0) #21
-  %6 = call ptr @Abc_NtkAlloc(i32 noundef 2, i32 noundef 4, i32 noundef 1) #21
+  %5 = call ptr @Mio_CollectRootsNewDefault2(i32 noundef 6, ptr noundef nonnull %3, i32 noundef 0) #22
+  %6 = call ptr @Abc_NtkAlloc(i32 noundef 2, i32 noundef 4, i32 noundef 1) #22
   %7 = load ptr, ptr %0, align 8, !tbaa !148
-  %8 = call ptr @Extra_UtilStrsav(ptr noundef %7) #21
+  %8 = call ptr @Extra_UtilStrsav(ptr noundef %7) #22
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !60
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !149
-  %12 = call ptr @Extra_UtilStrsav(ptr noundef %11) #21
+  %12 = call ptr @Extra_UtilStrsav(ptr noundef %11) #22
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %12, ptr %13, align 8, !tbaa !62
   %14 = getelementptr i8, ptr %0, i64 24
   %.val266 = load i32, ptr %14, align 8, !tbaa !158
   %15 = shl nsw i32 %.val266, 1
-  %16 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
+  %16 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
   %17 = add i32 %15, -1
   %or.cond.i.i = icmp ult i32 %17, 15
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 16, i32 %15
@@ -4583,7 +4583,7 @@ Vec_IntAlloc.exit.thread.i:                       ; preds = %2
 Vec_IntAlloc.exit.i:                              ; preds = %2
   %20 = sext i32 %spec.store.select.i.i to i64
   %21 = shl nsw i64 %20, 2
-  %22 = call noalias ptr @malloc(i64 noundef %21) #20
+  %22 = call noalias ptr @malloc(i64 noundef %21) #21
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %22, ptr %23, align 8, !tbaa !43
   store i32 %15, ptr %18, align 4, !tbaa !41
@@ -4625,7 +4625,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %.val244.val = load ptr, ptr %32, align 8, !tbaa !43
   %33 = getelementptr inbounds nuw i32, ptr %.val244.val, i64 %indvars.iv479
   %34 = load i32, ptr %33, align 4, !tbaa !35
-  %35 = call ptr @Abc_NtkCreateObj(ptr noundef %6, i32 noundef 2) #21
+  %35 = call ptr @Abc_NtkCreateObj(ptr noundef %6, i32 noundef 2) #22
   %36 = getelementptr i8, ptr %35, i64 16
   %.val228 = load i32, ptr %36, align 8, !tbaa !8
   %37 = shl nsw i32 %34, 1
@@ -4671,7 +4671,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %.val256.val = load ptr, ptr %47, align 8, !tbaa !43
   %48 = getelementptr inbounds nuw i32, ptr %.val256.val, i64 %indvars.iv411485
   %49 = load i32, ptr %48, align 4, !tbaa !35
-  %50 = call ptr @Abc_NtkCreateObj(ptr noundef %6, i32 noundef 3) #21
+  %50 = call ptr @Abc_NtkCreateObj(ptr noundef %6, i32 noundef 3) #22
   %51 = getelementptr i8, ptr %50, i64 16
   %.val227 = load i32, ptr %51, align 8, !tbaa !8
   %52 = shl nsw i32 %49, 1
@@ -4728,11 +4728,11 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %76 = load i32, ptr %75, align 4, !tbaa !35
   %77 = sext i32 %76 to i64
   %78 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val253, i64 %77
-  %79 = call ptr @Abc_NtkCreateObj(ptr noundef %6, i32 noundef 8) #21
-  %80 = call ptr @Abc_NtkCreateObj(ptr noundef %6, i32 noundef 4) #21
-  %81 = call ptr @Abc_NtkCreateObj(ptr noundef %6, i32 noundef 5) #21
-  call void @Abc_ObjAddFanin(ptr noundef %79, ptr noundef %80) #21
-  call void @Abc_ObjAddFanin(ptr noundef %81, ptr noundef %79) #21
+  %79 = call ptr @Abc_NtkCreateObj(ptr noundef %6, i32 noundef 8) #22
+  %80 = call ptr @Abc_NtkCreateObj(ptr noundef %6, i32 noundef 4) #22
+  %81 = call ptr @Abc_NtkCreateObj(ptr noundef %6, i32 noundef 5) #22
+  call void @Abc_ObjAddFanin(ptr noundef %79, ptr noundef %80) #22
+  call void @Abc_ObjAddFanin(ptr noundef %81, ptr noundef %79) #22
   %.val259 = load ptr, ptr %27, align 8, !tbaa !143
   %82 = ptrtoint ptr %70 to i64
   %83 = ptrtoint ptr %.val259 to i64
@@ -4864,7 +4864,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   br i1 %.not212, label %140, label %137
 
 137:                                              ; preds = %.critedge8
-  %138 = call ptr @Abc_NtkCreateNodeConst0(ptr noundef %6) #21
+  %138 = call ptr @Abc_NtkCreateNodeConst0(ptr noundef %6) #22
   %139 = getelementptr i8, ptr %138, i64 16
   %.val224 = load i32, ptr %139, align 8, !tbaa !8
   store i32 %.val224, ptr %.val272, align 4, !tbaa !35
@@ -4877,7 +4877,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   br i1 %.not213, label %147, label %143
 
 143:                                              ; preds = %140
-  %144 = call ptr @Abc_NtkCreateNodeConst1(ptr noundef %6) #21
+  %144 = call ptr @Abc_NtkCreateNodeConst1(ptr noundef %6) #22
   %145 = getelementptr i8, ptr %144, i64 16
   %.val223 = load i32, ptr %145, align 8, !tbaa !8
   %146 = getelementptr inbounds nuw i8, ptr %.val272, i64 4
@@ -4928,7 +4928,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   ]
 
 166:                                              ; preds = %161
-  %167 = call ptr @Abc_NtkCreateObj(ptr noundef %6, i32 noundef 7) #21
+  %167 = call ptr @Abc_NtkCreateObj(ptr noundef %6, i32 noundef 7) #22
   %168 = ashr i32 %.0192397, 1
   %.val230 = load ptr, ptr %27, align 8, !tbaa !143
   %169 = sext i32 %168 to i64
@@ -4965,11 +4965,11 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   br i1 %.not.i290, label %192, label %190
 
 190:                                              ; preds = %189
-  %191 = call ptr @Abc_NtkCreateNodeConst1(ptr noundef %6) #21
+  %191 = call ptr @Abc_NtkCreateNodeConst1(ptr noundef %6) #22
   br label %.split.i
 
 192:                                              ; preds = %189
-  %193 = call ptr @Abc_NtkCreateNodeConst0(ptr noundef %6) #21
+  %193 = call ptr @Abc_NtkCreateNodeConst0(ptr noundef %6) #22
   br label %.split.i
 
 .split.i:                                         ; preds = %192, %190
@@ -4992,7 +4992,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %203 = sext i32 %201 to i64
   %204 = getelementptr inbounds ptr, ptr %.val27.val.i, i64 %203
   %205 = load ptr, ptr %204, align 8, !tbaa !18
-  %206 = call ptr @Abc_NtkCreateNodeInv(ptr noundef %6, ptr noundef %205) #21
+  %206 = call ptr @Abc_NtkCreateNodeInv(ptr noundef %6, ptr noundef %205) #22
   %207 = getelementptr i8, ptr %206, i64 16
   %.val.i289 = load i32, ptr %207, align 8, !tbaa !8
   store i32 %.val.i289, ptr %179, align 4, !tbaa !35
@@ -5000,7 +5000,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
 
 Abc_NtkFromCellRead.exit:                         ; preds = %182, %.split.i, %.split23.i
   %.021.i = phi ptr [ %186, %182 ], [ %194, %.split.i ], [ %206, %.split23.i ]
-  call void @Abc_ObjAddFanin(ptr noundef %167, ptr noundef %.021.i) #21
+  call void @Abc_ObjAddFanin(ptr noundef %167, ptr noundef %.021.i) #22
   %208 = getelementptr inbounds nuw i8, ptr %167, i64 56
   store ptr null, ptr %208, align 8, !tbaa !39
   %209 = load i32, ptr %154, align 8, !tbaa !170
@@ -5019,7 +5019,7 @@ Abc_NtkFromCellRead.exit:                         ; preds = %182, %.split.i, %.s
   br label %279
 
 214:                                              ; preds = %211
-  %215 = call ptr @Abc_NtkCreateObj(ptr noundef %6, i32 noundef 7) #21
+  %215 = call ptr @Abc_NtkCreateObj(ptr noundef %6, i32 noundef 7) #22
   %216 = sext i32 %212 to i64
   %.val281385 = load ptr, ptr %149, align 8, !tbaa !169
   %217 = getelementptr i8, ptr %.val281385, i64 8
@@ -5068,11 +5068,11 @@ Abc_NtkFromCellRead.exit:                         ; preds = %182, %.split.i, %.s
   br i1 %.not.i298, label %243, label %241
 
 241:                                              ; preds = %240
-  %242 = call ptr @Abc_NtkCreateNodeConst1(ptr noundef %6) #21
+  %242 = call ptr @Abc_NtkCreateNodeConst1(ptr noundef %6) #22
   br label %.split.i299
 
 243:                                              ; preds = %240
-  %244 = call ptr @Abc_NtkCreateNodeConst0(ptr noundef %6) #21
+  %244 = call ptr @Abc_NtkCreateNodeConst0(ptr noundef %6) #22
   br label %.split.i299
 
 .split.i299:                                      ; preds = %243, %241
@@ -5095,7 +5095,7 @@ Abc_NtkFromCellRead.exit:                         ; preds = %182, %.split.i, %.s
   %254 = sext i32 %252 to i64
   %255 = getelementptr inbounds ptr, ptr %.val27.val.i294, i64 %254
   %256 = load ptr, ptr %255, align 8, !tbaa !18
-  %257 = call ptr @Abc_NtkCreateNodeInv(ptr noundef %6, ptr noundef %256) #21
+  %257 = call ptr @Abc_NtkCreateNodeInv(ptr noundef %6, ptr noundef %256) #22
   %258 = getelementptr i8, ptr %257, i64 16
   %.val.i295 = load i32, ptr %258, align 8, !tbaa !8
   store i32 %.val.i295, ptr %230, align 4, !tbaa !35
@@ -5103,7 +5103,7 @@ Abc_NtkFromCellRead.exit:                         ; preds = %182, %.split.i, %.s
 
 Abc_NtkFromCellRead.exit304:                      ; preds = %233, %.split.i299, %.split23.i292
   %.021.i297 = phi ptr [ %237, %233 ], [ %245, %.split.i299 ], [ %257, %.split23.i292 ]
-  call void @Abc_ObjAddFanin(ptr noundef %215, ptr noundef %.021.i297) #21
+  call void @Abc_ObjAddFanin(ptr noundef %215, ptr noundef %.021.i297) #22
   %indvars.iv.next423 = add nuw nsw i64 %indvars.iv422, 1
   %.val281 = load ptr, ptr %149, align 8, !tbaa !169
   %259 = getelementptr i8, ptr %.val281, i64 8
@@ -5127,7 +5127,7 @@ Abc_NtkFromCellRead.exit304:                      ; preds = %233, %.split.i299, 
   %271 = sext i32 %270 to i64
   %272 = getelementptr inbounds %struct.Mio_Cell2_t_, ptr %5, i64 %271
   %273 = load ptr, ptr %272, align 8, !tbaa !172
-  %274 = call ptr @Mio_LibraryReadGateByName(ptr noundef %267, ptr noundef %273, ptr noundef null) #21
+  %274 = call ptr @Mio_LibraryReadGateByName(ptr noundef %267, ptr noundef %273, ptr noundef null) #22
   %275 = getelementptr inbounds nuw i8, ptr %215, i64 56
   store ptr %274, ptr %275, align 8, !tbaa !39
   %276 = getelementptr i8, ptr %215, i64 16
@@ -5142,7 +5142,7 @@ Abc_NtkFromCellRead.exit304:                      ; preds = %233, %.split.i299, 
   %.pre-phi450 = phi i64 [ %.pre449, %._crit_edge ], [ %216, %.critedge10 ]
   %.val30.i305 = phi ptr [ %.val30.i, %._crit_edge ], [ %.val273, %.critedge10 ]
   %.1 = phi i32 [ 0, %._crit_edge ], [ 1, %.critedge10 ]
-  %280 = call ptr @Abc_NtkCreateObj(ptr noundef %6, i32 noundef 7) #21
+  %280 = call ptr @Abc_NtkCreateObj(ptr noundef %6, i32 noundef 7) #22
   %281 = and i32 %212, 1
   %282 = getelementptr inbounds i32, ptr %.val30.i305, i64 %.pre-phi450
   %283 = load i32, ptr %282, align 4, !tbaa !35
@@ -5167,11 +5167,11 @@ Abc_NtkFromCellRead.exit304:                      ; preds = %233, %.split.i299, 
   br i1 %.not.i312, label %295, label %293
 
 293:                                              ; preds = %292
-  %294 = call ptr @Abc_NtkCreateNodeConst1(ptr noundef %6) #21
+  %294 = call ptr @Abc_NtkCreateNodeConst1(ptr noundef %6) #22
   br label %.split.i313
 
 295:                                              ; preds = %292
-  %296 = call ptr @Abc_NtkCreateNodeConst0(ptr noundef %6) #21
+  %296 = call ptr @Abc_NtkCreateNodeConst0(ptr noundef %6) #22
   br label %.split.i313
 
 .split.i313:                                      ; preds = %295, %293
@@ -5192,7 +5192,7 @@ Abc_NtkFromCellRead.exit304:                      ; preds = %233, %.split.i299, 
   %304 = sext i32 %302 to i64
   %305 = getelementptr inbounds ptr, ptr %.val27.val.i308, i64 %304
   %306 = load ptr, ptr %305, align 8, !tbaa !18
-  %307 = call ptr @Abc_NtkCreateNodeInv(ptr noundef %6, ptr noundef %306) #21
+  %307 = call ptr @Abc_NtkCreateNodeInv(ptr noundef %6, ptr noundef %306) #22
   %308 = getelementptr i8, ptr %307, i64 16
   %.val.i309 = load i32, ptr %308, align 8, !tbaa !8
   store i32 %.val.i309, ptr %282, align 4, !tbaa !35
@@ -5200,16 +5200,16 @@ Abc_NtkFromCellRead.exit304:                      ; preds = %233, %.split.i299, 
 
 Abc_NtkFromCellRead.exit318:                      ; preds = %285, %.split.i313, %.split23.i306
   %.021.i311 = phi ptr [ %289, %285 ], [ %297, %.split.i313 ], [ %307, %.split23.i306 ]
-  call void @Abc_ObjAddFanin(ptr noundef %280, ptr noundef %.021.i311) #21
+  call void @Abc_ObjAddFanin(ptr noundef %280, ptr noundef %.021.i311) #22
   %309 = load ptr, ptr %152, align 8, !tbaa !112
   %310 = load ptr, ptr %153, align 8, !tbaa !172
-  %311 = call ptr @Mio_LibraryReadGateByName(ptr noundef %309, ptr noundef %310, ptr noundef null) #21
+  %311 = call ptr @Mio_LibraryReadGateByName(ptr noundef %309, ptr noundef %310, ptr noundef null) #22
   %312 = getelementptr inbounds nuw i8, ptr %280, i64 56
   store ptr %311, ptr %312, align 8, !tbaa !39
   br label %374
 
 313:                                              ; preds = %161
-  %314 = call ptr @Abc_NtkCreateObj(ptr noundef %6, i32 noundef 7) #21
+  %314 = call ptr @Abc_NtkCreateObj(ptr noundef %6, i32 noundef 7) #22
   %.val282390 = load ptr, ptr %149, align 8, !tbaa !169
   %315 = getelementptr i8, ptr %.val282390, i64 8
   %.val282.val391 = load ptr, ptr %315, align 8, !tbaa !43
@@ -5257,11 +5257,11 @@ Abc_NtkFromCellRead.exit318:                      ; preds = %285, %.split.i313, 
   br i1 %.not.i326, label %341, label %339
 
 339:                                              ; preds = %338
-  %340 = call ptr @Abc_NtkCreateNodeConst1(ptr noundef %6) #21
+  %340 = call ptr @Abc_NtkCreateNodeConst1(ptr noundef %6) #22
   br label %.split.i327
 
 341:                                              ; preds = %338
-  %342 = call ptr @Abc_NtkCreateNodeConst0(ptr noundef %6) #21
+  %342 = call ptr @Abc_NtkCreateNodeConst0(ptr noundef %6) #22
   br label %.split.i327
 
 .split.i327:                                      ; preds = %341, %339
@@ -5284,7 +5284,7 @@ Abc_NtkFromCellRead.exit318:                      ; preds = %285, %.split.i313, 
   %352 = sext i32 %350 to i64
   %353 = getelementptr inbounds ptr, ptr %.val27.val.i322, i64 %352
   %354 = load ptr, ptr %353, align 8, !tbaa !18
-  %355 = call ptr @Abc_NtkCreateNodeInv(ptr noundef %6, ptr noundef %354) #21
+  %355 = call ptr @Abc_NtkCreateNodeInv(ptr noundef %6, ptr noundef %354) #22
   %356 = getelementptr i8, ptr %355, i64 16
   %.val.i323 = load i32, ptr %356, align 8, !tbaa !8
   store i32 %.val.i323, ptr %328, align 4, !tbaa !35
@@ -5292,7 +5292,7 @@ Abc_NtkFromCellRead.exit318:                      ; preds = %285, %.split.i313, 
 
 Abc_NtkFromCellRead.exit332:                      ; preds = %331, %.split.i327, %.split23.i320
   %.021.i325 = phi ptr [ %335, %331 ], [ %343, %.split.i327 ], [ %355, %.split23.i320 ]
-  call void @Abc_ObjAddFanin(ptr noundef %314, ptr noundef %.021.i325) #21
+  call void @Abc_ObjAddFanin(ptr noundef %314, ptr noundef %.021.i325) #22
   %indvars.iv.next426 = add nuw nsw i64 %indvars.iv425, 1
   %.val282 = load ptr, ptr %149, align 8, !tbaa !169
   %357 = getelementptr i8, ptr %.val282, i64 8
@@ -5316,7 +5316,7 @@ Abc_NtkFromCellRead.exit332:                      ; preds = %331, %.split.i327, 
   %369 = sext i32 %368 to i64
   %370 = getelementptr inbounds %struct.Mio_Cell2_t_, ptr %5, i64 %369
   %371 = load ptr, ptr %370, align 8, !tbaa !172
-  %372 = call ptr @Mio_LibraryReadGateByName(ptr noundef %365, ptr noundef %371, ptr noundef null) #21
+  %372 = call ptr @Mio_LibraryReadGateByName(ptr noundef %365, ptr noundef %371, ptr noundef null) #22
   %373 = getelementptr inbounds nuw i8, ptr %314, i64 56
   store ptr %372, ptr %373, align 8, !tbaa !39
   br label %374
@@ -5389,11 +5389,11 @@ Abc_NtkFromCellRead.exit332:                      ; preds = %331, %.split.i327, 
   br i1 %.not.i341, label %411, label %409
 
 409:                                              ; preds = %408
-  %410 = call ptr @Abc_NtkCreateNodeConst1(ptr noundef %6) #21
+  %410 = call ptr @Abc_NtkCreateNodeConst1(ptr noundef %6) #22
   br label %.split.i342
 
 411:                                              ; preds = %408
-  %412 = call ptr @Abc_NtkCreateNodeConst0(ptr noundef %6) #21
+  %412 = call ptr @Abc_NtkCreateNodeConst0(ptr noundef %6) #22
   br label %.split.i342
 
 .split.i342:                                      ; preds = %411, %409
@@ -5416,7 +5416,7 @@ Abc_NtkFromCellRead.exit332:                      ; preds = %331, %.split.i327, 
   %422 = sext i32 %420 to i64
   %423 = getelementptr inbounds ptr, ptr %.val27.val.i337, i64 %422
   %424 = load ptr, ptr %423, align 8, !tbaa !18
-  %425 = call ptr @Abc_NtkCreateNodeInv(ptr noundef %6, ptr noundef %424) #21
+  %425 = call ptr @Abc_NtkCreateNodeInv(ptr noundef %6, ptr noundef %424) #22
   %426 = getelementptr i8, ptr %425, i64 16
   %.val.i338 = load i32, ptr %426, align 8, !tbaa !8
   store i32 %.val.i338, ptr %398, align 4, !tbaa !35
@@ -5429,7 +5429,7 @@ Abc_NtkFromCellRead.exit347:                      ; preds = %401, %.split.i342, 
   %.val229.val = load ptr, ptr %427, align 8, !tbaa !17
   %428 = getelementptr inbounds nuw ptr, ptr %.val229.val, i64 %indvars.iv428
   %429 = load ptr, ptr %428, align 8, !tbaa !18
-  call void @Abc_ObjAddFanin(ptr noundef %429, ptr noundef %.021.i340) #21
+  call void @Abc_ObjAddFanin(ptr noundef %429, ptr noundef %.021.i340) #22
   %indvars.iv.next429 = add nuw nsw i64 %indvars.iv428, 1
   %430 = load ptr, ptr %44, align 8, !tbaa !153
   %431 = getelementptr i8, ptr %430, i64 4
@@ -5439,32 +5439,32 @@ Abc_NtkFromCellRead.exit347:                      ; preds = %401, %.split.i342, 
   br i1 %433, label %382, label %.critedge14, !llvm.loop !176
 
 .critedge14:                                      ; preds = %382, %Abc_NtkFromCellRead.exit347, %.preheader
-  call void @Abc_NtkAddDummyPiNames(ptr noundef %6) #21
-  call void @Abc_NtkAddDummyPoNames(ptr noundef %6) #21
-  call void @Abc_NtkAddDummyBoxNames(ptr noundef %6) #21
+  call void @Abc_NtkAddDummyPiNames(ptr noundef %6) #22
+  call void @Abc_NtkAddDummyPoNames(ptr noundef %6) #22
+  call void @Abc_NtkAddDummyBoxNames(ptr noundef %6) #22
   %.not215 = icmp eq i32 %1, 0
   %434 = zext i1 %.not215 to i32
-  %435 = call i32 @Abc_NtkLogicMakeSimpleCos(ptr noundef %6, i32 noundef %434) #21
+  %435 = call i32 @Abc_NtkLogicMakeSimpleCos(ptr noundef %6, i32 noundef %434) #22
   %436 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %437 = load ptr, ptr %436, align 8, !tbaa !43
   %.not.i348 = icmp eq ptr %437, null
   br i1 %.not.i348, label %Vec_IntFree.exit, label %438
 
 438:                                              ; preds = %.critedge14
-  call void @free(ptr noundef nonnull %437) #21
+  call void @free(ptr noundef nonnull %437) #22
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %.critedge14, %438
-  call void @free(ptr noundef nonnull %16) #21
+  call void @free(ptr noundef nonnull %16) #22
   %.not216 = icmp eq ptr %5, null
   br i1 %.not216, label %440, label %439
 
 439:                                              ; preds = %Vec_IntFree.exit
-  call void @free(ptr noundef nonnull %5) #21
+  call void @free(ptr noundef nonnull %5) #22
   br label %440
 
 440:                                              ; preds = %Vec_IntFree.exit, %439
-  %441 = call i32 @Abc_NtkCheck(ptr noundef %6) #21
+  %441 = call i32 @Abc_NtkCheck(ptr noundef %6) #22
   %.not217 = icmp eq i32 %441, 0
   br i1 %.not217, label %442, label %443
 
@@ -5478,18 +5478,18 @@ Vec_IntFree.exit:                                 ; preds = %.critedge14, %438
   ret ptr %6
 }
 
-declare ptr @Mio_CollectRootsNewDefault2(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Mio_CollectRootsNewDefault2(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @Abc_NtkCreateNodeConst1(ptr noundef) local_unnamed_addr #3
+declare ptr @Abc_NtkCreateNodeConst1(ptr noundef) local_unnamed_addr #4
 
-declare ptr @Mio_LibraryReadGateByName(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @Mio_LibraryReadGateByName(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkAfterTrim(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
-  %3 = tail call ptr @Abc_NtkAlloc(i32 noundef 3, i32 noundef 3, i32 noundef 1) #21
+define noundef ptr @Abc_NtkAfterTrim(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
+  %3 = tail call ptr @Abc_NtkAlloc(i32 noundef 3, i32 noundef 3, i32 noundef 1) #22
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load i32, ptr %4, align 8, !tbaa !49
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 144
@@ -5498,7 +5498,7 @@ define noundef ptr @Abc_NtkAfterTrim(ptr noundef %0, ptr noundef readonly captur
   %8 = load i32, ptr %7, align 4, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 148
   store i32 %8, ptr %9, align 4, !tbaa !58
-  %10 = tail call ptr @Abc_AigConst1(ptr noundef %3) #21
+  %10 = tail call ptr @Abc_AigConst1(ptr noundef %3) #22
   %11 = getelementptr i8, ptr %0, i64 48
   %.val99 = load ptr, ptr %11, align 8, !tbaa !64
   %12 = getelementptr inbounds nuw i8, ptr %.val99, i64 40
@@ -5535,7 +5535,7 @@ define noundef ptr @Abc_NtkAfterTrim(ptr noundef %0, ptr noundef readonly captur
   %.val98 = load ptr, ptr %25, align 8, !tbaa !17
   %26 = getelementptr inbounds nuw ptr, ptr %.val98, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !18
-  %28 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %3, i32 noundef 2) #21
+  %28 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %3, i32 noundef 2) #22
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 40
   store ptr %28, ptr %29, align 8, !tbaa !39
   %30 = load ptr, ptr %17, align 8, !tbaa !177
@@ -5549,8 +5549,8 @@ define noundef ptr @Abc_NtkAfterTrim(ptr noundef %0, ptr noundef readonly captur
   %35 = sext i32 %33 to i64
   %36 = getelementptr inbounds ptr, ptr %.val101.val, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !18
-  %38 = tail call ptr @Abc_ObjName(ptr noundef %37) #21
-  %39 = tail call ptr @Abc_ObjAssignName(ptr noundef %28, ptr noundef %38, ptr noundef null) #21
+  %38 = tail call ptr @Abc_ObjName(ptr noundef %37) #22
+  %39 = tail call ptr @Abc_ObjAssignName(ptr noundef %28, ptr noundef %38, ptr noundef null) #22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val114 = load i32, ptr %13, align 8, !tbaa !35
   %.val108 = load i32, ptr %14, align 8, !tbaa !89
@@ -5581,7 +5581,7 @@ define noundef ptr @Abc_NtkAfterTrim(ptr noundef %0, ptr noundef readonly captur
   %.val97 = load ptr, ptr %52, align 8, !tbaa !17
   %53 = getelementptr inbounds nuw ptr, ptr %.val97, i64 %indvars.iv150
   %54 = load ptr, ptr %53, align 8, !tbaa !18
-  %55 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %3, i32 noundef 3) #21
+  %55 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %3, i32 noundef 3) #22
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 40
   store ptr %55, ptr %56, align 8, !tbaa !39
   %.val104 = load ptr, ptr %22, align 8, !tbaa !78
@@ -5589,8 +5589,8 @@ define noundef ptr @Abc_NtkAfterTrim(ptr noundef %0, ptr noundef readonly captur
   %.val104.val = load ptr, ptr %57, align 8, !tbaa !17
   %58 = getelementptr inbounds nuw ptr, ptr %.val104.val, i64 %indvars.iv150
   %59 = load ptr, ptr %58, align 8, !tbaa !18
-  %60 = tail call ptr @Abc_ObjName(ptr noundef %59) #21
-  %61 = tail call ptr @Abc_ObjAssignName(ptr noundef %55, ptr noundef %60, ptr noundef null) #21
+  %60 = tail call ptr @Abc_ObjName(ptr noundef %59) #22
+  %61 = tail call ptr @Abc_ObjAssignName(ptr noundef %55, ptr noundef %60, ptr noundef null) #22
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %.val105 = load i32, ptr %19, align 4, !tbaa !35
   %.val107 = load i32, ptr %14, align 8, !tbaa !89
@@ -5619,17 +5619,17 @@ define noundef ptr @Abc_NtkAfterTrim(ptr noundef %0, ptr noundef readonly captur
   %75 = sext i32 %73 to i64
   %76 = getelementptr inbounds ptr, ptr %.val.i121, i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !18
-  %78 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %3, i32 noundef 8) #21
-  %79 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %3, i32 noundef 4) #21
+  %78 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %3, i32 noundef 8) #22
+  %79 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %3, i32 noundef 4) #22
   %80 = getelementptr inbounds nuw i8, ptr %71, i64 40
   store ptr %79, ptr %80, align 8, !tbaa !39
-  %81 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %3, i32 noundef 5) #21
+  %81 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %3, i32 noundef 5) #22
   %82 = getelementptr inbounds nuw i8, ptr %77, i64 40
   store ptr %81, ptr %82, align 8, !tbaa !39
   %83 = load ptr, ptr %80, align 8, !tbaa !39
-  tail call void @Abc_ObjAddFanin(ptr noundef %78, ptr noundef %83) #21
+  tail call void @Abc_ObjAddFanin(ptr noundef %78, ptr noundef %83) #22
   %84 = load ptr, ptr %82, align 8, !tbaa !39
-  tail call void @Abc_ObjAddFanin(ptr noundef %84, ptr noundef %78) #21
+  tail call void @Abc_ObjAddFanin(ptr noundef %84, ptr noundef %78) #22
   %85 = getelementptr inbounds nuw i8, ptr %78, i64 56
   store ptr inttoptr (i64 1 to ptr), ptr %85, align 8, !tbaa !39
   %86 = load ptr, ptr %46, align 8, !tbaa !177
@@ -5647,8 +5647,8 @@ define noundef ptr @Abc_NtkAfterTrim(ptr noundef %0, ptr noundef readonly captur
   %94 = getelementptr inbounds ptr, ptr %.val100.val, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !18
   %96 = load ptr, ptr %82, align 8, !tbaa !39
-  %97 = tail call ptr @Abc_ObjName(ptr noundef %95) #21
-  %98 = tail call ptr @Abc_ObjAssignName(ptr noundef %96, ptr noundef %97, ptr noundef null) #21
+  %97 = tail call ptr @Abc_ObjName(ptr noundef %95) #22
+  %98 = tail call ptr @Abc_ObjAssignName(ptr noundef %96, ptr noundef %97, ptr noundef null) #22
   %.val118 = load i32, ptr %49, align 8, !tbaa !181
   %99 = add nsw i32 %.val118, %.2140
   %.val103 = load ptr, ptr %50, align 8, !tbaa !78
@@ -5658,15 +5658,15 @@ define noundef ptr @Abc_NtkAfterTrim(ptr noundef %0, ptr noundef readonly captur
   %102 = getelementptr inbounds ptr, ptr %.val103.val, i64 %101
   %103 = load ptr, ptr %102, align 8, !tbaa !18
   %104 = load ptr, ptr %80, align 8, !tbaa !39
-  %105 = tail call ptr @Abc_ObjName(ptr noundef %103) #21
-  %106 = tail call ptr @Abc_ObjAssignName(ptr noundef %104, ptr noundef %105, ptr noundef null) #21
+  %105 = tail call ptr @Abc_ObjName(ptr noundef %103) #22
+  %106 = tail call ptr @Abc_ObjAssignName(ptr noundef %104, ptr noundef %105, ptr noundef null) #22
   %107 = add nuw nsw i32 %.2140, 1
   %.val106 = load i32, ptr %14, align 8, !tbaa !89
   %108 = icmp slt i32 %107, %.val106
   br i1 %108, label %.critedge2, label %.critedge4, !llvm.loop !182
 
 .critedge4:                                       ; preds = %.critedge2, %.critedge2.preheader
-  %109 = tail call ptr @Aig_ManDfs(ptr noundef nonnull %0, i32 noundef 1) #21
+  %109 = tail call ptr @Aig_ManDfs(ptr noundef nonnull %0, i32 noundef 1) #22
   %110 = getelementptr i8, ptr %109, i64 4
   %.val94143 = load i32, ptr %110, align 4, !tbaa !14
   %111 = icmp sgt i32 %.val94143, 0
@@ -5746,7 +5746,7 @@ Aig_ObjChild0Copy.exit123:                        ; preds = %131, %136
 
 Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.exit123, %148
   %156 = phi ptr [ %155, %148 ], [ null, %Aig_ObjChild0Copy.exit123 ]
-  %157 = tail call ptr @Abc_AigAnd(ptr noundef %132, ptr noundef %144, ptr noundef %156) #21
+  %157 = tail call ptr @Abc_AigAnd(ptr noundef %132, ptr noundef %144, ptr noundef %156) #22
   br label %Aig_ObjChild0Copy.exit
 
 Aig_ObjChild0Copy.exit:                           ; preds = %123, %119, %Aig_ObjChild1Copy.exit
@@ -5766,11 +5766,11 @@ Aig_ObjChild0Copy.exit:                           ; preds = %123, %119, %Aig_Obj
   br i1 %.not.i125, label %Vec_PtrFree.exit, label %163
 
 163:                                              ; preds = %.critedge6
-  tail call void @free(ptr noundef nonnull %162) #21
+  tail call void @free(ptr noundef nonnull %162) #22
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge6, %163
-  tail call void @free(ptr noundef nonnull %109) #21
+  tail call void @free(ptr noundef nonnull %109) #22
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %165 = load ptr, ptr %164, align 8, !tbaa !90
   %166 = getelementptr i8, ptr %165, i64 4
@@ -5813,7 +5813,7 @@ Aig_ObjChild0Copy.exit127:                        ; preds = %169, %177
   %.val102.val = load ptr, ptr %186, align 8, !tbaa !17
   %187 = getelementptr inbounds nuw ptr, ptr %.val102.val, i64 %indvars.iv156
   %188 = load ptr, ptr %187, align 8, !tbaa !18
-  tail call void @Abc_ObjAddFanin(ptr noundef %188, ptr noundef %185) #21
+  tail call void @Abc_ObjAddFanin(ptr noundef %188, ptr noundef %185) #22
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %189 = load ptr, ptr %164, align 8, !tbaa !90
   %190 = getelementptr i8, ptr %189, i64 4
@@ -5823,7 +5823,7 @@ Aig_ObjChild0Copy.exit127:                        ; preds = %169, %177
   br i1 %192, label %169, label %.critedge8, !llvm.loop !184
 
 .critedge8:                                       ; preds = %Aig_ObjChild0Copy.exit127, %Vec_PtrFree.exit
-  %193 = tail call i32 @Abc_NtkCheck(ptr noundef %3) #21
+  %193 = tail call i32 @Abc_NtkCheck(ptr noundef %3) #22
   %.not = icmp eq i32 %193, 0
   br i1 %.not, label %194, label %195
 
@@ -5836,8 +5836,8 @@ Aig_ObjChild0Copy.exit127:                        ; preds = %169, %177
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkFromDarChoices(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = tail call ptr @Abc_NtkStartFrom(ptr noundef %0, i32 noundef 3, i32 noundef 3) #21
+define ptr @Abc_NtkFromDarChoices(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+  %3 = tail call ptr @Abc_NtkStartFrom(ptr noundef %0, i32 noundef 3, i32 noundef 3) #22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %5 = load i32, ptr %4, align 8, !tbaa !49
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 144
@@ -5846,8 +5846,8 @@ define ptr @Abc_NtkFromDarChoices(ptr noundef %0, ptr noundef %1) local_unnamed_
   %8 = load i32, ptr %7, align 4, !tbaa !58
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 148
   store i32 %8, ptr %9, align 4, !tbaa !58
-  tail call void @Aig_ManCleanData(ptr noundef %1) #21
-  %10 = tail call ptr @Abc_AigConst1(ptr noundef %3) #21
+  tail call void @Aig_ManCleanData(ptr noundef %1) #22
+  %10 = tail call ptr @Abc_AigConst1(ptr noundef %3) #22
   %11 = getelementptr i8, ptr %1, i64 48
   %.val69 = load ptr, ptr %11, align 8, !tbaa !64
   %12 = getelementptr inbounds nuw i8, ptr %.val69, i64 40
@@ -5964,7 +5964,7 @@ Aig_ObjChild0Copy.exit:                           ; preds = %49, %54
 
 Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.exit, %66
   %74 = phi ptr [ %73, %66 ], [ null, %Aig_ObjChild0Copy.exit ]
-  %75 = tail call ptr @Abc_AigAnd(ptr noundef %50, ptr noundef %62, ptr noundef %74) #21
+  %75 = tail call ptr @Abc_AigAnd(ptr noundef %50, ptr noundef %62, ptr noundef %74) #22
   %76 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store ptr %75, ptr %76, align 8, !tbaa !39
   %.pre = load ptr, ptr %18, align 8, !tbaa !185
@@ -6074,7 +6074,7 @@ Aig_ObjEquiv.exit.thread:                         ; preds = %97, %92, %86, %103,
 
 Aig_ObjChild0Copy.exit82:                         ; preds = %113, %124
   %132 = phi ptr [ %131, %124 ], [ null, %113 ]
-  tail call void @Abc_ObjAddFanin(ptr noundef %120, ptr noundef %132) #21
+  tail call void @Abc_ObjAddFanin(ptr noundef %120, ptr noundef %132) #22
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %133 = load ptr, ptr %81, align 8, !tbaa !90
   %134 = getelementptr i8, ptr %133, i64 4
@@ -6084,14 +6084,14 @@ Aig_ObjChild0Copy.exit82:                         ; preds = %113, %124
   br i1 %136, label %113, label %.critedge6, !llvm.loop !189
 
 .critedge6:                                       ; preds = %Aig_ObjChild0Copy.exit82, %.critedge4.preheader
-  %137 = tail call i32 @Abc_NtkCheck(ptr noundef %3) #21
+  %137 = tail call i32 @Abc_NtkCheck(ptr noundef %3) #22
   %.not = icmp eq i32 %137, 0
   br i1 %.not, label %138, label %140
 
 138:                                              ; preds = %.critedge6
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.19)
-  tail call void @Abc_NtkDelete(ptr noundef %3) #21
-  %139 = tail call ptr @Abc_NtkDup(ptr noundef %0) #21
+  tail call void @Abc_NtkDelete(ptr noundef %3) #22
+  %139 = tail call ptr @Abc_NtkDup(ptr noundef %0) #22
   br label %140
 
 140:                                              ; preds = %138, %.critedge6
@@ -6099,13 +6099,13 @@ Aig_ObjChild0Copy.exit82:                         ; preds = %113, %124
   ret ptr %.055
 }
 
-declare void @Aig_ManCleanData(ptr noundef) local_unnamed_addr #3
+declare void @Aig_ManCleanData(ptr noundef) local_unnamed_addr #4
 
-declare ptr @Abc_NtkDup(ptr noundef) local_unnamed_addr #3
+declare ptr @Abc_NtkDup(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkFromDarSeq(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = tail call ptr @Abc_NtkStartFromNoLatches(ptr noundef %0, i32 noundef 3, i32 noundef 3) #21
+define noundef ptr @Abc_NtkFromDarSeq(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+  %3 = tail call ptr @Abc_NtkStartFromNoLatches(ptr noundef %0, i32 noundef 3, i32 noundef 3) #22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %5 = load i32, ptr %4, align 8, !tbaa !49
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 144
@@ -6114,7 +6114,7 @@ define noundef ptr @Abc_NtkFromDarSeq(ptr noundef %0, ptr noundef %1) local_unna
   %8 = load i32, ptr %7, align 4, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 148
   store i32 %8, ptr %9, align 4, !tbaa !58
-  %10 = tail call ptr @Abc_AigConst1(ptr noundef %3) #21
+  %10 = tail call ptr @Abc_AigConst1(ptr noundef %3) #22
   %11 = getelementptr i8, ptr %1, i64 48
   %.val97 = load ptr, ptr %11, align 8, !tbaa !64
   %12 = getelementptr inbounds nuw i8, ptr %.val97, i64 40
@@ -6171,11 +6171,11 @@ define noundef ptr @Abc_NtkFromDarSeq(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %39, label %.critedge, label %40
 
 40:                                               ; preds = %.lr.ph119
-  %41 = tail call ptr @Abc_NtkCreateObj(ptr noundef %3, i32 noundef 8) #21
-  %42 = tail call ptr @Abc_NtkCreateObj(ptr noundef %3, i32 noundef 4) #21
-  %43 = tail call ptr @Abc_NtkCreateObj(ptr noundef %3, i32 noundef 5) #21
-  tail call void @Abc_ObjAddFanin(ptr noundef %41, ptr noundef %42) #21
-  tail call void @Abc_ObjAddFanin(ptr noundef %43, ptr noundef %41) #21
+  %41 = tail call ptr @Abc_NtkCreateObj(ptr noundef %3, i32 noundef 8) #22
+  %42 = tail call ptr @Abc_NtkCreateObj(ptr noundef %3, i32 noundef 4) #22
+  %43 = tail call ptr @Abc_NtkCreateObj(ptr noundef %3, i32 noundef 5) #22
+  tail call void @Abc_ObjAddFanin(ptr noundef %41, ptr noundef %42) #22
+  tail call void @Abc_ObjAddFanin(ptr noundef %43, ptr noundef %41) #22
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 56
   store ptr inttoptr (i64 1 to ptr), ptr %44, align 8, !tbaa !39
   %.val98 = load ptr, ptr %41, align 8, !tbaa !19
@@ -6204,8 +6204,8 @@ define noundef ptr @Abc_NtkFromDarSeq(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %55, label %.lr.ph119, label %.critedge2, !llvm.loop !191
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
-  tail call void @Abc_NtkAddDummyBoxNames(ptr noundef %3) #21
-  %56 = tail call ptr @Aig_ManDfs(ptr noundef nonnull %1, i32 noundef 1) #21
+  tail call void @Abc_NtkAddDummyBoxNames(ptr noundef %3) #22
+  %56 = tail call ptr @Aig_ManDfs(ptr noundef nonnull %1, i32 noundef 1) #22
   %57 = getelementptr i8, ptr %56, i64 4
   %.val88120 = load i32, ptr %57, align 4, !tbaa !14
   %58 = icmp sgt i32 %.val88120, 0
@@ -6273,11 +6273,11 @@ Aig_ObjChild1Copy.exit:                           ; preds = %79, %83
   br i1 %.not114, label %93, label %95
 
 93:                                               ; preds = %Aig_ObjChild1Copy.exit
-  %94 = tail call ptr @Abc_AigXor(ptr noundef %92, ptr noundef %75, ptr noundef %91) #21
+  %94 = tail call ptr @Abc_AigXor(ptr noundef %92, ptr noundef %75, ptr noundef %91) #22
   br label %.sink.split
 
 95:                                               ; preds = %Aig_ObjChild1Copy.exit
-  %96 = tail call ptr @Abc_AigAnd(ptr noundef %92, ptr noundef %75, ptr noundef %91) #21
+  %96 = tail call ptr @Abc_AigAnd(ptr noundef %92, ptr noundef %75, ptr noundef %91) #22
   br label %.sink.split
 
 .sink.split:                                      ; preds = %95, %93
@@ -6299,11 +6299,11 @@ Aig_ObjChild1Copy.exit:                           ; preds = %79, %83
   br i1 %.not.i108, label %Vec_PtrFree.exit, label %102
 
 102:                                              ; preds = %.critedge4
-  tail call void @free(ptr noundef nonnull %101) #21
+  tail call void @free(ptr noundef nonnull %101) #22
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge4, %102
-  tail call void @free(ptr noundef nonnull %56) #21
+  tail call void @free(ptr noundef nonnull %56) #22
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %104 = load ptr, ptr %103, align 8, !tbaa !90
   %105 = getelementptr i8, ptr %104, i64 4
@@ -6353,7 +6353,7 @@ Aig_ObjChild0Copy.exit110:                        ; preds = %111, %119
   %.val96.val = load ptr, ptr %128, align 8, !tbaa !17
   %129 = getelementptr inbounds nuw ptr, ptr %.val96.val, i64 %indvars.iv136
   %130 = load ptr, ptr %129, align 8, !tbaa !18
-  tail call void @Abc_ObjAddFanin(ptr noundef %130, ptr noundef %127) #21
+  tail call void @Abc_ObjAddFanin(ptr noundef %130, ptr noundef %127) #22
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %131 = load ptr, ptr %103, align 8, !tbaa !90
   %132 = getelementptr i8, ptr %131, i64 4
@@ -6416,7 +6416,7 @@ Aig_ObjChild0Copy.exit112:                        ; preds = %140, %144
   %164 = sext i32 %.val83.val to i64
   %165 = getelementptr inbounds ptr, ptr %.val.val.val, i64 %164
   %166 = load ptr, ptr %165, align 8, !tbaa !18
-  tail call void @Abc_ObjAddFanin(ptr noundef %166, ptr noundef %152) #21
+  tail call void @Abc_ObjAddFanin(ptr noundef %166, ptr noundef %152) #22
   %.pre142 = load ptr, ptr %18, align 8, !tbaa !185
   br label %.critedge6
 
@@ -6430,7 +6430,7 @@ Aig_ObjChild0Copy.exit112:                        ; preds = %140, %144
   br i1 %170, label %.lr.ph128, label %.critedge8, !llvm.loop !194
 
 .critedge8:                                       ; preds = %.critedge6, %.critedge6.preheader
-  %171 = tail call i32 @Abc_NtkCheck(ptr noundef %3) #21
+  %171 = tail call i32 @Abc_NtkCheck(ptr noundef %3) #22
   %.not = icmp eq i32 %171, 0
   br i1 %.not, label %172, label %173
 
@@ -6442,15 +6442,15 @@ Aig_ObjChild0Copy.exit112:                        ; preds = %140, %144
   ret ptr %3
 }
 
-declare ptr @Abc_AigXor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @Abc_AigXor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Abc_NtkCollectCiNames(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
-  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
+define noalias noundef ptr @Abc_NtkCollectCiNames(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %3, align 4, !tbaa !14
   store i32 100, ptr %2, align 8, !tbaa !16
-  %4 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #20
+  %4 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #21
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8, !tbaa !17
   %6 = getelementptr i8, ptr %0, i64 56
@@ -6469,8 +6469,8 @@ define noalias noundef ptr @Abc_NtkCollectCiNames(ptr noundef readonly captures(
   %.val7.val = load ptr, ptr %11, align 8, !tbaa !17
   %12 = getelementptr inbounds nuw ptr, ptr %.val7.val, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !18
-  %14 = tail call ptr @Abc_ObjName(ptr noundef %13) #21
-  %15 = tail call ptr @Extra_UtilStrsav(ptr noundef %14) #21
+  %14 = tail call ptr @Abc_ObjName(ptr noundef %13) #22
+  %15 = tail call ptr @Extra_UtilStrsav(ptr noundef %14) #22
   %16 = icmp eq i32 %10, %9
   br i1 %16, label %17, label %.Vec_PtrGrow.exit11_crit_edge.i
 
@@ -6488,11 +6488,11 @@ define noalias noundef ptr @Abc_NtkCollectCiNames(ptr noundef readonly captures(
   br i1 %.not9.i.i, label %23, label %21
 
 21:                                               ; preds = %19
-  %22 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %20, i64 noundef 128) #19
+  %22 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %20, i64 noundef 128) #20
   br label %Vec_PtrGrow.exit.i
 
 23:                                               ; preds = %19
-  %24 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #20
+  %24 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #21
   br label %Vec_PtrGrow.exit.i
 
 Vec_PtrGrow.exit.i:                               ; preds = %23, %21
@@ -6510,11 +6510,11 @@ Vec_PtrGrow.exit.i:                               ; preds = %23, %21
   br i1 %.not9.i10.i, label %33, label %31
 
 31:                                               ; preds = %26
-  %32 = tail call ptr @realloc(ptr noundef nonnull %28, i64 noundef %30) #19
+  %32 = tail call ptr @realloc(ptr noundef nonnull %28, i64 noundef %30) #20
   br label %35
 
 33:                                               ; preds = %26
-  %34 = tail call noalias ptr @malloc(i64 noundef %30) #20
+  %34 = tail call noalias ptr @malloc(i64 noundef %30) #21
   br label %35
 
 35:                                               ; preds = %33, %31
@@ -6544,12 +6544,12 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Abc_NtkCollectCoNames(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
-  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
+define noalias noundef ptr @Abc_NtkCollectCoNames(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %3, align 4, !tbaa !14
   store i32 100, ptr %2, align 8, !tbaa !16
-  %4 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #20
+  %4 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #21
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8, !tbaa !17
   %6 = getelementptr i8, ptr %0, i64 64
@@ -6568,8 +6568,8 @@ define noalias noundef ptr @Abc_NtkCollectCoNames(ptr noundef readonly captures(
   %.val7.val = load ptr, ptr %11, align 8, !tbaa !17
   %12 = getelementptr inbounds nuw ptr, ptr %.val7.val, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !18
-  %14 = tail call ptr @Abc_ObjName(ptr noundef %13) #21
-  %15 = tail call ptr @Extra_UtilStrsav(ptr noundef %14) #21
+  %14 = tail call ptr @Abc_ObjName(ptr noundef %13) #22
+  %15 = tail call ptr @Extra_UtilStrsav(ptr noundef %14) #22
   %16 = icmp eq i32 %10, %9
   br i1 %16, label %17, label %.Vec_PtrGrow.exit11_crit_edge.i
 
@@ -6587,11 +6587,11 @@ define noalias noundef ptr @Abc_NtkCollectCoNames(ptr noundef readonly captures(
   br i1 %.not9.i.i, label %23, label %21
 
 21:                                               ; preds = %19
-  %22 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %20, i64 noundef 128) #19
+  %22 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %20, i64 noundef 128) #20
   br label %Vec_PtrGrow.exit.i
 
 23:                                               ; preds = %19
-  %24 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #20
+  %24 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #21
   br label %Vec_PtrGrow.exit.i
 
 Vec_PtrGrow.exit.i:                               ; preds = %23, %21
@@ -6609,11 +6609,11 @@ Vec_PtrGrow.exit.i:                               ; preds = %23, %21
   br i1 %.not9.i10.i, label %33, label %31
 
 31:                                               ; preds = %26
-  %32 = tail call ptr @realloc(ptr noundef nonnull %28, i64 noundef %30) #19
+  %32 = tail call ptr @realloc(ptr noundef nonnull %28, i64 noundef %30) #20
   br label %35
 
 33:                                               ; preds = %26
-  %34 = tail call noalias ptr @malloc(i64 noundef %30) #20
+  %34 = tail call noalias ptr @malloc(i64 noundef %30) #21
   br label %35
 
 35:                                               ; preds = %33, %31
@@ -6642,11 +6642,11 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   ret ptr %2
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noalias noundef ptr @Abc_NtkGetLatchValues(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr i8, ptr %0, i64 128
   %.val20 = load i32, ptr %2, align 8, !tbaa !35
-  %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
+  %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
   %4 = add i32 %.val20, -1
   %or.cond.i = icmp ult i32 %4, 15
   %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %.val20
@@ -6659,7 +6659,7 @@ define noalias noundef ptr @Abc_NtkGetLatchValues(ptr noundef readonly captures(
 6:                                                ; preds = %1
   %7 = sext i32 %spec.store.select.i to i64
   %8 = shl nsw i64 %7, 2
-  %9 = tail call noalias ptr @malloc(i64 noundef %8) #20
+  %9 = tail call noalias ptr @malloc(i64 noundef %8) #21
   br label %Vec_IntAlloc.exit
 
 Vec_IntAlloc.exit:                                ; preds = %1, %6
@@ -6714,11 +6714,11 @@ Vec_IntAlloc.exit:                                ; preds = %1, %6
   br i1 %.not9.i.i, label %36, label %34
 
 34:                                               ; preds = %33
-  %35 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %16, i64 noundef 64) #19
+  %35 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %16, i64 noundef 64) #20
   br label %.sink.split.sink.split
 
 36:                                               ; preds = %33
-  %37 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #20
+  %37 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #21
   br label %.sink.split.sink.split
 
 38:                                               ; preds = %31
@@ -6729,11 +6729,11 @@ Vec_IntAlloc.exit:                                ; preds = %1, %6
   br i1 %.not9.i9.i, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = tail call ptr @realloc(ptr noundef nonnull %16, i64 noundef %41) #19
+  %43 = tail call ptr @realloc(ptr noundef nonnull %16, i64 noundef %41) #20
   br label %.sink.split.sink.split
 
 44:                                               ; preds = %38
-  %45 = tail call noalias ptr @malloc(i64 noundef %41) #20
+  %45 = tail call noalias ptr @malloc(i64 noundef %41) #21
   br label %.sink.split.sink.split
 
 46:                                               ; preds = %25
@@ -6751,11 +6751,11 @@ Vec_IntAlloc.exit:                                ; preds = %1, %6
   br i1 %.not9.i.i26, label %55, label %53
 
 53:                                               ; preds = %52
-  %54 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %17, i64 noundef 64) #19
+  %54 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %17, i64 noundef 64) #20
   br label %.sink.split.sink.split
 
 55:                                               ; preds = %52
-  %56 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #20
+  %56 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #21
   br label %.sink.split.sink.split
 
 57:                                               ; preds = %50
@@ -6766,11 +6766,11 @@ Vec_IntAlloc.exit:                                ; preds = %1, %6
   br i1 %.not9.i9.i25, label %63, label %61
 
 61:                                               ; preds = %57
-  %62 = tail call ptr @realloc(ptr noundef nonnull %17, i64 noundef %60) #19
+  %62 = tail call ptr @realloc(ptr noundef nonnull %17, i64 noundef %60) #20
   br label %.sink.split.sink.split
 
 63:                                               ; preds = %57
-  %64 = tail call noalias ptr @malloc(i64 noundef %60) #20
+  %64 = tail call noalias ptr @malloc(i64 noundef %60) #21
   br label %.sink.split.sink.split
 
 65:                                               ; preds = %25
@@ -6788,11 +6788,11 @@ Vec_IntAlloc.exit:                                ; preds = %1, %6
   br i1 %.not9.i.i33, label %74, label %72
 
 72:                                               ; preds = %71
-  %73 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %18, i64 noundef 64) #19
+  %73 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %18, i64 noundef 64) #20
   br label %.sink.split.sink.split
 
 74:                                               ; preds = %71
-  %75 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #20
+  %75 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #21
   br label %.sink.split.sink.split
 
 76:                                               ; preds = %69
@@ -6803,11 +6803,11 @@ Vec_IntAlloc.exit:                                ; preds = %1, %6
   br i1 %.not9.i9.i32, label %82, label %80
 
 80:                                               ; preds = %76
-  %81 = tail call ptr @realloc(ptr noundef nonnull %18, i64 noundef %79) #19
+  %81 = tail call ptr @realloc(ptr noundef nonnull %18, i64 noundef %79) #20
   br label %.sink.split.sink.split
 
 82:                                               ; preds = %76
-  %83 = tail call noalias ptr @malloc(i64 noundef %79) #20
+  %83 = tail call noalias ptr @malloc(i64 noundef %79) #21
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %74, %72, %82, %80, %55, %53, %63, %61, %36, %34, %44, %42
@@ -6849,25 +6849,25 @@ Vec_IntAlloc.exit:                                ; preds = %1, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkDar(ptr noundef %0) local_unnamed_addr #1 {
+define noundef ptr @Abc_NtkDar(ptr noundef %0) local_unnamed_addr #2 {
   %2 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 0)
   %3 = icmp eq ptr %2, null
   br i1 %3, label %9, label %4
 
 4:                                                ; preds = %1
   %5 = tail call ptr @Abc_NtkFromDar(ptr noundef %0, ptr noundef nonnull %2)
-  tail call void @Aig_ManStop(ptr noundef nonnull %2) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %2) #22
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call i32 @Abc_NtkCheck(ptr noundef nonnull %5) #21
+  %7 = tail call i32 @Abc_NtkCheck(ptr noundef nonnull %5) #22
   %.not12 = icmp eq i32 %7, 0
   br i1 %.not12, label %8, label %9
 
 8:                                                ; preds = %6
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.21)
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %5) #21
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %5) #22
   br label %9
 
 9:                                                ; preds = %4, %6, %1, %8
@@ -6876,7 +6876,7 @@ define noundef ptr @Abc_NtkDar(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkDarFraig(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #1 {
+define ptr @Abc_NtkDarFraig(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #2 {
   %9 = alloca %struct.Fra_Par_t_, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 0)
@@ -6884,7 +6884,7 @@ define ptr @Abc_NtkDarFraig(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   br i1 %11, label %25, label %12
 
 12:                                               ; preds = %8
-  call void @Fra_ParamsDefault(ptr noundef nonnull %9) #21
+  call void @Fra_ParamsDefault(ptr noundef nonnull %9) #22
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i32 %1, ptr %13, align 8, !tbaa !198
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -6897,7 +6897,7 @@ define ptr @Abc_NtkDarFraig(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   store i32 %3, ptr %17, align 8, !tbaa !203
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 52
   store i32 %7, ptr %18, align 4, !tbaa !204
-  %19 = call ptr @Fra_FraigPerform(ptr noundef nonnull %10, ptr noundef nonnull %9) #21
+  %19 = call ptr @Fra_FraigPerform(ptr noundef nonnull %10, ptr noundef nonnull %9) #22
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %22, label %20
 
@@ -6911,8 +6911,8 @@ define ptr @Abc_NtkDarFraig(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
 
 24:                                               ; preds = %22, %20
   %.025 = phi ptr [ %21, %20 ], [ %23, %22 ]
-  call void @Aig_ManStop(ptr noundef nonnull %10) #21
-  call void @Aig_ManStop(ptr noundef %19) #21
+  call void @Aig_ManStop(ptr noundef nonnull %10) #22
+  call void @Aig_ManStop(ptr noundef %19) #22
   br label %25
 
 25:                                               ; preds = %8, %24
@@ -6921,21 +6921,21 @@ define ptr @Abc_NtkDarFraig(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   ret ptr %.0
 }
 
-declare void @Fra_ParamsDefault(ptr noundef) local_unnamed_addr #3
+declare void @Fra_ParamsDefault(ptr noundef) local_unnamed_addr #4
 
-declare ptr @Fra_FraigPerform(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @Fra_FraigPerform(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkDarFraigPart(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define noundef ptr @Abc_NtkDarFraigPart(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 0)
   %7 = icmp eq ptr %6, null
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call ptr @Aig_ManFraigPartitioned(ptr noundef nonnull %6, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %6) #21
+  %9 = tail call ptr @Aig_ManFraigPartitioned(ptr noundef nonnull %6, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %6) #22
   %10 = tail call ptr @Abc_NtkFromDar(ptr noundef %0, ptr noundef %9)
-  tail call void @Aig_ManStop(ptr noundef %9) #21
+  tail call void @Aig_ManStop(ptr noundef %9) #22
   br label %11
 
 11:                                               ; preds = %5, %8
@@ -6943,19 +6943,19 @@ define noundef ptr @Abc_NtkDarFraigPart(ptr noundef %0, i32 noundef %1, i32 noun
   ret ptr %.0
 }
 
-declare ptr @Aig_ManFraigPartitioned(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Aig_ManFraigPartitioned(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkCSweep(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define noundef ptr @Abc_NtkCSweep(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 0)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call ptr @Csw_Sweep(ptr noundef nonnull %5, i32 noundef %1, i32 noundef %2, i32 noundef %3) #21
+  %8 = tail call ptr @Csw_Sweep(ptr noundef nonnull %5, i32 noundef %1, i32 noundef %2, i32 noundef %3) #22
   %9 = tail call ptr @Abc_NtkFromDar(ptr noundef %0, ptr noundef %8)
-  tail call void @Aig_ManStop(ptr noundef nonnull %5) #21
-  tail call void @Aig_ManStop(ptr noundef %8) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %5) #22
+  tail call void @Aig_ManStop(ptr noundef %8) #22
   br label %10
 
 10:                                               ; preds = %4, %7
@@ -6963,24 +6963,24 @@ define noundef ptr @Abc_NtkCSweep(ptr noundef %0, i32 noundef %1, i32 noundef %2
   ret ptr %.0
 }
 
-declare ptr @Csw_Sweep(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Csw_Sweep(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkDRewrite(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define noundef ptr @Abc_NtkDRewrite(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.timespec, align 8
   %4 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 0)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %10, label %Abc_Clock.exit
 
 Abc_Clock.exit:                                   ; preds = %2
-  %6 = tail call i32 @Dar_ManRewrite(ptr noundef nonnull %4, ptr noundef %1) #21
+  %6 = tail call i32 @Dar_ManRewrite(ptr noundef nonnull %4, ptr noundef %1) #22
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #21
+  %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %8 = call ptr @Aig_ManDupDfs(ptr noundef nonnull %4) #21
-  call void @Aig_ManStop(ptr noundef nonnull %4) #21
+  %8 = call ptr @Aig_ManDupDfs(ptr noundef nonnull %4) #22
+  call void @Aig_ManStop(ptr noundef nonnull %4) #22
   %9 = call ptr @Abc_NtkFromDar(ptr noundef %0, ptr noundef %8)
-  call void @Aig_ManStop(ptr noundef %8) #21
+  call void @Aig_ManStop(ptr noundef %8) #22
   br label %10
 
 10:                                               ; preds = %2, %Abc_Clock.exit
@@ -6988,26 +6988,26 @@ Abc_Clock.exit:                                   ; preds = %2
   ret ptr %.0
 }
 
-declare i32 @Dar_ManRewrite(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @Dar_ManRewrite(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @Aig_ManDupDfs(ptr noundef) local_unnamed_addr #3
+declare ptr @Aig_ManDupDfs(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkDRefactor(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define noundef ptr @Abc_NtkDRefactor(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.timespec, align 8
   %4 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 0)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %10, label %Abc_Clock.exit
 
 Abc_Clock.exit:                                   ; preds = %2
-  %6 = tail call i32 @Dar_ManRefactor(ptr noundef nonnull %4, ptr noundef %1) #21
+  %6 = tail call i32 @Dar_ManRefactor(ptr noundef nonnull %4, ptr noundef %1) #22
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #21
+  %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %8 = call ptr @Aig_ManDupDfs(ptr noundef nonnull %4) #21
-  call void @Aig_ManStop(ptr noundef nonnull %4) #21
+  %8 = call ptr @Aig_ManDupDfs(ptr noundef nonnull %4) #22
+  call void @Aig_ManStop(ptr noundef nonnull %4) #22
   %9 = call ptr @Abc_NtkFromDar(ptr noundef %0, ptr noundef %8)
-  call void @Aig_ManStop(ptr noundef %8) #21
+  call void @Aig_ManStop(ptr noundef %8) #22
   br label %10
 
 10:                                               ; preds = %2, %Abc_Clock.exit
@@ -7015,10 +7015,10 @@ Abc_Clock.exit:                                   ; preds = %2
   ret ptr %.0
 }
 
-declare i32 @Dar_ManRefactor(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @Dar_ManRefactor(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkDC2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define noundef ptr @Abc_NtkDC2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = alloca %struct.timespec, align 8
   %8 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 0)
   %9 = icmp eq ptr %8, null
@@ -7026,12 +7026,12 @@ define noundef ptr @Abc_NtkDC2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
 
 Abc_Clock.exit:                                   ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %10 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #21
+  %10 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %11 = call ptr @Dar_ManCompress2(ptr noundef nonnull %8, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #21
-  call void @Aig_ManStop(ptr noundef nonnull %8) #21
+  %11 = call ptr @Dar_ManCompress2(ptr noundef nonnull %8, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #22
+  call void @Aig_ManStop(ptr noundef nonnull %8) #22
   %12 = call ptr @Abc_NtkFromDar(ptr noundef %0, ptr noundef %11)
-  call void @Aig_ManStop(ptr noundef %11) #21
+  call void @Aig_ManStop(ptr noundef %11) #22
   br label %13
 
 13:                                               ; preds = %6, %Abc_Clock.exit
@@ -7039,19 +7039,19 @@ Abc_Clock.exit:                                   ; preds = %6
   ret ptr %.0
 }
 
-declare ptr @Dar_ManCompress2(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Dar_ManCompress2(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkDChoice(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 {
+define ptr @Abc_NtkDChoice(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
   %8 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 0)
   %9 = icmp eq ptr %8, null
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call ptr @Dar_ManChoice(ptr noundef nonnull %8, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %8) #21
+  %11 = tail call ptr @Dar_ManChoice(ptr noundef nonnull %8, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %8) #22
   %12 = tail call ptr @Abc_NtkFromDarChoices(ptr noundef %0, ptr noundef %11)
-  tail call void @Aig_ManStop(ptr noundef %11) #21
+  tail call void @Aig_ManStop(ptr noundef %11) #22
   br label %13
 
 13:                                               ; preds = %7, %10
@@ -7059,10 +7059,10 @@ define ptr @Abc_NtkDChoice(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   ret ptr %.0
 }
 
-declare ptr @Dar_ManChoice(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Dar_ManChoice(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkDch(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define ptr @Abc_NtkDch(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 0)
@@ -7076,12 +7076,12 @@ define ptr @Abc_NtkDch(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   br i1 %.not, label %12, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call ptr @Dar_ManChoiceNew(ptr noundef nonnull %5, ptr noundef nonnull %1) #21
+  %11 = tail call ptr @Dar_ManChoiceNew(ptr noundef nonnull %5, ptr noundef nonnull %1) #22
   br label %50
 
 12:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %13 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #21
+  %13 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #22
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %Abc_Clock.exit, label %15
 
@@ -7109,18 +7109,18 @@ Abc_Clock.exit:                                   ; preds = %12, %15
   %25 = load i32, ptr %24, align 4, !tbaa !212
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %27 = load i32, ptr %26, align 4, !tbaa !213
-  %28 = call ptr @Dar_NewChoiceSynthesis(ptr noundef nonnull %5, i32 noundef 1, i32 noundef 1, i32 noundef %23, i32 noundef %25, i32 noundef %27) #21
+  %28 = call ptr @Dar_NewChoiceSynthesis(ptr noundef nonnull %5, i32 noundef 1, i32 noundef 1, i32 noundef %23, i32 noundef %25, i32 noundef %27) #22
   br label %31
 
 29:                                               ; preds = %Abc_Clock.exit
-  %30 = call ptr @Gia_ManFromAig(ptr noundef nonnull %5) #21
-  call void @Aig_ManStop(ptr noundef nonnull %5) #21
+  %30 = call ptr @Gia_ManFromAig(ptr noundef nonnull %5) #22
+  call void @Aig_ManStop(ptr noundef nonnull %5) #22
   br label %31
 
 31:                                               ; preds = %29, %21
   %.026 = phi ptr [ %28, %21 ], [ %30, %29 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %32 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #21
+  %32 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #22
   %33 = icmp slt i32 %32, 0
   br i1 %33, label %Abc_Clock.exit32, label %34
 
@@ -7145,20 +7145,20 @@ Abc_Clock.exit32:                                 ; preds = %31, %34
   br i1 %.not30, label %47, label %45
 
 45:                                               ; preds = %Abc_Clock.exit32
-  %46 = call ptr @Cec_ComputeChoices(ptr noundef %.026, ptr noundef nonnull %1) #21
+  %46 = call ptr @Cec_ComputeChoices(ptr noundef %.026, ptr noundef nonnull %1) #22
   br label %50
 
 47:                                               ; preds = %Abc_Clock.exit32
-  %48 = call ptr @Gia_ManToAigSkip(ptr noundef %.026, i32 noundef 3) #21
-  call void @Gia_ManStop(ptr noundef %.026) #21
-  %49 = call ptr @Dch_ComputeChoices(ptr noundef %48, ptr noundef nonnull %1) #21
-  call void @Aig_ManStop(ptr noundef %48) #21
+  %48 = call ptr @Gia_ManToAigSkip(ptr noundef %.026, i32 noundef 3) #22
+  call void @Gia_ManStop(ptr noundef %.026) #22
+  %49 = call ptr @Dch_ComputeChoices(ptr noundef %48, ptr noundef nonnull %1) #22
+  call void @Aig_ManStop(ptr noundef %48) #22
   br label %50
 
 50:                                               ; preds = %45, %47, %10
   %.027 = phi ptr [ %11, %10 ], [ %46, %45 ], [ %49, %47 ]
   %51 = call ptr @Abc_NtkFromDarChoices(ptr noundef %0, ptr noundef %.027)
-  call void @Aig_ManStop(ptr noundef %.027) #21
+  call void @Aig_ManStop(ptr noundef %.027) #22
   br label %52
 
 52:                                               ; preds = %2, %50
@@ -7166,22 +7166,22 @@ Abc_Clock.exit32:                                 ; preds = %31, %34
   ret ptr %.0
 }
 
-declare ptr @Dar_ManChoiceNew(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @Dar_ManChoiceNew(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @Dar_NewChoiceSynthesis(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Dar_NewChoiceSynthesis(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @Gia_ManFromAig(ptr noundef) local_unnamed_addr #3
+declare ptr @Gia_ManFromAig(ptr noundef) local_unnamed_addr #4
 
-declare ptr @Cec_ComputeChoices(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @Cec_ComputeChoices(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @Gia_ManToAigSkip(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Gia_ManToAigSkip(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #3
+declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #4
 
-declare ptr @Dch_ComputeChoices(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @Dch_ComputeChoices(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkDrwsat(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define noundef ptr @Abc_NtkDrwsat(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca %struct.timespec, align 8
   %5 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 0)
   %6 = icmp eq ptr %5, null
@@ -7189,12 +7189,12 @@ define noundef ptr @Abc_NtkDrwsat(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 Abc_Clock.exit:                                   ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #21
+  %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %8 = call ptr @Dar_ManRwsat(ptr noundef nonnull %5, i32 noundef %1, i32 noundef %2) #21
-  call void @Aig_ManStop(ptr noundef nonnull %5) #21
+  %8 = call ptr @Dar_ManRwsat(ptr noundef nonnull %5, i32 noundef %1, i32 noundef %2) #22
+  call void @Aig_ManStop(ptr noundef nonnull %5) #22
   %9 = call ptr @Abc_NtkFromDar(ptr noundef %0, ptr noundef %8)
-  call void @Aig_ManStop(ptr noundef %8) #21
+  call void @Aig_ManStop(ptr noundef %8) #22
   br label %10
 
 10:                                               ; preds = %3, %Abc_Clock.exit
@@ -7202,12 +7202,12 @@ Abc_Clock.exit:                                   ; preds = %3
   ret ptr %.0
 }
 
-declare ptr @Dar_ManRwsat(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Dar_ManRwsat(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkConstructFromCnf(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
-  %4 = tail call ptr @Abc_NtkStartFrom(ptr noundef %0, i32 noundef 2, i32 noundef 1) #21
-  %5 = tail call ptr @Abc_NtkCreateNodeConst1(ptr noundef %4) #21
+define noundef ptr @Abc_NtkConstructFromCnf(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
+  %4 = tail call ptr @Abc_NtkStartFrom(ptr noundef %0, i32 noundef 2, i32 noundef 1) #22
+  %5 = tail call ptr @Abc_NtkCreateNodeConst1(ptr noundef %4) #22
   %6 = load ptr, ptr %1, align 8, !tbaa !216
   %7 = getelementptr i8, ptr %6, i64 48
   %.val72 = load ptr, ptr %7, align 8, !tbaa !64
@@ -7247,11 +7247,11 @@ define noundef ptr @Abc_NtkConstructFromCnf(ptr noundef %0, ptr noundef readonly
   br i1 %25, label %.lr.ph, label %.critedge, !llvm.loop !220
 
 .critedge:                                        ; preds = %.lr.ph, %3
-  %26 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
+  %26 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i32 0, ptr %27, align 4, !tbaa !41
   store i32 65536, ptr %26, align 8, !tbaa !42
-  %28 = tail call noalias dereferenceable_or_null(262144) ptr @malloc(i64 noundef 262144) #20
+  %28 = tail call noalias dereferenceable_or_null(262144) ptr @malloc(i64 noundef 262144) #21
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %28, ptr %29, align 8, !tbaa !43
   %30 = getelementptr i8, ptr %2, i64 4
@@ -7271,7 +7271,7 @@ define noundef ptr @Abc_NtkConstructFromCnf(ptr noundef %0, ptr noundef readonly
   %.val70 = load ptr, ptr %32, align 8, !tbaa !17
   %37 = getelementptr inbounds nuw ptr, ptr %.val70, i64 %indvars.iv109
   %38 = load ptr, ptr %37, align 8, !tbaa !18
-  %39 = tail call ptr @Abc_NtkCreateObj(ptr noundef %4, i32 noundef 7) #21
+  %39 = tail call ptr @Abc_NtkCreateObj(ptr noundef %4, i32 noundef 7) #22
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %41 = load ptr, ptr %40, align 8, !tbaa !39
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
@@ -7312,7 +7312,7 @@ Aig_ManObj.exit:                                  ; preds = %.lr.ph91.preheader,
 58:                                               ; preds = %Aig_ManObj.exit
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 40
   %60 = load ptr, ptr %59, align 8, !tbaa !39
-  tail call void @Abc_ObjAddFanin(ptr noundef %39, ptr noundef %60) #21
+  tail call void @Abc_ObjAddFanin(ptr noundef %39, ptr noundef %60) #22
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107122, 1
   %61 = load i8, ptr %41, align 8, !tbaa !221
   %62 = sext i8 %61 to i32
@@ -7343,18 +7343,18 @@ Aig_ManObj.exit:                                  ; preds = %.lr.ph91.preheader,
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 %71
   %76 = load i8, ptr %75, align 1, !tbaa !39
   %77 = sext i8 %76 to i32
-  tail call void @Cnf_SopConvertToVector(ptr noundef %73, i32 noundef %77, ptr noundef nonnull %26) #21
+  tail call void @Cnf_SopConvertToVector(ptr noundef %73, i32 noundef %77, ptr noundef nonnull %26) #22
   %78 = load ptr, ptr %33, align 8, !tbaa !112
   %79 = load i8, ptr %41, align 8, !tbaa !221
   %80 = sext i8 %79 to i32
-  %81 = tail call ptr @Abc_SopCreateFromIsop(ptr noundef %78, i32 noundef %80, ptr noundef nonnull %26) #21
+  %81 = tail call ptr @Abc_SopCreateFromIsop(ptr noundef %78, i32 noundef %80, ptr noundef nonnull %26) #22
   br label %87
 
 82:                                               ; preds = %.critedge4
   %83 = load ptr, ptr %33, align 8, !tbaa !112
   %84 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %85 = load ptr, ptr %84, align 8, !tbaa !44
-  %86 = tail call ptr @Abc_SopCreateFromIsop(ptr noundef %83, i32 noundef %.lcssa, ptr noundef %85) #21
+  %86 = tail call ptr @Abc_SopCreateFromIsop(ptr noundef %83, i32 noundef %.lcssa, ptr noundef %85) #22
   br label %87
 
 87:                                               ; preds = %82, %.critedge4.thread
@@ -7378,11 +7378,11 @@ Aig_ManObj.exit:                                  ; preds = %.lr.ph91.preheader,
   br i1 %.not.i83, label %Vec_IntFree.exit, label %92
 
 92:                                               ; preds = %.critedge2
-  tail call void @free(ptr noundef nonnull %91) #21
+  tail call void @free(ptr noundef nonnull %91) #22
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %.critedge2, %92
-  tail call void @free(ptr noundef nonnull %26) #21
+  tail call void @free(ptr noundef nonnull %26) #22
   %93 = getelementptr i8, ptr %0, i64 64
   %.val75101 = load ptr, ptr %93, align 8, !tbaa !78
   %94 = getelementptr i8, ptr %.val75101, i64 4
@@ -7417,7 +7417,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge2, %92
   %113 = inttoptr i64 %112 to ptr
   %114 = getelementptr inbounds nuw i8, ptr %98, i64 64
   %115 = load ptr, ptr %114, align 8, !tbaa !39
-  tail call void @Abc_ObjAddFanin(ptr noundef %115, ptr noundef %113) #21
+  tail call void @Abc_ObjAddFanin(ptr noundef %115, ptr noundef %113) #22
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %.val75 = load ptr, ptr %93, align 8, !tbaa !78
   %116 = getelementptr i8, ptr %.val75, i64 4
@@ -7438,12 +7438,12 @@ Vec_IntFree.exit:                                 ; preds = %.critedge2, %92
   br i1 %124, label %125, label %126
 
 125:                                              ; preds = %.critedge6
-  tail call void @Abc_NtkDeleteObj(ptr noundef nonnull %122) #21
+  tail call void @Abc_NtkDeleteObj(ptr noundef nonnull %122) #22
   br label %126
 
 126:                                              ; preds = %125, %.critedge6
-  %127 = tail call i32 @Abc_NtkLogicMakeSimpleCos(ptr noundef %4, i32 noundef 1) #21
-  %128 = tail call i32 @Abc_NtkCheck(ptr noundef %4) #21
+  %127 = tail call i32 @Abc_NtkLogicMakeSimpleCos(ptr noundef %4, i32 noundef 1) #22
+  %128 = tail call i32 @Abc_NtkCheck(ptr noundef %4) #22
   %.not = icmp eq i32 %128, 0
   br i1 %.not, label %129, label %130
 
@@ -7455,16 +7455,16 @@ Vec_IntFree.exit:                                 ; preds = %.critedge2, %92
   ret ptr %4
 }
 
-declare void @Cnf_SopConvertToVector(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @Cnf_SopConvertToVector(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @Abc_SopCreateFromIsop(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @Abc_SopCreateFromIsop(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Abc_NtkDarToCnf(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define noalias noundef ptr @Abc_NtkDarToCnf(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %8 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #21
+  %8 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #22
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %Abc_Clock.exit, label %10
 
@@ -7485,7 +7485,7 @@ Abc_Clock.exit:                                   ; preds = %5, %10
   br i1 %15, label %47, label %16
 
 16:                                               ; preds = %Abc_Clock.exit
-  %17 = call i32 @Aig_ManCheck(ptr noundef nonnull %14) #21
+  %17 = call i32 @Aig_ManCheck(ptr noundef nonnull %14) #22
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %18, label %19
 
@@ -7498,7 +7498,7 @@ Abc_Clock.exit:                                   ; preds = %5, %10
   br i1 %.not21, label %21, label %20
 
 20:                                               ; preds = %19
-  call void @Aig_ManPrintStats(ptr noundef nonnull %14) #21
+  call void @Aig_ManPrintStats(ptr noundef nonnull %14) #22
   br label %21
 
 21:                                               ; preds = %20, %19
@@ -7506,11 +7506,11 @@ Abc_Clock.exit:                                   ; preds = %5, %10
   br i1 %.not22, label %24, label %22
 
 22:                                               ; preds = %21
-  %23 = call ptr @Cnf_DeriveFast(ptr noundef nonnull %14, i32 noundef 0) #21
+  %23 = call ptr @Cnf_DeriveFast(ptr noundef nonnull %14, i32 noundef 0) #22
   br label %26
 
 24:                                               ; preds = %21
-  %25 = call ptr @Cnf_Derive(ptr noundef nonnull %14, i32 noundef 0) #21
+  %25 = call ptr @Cnf_Derive(ptr noundef nonnull %14, i32 noundef 0) #22
   br label %26
 
 26:                                               ; preds = %24, %22
@@ -7519,7 +7519,7 @@ Abc_Clock.exit:                                   ; preds = %5, %10
   br i1 %.not23, label %28, label %27
 
 27:                                               ; preds = %26
-  call void @Cnf_DataTranformPolarity(ptr noundef %.020, i32 noundef 0) #21
+  call void @Cnf_DataTranformPolarity(ptr noundef %.020, i32 noundef 0) #22
   br label %28
 
 28:                                               ; preds = %27, %26
@@ -7531,7 +7531,7 @@ Abc_Clock.exit:                                   ; preds = %5, %10
   %34 = load i32, ptr %33, align 4, !tbaa !234
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.24, i32 noundef %30, i32 noundef %32, i32 noundef %34)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %35 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #21
+  %35 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #22
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %Abc_Clock.exit25, label %37
 
@@ -7552,65 +7552,65 @@ Abc_Clock.exit25:                                 ; preds = %28, %37
   %45 = sitofp i64 %44 to double
   %46 = fdiv double %45, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.33, double noundef %46)
-  call void @Cnf_DataWriteIntoFile(ptr noundef nonnull %.020, ptr noundef %1, i32 noundef 0, ptr noundef null, ptr noundef null) #21
-  call void @Cnf_DataFree(ptr noundef nonnull %.020) #21
-  call void (...) @Cnf_ManFree() #21
+  call void @Cnf_DataWriteIntoFile(ptr noundef nonnull %.020, ptr noundef %1, i32 noundef 0, ptr noundef null, ptr noundef null) #22
+  call void @Cnf_DataFree(ptr noundef nonnull %.020) #22
+  call void (...) @Cnf_ManFree() #22
   br label %.sink.split
 
 .sink.split:                                      ; preds = %18, %Abc_Clock.exit25
-  call void @Aig_ManStop(ptr noundef nonnull %14) #21
+  call void @Aig_ManStop(ptr noundef nonnull %14) #22
   br label %47
 
 47:                                               ; preds = %.sink.split, %Abc_Clock.exit
   ret ptr null
 }
 
-declare void @Aig_ManPrintStats(ptr noundef) local_unnamed_addr #3
+declare void @Aig_ManPrintStats(ptr noundef) local_unnamed_addr #4
 
-declare ptr @Cnf_DeriveFast(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Cnf_DeriveFast(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @Cnf_Derive(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Cnf_Derive(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @Cnf_DataTranformPolarity(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @Cnf_DataTranformPolarity(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @Cnf_DataWriteIntoFile(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @Cnf_DataWriteIntoFile(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @Cnf_DataFree(ptr noundef) local_unnamed_addr #3
+declare void @Cnf_DataFree(ptr noundef) local_unnamed_addr #4
 
-declare void @Cnf_ManFree(...) local_unnamed_addr #3
+declare void @Cnf_ManFree(...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NtkDSat(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #1 {
+define i32 @Abc_NtkDSat(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #2 {
   %11 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 0)
-  %12 = tail call i32 @Fra_FraigSat(ptr noundef %11, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) #21
+  %12 = tail call i32 @Fra_FraigSat(ptr noundef %11, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) #22
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 296
   %14 = load ptr, ptr %13, align 8, !tbaa !235
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr %14, ptr %15, align 8, !tbaa !236
   store ptr null, ptr %13, align 8, !tbaa !235
-  tail call void @Aig_ManStop(ptr noundef %11) #21
+  tail call void @Aig_ManStop(ptr noundef %11) #22
   ret i32 %12
 }
 
-declare i32 @Fra_FraigSat(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @Fra_FraigSat(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NtkPartitionedSat(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #1 {
+define i32 @Abc_NtkPartitionedSat(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #2 {
   %9 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 0)
-  %10 = tail call i32 @Aig_ManPartitionedSat(ptr noundef %9, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #21
+  %10 = tail call i32 @Aig_ManPartitionedSat(ptr noundef %9, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #22
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 296
   %12 = load ptr, ptr %11, align 8, !tbaa !235
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr %12, ptr %13, align 8, !tbaa !236
   store ptr null, ptr %11, align 8, !tbaa !235
-  tail call void @Aig_ManStop(ptr noundef %9) #21
+  tail call void @Aig_ManStop(ptr noundef %9) #22
   ret i32 %10
 }
 
-declare i32 @Aig_ManPartitionedSat(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @Aig_ManPartitionedSat(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NtkDarCec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define i32 @Abc_NtkDarCec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = alloca %struct.timespec, align 8
@@ -7618,7 +7618,7 @@ define i32 @Abc_NtkDarCec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 no
   %10 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %11 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #21
+  %11 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #22
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %Abc_Clock.exit, label %13
 
@@ -7650,15 +7650,15 @@ Abc_Clock.exit:                                   ; preds = %5, %13
 20:                                               ; preds = %19
   %21 = call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 0)
   %22 = call ptr @Abc_NtkToDar(ptr noundef %1, i32 noundef 0, i32 noundef 0)
-  %23 = call i32 @Fra_FraigCecPartitioned(ptr noundef %21, ptr noundef %22, i32 noundef %2, i32 noundef 100, i32 noundef 1, i32 noundef %4) #21
-  call void @Aig_ManStop(ptr noundef %21) #21
+  %23 = call i32 @Fra_FraigCecPartitioned(ptr noundef %21, ptr noundef %22, i32 noundef %2, i32 noundef 100, i32 noundef 1, i32 noundef %4) #22
+  call void @Aig_ManStop(ptr noundef %21) #22
   br label %49
 
 24:                                               ; preds = %19
   br i1 %17, label %29, label %25
 
 25:                                               ; preds = %24
-  %26 = call ptr @Abc_NtkMiter(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #21
+  %26 = call ptr @Abc_NtkMiter(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #22
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %31
 
@@ -7667,12 +7667,12 @@ Abc_Clock.exit:                                   ; preds = %5, %13
   br label %86
 
 29:                                               ; preds = %.thread51, %24
-  %30 = call ptr @Abc_NtkDup(ptr noundef %0) #21
+  %30 = call ptr @Abc_NtkDup(ptr noundef %0) #22
   br label %31
 
 31:                                               ; preds = %25, %29
   %.037 = phi ptr [ %26, %25 ], [ %30, %29 ]
-  %32 = call i32 @Abc_NtkMiterIsConstant(ptr noundef %.037) #21
+  %32 = call i32 @Abc_NtkMiterIsConstant(ptr noundef %.037) #22
   switch i32 %32, label %39 [
     i32 0, label %33
     i32 1, label %38
@@ -7683,24 +7683,24 @@ Abc_Clock.exit:                                   ; preds = %5, %13
   br i1 %17, label %34, label %37
 
 34:                                               ; preds = %33
-  %35 = call ptr @Abc_NtkVerifyGetCleanModel(ptr noundef %0, i32 noundef 1) #21
+  %35 = call ptr @Abc_NtkVerifyGetCleanModel(ptr noundef %0, i32 noundef 1) #22
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr %35, ptr %36, align 8, !tbaa !236
   br label %37
 
 37:                                               ; preds = %34, %33
-  call void @Abc_NtkDelete(ptr noundef %.037) #21
+  call void @Abc_NtkDelete(ptr noundef %.037) #22
   br label %86
 
 38:                                               ; preds = %31
-  call void @Abc_NtkDelete(ptr noundef %.037) #21
+  call void @Abc_NtkDelete(ptr noundef %.037) #22
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.29)
   br label %86
 
 39:                                               ; preds = %31
   %40 = call ptr @Abc_NtkToDar(ptr noundef %.037, i32 noundef 0, i32 noundef 0)
   store ptr %40, ptr %10, align 8, !tbaa !237
-  call void @Abc_NtkDelete(ptr noundef %.037) #21
+  call void @Abc_NtkDelete(ptr noundef %.037) #22
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %43
 
@@ -7709,7 +7709,7 @@ Abc_Clock.exit:                                   ; preds = %5, %13
   br label %86
 
 43:                                               ; preds = %39
-  %44 = call i32 @Fra_FraigCec(ptr noundef nonnull %10, i32 noundef 100000, i32 noundef %4) #21
+  %44 = call i32 @Fra_FraigCec(ptr noundef nonnull %10, i32 noundef 100000, i32 noundef %4) #22
   %.pre = load ptr, ptr %10, align 8, !tbaa !237
   br i1 %17, label %45, label %49
 
@@ -7724,7 +7724,7 @@ Abc_Clock.exit:                                   ; preds = %5, %13
 49:                                               ; preds = %43, %45, %20
   %.pre.sink = phi ptr [ %22, %20 ], [ %.pre, %45 ], [ %.pre, %43 ]
   %.036 = phi i32 [ %23, %20 ], [ %44, %45 ], [ %44, %43 ]
-  call void @Aig_ManStop(ptr noundef %.pre.sink) #21
+  call void @Aig_ManStop(ptr noundef %.pre.sink) #22
   switch i32 %.036, label %70 [
     i32 1, label %50
     i32 0, label %60
@@ -7734,7 +7734,7 @@ Abc_Clock.exit:                                   ; preds = %5, %13
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.31)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.25)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %51 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #21
+  %51 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #22
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %Abc_Clock.exit44, label %53
 
@@ -7756,7 +7756,7 @@ Abc_Clock.exit44:                                 ; preds = %50, %53
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.34)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.25)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %61 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #21
+  %61 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #22
   %62 = icmp slt i32 %61, 0
   br i1 %62, label %Abc_Clock.exit46, label %63
 
@@ -7778,7 +7778,7 @@ Abc_Clock.exit46:                                 ; preds = %60, %63
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.35)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.25)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %71 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #21
+  %71 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #22
   %72 = icmp slt i32 %71, 0
   br i1 %72, label %Abc_Clock.exit48, label %73
 
@@ -7812,27 +7812,27 @@ Abc_Clock.exit48:                                 ; preds = %70, %73
   ret i32 %.0
 }
 
-declare i32 @Fra_FraigCecPartitioned(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @Fra_FraigCecPartitioned(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @Abc_NtkMiter(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Abc_NtkMiter(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @Abc_NtkMiterIsConstant(ptr noundef) local_unnamed_addr #3
+declare i32 @Abc_NtkMiterIsConstant(ptr noundef) local_unnamed_addr #4
 
-declare ptr @Abc_NtkVerifyGetCleanModel(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Abc_NtkVerifyGetCleanModel(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @Fra_FraigCec(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @Fra_FraigCec(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #8
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkDarSeqSweep(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define ptr @Abc_NtkDarSeqSweep(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.Fraig_ParamsStruct_t_, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %6 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #21
+  %6 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #22
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %Abc_Clock.exit, label %8
 
@@ -7848,7 +7848,7 @@ define ptr @Abc_NtkDarSeqSweep(ptr noundef %0, ptr noundef %1) local_unnamed_add
 Abc_Clock.exit:                                   ; preds = %2, %8
   %.0.i.neg = phi i64 [ %.neg43, %8 ], [ 1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @Fraig_ParamsSetDefault(ptr noundef nonnull %5) #21
+  call void @Fraig_ParamsSetDefault(ptr noundef nonnull %5) #22
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 100000, ptr %12, align 8, !tbaa !238
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -7862,7 +7862,7 @@ Abc_Clock.exit:                                   ; preds = %2, %8
   br i1 %17, label %18, label %35
 
 18:                                               ; preds = %15
-  %19 = call ptr @Abc_NtkFraig(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 0) #21
+  %19 = call ptr @Abc_NtkFraig(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 0) #22
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %21 = load i32, ptr %20, align 4, !tbaa !243
   %.not33 = icmp eq i32 %21, 0
@@ -7871,7 +7871,7 @@ Abc_Clock.exit:                                   ; preds = %2, %8
 22:                                               ; preds = %18
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.36)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %23 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #21
+  %23 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #22
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %Abc_Clock.exit41, label %25
 
@@ -7894,19 +7894,19 @@ Abc_Clock.exit41:                                 ; preds = %22, %25
   br label %37
 
 35:                                               ; preds = %15, %Abc_Clock.exit
-  %36 = call ptr @Abc_NtkDup(ptr noundef %0) #21
+  %36 = call ptr @Abc_NtkDup(ptr noundef %0) #22
   br label %37
 
 37:                                               ; preds = %18, %Abc_Clock.exit41, %35
   %.030 = phi ptr [ %19, %Abc_Clock.exit41 ], [ %19, %18 ], [ %36, %35 ]
   %38 = call ptr @Abc_NtkToDar(ptr noundef %.030, i32 noundef 0, i32 noundef 1)
-  call void @Abc_NtkDelete(ptr noundef %.030) #21
+  call void @Abc_NtkDelete(ptr noundef %.030) #22
   %39 = icmp eq ptr %38, null
   br i1 %39, label %67, label %40
 
 40:                                               ; preds = %37
-  %41 = call ptr @Fra_FraigInduction(ptr noundef nonnull %38, ptr noundef nonnull %1) #21
-  call void @Aig_ManStop(ptr noundef nonnull %38) #21
+  %41 = call ptr @Fra_FraigInduction(ptr noundef nonnull %38, ptr noundef nonnull %1) #22
+  call void @Aig_ManStop(ptr noundef nonnull %38) #22
   %.not34 = icmp eq ptr %41, null
   br i1 %.not34, label %67, label %42
 
@@ -7961,7 +7961,7 @@ Abc_Clock.exit41:                                 ; preds = %22, %25
 
 .critedge:                                        ; preds = %62, %48, %46
   %.1 = phi ptr [ %47, %46 ], [ %49, %48 ], [ %49, %62 ]
-  call void @Aig_ManStop(ptr noundef nonnull %41) #21
+  call void @Aig_ManStop(ptr noundef nonnull %41) #22
   br label %67
 
 67:                                               ; preds = %40, %.critedge, %37
@@ -7970,21 +7970,21 @@ Abc_Clock.exit41:                                 ; preds = %22, %25
   ret ptr %.028
 }
 
-declare void @Fraig_ParamsSetDefault(ptr noundef) local_unnamed_addr #3
+declare void @Fraig_ParamsSetDefault(ptr noundef) local_unnamed_addr #4
 
-declare ptr @Abc_NtkFraig(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Abc_NtkFraig(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @Fra_FraigInduction(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @Fra_FraigInduction(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkPrintLatchEquivClasses(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @Abc_NtkPrintLatchEquivClasses(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 128
   %.val79 = load i32, ptr %3, align 8, !tbaa !35
   %4 = sext i32 %.val79 to i64
   %5 = shl nsw i64 %4, 3
-  %6 = tail call noalias ptr @malloc(i64 noundef %5) #20
+  %6 = tail call noalias ptr @malloc(i64 noundef %5) #21
   %7 = shl nsw i64 %4, 2
-  %8 = tail call noalias ptr @malloc(i64 noundef %7) #20
+  %8 = tail call noalias ptr @malloc(i64 noundef %7) #21
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load ptr, ptr %9, align 8, !tbaa !38
   %11 = getelementptr i8, ptr %10, i64 4
@@ -8017,13 +8017,13 @@ define void @Abc_NtkPrintLatchEquivClasses(ptr noundef readonly captures(none) %
   %23 = sext i32 %.val78.val to i64
   %24 = getelementptr inbounds ptr, ptr %.val77.val.val, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !18
-  %26 = tail call ptr @Abc_ObjName(ptr noundef %25) #21
-  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #22
+  %26 = tail call ptr @Abc_ObjName(ptr noundef %25) #22
+  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #23
   %28 = add i64 %27, 1
-  %29 = tail call noalias ptr @malloc(i64 noundef %28) #20
+  %29 = tail call noalias ptr @malloc(i64 noundef %28) #21
   %30 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   store ptr %29, ptr %30, align 8, !tbaa !226
-  %31 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) %26) #21
+  %31 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) %26) #22
   %.pre = load ptr, ptr %9, align 8, !tbaa !38
   br label %32
 
@@ -8037,7 +8037,7 @@ define void @Abc_NtkPrintLatchEquivClasses(ptr noundef readonly captures(none) %
   br i1 %36, label %.lr.ph, label %.critedge, !llvm.loop !245
 
 .critedge:                                        ; preds = %32, %2
-  tail call void @Aig_ManSetCioIds(ptr noundef %1) #21
+  tail call void @Aig_ManSetCioIds(ptr noundef %1) #22
   %37 = getelementptr i8, ptr %1, i64 104
   %.val8290 = load i32, ptr %37, align 8, !tbaa !89
   %38 = icmp sgt i32 %.val8290, 0
@@ -8166,7 +8166,7 @@ Aig_ObjRepr.exit.thread:                          ; preds = %.lr.ph93.split, %Ai
 
 85:                                               ; preds = %83
   %86 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv105
-  tail call void @free(ptr noundef nonnull %84) #21
+  tail call void @free(ptr noundef nonnull %84) #22
   store ptr null, ptr %86, align 8, !tbaa !226
   br label %.critedge2
 
@@ -8188,7 +8188,7 @@ Aig_ObjRepr.exit.thread:                          ; preds = %.lr.ph93.split, %Ai
   br i1 %.not66, label %90, label %.thread
 
 .thread:                                          ; preds = %.critedge2._crit_edge, %88, %89
-  tail call void @free(ptr noundef nonnull %6) #21
+  tail call void @free(ptr noundef nonnull %6) #22
   br label %90
 
 90:                                               ; preds = %89, %.thread
@@ -8196,7 +8196,7 @@ Aig_ObjRepr.exit.thread:                          ; preds = %.lr.ph93.split, %Ai
   br i1 %.not67, label %92, label %91
 
 91:                                               ; preds = %90
-  tail call void @free(ptr noundef nonnull %8) #21
+  tail call void @free(ptr noundef nonnull %8) #22
   br label %92
 
 92:                                               ; preds = %90, %91
@@ -8204,21 +8204,21 @@ Aig_ObjRepr.exit.thread:                          ; preds = %.lr.ph93.split, %Ai
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #10
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #11
 
-declare void @Aig_ManSetCioIds(ptr noundef) local_unnamed_addr #3
+declare void @Aig_ManSetCioIds(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkDarSeqSweep2(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define ptr @Abc_NtkDarSeqSweep2(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %37, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @Ssw_SignalCorrespondence(ptr noundef nonnull %3, ptr noundef %1) #21
+  %6 = tail call ptr @Ssw_SignalCorrespondence(ptr noundef nonnull %3, ptr noundef %1) #22
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %8 = load i32, ptr %7, align 4, !tbaa !250
   %.not = icmp eq i32 %8, 0
@@ -8229,7 +8229,7 @@ define ptr @Abc_NtkDarSeqSweep2(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br label %10
 
 10:                                               ; preds = %9, %5
-  tail call void @Aig_ManStop(ptr noundef nonnull %3) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %3) #22
   %11 = icmp eq ptr %6, null
   br i1 %11, label %37, label %12
 
@@ -8284,7 +8284,7 @@ define ptr @Abc_NtkDarSeqSweep2(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 .critedge:                                        ; preds = %32, %18, %16
   %.025 = phi ptr [ %17, %16 ], [ %19, %18 ], [ %19, %32 ]
-  tail call void @Aig_ManStop(ptr noundef nonnull %6) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %6) #22
   br label %37
 
 37:                                               ; preds = %10, %2, %.critedge
@@ -8292,17 +8292,17 @@ define ptr @Abc_NtkDarSeqSweep2(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   ret ptr %.024
 }
 
-declare ptr @Ssw_SignalCorrespondence(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @Ssw_SignalCorrespondence(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkDarLcorr(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define ptr @Abc_NtkDarLcorr(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %34, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call ptr @Fra_FraigLatchCorrespondence(ptr noundef nonnull %5, i32 noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef %3, ptr noundef null, float noundef 0.000000e+00) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %5) #21
+  %8 = tail call ptr @Fra_FraigLatchCorrespondence(ptr noundef nonnull %5, i32 noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef %3, ptr noundef null, float noundef 0.000000e+00) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %5) #22
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %34, label %9
 
@@ -8357,7 +8357,7 @@ define ptr @Abc_NtkDarLcorr(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
 
 .critedge:                                        ; preds = %29, %15, %13
   %.1 = phi ptr [ %14, %13 ], [ %16, %15 ], [ %16, %29 ]
-  tail call void @Aig_ManStop(ptr noundef nonnull %8) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %8) #22
   br label %34
 
 34:                                               ; preds = %7, %.critedge, %4
@@ -8365,10 +8365,10 @@ define ptr @Abc_NtkDarLcorr(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   ret ptr %.023
 }
 
-declare ptr @Fra_FraigLatchCorrespondence(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, float noundef) local_unnamed_addr #3
+declare ptr @Fra_FraigLatchCorrespondence(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, float noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkDarLcorrNew(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define ptr @Abc_NtkDarLcorrNew(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca %struct.Ssw_Pars_t_, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
@@ -8376,7 +8376,7 @@ define ptr @Abc_NtkDarLcorrNew(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
   br i1 %8, label %41, label %9
 
 9:                                                ; preds = %5
-  call void @Ssw_ManSetDefaultParams(ptr noundef nonnull %6) #21
+  call void @Ssw_ManSetDefaultParams(ptr noundef nonnull %6) #22
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 140
   store i32 1, ptr %10, align 4, !tbaa !254
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -8387,8 +8387,8 @@ define ptr @Abc_NtkDarLcorrNew(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
   store i32 %3, ptr %13, align 8, !tbaa !257
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 112
   store i32 %4, ptr %14, align 8, !tbaa !258
-  %15 = call ptr @Ssw_SignalCorrespondence(ptr noundef nonnull %7, ptr noundef nonnull %6) #21
-  call void @Aig_ManStop(ptr noundef nonnull %7) #21
+  %15 = call ptr @Ssw_SignalCorrespondence(ptr noundef nonnull %7, ptr noundef nonnull %6) #22
+  call void @Aig_ManStop(ptr noundef nonnull %7) #22
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %41, label %16
 
@@ -8443,7 +8443,7 @@ define ptr @Abc_NtkDarLcorrNew(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
 
 .critedge:                                        ; preds = %36, %22, %20
   %.1 = phi ptr [ %21, %20 ], [ %23, %22 ], [ %23, %36 ]
-  call void @Aig_ManStop(ptr noundef nonnull %15) #21
+  call void @Aig_ManStop(ptr noundef nonnull %15) #22
   br label %41
 
 41:                                               ; preds = %9, %.critedge, %5
@@ -8452,10 +8452,10 @@ define ptr @Abc_NtkDarLcorrNew(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
   ret ptr %.031
 }
 
-declare void @Ssw_ManSetDefaultParams(ptr noundef) local_unnamed_addr #3
+declare void @Ssw_ManSetDefaultParams(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NtkDarBmc(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef %13, i32 noundef %14) local_unnamed_addr #1 {
+define i32 @Abc_NtkDarBmc(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef %13, i32 noundef %14) local_unnamed_addr #2 {
   %16 = alloca %struct.timespec, align 8
   %17 = alloca %struct.timespec, align 8
   %18 = alloca %struct.timespec, align 8
@@ -8465,7 +8465,7 @@ define i32 @Abc_NtkDarBmc(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr null, ptr %20, align 8, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %22 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %19) #21
+  %22 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %19) #22
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %Abc_Clock.exit, label %24
 
@@ -8488,7 +8488,7 @@ Abc_Clock.exit:                                   ; preds = %15, %24
   %29 = sext i32 %5 to i64
   %30 = mul nsw i64 %29, 1000000
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %31 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %18) #21
+  %31 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %18) #22
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %Abc_Clock.exit101, label %33
 
@@ -8556,7 +8556,7 @@ Abc_Clock.exit101:                                ; preds = %28, %33
 
 60:                                               ; preds = %59
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %61 = call i32 @Saig_ManBmcSimple(ptr noundef nonnull %.074, i32 noundef %2, i32 noundef %3, i32 noundef %6, i32 noundef %8, i32 noundef %12, ptr noundef nonnull %21, i32 noundef %11, i32 noundef %14) #21
+  %61 = call i32 @Saig_ManBmcSimple(ptr noundef nonnull %.074, i32 noundef %2, i32 noundef %3, i32 noundef %6, i32 noundef %8, i32 noundef %12, ptr noundef nonnull %21, i32 noundef %11, i32 noundef %14) #22
   %.not92 = icmp eq ptr %13, null
   br i1 %.not92, label %64, label %62
 
@@ -8572,7 +8572,7 @@ Abc_Clock.exit101:                                ; preds = %28, %33
   br i1 %.not93, label %68, label %67
 
 67:                                               ; preds = %64
-  call void @free(ptr noundef nonnull %66) #21
+  call void @free(ptr noundef nonnull %66) #22
   store ptr null, ptr %65, align 8, !tbaa !236
   br label %68
 
@@ -8583,7 +8583,7 @@ Abc_Clock.exit101:                                ; preds = %28, %33
   br i1 %.not94, label %72, label %71
 
 71:                                               ; preds = %68
-  call void @free(ptr noundef nonnull %70) #21
+  call void @free(ptr noundef nonnull %70) #22
   br label %72
 
 72:                                               ; preds = %68, %71
@@ -8610,7 +8610,7 @@ Abc_Clock.exit101:                                ; preds = %28, %33
 
 80:                                               ; preds = %76
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %81 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %17) #21
+  %81 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %17) #22
   %82 = icmp slt i32 %81, 0
   br i1 %82, label %Abc_Clock.exit103, label %83
 
@@ -8649,7 +8649,7 @@ Abc_Clock.exit103:                                ; preds = %80, %83
 99:                                               ; preds = %93, %92, %91, %75
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.25)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %100 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %16) #21
+  %100 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %16) #22
   %101 = icmp slt i32 %100, 0
   br i1 %101, label %Abc_Clock.exit105, label %102
 
@@ -8674,14 +8674,14 @@ Abc_Clock.exit105:                                ; preds = %99, %102
   br label %124
 
 112:                                              ; preds = %59
-  %113 = call i32 @Saig_BmcPerform(ptr noundef nonnull %.074, i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %12, i32 noundef 0, ptr noundef %13, i32 noundef 0, i32 noundef %14) #21
+  %113 = call i32 @Saig_BmcPerform(ptr noundef nonnull %.074, i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %12, i32 noundef 0, ptr noundef %13, i32 noundef 0, i32 noundef %14) #22
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %115 = load ptr, ptr %114, align 8, !tbaa !236
   %.not90 = icmp eq ptr %115, null
   br i1 %.not90, label %117, label %116
 
 116:                                              ; preds = %112
-  call void @free(ptr noundef nonnull %115) #21
+  call void @free(ptr noundef nonnull %115) #22
   store ptr null, ptr %114, align 8, !tbaa !236
   br label %117
 
@@ -8692,7 +8692,7 @@ Abc_Clock.exit105:                                ; preds = %99, %102
   br i1 %.not91, label %121, label %120
 
 120:                                              ; preds = %117
-  call void @free(ptr noundef nonnull %119) #21
+  call void @free(ptr noundef nonnull %119) #22
   br label %121
 
 121:                                              ; preds = %117, %120
@@ -8710,7 +8710,7 @@ Abc_Clock.exit105:                                ; preds = %99, %102
   br i1 %.not96, label %131, label %127
 
 127:                                              ; preds = %124
-  %128 = call i32 @Saig_ManVerifyCex(ptr noundef nonnull %.074, ptr noundef nonnull %125) #21
+  %128 = call i32 @Saig_ManVerifyCex(ptr noundef nonnull %.074, ptr noundef nonnull %125) #22
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %130, label %131
 
@@ -8719,7 +8719,7 @@ Abc_Clock.exit105:                                ; preds = %99, %102
   br label %131
 
 131:                                              ; preds = %127, %130, %124
-  call void @Aig_ManStop(ptr noundef nonnull %.074) #21
+  call void @Aig_ManStop(ptr noundef nonnull %.074) #22
   %132 = load ptr, ptr %126, align 8, !tbaa !260
   %133 = icmp ne ptr %132, null
   %or.cond3 = select i1 %133, i1 %53, i1 false
@@ -8747,11 +8747,11 @@ Abc_Clock.exit105:                                ; preds = %99, %102
 
 .thread.i:                                        ; preds = %.thread121, %141
   %142 = phi ptr [ %.val98, %.thread121 ], [ %.pre109, %141 ]
-  call void @free(ptr noundef nonnull %142) #21
+  call void @free(ptr noundef nonnull %142) #22
   br label %143
 
 143:                                              ; preds = %.thread.i, %141
-  call void @free(ptr noundef nonnull %52) #21
+  call void @free(ptr noundef nonnull %52) #22
   br label %Vec_IntFreeP.exit
 
 Vec_IntFreeP.exit:                                ; preds = %143, %139, %49
@@ -8760,14 +8760,14 @@ Vec_IntFreeP.exit:                                ; preds = %143, %139, %49
   ret i32 %.0
 }
 
-declare i32 @Saig_ManBmcSimple(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @Saig_ManBmcSimple(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @Saig_BmcPerform(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @Saig_BmcPerform(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @Saig_ManVerifyCex(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @Saig_ManVerifyCex(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NtkDarBmc3(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define i32 @Abc_NtkDarBmc3(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
@@ -8776,7 +8776,7 @@ define i32 @Abc_NtkDarBmc3(ptr noundef %0, ptr noundef %1, i32 noundef %2) local
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %9 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #21
+  %9 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #22
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %Abc_Clock.exit, label %11
 
@@ -8801,7 +8801,7 @@ Abc_Clock.exit:                                   ; preds = %3, %11
   %18 = sext i32 %16 to i64
   %19 = mul nsw i64 %18, 1000000
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %20 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #21
+  %20 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #22
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %Abc_Clock.exit112, label %22
 
@@ -8872,14 +8872,14 @@ Abc_Clock.exit112:                                ; preds = %17, %22
   br label %53
 
 53:                                               ; preds = %52, %48, %42
-  %54 = call i32 @Saig_ManBmcScalable(ptr noundef nonnull %.079, ptr noundef nonnull %1) #21
+  %54 = call i32 @Saig_ManBmcScalable(ptr noundef nonnull %.079, ptr noundef nonnull %1) #22
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %56 = load ptr, ptr %55, align 8, !tbaa !236
   %.not96 = icmp eq ptr %56, null
   br i1 %.not96, label %58, label %57
 
 57:                                               ; preds = %53
-  call void @free(ptr noundef nonnull %56) #21
+  call void @free(ptr noundef nonnull %56) #22
   store ptr null, ptr %55, align 8, !tbaa !236
   br label %58
 
@@ -8890,7 +8890,7 @@ Abc_Clock.exit112:                                ; preds = %17, %22
   br i1 %.not97, label %62, label %61
 
 61:                                               ; preds = %58
-  call void @free(ptr noundef nonnull %60) #21
+  call void @free(ptr noundef nonnull %60) #22
   br label %62
 
 62:                                               ; preds = %58, %61
@@ -8950,7 +8950,7 @@ Abc_Clock.exit112:                                ; preds = %17, %22
 88:                                               ; preds = %71
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.51, i32 noundef %73, i32 noundef %76)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %89 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #21
+  %89 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #22
   %90 = icmp slt i32 %89, 0
   br i1 %90, label %Abc_Clock.exit114, label %91
 
@@ -9097,7 +9097,7 @@ Vec_PtrCountZero.exit130:                         ; preds = %.lr.ph.i124
 154:                                              ; preds = %99, %101, %83, %85, %150, %107, %68
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.25)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %155 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #21
+  %155 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #22
   %156 = icmp slt i32 %155, 0
   br i1 %156, label %Abc_Clock.exit132, label %157
 
@@ -9155,7 +9155,7 @@ Abc_Clock.exit132:                                ; preds = %154, %157
   br i1 %182, label %184, label %183
 
 183:                                              ; preds = %179
-  call void @free(ptr noundef %181) #21
+  call void @free(ptr noundef %181) #22
   %.val.pre.i.i = load i32, ptr %176, align 4, !tbaa !14
   br label %184
 
@@ -9173,11 +9173,11 @@ Vec_PtrFreeData.exit.i:                           ; preds = %184, %175
   br i1 %.not.i.i, label %Vec_PtrFreeFree.exit, label %189
 
 189:                                              ; preds = %Vec_PtrFreeData.exit.i
-  call void @free(ptr noundef nonnull %188) #21
+  call void @free(ptr noundef nonnull %188) #22
   br label %Vec_PtrFreeFree.exit
 
 Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exit.i, %189
-  call void @free(ptr noundef nonnull %174) #21
+  call void @free(ptr noundef nonnull %174) #22
   br label %190
 
 190:                                              ; preds = %Vec_PtrFreeFree.exit, %172
@@ -9193,7 +9193,7 @@ Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exi
   br i1 %.not104, label %199, label %195
 
 195:                                              ; preds = %193
-  %196 = call i32 @Saig_ManVerifyCex(ptr noundef nonnull %.079, ptr noundef nonnull %194) #21
+  %196 = call i32 @Saig_ManVerifyCex(ptr noundef nonnull %.079, ptr noundef nonnull %194) #22
   %197 = icmp eq i32 %196, 0
   br i1 %197, label %198, label %199
 
@@ -9202,7 +9202,7 @@ Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exi
   br label %199
 
 199:                                              ; preds = %195, %198, %193
-  call void @Aig_ManStop(ptr noundef nonnull %.079) #21
+  call void @Aig_ManStop(ptr noundef nonnull %.079) #22
   %200 = load ptr, ptr %59, align 8, !tbaa !260
   %201 = icmp ne ptr %200, null
   %or.cond3 = select i1 %201, i1 %47, i1 false
@@ -9230,11 +9230,11 @@ Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exi
 
 .thread.i:                                        ; preds = %.thread, %209
   %210 = phi ptr [ %.val106, %.thread ], [ %.pre, %209 ]
-  call void @free(ptr noundef nonnull %210) #21
+  call void @free(ptr noundef nonnull %210) #22
   br label %211
 
 211:                                              ; preds = %.thread.i, %209
-  call void @free(ptr noundef nonnull %46) #21
+  call void @free(ptr noundef nonnull %46) #22
   br label %Vec_IntFreeP.exit
 
 Vec_IntFreeP.exit:                                ; preds = %211, %207, %41
@@ -9243,16 +9243,16 @@ Vec_IntFreeP.exit:                                ; preds = %211, %207, %41
   ret i32 %.0
 }
 
-declare i32 @Saig_ManBmcScalable(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @Saig_ManBmcScalable(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkDarBmcInter_int(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 {
+define noundef i32 @Abc_NtkDarBmcInter_int(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #21
+  %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #22
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %Abc_Clock.exit, label %9
 
@@ -9327,9 +9327,9 @@ Abc_Clock.exit:                                   ; preds = %3, %9
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %35, %37
-  %38 = call ptr @Aig_ManDupOneOutput(ptr noundef nonnull %0, i32 noundef %.pre, i32 noundef 1) #21
-  %39 = call ptr @Aig_ManScl(ptr noundef %38, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef -1, i32 noundef -1, i32 noundef 0, i32 noundef 0) #21
-  call void @Aig_ManStop(ptr noundef %38) #21
+  %38 = call ptr @Aig_ManDupOneOutput(ptr noundef nonnull %0, i32 noundef %.pre, i32 noundef 1) #22
+  %39 = call ptr @Aig_ManScl(ptr noundef %38, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef -1, i32 noundef -1, i32 noundef 0, i32 noundef 0) #22
+  call void @Aig_ManStop(ptr noundef %38) #22
   %40 = getelementptr i8, ptr %39, i64 104
   %.val94 = load i32, ptr %40, align 8, !tbaa !89
   %41 = icmp eq i32 %.val94, 0
@@ -9340,7 +9340,7 @@ Abc_Clock.exit:                                   ; preds = %3, %9
   store ptr null, ptr %43, align 8, !tbaa !261
   %44 = load i32, ptr %1, align 8, !tbaa !281
   %45 = sext i32 %44 to i64
-  %46 = call i32 @Fra_FraigSat(ptr noundef nonnull %39, i64 noundef %45, i64 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #21
+  %46 = call i32 @Fra_FraigSat(ptr noundef nonnull %39, i64 noundef %45, i64 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #22
   %47 = getelementptr inbounds nuw i8, ptr %39, i64 296
   %48 = load ptr, ptr %47, align 8, !tbaa !235
   %.not86 = icmp eq ptr %48, null
@@ -9349,12 +9349,12 @@ Abc_Clock.exit:                                   ; preds = %3, %9
 49:                                               ; preds = %42
   %.val93 = load i32, ptr %22, align 8, !tbaa !89
   %.val96 = load i32, ptr %23, align 4, !tbaa !180
-  %50 = call ptr @Abc_CexCreate(i32 noundef %.val93, i32 noundef %.val96, ptr noundef nonnull %48, i32 noundef 0, i32 noundef %.pre, i32 noundef 1) #21
+  %50 = call ptr @Abc_CexCreate(i32 noundef %.val93, i32 noundef %.val96, ptr noundef nonnull %48, i32 noundef 0, i32 noundef %.pre, i32 noundef 1) #22
   store ptr %50, ptr %43, align 8, !tbaa !261
   br label %53
 
 51:                                               ; preds = %._crit_edge
-  %52 = call i32 @Inter_ManPerformInterpolation(ptr noundef nonnull %39, ptr noundef nonnull %1, ptr noundef nonnull %6) #21
+  %52 = call i32 @Inter_ManPerformInterpolation(ptr noundef nonnull %39, ptr noundef nonnull %1, ptr noundef nonnull %6) #22
   br label %53
 
 53:                                               ; preds = %42, %49, %51
@@ -9377,8 +9377,8 @@ Abc_Clock.exit:                                   ; preds = %3, %9
   %61 = ptrtoint ptr %.val101 to i64
   %62 = xor i64 %61, 1
   %63 = inttoptr i64 %62 to ptr
-  call void @Aig_ObjPatchFanin0(ptr noundef nonnull %0, ptr noundef nonnull %29, ptr noundef %63) #21
-  call void @Aig_ManStop(ptr noundef nonnull %39) #21
+  call void @Aig_ObjPatchFanin0(ptr noundef nonnull %0, ptr noundef nonnull %29, ptr noundef %63) #22
+  call void @Aig_ManStop(ptr noundef nonnull %39) #22
   %64 = add nsw i32 %.077123, 1
   br label %77
 
@@ -9388,7 +9388,7 @@ Abc_Clock.exit:                                   ; preds = %3, %9
   store ptr %55, ptr %67, align 8, !tbaa !261
   store ptr null, ptr %66, align 8, !tbaa !261
   store i32 %.pre, ptr %55, align 4, !tbaa !262
-  call void @Aig_ManStop(ptr noundef nonnull %39) #21
+  call void @Aig_ManStop(ptr noundef nonnull %39) #22
   br label %.critedge
 
 68:                                               ; preds = %53
@@ -9400,7 +9400,7 @@ Abc_Clock.exit:                                   ; preds = %3, %9
   %71 = ptrtoint ptr %.val102 to i64
   %72 = xor i64 %71, 1
   %73 = inttoptr i64 %72 to ptr
-  call void @Aig_ObjPatchFanin0(ptr noundef nonnull %0, ptr noundef nonnull %29, ptr noundef %73) #21
+  call void @Aig_ObjPatchFanin0(ptr noundef nonnull %0, ptr noundef nonnull %29, ptr noundef %73) #22
   br label %76
 
 74:                                               ; preds = %68
@@ -9409,7 +9409,7 @@ Abc_Clock.exit:                                   ; preds = %3, %9
 
 76:                                               ; preds = %74, %70
   %.275 = phi i32 [ %.073125, %70 ], [ %75, %74 ]
-  call void @Aig_ManStop(ptr noundef nonnull %39) #21
+  call void @Aig_ManStop(ptr noundef nonnull %39) #22
   %.val98 = load i32, ptr %17, align 8, !tbaa !181
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.61, i32 noundef %.pre, i32 noundef %.val98)
   br label %77
@@ -9428,7 +9428,7 @@ Abc_Clock.exit:                                   ; preds = %3, %9
   %.077117 = phi i32 [ %.077123, %65 ], [ 0, %.preheader ], [ %.178, %77 ]
   %.073114 = phi i32 [ %.073125, %65 ], [ 0, %.preheader ], [ %.174, %77 ]
   %.1 = phi i32 [ %.3, %65 ], [ -1, %.preheader ], [ %.2, %77 ]
-  %80 = call i32 @Aig_ManCleanup(ptr noundef nonnull %0) #21
+  %80 = call i32 @Aig_ManCleanup(ptr noundef nonnull %0) #22
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %82 = load ptr, ptr %81, align 8, !tbaa !261
   %83 = icmp eq ptr %82, null
@@ -9446,14 +9446,14 @@ Abc_Clock.exit:                                   ; preds = %3, %9
   br i1 %.not, label %90, label %86
 
 86:                                               ; preds = %85
-  %87 = call ptr @Aig_ManDupUnsolvedOutputs(ptr noundef nonnull %0, i32 noundef 1) #21
-  %88 = call ptr @Aig_ManScl(ptr noundef %87, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef -1, i32 noundef -1, i32 noundef 0, i32 noundef 0) #21
+  %87 = call ptr @Aig_ManDupUnsolvedOutputs(ptr noundef nonnull %0, i32 noundef 1) #22
+  %88 = call ptr @Aig_ManScl(ptr noundef %87, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef -1, i32 noundef -1, i32 noundef 0, i32 noundef 0) #22
   store ptr %88, ptr %2, align 8, !tbaa !237
-  call void @Aig_ManStop(ptr noundef %87) #21
+  call void @Aig_ManStop(ptr noundef %87) #22
   br label %90
 
 .thread:                                          ; preds = %14
-  %89 = call i32 @Inter_ManPerformInterpolation(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %6) #21
+  %89 = call i32 @Inter_ManPerformInterpolation(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %6) #22
   br label %92
 
 90:                                               ; preds = %85, %86
@@ -9500,7 +9500,7 @@ Abc_Clock.exit:                                   ; preds = %3, %9
 104:                                              ; preds = %92, %99, %103, %93
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.25)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %105 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #21
+  %105 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #22
   %106 = icmp slt i32 %105, 0
   br i1 %106, label %Abc_Clock.exit104, label %107
 
@@ -9524,20 +9524,20 @@ Abc_Clock.exit104:                                ; preds = %104, %107
   ret i32 %.5108
 }
 
-declare ptr @Aig_ManDupOneOutput(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Aig_ManDupOneOutput(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @Aig_ManScl(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Aig_ManScl(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @Abc_CexCreate(i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Abc_CexCreate(i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @Inter_ManPerformInterpolation(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @Inter_ManPerformInterpolation(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @Aig_ObjPatchFanin0(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @Aig_ObjPatchFanin0(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @Aig_ManDupUnsolvedOutputs(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Aig_ManDupUnsolvedOutputs(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkDarBmcInter(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 {
+define noundef i32 @Abc_NtkDarBmcInter(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = alloca ptr, align 8
   %5 = icmp ne ptr %2, null
   br i1 %5, label %6, label %7
@@ -9568,7 +9568,7 @@ define noundef i32 @Abc_NtkDarBmcInter(ptr noundef %0, ptr noundef %1, ptr nound
   %17 = load ptr, ptr %4, align 8, !tbaa !237
   %18 = call ptr @Abc_NtkFromAigPhase(ptr noundef %17)
   store ptr %18, ptr %2, align 8, !tbaa !284
-  call void @Aig_ManStop(ptr noundef %17) #21
+  call void @Aig_ManStop(ptr noundef %17) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %21
 
@@ -9584,7 +9584,7 @@ define noundef i32 @Abc_NtkDarBmcInter(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not, label %25, label %24
 
 24:                                               ; preds = %21
-  call void @free(ptr noundef nonnull %23) #21
+  call void @free(ptr noundef nonnull %23) #22
   store ptr null, ptr %22, align 8, !tbaa !236
   br label %25
 
@@ -9595,7 +9595,7 @@ define noundef i32 @Abc_NtkDarBmcInter(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not28, label %29, label %28
 
 28:                                               ; preds = %25
-  call void @free(ptr noundef nonnull %27) #21
+  call void @free(ptr noundef nonnull %27) #22
   br label %29
 
 29:                                               ; preds = %25, %28
@@ -9603,7 +9603,7 @@ define noundef i32 @Abc_NtkDarBmcInter(ptr noundef %0, ptr noundef %1, ptr nound
   %31 = load ptr, ptr %30, align 8, !tbaa !261
   store ptr %31, ptr %26, align 8, !tbaa !260
   store ptr null, ptr %30, align 8, !tbaa !261
-  call void @Aig_ManStop(ptr noundef nonnull %8) #21
+  call void @Aig_ManStop(ptr noundef nonnull %8) #22
   br label %32
 
 32:                                               ; preds = %29, %10
@@ -9612,7 +9612,7 @@ define noundef i32 @Abc_NtkDarBmcInter(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_NtkDarDemiter(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Abc_NtkDarDemiter(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca [1000 x i8], align 16
   %3 = alloca [1000 x i8], align 16
   %4 = alloca ptr, align 8
@@ -9630,12 +9630,12 @@ define range(i32 0, 2) i32 @Abc_NtkDarDemiter(ptr noundef %0) local_unnamed_addr
   br label %27
 
 9:                                                ; preds = %1
-  %10 = call i32 @Saig_ManDemiterSimpleDiff(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %5) #21
+  %10 = call i32 @Saig_ManDemiterSimpleDiff(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %5) #22
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %12
 
 11:                                               ; preds = %9
-  call void @Aig_ManStop(ptr noundef nonnull %6) #21
+  call void @Aig_ManStop(ptr noundef nonnull %6) #22
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.68)
   br label %27
 
@@ -9652,27 +9652,27 @@ define range(i32 0, 2) i32 @Abc_NtkDarDemiter(ptr noundef %0) local_unnamed_addr
 
 18:                                               ; preds = %12, %15
   %19 = phi ptr [ %17, %15 ], [ %14, %12 ]
-  %20 = call ptr @Extra_FileNameGeneric(ptr noundef %19) #21
+  %20 = call ptr @Extra_FileNameGeneric(ptr noundef %19) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %2, ptr noundef nonnull align 1 dereferenceable(10) @.str.70, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %3, ptr noundef nonnull align 1 dereferenceable(10) @.str.71, i64 10, i1 false)
   %.not14 = icmp eq ptr %20, null
   br i1 %.not14, label %22, label %21
 
 21:                                               ; preds = %18
-  call void @free(ptr noundef nonnull %20) #21
+  call void @free(ptr noundef nonnull %20) #22
   br label %22
 
 22:                                               ; preds = %18, %21
   %23 = load ptr, ptr %4, align 8, !tbaa !237
-  call void @Ioa_WriteAiger(ptr noundef %23, ptr noundef nonnull %2, i32 noundef 0, i32 noundef 0) #21
+  call void @Ioa_WriteAiger(ptr noundef %23, ptr noundef nonnull %2, i32 noundef 0, i32 noundef 0) #22
   %24 = load ptr, ptr %5, align 8, !tbaa !237
-  call void @Ioa_WriteAiger(ptr noundef %24, ptr noundef nonnull %3, i32 noundef 0, i32 noundef 0) #21
+  call void @Ioa_WriteAiger(ptr noundef %24, ptr noundef nonnull %3, i32 noundef 0, i32 noundef 0) #22
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.72, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %25 = load ptr, ptr %4, align 8, !tbaa !237
-  call void @Aig_ManStop(ptr noundef %25) #21
+  call void @Aig_ManStop(ptr noundef %25) #22
   %26 = load ptr, ptr %5, align 8, !tbaa !237
-  call void @Aig_ManStop(ptr noundef %26) #21
-  call void @Aig_ManStop(ptr noundef nonnull %6) #21
+  call void @Aig_ManStop(ptr noundef %26) #22
+  call void @Aig_ManStop(ptr noundef nonnull %6) #22
   br label %27
 
 27:                                               ; preds = %22, %11, %8
@@ -9684,14 +9684,14 @@ define range(i32 0, 2) i32 @Abc_NtkDarDemiter(ptr noundef %0) local_unnamed_addr
   ret i32 %.0
 }
 
-declare i32 @Saig_ManDemiterSimpleDiff(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @Saig_ManDemiterSimpleDiff(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @Extra_FileNameGeneric(ptr noundef) local_unnamed_addr #3
+declare ptr @Extra_FileNameGeneric(ptr noundef) local_unnamed_addr #4
 
-declare void @Ioa_WriteAiger(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @Ioa_WriteAiger(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_NtkDarDemiterNew(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Abc_NtkDarDemiterNew(ptr noundef %0) local_unnamed_addr #2 {
   %2 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5
@@ -9701,8 +9701,8 @@ define range(i32 0, 2) i32 @Abc_NtkDarDemiterNew(ptr noundef %0) local_unnamed_a
   br label %7
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @Saig_ManDemiterNew(ptr noundef nonnull %2) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %2) #21
+  %6 = tail call i32 @Saig_ManDemiterNew(ptr noundef nonnull %2) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %2) #22
   br label %7
 
 7:                                                ; preds = %5, %4
@@ -9710,10 +9710,10 @@ define range(i32 0, 2) i32 @Abc_NtkDarDemiterNew(ptr noundef %0) local_unnamed_a
   ret i32 %.0
 }
 
-declare i32 @Saig_ManDemiterNew(ptr noundef) local_unnamed_addr #3
+declare i32 @Saig_ManDemiterNew(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_NtkDarDemiterDual(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Abc_NtkDarDemiterDual(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca [1000 x i8], align 16
   %4 = alloca [1000 x i8], align 16
   %5 = alloca ptr, align 8
@@ -9744,7 +9744,7 @@ define range(i32 0, 2) i32 @Abc_NtkDarDemiterDual(ptr noundef %0, i32 noundef %1
   br label %46
 
 15:                                               ; preds = %11
-  %16 = call i32 @Saig_ManDemiterDual(ptr noundef nonnull %12, ptr noundef nonnull %5, ptr noundef nonnull %6) #21
+  %16 = call i32 @Saig_ManDemiterDual(ptr noundef nonnull %12, ptr noundef nonnull %5, ptr noundef nonnull %6) #22
   %.not14 = icmp eq i32 %16, 0
   br i1 %.not14, label %17, label %18
 
@@ -9759,15 +9759,15 @@ define range(i32 0, 2) i32 @Abc_NtkDarDemiterDual(ptr noundef %0, i32 noundef %1
   br i1 %.not15, label %23, label %21
 
 21:                                               ; preds = %18
-  call void @free(ptr noundef nonnull %20) #21
+  call void @free(ptr noundef nonnull %20) #22
   %22 = load ptr, ptr %5, align 8, !tbaa !237
   store ptr null, ptr %22, align 8, !tbaa !61
   br label %23
 
 23:                                               ; preds = %18, %21
   %24 = phi ptr [ %19, %18 ], [ %22, %21 ]
-  %25 = call noalias dereferenceable_or_null(6) ptr @malloc(i64 noundef 6) #20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %25, ptr noundef nonnull align 1 dereferenceable(6) @.str.74, i64 6, i1 false) #21
+  %25 = call noalias dereferenceable_or_null(6) ptr @malloc(i64 noundef 6) #21
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %25, ptr noundef nonnull align 1 dereferenceable(6) @.str.74, i64 6, i1 false) #22
   store ptr %25, ptr %24, align 8, !tbaa !61
   %26 = load ptr, ptr %6, align 8, !tbaa !237
   %27 = load ptr, ptr %26, align 8, !tbaa !61
@@ -9775,51 +9775,51 @@ define range(i32 0, 2) i32 @Abc_NtkDarDemiterDual(ptr noundef %0, i32 noundef %1
   br i1 %.not16, label %30, label %28
 
 28:                                               ; preds = %23
-  call void @free(ptr noundef nonnull %27) #21
+  call void @free(ptr noundef nonnull %27) #22
   %29 = load ptr, ptr %6, align 8, !tbaa !237
   store ptr null, ptr %29, align 8, !tbaa !61
   br label %30
 
 30:                                               ; preds = %23, %28
   %31 = phi ptr [ %26, %23 ], [ %29, %28 ]
-  %32 = call noalias dereferenceable_or_null(6) ptr @malloc(i64 noundef 6) #20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %32, ptr noundef nonnull align 1 dereferenceable(6) @.str.75, i64 6, i1 false) #21
+  %32 = call noalias dereferenceable_or_null(6) ptr @malloc(i64 noundef 6) #21
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %32, ptr noundef nonnull align 1 dereferenceable(6) @.str.75, i64 6, i1 false) #22
   store ptr %32, ptr %31, align 8, !tbaa !61
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !62
-  %35 = call ptr @Extra_FileNameGeneric(ptr noundef %34) #21
+  %35 = call ptr @Extra_FileNameGeneric(ptr noundef %34) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %3, ptr noundef nonnull align 1 dereferenceable(10) @.str.70, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %4, ptr noundef nonnull align 1 dereferenceable(10) @.str.71, i64 10, i1 false)
   %.not17 = icmp eq ptr %35, null
   br i1 %.not17, label %37, label %36
 
 36:                                               ; preds = %30
-  call void @free(ptr noundef nonnull %35) #21
+  call void @free(ptr noundef nonnull %35) #22
   br label %37
 
 37:                                               ; preds = %30, %36
   %38 = load ptr, ptr %5, align 8, !tbaa !237
-  call void @Ioa_WriteAiger(ptr noundef %38, ptr noundef nonnull %3, i32 noundef 0, i32 noundef 0) #21
+  call void @Ioa_WriteAiger(ptr noundef %38, ptr noundef nonnull %3, i32 noundef 0, i32 noundef 0) #22
   %39 = load ptr, ptr %6, align 8, !tbaa !237
-  call void @Ioa_WriteAiger(ptr noundef %39, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0) #21
+  call void @Ioa_WriteAiger(ptr noundef %39, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0) #22
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.72, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %.not18 = icmp eq i32 %1, 0
   br i1 %.not18, label %43, label %40
 
 40:                                               ; preds = %37
-  call void @Aig_ManPrintStats(ptr noundef nonnull %12) #21
+  call void @Aig_ManPrintStats(ptr noundef nonnull %12) #22
   %41 = load ptr, ptr %5, align 8, !tbaa !237
-  call void @Aig_ManPrintStats(ptr noundef %41) #21
+  call void @Aig_ManPrintStats(ptr noundef %41) #22
   %42 = load ptr, ptr %6, align 8, !tbaa !237
-  call void @Aig_ManPrintStats(ptr noundef %42) #21
+  call void @Aig_ManPrintStats(ptr noundef %42) #22
   br label %43
 
 43:                                               ; preds = %40, %37
   %44 = load ptr, ptr %5, align 8, !tbaa !237
-  call void @Aig_ManStop(ptr noundef %44) #21
+  call void @Aig_ManStop(ptr noundef %44) #22
   %45 = load ptr, ptr %6, align 8, !tbaa !237
-  call void @Aig_ManStop(ptr noundef %45) #21
-  call void @Aig_ManStop(ptr noundef nonnull %12) #21
+  call void @Aig_ManStop(ptr noundef %45) #22
+  call void @Aig_ManStop(ptr noundef nonnull %12) #22
   br label %46
 
 46:                                               ; preds = %43, %17, %14, %10
@@ -9831,10 +9831,10 @@ define range(i32 0, 2) i32 @Abc_NtkDarDemiterDual(ptr noundef %0, i32 noundef %1
   ret i32 %.0
 }
 
-declare i32 @Saig_ManDemiterDual(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @Saig_ManDemiterDual(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NtkDarProve(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define i32 @Abc_NtkDarProve(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
@@ -9846,7 +9846,7 @@ define i32 @Abc_NtkDarProve(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 -1, ptr %10, align 4, !tbaa !35
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %13 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #21
+  %13 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #22
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %Abc_Clock.exit, label %15
 
@@ -9891,13 +9891,13 @@ Abc_Clock.exit:                                   ; preds = %4, %15
 
 31:                                               ; preds = %29, %27
   %32 = phi ptr [ %30, %29 ], [ %28, %27 ]
-  %33 = call ptr @Abc_NtkDup(ptr noundef nonnull %0) #21
+  %33 = call ptr @Abc_NtkDup(ptr noundef nonnull %0) #22
   store ptr %33, ptr %12, align 8, !tbaa !284
-  call void @Abc_NtkMakeComb(ptr noundef %33, i32 noundef 1) #21
-  call void @Prove_ParamsSetDefault(ptr noundef nonnull %11) #21
+  call void @Abc_NtkMakeComb(ptr noundef %33, i32 noundef 1) #22
+  call void @Prove_ParamsSetDefault(ptr noundef nonnull %11) #22
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 1, ptr %34, align 4, !tbaa !287
-  %35 = call i32 @Abc_NtkIvyProve(ptr noundef nonnull %12, ptr noundef nonnull %11) #21
+  %35 = call i32 @Abc_NtkIvyProve(ptr noundef nonnull %12, ptr noundef nonnull %11) #22
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %55
 
@@ -9908,7 +9908,7 @@ Abc_Clock.exit:                                   ; preds = %4, %15
   br i1 %38, label %40, label %.thread
 
 .thread:                                          ; preds = %37
-  call void @Abc_NtkDelete(ptr noundef %39) #21
+  call void @Abc_NtkDelete(ptr noundef %39) #22
   br label %70
 
 40:                                               ; preds = %37
@@ -9924,7 +9924,7 @@ Abc_Clock.exit:                                   ; preds = %4, %15
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull %.str.78..str.77)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.25)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %46 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #21
+  %46 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #22
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %Abc_Clock.exit87, label %48
 
@@ -9944,7 +9944,7 @@ Abc_Clock.exit87:                                 ; preds = %40, %48
 
 55:                                               ; preds = %31
   %56 = load ptr, ptr %12, align 8, !tbaa !284
-  call void @Abc_NtkDelete(ptr noundef %56) #21
+  call void @Abc_NtkDelete(ptr noundef %56) #22
   %57 = icmp eq i32 %35, 1
   br i1 %57, label %58, label %70
 
@@ -9956,7 +9956,7 @@ Abc_Clock.exit87:                                 ; preds = %40, %48
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull %.str.80..str.79)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.25)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %61 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #21
+  %61 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #22
   %62 = icmp slt i32 %61, 0
   br i1 %62, label %Abc_Clock.exit89, label %63
 
@@ -9983,7 +9983,7 @@ Abc_Clock.exit89:                                 ; preds = %58, %63
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.81)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.25)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %73 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #21
+  %73 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #22
   %74 = icmp slt i32 %73, 0
   br i1 %74, label %Abc_Clock.exit91, label %75
 
@@ -10024,7 +10024,7 @@ Abc_Clock.exit91:                                 ; preds = %72, %75
 90:                                               ; preds = %87
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %92 = load i32, ptr %91, align 4, !tbaa !291
-  %93 = call i32 @Saig_BmcPerform(ptr noundef nonnull %84, i32 noundef 0, i32 noundef %2, i32 noundef 2000, i32 noundef 0, i32 noundef %3, i32 noundef 0, i32 noundef %92, i32 noundef 0, ptr noundef nonnull %10, i32 noundef 0, i32 noundef 0) #21
+  %93 = call i32 @Saig_BmcPerform(ptr noundef nonnull %84, i32 noundef 0, i32 noundef %2, i32 noundef 2000, i32 noundef 0, i32 noundef %3, i32 noundef 0, i32 noundef %92, i32 noundef 0, ptr noundef nonnull %10, i32 noundef 0, i32 noundef 0) #22
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %95, label %122
 
@@ -10039,7 +10039,7 @@ Abc_Clock.exit91:                                 ; preds = %72, %75
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.77)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.25)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %99 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #21
+  %99 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #22
   %100 = icmp slt i32 %99, 0
   br i1 %100, label %Abc_Clock.exit93, label %101
 
@@ -10068,7 +10068,7 @@ Abc_Clock.exit93:                                 ; preds = %98, %101
   br i1 %.not81, label %115, label %114
 
 114:                                              ; preds = %111
-  call void @free(ptr noundef nonnull %113) #21
+  call void @free(ptr noundef nonnull %113) #22
   store ptr null, ptr %112, align 8, !tbaa !236
   br label %115
 
@@ -10079,7 +10079,7 @@ Abc_Clock.exit93:                                 ; preds = %98, %101
   br i1 %.not82, label %119, label %118
 
 118:                                              ; preds = %115
-  call void @free(ptr noundef nonnull %117) #21
+  call void @free(ptr noundef nonnull %117) #22
   br label %119
 
 119:                                              ; preds = %115, %118
@@ -10087,7 +10087,7 @@ Abc_Clock.exit93:                                 ; preds = %98, %101
   %121 = load ptr, ptr %120, align 8, !tbaa !261
   store ptr %121, ptr %116, align 8, !tbaa !260
   store ptr null, ptr %120, align 8, !tbaa !261
-  call void @Aig_ManStop(ptr noundef nonnull %84) #21
+  call void @Aig_ManStop(ptr noundef nonnull %84) #22
   br label %152
 
 122:                                              ; preds = %90, %87
@@ -10097,18 +10097,18 @@ Abc_Clock.exit93:                                 ; preds = %98, %101
   br i1 %.not75, label %127, label %125
 
 125:                                              ; preds = %122
-  %126 = call i32 @Ssw_SecGeneralMiter(ptr noundef nonnull %84, ptr noundef null) #21
+  %126 = call i32 @Ssw_SecGeneralMiter(ptr noundef nonnull %84, ptr noundef null) #22
   br label %148
 
 127:                                              ; preds = %122
-  %128 = call i32 @Fra_FraigSec(ptr noundef nonnull %84, ptr noundef nonnull %1, ptr noundef null) #21
+  %128 = call i32 @Fra_FraigSec(ptr noundef nonnull %84, ptr noundef nonnull %1, ptr noundef null) #22
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %130 = load ptr, ptr %129, align 8, !tbaa !236
   %.not76 = icmp eq ptr %130, null
   br i1 %.not76, label %132, label %131
 
 131:                                              ; preds = %127
-  call void @free(ptr noundef nonnull %130) #21
+  call void @free(ptr noundef nonnull %130) #22
   store ptr null, ptr %129, align 8, !tbaa !236
   br label %132
 
@@ -10119,7 +10119,7 @@ Abc_Clock.exit93:                                 ; preds = %98, %101
   br i1 %.not77, label %136, label %135
 
 135:                                              ; preds = %132
-  call void @free(ptr noundef nonnull %134) #21
+  call void @free(ptr noundef nonnull %134) #22
   br label %136
 
 136:                                              ; preds = %132, %135
@@ -10138,7 +10138,7 @@ Abc_Clock.exit93:                                 ; preds = %98, %101
   %144 = load i32, ptr %143, align 4, !tbaa !264
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.83, i32 noundef %140, ptr noundef %142, i32 noundef %144)
   %145 = load ptr, ptr %133, align 8, !tbaa !260
-  %146 = call i32 @Saig_ManVerifyCex(ptr noundef nonnull %84, ptr noundef %145) #21
+  %146 = call i32 @Saig_ManVerifyCex(ptr noundef nonnull %84, ptr noundef %145) #22
   %.not79 = icmp eq i32 %146, 0
   br i1 %.not79, label %147, label %148
 
@@ -10148,7 +10148,7 @@ Abc_Clock.exit93:                                 ; preds = %98, %101
 
 148:                                              ; preds = %139, %147, %136, %125
   %.065 = phi i32 [ %126, %125 ], [ %128, %136 ], [ %128, %147 ], [ %128, %139 ]
-  call void @Aig_ManStop(ptr noundef nonnull %84) #21
+  call void @Aig_ManStop(ptr noundef nonnull %84) #22
   br label %152
 
 .critedge:                                        ; preds = %Abc_Clock.exit91, %Abc_Clock.exit89, %Abc_Clock.exit87
@@ -10167,19 +10167,19 @@ Abc_Clock.exit93:                                 ; preds = %98, %101
   ret i32 %.1
 }
 
-declare void @Abc_NtkMakeComb(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @Abc_NtkMakeComb(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @Prove_ParamsSetDefault(ptr noundef) local_unnamed_addr #3
+declare void @Prove_ParamsSetDefault(ptr noundef) local_unnamed_addr #4
 
-declare i32 @Abc_NtkIvyProve(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @Abc_NtkIvyProve(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @Ssw_SecGeneralMiter(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @Ssw_SecGeneralMiter(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @Fra_FraigSec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @Fra_FraigSec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NtkDarSec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
-  %4 = tail call ptr @Abc_NtkMiter(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #21
+define i32 @Abc_NtkDarSec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+  %4 = tail call ptr @Abc_NtkMiter(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #22
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %7
 
@@ -10188,7 +10188,7 @@ define i32 @Abc_NtkDarSec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
   br label %23
 
 7:                                                ; preds = %3
-  %8 = tail call i32 @Abc_NtkMiterIsConstant(ptr noundef nonnull %4) #21
+  %8 = tail call i32 @Abc_NtkMiterIsConstant(ptr noundef nonnull %4) #22
   switch i32 %8, label %17 [
     i32 0, label %9
     i32 1, label %16
@@ -10198,29 +10198,29 @@ define i32 @Abc_NtkDarSec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.28)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i32, ptr %10, align 4, !tbaa !293
-  %12 = tail call ptr @Abc_NtkVerifyGetCleanModel(ptr noundef nonnull %4, i32 noundef %11) #21
+  %12 = tail call ptr @Abc_NtkVerifyGetCleanModel(ptr noundef nonnull %4, i32 noundef %11) #22
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 304
   store ptr %12, ptr %13, align 8, !tbaa !236
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %15, label %14
 
 14:                                               ; preds = %9
-  tail call void @free(ptr noundef nonnull %12) #21
+  tail call void @free(ptr noundef nonnull %12) #22
   store ptr null, ptr %13, align 8, !tbaa !236
   br label %15
 
 15:                                               ; preds = %9, %14
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %4) #21
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %4) #22
   br label %23
 
 16:                                               ; preds = %7
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %4) #21
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %4) #22
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.29)
   br label %23
 
 17:                                               ; preds = %7
   %18 = tail call ptr @Abc_NtkToDar(ptr noundef nonnull %4, i32 noundef 0, i32 noundef 1)
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %4) #21
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %4) #22
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %21
 
@@ -10229,8 +10229,8 @@ define i32 @Abc_NtkDarSec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
   br label %23
 
 21:                                               ; preds = %17
-  %22 = tail call i32 @Fra_FraigSec(ptr noundef nonnull %18, ptr noundef %2, ptr noundef null) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %18) #21
+  %22 = tail call i32 @Fra_FraigSec(ptr noundef nonnull %18, ptr noundef %2, ptr noundef null) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %18) #22
   br label %23
 
 23:                                               ; preds = %21, %20, %16, %15, %6
@@ -10239,11 +10239,11 @@ define i32 @Abc_NtkDarSec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NtkDarPdr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define i32 @Abc_NtkDarPdr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %5 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #21
+  %5 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #22
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %Abc_Clock.exit, label %7
 
@@ -10268,7 +10268,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   br label %87
 
 14:                                               ; preds = %Abc_Clock.exit
-  %15 = call i32 @Pdr_ManSolve(ptr noundef nonnull %11, ptr noundef %1) #21
+  %15 = call i32 @Pdr_ManSolve(ptr noundef nonnull %11, ptr noundef %1) #22
   %16 = getelementptr i8, ptr %11, i64 112
   %.val46 = load i32, ptr %16, align 8, !tbaa !181
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 140
@@ -10323,7 +10323,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   %42 = load i32, ptr %41, align 4, !tbaa !264
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.65, i32 noundef %38, ptr noundef %40, i32 noundef %42)
   %43 = load ptr, ptr %33, align 8, !tbaa !261
-  %44 = call i32 @Saig_ManVerifyCex(ptr noundef nonnull %11, ptr noundef %43) #21
+  %44 = call i32 @Saig_ManVerifyCex(ptr noundef nonnull %11, ptr noundef %43) #22
   %.not43 = icmp eq i32 %44, 0
   br i1 %.not43, label %45, label %47
 
@@ -10338,7 +10338,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
 47:                                               ; preds = %30, %31, %46, %36, %45, %37, %29
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.25)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %48 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #21
+  %48 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #22
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %Abc_Clock.exit48, label %50
 
@@ -10367,7 +10367,7 @@ Abc_Clock.exit48:                                 ; preds = %47, %50
   br i1 %.not44, label %64, label %63
 
 63:                                               ; preds = %60
-  call void @free(ptr noundef nonnull %62) #21
+  call void @free(ptr noundef nonnull %62) #22
   br label %64
 
 64:                                               ; preds = %60, %63
@@ -10400,7 +10400,7 @@ Abc_Clock.exit48:                                 ; preds = %47, %50
   br i1 %76, label %78, label %77
 
 77:                                               ; preds = %73
-  call void @free(ptr noundef %75) #21
+  call void @free(ptr noundef %75) #22
   %.val.pre.i.i = load i32, ptr %70, align 4, !tbaa !14
   br label %78
 
@@ -10418,11 +10418,11 @@ Vec_PtrFreeData.exit.i:                           ; preds = %78, %69
   br i1 %.not.i.i, label %Vec_PtrFreeFree.exit, label %83
 
 83:                                               ; preds = %Vec_PtrFreeData.exit.i
-  call void @free(ptr noundef nonnull %82) #21
+  call void @free(ptr noundef nonnull %82) #22
   br label %Vec_PtrFreeFree.exit
 
 Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exit.i, %83
-  call void @free(ptr noundef nonnull %68) #21
+  call void @free(ptr noundef nonnull %68) #22
   br label %84
 
 84:                                               ; preds = %Vec_PtrFreeFree.exit, %64
@@ -10430,7 +10430,7 @@ Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exi
   %86 = load ptr, ptr %85, align 8, !tbaa !273
   store ptr %86, ptr %67, align 8, !tbaa !276
   store ptr null, ptr %85, align 8, !tbaa !273
-  call void @Aig_ManStop(ptr noundef nonnull %11) #21
+  call void @Aig_ManStop(ptr noundef nonnull %11) #22
   br label %87
 
 87:                                               ; preds = %84, %13
@@ -10438,10 +10438,10 @@ Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exi
   ret i32 %.0
 }
 
-declare i32 @Pdr_ManSolve(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @Pdr_ManSolve(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NtkDarAbSec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define i32 @Abc_NtkDarAbSec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %8
@@ -10460,7 +10460,7 @@ define i32 @Abc_NtkDarAbSec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %9
-  tail call void @Aig_ManStop(ptr noundef nonnull %5) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %5) #22
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.30)
   br label %28
 
@@ -10473,8 +10473,8 @@ define i32 @Abc_NtkDarAbSec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   br i1 %.not30, label %17, label %16
 
 16:                                               ; preds = %13
-  tail call void @Aig_ManStop(ptr noundef nonnull %5) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %10) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %5) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %10) #22
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.88)
   br label %28
 
@@ -10487,8 +10487,8 @@ define i32 @Abc_NtkDarAbSec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   br i1 %.not31, label %21, label %20
 
 20:                                               ; preds = %17
-  tail call void @Aig_ManStop(ptr noundef nonnull %5) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %10) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %5) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %10) #22
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.89)
   br label %28
 
@@ -10501,20 +10501,20 @@ define i32 @Abc_NtkDarAbSec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   br i1 %.not32, label %25, label %24
 
 24:                                               ; preds = %21
-  tail call void @Aig_ManStop(ptr noundef nonnull %5) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %10) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %5) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %10) #22
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.90)
   br label %28
 
 25:                                               ; preds = %21, %8
   %.026 = phi ptr [ %10, %21 ], [ null, %8 ]
-  %26 = tail call i32 @Ssw_SecSpecialMiter(ptr noundef nonnull %5, ptr noundef %.026, i32 noundef %2, i32 noundef %3) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %5) #21
+  %26 = tail call i32 @Ssw_SecSpecialMiter(ptr noundef nonnull %5, ptr noundef %.026, i32 noundef %2, i32 noundef %3) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %5) #22
   %.not33 = icmp eq ptr %.026, null
   br i1 %.not33, label %28, label %27
 
 27:                                               ; preds = %25
-  tail call void @Aig_ManStop(ptr noundef nonnull %.026) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %.026) #22
   br label %28
 
 28:                                               ; preds = %25, %27, %24, %20, %16, %12, %7
@@ -10522,10 +10522,10 @@ define i32 @Abc_NtkDarAbSec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   ret i32 %.0
 }
 
-declare i32 @Ssw_SecSpecialMiter(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @Ssw_SecSpecialMiter(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NtkDarSimSec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define i32 @Abc_NtkDarSimSec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %7
@@ -10549,13 +10549,13 @@ define i32 @Abc_NtkDarSimSec(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
 
 12:                                               ; preds = %8, %7
   %.012 = phi ptr [ %9, %8 ], [ null, %7 ]
-  %13 = tail call i32 @Ssw_SecWithSimilarity(ptr noundef nonnull %4, ptr noundef %.012, ptr noundef %2) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %4) #21
+  %13 = tail call i32 @Ssw_SecWithSimilarity(ptr noundef nonnull %4, ptr noundef %.012, ptr noundef %2) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %4) #22
   %.not16 = icmp eq ptr %.012, null
   br i1 %.not16, label %15, label %14
 
 14:                                               ; preds = %12
-  tail call void @Aig_ManStop(ptr noundef nonnull %.012) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %.012) #22
   br label %15
 
 15:                                               ; preds = %12, %14, %11, %6
@@ -10563,10 +10563,10 @@ define i32 @Abc_NtkDarSimSec(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
   ret i32 %.0
 }
 
-declare i32 @Ssw_SecWithSimilarity(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @Ssw_SecWithSimilarity(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkDarMatch(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define noundef ptr @Abc_NtkDarMatch(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
@@ -10592,7 +10592,7 @@ define noundef ptr @Abc_NtkDarMatch(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 14:                                               ; preds = %10, %9
   %.014 = phi ptr [ %11, %10 ], [ null, %9 ]
-  %15 = call ptr @Saig_StrSimPerformMatching(ptr noundef nonnull %6, ptr noundef %.014, i32 noundef %2, i32 noundef 1, ptr noundef nonnull %5) #21
+  %15 = call ptr @Saig_StrSimPerformMatching(ptr noundef nonnull %6, ptr noundef %.014, i32 noundef %2, i32 noundef 1, ptr noundef nonnull %5) #22
   %16 = load ptr, ptr %5, align 8, !tbaa !237
   %17 = call ptr @Abc_NtkFromAigPhase(ptr noundef %16)
   %.not20 = icmp eq ptr %15, null
@@ -10605,11 +10605,11 @@ define noundef ptr @Abc_NtkDarMatch(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %.not.i, label %Vec_IntFree.exit, label %21
 
 21:                                               ; preds = %18
-  call void @free(ptr noundef nonnull %20) #21
+  call void @free(ptr noundef nonnull %20) #22
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %18, %21
-  call void @free(ptr noundef nonnull %15) #21
+  call void @free(ptr noundef nonnull %15) #22
   br label %22
 
 22:                                               ; preds = %Vec_IntFree.exit, %14
@@ -10618,16 +10618,16 @@ Vec_IntFree.exit:                                 ; preds = %18, %21
   br i1 %.not21, label %25, label %24
 
 24:                                               ; preds = %22
-  call void @Aig_ManStop(ptr noundef nonnull %23) #21
+  call void @Aig_ManStop(ptr noundef nonnull %23) #22
   br label %25
 
 25:                                               ; preds = %24, %22
-  call void @Aig_ManStop(ptr noundef nonnull %6) #21
+  call void @Aig_ManStop(ptr noundef nonnull %6) #22
   %.not22 = icmp eq ptr %.014, null
   br i1 %.not22, label %27, label %26
 
 26:                                               ; preds = %25
-  call void @Aig_ManStop(ptr noundef nonnull %.014) #21
+  call void @Aig_ManStop(ptr noundef nonnull %.014) #22
   br label %27
 
 27:                                               ; preds = %25, %26, %13, %8
@@ -10636,10 +10636,10 @@ Vec_IntFree.exit:                                 ; preds = %18, %21
   ret ptr %.0
 }
 
-declare ptr @Saig_StrSimPerformMatching(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @Saig_StrSimPerformMatching(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkDarLatchSweep(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #1 {
+define ptr @Abc_NtkDarLatchSweep(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #2 {
   %10 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %11 = icmp eq ptr %10, null
   br i1 %11, label %37, label %12
@@ -10649,7 +10649,7 @@ define ptr @Abc_NtkDarLatchSweep(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   br i1 %.not, label %26, label %13
 
 13:                                               ; preds = %12
-  %14 = tail call i32 @Aig_ManSeqCleanup(ptr noundef nonnull %10) #21
+  %14 = tail call i32 @Aig_ManSeqCleanup(ptr noundef nonnull %10) #22
   %.not36 = icmp eq i32 %1, 0
   br i1 %.not36, label %20, label %15
 
@@ -10660,7 +10660,7 @@ define ptr @Abc_NtkDarLatchSweep(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   br i1 %.not37, label %20, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call ptr @Aig_ManConstReduce(ptr noundef nonnull %10, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #21
+  %19 = tail call ptr @Aig_ManConstReduce(ptr noundef nonnull %10, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #22
   br label %20
 
 20:                                               ; preds = %18, %15, %13
@@ -10675,7 +10675,7 @@ define ptr @Abc_NtkDarLatchSweep(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   br i1 %.not39, label %35, label %24
 
 24:                                               ; preds = %21
-  %25 = tail call ptr @Aig_ManReduceLaches(ptr noundef nonnull %.032, i32 noundef %7) #21
+  %25 = tail call ptr @Aig_ManReduceLaches(ptr noundef nonnull %.032, i32 noundef %7) #22
   br label %35
 
 26:                                               ; preds = %12
@@ -10691,23 +10691,23 @@ define ptr @Abc_NtkDarLatchSweep(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   br i1 %.not.i, label %Vec_IntFree.exit, label %32
 
 32:                                               ; preds = %29
-  tail call void @free(ptr noundef nonnull %31) #21
+  tail call void @free(ptr noundef nonnull %31) #22
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %29, %32
-  tail call void @free(ptr noundef nonnull %28) #21
+  tail call void @free(ptr noundef nonnull %28) #22
   br label %33
 
 33:                                               ; preds = %Vec_IntFree.exit, %26
   store ptr null, ptr %27, align 8, !tbaa !94
-  %34 = tail call ptr @Aig_ManScl(ptr noundef nonnull %10, i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %10) #21
+  %34 = tail call ptr @Aig_ManScl(ptr noundef nonnull %10, i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %10) #22
   br label %35
 
 35:                                               ; preds = %20, %21, %24, %33
   %.1 = phi ptr [ %25, %24 ], [ %.032, %21 ], [ %.032, %20 ], [ %34, %33 ]
   %36 = tail call ptr @Abc_NtkFromDarSeqSweep(ptr noundef %0, ptr noundef %.1)
-  tail call void @Aig_ManStop(ptr noundef %.1) #21
+  tail call void @Aig_ManStop(ptr noundef %.1) #22
   br label %37
 
 37:                                               ; preds = %9, %35
@@ -10715,14 +10715,14 @@ Vec_IntFree.exit:                                 ; preds = %29, %32
   ret ptr %.0
 }
 
-declare i32 @Aig_ManSeqCleanup(ptr noundef) local_unnamed_addr #3
+declare i32 @Aig_ManSeqCleanup(ptr noundef) local_unnamed_addr #4
 
-declare ptr @Aig_ManConstReduce(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Aig_ManConstReduce(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @Aig_ManReduceLaches(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Aig_ManReduceLaches(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkDarRetime(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define ptr @Abc_NtkDarRetime(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %16, label %6
@@ -10740,19 +10740,19 @@ define ptr @Abc_NtkDarRetime(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
   br i1 %.not.i, label %Vec_IntFree.exit, label %12
 
 12:                                               ; preds = %9
-  tail call void @free(ptr noundef nonnull %11) #21
+  tail call void @free(ptr noundef nonnull %11) #22
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %9, %12
-  tail call void @free(ptr noundef nonnull %8) #21
+  tail call void @free(ptr noundef nonnull %8) #22
   br label %13
 
 13:                                               ; preds = %Vec_IntFree.exit, %6
   store ptr null, ptr %7, align 8, !tbaa !94
-  %14 = tail call ptr @Rtm_ManRetime(ptr noundef nonnull %4, i32 noundef 1, i32 noundef %1, i32 noundef %2) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %4) #21
+  %14 = tail call ptr @Rtm_ManRetime(ptr noundef nonnull %4, i32 noundef 1, i32 noundef %1, i32 noundef %2) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %4) #22
   %15 = tail call ptr @Abc_NtkFromDarSeqSweep(ptr noundef %0, ptr noundef %14)
-  tail call void @Aig_ManStop(ptr noundef %14) #21
+  tail call void @Aig_ManStop(ptr noundef %14) #22
   br label %16
 
 16:                                               ; preds = %3, %13
@@ -10760,10 +10760,10 @@ Vec_IntFree.exit:                                 ; preds = %9, %12
   ret ptr %.0
 }
 
-declare ptr @Rtm_ManRetime(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Rtm_ManRetime(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkDarRetimeF(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define ptr @Abc_NtkDarRetimeF(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %16, label %6
@@ -10781,19 +10781,19 @@ define ptr @Abc_NtkDarRetimeF(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
   br i1 %.not.i, label %Vec_IntFree.exit, label %12
 
 12:                                               ; preds = %9
-  tail call void @free(ptr noundef nonnull %11) #21
+  tail call void @free(ptr noundef nonnull %11) #22
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %9, %12
-  tail call void @free(ptr noundef nonnull %8) #21
+  tail call void @free(ptr noundef nonnull %8) #22
   br label %13
 
 13:                                               ; preds = %Vec_IntFree.exit, %6
   store ptr null, ptr %7, align 8, !tbaa !94
-  %14 = tail call ptr @Aig_ManRetimeFrontier(ptr noundef nonnull %4, i32 noundef %1) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %4) #21
+  %14 = tail call ptr @Aig_ManRetimeFrontier(ptr noundef nonnull %4, i32 noundef %1) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %4) #22
   %15 = tail call ptr @Abc_NtkFromDarSeqSweep(ptr noundef %0, ptr noundef %14)
-  tail call void @Aig_ManStop(ptr noundef %14) #21
+  tail call void @Aig_ManStop(ptr noundef %14) #22
   br label %16
 
 16:                                               ; preds = %3, %13
@@ -10801,10 +10801,10 @@ Vec_IntFree.exit:                                 ; preds = %9, %12
   ret ptr %.0
 }
 
-declare ptr @Aig_ManRetimeFrontier(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Aig_ManRetimeFrontier(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkDarRetimeMostFwd(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define ptr @Abc_NtkDarRetimeMostFwd(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %16, label %6
@@ -10822,19 +10822,19 @@ define ptr @Abc_NtkDarRetimeMostFwd(ptr noundef %0, i32 noundef %1, i32 noundef 
   br i1 %.not.i, label %Vec_IntFree.exit, label %12
 
 12:                                               ; preds = %9
-  tail call void @free(ptr noundef nonnull %11) #21
+  tail call void @free(ptr noundef nonnull %11) #22
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %9, %12
-  tail call void @free(ptr noundef nonnull %8) #21
+  tail call void @free(ptr noundef nonnull %8) #22
   br label %13
 
 13:                                               ; preds = %Vec_IntFree.exit, %6
   store ptr null, ptr %7, align 8, !tbaa !94
-  %14 = tail call ptr @Saig_ManRetimeForward(ptr noundef nonnull %4, i32 noundef %1, i32 noundef %2) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %4) #21
+  %14 = tail call ptr @Saig_ManRetimeForward(ptr noundef nonnull %4, i32 noundef %1, i32 noundef %2) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %4) #22
   %15 = tail call ptr @Abc_NtkFromDarSeqSweep(ptr noundef %0, ptr noundef %14)
-  tail call void @Aig_ManStop(ptr noundef %14) #21
+  tail call void @Aig_ManStop(ptr noundef %14) #22
   br label %16
 
 16:                                               ; preds = %3, %13
@@ -10842,10 +10842,10 @@ Vec_IntFree.exit:                                 ; preds = %9, %12
   ret ptr %.0
 }
 
-declare ptr @Saig_ManRetimeForward(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Saig_ManRetimeForward(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkDarRetimeMinArea(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define ptr @Abc_NtkDarRetimeMinArea(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %8 = icmp eq ptr %7, null
   br i1 %8, label %19, label %9
@@ -10863,19 +10863,19 @@ define ptr @Abc_NtkDarRetimeMinArea(ptr noundef %0, i32 noundef %1, i32 noundef 
   br i1 %.not.i, label %Vec_IntFree.exit, label %15
 
 15:                                               ; preds = %12
-  tail call void @free(ptr noundef nonnull %14) #21
+  tail call void @free(ptr noundef nonnull %14) #22
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %12, %15
-  tail call void @free(ptr noundef nonnull %11) #21
+  tail call void @free(ptr noundef nonnull %11) #22
   br label %16
 
 16:                                               ; preds = %Vec_IntFree.exit, %9
   store ptr null, ptr %10, align 8, !tbaa !94
-  %17 = tail call ptr @Saig_ManRetimeMinArea(ptr noundef nonnull %7, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %7) #21
+  %17 = tail call ptr @Saig_ManRetimeMinArea(ptr noundef nonnull %7, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %7) #22
   %18 = tail call ptr @Abc_NtkFromDarSeqSweep(ptr noundef %0, ptr noundef %17)
-  tail call void @Aig_ManStop(ptr noundef %17) #21
+  tail call void @Aig_ManStop(ptr noundef %17) #22
   br label %19
 
 19:                                               ; preds = %6, %16
@@ -10883,10 +10883,10 @@ Vec_IntFree.exit:                                 ; preds = %12, %15
   ret ptr %.0
 }
 
-declare ptr @Saig_ManRetimeMinArea(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Saig_ManRetimeMinArea(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkDarRetimeStep(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define ptr @Abc_NtkDarRetimeStep(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %15, label %5
@@ -10904,20 +10904,20 @@ define ptr @Abc_NtkDarRetimeStep(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br i1 %.not.i, label %Vec_IntFree.exit, label %11
 
 11:                                               ; preds = %8
-  tail call void @free(ptr noundef nonnull %10) #21
+  tail call void @free(ptr noundef nonnull %10) #22
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %8, %11
-  tail call void @free(ptr noundef nonnull %7) #21
+  tail call void @free(ptr noundef nonnull %7) #22
   br label %12
 
 12:                                               ; preds = %Vec_IntFree.exit, %5
   store ptr null, ptr %6, align 8, !tbaa !94
-  tail call void @Aig_ManPrintStats(ptr noundef nonnull %3) #21
-  %13 = tail call i32 @Saig_ManRetimeSteps(ptr noundef nonnull %3, i32 noundef 1000, i32 noundef 1, i32 noundef 0) #21
-  tail call void @Aig_ManPrintStats(ptr noundef nonnull %3) #21
+  tail call void @Aig_ManPrintStats(ptr noundef nonnull %3) #22
+  %13 = tail call i32 @Saig_ManRetimeSteps(ptr noundef nonnull %3, i32 noundef 1000, i32 noundef 1, i32 noundef 0) #22
+  tail call void @Aig_ManPrintStats(ptr noundef nonnull %3) #22
   %14 = tail call ptr @Abc_NtkFromDarSeqSweep(ptr noundef %0, ptr noundef nonnull %3)
-  tail call void @Aig_ManStop(ptr noundef nonnull %3) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %3) #22
   br label %15
 
 15:                                               ; preds = %2, %12
@@ -10925,15 +10925,15 @@ Vec_IntFree.exit:                                 ; preds = %8, %11
   ret ptr %.0
 }
 
-declare i32 @Saig_ManRetimeSteps(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @Saig_ManRetimeSteps(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @Abc_NtkDarSeqSim(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @Abc_NtkDarSeqSim(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #2 {
   %9 = alloca %struct.timespec, align 8
   %10 = alloca %struct.timespec, align 8
   %11 = alloca %struct.Gia_ParSim_t_, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %12 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #21
+  %12 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #22
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %Abc_Clock.exit, label %14
 
@@ -10949,16 +10949,16 @@ define range(i32 -1, 1) i32 @Abc_NtkDarSeqSim(ptr noundef %0, i32 noundef %1, i3
 Abc_Clock.exit:                                   ; preds = %8, %14
   %.0.i.neg = phi i64 [ %.neg98, %14 ], [ 1, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %18 = call i32 @Abc_NtkGetChoiceNum(ptr noundef %0) #21
+  %18 = call i32 @Abc_NtkGetChoiceNum(ptr noundef %0) #22
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %24, label %19
 
 19:                                               ; preds = %Abc_Clock.exit
-  %20 = call i32 @Abc_NtkGetChoiceNum(ptr noundef %0) #21
+  %20 = call i32 @Abc_NtkGetChoiceNum(ptr noundef %0) #22
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.91, i32 noundef %20)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %22 = load ptr, ptr %21, align 8, !tbaa !112
-  %23 = call i32 @Abc_AigCleanup(ptr noundef %22) #21
+  %23 = call i32 @Abc_AigCleanup(ptr noundef %22) #22
   br label %24
 
 24:                                               ; preds = %19, %Abc_Clock.exit
@@ -10968,7 +10968,7 @@ Abc_Clock.exit:                                   ; preds = %8, %14
 
 26:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  call void @Gia_ManSimSetDefaultParams(ptr noundef nonnull %11) #21
+  call void @Gia_ManSimSetDefaultParams(ptr noundef nonnull %11) #22
   store i32 %2, ptr %11, align 4, !tbaa !300
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %1, ptr %27, align 4, !tbaa !302
@@ -10978,8 +10978,8 @@ Abc_Clock.exit:                                   ; preds = %8, %14
   store i32 %5, ptr %29, align 4, !tbaa !304
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i32 %6, ptr %30, align 4, !tbaa !305
-  %31 = call ptr @Gia_ManFromAig(ptr noundef %25) #21
-  %32 = call i32 @Gia_ManSimSimulate(ptr noundef %31, ptr noundef nonnull %11) #21
+  %31 = call ptr @Gia_ManFromAig(ptr noundef %25) #22
+  %32 = call i32 @Gia_ManSimSimulate(ptr noundef %31, ptr noundef nonnull %11) #22
   %.not91 = icmp eq i32 %32, 0
   br i1 %.not91, label %54, label %33
 
@@ -10995,7 +10995,7 @@ Abc_Clock.exit:                                   ; preds = %8, %14
   %39 = load i32, ptr %38, align 4, !tbaa !264
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.92, i32 noundef %1, i32 noundef %2, i32 noundef %37, i32 noundef %39)
   %40 = load ptr, ptr %34, align 8, !tbaa !306
-  %41 = call i32 @Saig_ManVerifyCex(ptr noundef %25, ptr noundef %40) #21
+  %41 = call i32 @Saig_ManVerifyCex(ptr noundef %25, ptr noundef %40) #22
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %44
 
@@ -11010,7 +11010,7 @@ Abc_Clock.exit:                                   ; preds = %8, %14
   br i1 %.not93, label %48, label %47
 
 47:                                               ; preds = %44
-  call void @free(ptr noundef nonnull %46) #21
+  call void @free(ptr noundef nonnull %46) #22
   store ptr null, ptr %45, align 8, !tbaa !236
   br label %48
 
@@ -11021,7 +11021,7 @@ Abc_Clock.exit:                                   ; preds = %8, %14
   br i1 %.not94, label %52, label %51
 
 51:                                               ; preds = %48
-  call void @free(ptr noundef nonnull %50) #21
+  call void @free(ptr noundef nonnull %50) #22
   br label %52
 
 52:                                               ; preds = %48, %51
@@ -11036,7 +11036,7 @@ Abc_Clock.exit:                                   ; preds = %8, %14
 
 55:                                               ; preds = %54, %52
   %.077 = phi i32 [ 0, %52 ], [ -1, %54 ]
-  call void @Gia_ManStop(ptr noundef %31) #21
+  call void @Gia_ManStop(ptr noundef %31) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %97
 
@@ -11045,7 +11045,7 @@ Abc_Clock.exit:                                   ; preds = %8, %14
   br i1 %.not86, label %59, label %57
 
 57:                                               ; preds = %56
-  %58 = call ptr @Fra_SmlSimulateCombGiven(ptr noundef %25, ptr noundef nonnull %7, i32 noundef %5, i32 noundef %6) #21
+  %58 = call ptr @Fra_SmlSimulateCombGiven(ptr noundef %25, ptr noundef nonnull %7, i32 noundef %5, i32 noundef %6) #22
   br label %66
 
 59:                                               ; preds = %56
@@ -11055,11 +11055,11 @@ Abc_Clock.exit:                                   ; preds = %8, %14
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %59
-  %63 = call ptr @Fra_SmlSimulateComb(ptr noundef %25, i32 noundef %2, i32 noundef %5) #21
+  %63 = call ptr @Fra_SmlSimulateComb(ptr noundef %25, i32 noundef %2, i32 noundef %5) #22
   br label %66
 
 64:                                               ; preds = %59
-  %65 = call ptr @Fra_SmlSimulateSeq(ptr noundef %25, i32 noundef 0, i32 noundef %1, i32 noundef %2, i32 noundef %5) #21
+  %65 = call ptr @Fra_SmlSimulateSeq(ptr noundef %25, i32 noundef 0, i32 noundef %1, i32 noundef %2, i32 noundef %5) #22
   br label %66
 
 66:                                               ; preds = %62, %64, %57
@@ -11070,7 +11070,7 @@ Abc_Clock.exit:                                   ; preds = %8, %14
   br i1 %.not87, label %95, label %69
 
 69:                                               ; preds = %66
-  %70 = call ptr @Fra_SmlGetCounterExample(ptr noundef nonnull %.0) #21
+  %70 = call ptr @Fra_SmlGetCounterExample(ptr noundef nonnull %.0) #22
   %.not88 = icmp eq ptr %70, null
   br i1 %.not88, label %86, label %71
 
@@ -11087,7 +11087,7 @@ Abc_Clock.exit:                                   ; preds = %8, %14
   %81 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %82 = load i32, ptr %81, align 4, !tbaa !264
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.95, i32 noundef %73, ptr noundef nonnull %75, i32 noundef %77, ptr noundef nonnull %79, i32 noundef %80, i32 noundef %82)
-  %83 = call i32 @Saig_ManVerifyCex(ptr noundef %25, ptr noundef nonnull %70) #21
+  %83 = call i32 @Saig_ManVerifyCex(ptr noundef %25, ptr noundef nonnull %70) #22
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %85, label %86
 
@@ -11102,7 +11102,7 @@ Abc_Clock.exit:                                   ; preds = %8, %14
   br i1 %.not89, label %90, label %89
 
 89:                                               ; preds = %86
-  call void @free(ptr noundef nonnull %88) #21
+  call void @free(ptr noundef nonnull %88) #22
   store ptr null, ptr %87, align 8, !tbaa !236
   br label %90
 
@@ -11113,7 +11113,7 @@ Abc_Clock.exit:                                   ; preds = %8, %14
   br i1 %.not90, label %94, label %93
 
 93:                                               ; preds = %90
-  call void @free(ptr noundef nonnull %92) #21
+  call void @free(ptr noundef nonnull %92) #22
   br label %94
 
 94:                                               ; preds = %90, %93
@@ -11126,14 +11126,14 @@ Abc_Clock.exit:                                   ; preds = %8, %14
 
 96:                                               ; preds = %95, %94
   %.2 = phi i32 [ 0, %94 ], [ -1, %95 ]
-  call void @Fra_SmlStop(ptr noundef nonnull %.0) #21
+  call void @Fra_SmlStop(ptr noundef nonnull %.0) #22
   br label %97
 
 97:                                               ; preds = %96, %55
   %.1 = phi i32 [ %.077, %55 ], [ %.2, %96 ]
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.25)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %98 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #21
+  %98 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #22
   %99 = icmp slt i32 %98, 0
   br i1 %99, label %Abc_Clock.exit96, label %100
 
@@ -11153,43 +11153,43 @@ Abc_Clock.exit96:                                 ; preds = %97, %100
   %108 = sitofp i64 %107 to double
   %109 = fdiv double %108, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.33, double noundef %109)
-  call void @Aig_ManStop(ptr noundef %25) #21
+  call void @Aig_ManStop(ptr noundef %25) #22
   ret i32 %.1
 }
 
-declare i32 @Abc_AigCleanup(ptr noundef) local_unnamed_addr #3
+declare i32 @Abc_AigCleanup(ptr noundef) local_unnamed_addr #4
 
-declare void @Gia_ManSimSetDefaultParams(ptr noundef) local_unnamed_addr #3
+declare void @Gia_ManSimSetDefaultParams(ptr noundef) local_unnamed_addr #4
 
-declare i32 @Gia_ManSimSimulate(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @Gia_ManSimSimulate(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @Fra_SmlSimulateCombGiven(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Fra_SmlSimulateCombGiven(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @Fra_SmlSimulateComb(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Fra_SmlSimulateComb(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @Fra_SmlSimulateSeq(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Fra_SmlSimulateSeq(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @Fra_SmlGetCounterExample(ptr noundef) local_unnamed_addr #3
+declare ptr @Fra_SmlGetCounterExample(ptr noundef) local_unnamed_addr #4
 
-declare void @Fra_SmlStop(ptr noundef) local_unnamed_addr #3
+declare void @Fra_SmlStop(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @Abc_NtkDarSeqSim3(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = tail call i32 @Abc_NtkGetChoiceNum(ptr noundef %0) #21
+define range(i32 -1, 1) i32 @Abc_NtkDarSeqSim3(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+  %3 = tail call i32 @Abc_NtkGetChoiceNum(ptr noundef %0) #22
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %9, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i32 @Abc_NtkGetChoiceNum(ptr noundef %0) #21
+  %5 = tail call i32 @Abc_NtkGetChoiceNum(ptr noundef %0) #22
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.91, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %7 = load ptr, ptr %6, align 8, !tbaa !112
-  %8 = tail call i32 @Abc_AigCleanup(ptr noundef %7) #21
+  %8 = tail call i32 @Abc_AigCleanup(ptr noundef %7) #22
   br label %9
 
 9:                                                ; preds = %4, %2
   %10 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
-  %11 = tail call i32 @Ssw_RarSimulate(ptr noundef %10, ptr noundef %1) #21
+  %11 = tail call i32 @Ssw_RarSimulate(ptr noundef %10, ptr noundef %1) #22
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %30
 
@@ -11200,7 +11200,7 @@ define range(i32 -1, 1) i32 @Abc_NtkDarSeqSim3(ptr noundef %0, ptr noundef %1) l
   br i1 %.not32, label %20, label %16
 
 16:                                               ; preds = %13
-  %17 = tail call i32 @Saig_ManVerifyCex(ptr noundef nonnull %10, ptr noundef nonnull %15) #21
+  %17 = tail call i32 @Saig_ManVerifyCex(ptr noundef nonnull %10, ptr noundef nonnull %15) #22
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %20
 
@@ -11215,7 +11215,7 @@ define range(i32 -1, 1) i32 @Abc_NtkDarSeqSim3(ptr noundef %0, ptr noundef %1) l
   br i1 %.not33, label %24, label %23
 
 23:                                               ; preds = %20
-  tail call void @free(ptr noundef nonnull %22) #21
+  tail call void @free(ptr noundef nonnull %22) #22
   store ptr null, ptr %21, align 8, !tbaa !236
   br label %24
 
@@ -11226,7 +11226,7 @@ define range(i32 -1, 1) i32 @Abc_NtkDarSeqSim3(ptr noundef %0, ptr noundef %1) l
   br i1 %.not34, label %28, label %27
 
 27:                                               ; preds = %24
-  tail call void @free(ptr noundef nonnull %26) #21
+  tail call void @free(ptr noundef nonnull %26) #22
   br label %28
 
 28:                                               ; preds = %24, %27
@@ -11262,7 +11262,7 @@ define range(i32 -1, 1) i32 @Abc_NtkDarSeqSim3(ptr noundef %0, ptr noundef %1) l
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %37
-  tail call void @free(ptr noundef %39) #21
+  tail call void @free(ptr noundef %39) #22
   %.val.pre.i.i = load i32, ptr %34, align 4, !tbaa !14
   br label %42
 
@@ -11280,11 +11280,11 @@ Vec_PtrFreeData.exit.i:                           ; preds = %42, %33
   br i1 %.not.i.i, label %Vec_PtrFreeFree.exit, label %47
 
 47:                                               ; preds = %Vec_PtrFreeData.exit.i
-  tail call void @free(ptr noundef nonnull %46) #21
+  tail call void @free(ptr noundef nonnull %46) #22
   br label %Vec_PtrFreeFree.exit
 
 Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exit.i, %47
-  tail call void @free(ptr noundef nonnull %32) #21
+  tail call void @free(ptr noundef nonnull %32) #22
   br label %48
 
 48:                                               ; preds = %Vec_PtrFreeFree.exit, %30
@@ -11297,14 +11297,14 @@ Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exi
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %52, ptr %53, align 8, !tbaa !311
   store ptr null, ptr %51, align 8, !tbaa !235
-  tail call void @Aig_ManStop(ptr noundef %10) #21
+  tail call void @Aig_ManStop(ptr noundef %10) #22
   ret i32 %.0
 }
 
-declare i32 @Ssw_RarSimulate(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @Ssw_RarSimulate(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkDarClau(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13) local_unnamed_addr #1 {
+define noundef i32 @Abc_NtkDarClau(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13) local_unnamed_addr #2 {
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %19, label %15
 
@@ -11338,36 +11338,36 @@ define noundef i32 @Abc_NtkDarClau(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %.not.i, label %Vec_IntFree.exit, label %28
 
 28:                                               ; preds = %25
-  tail call void @free(ptr noundef nonnull %27) #21
+  tail call void @free(ptr noundef nonnull %27) #22
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %25, %28
-  tail call void @free(ptr noundef nonnull %24) #21
+  tail call void @free(ptr noundef nonnull %24) #22
   br label %29
 
 29:                                               ; preds = %Vec_IntFree.exit, %22
   store ptr null, ptr %23, align 8, !tbaa !94
-  %30 = tail call i32 @Fra_Claus(ptr noundef nonnull %20, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %20) #21
+  %30 = tail call i32 @Fra_Claus(ptr noundef nonnull %20, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %20) #22
   br label %31
 
 31:                                               ; preds = %19, %29, %18
   ret i32 1
 }
 
-declare i32 @Fra_Claus(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @Fra_Claus(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkDarEnlarge(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define ptr @Abc_NtkDarEnlarge(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @Aig_ManFrames(ptr noundef nonnull %4, i32 noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef 1, ptr noundef null) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %4) #21
+  %7 = tail call ptr @Aig_ManFrames(ptr noundef nonnull %4, i32 noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef 1, ptr noundef null) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %4) #22
   %8 = tail call ptr @Abc_NtkFromDarSeqSweep(ptr noundef %0, ptr noundef %7)
-  tail call void @Aig_ManStop(ptr noundef %7) #21
+  tail call void @Aig_ManStop(ptr noundef %7) #22
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -11375,27 +11375,27 @@ define ptr @Abc_NtkDarEnlarge(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
   ret ptr %.0
 }
 
-declare ptr @Aig_ManFrames(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @Aig_ManFrames(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkDarTempor(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #1 {
+define ptr @Abc_NtkDarTempor(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #2 {
   %9 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %10 = icmp eq ptr %9, null
   br i1 %10, label %18, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call ptr @Saig_ManTempor(ptr noundef nonnull %9, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %9) #21
+  %12 = tail call ptr @Saig_ManTempor(ptr noundef nonnull %9, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %9) #22
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
-  %15 = tail call ptr @Abc_NtkDup(ptr noundef %0) #21
+  %15 = tail call ptr @Abc_NtkDup(ptr noundef %0) #22
   br label %18
 
 16:                                               ; preds = %11
   %17 = tail call ptr @Abc_NtkFromDarSeqSweep(ptr noundef %0, ptr noundef nonnull %12)
-  tail call void @Aig_ManStop(ptr noundef nonnull %12) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %12) #22
   br label %18
 
 18:                                               ; preds = %8, %16, %14
@@ -11403,16 +11403,16 @@ define ptr @Abc_NtkDarTempor(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32
   ret ptr %.0
 }
 
-declare ptr @Saig_ManTempor(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Saig_ManTempor(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkDarInduction(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #1 {
+define noundef i32 @Abc_NtkDarInduction(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #2 {
   %10 = alloca %struct.timespec, align 8
   %11 = alloca %struct.timespec, align 8
   %12 = alloca %struct.timespec, align 8
   %13 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %14 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %13) #21
+  %14 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %13) #22
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %Abc_Clock.exit, label %16
 
@@ -11433,7 +11433,7 @@ Abc_Clock.exit:                                   ; preds = %9, %16
   br i1 %21, label %70, label %22
 
 22:                                               ; preds = %Abc_Clock.exit
-  %23 = call i32 @Saig_ManInduction(ptr noundef nonnull %20, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #21
+  %23 = call i32 @Saig_ManInduction(ptr noundef nonnull %20, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #22
   switch i32 %23, label %44 [
     i32 1, label %24
     i32 0, label %34
@@ -11443,7 +11443,7 @@ Abc_Clock.exit:                                   ; preds = %9, %16
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.31)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.25)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %25 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %12) #21
+  %25 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %12) #22
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %Abc_Clock.exit35, label %27
 
@@ -11465,7 +11465,7 @@ Abc_Clock.exit35:                                 ; preds = %24, %27
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.34)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.25)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %35 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %11) #21
+  %35 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %11) #22
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %Abc_Clock.exit37, label %37
 
@@ -11487,7 +11487,7 @@ Abc_Clock.exit37:                                 ; preds = %34, %37
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.35)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.25)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %45 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #21
+  %45 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #22
   %46 = icmp slt i32 %45, 0
   br i1 %46, label %Abc_Clock.exit39, label %47
 
@@ -11521,7 +11521,7 @@ Abc_Clock.exit39:                                 ; preds = %44, %47
   br i1 %.not32, label %62, label %61
 
 61:                                               ; preds = %58
-  call void @free(ptr noundef nonnull %60) #21
+  call void @free(ptr noundef nonnull %60) #22
   store ptr null, ptr %59, align 8, !tbaa !236
   br label %62
 
@@ -11532,7 +11532,7 @@ Abc_Clock.exit39:                                 ; preds = %44, %47
   br i1 %.not33, label %66, label %65
 
 65:                                               ; preds = %62
-  call void @free(ptr noundef nonnull %64) #21
+  call void @free(ptr noundef nonnull %64) #22
   br label %66
 
 66:                                               ; preds = %62, %65
@@ -11543,7 +11543,7 @@ Abc_Clock.exit39:                                 ; preds = %44, %47
   br label %69
 
 69:                                               ; preds = %66, %54
-  call void @Aig_ManStop(ptr noundef nonnull %20) #21
+  call void @Aig_ManStop(ptr noundef nonnull %20) #22
   br label %70
 
 70:                                               ; preds = %Abc_Clock.exit, %69
@@ -11551,10 +11551,10 @@ Abc_Clock.exit39:                                 ; preds = %44, %47
   ret i32 %.0
 }
 
-declare i32 @Saig_ManInduction(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @Saig_ManInduction(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkInterOne(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define noundef ptr @Abc_NtkInterOne(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr i8, ptr %0, i64 64
   %.val30 = load ptr, ptr %5, align 8, !tbaa !78
   %6 = getelementptr i8, ptr %.val30, i64 4
@@ -11601,7 +11601,7 @@ define noundef ptr @Abc_NtkInterOne(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %22, label %33, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call ptr @Aig_ManInter(ptr noundef nonnull %18, ptr noundef nonnull %21, i32 noundef %2, i32 noundef %3) #21
+  %24 = tail call ptr @Aig_ManInter(ptr noundef nonnull %18, ptr noundef nonnull %21, i32 noundef %2, i32 noundef %3) #22
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %27
 
@@ -11610,19 +11610,19 @@ define noundef ptr @Abc_NtkInterOne(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %33
 
 27:                                               ; preds = %23
-  tail call void @Aig_ManStop(ptr noundef nonnull %18) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %21) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %18) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %21) #22
   %.not27 = icmp eq i32 %2, 0
   br i1 %.not27, label %31, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %1, i32 noundef 2) #21
-  %30 = tail call ptr @Abc_ObjAssignName(ptr noundef %29, ptr noundef nonnull @.str.102, ptr noundef null) #21
+  %29 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %1, i32 noundef 2) #22
+  %30 = tail call ptr @Abc_ObjAssignName(ptr noundef %29, ptr noundef nonnull @.str.102, ptr noundef null) #22
   br label %31
 
 31:                                               ; preds = %28, %27
   %32 = tail call ptr @Abc_NtkFromDar(ptr noundef nonnull %1, ptr noundef nonnull %24)
-  tail call void @Aig_ManStop(ptr noundef nonnull %24) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %24) #22
   br label %33
 
 33:                                               ; preds = %20, %17, %31, %26, %16, %10
@@ -11630,21 +11630,21 @@ define noundef ptr @Abc_NtkInterOne(ptr noundef %0, ptr noundef %1, i32 noundef 
   ret ptr %.0
 }
 
-declare ptr @Aig_ManInter(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Aig_ManInter(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Gia_ManInterOne(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = tail call ptr @Gia_ManToAigSimple(ptr noundef %0) #21
+define ptr @Gia_ManInterOne(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+  %4 = tail call ptr @Gia_ManToAigSimple(ptr noundef %0) #22
   %5 = icmp eq ptr %4, null
   br i1 %5, label %15, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @Gia_ManToAigSimple(ptr noundef %1) #21
+  %7 = tail call ptr @Gia_ManToAigSimple(ptr noundef %1) #22
   %8 = icmp eq ptr %7, null
   br i1 %8, label %15, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @Aig_ManInter(ptr noundef nonnull %4, ptr noundef nonnull %7, i32 noundef 0, i32 noundef %2) #21
+  %10 = tail call ptr @Aig_ManInter(ptr noundef nonnull %4, ptr noundef nonnull %7, i32 noundef 0, i32 noundef %2) #22
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13
 
@@ -11653,10 +11653,10 @@ define ptr @Gia_ManInterOne(ptr noundef %0, ptr noundef %1, i32 noundef %2) loca
   br label %15
 
 13:                                               ; preds = %9
-  tail call void @Aig_ManStop(ptr noundef nonnull %4) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %7) #21
-  %14 = tail call ptr @Gia_ManFromAigSimple(ptr noundef nonnull %10) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %10) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %4) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %7) #22
+  %14 = tail call ptr @Gia_ManFromAigSimple(ptr noundef nonnull %10) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %10) #22
   br label %15
 
 15:                                               ; preds = %6, %3, %13, %12
@@ -11664,12 +11664,12 @@ define ptr @Gia_ManInterOne(ptr noundef %0, ptr noundef %1, i32 noundef %2) loca
   ret ptr %.0
 }
 
-declare ptr @Gia_ManToAigSimple(ptr noundef) local_unnamed_addr #3
+declare ptr @Gia_ManToAigSimple(ptr noundef) local_unnamed_addr #4
 
-declare ptr @Gia_ManFromAigSimple(ptr noundef) local_unnamed_addr #3
+declare ptr @Gia_ManFromAigSimple(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkInterFast(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @Abc_NtkInterFast(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 0)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %10, label %6
@@ -11680,19 +11680,19 @@ define void @Abc_NtkInterFast(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %6
-  tail call void @Aig_ManInterFast(ptr noundef nonnull %4, ptr noundef nonnull %7, i32 noundef %2) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %4) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %7) #21
+  tail call void @Aig_ManInterFast(ptr noundef nonnull %4, ptr noundef nonnull %7, i32 noundef %2) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %4) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %7) #22
   br label %10
 
 10:                                               ; preds = %6, %3, %9
   ret void
 }
 
-declare void @Aig_ManInterFast(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @Aig_ManInterFast(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkInter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define ptr @Abc_NtkInter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr i8, ptr %0, i64 64
   %.val71 = load ptr, ptr %5, align 8, !tbaa !78
   %6 = getelementptr i8, ptr %.val71, i64 4
@@ -11717,10 +11717,10 @@ define ptr @Abc_NtkInter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
   br label %99
 
 14:                                               ; preds = %10
-  %15 = tail call ptr @Abc_NtkAlloc(i32 noundef 3, i32 noundef 3, i32 noundef 1) #21
+  %15 = tail call ptr @Abc_NtkAlloc(i32 noundef 3, i32 noundef 3, i32 noundef 1) #22
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !60
-  %18 = tail call ptr @Extra_UtilStrsav(ptr noundef %17) #21
+  %18 = tail call ptr @Extra_UtilStrsav(ptr noundef %17) #22
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %18, ptr %19, align 8, !tbaa !60
   %20 = getelementptr i8, ptr %0, i64 40
@@ -11737,7 +11737,7 @@ define ptr @Abc_NtkInter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
   %.val74.val = load ptr, ptr %23, align 8, !tbaa !17
   %24 = getelementptr inbounds nuw ptr, ptr %.val74.val, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !18
-  %26 = tail call ptr @Abc_NtkDupObj(ptr noundef nonnull %15, ptr noundef %25, i32 noundef 1) #21
+  %26 = tail call ptr @Abc_NtkDupObj(ptr noundef nonnull %15, ptr noundef %25, i32 noundef 1) #22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val67 = load ptr, ptr %20, align 8, !tbaa !79
   %27 = getelementptr i8, ptr %.val67, i64 4
@@ -11774,8 +11774,8 @@ define ptr @Abc_NtkInter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
   %38 = sext i32 %.val59.val to i64
   %39 = getelementptr inbounds ptr, ptr %.val58.val.val, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !18
-  %41 = tail call ptr @Abc_ObjName(ptr noundef nonnull %34) #21
-  %42 = tail call ptr @Abc_NtkCreateCone(ptr noundef nonnull %0, ptr noundef %40, ptr noundef %41, i32 noundef 1) #21
+  %41 = tail call ptr @Abc_ObjName(ptr noundef nonnull %34) #22
+  %42 = tail call ptr @Abc_NtkCreateCone(ptr noundef nonnull %0, ptr noundef %40, ptr noundef %41, i32 noundef 1) #22
   %43 = getelementptr i8, ptr %34, i64 20
   %.val60 = load i32, ptr %43, align 4
   %44 = and i32 %.val60, 1024
@@ -11811,8 +11811,8 @@ define ptr @Abc_NtkInter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
   %59 = sext i32 %.val57.val to i64
   %60 = getelementptr inbounds ptr, ptr %.val.val.val, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !18
-  %62 = tail call ptr @Abc_ObjName(ptr noundef nonnull %55) #21
-  %63 = tail call ptr @Abc_NtkCreateCone(ptr noundef nonnull %1, ptr noundef %61, ptr noundef %62, i32 noundef 1) #21
+  %62 = tail call ptr @Abc_ObjName(ptr noundef nonnull %55) #22
+  %63 = tail call ptr @Abc_NtkCreateCone(ptr noundef nonnull %1, ptr noundef %61, ptr noundef %62, i32 noundef 1) #22
   %64 = getelementptr i8, ptr %55, i64 20
   %.val61 = load i32, ptr %64, align 4
   %65 = and i32 %.val61, 1024
@@ -11838,7 +11838,7 @@ define ptr @Abc_NtkInter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %73
-  %77 = tail call ptr @Abc_NtkDup(ptr noundef nonnull %42) #21
+  %77 = tail call ptr @Abc_NtkDup(ptr noundef nonnull %42) #22
   br label %90
 
 78:                                               ; preds = %73
@@ -11848,7 +11848,7 @@ define ptr @Abc_NtkInter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
   br i1 %80, label %.thread, label %88
 
 .thread:                                          ; preds = %78
-  %81 = tail call ptr @Abc_NtkDup(ptr noundef nonnull %63) #21
+  %81 = tail call ptr @Abc_NtkDup(ptr noundef nonnull %63) #22
   %82 = getelementptr i8, ptr %81, i64 48
   %.val62 = load ptr, ptr %82, align 8, !tbaa !45
   %83 = getelementptr i8, ptr %.val62, i64 8
@@ -11871,13 +11871,13 @@ define ptr @Abc_NtkInter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
 
 91:                                               ; preds = %.thread, %90
   %.05277 = phi ptr [ %81, %.thread ], [ %.052, %90 ]
-  %92 = tail call i32 @Abc_NtkAppend(ptr noundef %15, ptr noundef nonnull %.05277, i32 noundef 1) #21
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %.05277) #21
+  %92 = tail call i32 @Abc_NtkAppend(ptr noundef %15, ptr noundef nonnull %.05277, i32 noundef 1) #22
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %.05277) #22
   br label %93
 
 93:                                               ; preds = %91, %90
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %42) #21
-  tail call void @Abc_NtkDelete(ptr noundef %63) #21
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %42) #22
+  tail call void @Abc_NtkDelete(ptr noundef %63) #22
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %.val68 = load ptr, ptr %5, align 8, !tbaa !78
   %94 = getelementptr i8, ptr %.val68, i64 4
@@ -11887,7 +11887,7 @@ define ptr @Abc_NtkInter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
   br i1 %96, label %.lr.ph86, label %.critedge2, !llvm.loop !314
 
 .critedge2:                                       ; preds = %93, %.critedge
-  %97 = tail call i32 @Abc_NtkCheck(ptr noundef %15) #21
+  %97 = tail call i32 @Abc_NtkCheck(ptr noundef %15) #22
   %.not53 = icmp eq i32 %97, 0
   br i1 %.not53, label %98, label %99
 
@@ -11900,38 +11900,38 @@ define ptr @Abc_NtkInter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
   ret ptr %.051
 }
 
-declare ptr @Abc_NtkDupObj(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Abc_NtkDupObj(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @Abc_NtkCreateCone(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Abc_NtkCreateCone(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @Abc_NtkAppend(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @Abc_NtkAppend(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkPrintSccs(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define void @Abc_NtkPrintSccs(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void @Aig_ManComputeSccs(ptr noundef nonnull %3) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %3) #21
+  tail call void @Aig_ManComputeSccs(ptr noundef nonnull %3) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %3) #22
   br label %6
 
 6:                                                ; preds = %2, %5
   ret void
 }
 
-declare void @Aig_ManComputeSccs(ptr noundef) local_unnamed_addr #3
+declare void @Aig_ManComputeSccs(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_NtkDarPrintCone(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Abc_NtkDarPrintCone(ptr noundef %0) local_unnamed_addr #2 {
   %2 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @Saig_ManPrintCones(ptr noundef nonnull %2) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %2) #21
+  tail call void @Saig_ManPrintCones(ptr noundef nonnull %2) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %2) #22
   br label %5
 
 5:                                                ; preds = %1, %4
@@ -11939,10 +11939,10 @@ define range(i32 0, 2) i32 @Abc_NtkDarPrintCone(ptr noundef %0) local_unnamed_ad
   ret i32 %.0
 }
 
-declare void @Saig_ManPrintCones(ptr noundef) local_unnamed_addr #3
+declare void @Saig_ManPrintCones(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkBalanceExor(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define noundef ptr @Abc_NtkBalanceExor(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 1, i32 noundef 0)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -11952,14 +11952,14 @@ define noundef ptr @Abc_NtkBalanceExor(ptr noundef %0, i32 noundef %1, i32 nound
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %6
-  tail call void @Dar_BalancePrintStats(ptr noundef nonnull %4) #21
+  tail call void @Dar_BalancePrintStats(ptr noundef nonnull %4) #22
   br label %8
 
 8:                                                ; preds = %7, %6
-  %9 = tail call ptr @Dar_ManBalance(ptr noundef nonnull %4, i32 noundef %1) #21
+  %9 = tail call ptr @Dar_ManBalance(ptr noundef nonnull %4, i32 noundef %1) #22
   %10 = tail call ptr @Abc_NtkFromDar(ptr noundef %0, ptr noundef %9)
-  tail call void @Aig_ManStop(ptr noundef %9) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %4) #21
+  tail call void @Aig_ManStop(ptr noundef %9) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %4) #22
   br label %11
 
 11:                                               ; preds = %3, %8
@@ -11967,37 +11967,37 @@ define noundef ptr @Abc_NtkBalanceExor(ptr noundef %0, i32 noundef %1, i32 nound
   ret ptr %.0
 }
 
-declare void @Dar_BalancePrintStats(ptr noundef) local_unnamed_addr #3
+declare void @Dar_BalancePrintStats(ptr noundef) local_unnamed_addr #4
 
-declare ptr @Dar_ManBalance(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Dar_ManBalance(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkPhaseAbstract(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define noundef ptr @Abc_NtkPhaseAbstract(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %8 = icmp eq ptr %7, null
   br i1 %8, label %18, label %9
 
 9:                                                ; preds = %6
   %10 = tail call ptr @Abc_NtkGetLatchValues(ptr noundef %0)
-  %11 = tail call ptr @Saig_ManPhaseAbstract(ptr noundef nonnull %7, ptr noundef %10, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #21
+  %11 = tail call ptr @Saig_ManPhaseAbstract(ptr noundef nonnull %7, ptr noundef %10, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #22
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !43
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %Vec_IntFree.exit, label %14
 
 14:                                               ; preds = %9
-  tail call void @free(ptr noundef nonnull %13) #21
+  tail call void @free(ptr noundef nonnull %13) #22
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %9, %14
-  tail call void @free(ptr noundef nonnull %10) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %7) #21
+  tail call void @free(ptr noundef nonnull %10) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %7) #22
   %15 = icmp eq ptr %11, null
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %Vec_IntFree.exit
   %17 = tail call ptr @Abc_NtkFromAigPhase(ptr noundef nonnull %11)
-  tail call void @Aig_ManStop(ptr noundef nonnull %11) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %11) #22
   br label %18
 
 18:                                               ; preds = %Vec_IntFree.exit, %6, %16
@@ -12005,29 +12005,29 @@ Vec_IntFree.exit:                                 ; preds = %9, %14
   ret ptr %.0
 }
 
-declare ptr @Saig_ManPhaseAbstract(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Saig_ManPhaseAbstract(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NtkPhaseFrameNum(ptr noundef %0) local_unnamed_addr #1 {
+define i32 @Abc_NtkPhaseFrameNum(ptr noundef %0) local_unnamed_addr #2 {
   %2 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %3 = icmp eq ptr %2, null
   br i1 %3, label %10, label %4
 
 4:                                                ; preds = %1
   %5 = tail call ptr @Abc_NtkGetLatchValues(ptr noundef %0)
-  %6 = tail call i32 @Saig_ManPhaseFrameNum(ptr noundef nonnull %2, ptr noundef %5) #21
+  %6 = tail call i32 @Saig_ManPhaseFrameNum(ptr noundef nonnull %2, ptr noundef %5) #22
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !43
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %Vec_IntFree.exit, label %9
 
 9:                                                ; preds = %4
-  tail call void @free(ptr noundef nonnull %8) #21
+  tail call void @free(ptr noundef nonnull %8) #22
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %4, %9
-  tail call void @free(ptr noundef nonnull %5) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %2) #21
+  tail call void @free(ptr noundef nonnull %5) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %2) #22
   br label %10
 
 10:                                               ; preds = %1, %Vec_IntFree.exit
@@ -12035,23 +12035,23 @@ Vec_IntFree.exit:                                 ; preds = %4, %9
   ret i32 %.0
 }
 
-declare i32 @Saig_ManPhaseFrameNum(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @Saig_ManPhaseFrameNum(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkDarSynchOne(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define noundef ptr @Abc_NtkDarSynchOne(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @Saig_SynchSequenceApply(ptr noundef nonnull %4, i32 noundef %1, i32 noundef %2) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %4) #21
+  %7 = tail call ptr @Saig_SynchSequenceApply(ptr noundef nonnull %4, i32 noundef %1, i32 noundef %2) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %4) #22
   %8 = icmp eq ptr %7, null
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %6
   %10 = tail call ptr @Abc_NtkFromDar(ptr noundef %0, ptr noundef nonnull %7)
-  tail call void @Aig_ManStop(ptr noundef nonnull %7) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %7) #22
   br label %11
 
 11:                                               ; preds = %6, %3, %9
@@ -12059,10 +12059,10 @@ define noundef ptr @Abc_NtkDarSynchOne(ptr noundef %0, i32 noundef %1, i32 nound
   ret ptr %.0
 }
 
-declare ptr @Saig_SynchSequenceApply(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Saig_SynchSequenceApply(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkDarSynch(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define noundef ptr @Abc_NtkDarSynch(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %15, label %7
@@ -12073,9 +12073,9 @@ define noundef ptr @Abc_NtkDarSynch(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %9, label %.sink.split, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call ptr @Saig_Synchronize(ptr noundef nonnull %5, ptr noundef nonnull %8, i32 noundef %2, i32 noundef %3) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %5) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %8) #21
+  %11 = tail call ptr @Saig_Synchronize(ptr noundef nonnull %5, ptr noundef nonnull %8, i32 noundef %2, i32 noundef %3) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %5) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %8) #22
   %12 = icmp eq ptr %11, null
   br i1 %12, label %15, label %13
 
@@ -12086,7 +12086,7 @@ define noundef ptr @Abc_NtkDarSynch(ptr noundef %0, ptr noundef %1, i32 noundef 
 .sink.split:                                      ; preds = %7, %13
   %.sink = phi ptr [ %11, %13 ], [ %5, %7 ]
   %.0.ph = phi ptr [ %14, %13 ], [ null, %7 ]
-  tail call void @Aig_ManStop(ptr noundef nonnull %.sink) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %.sink) #22
   br label %15
 
 15:                                               ; preds = %.sink.split, %10, %4
@@ -12094,10 +12094,10 @@ define noundef ptr @Abc_NtkDarSynch(ptr noundef %0, ptr noundef %1, i32 noundef 
   ret ptr %.0
 }
 
-declare ptr @Saig_Synchronize(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Saig_Synchronize(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkDarClockGate(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define noundef ptr @Abc_NtkDarClockGate(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %17, label %6
@@ -12113,13 +12113,13 @@ define noundef ptr @Abc_NtkDarClockGate(ptr noundef %0, ptr noundef %1, ptr noun
 
 10:                                               ; preds = %7, %6
   %.018 = phi ptr [ %8, %7 ], [ null, %6 ]
-  %11 = tail call ptr @Cgt_ClockGating(ptr noundef nonnull %4, ptr noundef %.018, ptr noundef %2) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %4) #21
+  %11 = tail call ptr @Cgt_ClockGating(ptr noundef nonnull %4, ptr noundef %.018, ptr noundef %2) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %4) #22
   %.not23 = icmp eq ptr %.018, null
   br i1 %.not23, label %13, label %12
 
 12:                                               ; preds = %10
-  tail call void @Aig_ManStop(ptr noundef nonnull %.018) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %.018) #22
   br label %13
 
 13:                                               ; preds = %12, %10
@@ -12133,7 +12133,7 @@ define noundef ptr @Abc_NtkDarClockGate(ptr noundef %0, ptr noundef %1, ptr noun
 .sink.split:                                      ; preds = %7, %15
   %.sink = phi ptr [ %11, %15 ], [ %4, %7 ]
   %.0.ph = phi ptr [ %16, %15 ], [ null, %7 ]
-  tail call void @Aig_ManStop(ptr noundef nonnull %.sink) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %.sink) #22
   br label %17
 
 17:                                               ; preds = %.sink.split, %13, %3
@@ -12141,10 +12141,10 @@ define noundef ptr @Abc_NtkDarClockGate(ptr noundef %0, ptr noundef %1, ptr noun
   ret ptr %.0
 }
 
-declare ptr @Cgt_ClockGating(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @Cgt_ClockGating(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkDarExtWin(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define noundef ptr @Abc_NtkDarExtWin(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %44, label %7
@@ -12154,7 +12154,7 @@ define noundef ptr @Abc_NtkDarExtWin(ptr noundef %0, i32 noundef %1, i32 noundef
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %7
-  %10 = tail call ptr @Saig_ManFindPivot(ptr noundef nonnull %5) #21
+  %10 = tail call ptr @Saig_ManFindPivot(ptr noundef nonnull %5) #22
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 36
   %12 = load i32, ptr %11, align 4, !tbaa !105
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.105, i32 noundef %12)
@@ -12169,7 +12169,7 @@ define noundef ptr @Abc_NtkDarExtWin(ptr noundef %0, i32 noundef %1, i32 noundef
   br i1 %.not, label %Aig_ManObj.exit, label %16
 
 16:                                               ; preds = %13
-  tail call void @Aig_ManStop(ptr noundef nonnull %5) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %5) #22
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.106)
   br label %44
 
@@ -12183,7 +12183,7 @@ Aig_ManObj.exit:                                  ; preds = %13
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %Aig_ManObj.exit
-  tail call void @Aig_ManStop(ptr noundef nonnull %5) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %5) #22
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.107, i32 noundef %1)
   br label %44
 
@@ -12209,14 +12209,14 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %23, %Saig_ObjIsLo.e
   br i1 %narrow.i, label %30, label %31
 
 30:                                               ; preds = %Saig_ObjIsLo.exit.thread
-  tail call void @Aig_ManStop(ptr noundef nonnull %5) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %5) #22
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.108, i32 noundef %1)
   br label %44
 
 31:                                               ; preds = %Saig_ObjIsLo.exit, %Saig_ObjIsLo.exit.thread, %9
   %.0 = phi ptr [ %10, %9 ], [ %20, %Saig_ObjIsLo.exit ], [ %20, %Saig_ObjIsLo.exit.thread ]
-  %32 = tail call ptr @Saig_ManWindowExtract(ptr noundef nonnull %5, ptr noundef nonnull %.0, i32 noundef %2) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %5) #21
+  %32 = tail call ptr @Saig_ManWindowExtract(ptr noundef nonnull %5, ptr noundef nonnull %.0, i32 noundef %2) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %5) #22
   %33 = icmp eq ptr %32, null
   br i1 %33, label %44, label %34
 
@@ -12224,15 +12224,15 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %23, %Saig_ObjIsLo.e
   %35 = tail call ptr @Abc_NtkFromAigPhase(ptr noundef nonnull %32)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !60
-  %38 = tail call ptr @Extra_UtilStrsav(ptr noundef %37) #21
+  %38 = tail call ptr @Extra_UtilStrsav(ptr noundef %37) #22
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %38, ptr %39, align 8, !tbaa !60
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !62
-  %42 = tail call ptr @Extra_UtilStrsav(ptr noundef %41) #21
+  %42 = tail call ptr @Extra_UtilStrsav(ptr noundef %41) #22
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %42, ptr %43, align 8, !tbaa !62
-  tail call void @Aig_ManStop(ptr noundef nonnull %32) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %32) #22
   br label %44
 
 44:                                               ; preds = %31, %4, %34, %30, %22, %16
@@ -12240,12 +12240,12 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %23, %Saig_ObjIsLo.e
   ret ptr %.030
 }
 
-declare ptr @Saig_ManFindPivot(ptr noundef) local_unnamed_addr #3
+declare ptr @Saig_ManFindPivot(ptr noundef) local_unnamed_addr #4
 
-declare ptr @Saig_ManWindowExtract(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Saig_ManWindowExtract(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkDarInsWin(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define ptr @Abc_NtkDarInsWin(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %7 = icmp eq ptr %6, null
   br i1 %7, label %44, label %8
@@ -12255,7 +12255,7 @@ define ptr @Abc_NtkDarInsWin(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %8
-  %11 = tail call ptr @Saig_ManFindPivot(ptr noundef nonnull %6) #21
+  %11 = tail call ptr @Saig_ManFindPivot(ptr noundef nonnull %6) #22
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 36
   %13 = load i32, ptr %12, align 4, !tbaa !105
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.105, i32 noundef %13)
@@ -12270,7 +12270,7 @@ define ptr @Abc_NtkDarInsWin(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   br i1 %.not, label %Aig_ManObj.exit, label %17
 
 17:                                               ; preds = %14
-  tail call void @Aig_ManStop(ptr noundef nonnull %6) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %6) #22
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.106)
   br label %44
 
@@ -12284,7 +12284,7 @@ Aig_ManObj.exit:                                  ; preds = %14
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %Aig_ManObj.exit
-  tail call void @Aig_ManStop(ptr noundef nonnull %6) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %6) #22
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.107, i32 noundef %2)
   br label %44
 
@@ -12310,7 +12310,7 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %24, %Saig_ObjIsLo.e
   br i1 %narrow.i, label %31, label %32
 
 31:                                               ; preds = %Saig_ObjIsLo.exit.thread
-  tail call void @Aig_ManStop(ptr noundef nonnull %6) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %6) #22
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.108, i32 noundef %2)
   br label %44
 
@@ -12325,18 +12325,18 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %24, %Saig_ObjIsLo.e
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %33
-  tail call void @Aig_ManStop(ptr noundef nonnull %6) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %6) #22
   br label %44
 
 37:                                               ; preds = %33, %32
   %.035 = phi ptr [ %34, %33 ], [ null, %32 ]
-  %38 = tail call ptr @Saig_ManWindowInsert(ptr noundef nonnull %6, ptr noundef nonnull %.0, i32 noundef %3, ptr noundef %.035) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %6) #21
+  %38 = tail call ptr @Saig_ManWindowInsert(ptr noundef nonnull %6, ptr noundef nonnull %.0, i32 noundef %3, ptr noundef %.035) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %6) #22
   %.not45 = icmp eq ptr %.035, null
   br i1 %.not45, label %40, label %39
 
 39:                                               ; preds = %37
-  tail call void @Aig_ManStop(ptr noundef nonnull %.035) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %.035) #22
   br label %40
 
 40:                                               ; preds = %39, %37
@@ -12345,7 +12345,7 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %24, %Saig_ObjIsLo.e
 
 42:                                               ; preds = %40
   %43 = tail call ptr @Abc_NtkFromDarSeqSweep(ptr noundef %0, ptr noundef nonnull %38)
-  tail call void @Aig_ManStop(ptr noundef nonnull %38) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %38) #22
   br label %44
 
 44:                                               ; preds = %40, %5, %42, %36, %31, %23, %17
@@ -12353,17 +12353,17 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %24, %Saig_ObjIsLo.e
   ret ptr %.034
 }
 
-declare ptr @Saig_ManWindowInsert(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @Saig_ManWindowInsert(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkDarFrames(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define noundef ptr @Abc_NtkDarFrames(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %7 = icmp eq ptr %6, null
   br i1 %7, label %21, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call ptr @Saig_ManTimeframeSimplify(ptr noundef nonnull %6, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %6) #21
+  %9 = tail call ptr @Saig_ManTimeframeSimplify(ptr noundef nonnull %6, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %6) #22
   %10 = icmp eq ptr %9, null
   br i1 %10, label %21, label %11
 
@@ -12371,15 +12371,15 @@ define noundef ptr @Abc_NtkDarFrames(ptr noundef %0, i32 noundef %1, i32 noundef
   %12 = tail call ptr @Abc_NtkFromAigPhase(ptr noundef nonnull %9)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !60
-  %15 = tail call ptr @Extra_UtilStrsav(ptr noundef %14) #21
+  %15 = tail call ptr @Extra_UtilStrsav(ptr noundef %14) #22
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %15, ptr %16, align 8, !tbaa !60
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !62
-  %19 = tail call ptr @Extra_UtilStrsav(ptr noundef %18) #21
+  %19 = tail call ptr @Extra_UtilStrsav(ptr noundef %18) #22
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %19, ptr %20, align 8, !tbaa !62
-  tail call void @Aig_ManStop(ptr noundef nonnull %9) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %9) #22
   br label %21
 
 21:                                               ; preds = %8, %5, %11
@@ -12387,10 +12387,10 @@ define noundef ptr @Abc_NtkDarFrames(ptr noundef %0, i32 noundef %1, i32 noundef
   ret ptr %.0
 }
 
-declare ptr @Saig_ManTimeframeSimplify(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Saig_ManTimeframeSimplify(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkDarCleanupAig(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define noundef ptr @Abc_NtkDarCleanupAig(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %26, label %7
@@ -12400,7 +12400,7 @@ define noundef ptr @Abc_NtkDarCleanupAig(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %7
-  %9 = tail call i32 @Aig_ManCiCleanup(ptr noundef nonnull %5) #21
+  %9 = tail call i32 @Aig_ManCiCleanup(ptr noundef nonnull %5) #22
   %.not18 = icmp eq i32 %3, 0
   br i1 %.not18, label %.thread, label %10
 
@@ -12417,11 +12417,11 @@ define noundef ptr @Abc_NtkDarCleanupAig(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %.not1921, label %16, label %.thread22
 
 .thread22:                                        ; preds = %.thread
-  %12 = tail call i32 @Aig_ManCoCleanup(ptr noundef nonnull %5) #21
+  %12 = tail call i32 @Aig_ManCoCleanup(ptr noundef nonnull %5) #22
   br label %16
 
 13:                                               ; preds = %11
-  %14 = tail call i32 @Aig_ManCoCleanup(ptr noundef nonnull %5) #21
+  %14 = tail call i32 @Aig_ManCoCleanup(ptr noundef nonnull %5) #22
   %.not20 = icmp eq i32 %3, 0
   br i1 %.not20, label %16, label %15
 
@@ -12433,15 +12433,15 @@ define noundef ptr @Abc_NtkDarCleanupAig(ptr noundef %0, i32 noundef %1, i32 nou
   %17 = tail call ptr @Abc_NtkFromAigPhase(ptr noundef nonnull %5)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !60
-  %20 = tail call ptr @Extra_UtilStrsav(ptr noundef %19) #21
+  %20 = tail call ptr @Extra_UtilStrsav(ptr noundef %19) #22
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %20, ptr %21, align 8, !tbaa !60
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !62
-  %24 = tail call ptr @Extra_UtilStrsav(ptr noundef %23) #21
+  %24 = tail call ptr @Extra_UtilStrsav(ptr noundef %23) #22
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %24, ptr %25, align 8, !tbaa !62
-  tail call void @Aig_ManStop(ptr noundef nonnull %5) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %5) #22
   br label %26
 
 26:                                               ; preds = %4, %16
@@ -12449,25 +12449,25 @@ define noundef ptr @Abc_NtkDarCleanupAig(ptr noundef %0, i32 noundef %1, i32 nou
   ret ptr %.0
 }
 
-declare i32 @Aig_ManCiCleanup(ptr noundef) local_unnamed_addr #3
+declare i32 @Aig_ManCiCleanup(ptr noundef) local_unnamed_addr #4
 
-declare i32 @Aig_ManCoCleanup(ptr noundef) local_unnamed_addr #3
+declare i32 @Aig_ManCoCleanup(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NtkDarReach(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define i32 @Abc_NtkDarReach(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %17, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @Aig_ManVerifyUsingBdds(ptr noundef nonnull %3, ptr noundef %1) #21
+  %6 = tail call i32 @Aig_ManVerifyUsingBdds(ptr noundef nonnull %3, ptr noundef %1) #22
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %8 = load ptr, ptr %7, align 8, !tbaa !236
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %10, label %9
 
 9:                                                ; preds = %5
-  tail call void @free(ptr noundef nonnull %8) #21
+  tail call void @free(ptr noundef nonnull %8) #22
   store ptr null, ptr %7, align 8, !tbaa !236
   br label %10
 
@@ -12478,7 +12478,7 @@ define i32 @Abc_NtkDarReach(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br i1 %.not18, label %14, label %13
 
 13:                                               ; preds = %10
-  tail call void @free(ptr noundef nonnull %12) #21
+  tail call void @free(ptr noundef nonnull %12) #22
   br label %14
 
 14:                                               ; preds = %10, %13
@@ -12486,7 +12486,7 @@ define i32 @Abc_NtkDarReach(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %16 = load ptr, ptr %15, align 8, !tbaa !261
   store ptr %16, ptr %11, align 8, !tbaa !260
   store ptr null, ptr %15, align 8, !tbaa !261
-  tail call void @Aig_ManStop(ptr noundef nonnull %3) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %3) #22
   br label %17
 
 17:                                               ; preds = %2, %14
@@ -12494,11 +12494,11 @@ define i32 @Abc_NtkDarReach(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   ret i32 %.0
 }
 
-declare i32 @Aig_ManVerifyUsingBdds(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @Aig_ManVerifyUsingBdds(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Amap_ManProduceNetwork(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
-  %3 = tail call ptr (...) @Abc_FrameReadLibGen() #21
+define ptr @Amap_ManProduceNetwork(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
+  %3 = tail call ptr (...) @Abc_FrameReadLibGen() #22
   %4 = getelementptr i8, ptr %1, i64 4
   %.val5362 = load i32, ptr %4, align 4, !tbaa !14
   %5 = icmp sgt i32 %.val5362, 0
@@ -12519,7 +12519,7 @@ define ptr @Amap_ManProduceNetwork(ptr noundef %0, ptr noundef readonly captures
   br i1 %.not, label %16, label %11
 
 11:                                               ; preds = %7
-  %12 = tail call ptr @Mio_LibraryReadGateByName(ptr noundef %3, ptr noundef nonnull %10, ptr noundef null) #21
+  %12 = tail call ptr @Mio_LibraryReadGateByName(ptr noundef %3, ptr noundef nonnull %10, ptr noundef null) #22
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %._crit_edge79
 
@@ -12540,11 +12540,11 @@ define ptr @Amap_ManProduceNetwork(ptr noundef %0, ptr noundef readonly captures
   br i1 %18, label %7, label %.critedge, !llvm.loop !317
 
 .critedge:                                        ; preds = %16, %2
-  %19 = tail call ptr @Abc_NtkStartFrom(ptr noundef %0, i32 noundef 2, i32 noundef 4) #21
+  %19 = tail call ptr @Abc_NtkStartFrom(ptr noundef %0, i32 noundef 2, i32 noundef 4) #22
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 256
   store ptr %3, ptr %20, align 8, !tbaa !112
   %.val52 = load i32, ptr %4, align 4, !tbaa !14
-  %21 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
+  %21 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
   %22 = add i32 %.val52, -1
   %or.cond.i = icmp ult i32 %22, 7
   %spec.store.select.i = select i1 %or.cond.i, i32 8, i32 %.val52
@@ -12557,7 +12557,7 @@ define ptr @Amap_ManProduceNetwork(ptr noundef %0, ptr noundef readonly captures
 24:                                               ; preds = %.critedge
   %25 = sext i32 %spec.store.select.i to i64
   %26 = shl nsw i64 %25, 3
-  %27 = tail call noalias ptr @malloc(i64 noundef %26) #20
+  %27 = tail call noalias ptr @malloc(i64 noundef %26) #21
   br label %Vec_PtrAlloc.exit
 
 Vec_PtrAlloc.exit:                                ; preds = %.critedge, %24
@@ -12610,9 +12610,9 @@ Vec_PtrAlloc.exit:                                ; preds = %.critedge, %24
   br label %58
 
 53:                                               ; preds = %34
-  %54 = tail call ptr @Abc_NtkCreateObj(ptr noundef %19, i32 noundef 7) #21
+  %54 = tail call ptr @Abc_NtkCreateObj(ptr noundef %19, i32 noundef 7) #22
   %55 = load ptr, ptr %38, align 8, !tbaa !315
-  %56 = tail call ptr @Mio_LibraryReadGateByName(ptr noundef %3, ptr noundef %55, ptr noundef null) #21
+  %56 = tail call ptr @Mio_LibraryReadGateByName(ptr noundef %3, ptr noundef %55, ptr noundef null) #22
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 56
   store ptr %56, ptr %57, align 8, !tbaa !39
   br label %58
@@ -12638,7 +12638,7 @@ Vec_PtrAlloc.exit:                                ; preds = %.critedge, %24
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds ptr, ptr %.val54, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !18
-  tail call void @Abc_ObjAddFanin(ptr noundef %.049, ptr noundef %68) #21
+  tail call void @Abc_ObjAddFanin(ptr noundef %.049, ptr noundef %68) #22
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %69 = load i16, ptr %59, align 2, !tbaa !319
   %70 = sext i16 %69 to i64
@@ -12663,11 +12663,11 @@ Vec_PtrAlloc.exit:                                ; preds = %.critedge, %24
   br i1 %.not9.i.i, label %79, label %77
 
 77:                                               ; preds = %75
-  %78 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %76, i64 noundef 128) #19
+  %78 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %76, i64 noundef 128) #20
   br label %Vec_PtrGrow.exit.i
 
 79:                                               ; preds = %75
-  %80 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #20
+  %80 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #21
   br label %Vec_PtrGrow.exit.i
 
 Vec_PtrGrow.exit.i:                               ; preds = %79, %77
@@ -12685,11 +12685,11 @@ Vec_PtrGrow.exit.i:                               ; preds = %79, %77
   br i1 %.not9.i10.i, label %89, label %87
 
 87:                                               ; preds = %82
-  %88 = tail call ptr @realloc(ptr noundef nonnull %84, i64 noundef %86) #19
+  %88 = tail call ptr @realloc(ptr noundef nonnull %84, i64 noundef %86) #20
   br label %91
 
 89:                                               ; preds = %82
-  %90 = tail call noalias ptr @malloc(i64 noundef %86) #20
+  %90 = tail call noalias ptr @malloc(i64 noundef %86) #21
   br label %91
 
 91:                                               ; preds = %89, %87
@@ -12722,12 +12722,12 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not.i59, label %Vec_PtrFree.exit, label %101
 
 101:                                              ; preds = %.critedge2
-  tail call void @free(ptr noundef nonnull %100) #21
+  tail call void @free(ptr noundef nonnull %100) #22
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge2, %101
-  tail call void @free(ptr noundef nonnull %21) #21
-  %102 = tail call i32 @Abc_NtkLogicMakeSimpleCos(ptr noundef %19, i32 noundef 0) #21
+  tail call void @free(ptr noundef nonnull %21) #22
+  %102 = tail call i32 @Abc_NtkLogicMakeSimpleCos(ptr noundef %19, i32 noundef 0) #22
   br label %103
 
 103:                                              ; preds = %Vec_PtrFree.exit, %14
@@ -12735,17 +12735,17 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %101
   ret ptr %.0
 }
 
-declare ptr @Abc_FrameReadLibGen(...) local_unnamed_addr #3
+declare ptr @Abc_FrameReadLibGen(...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkDarAmap(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define ptr @Abc_NtkDarAmap(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = tail call ptr @Abc_NtkToDarChoices(ptr noundef %0)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %23, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @Amap_ManTest(ptr noundef nonnull %3, ptr noundef %1) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %3) #21
+  %6 = tail call ptr @Amap_ManTest(ptr noundef nonnull %3, ptr noundef %1) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %3) #22
   %7 = icmp eq ptr %6, null
   br i1 %7, label %23, label %8
 
@@ -12760,28 +12760,28 @@ define ptr @Abc_NtkDarAmap(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1
   %15 = getelementptr inbounds ptr, ptr %10, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !18
   %17 = tail call ptr @Amap_ManProduceNetwork(ptr noundef %0, ptr noundef nonnull %6)
-  tail call void @Aig_MmFlexStop(ptr noundef %16, i32 noundef 0) #21
+  tail call void @Aig_MmFlexStop(ptr noundef %16, i32 noundef 0) #22
   %18 = load ptr, ptr %9, align 8, !tbaa !17
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %Vec_PtrFree.exit, label %19
 
 19:                                               ; preds = %8
-  tail call void @free(ptr noundef nonnull %18) #21
+  tail call void @free(ptr noundef nonnull %18) #22
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %8, %19
-  tail call void @free(ptr noundef nonnull %6) #21
+  tail call void @free(ptr noundef nonnull %6) #22
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %23, label %20
 
 20:                                               ; preds = %Vec_PtrFree.exit
-  %21 = tail call i32 @Abc_NtkCheck(ptr noundef nonnull %17) #21
+  %21 = tail call i32 @Abc_NtkCheck(ptr noundef nonnull %17) #22
   %.not19 = icmp eq i32 %21, 0
   br i1 %.not19, label %22, label %23
 
 22:                                               ; preds = %20
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.21)
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %17) #21
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %17) #22
   br label %23
 
 23:                                               ; preds = %Vec_PtrFree.exit, %20, %5, %2, %22
@@ -12789,12 +12789,12 @@ Vec_PtrFree.exit:                                 ; preds = %8, %19
   ret ptr %.0
 }
 
-declare ptr @Amap_ManTest(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @Amap_ManTest(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @Aig_MmFlexStop(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @Aig_MmFlexStop(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkDarConstr(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 {
+define void @Abc_NtkDarConstr(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
   %8 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %9 = icmp eq ptr %8, null
   br i1 %9, label %15, label %10
@@ -12804,49 +12804,49 @@ define void @Abc_NtkDarConstr(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   br i1 %.not, label %13, label %11
 
 11:                                               ; preds = %10
-  %12 = tail call i32 @Saig_ManDetectConstrTest(ptr noundef nonnull %8) #21
+  %12 = tail call i32 @Saig_ManDetectConstrTest(ptr noundef nonnull %8) #22
   br label %14
 
 13:                                               ; preds = %10
-  tail call void @Saig_ManDetectConstrFuncTest(ptr noundef nonnull %8, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %5, i32 noundef %6) #21
+  tail call void @Saig_ManDetectConstrFuncTest(ptr noundef nonnull %8, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %5, i32 noundef %6) #22
   br label %14
 
 14:                                               ; preds = %13, %11
-  tail call void @Aig_ManStop(ptr noundef nonnull %8) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %8) #22
   br label %15
 
 15:                                               ; preds = %7, %14
   ret void
 }
 
-declare i32 @Saig_ManDetectConstrTest(ptr noundef) local_unnamed_addr #3
+declare i32 @Saig_ManDetectConstrTest(ptr noundef) local_unnamed_addr #4
 
-declare void @Saig_ManDetectConstrFuncTest(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @Saig_ManDetectConstrFuncTest(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkDarOutdec(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define noundef ptr @Abc_NtkDarOutdec(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %18, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @Saig_ManDecPropertyOutput(ptr noundef nonnull %4, i32 noundef %1, i32 noundef %2) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %4) #21
+  %7 = tail call ptr @Saig_ManDecPropertyOutput(ptr noundef nonnull %4, i32 noundef %1, i32 noundef %2) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %4) #22
   %8 = icmp eq ptr %7, null
   br i1 %8, label %18, label %9
 
 9:                                                ; preds = %6
   %10 = tail call ptr @Abc_NtkFromAigPhase(ptr noundef nonnull %7)
   %11 = load ptr, ptr %7, align 8, !tbaa !61
-  %12 = tail call ptr @Extra_UtilStrsav(ptr noundef %11) #21
+  %12 = tail call ptr @Extra_UtilStrsav(ptr noundef %11) #22
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %12, ptr %13, align 8, !tbaa !60
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !63
-  %16 = tail call ptr @Extra_UtilStrsav(ptr noundef %15) #21
+  %16 = tail call ptr @Extra_UtilStrsav(ptr noundef %15) #22
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %16, ptr %17, align 8, !tbaa !62
-  tail call void @Aig_ManStop(ptr noundef nonnull %7) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %7) #22
   br label %18
 
 18:                                               ; preds = %6, %3, %9
@@ -12854,10 +12854,10 @@ define noundef ptr @Abc_NtkDarOutdec(ptr noundef %0, i32 noundef %1, i32 noundef
   ret ptr %.0
 }
 
-declare ptr @Saig_ManDecPropertyOutput(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Saig_ManDecPropertyOutput(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkDarUnfold(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 {
+define noundef ptr @Abc_NtkDarUnfold(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
   %8 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %9 = icmp eq ptr %8, null
   br i1 %9, label %26, label %10
@@ -12867,31 +12867,31 @@ define noundef ptr @Abc_NtkDarUnfold(ptr noundef %0, i32 noundef %1, i32 noundef
   br i1 %.not, label %13, label %11
 
 11:                                               ; preds = %10
-  %12 = tail call ptr @Saig_ManDupUnfoldConstrs(ptr noundef nonnull %8) #21
+  %12 = tail call ptr @Saig_ManDupUnfoldConstrs(ptr noundef nonnull %8) #22
   br label %15
 
 13:                                               ; preds = %10
-  %14 = tail call ptr @Saig_ManDupUnfoldConstrsFunc(ptr noundef nonnull %8, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %5, i32 noundef %6) #21
+  %14 = tail call ptr @Saig_ManDupUnfoldConstrsFunc(ptr noundef nonnull %8, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %5, i32 noundef %6) #22
   br label %15
 
 15:                                               ; preds = %13, %11
   %.019 = phi ptr [ %12, %11 ], [ %14, %13 ]
-  tail call void @Aig_ManStop(ptr noundef nonnull %8) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %8) #22
   %16 = icmp eq ptr %.019, null
   br i1 %16, label %26, label %17
 
 17:                                               ; preds = %15
   %18 = tail call ptr @Abc_NtkFromAigPhase(ptr noundef nonnull %.019)
   %19 = load ptr, ptr %.019, align 8, !tbaa !61
-  %20 = tail call ptr @Extra_UtilStrsav(ptr noundef %19) #21
+  %20 = tail call ptr @Extra_UtilStrsav(ptr noundef %19) #22
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %20, ptr %21, align 8, !tbaa !60
   %22 = getelementptr inbounds nuw i8, ptr %.019, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !63
-  %24 = tail call ptr @Extra_UtilStrsav(ptr noundef %23) #21
+  %24 = tail call ptr @Extra_UtilStrsav(ptr noundef %23) #22
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %24, ptr %25, align 8, !tbaa !62
-  tail call void @Aig_ManStop(ptr noundef nonnull %.019) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %.019) #22
   br label %26
 
 26:                                               ; preds = %15, %7, %17
@@ -12899,30 +12899,30 @@ define noundef ptr @Abc_NtkDarUnfold(ptr noundef %0, i32 noundef %1, i32 noundef
   ret ptr %.020
 }
 
-declare ptr @Saig_ManDupUnfoldConstrs(ptr noundef) local_unnamed_addr #3
+declare ptr @Saig_ManDupUnfoldConstrs(ptr noundef) local_unnamed_addr #4
 
-declare ptr @Saig_ManDupUnfoldConstrsFunc(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Saig_ManDupUnfoldConstrsFunc(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkDarFold(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define noundef ptr @Abc_NtkDarFold(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %17, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call ptr @Saig_ManDupFoldConstrsFunc(ptr noundef nonnull %5, i32 noundef %1, i32 noundef %2, i32 noundef %3) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %5) #21
+  %8 = tail call ptr @Saig_ManDupFoldConstrsFunc(ptr noundef nonnull %5, i32 noundef %1, i32 noundef %2, i32 noundef %3) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %5) #22
   %9 = tail call ptr @Abc_NtkFromAigPhase(ptr noundef %8)
   %10 = load ptr, ptr %8, align 8, !tbaa !61
-  %11 = tail call ptr @Extra_UtilStrsav(ptr noundef %10) #21
+  %11 = tail call ptr @Extra_UtilStrsav(ptr noundef %10) #22
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %11, ptr %12, align 8, !tbaa !60
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !63
-  %15 = tail call ptr @Extra_UtilStrsav(ptr noundef %14) #21
+  %15 = tail call ptr @Extra_UtilStrsav(ptr noundef %14) #22
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %15, ptr %16, align 8, !tbaa !62
-  tail call void @Aig_ManStop(ptr noundef nonnull %8) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %8) #22
   br label %17
 
 17:                                               ; preds = %4, %7
@@ -12930,37 +12930,37 @@ define noundef ptr @Abc_NtkDarFold(ptr noundef %0, i32 noundef %1, i32 noundef %
   ret ptr %.0
 }
 
-declare ptr @Saig_ManDupFoldConstrsFunc(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Saig_ManDupFoldConstrsFunc(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkDarConstrProfile(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define void @Abc_NtkDarConstrProfile(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @Ssw_ManProfileConstraints(ptr noundef nonnull %3, i32 noundef 16, i32 noundef 64, i32 noundef 1) #21
-  %7 = tail call i32 @Ssw_ManSetConstrPhases(ptr noundef nonnull %3, i32 noundef 2, ptr noundef null) #21
+  %6 = tail call i32 @Ssw_ManProfileConstraints(ptr noundef nonnull %3, i32 noundef 16, i32 noundef 64, i32 noundef 1) #22
+  %7 = tail call i32 @Ssw_ManSetConstrPhases(ptr noundef nonnull %3, i32 noundef 2, ptr noundef null) #22
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.112, i32 noundef %7)
-  tail call void @Aig_ManStop(ptr noundef nonnull %3) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %3) #22
   br label %8
 
 8:                                                ; preds = %2, %5
   ret void
 }
 
-declare i32 @Ssw_ManProfileConstraints(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @Ssw_ManProfileConstraints(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @Ssw_ManSetConstrPhases(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @Ssw_ManSetConstrPhases(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkDarTest(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define void @Abc_NtkDarTest(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void @Aig_ManStop(ptr noundef nonnull %3) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %3) #22
   br label %6
 
 6:                                                ; preds = %2, %5
@@ -12968,14 +12968,14 @@ define void @Abc_NtkDarTest(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkDarTestNtk(ptr noundef %0) local_unnamed_addr #1 {
+define noundef ptr @Abc_NtkDarTestNtk(ptr noundef %0) local_unnamed_addr #2 {
   %2 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %3 = icmp eq ptr %2, null
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %1
   %5 = tail call ptr @Abc_NtkFromDar(ptr noundef %0, ptr noundef nonnull %2)
-  tail call void @Aig_ManStop(ptr noundef nonnull %2) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %2) #22
   br label %6
 
 6:                                                ; preds = %1, %4
@@ -12984,7 +12984,7 @@ define noundef ptr @Abc_NtkDarTestNtk(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkDarUnfold2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 {
+define noundef ptr @Abc_NtkDarUnfold2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !35
@@ -12997,12 +12997,12 @@ define noundef ptr @Abc_NtkDarUnfold2(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %.not, label %12, label %.thread
 
 .thread:                                          ; preds = %11
-  tail call void @Aig_ManStop(ptr noundef null) #21
+  tail call void @Aig_ManStop(ptr noundef null) #22
   br label %15
 
 12:                                               ; preds = %11
-  %13 = call ptr @Saig_ManDupUnfoldConstrsFunc2(ptr noundef nonnull %9, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %8) #21
-  call void @Aig_ManStop(ptr noundef nonnull %9) #21
+  %13 = call ptr @Saig_ManDupUnfoldConstrsFunc2(ptr noundef nonnull %9, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %8) #22
+  call void @Aig_ManStop(ptr noundef nonnull %9) #22
   %14 = icmp eq ptr %13, null
   br i1 %14, label %24, label %15
 
@@ -13010,15 +13010,15 @@ define noundef ptr @Abc_NtkDarUnfold2(ptr noundef %0, i32 noundef %1, i32 nounde
   %.01823 = phi ptr [ %9, %.thread ], [ %13, %12 ]
   %16 = call ptr @Abc_NtkFromAigPhase(ptr noundef nonnull %.01823)
   %17 = load ptr, ptr %.01823, align 8, !tbaa !61
-  %18 = call ptr @Extra_UtilStrsav(ptr noundef %17) #21
+  %18 = call ptr @Extra_UtilStrsav(ptr noundef %17) #22
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %18, ptr %19, align 8, !tbaa !60
   %20 = getelementptr inbounds nuw i8, ptr %.01823, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !63
-  %22 = call ptr @Extra_UtilStrsav(ptr noundef %21) #21
+  %22 = call ptr @Extra_UtilStrsav(ptr noundef %21) #22
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %22, ptr %23, align 8, !tbaa !62
-  call void @Aig_ManStop(ptr noundef nonnull %.01823) #21
+  call void @Aig_ManStop(ptr noundef nonnull %.01823) #22
   br label %24
 
 24:                                               ; preds = %12, %7, %15
@@ -13027,28 +13027,28 @@ define noundef ptr @Abc_NtkDarUnfold2(ptr noundef %0, i32 noundef %1, i32 nounde
   ret ptr %.019
 }
 
-declare ptr @Saig_ManDupUnfoldConstrsFunc2(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @Saig_ManDupUnfoldConstrsFunc2(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkDarFold2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define noundef ptr @Abc_NtkDarFold2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %17, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call ptr @Saig_ManDupFoldConstrsFunc2(ptr noundef nonnull %5, i32 noundef %1, i32 noundef %2, i32 noundef %3) #21
-  tail call void @Aig_ManStop(ptr noundef nonnull %5) #21
+  %8 = tail call ptr @Saig_ManDupFoldConstrsFunc2(ptr noundef nonnull %5, i32 noundef %1, i32 noundef %2, i32 noundef %3) #22
+  tail call void @Aig_ManStop(ptr noundef nonnull %5) #22
   %9 = tail call ptr @Abc_NtkFromAigPhase(ptr noundef %8)
   %10 = load ptr, ptr %8, align 8, !tbaa !61
-  %11 = tail call ptr @Extra_UtilStrsav(ptr noundef %10) #21
+  %11 = tail call ptr @Extra_UtilStrsav(ptr noundef %10) #22
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %11, ptr %12, align 8, !tbaa !60
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !63
-  %15 = tail call ptr @Extra_UtilStrsav(ptr noundef %14) #21
+  %15 = tail call ptr @Extra_UtilStrsav(ptr noundef %14) #22
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %15, ptr %16, align 8, !tbaa !62
-  tail call void @Aig_ManStop(ptr noundef nonnull %8) #21
+  tail call void @Aig_ManStop(ptr noundef nonnull %8) #22
   br label %17
 
 17:                                               ; preds = %4, %7
@@ -13056,39 +13056,39 @@ define noundef ptr @Abc_NtkDarFold2(ptr noundef %0, i32 noundef %1, i32 noundef 
   ret ptr %.0
 }
 
-declare ptr @Saig_ManDupFoldConstrsFunc2(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Saig_ManDupFoldConstrsFunc2(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
-declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #3
+declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #4
 
-declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #13
-
-declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #13
+declare void @llvm.va_start.p0(ptr) #14
+
+declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #8
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
-declare ptr @Abc_NtkCreateObj(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Abc_NtkCreateObj(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc i64 @Abc_Clock() unnamed_addr #2 {
+define internal fastcc i64 @Abc_Clock() unnamed_addr #3 {
   %1 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %2 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #21
+  %2 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #22
   %3 = icmp slt i32 %2, 0
   br i1 %3, label %11, label %4
 
@@ -13108,43 +13108,44 @@ define internal fastcc i64 @Abc_Clock() unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #15
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #17
+declare i32 @llvm.smax.i32(i32, i32) #18
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #18
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #19
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #19 = { nounwind allocsize(1) }
-attributes #20 = { nounwind allocsize(0) }
-attributes #21 = { nounwind }
-attributes #22 = { nounwind willreturn memory(read) }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #20 = { nounwind allocsize(1) }
+attributes #21 = { nounwind allocsize(0) }
+attributes #22 = { nounwind }
+attributes #23 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

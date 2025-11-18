@@ -175,7 +175,7 @@ target triple = "x86_64-pc-linux-gnu"
 @linear_to_vidc = internal global [16384 x i8] zeroinitializer, align 16
 @pcm_decode_init.codec_id_to_samplefmt = internal unnamed_addr constant [28 x { i32, i8, i8, i8, i8 }] [{ i32, i8, i8, i8, i8 } { i32 65540, i8 0, i8 1, i8 8, i8 0 }, { i32, i8, i8, i8, i8 } { i32 65563, i8 5, i8 1, i8 8, i8 0 }, { i32, i8, i8, i8, i8 } { i32 65537, i8 1, i8 2, i8 16, i8 0 }, { i32, i8, i8, i8, i8 } { i32 65566, i8 6, i8 2, i8 16, i8 0 }, { i32, i8, i8, i8, i8 } { i32 65536, i8 1, i8 2, i8 16, i8 0 }, { i32, i8, i8, i8, i8 } { i32 65554, i8 6, i8 2, i8 16, i8 0 }, { i32, i8, i8, i8, i8 } { i32 65552, i8 1, i8 3, i8 24, i8 0 }, { i32, i8, i8, i8, i8 } { i32 65549, i8 2, i8 3, i8 24, i8 0 }, { i32, i8, i8, i8, i8 } { i32 65548, i8 2, i8 3, i8 24, i8 0 }, { i32, i8, i8, i8, i8 } { i32 65564, i8 7, i8 3, i8 24, i8 0 }, { i32, i8, i8, i8, i8 } { i32 65545, i8 2, i8 4, i8 32, i8 0 }, { i32, i8, i8, i8, i8 } { i32 65544, i8 2, i8 4, i8 32, i8 0 }, { i32, i8, i8, i8, i8 } { i32 65565, i8 7, i8 4, i8 32, i8 0 }, { i32, i8, i8, i8, i8 } { i32 65568, i8 10, i8 8, i8 64, i8 0 }, { i32, i8, i8, i8, i8 } { i32 65567, i8 10, i8 8, i8 64, i8 0 }, { i32, i8, i8, i8, i8 } { i32 65572, i8 0, i8 1, i8 8, i8 0 }, { i32, i8, i8, i8, i8 } { i32 65541, i8 0, i8 1, i8 8, i8 0 }, { i32, i8, i8, i8, i8 } { i32 65539, i8 1, i8 2, i8 16, i8 0 }, { i32, i8, i8, i8, i8 } { i32 65538, i8 1, i8 2, i8 16, i8 0 }, { i32, i8, i8, i8, i8 } { i32 65551, i8 2, i8 3, i8 24, i8 0 }, { i32, i8, i8, i8, i8 } { i32 65550, i8 2, i8 3, i8 24, i8 0 }, { i32, i8, i8, i8, i8 } { i32 65547, i8 2, i8 4, i8 32, i8 0 }, { i32, i8, i8, i8, i8 } { i32 65546, i8 2, i8 4, i8 32, i8 0 }, { i32, i8, i8, i8, i8 } { i32 65556, i8 3, i8 4, i8 32, i8 0 }, { i32, i8, i8, i8, i8 } { i32 65557, i8 3, i8 4, i8 32, i8 0 }, { i32, i8, i8, i8, i8 } { i32 65558, i8 4, i8 8, i8 64, i8 0 }, { i32, i8, i8, i8, i8 } { i32 65559, i8 4, i8 8, i8 64, i8 0 }, { i32, i8, i8, i8, i8 } { i32 65561, i8 7, i8 5, i8 0, i8 0 }], align 16
 
-; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @pcm_lut_decode_init(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !4
@@ -1659,7 +1659,7 @@ define internal range(i32 -1094995529, 1) i32 @pcm_scale_decode_init(ptr noundef
   ret i32 %.0
 }
 
-; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @pcm_decode_init(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !4
@@ -1893,7 +1893,7 @@ declare i32 @llvm.bswap.i32(i32) #7
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #7
 
-attributes #0 = { cold nofree norecurse nosync nounwind optsize memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { cold nofree norecurse nosync nounwind optsize memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

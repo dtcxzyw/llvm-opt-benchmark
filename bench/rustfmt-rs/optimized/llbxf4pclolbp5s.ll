@@ -4828,7 +4828,7 @@ define hidden void @"_ZN114_$LT$fluent_bundle..args..FluentArgs$u20$as$u20$core.
   resume { ptr, i32 } %eh.lpad-body
 }
 
-; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef align 8 dereferenceable_or_null(120) ptr @_ZN13fluent_bundle4args10FluentArgs3get17h0f42757cbcf6ab35E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !noundef !5
@@ -13710,7 +13710,7 @@ define hidden void @"_ZN4core3ptr99drop_in_place$LT$$RF$$LP$rustc_ast..ast..Inli
   ret void
 }
 
-; Function Attrs: inlinehint nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h9ae50b26a3164213E.llvm.13158159170862922693"(ptr noalias noundef nonnull readonly align 8 captures(none) %0, i64 noundef %1, ptr noalias noundef nonnull readnone align 1 captures(none) %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %3) unnamed_addr #8 personality ptr @rust_eh_personality {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -13770,7 +13770,7 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   br i1 %27, label %8, label %._crit_edge
 }
 
-; Function Attrs: inlinehint nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h61bf5ab6896c7104E.llvm.13158159170862922693"(ptr noalias noundef nonnull readonly align 8 captures(none) %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %2) unnamed_addr #8 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2485)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2488)
@@ -24016,7 +24016,7 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17h43be18bd1f997d33E.exit.th
   ret i1 %.1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @"_ZN86_$LT$thin_vec..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h923a609444f4d3f5E"(ptr noalias noundef writeonly sret({ [17 x i32], i32 }) align 8 captures(none) dereferenceable(72) initializes((68, 72)) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #12 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !5
@@ -24042,7 +24042,7 @@ define hidden void @"_ZN86_$LT$thin_vec..IntoIter$LT$T$GT$$u20$as$u20$core..iter
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef align 8 ptr @"_ZN86_$LT$thin_vec..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfb3e0e73983cfcf7E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0) unnamed_addr #13 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !5
@@ -25560,7 +25560,7 @@ define hidden void @"_ZN8thin_vec16ThinVec$LT$T$GT$7reserve17hd1a85d3794565b73E"
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h196f3c05765573deE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #14 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !alias.scope !4354, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
@@ -25570,7 +25570,7 @@ define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h196f3c057
   ret { ptr, i64 } %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h2550290eac6eacf7E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #14 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !alias.scope !4357, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
@@ -25580,7 +25580,7 @@ define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h2550290ea
   ret { ptr, i64 } %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h320af120ddb40d78E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #14 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !alias.scope !4360, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
@@ -25590,7 +25590,7 @@ define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h320af120d
   ret { ptr, i64 } %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h6100b528c76a2900E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #14 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !alias.scope !4363, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
@@ -25600,7 +25600,7 @@ define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h6100b528c
   ret { ptr, i64 } %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h6b8c9229fa6d582fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #14 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !alias.scope !4366, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
@@ -25610,7 +25610,7 @@ define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h6b8c9229f
   ret { ptr, i64 } %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h74de1a9f5c070bdeE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #14 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !alias.scope !4369, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
@@ -25620,7 +25620,7 @@ define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h74de1a9f5
   ret { ptr, i64 } %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h8bef5c69f7a9b10dE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #14 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !alias.scope !4372, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
@@ -25630,7 +25630,7 @@ define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h8bef5c69f
   ret { ptr, i64 } %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h90291d49d6874fc7E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #14 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !alias.scope !4375, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
@@ -25640,7 +25640,7 @@ define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h90291d49d
   ret { ptr, i64 } %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h9a5de01caf2283b9E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #14 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !alias.scope !4378, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
@@ -25650,7 +25650,7 @@ define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17h9a5de01ca
   ret { ptr, i64 } %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17ha347c05881f64682E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #14 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !alias.scope !4381, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
@@ -25660,7 +25660,7 @@ define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17ha347c0588
   ret { ptr, i64 } %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17hb536baedb0116b5eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #14 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !alias.scope !4384, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
@@ -25670,7 +25670,7 @@ define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17hb536baedb
   ret { ptr, i64 } %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17hb781b15860632b64E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #14 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !alias.scope !4387, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
@@ -25680,7 +25680,7 @@ define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17hb781b1586
   ret { ptr, i64 } %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17hb813049aa06f0aa7E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #14 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !alias.scope !4390, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
@@ -25690,7 +25690,7 @@ define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17hb813049aa
   ret { ptr, i64 } %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17hb887cc6215141233E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #14 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !alias.scope !4393, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
@@ -25700,7 +25700,7 @@ define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17hb887cc621
   ret { ptr, i64 } %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17hc9b8de66d547b2bfE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #14 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !alias.scope !4396, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
@@ -25710,7 +25710,7 @@ define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17hc9b8de66d
   ret { ptr, i64 } %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17hcab3acf85357e789E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #14 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !alias.scope !4399, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
@@ -25720,7 +25720,7 @@ define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17hcab3acf85
   ret { ptr, i64 } %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17hd9dc7e8e72add968E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #14 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !alias.scope !4402, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
@@ -25730,7 +25730,7 @@ define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17hd9dc7e8e7
   ret { ptr, i64 } %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17heeb128aa00cbb9abE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #14 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !alias.scope !4405, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
@@ -25740,7 +25740,7 @@ define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17heeb128aa0
   ret { ptr, i64 } %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17hf02561343c1b61bcE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #14 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !alias.scope !4408, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
@@ -25750,7 +25750,7 @@ define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17hf02561343
   ret { ptr, i64 } %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17hf3592b0ba3bf06bfE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #14 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !alias.scope !4411, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
@@ -28226,7 +28226,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN91_$LT$core..
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, ptr } @"_ZN92_$LT$$RF$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h06d188561bd71f68E.llvm.13158159170862922693"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #17 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4414)
   %2 = load ptr, ptr %0, align 8, !alias.scope !4417, !nonnull !5, !noundef !5
@@ -28240,7 +28240,7 @@ define hidden { ptr, ptr } @"_ZN92_$LT$$RF$thin_vec..ThinVec$LT$T$GT$$u20$as$u20
   ret { ptr, ptr } %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, ptr } @"_ZN92_$LT$$RF$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h32e44c6936d2a02eE.llvm.13158159170862922693"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #17 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4420)
   %2 = load ptr, ptr %0, align 8, !alias.scope !4423, !nonnull !5, !noundef !5
@@ -28254,7 +28254,7 @@ define hidden { ptr, ptr } @"_ZN92_$LT$$RF$thin_vec..ThinVec$LT$T$GT$$u20$as$u20
   ret { ptr, ptr } %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, ptr } @"_ZN92_$LT$$RF$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h4b64b9e295af019dE.llvm.13158159170862922693"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #17 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4426)
   %2 = load ptr, ptr %0, align 8, !alias.scope !4429, !nonnull !5, !noundef !5
@@ -28268,7 +28268,7 @@ define hidden { ptr, ptr } @"_ZN92_$LT$$RF$thin_vec..ThinVec$LT$T$GT$$u20$as$u20
   ret { ptr, ptr } %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, ptr } @"_ZN92_$LT$$RF$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h6de5a4a3c43317eeE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #17 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4432)
   %2 = load ptr, ptr %0, align 8, !alias.scope !4435, !nonnull !5, !noundef !5
@@ -28282,7 +28282,7 @@ define hidden { ptr, ptr } @"_ZN92_$LT$$RF$thin_vec..ThinVec$LT$T$GT$$u20$as$u20
   ret { ptr, ptr } %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, ptr } @"_ZN92_$LT$$RF$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h7893988c8f2fc221E.llvm.13158159170862922693"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #17 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4438)
   %2 = load ptr, ptr %0, align 8, !alias.scope !4441, !nonnull !5, !noundef !5
@@ -28296,7 +28296,7 @@ define hidden { ptr, ptr } @"_ZN92_$LT$$RF$thin_vec..ThinVec$LT$T$GT$$u20$as$u20
   ret { ptr, ptr } %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, ptr } @"_ZN92_$LT$$RF$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h8d0a409094932d27E.llvm.13158159170862922693"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #17 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4444)
   %2 = load ptr, ptr %0, align 8, !alias.scope !4447, !nonnull !5, !noundef !5
@@ -28310,7 +28310,7 @@ define hidden { ptr, ptr } @"_ZN92_$LT$$RF$thin_vec..ThinVec$LT$T$GT$$u20$as$u20
   ret { ptr, ptr } %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, ptr } @"_ZN92_$LT$$RF$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h9019fd0a7630aa7aE.llvm.13158159170862922693"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #17 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4450)
   %2 = load ptr, ptr %0, align 8, !alias.scope !4453, !nonnull !5, !noundef !5
@@ -28324,7 +28324,7 @@ define hidden { ptr, ptr } @"_ZN92_$LT$$RF$thin_vec..ThinVec$LT$T$GT$$u20$as$u20
   ret { ptr, ptr } %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, ptr } @"_ZN92_$LT$$RF$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17ha59883880bae8250E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #17 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4456)
   %2 = load ptr, ptr %0, align 8, !alias.scope !4459, !nonnull !5, !noundef !5
@@ -28338,7 +28338,7 @@ define hidden { ptr, ptr } @"_ZN92_$LT$$RF$thin_vec..ThinVec$LT$T$GT$$u20$as$u20
   ret { ptr, ptr } %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, ptr } @"_ZN92_$LT$$RF$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb1ba64acdb24b94aE.llvm.13158159170862922693"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #17 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4462)
   %2 = load ptr, ptr %0, align 8, !alias.scope !4465, !nonnull !5, !noundef !5
@@ -28352,7 +28352,7 @@ define hidden { ptr, ptr } @"_ZN92_$LT$$RF$thin_vec..ThinVec$LT$T$GT$$u20$as$u20
   ret { ptr, ptr } %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, ptr } @"_ZN92_$LT$$RF$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hc285973151df2f51E.llvm.13158159170862922693"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #17 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4468)
   %2 = load ptr, ptr %0, align 8, !alias.scope !4471, !nonnull !5, !noundef !5
@@ -28366,7 +28366,7 @@ define hidden { ptr, ptr } @"_ZN92_$LT$$RF$thin_vec..ThinVec$LT$T$GT$$u20$as$u20
   ret { ptr, ptr } %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, ptr } @"_ZN92_$LT$$RF$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hd7c8fa8592b6963dE.llvm.13158159170862922693"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #17 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4474)
   %2 = load ptr, ptr %0, align 8, !alias.scope !4477, !nonnull !5, !noundef !5
@@ -38445,21 +38445,21 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #3 = { nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #3 = { nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #8 = { inlinehint nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #8 = { inlinehint nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #10 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #11 = { inlinehint nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #15 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #16 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #19 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #20 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

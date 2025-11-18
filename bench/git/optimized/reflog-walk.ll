@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @init_reflog_walk(ptr noundef writeonly captures(none) initializes((0, 8)) %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 72) #12
+  %2 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 72) #13
   store ptr %2, ptr %0, align 8, !tbaa !4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load i8, ptr %3, align 8
@@ -50,7 +50,7 @@ define dso_local void @reflog_walk_info_release(ptr noundef %0) local_unnamed_ad
   %4 = load ptr, ptr %0, align 8, !tbaa !17
   %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.09
   %6 = load ptr, ptr %5, align 8, !tbaa !18
-  tail call void @free(ptr noundef %6) #12
+  tail call void @free(ptr noundef %6) #13
   %7 = add nuw i64 %.09, 1
   %8 = load i64, ptr %2, align 8, !tbaa !9
   %9 = icmp ult i64 %7, %8
@@ -58,10 +58,10 @@ define dso_local void @reflog_walk_info_release(ptr noundef %0) local_unnamed_ad
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @string_list_clear_func(ptr noundef nonnull %10, ptr noundef nonnull @complete_reflogs_clear) #12
+  tail call void @string_list_clear_func(ptr noundef nonnull %10, ptr noundef nonnull @complete_reflogs_clear) #13
   %11 = load ptr, ptr %0, align 8, !tbaa !17
-  tail call void @free(ptr noundef %11) #12
-  tail call void @free(ptr noundef nonnull %0) #12
+  tail call void @free(ptr noundef %11) #13
+  tail call void @free(ptr noundef nonnull %0) #13
   br label %12
 
 12:                                               ; preds = %1, %._crit_edge
@@ -73,8 +73,8 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @string_list_clear_func(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
-define internal void @complete_reflogs_clear(ptr noundef captures(address_is_null) %0, ptr readnone captures(none) %1) #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal void @complete_reflogs_clear(ptr noundef captures(address_is_null) %0, ptr readnone captures(none) %1) #3 {
   tail call fastcc void @free_complete_reflog(ptr noundef %0)
   ret void
 }
@@ -83,18 +83,18 @@ define internal void @complete_reflogs_clear(ptr noundef captures(address_is_nul
 define dso_local range(i32 -1, 1) i32 @add_reflog_for_walk(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 64) #13
+  %6 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 64) #14
   %7 = load i32, ptr %1, align 8
   %8 = and i32 %7, 32
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %10, label %9
 
 9:                                                ; preds = %3
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, ptr noundef nonnull %2) #14
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, ptr noundef nonnull %2) #15
   unreachable
 
 10:                                               ; preds = %3
-  %11 = tail call ptr @xstrdup(ptr noundef nonnull %2) #12
+  %11 = tail call ptr @xstrdup(ptr noundef nonnull %2) #13
   %.not82 = icmp eq ptr %6, null
   br i1 %.not82, label %30, label %12
 
@@ -112,14 +112,14 @@ define dso_local range(i32 -1, 1) i32 @add_reflog_for_walk(ptr noundef %0, ptr n
   %20 = getelementptr inbounds i8, ptr %11, i64 %19
   store i8 0, ptr %20, align 1, !tbaa !21
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %22 = call i64 @strtoul(ptr noundef nonnull %21, ptr noundef nonnull %4, i32 noundef 10) #12
+  %22 = call i64 @strtoul(ptr noundef nonnull %21, ptr noundef nonnull %4, i32 noundef 10) #13
   %23 = load ptr, ptr %4, align 8, !tbaa !22
   %24 = load i8, ptr %23, align 1, !tbaa !21
   %.not83 = icmp eq i8 %24, 125
   br i1 %.not83, label %27, label %25
 
 25:                                               ; preds = %16
-  %26 = tail call i64 @approxidate_careful(ptr noundef nonnull %21, ptr noundef null) #12
+  %26 = tail call i64 @approxidate_careful(ptr noundef nonnull %21, ptr noundef null) #13
   br label %29
 
 27:                                               ; preds = %16
@@ -138,7 +138,7 @@ define dso_local range(i32 -1, 1) i32 @add_reflog_for_walk(ptr noundef %0, ptr n
   %.165 = phi i64 [ %.064, %29 ], [ 0, %12 ], [ 0, %10 ]
   %.1 = phi i32 [ %.063, %29 ], [ 0, %12 ], [ 0, %10 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %32 = tail call ptr @string_list_lookup(ptr noundef nonnull %31, ptr noundef %11) #12
+  %32 = tail call ptr @string_list_lookup(ptr noundef nonnull %31, ptr noundef %11) #13
   %.not84 = icmp eq ptr %32, null
   br i1 %.not84, label %36, label %33
 
@@ -153,15 +153,15 @@ define dso_local range(i32 -1, 1) i32 @add_reflog_for_walk(ptr noundef %0, ptr n
   br i1 %38, label %39, label %44
 
 39:                                               ; preds = %36
-  tail call void @free(ptr noundef nonnull %11) #12
+  tail call void @free(ptr noundef nonnull %11) #13
   %40 = load ptr, ptr @the_repository, align 8, !tbaa !26
-  %41 = tail call ptr @get_main_ref_store(ptr noundef %40) #12
-  %42 = tail call ptr @refs_resolve_refdup(ptr noundef %41, ptr noundef nonnull @.str.1, i32 noundef 0, ptr noundef null, ptr noundef null) #12
+  %41 = tail call ptr @get_main_ref_store(ptr noundef %40) #13
+  %42 = tail call ptr @refs_resolve_refdup(ptr noundef %41, ptr noundef nonnull @.str.1, i32 noundef 0, ptr noundef null, ptr noundef null) #13
   %.not85 = icmp eq ptr %42, null
   br i1 %.not85, label %43, label %44
 
 43:                                               ; preds = %39
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.2) #14
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.2) #15
   unreachable
 
 44:                                               ; preds = %39, %36
@@ -179,15 +179,15 @@ define dso_local range(i32 -1, 1) i32 @add_reflog_for_walk(ptr noundef %0, ptr n
 50:                                               ; preds = %46, %44
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %51 = load ptr, ptr @the_repository, align 8, !tbaa !26
-  %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.169) #13
+  %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.169) #14
   %53 = trunc i64 %52 to i32
-  %54 = call i32 @repo_dwim_log(ptr noundef %51, ptr noundef nonnull %.169, i32 noundef %53, ptr noundef null, ptr noundef nonnull %5) #12
+  %54 = call i32 @repo_dwim_log(ptr noundef %51, ptr noundef nonnull %.169, i32 noundef %53, ptr noundef null, ptr noundef nonnull %5) #13
   %55 = icmp sgt i32 %54, 1
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %50
   %57 = load ptr, ptr %5, align 8, !tbaa !22
-  call void @free(ptr noundef %57) #12
+  call void @free(ptr noundef %57) #13
   br label %63
 
 58:                                               ; preds = %50
@@ -196,7 +196,7 @@ define dso_local range(i32 -1, 1) i32 @add_reflog_for_walk(ptr noundef %0, ptr n
 
 60:                                               ; preds = %58
   call fastcc void @free_complete_reflog(ptr noundef %45)
-  call void @free(ptr noundef nonnull %.169) #12
+  call void @free(ptr noundef nonnull %.169) #13
   %61 = load ptr, ptr %5, align 8, !tbaa !22
   %62 = call fastcc ptr @read_complete_reflog(ptr noundef %61)
   br label %63
@@ -219,13 +219,13 @@ define dso_local range(i32 -1, 1) i32 @add_reflog_for_walk(ptr noundef %0, ptr n
   br label %.split
 
 .split:                                           ; preds = %63, %.split73
-  call void @free(ptr noundef %.3) #12
+  call void @free(ptr noundef %.3) #13
   br label %109
 
 .thread.thread:                                   ; preds = %46, %.thread
   %.17191110 = phi ptr [ %.272, %.thread ], [ %45, %46 ]
   %.293109 = phi ptr [ %.3, %.thread ], [ %.169, %46 ]
-  %65 = call ptr @string_list_insert(ptr noundef nonnull %31, ptr noundef %.293109) #12
+  %65 = call ptr @string_list_insert(ptr noundef nonnull %31, ptr noundef %.293109) #13
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store ptr %.17191110, ptr %66, align 8, !tbaa !24
   br label %67
@@ -233,8 +233,8 @@ define dso_local range(i32 -1, 1) i32 @add_reflog_for_walk(ptr noundef %0, ptr n
 67:                                               ; preds = %.thread.thread, %33
   %.070 = phi ptr [ %35, %33 ], [ %.17191110, %.thread.thread ]
   %.068 = phi ptr [ %11, %33 ], [ %.293109, %.thread.thread ]
-  call void @free(ptr noundef %.068) #12
-  %68 = call ptr @xcalloc(i64 noundef 1, i64 noundef 16) #12
+  call void @free(ptr noundef %.068) #13
+  %68 = call ptr @xcalloc(i64 noundef 1, i64 noundef 16) #13
   %69 = icmp slt i32 %.167, 0
   %70 = getelementptr inbounds nuw i8, ptr %.070, i64 24
   %71 = load i32, ptr %70, align 8, !tbaa !28
@@ -268,7 +268,7 @@ get_reflog_recno_by_time.exit:                    ; preds = %78
   br i1 %84, label %get_reflog_recno_by_time.exit.thread, label %88
 
 get_reflog_recno_by_time.exit.thread:             ; preds = %75, %get_reflog_recno_by_time.exit
-  call void @free(ptr noundef nonnull %68) #12
+  call void @free(ptr noundef nonnull %68) #13
   br label %109
 
 85:                                               ; preds = %67
@@ -304,13 +304,13 @@ get_reflog_recno_by_time.exit.thread:             ; preds = %75, %get_reflog_rec
   br i1 %mul.ov.i, label %101, label %st_mult.exit
 
 101:                                              ; preds = %97
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.9, i64 noundef 8, i64 noundef %.) #14
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.9, i64 noundef 8, i64 noundef %.) #15
   unreachable
 
 st_mult.exit:                                     ; preds = %97
   %102 = load ptr, ptr %0, align 8, !tbaa !17
   %103 = shl nuw i64 %., 3
-  %104 = call ptr @xrealloc(ptr noundef %102, i64 noundef %103) #12
+  %104 = call ptr @xrealloc(ptr noundef %102, i64 noundef %103) #13
   store ptr %104, ptr %0, align 8, !tbaa !17
   %.pre96 = load i64, ptr %91, align 8, !tbaa !9
   %.pre97 = add i64 %.pre96, 1
@@ -331,15 +331,15 @@ st_mult.exit:                                     ; preds = %97
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @die(ptr noundef, ...) local_unnamed_addr #4
+declare void @die(ptr noundef, ...) local_unnamed_addr #5
 
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 declare i64 @approxidate_careful(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -351,12 +351,12 @@ declare ptr @get_main_ref_store(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @read_complete_reflog(ptr noundef %0) unnamed_addr #0 {
-  %2 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 32) #12
-  %3 = tail call ptr @xstrdup(ptr noundef %0) #12
+  %2 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 32) #13
+  %3 = tail call ptr @xstrdup(ptr noundef %0) #13
   store ptr %3, ptr %2, align 8, !tbaa !42
   %4 = load ptr, ptr @the_repository, align 8, !tbaa !26
-  %5 = tail call ptr @get_main_ref_store(ptr noundef %4) #12
-  %6 = tail call i32 @refs_for_each_reflog_ent(ptr noundef %5, ptr noundef %0, ptr noundef nonnull @read_one_reflog, ptr noundef nonnull %2) #12
+  %5 = tail call ptr @get_main_ref_store(ptr noundef %4) #13
+  %6 = tail call i32 @refs_for_each_reflog_ent(ptr noundef %5, ptr noundef %0, ptr noundef nonnull @read_one_reflog, ptr noundef nonnull %2) #13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %8 = load i32, ptr %7, align 8, !tbaa !28
   %9 = icmp eq i32 %8, 0
@@ -364,16 +364,16 @@ define internal fastcc ptr @read_complete_reflog(ptr noundef %0) unnamed_addr #0
 
 10:                                               ; preds = %1
   %11 = load ptr, ptr @the_repository, align 8, !tbaa !26
-  %12 = tail call ptr @get_main_ref_store(ptr noundef %11) #12
-  %13 = tail call ptr @refs_resolve_refdup(ptr noundef %12, ptr noundef %0, i32 noundef 1, ptr noundef null, ptr noundef null) #12
+  %12 = tail call ptr @get_main_ref_store(ptr noundef %11) #13
+  %13 = tail call ptr @refs_resolve_refdup(ptr noundef %12, ptr noundef %0, i32 noundef 1, ptr noundef null, ptr noundef null) #13
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %18, label %14
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr @the_repository, align 8, !tbaa !26
-  %16 = tail call ptr @get_main_ref_store(ptr noundef %15) #12
-  %17 = tail call i32 @refs_for_each_reflog_ent(ptr noundef %16, ptr noundef nonnull %13, ptr noundef nonnull @read_one_reflog, ptr noundef nonnull %2) #12
-  tail call void @free(ptr noundef nonnull %13) #12
+  %16 = tail call ptr @get_main_ref_store(ptr noundef %15) #13
+  %17 = tail call i32 @refs_for_each_reflog_ent(ptr noundef %16, ptr noundef nonnull %13, ptr noundef nonnull @read_one_reflog, ptr noundef nonnull %2) #13
+  tail call void @free(ptr noundef nonnull %13) #13
   br label %18
 
 18:                                               ; preds = %10, %14
@@ -382,25 +382,25 @@ define internal fastcc ptr @read_complete_reflog(ptr noundef %0) unnamed_addr #0
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %18
-  %21 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.7, ptr noundef %0) #12
+  %21 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.7, ptr noundef %0) #13
   %22 = load ptr, ptr @the_repository, align 8, !tbaa !26
-  %23 = tail call ptr @get_main_ref_store(ptr noundef %22) #12
-  %24 = tail call i32 @refs_for_each_reflog_ent(ptr noundef %23, ptr noundef %21, ptr noundef nonnull @read_one_reflog, ptr noundef nonnull %2) #12
+  %23 = tail call ptr @get_main_ref_store(ptr noundef %22) #13
+  %24 = tail call i32 @refs_for_each_reflog_ent(ptr noundef %23, ptr noundef %21, ptr noundef nonnull @read_one_reflog, ptr noundef nonnull %2) #13
   %25 = load i32, ptr %7, align 8, !tbaa !28
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %20
-  tail call void @free(ptr noundef %21) #12
-  %28 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.8, ptr noundef %0) #12
+  tail call void @free(ptr noundef %21) #13
+  %28 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.8, ptr noundef %0) #13
   %29 = load ptr, ptr @the_repository, align 8, !tbaa !26
-  %30 = tail call ptr @get_main_ref_store(ptr noundef %29) #12
-  %31 = tail call i32 @refs_for_each_reflog_ent(ptr noundef %30, ptr noundef %28, ptr noundef nonnull @read_one_reflog, ptr noundef nonnull %2) #12
+  %30 = tail call ptr @get_main_ref_store(ptr noundef %29) #13
+  %31 = tail call i32 @refs_for_each_reflog_ent(ptr noundef %30, ptr noundef %28, ptr noundef nonnull @read_one_reflog, ptr noundef nonnull %2) #13
   br label %32
 
 32:                                               ; preds = %27, %20
   %.0 = phi ptr [ %28, %27 ], [ %21, %20 ]
-  tail call void @free(ptr noundef %.0) #12
+  tail call void @free(ptr noundef %.0) #13
   br label %.thread
 
 .thread:                                          ; preds = %1, %32, %18
@@ -410,10 +410,10 @@ define internal fastcc ptr @read_complete_reflog(ptr noundef %0) unnamed_addr #0
 declare i32 @repo_dwim_log(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
-; Function Attrs: nounwind uwtable
-define internal fastcc void @free_complete_reflog(ptr noundef captures(address_is_null) %0) unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc void @free_complete_reflog(ptr noundef captures(address_is_null) %0) unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %23, label %.preheader
 
@@ -433,12 +433,12 @@ define internal fastcc void @free_complete_reflog(ptr noundef captures(address_i
   %8 = getelementptr inbounds nuw %struct.reflog_info, ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %10 = load ptr, ptr %9, align 8, !tbaa !43
-  tail call void @free(ptr noundef %10) #12
+  tail call void @free(ptr noundef %10) #13
   %11 = load ptr, ptr %5, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw %struct.reflog_info, ptr %11, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load ptr, ptr %13, align 8, !tbaa !44
-  tail call void @free(ptr noundef %14) #12
+  tail call void @free(ptr noundef %14) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load i32, ptr %2, align 8, !tbaa !28
   %16 = sext i32 %15 to i64
@@ -448,13 +448,13 @@ define internal fastcc void @free_complete_reflog(ptr noundef captures(address_i
 ._crit_edge:                                      ; preds = %6, %.preheader
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !31
-  tail call void @free(ptr noundef %19) #12
+  tail call void @free(ptr noundef %19) #13
   %20 = load ptr, ptr %0, align 8, !tbaa !42
-  tail call void @free(ptr noundef %20) #12
+  tail call void @free(ptr noundef %20) #13
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !46
-  tail call void @free(ptr noundef %22) #12
-  tail call void @free(ptr noundef nonnull %0) #12
+  tail call void @free(ptr noundef %22) #13
+  tail call void @free(ptr noundef nonnull %0) #13
   br label %23
 
 23:                                               ; preds = %1, %._crit_edge
@@ -486,10 +486,10 @@ define dso_local void @get_reflog_selector(ptr noundef %0, ptr noundef readonly 
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr @the_repository, align 8, !tbaa !26
-  %17 = tail call ptr @get_main_ref_store(ptr noundef %16) #12
+  %17 = tail call ptr @get_main_ref_store(ptr noundef %16) #13
   %18 = load ptr, ptr %10, align 8, !tbaa !40
   %19 = load ptr, ptr %18, align 8, !tbaa !42
-  %20 = tail call ptr @refs_shorten_unambiguous_ref(ptr noundef %17, ptr noundef %19, i32 noundef 0) #12
+  %20 = tail call ptr @refs_shorten_unambiguous_ref(ptr noundef %17, ptr noundef %19, i32 noundef 0) #13
   %21 = load ptr, ptr %10, align 8, !tbaa !40
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %20, ptr %22, align 8, !tbaa !46
@@ -501,7 +501,7 @@ define dso_local void @get_reflog_selector(ptr noundef %0, ptr noundef readonly 
 
 24:                                               ; preds = %12, %15, %23
   %.0 = phi ptr [ %.0.pre, %23 ], [ %20, %15 ], [ %14, %12 ]
-  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %.0) #12
+  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %.0) #13
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %26 = load i32, ptr %25, align 4, !tbaa !39
   %27 = icmp eq i32 %26, 2
@@ -525,9 +525,9 @@ define dso_local void @get_reflog_selector(ptr noundef %0, ptr noundef readonly 
   %40 = load i64, ptr %39, align 8, !tbaa !32
   %41 = getelementptr i8, ptr %38, i64 192
   %42 = load i32, ptr %41, align 8, !tbaa !48
-  %43 = tail call ptr @show_date(i64 noundef %40, i32 noundef %42, i64 %2, ptr %3) #12
-  %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #13
-  tail call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %43, i64 noundef %44) #12
+  %43 = tail call ptr @show_date(i64 noundef %40, i32 noundef %42, i64 %2, ptr %3) #13
+  %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #14
+  tail call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %43, i64 noundef %44) #13
   br label %53
 
 45:                                               ; preds = %28
@@ -538,7 +538,7 @@ define dso_local void @get_reflog_selector(ptr noundef %0, ptr noundef readonly 
   %50 = add nsw i32 %49, -2
   %51 = load i32, ptr %8, align 8, !tbaa !36
   %52 = sub i32 %50, %51
-  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef %52) #12
+  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef %52) #13
   br label %53
 
 53:                                               ; preds = %45, %31
@@ -554,7 +554,7 @@ strbuf_avail.exit.i:                              ; preds = %53
   br i1 %.not.i, label %strbuf_avail.exit.thread.i, label %strbuf_addch.exit
 
 strbuf_avail.exit.thread.i:                       ; preds = %strbuf_avail.exit.i, %53
-  tail call void @strbuf_grow(ptr noundef nonnull %0, i64 noundef 1) #12
+  tail call void @strbuf_grow(ptr noundef nonnull %0, i64 noundef 1) #13
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !51
   %.pre7.i = add i64 %.pre.i, 1
@@ -602,9 +602,9 @@ define dso_local void @get_reflog_message(ptr noundef %0, ptr noundef readonly c
   %12 = getelementptr %struct.reflog_info, ptr %9, i64 %11
   %13 = getelementptr i8, ptr %12, i64 200
   %14 = load ptr, ptr %13, align 8, !tbaa !44
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #13
+  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #14
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %15, i64 1)
-  tail call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %14, i64 noundef %spec.select) #12
+  tail call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %14, i64 noundef %spec.select) #13
   br label %16
 
 16:                                               ; preds = %2, %5
@@ -613,8 +613,8 @@ define dso_local void @get_reflog_message(ptr noundef %0, ptr noundef readonly c
 
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @get_reflog_ident(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define dso_local ptr @get_reflog_ident(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !47
   %.not = icmp eq ptr %3, null
@@ -637,8 +637,8 @@ define dso_local ptr @get_reflog_ident(ptr noundef readonly captures(none) %0) l
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @get_reflog_timestamp(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define dso_local i64 @get_reflog_timestamp(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !47
   %.not = icmp eq ptr %3, null
@@ -704,7 +704,7 @@ define dso_local void @show_reflog_message(ptr noundef readonly captures(address
   br label %30
 
 30:                                               ; preds = %24, %20
-  call void @strbuf_release(ptr noundef nonnull %6) #12
+  call void @strbuf_release(ptr noundef nonnull %6) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %31
 
@@ -713,15 +713,15 @@ define dso_local void @show_reflog_message(ptr noundef readonly captures(address
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #8
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @reflog_walk_empty(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
+define dso_local range(i32 0, 2) i32 @reflog_walk_empty(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -768,7 +768,7 @@ define dso_local ptr @next_reflog_entry(ptr noundef captures(none) %0) local_unn
   %15 = getelementptr inbounds nuw %struct.reflog_info, ptr %13, i64 %14
   %16 = load ptr, ptr @the_repository, align 8, !tbaa !26
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 36
-  %18 = tail call ptr @parse_object(ptr noundef %16, ptr noundef nonnull %17) #12
+  %18 = tail call ptr @parse_object(ptr noundef %16, ptr noundef nonnull %17) #13
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %23, label %19
 
@@ -866,14 +866,14 @@ define internal noundef i32 @read_one_reflog(ptr noundef readonly captures(none)
   br i1 %mul.ov.i, label %18, label %st_mult.exit
 
 18:                                               ; preds = %12
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.9, i64 noundef 104, i64 noundef %17) #14
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.9, i64 noundef 104, i64 noundef %17) #15
   unreachable
 
 st_mult.exit:                                     ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !31
   %21 = mul nuw nsw i64 %17, 104
-  %22 = tail call ptr @xrealloc(ptr noundef %20, i64 noundef %21) #12
+  %22 = tail call ptr @xrealloc(ptr noundef %20, i64 noundef %21) #13
   store ptr %22, ptr %19, align 8, !tbaa !31
   %.pre29 = load i32, ptr %8, align 8, !tbaa !28
   br label %23
@@ -894,14 +894,14 @@ st_mult.exit:                                     ; preds = %12
   %33 = load i32, ptr %32, align 4, !tbaa !56
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 68
   store i32 %33, ptr %34, align 4, !tbaa !56
-  %35 = tail call ptr @xstrdup(ptr noundef %2) #12
+  %35 = tail call ptr @xstrdup(ptr noundef %2) #13
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 72
   store ptr %35, ptr %36, align 8, !tbaa !43
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 80
   store i64 %3, ptr %37, align 8, !tbaa !32
   %38 = getelementptr inbounds nuw i8, ptr %27, i64 88
   store i32 %4, ptr %38, align 8, !tbaa !48
-  %39 = tail call ptr @xstrdup(ptr noundef %5) #12
+  %39 = tail call ptr @xstrdup(ptr noundef %5) #13
   %40 = getelementptr inbounds nuw i8, ptr %27, i64 96
   store ptr %39, ptr %40, align 8, !tbaa !44
   %41 = load i32, ptr %8, align 8, !tbaa !28
@@ -917,35 +917,36 @@ declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @parse_object(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
+declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #11
+declare i64 @llvm.umax.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #11
+declare i64 @llvm.usub.sat.i64(i64, i64) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind willreturn memory(read) }
-attributes #14 = { noreturn nounwind }
+attributes #3 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind willreturn memory(read) }
+attributes #15 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

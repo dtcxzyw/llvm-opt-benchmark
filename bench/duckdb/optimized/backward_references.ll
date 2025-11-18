@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.duckdb_brotli::BankH42" = type { [512 x %"struct.duckdb_brotli::SlotH42"] }
 %"struct.duckdb_brotli::SlotH42" = type { i16, i16 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN13duckdb_brotli30BrotliCreateBackwardReferencesEmmPKhmS1_PK19BrotliEncoderParamsPNS_6HasherEPiPmPNS_7CommandES8_S8_(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) local_unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %14 = load i64, ptr %13, align 8, !tbaa !3
@@ -129,7 +129,7 @@ define void @_ZN13duckdb_brotli30BrotliCreateBackwardReferencesEmmPKhmS1_PK19Bro
   ret void
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZL27CreateBackwardReferencesDH5mmPKhmS0_PK19BrotliEncoderParamsPN13duckdb_brotli6HasherEPiPmPNS4_7CommandES8_S8_(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) unnamed_addr #1 {
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !27
@@ -2583,7 +2583,7 @@ _ZN13duckdb_brotliL12StoreRangeH5EPNS_2H5EPKhmmm.exit: ; preds = %1257, %1230, %
   ret void
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZL27CreateBackwardReferencesDH6mmPKhmS0_PK19BrotliEncoderParamsPN13duckdb_brotli6HasherEPiPmPNS4_7CommandES8_S8_(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) unnamed_addr #1 {
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !27
@@ -5042,7 +5042,7 @@ _ZN13duckdb_brotliL12StoreRangeH6EPNS_2H6EPKhmmm.exit: ; preds = %1258, %1233, %
   ret void
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZL28CreateBackwardReferencesDH40mmPKhmS0_PK19BrotliEncoderParamsPN13duckdb_brotli6HasherEPiPmPNS4_7CommandES8_S8_(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) unnamed_addr #1 {
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -7420,7 +7420,7 @@ _ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit: ; preds = %_ZN13duckdb_
   ret void
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZL28CreateBackwardReferencesDH41mmPKhmS0_PK19BrotliEncoderParamsPN13duckdb_brotli6HasherEPiPmPNS4_7CommandES8_S8_(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) initializes((16, 40)) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) unnamed_addr #1 {
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -9829,7 +9829,7 @@ _ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit: ; preds = %_ZN13duckdb_
   ret void
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZL28CreateBackwardReferencesDH42mmPKhmS0_PK19BrotliEncoderParamsPN13duckdb_brotli6HasherEPiPmPNS4_7CommandES8_S8_(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) initializes((16, 64)) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) unnamed_addr #1 {
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -12278,7 +12278,7 @@ _ZN13duckdb_brotliL13StoreRangeH42EPNS_3H42EPKhmmm.exit: ; preds = %1251, %1214,
   ret void
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZL28CreateBackwardReferencesDH55mmPKhmS0_PK19BrotliEncoderParamsPN13duckdb_brotli6HasherEPiPmPNS4_7CommandES8_S8_(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef %8, ptr noundef captures(none) %9, ptr noundef captures(none) %10) unnamed_addr #1 {
   %12 = alloca [4 x i64], align 16
   %13 = alloca [4 x i64], align 16
@@ -14333,7 +14333,7 @@ _ZN13duckdb_brotliL13StoreRangeH54EPNS_3H54EPKhmmm.exit: ; preds = %.lr.ph686, %
   ret void
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZL28CreateBackwardReferencesDH65mmPKhmS0_PK19BrotliEncoderParamsPN13duckdb_brotli6HasherEPiPmPNS4_7CommandES8_S8_(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) unnamed_addr #1 {
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !27
@@ -17152,7 +17152,7 @@ _ZN13duckdb_brotliL13StoreRangeH65EPNS_3H65EPKhmmm.exit: ; preds = %1408, %1383,
   ret void
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZL27CreateBackwardReferencesNH2mmPKhmS0_PK19BrotliEncoderParamsPN13duckdb_brotli6HasherEPiPmPNS4_7CommandES8_S8_(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) unnamed_addr #1 {
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -18435,7 +18435,7 @@ _ZN13duckdb_brotliL12StoreRangeH2EPNS_2H2EPKhmmm.exit: ; preds = %.lr.ph457, %.l
   ret void
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZL27CreateBackwardReferencesNH3mmPKhmS0_PK19BrotliEncoderParamsPN13duckdb_brotli6HasherEPiPmPNS4_7CommandES8_S8_(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef %8, ptr noundef captures(none) %9, ptr noundef captures(none) %10) unnamed_addr #1 {
   %12 = alloca [2 x i64], align 16
   %13 = alloca [2 x i64], align 16
@@ -19421,7 +19421,7 @@ _ZN13duckdb_brotliL12StoreRangeH3EPNS_2H3EPKhmmm.exit: ; preds = %.lr.ph385, %.l
   ret void
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZL27CreateBackwardReferencesNH4mmPKhmS0_PK19BrotliEncoderParamsPN13duckdb_brotli6HasherEPiPmPNS4_7CommandES8_S8_(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) unnamed_addr #1 {
   %13 = alloca [4 x i64], align 16
   %14 = alloca [4 x i64], align 16
@@ -20839,7 +20839,7 @@ _ZN13duckdb_brotliL12StoreRangeH4EPNS_2H4EPKhmmm.exit: ; preds = %.lr.ph531, %.l
   ret void
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZL27CreateBackwardReferencesNH5mmPKhmS0_PK19BrotliEncoderParamsPN13duckdb_brotli6HasherEPiPmPNS4_7CommandES8_S8_(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) unnamed_addr #1 {
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !27
@@ -22584,7 +22584,7 @@ _ZN13duckdb_brotliL12StoreRangeH5EPNS_2H5EPKhmmm.exit: ; preds = %868, %926, %89
   ret void
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZL27CreateBackwardReferencesNH6mmPKhmS0_PK19BrotliEncoderParamsPN13duckdb_brotli6HasherEPiPmPNS4_7CommandES8_S8_(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) unnamed_addr #1 {
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !27
@@ -24334,7 +24334,7 @@ _ZN13duckdb_brotliL12StoreRangeH6EPNS_2H6EPKhmmm.exit: ; preds = %873, %927, %90
   ret void
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZL28CreateBackwardReferencesNH40mmPKhmS0_PK19BrotliEncoderParamsPN13duckdb_brotli6HasherEPiPmPNS4_7CommandES8_S8_(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) unnamed_addr #1 {
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -25999,7 +25999,7 @@ _ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit: ; preds = %_ZN13duckdb_
   ret void
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZL28CreateBackwardReferencesNH41mmPKhmS0_PK19BrotliEncoderParamsPN13duckdb_brotli6HasherEPiPmPNS4_7CommandES8_S8_(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) initializes((16, 40)) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) unnamed_addr #1 {
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -27695,7 +27695,7 @@ _ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit: ; preds = %_ZN13duckdb_
   ret void
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZL28CreateBackwardReferencesNH42mmPKhmS0_PK19BrotliEncoderParamsPN13duckdb_brotli6HasherEPiPmPNS4_7CommandES8_S8_(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) initializes((16, 64)) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) unnamed_addr #1 {
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -29431,7 +29431,7 @@ _ZN13duckdb_brotliL13StoreRangeH42EPNS_3H42EPKhmmm.exit: ; preds = %839, %917, %
   ret void
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZL28CreateBackwardReferencesNH54mmPKhmS0_PK19BrotliEncoderParamsPN13duckdb_brotli6HasherEPiPmPNS4_7CommandES8_S8_(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef %8, ptr noundef captures(none) %9, ptr noundef captures(none) %10) unnamed_addr #1 {
   %12 = alloca [4 x i64], align 16
   %13 = alloca [4 x i64], align 16
@@ -30437,7 +30437,7 @@ _ZN13duckdb_brotliL13StoreRangeH54EPNS_3H54EPKhmmm.exit: ; preds = %.lr.ph385, %
   ret void
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZL28CreateBackwardReferencesNH35mmPKhmS0_PK19BrotliEncoderParamsPN13duckdb_brotli6HasherEPiPmPNS4_7CommandES8_S8_(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef %8, ptr noundef captures(none) %9, ptr noundef captures(none) %10) unnamed_addr #1 {
   %12 = alloca [2 x i64], align 16
   %13 = alloca [2 x i64], align 16
@@ -31777,7 +31777,7 @@ _ZN13duckdb_brotliL13StoreRangeH35EPNS_3H35EPKhmmm.exit: ; preds = %.lr.ph461, %
   ret void
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZL28CreateBackwardReferencesNH55mmPKhmS0_PK19BrotliEncoderParamsPN13duckdb_brotli6HasherEPiPmPNS4_7CommandES8_S8_(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef %8, ptr noundef captures(none) %9, ptr noundef captures(none) %10) unnamed_addr #1 {
   %12 = alloca [4 x i64], align 16
   %13 = alloca [4 x i64], align 16
@@ -33128,7 +33128,7 @@ _ZN13duckdb_brotliL13StoreRangeH54EPNS_3H54EPKhmmm.exit: ; preds = %.lr.ph481, %
   ret void
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZL28CreateBackwardReferencesNH65mmPKhmS0_PK19BrotliEncoderParamsPN13duckdb_brotli6HasherEPiPmPNS4_7CommandES8_S8_(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) unnamed_addr #1 {
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !27
@@ -35262,8 +35262,8 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #5
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #4
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree noinline norecurse nosync nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }

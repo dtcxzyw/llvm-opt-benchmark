@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [5 x i8] c"%s =\00", align 1
 @.str.9 = private unnamed_addr constant [11 x i8] c"%9.2f sec\0A\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define i32 @If_ManCutAigDelay_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %1, align 8
   %5 = and i32 %4, 512
@@ -63,11 +63,11 @@ define i32 @If_ManCutAigDelay_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not9.i.i, label %24, label %22
 
 22:                                               ; preds = %19
-  %23 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %21, i64 noundef 128) #20
+  %23 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %21, i64 noundef 128) #21
   br label %Vec_PtrGrow.exit.i
 
 24:                                               ; preds = %19
-  %25 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #21
+  %25 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #22
   br label %Vec_PtrGrow.exit.i
 
 Vec_PtrGrow.exit.i:                               ; preds = %24, %22
@@ -86,11 +86,11 @@ Vec_PtrGrow.exit.i:                               ; preds = %24, %22
   br i1 %.not9.i10.i, label %35, label %33
 
 33:                                               ; preds = %27
-  %34 = tail call ptr @realloc(ptr noundef nonnull %30, i64 noundef %32) #20
+  %34 = tail call ptr @realloc(ptr noundef nonnull %30, i64 noundef %32) #21
   br label %37
 
 35:                                               ; preds = %27
-  %36 = tail call noalias ptr @malloc(i64 noundef %32) #21
+  %36 = tail call noalias ptr @malloc(i64 noundef %32) #22
   br label %37
 
 37:                                               ; preds = %35, %33
@@ -128,7 +128,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %common.ret29
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define i32 @If_ManCutAigDelay(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2176
   %5 = load ptr, ptr %4, align 8, !tbaa !20
@@ -185,11 +185,11 @@ define i32 @If_ManCutAigDelay(ptr noundef %0, ptr noundef %1, ptr noundef readon
   br i1 %.not9.i.i, label %34, label %32
 
 32:                                               ; preds = %29
-  %33 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %31, i64 noundef 128) #20
+  %33 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %31, i64 noundef 128) #21
   br label %Vec_PtrGrow.exit.i
 
 34:                                               ; preds = %29
-  %35 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #21
+  %35 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #22
   br label %Vec_PtrGrow.exit.i
 
 Vec_PtrGrow.exit.i:                               ; preds = %34, %32
@@ -208,11 +208,11 @@ Vec_PtrGrow.exit.i:                               ; preds = %34, %32
   br i1 %.not9.i10.i, label %45, label %43
 
 43:                                               ; preds = %37
-  %44 = tail call ptr @realloc(ptr noundef nonnull %40, i64 noundef %42) #20
+  %44 = tail call ptr @realloc(ptr noundef nonnull %40, i64 noundef %42) #21
   br label %47
 
 45:                                               ; preds = %37
-  %46 = tail call noalias ptr @malloc(i64 noundef %42) #21
+  %46 = tail call noalias ptr @malloc(i64 noundef %42) #22
   br label %47
 
 47:                                               ; preds = %45, %43
@@ -276,7 +276,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   ret i32 %63
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define float @If_CutDelaySpecial(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -324,7 +324,7 @@ define float @If_CutDelaySpecial(ptr noundef readonly captures(none) %0, ptr nou
   ret float %.015.lcssa
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define nonnull ptr @If_CutArrTimeProfile(ptr noundef captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %1, i64 28
   %.val9 = load i64, ptr %3, align 4
@@ -366,7 +366,7 @@ define nonnull ptr @If_CutArrTimeProfile(ptr noundef captures(ret: address, prov
 }
 
 ; Function Attrs: nounwind uwtable
-define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = alloca [128 x i64], align 16
   %7 = alloca [128 x i64], align 16
   %8 = alloca [64 x i64], align 16
@@ -521,11 +521,11 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
 
 93:                                               ; preds = %90
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %95 = tail call float @If_CutAreaDeref(ptr noundef nonnull %0, ptr noundef nonnull %94) #22
+  %95 = tail call float @If_CutAreaDeref(ptr noundef nonnull %0, ptr noundef nonnull %94) #23
   br label %96
 
 96:                                               ; preds = %85, %93, %90
-  %97 = tail call ptr @If_ManSetupNodeCutSet(ptr noundef nonnull %0, ptr noundef nonnull %1) #22
+  %97 = tail call ptr @If_ManSetupNodeCutSet(ptr noundef nonnull %0, ptr noundef nonnull %1) #23
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %99 = icmp ne i32 %4, 0
   br i1 %99, label %242, label %100
@@ -538,7 +538,7 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not573, label %108, label %104
 
 104:                                              ; preds = %100
-  %105 = tail call i32 @If_CutSopBalanceEval(ptr noundef nonnull %0, ptr noundef nonnull %98, ptr noundef null) #22
+  %105 = tail call i32 @If_CutSopBalanceEval(ptr noundef nonnull %0, ptr noundef nonnull %98, ptr noundef null) #23
   %106 = sitofp i32 %105 to float
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 92
   store float %106, ptr %107, align 4, !tbaa !36
@@ -551,7 +551,7 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not574, label %115, label %111
 
 111:                                              ; preds = %108
-  %112 = tail call i32 @If_CutDsdBalanceEval(ptr noundef nonnull %0, ptr noundef nonnull %98, ptr noundef null) #22
+  %112 = tail call i32 @If_CutDsdBalanceEval(ptr noundef nonnull %0, ptr noundef nonnull %98, ptr noundef null) #23
   %113 = sitofp i32 %112 to float
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 92
   store float %113, ptr %114, align 4, !tbaa !36
@@ -564,7 +564,7 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not575, label %122, label %118
 
 118:                                              ; preds = %115
-  %119 = tail call i32 @If_CutDelayRecCost3(ptr noundef nonnull %0, ptr noundef nonnull %98, ptr noundef nonnull %1) #22
+  %119 = tail call i32 @If_CutDelayRecCost3(ptr noundef nonnull %0, ptr noundef nonnull %98, ptr noundef nonnull %1) #23
   %120 = sitofp i32 %119 to float
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 92
   store float %120, ptr %121, align 4, !tbaa !36
@@ -594,7 +594,7 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
   %136 = and i64 %135, 255
   %137 = getelementptr inbounds nuw i32, ptr %133, i64 %136
   %138 = tail call i32 @If_ManCutAigDelay(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %98)
-  %139 = call i32 @Abc_ExactDelayCost(ptr noundef %129, i32 noundef %131, ptr noundef nonnull %132, ptr noundef nonnull %137, ptr noundef nonnull %11, i32 noundef %138) #22
+  %139 = call i32 @Abc_ExactDelayCost(ptr noundef %129, i32 noundef %131, ptr noundef nonnull %132, ptr noundef nonnull %137, ptr noundef nonnull %11, i32 noundef %138) #23
   %140 = sitofp i32 %139 to float
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 92
   store float %140, ptr %141, align 4, !tbaa !36
@@ -639,7 +639,7 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not578, label %162, label %158
 
 158:                                              ; preds = %155, %152
-  %159 = tail call i32 @If_LutDecReEval(ptr noundef nonnull %0, ptr noundef nonnull %98) #22
+  %159 = tail call i32 @If_LutDecReEval(ptr noundef nonnull %0, ptr noundef nonnull %98) #23
   %160 = sitofp i32 %159 to float
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 92
   store float %160, ptr %161, align 4, !tbaa !36
@@ -652,7 +652,7 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not579, label %169, label %165
 
 165:                                              ; preds = %162
-  %166 = tail call i32 @If_CutLutBalanceEval(ptr noundef nonnull %0, ptr noundef nonnull %98) #22
+  %166 = tail call i32 @If_CutLutBalanceEval(ptr noundef nonnull %0, ptr noundef nonnull %98) #23
   %167 = sitofp i32 %166 to float
   %168 = getelementptr inbounds nuw i8, ptr %1, i64 92
   store float %167, ptr %168, align 4, !tbaa !36
@@ -665,14 +665,14 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %172, label %173, label %177
 
 173:                                              ; preds = %169
-  %174 = tail call i32 @If_CutDelaySop(ptr noundef nonnull %0, ptr noundef nonnull %98) #22
+  %174 = tail call i32 @If_CutDelaySop(ptr noundef nonnull %0, ptr noundef nonnull %98) #23
   %175 = sitofp i32 %174 to float
   %176 = getelementptr inbounds nuw i8, ptr %1, i64 92
   store float %175, ptr %176, align 4, !tbaa !36
   br label %180
 
 177:                                              ; preds = %169
-  %178 = tail call float @If_CutDelay(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %98) #22
+  %178 = tail call float @If_CutDelay(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %98) #23
   %179 = getelementptr inbounds nuw i8, ptr %1, i64 92
   store float %178, ptr %179, align 4, !tbaa !36
   br label %180
@@ -701,7 +701,7 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %195, label %196, label %.thread808
 
 196:                                              ; preds = %194
-  %197 = call float @If_CutAreaDerefed(ptr noundef nonnull %0, ptr noundef nonnull %98) #22
+  %197 = call float @If_CutAreaDerefed(ptr noundef nonnull %0, ptr noundef nonnull %98) #23
   store float %197, ptr %98, align 4, !tbaa !70
   %198 = load ptr, ptr %13, align 8, !tbaa !43
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 76
@@ -710,7 +710,7 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not580, label %.thread837, label %205
 
 .thread808:                                       ; preds = %194
-  %201 = call float @If_CutAreaFlow(ptr noundef nonnull %0, ptr noundef nonnull %98) #22
+  %201 = call float @If_CutAreaFlow(ptr noundef nonnull %0, ptr noundef nonnull %98) #23
   store float %201, ptr %98, align 4, !tbaa !70
   %202 = load ptr, ptr %13, align 8, !tbaa !43
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 76
@@ -719,7 +719,7 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not580809, label %.thread811, label %.thread840
 
 205:                                              ; preds = %196
-  %206 = call float @If_CutEdgeDerefed(ptr noundef nonnull %0, ptr noundef nonnull %98) #22
+  %206 = call float @If_CutEdgeDerefed(ptr noundef nonnull %0, ptr noundef nonnull %98) #23
   %207 = getelementptr inbounds nuw i8, ptr %1, i64 84
   store float %206, ptr %207, align 4, !tbaa !72
   %208 = load ptr, ptr %13, align 8, !tbaa !43
@@ -729,7 +729,7 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not581, label %225, label %.thread839
 
 .thread840:                                       ; preds = %.thread808
-  %211 = call float @If_CutEdgeFlow(ptr noundef nonnull %0, ptr noundef nonnull %98) #22
+  %211 = call float @If_CutEdgeFlow(ptr noundef nonnull %0, ptr noundef nonnull %98) #23
   %212 = getelementptr inbounds nuw i8, ptr %1, i64 84
   store float %211, ptr %212, align 4, !tbaa !72
   %213 = load ptr, ptr %13, align 8, !tbaa !43
@@ -751,11 +751,11 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not581812, label %225, label %.thread813
 
 .thread839:                                       ; preds = %205, %.thread837
-  %220 = call float @If_CutPowerDerefed(ptr noundef nonnull %0, ptr noundef nonnull %98, ptr noundef nonnull %1) #22
+  %220 = call float @If_CutPowerDerefed(ptr noundef nonnull %0, ptr noundef nonnull %98, ptr noundef nonnull %1) #23
   br label %222
 
 .thread813:                                       ; preds = %.thread840, %.thread811
-  %221 = call float @If_CutPowerFlow(ptr noundef nonnull %0, ptr noundef nonnull %98, ptr noundef nonnull %1) #22
+  %221 = call float @If_CutPowerFlow(ptr noundef nonnull %0, ptr noundef nonnull %98, ptr noundef nonnull %1) #23
   br label %222
 
 222:                                              ; preds = %.thread813, %.thread839
@@ -953,12 +953,12 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
   %.0528.ph = phi i32 [ %346, %364 ], [ %357, %367 ], [ %346, %360 ]
   %.0527.ph = phi ptr [ %303, %364 ], [ %288, %367 ], [ %303, %360 ]
   %.0.ph = phi ptr [ %288, %364 ], [ %303, %367 ], [ %288, %360 ]
-  %369 = call i32 @If_CutMerge(ptr noundef nonnull %0, ptr noundef nonnull %.0.ph, ptr noundef nonnull %.0527.ph, ptr noundef %309) #22
+  %369 = call i32 @If_CutMerge(ptr noundef nonnull %0, ptr noundef nonnull %.0.ph, ptr noundef nonnull %.0527.ph, ptr noundef %309) #23
   %.not594 = icmp eq i32 %369, 0
   br i1 %.not594, label %.thread828, label %372
 
 370:                                              ; preds = %336
-  %371 = call i32 @If_CutMergeOrdered(ptr noundef nonnull %0, ptr noundef nonnull %288, ptr noundef nonnull %303, ptr noundef %309) #22
+  %371 = call i32 @If_CutMergeOrdered(ptr noundef nonnull %0, ptr noundef nonnull %288, ptr noundef nonnull %303, ptr noundef %309) #23
   %.not593 = icmp eq i32 %371, 0
   br i1 %.not593, label %.thread828, label %372
 
@@ -1012,7 +1012,7 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not596, label %402, label %404
 
 402:                                              ; preds = %395
-  %403 = call i32 @If_CutFilter(ptr noundef nonnull %97, ptr noundef %309, i32 noundef %62) #22
+  %403 = call i32 @If_CutFilter(ptr noundef nonnull %97, ptr noundef %309, i32 noundef %62) #23
   %.not597 = icmp eq i32 %403, 0
   br i1 %.not597, label %404, label %.thread828
 
@@ -1065,7 +1065,7 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
 
 434:                                              ; preds = %431
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %435 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #22
+  %435 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #23
   %436 = icmp slt i32 %435, 0
   br i1 %436, label %Abc_Clock.exit, label %437
 
@@ -1092,7 +1092,7 @@ Abc_Clock.exit:                                   ; preds = %434, %437
   br i1 %.not601, label %446, label %444
 
 444:                                              ; preds = %440
-  %445 = call i32 @If_CutComputeTruthPerm(ptr noundef nonnull %0, ptr noundef nonnull %309, ptr noundef nonnull %.0827, ptr noundef nonnull %.0527825, i32 noundef %.0528822, i32 noundef %.0529820) #22
+  %445 = call i32 @If_CutComputeTruthPerm(ptr noundef nonnull %0, ptr noundef nonnull %309, ptr noundef nonnull %.0827, ptr noundef nonnull %.0527825, i32 noundef %.0528822, i32 noundef %.0529820) #23
   br label %453
 
 446:                                              ; preds = %440
@@ -1101,7 +1101,7 @@ Abc_Clock.exit:                                   ; preds = %434, %437
   %449 = and i32 %448, 1
   %450 = lshr i32 %447, 5
   %451 = and i32 %450, 1
-  %452 = call i32 @If_CutComputeTruth(ptr noundef nonnull %0, ptr noundef nonnull %309, ptr noundef nonnull %288, ptr noundef nonnull %303, i32 noundef %449, i32 noundef %451) #22
+  %452 = call i32 @If_CutComputeTruth(ptr noundef nonnull %0, ptr noundef nonnull %309, ptr noundef nonnull %288, ptr noundef nonnull %303, i32 noundef %449, i32 noundef %451) #23
   br label %453
 
 453:                                              ; preds = %446, %444
@@ -1114,7 +1114,7 @@ Abc_Clock.exit:                                   ; preds = %434, %437
 
 457:                                              ; preds = %453
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %458 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #22
+  %458 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #23
   %459 = icmp slt i32 %458, 0
   br i1 %459, label %Abc_Clock.exit687, label %460
 
@@ -1146,7 +1146,7 @@ Abc_Clock.exit687:                                ; preds = %457, %460
   br i1 %or.cond5, label %475, label %477
 
 475:                                              ; preds = %469
-  %476 = call i32 @If_CutFilter(ptr noundef nonnull %97, ptr noundef nonnull %309, i32 noundef %62) #22
+  %476 = call i32 @If_CutFilter(ptr noundef nonnull %97, ptr noundef nonnull %309, i32 noundef %62) #23
   %.not603 = icmp eq i32 %476, 0
   br i1 %.not603, label %._crit_edge955, label %.thread828
 
@@ -1166,7 +1166,7 @@ Abc_Clock.exit687:                                ; preds = %457, %460
   br i1 %or.cond1075, label %482, label %484
 
 482:                                              ; preds = %477
-  %483 = call i32 @If_CutCheckTruth6(ptr noundef nonnull %0, ptr noundef nonnull %309) #22
+  %483 = call i32 @If_CutCheckTruth6(ptr noundef nonnull %0, ptr noundef nonnull %309) #23
   %.not606 = icmp eq i32 %483, 0
   br i1 %.not606, label %.thread828, label %._crit_edge957
 
@@ -1238,11 +1238,11 @@ Abc_Clock.exit687:                                ; preds = %457, %460
   br i1 %.not9.i.i, label %518, label %516
 
 516:                                              ; preds = %513
-  %517 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %515, i64 noundef 64) #20
+  %517 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %515, i64 noundef 64) #21
   br label %Vec_IntGrow.exit.i
 
 518:                                              ; preds = %513
-  %519 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #21
+  %519 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #22
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %518, %516
@@ -1261,11 +1261,11 @@ Vec_IntGrow.exit.i:                               ; preds = %518, %516
   br i1 %.not9.i9.i, label %529, label %527
 
 527:                                              ; preds = %521
-  %528 = call ptr @realloc(ptr noundef nonnull %524, i64 noundef %526) #20
+  %528 = call ptr @realloc(ptr noundef nonnull %524, i64 noundef %526) #21
   br label %531
 
 529:                                              ; preds = %521
-  %530 = call noalias ptr @malloc(i64 noundef %526) #21
+  %530 = call noalias ptr @malloc(i64 noundef %526) #22
   br label %531
 
 531:                                              ; preds = %529, %527
@@ -1314,11 +1314,11 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %.not9.i.i691, label %556, label %554
 
 554:                                              ; preds = %551
-  %555 = call dereferenceable_or_null(16) ptr @realloc(ptr noundef nonnull %553, i64 noundef 16) #20
+  %555 = call dereferenceable_or_null(16) ptr @realloc(ptr noundef nonnull %553, i64 noundef 16) #21
   br label %Vec_StrGrow.exit.i
 
 556:                                              ; preds = %551
-  %557 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
+  %557 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
   br label %Vec_StrGrow.exit.i
 
 Vec_StrGrow.exit.i:                               ; preds = %556, %554
@@ -1336,11 +1336,11 @@ Vec_StrGrow.exit.i:                               ; preds = %556, %554
   br i1 %.not9.i9.i690, label %566, label %564
 
 564:                                              ; preds = %559
-  %565 = call ptr @realloc(ptr noundef nonnull %562, i64 noundef %563) #20
+  %565 = call ptr @realloc(ptr noundef nonnull %562, i64 noundef %563) #21
   br label %568
 
 566:                                              ; preds = %559
-  %567 = call noalias ptr @malloc(i64 noundef %563) #21
+  %567 = call noalias ptr @malloc(i64 noundef %563) #22
   br label %568
 
 568:                                              ; preds = %566, %564
@@ -1413,7 +1413,7 @@ If_CutTruthWR.exit:                               ; preds = %._crit_edge876, %58
   %610 = load ptr, ptr %13, align 8, !tbaa !43
   %611 = getelementptr inbounds nuw i8, ptr %610, i64 200
   %612 = load ptr, ptr %611, align 8, !tbaa !58
-  %613 = call i32 @If_DsdManCompute(ptr noundef %581, ptr noundef %600, i32 noundef %602, ptr noundef %609, ptr noundef %612) #22
+  %613 = call i32 @If_DsdManCompute(ptr noundef %581, ptr noundef %600, i32 noundef %602, ptr noundef %609, ptr noundef %612) #23
   %614 = load i64, ptr %424, align 4
   %615 = lshr i64 %614, 24
   %616 = and i64 %615, 255
@@ -1464,7 +1464,7 @@ If_CutTruthWR.exit:                               ; preds = %._crit_edge876, %58
   %644 = load i32, ptr %643, align 4, !tbaa !34
   %645 = and i32 %.val669, 1
   %646 = xor i32 %644, %645
-  %647 = call i32 @If_DsdManCheckDec(ptr noundef %635, i32 noundef %646) #22
+  %647 = call i32 @If_DsdManCheckDec(ptr noundef %635, i32 noundef %646) #23
   %648 = shl i32 %647, 14
   %649 = and i32 %648, 16384
   %650 = zext nneg i32 %649 to i64
@@ -1553,7 +1553,7 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
   %689 = load i64, ptr %424, align 4
   %690 = trunc i64 %689 to i32
   %691 = lshr i32 %690, 24
-  %692 = call i32 %653(ptr noundef nonnull %0, ptr noundef %655, i32 noundef %691, ptr noundef null, ptr noundef null) #22
+  %692 = call i32 %653(ptr noundef nonnull %0, ptr noundef %655, i32 noundef %691, ptr noundef null, ptr noundef null) #23
   %.not629 = icmp eq i32 %692, 0
   %693 = select i1 %.not629, i64 16384, i64 0
   br label %737
@@ -1638,7 +1638,7 @@ If_CutTruth.exit:                                 ; preds = %.lr.ph.i.i.i, %.lr.
   %732 = call range(i32 0, -2147483648) i32 @llvm.umax.i32(i32 %731, i32 range(i32 0, -2147483648) 6)
   %733 = getelementptr inbounds nuw i8, ptr %625, i64 200
   %734 = load ptr, ptr %733, align 8, !tbaa !58
-  %735 = call i32 %627(ptr noundef nonnull %0, ptr noundef %695, i32 noundef %732, i32 noundef %731, ptr noundef %734) #22
+  %735 = call i32 %627(ptr noundef nonnull %0, ptr noundef %695, i32 noundef %732, i32 noundef %731, ptr noundef %734) #23
   %.not628 = icmp eq i32 %735, 0
   %736 = select i1 %.not628, i64 16384, i64 0
   br label %737
@@ -1770,7 +1770,7 @@ If_CutTruth.exit711:                              ; preds = %.lr.ph.i.i.i700, %.
   %806 = load i32, ptr %270, align 8, !tbaa !131
   %807 = add nsw i32 %806, 1
   store i32 %807, ptr %270, align 8, !tbaa !131
-  %808 = call i32 @If_CluCheckDecInAny(i64 noundef %805, i32 noundef 5) #22
+  %808 = call i32 @If_CluCheckDecInAny(i64 noundef %805, i32 noundef 5) #23
   %.not637.not = icmp eq i32 %808, 0
   br i1 %.not637.not, label %.thread828, label %809
 
@@ -1869,12 +1869,12 @@ If_CutTruth.exit729:                              ; preds = %.lr.ph.i.i.i718, %.
   %853 = load i32, ptr %270, align 8, !tbaa !131
   %854 = add nsw i32 %853, 1
   store i32 %854, ptr %270, align 8, !tbaa !131
-  %855 = call i32 @If_CluCheckDecInAny(i64 noundef %852, i32 noundef 5) #22
+  %855 = call i32 @If_CluCheckDecInAny(i64 noundef %852, i32 noundef 5) #23
   %.not635 = icmp eq i32 %855, 0
   br i1 %.not635, label %856, label %858
 
 856:                                              ; preds = %If_CutTruth.exit729
-  %857 = call i32 @If_CluCheckDecOut(i64 noundef %852, i32 noundef 5) #22
+  %857 = call i32 @If_CluCheckDecOut(i64 noundef %852, i32 noundef 5) #23
   %.not636 = icmp eq i32 %857, 0
   br i1 %.not636, label %.thread833, label %858
 
@@ -1905,7 +1905,7 @@ If_CutTruth.exit729:                              ; preds = %.lr.ph.i.i.i718, %.
   %874 = load i32, ptr %873, align 4, !tbaa !34
   %875 = and i32 %.val671, 1
   %876 = xor i32 %874, %875
-  %877 = call i32 @If_DsdManReadMark(ptr noundef %865, i32 noundef %876) #22
+  %877 = call i32 @If_DsdManReadMark(ptr noundef %865, i32 noundef %876) #23
   %878 = load i64, ptr %424, align 4
   %879 = shl i32 %877, 14
   %880 = and i32 %879, 16384
@@ -2138,11 +2138,11 @@ Abc_Tt4Check.exit:                                ; preds = %969, %966, %950
   br i1 %.not9.i.i754, label %1008, label %1006
 
 1006:                                             ; preds = %1003
-  %1007 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %1005, i64 noundef 64) #20
+  %1007 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %1005, i64 noundef 64) #21
   br label %Vec_IntGrow.exit.i755
 
 1008:                                             ; preds = %1003
-  %1009 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #21
+  %1009 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #22
   br label %Vec_IntGrow.exit.i755
 
 Vec_IntGrow.exit.i755:                            ; preds = %1008, %1006
@@ -2161,11 +2161,11 @@ Vec_IntGrow.exit.i755:                            ; preds = %1008, %1006
   br i1 %.not9.i9.i753, label %1019, label %1017
 
 1017:                                             ; preds = %1011
-  %1018 = call ptr @realloc(ptr noundef nonnull %1014, i64 noundef %1016) #20
+  %1018 = call ptr @realloc(ptr noundef nonnull %1014, i64 noundef %1016) #21
   br label %1021
 
 1019:                                             ; preds = %1011
-  %1020 = call noalias ptr @malloc(i64 noundef %1016) #21
+  %1020 = call noalias ptr @malloc(i64 noundef %1016) #22
   br label %1021
 
 1021:                                             ; preds = %1019, %1017
@@ -2412,11 +2412,11 @@ Abc_TtProcessBiDec.exit:                          ; preds = %.lr.ph18.preheader.
   br i1 %.not9.i.i771, label %1157, label %1155
 
 1155:                                             ; preds = %1152
-  %1156 = call dereferenceable_or_null(16) ptr @realloc(ptr noundef nonnull %1154, i64 noundef 16) #20
+  %1156 = call dereferenceable_or_null(16) ptr @realloc(ptr noundef nonnull %1154, i64 noundef 16) #21
   br label %Vec_StrGrow.exit.i772
 
 1157:                                             ; preds = %1152
-  %1158 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
+  %1158 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
   br label %Vec_StrGrow.exit.i772
 
 Vec_StrGrow.exit.i772:                            ; preds = %1157, %1155
@@ -2434,11 +2434,11 @@ Vec_StrGrow.exit.i772:                            ; preds = %1157, %1155
   br i1 %.not9.i9.i770, label %1167, label %1165
 
 1165:                                             ; preds = %1160
-  %1166 = call ptr @realloc(ptr noundef nonnull %1163, i64 noundef %1164) #20
+  %1166 = call ptr @realloc(ptr noundef nonnull %1163, i64 noundef %1164) #21
   br label %1169
 
 1167:                                             ; preds = %1160
-  %1168 = call noalias ptr @malloc(i64 noundef %1164) #21
+  %1168 = call noalias ptr @malloc(i64 noundef %1164) #22
   br label %1169
 
 1169:                                             ; preds = %1167, %1165
@@ -2955,7 +2955,7 @@ Abc_TtCheckCondDep.exit:                          ; preds = %1367, %If_CutTruthW
   br label %1427
 
 1419:                                             ; preds = %.thread833
-  %1420 = call i32 %1417(ptr noundef nonnull %0, ptr noundef nonnull %309) #22
+  %1420 = call i32 %1417(ptr noundef nonnull %0, ptr noundef nonnull %309) #23
   %1421 = and i32 %1420, 4095
   %1422 = zext nneg i32 %1421 to i64
   %1423 = load i64, ptr %424, align 4
@@ -2974,7 +2974,7 @@ Abc_TtCheckCondDep.exit:                          ; preds = %1367, %If_CutTruthW
   br i1 %.not640, label %1436, label %1432
 
 1432:                                             ; preds = %1427
-  %1433 = call i32 @If_CutSopBalanceEval(ptr noundef nonnull %0, ptr noundef nonnull %309, ptr noundef null) #22
+  %1433 = call i32 @If_CutSopBalanceEval(ptr noundef nonnull %0, ptr noundef nonnull %309, ptr noundef null) #23
   %1434 = sitofp i32 %1433 to float
   %1435 = getelementptr inbounds nuw i8, ptr %309, i64 12
   store float %1434, ptr %1435, align 4, !tbaa !36
@@ -2987,7 +2987,7 @@ Abc_TtCheckCondDep.exit:                          ; preds = %1367, %If_CutTruthW
   br i1 %.not641, label %1443, label %1439
 
 1439:                                             ; preds = %1436
-  %1440 = call i32 @If_CutDsdBalanceEval(ptr noundef nonnull %0, ptr noundef nonnull %309, ptr noundef null) #22
+  %1440 = call i32 @If_CutDsdBalanceEval(ptr noundef nonnull %0, ptr noundef nonnull %309, ptr noundef null) #23
   %1441 = sitofp i32 %1440 to float
   %1442 = getelementptr inbounds nuw i8, ptr %309, i64 12
   store float %1441, ptr %1442, align 4, !tbaa !36
@@ -3000,7 +3000,7 @@ Abc_TtCheckCondDep.exit:                          ; preds = %1367, %If_CutTruthW
   br i1 %.not642, label %1450, label %1446
 
 1446:                                             ; preds = %1443
-  %1447 = call i32 @If_CutDelayRecCost3(ptr noundef nonnull %0, ptr noundef nonnull %309, ptr noundef %1) #22
+  %1447 = call i32 @If_CutDelayRecCost3(ptr noundef nonnull %0, ptr noundef nonnull %309, ptr noundef %1) #23
   %1448 = sitofp i32 %1447 to float
   %1449 = getelementptr inbounds nuw i8, ptr %309, i64 12
   store float %1448, ptr %1449, align 4, !tbaa !36
@@ -3013,7 +3013,7 @@ Abc_TtCheckCondDep.exit:                          ; preds = %1367, %If_CutTruthW
   br i1 %.not643, label %1462, label %1453
 
 1453:                                             ; preds = %1450
-  %1454 = call i32 @If_LutDecEval(ptr noundef nonnull %0, ptr noundef nonnull %309, ptr noundef %1, i32 noundef %276, i32 noundef %4) #22
+  %1454 = call i32 @If_LutDecEval(ptr noundef nonnull %0, ptr noundef nonnull %309, ptr noundef %1, i32 noundef %276, i32 noundef %4) #23
   %1455 = sitofp i32 %1454 to float
   %1456 = getelementptr inbounds nuw i8, ptr %309, i64 12
   store float %1455, ptr %1456, align 4, !tbaa !36
@@ -3032,7 +3032,7 @@ Abc_TtCheckCondDep.exit:                          ; preds = %1367, %If_CutTruthW
   br i1 %.not644, label %1474, label %1465
 
 1465:                                             ; preds = %1462
-  %1466 = call i32 @If_Lut2DecEval(ptr noundef nonnull %0, ptr noundef nonnull %309, ptr noundef %1, i32 noundef %276, i32 noundef %4) #22
+  %1466 = call i32 @If_Lut2DecEval(ptr noundef nonnull %0, ptr noundef nonnull %309, ptr noundef %1, i32 noundef %276, i32 noundef %4) #23
   %1467 = sitofp i32 %1466 to float
   %1468 = getelementptr inbounds nuw i8, ptr %309, i64 12
   store float %1467, ptr %1468, align 4, !tbaa !36
@@ -3166,7 +3166,7 @@ If_CutArrTimeProfile.exit:                        ; preds = %1518, %If_CutTruthW
   %1531 = getelementptr inbounds nuw i8, ptr %309, i64 36
   %1532 = getelementptr inbounds nuw i32, ptr %1531, i64 %.pre-phi982
   %1533 = call i32 @If_ManCutAigDelay(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %309)
-  %1534 = call i32 @Abc_ExactDelayCost(ptr noundef %1479, i32 noundef %1514, ptr noundef nonnull %278, ptr noundef nonnull %1532, ptr noundef nonnull %12, i32 noundef %1533) #22
+  %1534 = call i32 @Abc_ExactDelayCost(ptr noundef %1479, i32 noundef %1514, ptr noundef nonnull %278, ptr noundef nonnull %1532, ptr noundef nonnull %12, i32 noundef %1533) #23
   %1535 = sitofp i32 %1534 to float
   %1536 = getelementptr inbounds nuw i8, ptr %309, i64 12
   store float %1535, ptr %1536, align 4, !tbaa !36
@@ -3212,7 +3212,7 @@ If_CutArrTimeProfile.exit:                        ; preds = %1518, %If_CutTruthW
   br i1 %.not646, label %1556, label %1552
 
 1552:                                             ; preds = %1549
-  %1553 = call i32 @If_CutLutBalanceEval(ptr noundef nonnull %0, ptr noundef nonnull %309) #22
+  %1553 = call i32 @If_CutLutBalanceEval(ptr noundef nonnull %0, ptr noundef nonnull %309) #23
   %1554 = sitofp i32 %1553 to float
   %1555 = getelementptr inbounds nuw i8, ptr %309, i64 12
   store float %1554, ptr %1555, align 4, !tbaa !36
@@ -3225,14 +3225,14 @@ If_CutArrTimeProfile.exit:                        ; preds = %1518, %If_CutTruthW
   br i1 %1559, label %1560, label %1564
 
 1560:                                             ; preds = %1556
-  %1561 = call i32 @If_CutDelaySop(ptr noundef nonnull %0, ptr noundef nonnull %309) #22
+  %1561 = call i32 @If_CutDelaySop(ptr noundef nonnull %0, ptr noundef nonnull %309) #23
   %1562 = sitofp i32 %1561 to float
   %1563 = getelementptr inbounds nuw i8, ptr %309, i64 12
   store float %1562, ptr %1563, align 4, !tbaa !36
   br label %1567
 
 1564:                                             ; preds = %1556
-  %1565 = call float @If_CutDelay(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %309) #22
+  %1565 = call float @If_CutDelay(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %309) #23
   %1566 = getelementptr inbounds nuw i8, ptr %309, i64 12
   store float %1565, ptr %1566, align 4, !tbaa !36
   br label %1567
@@ -3261,7 +3261,7 @@ If_CutArrTimeProfile.exit:                        ; preds = %1518, %If_CutTruthW
   br i1 %281, label %1580, label %.thread1047
 
 1580:                                             ; preds = %1579
-  %1581 = call float @If_CutAreaDerefed(ptr noundef nonnull %0, ptr noundef nonnull %309) #22
+  %1581 = call float @If_CutAreaDerefed(ptr noundef nonnull %0, ptr noundef nonnull %309) #23
   store float %1581, ptr %309, align 4, !tbaa !70
   %1582 = load ptr, ptr %13, align 8, !tbaa !43
   %1583 = getelementptr inbounds nuw i8, ptr %1582, i64 76
@@ -3270,7 +3270,7 @@ If_CutArrTimeProfile.exit:                        ; preds = %1518, %If_CutTruthW
   br i1 %.not647, label %1597, label %1589
 
 .thread1047:                                      ; preds = %1579, %1570
-  %1585 = call float @If_CutAreaFlow(ptr noundef %0, ptr noundef nonnull %309) #22
+  %1585 = call float @If_CutAreaFlow(ptr noundef %0, ptr noundef nonnull %309) #23
   store float %1585, ptr %309, align 4, !tbaa !70
   %1586 = load ptr, ptr %13, align 8, !tbaa !43
   %1587 = getelementptr inbounds nuw i8, ptr %1586, i64 76
@@ -3279,11 +3279,11 @@ If_CutArrTimeProfile.exit:                        ; preds = %1518, %If_CutTruthW
   br i1 %.not6471048, label %.thread1050, label %1591
 
 1589:                                             ; preds = %1580
-  %1590 = call float @If_CutEdgeDerefed(ptr noundef nonnull %0, ptr noundef nonnull %309) #22
+  %1590 = call float @If_CutEdgeDerefed(ptr noundef nonnull %0, ptr noundef nonnull %309) #23
   br label %1593
 
 1591:                                             ; preds = %.thread1047
-  %1592 = call float @If_CutEdgeFlow(ptr noundef nonnull %0, ptr noundef nonnull %309) #22
+  %1592 = call float @If_CutEdgeFlow(ptr noundef nonnull %0, ptr noundef nonnull %309) #23
   br label %1593
 
 1593:                                             ; preds = %1591, %1589
@@ -3312,11 +3312,11 @@ If_CutArrTimeProfile.exit:                        ; preds = %1518, %If_CutTruthW
   br i1 %1598, label %1605, label %.thread1052
 
 1605:                                             ; preds = %1604
-  %1606 = call float @If_CutPowerDerefed(ptr noundef nonnull %0, ptr noundef nonnull %309, ptr noundef %1) #22
+  %1606 = call float @If_CutPowerDerefed(ptr noundef nonnull %0, ptr noundef nonnull %309, ptr noundef %1) #23
   br label %1608
 
 .thread1052:                                      ; preds = %.thread1050, %1604
-  %1607 = call float @If_CutPowerFlow(ptr noundef nonnull %0, ptr noundef nonnull %309, ptr noundef %1) #22
+  %1607 = call float @If_CutPowerFlow(ptr noundef nonnull %0, ptr noundef nonnull %309, ptr noundef %1) #23
   br label %1608
 
 1608:                                             ; preds = %.thread1052, %1605
@@ -3326,7 +3326,7 @@ If_CutArrTimeProfile.exit:                        ; preds = %1518, %If_CutTruthW
   br label %1611
 
 1611:                                             ; preds = %.thread1050, %1608, %1597
-  call void @If_CutSort(ptr noundef nonnull %0, ptr noundef %97, ptr noundef nonnull %309) #22
+  call void @If_CutSort(ptr noundef nonnull %0, ptr noundef %97, ptr noundef nonnull %309) #23
   br label %.thread828
 
 .thread828:                                       ; preds = %If_CutTruth.exit711, %475, %482, %1576, %1567, %1419, %402, %388, %377, %370, %368, %304, %1611
@@ -3405,7 +3405,7 @@ If_CutArrTimeProfile.exit:                        ; preds = %1518, %If_CutTruthW
   %1652 = load ptr, ptr %1651, align 8, !tbaa !80
   %1653 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %1654 = load i32, ptr %1653, align 4, !tbaa !69
-  call void @If_ManSetupCutTriv(ptr noundef nonnull %0, ptr noundef %1652, i32 noundef %1654) #22
+  call void @If_ManSetupCutTriv(ptr noundef nonnull %0, ptr noundef %1652, i32 noundef %1654) #23
   br label %1655
 
 1655:                                             ; preds = %1644, %1640, %1637
@@ -3418,7 +3418,7 @@ If_CutArrTimeProfile.exit:                        ; preds = %1518, %If_CutTruthW
   br i1 %1659, label %1660, label %1662
 
 1660:                                             ; preds = %1656
-  %1661 = call float @If_CutAreaRef(ptr noundef nonnull %0, ptr noundef nonnull %98) #22
+  %1661 = call float @If_CutAreaRef(ptr noundef nonnull %0, ptr noundef nonnull %98) #23
   br label %1662
 
 1662:                                             ; preds = %1660, %1656, %1655
@@ -3461,7 +3461,7 @@ If_CutArrTimeProfile.exit:                        ; preds = %1518, %If_CutTruthW
   %1682 = load ptr, ptr %13, align 8, !tbaa !43
   %1683 = getelementptr inbounds nuw i8, ptr %1682, i64 320
   %1684 = load ptr, ptr %1683, align 8, !tbaa !150
-  %1685 = call i32 %1684(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %1680) #22
+  %1685 = call i32 %1684(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %1680) #23
   %indvars.iv.next947 = add nuw nsw i64 %indvars.iv946, 1
   %1686 = load ptr, ptr %1671, align 8, !tbaa !83
   %1687 = getelementptr inbounds nuw i8, ptr %1686, i64 2
@@ -3471,27 +3471,27 @@ If_CutArrTimeProfile.exit:                        ; preds = %1518, %If_CutTruthW
   br i1 %1690, label %.lr.ph911, label %.critedge7, !llvm.loop !151
 
 .critedge7:                                       ; preds = %1681, %.lr.ph911, %.preheader, %1667
-  call void @If_ManDerefNodeCutSet(ptr noundef nonnull %0, ptr noundef nonnull %1) #22
+  call void @If_ManDerefNodeCutSet(ptr noundef nonnull %0, ptr noundef nonnull %1) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #3
+declare double @llvm.fmuladd.f64(double, double, double) #4
 
-declare float @If_CutAreaDeref(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare float @If_CutAreaDeref(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare ptr @If_ManSetupNodeCutSet(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @If_ManSetupNodeCutSet(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @If_CutSopBalanceEval(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @If_CutSopBalanceEval(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @If_CutDsdBalanceEval(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @If_CutDsdBalanceEval(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @If_CutDelayRecCost3(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @If_CutDelayRecCost3(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @Abc_ExactDelayCost(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @Abc_ExactDelayCost(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @If_CutTruthW(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #5 {
+; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc ptr @If_CutTruthW(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8, !tbaa !124
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1064
@@ -3574,19 +3574,19 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph.i, %.lr.ph18
   ret ptr %4
 }
 
-declare i32 @If_LutDecReEval(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @If_LutDecReEval(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @If_CutLutBalanceEval(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @If_CutLutBalanceEval(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @If_CutDelaySop(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @If_CutDelaySop(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare float @If_CutDelay(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare float @If_CutDelay(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #3
+declare float @llvm.fmuladd.f32(float, float, float) #4
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #6 {
+define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #7 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !34
@@ -3594,24 +3594,24 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #6 {
   br i1 %.not, label %18, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #22
+  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #23
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %7 = call i32 (...) @Abc_FrameIsBridgeMode() #22
+  %7 = call i32 (...) @Abc_FrameIsBridgeMode() #23
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
 
 8:                                                ; preds = %5
-  %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #22
+  %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #23
   %10 = load ptr, ptr @stdout, align 8, !tbaa !152
-  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #23
+  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #24
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #22
-  call void @free(ptr noundef %9) #22
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #23
+  call void @free(ptr noundef %9) #23
   br label %17
 
 14:                                               ; preds = %5
   %15 = load ptr, ptr @stdout, align 8, !tbaa !152, !noalias !154
-  %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #22
+  %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #23
   br label %17
 
 17:                                               ; preds = %14, %8
@@ -3623,54 +3623,54 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #6 {
   ret void
 }
 
-declare float @If_CutAreaDerefed(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare float @If_CutAreaDerefed(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare float @If_CutAreaFlow(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare float @If_CutAreaFlow(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare float @If_CutEdgeDerefed(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare float @If_CutEdgeDerefed(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare float @If_CutEdgeFlow(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare float @If_CutEdgeFlow(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare float @If_CutPowerDerefed(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare float @If_CutPowerDerefed(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare float @If_CutPowerFlow(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare float @If_CutPowerFlow(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @If_CutMerge(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @If_CutMerge(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @If_CutMergeOrdered(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @If_CutMergeOrdered(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @If_CutFilter(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @If_CutFilter(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare i32 @If_CutComputeTruthPerm(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @If_CutComputeTruthPerm(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
-declare i32 @If_CutComputeTruth(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @If_CutComputeTruth(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
-declare i32 @If_CutCheckTruth6(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @If_CutCheckTruth6(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @If_DsdManCompute(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @If_DsdManCompute(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @If_DsdManCheckDec(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @If_DsdManCheckDec(ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare i32 @If_CluCheckDecInAny(i64 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @If_CluCheckDecInAny(i64 noundef, i32 noundef) local_unnamed_addr #5
 
-declare i32 @If_CluCheckDecOut(i64 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @If_CluCheckDecOut(i64 noundef, i32 noundef) local_unnamed_addr #5
 
-declare i32 @If_DsdManReadMark(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @If_DsdManReadMark(ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare i32 @If_LutDecEval(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @If_LutDecEval(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
-declare i32 @If_Lut2DecEval(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @If_Lut2DecEval(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
-declare void @If_CutSort(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @If_CutSort(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare void @If_ManSetupCutTriv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @If_ManSetupCutTriv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare float @If_CutAreaRef(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare float @If_CutAreaRef(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare void @If_ManDerefNodeCutSet(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @If_ManDerefNodeCutSet(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @If_ObjPerformMappingChoice(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @If_ObjPerformMappingChoice(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !43
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 88
@@ -3734,7 +3734,7 @@ define void @If_ObjPerformMappingChoice(ptr noundef %0, ptr noundef %1, i32 noun
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %40 = tail call float @If_CutAreaDeref(ptr noundef nonnull %0, ptr noundef nonnull %39) #22
+  %40 = tail call float @If_CutAreaDeref(ptr noundef nonnull %0, ptr noundef nonnull %39) #23
   br label %.lr.ph.preheader
 
 41:                                               ; preds = %32
@@ -3819,7 +3819,7 @@ define void @If_ObjPerformMappingChoice(ptr noundef %0, ptr noundef %1, i32 noun
   %.val109 = load i32, ptr %56, align 4, !tbaa !82
   %81 = sext i32 %.val109 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %80, ptr nonnull readonly align 4 %70, i64 %81, i1 false)
-  %82 = tail call i32 @If_CutFilter(ptr noundef %53, ptr noundef %80, i32 noundef %33) #22
+  %82 = tail call i32 @If_CutFilter(ptr noundef %53, ptr noundef %80, i32 noundef %33) #23
   %.not105 = icmp eq i32 %82, 0
   br i1 %.not105, label %83, label %135
 
@@ -3855,7 +3855,7 @@ define void @If_ObjPerformMappingChoice(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %59, label %105, label %.thread
 
 105:                                              ; preds = %94
-  %106 = tail call float @If_CutAreaDerefed(ptr noundef nonnull %0, ptr noundef nonnull %80) #22
+  %106 = tail call float @If_CutAreaDerefed(ptr noundef nonnull %0, ptr noundef nonnull %80) #23
   store float %106, ptr %80, align 4, !tbaa !70
   %107 = load ptr, ptr %5, align 8, !tbaa !43
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 76
@@ -3864,7 +3864,7 @@ define void @If_ObjPerformMappingChoice(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not106, label %.thread115, label %114
 
 .thread:                                          ; preds = %94
-  %110 = tail call float @If_CutAreaFlow(ptr noundef nonnull %0, ptr noundef nonnull %80) #22
+  %110 = tail call float @If_CutAreaFlow(ptr noundef nonnull %0, ptr noundef nonnull %80) #23
   store float %110, ptr %80, align 4, !tbaa !70
   %111 = load ptr, ptr %5, align 8, !tbaa !43
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 76
@@ -3873,7 +3873,7 @@ define void @If_ObjPerformMappingChoice(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not106110, label %.thread112, label %.thread118
 
 114:                                              ; preds = %105
-  %115 = tail call float @If_CutEdgeDerefed(ptr noundef nonnull %0, ptr noundef nonnull %80) #22
+  %115 = tail call float @If_CutEdgeDerefed(ptr noundef nonnull %0, ptr noundef nonnull %80) #23
   %116 = getelementptr inbounds nuw i8, ptr %80, i64 4
   store float %115, ptr %116, align 4, !tbaa !72
   %117 = load ptr, ptr %5, align 8, !tbaa !43
@@ -3883,7 +3883,7 @@ define void @If_ObjPerformMappingChoice(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not107, label %134, label %.thread117
 
 .thread118:                                       ; preds = %.thread
-  %120 = tail call float @If_CutEdgeFlow(ptr noundef nonnull %0, ptr noundef nonnull %80) #22
+  %120 = tail call float @If_CutEdgeFlow(ptr noundef nonnull %0, ptr noundef nonnull %80) #23
   %121 = getelementptr inbounds nuw i8, ptr %80, i64 4
   store float %120, ptr %121, align 4, !tbaa !72
   %122 = load ptr, ptr %5, align 8, !tbaa !43
@@ -3905,11 +3905,11 @@ define void @If_ObjPerformMappingChoice(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not107113, label %134, label %.thread114
 
 .thread117:                                       ; preds = %114, %.thread115
-  %129 = tail call float @If_CutPowerDerefed(ptr noundef nonnull %0, ptr noundef nonnull %80, ptr noundef nonnull %1) #22
+  %129 = tail call float @If_CutPowerDerefed(ptr noundef nonnull %0, ptr noundef nonnull %80, ptr noundef nonnull %1) #23
   br label %131
 
 .thread114:                                       ; preds = %.thread118, %.thread112
-  %130 = tail call float @If_CutPowerFlow(ptr noundef nonnull %0, ptr noundef nonnull %80, ptr noundef nonnull %1) #22
+  %130 = tail call float @If_CutPowerFlow(ptr noundef nonnull %0, ptr noundef nonnull %80, ptr noundef nonnull %1) #23
   br label %131
 
 131:                                              ; preds = %.thread114, %.thread117
@@ -3919,7 +3919,7 @@ define void @If_ObjPerformMappingChoice(ptr noundef %0, ptr noundef %1, i32 noun
   br label %134
 
 134:                                              ; preds = %.thread118, %.thread115, %.thread112, %131, %114
-  tail call void @If_CutSort(ptr noundef nonnull %0, ptr noundef nonnull %53, ptr noundef nonnull %80) #22
+  tail call void @If_CutSort(ptr noundef nonnull %0, ptr noundef nonnull %53, ptr noundef nonnull %80) #23
   br label %135
 
 135:                                              ; preds = %91, %75, %71, %134
@@ -3988,7 +3988,7 @@ define void @If_ObjPerformMappingChoice(ptr noundef %0, ptr noundef %1, i32 noun
   %168 = load ptr, ptr %167, align 8, !tbaa !80
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %170 = load i32, ptr %169, align 4, !tbaa !69
-  tail call void @If_ManSetupCutTriv(ptr noundef nonnull %0, ptr noundef %168, i32 noundef %170) #22
+  tail call void @If_ManSetupCutTriv(ptr noundef nonnull %0, ptr noundef %168, i32 noundef %170) #23
   br label %171
 
 171:                                              ; preds = %160, %156, %153
@@ -4002,22 +4002,22 @@ define void @If_ObjPerformMappingChoice(ptr noundef %0, ptr noundef %1, i32 noun
 
 176:                                              ; preds = %172
   %177 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %178 = tail call float @If_CutAreaRef(ptr noundef nonnull %0, ptr noundef nonnull %177) #22
+  %178 = tail call float @If_CutAreaRef(ptr noundef nonnull %0, ptr noundef nonnull %177) #23
   br label %179
 
 179:                                              ; preds = %176, %172, %171
-  tail call void @If_ManDerefChoiceCutSet(ptr noundef nonnull %0, ptr noundef nonnull %1) #22
+  tail call void @If_ManDerefChoiceCutSet(ptr noundef nonnull %0, ptr noundef nonnull %1) #23
   ret void
 }
 
-declare void @If_ManDerefChoiceCutSet(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @If_ManDerefChoiceCutSet(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @If_ManPerformMappingRound(ptr noundef initializes((112, 120), (160, 164), (2088, 2096)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define noundef i32 @If_ManPerformMappingRound(ptr noundef initializes((112, 120), (160, 164), (2088, 2096)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #3 {
   %7 = alloca %struct.timespec, align 8
   %8 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %9 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #22
+  %9 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #23
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %Abc_Clock.exit, label %11
 
@@ -4080,7 +4080,7 @@ Abc_Clock.exit:                                   ; preds = %6, %11
   br i1 %.not98, label %67, label %35
 
 35:                                               ; preds = %.critedge
-  call void @Tim_ManIncrementTravId(ptr noundef nonnull %34) #22
+  call void @Tim_ManIncrementTravId(ptr noundef nonnull %34) #23
   %36 = load ptr, ptr %32, align 8, !tbaa !35
   %37 = getelementptr i8, ptr %36, i64 4
   %.val115131 = load i32, ptr %37, align 4, !tbaa !6
@@ -4118,7 +4118,7 @@ Abc_Clock.exit:                                   ; preds = %6, %11
   %49 = load ptr, ptr %33, align 8, !tbaa !165
   %50 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %51 = load i32, ptr %50, align 8, !tbaa !166
-  %52 = call float @Tim_ManGetCiArrival(ptr noundef %49, i32 noundef %51) #22
+  %52 = call float @Tim_ManGetCiArrival(ptr noundef %49, i32 noundef %51) #23
   %53 = getelementptr inbounds nuw i8, ptr %42, i64 92
   store float %52, ptr %53, align 4, !tbaa !36
   br label %62
@@ -4131,7 +4131,7 @@ Abc_Clock.exit:                                   ; preds = %6, %11
   %57 = load ptr, ptr %33, align 8, !tbaa !165
   %58 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %59 = load i32, ptr %58, align 8, !tbaa !166
-  call void @Tim_ManSetCoArrival(ptr noundef %57, i32 noundef %59, float noundef %.val120) #22
+  call void @Tim_ManSetCoArrival(ptr noundef %57, i32 noundef %59, float noundef %.val120) #23
   br label %62
 
 60:                                               ; preds = %.lr.ph
@@ -4153,7 +4153,7 @@ Abc_Clock.exit:                                   ; preds = %6, %11
   %69 = getelementptr i8, ptr %68, i64 4
   %.val116 = load i32, ptr %69, align 4, !tbaa !6
   %70 = load ptr, ptr @stdout, align 8, !tbaa !152
-  %71 = call ptr @Extra_ProgressBarStart(ptr noundef %70, i32 noundef %.val116) #22
+  %71 = call ptr @Extra_ProgressBarStart(ptr noundef %70, i32 noundef %.val116) #23
   %72 = load ptr, ptr %32, align 8, !tbaa !35
   %73 = getelementptr i8, ptr %72, i64 4
   %.val114133 = load i32, ptr %73, align 4, !tbaa !6
@@ -4187,7 +4187,7 @@ Abc_Clock.exit:                                   ; preds = %6, %11
 
 87:                                               ; preds = %83, %82
   %88 = trunc nuw nsw i64 %indvars.iv139 to i32
-  call void @Extra_ProgressBarUpdate_int(ptr noundef %71, i32 noundef %88, ptr noundef %5) #22
+  call void @Extra_ProgressBarUpdate_int(ptr noundef %71, i32 noundef %88, ptr noundef %5) #23
   br label %Extra_ProgressBarUpdate.exit
 
 Extra_ProgressBarUpdate.exit:                     ; preds = %83, %87
@@ -4212,8 +4212,8 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %83, %87
 
 .critedge2:                                       ; preds = %62, %92, %35, %67
   %.0 = phi ptr [ %71, %67 ], [ null, %35 ], [ %71, %92 ], [ null, %62 ]
-  call void @Extra_ProgressBarStop(ptr noundef %.0) #22
-  call void @If_ManComputeRequired(ptr noundef nonnull %0) #22
+  call void @Extra_ProgressBarStop(ptr noundef %.0) #23
+  call void @If_ManComputeRequired(ptr noundef nonnull %0) #23
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !43
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 192
@@ -4250,7 +4250,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %83, %87
   %120 = load i32, ptr %31, align 4, !tbaa !89
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, i32 noundef %120)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %121 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #22
+  %121 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #23
   %122 = icmp slt i32 %121, 0
   br i1 %122, label %Abc_Clock.exit123, label %123
 
@@ -4277,53 +4277,53 @@ Abc_Clock.exit123:                                ; preds = %119, %123
   ret i32 1
 }
 
-declare void @Tim_ManIncrementTravId(ptr noundef) local_unnamed_addr #4
+declare void @Tim_ManIncrementTravId(ptr noundef) local_unnamed_addr #5
 
-declare float @Tim_ManGetCiArrival(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare float @Tim_ManGetCiArrival(ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare void @Tim_ManSetCoArrival(ptr noundef, i32 noundef, float noundef) local_unnamed_addr #4
+declare void @Tim_ManSetCoArrival(ptr noundef, i32 noundef, float noundef) local_unnamed_addr #5
 
-declare ptr @Extra_ProgressBarStart(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @Extra_ProgressBarStart(ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare void @Extra_ProgressBarStop(ptr noundef) local_unnamed_addr #4
+declare void @Extra_ProgressBarStop(ptr noundef) local_unnamed_addr #5
 
-declare void @If_ManComputeRequired(ptr noundef) local_unnamed_addr #4
+declare void @If_ManComputeRequired(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
-declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #4
+declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #5
 
-declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #10
+declare void @llvm.va_start.p0(ptr) #11
 
-declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #10
+declare void @llvm.va_end.p0(ptr) #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #13
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #14
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc range(i32 -1, 64) i32 @Abc_Tt4CheckTwoLevel(i32 noundef %0) unnamed_addr #15 {
+define internal fastcc range(i32 -1, 64) i32 @Abc_Tt4CheckTwoLevel(i32 noundef %0) unnamed_addr #16 {
   %2 = lshr i32 %0, 2
   %3 = and i32 %0, 4369
   %4 = lshr i32 %0, 1
@@ -4518,7 +4518,7 @@ Abc_Tt4Check2.exit53.thread:                      ; preds = %80, %78, %Abc_Tt4Ch
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @Abc_TtProcessBiDecInt(ptr noundef nonnull readonly captures(address) %0, i32 noundef range(i32 0, 256) %1, i32 noundef range(i32 -1073741824, 1073741824) %2) unnamed_addr #16 {
+define internal fastcc i32 @Abc_TtProcessBiDecInt(ptr noundef nonnull readonly captures(address) %0, i32 noundef range(i32 0, 256) %1, i32 noundef range(i32 -1073741824, 1073741824) %2) unnamed_addr #17 {
   %4 = alloca [64 x i64], align 16
   %5 = alloca [64 x i64], align 16
   %.sroa.0 = alloca i32, align 4
@@ -5561,49 +5561,50 @@ Abc_TtCheckBiDec.exit:                            ; preds = %.lr.ph.i90
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #3
+declare i32 @llvm.ctpop.i32(i32) #4
 
-declare void @Extra_ProgressBarUpdate_int(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
+declare void @Extra_ProgressBarUpdate_int(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #19
+declare i32 @llvm.umax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #19
+declare i32 @llvm.smax.i32(i32, i32) #20
 
-attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { inlinehint nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #19 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { nounwind allocsize(1) }
-attributes #21 = { nounwind allocsize(0) }
-attributes #22 = { nounwind }
-attributes #23 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #20 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { nounwind allocsize(1) }
+attributes #22 = { nounwind allocsize(0) }
+attributes #23 = { nounwind }
+attributes #24 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -22,7 +22,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_initIDs(ptr noundef %0, ptr 
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 752
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #14
+  %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #15
   store ptr %6, ptr @pSpanDataID, align 8
   ret void
 }
@@ -33,21 +33,21 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_setNormalize(ptr noundef %0,
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 808
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @pSpanDataID, align 8
-  %8 = tail call i64 %6(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %7) #14
+  %8 = tail call i64 %6(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %7) #15
   %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %10, label %9
 
 9:                                                ; preds = %3
-  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #14
+  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #15
   br label %MakeSpanData.exit.thread
 
 10:                                               ; preds = %3
-  %11 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #15
+  %11 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #16
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %10
-  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #14
+  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #15
   br label %MakeSpanData.exit.thread
 
 14:                                               ; preds = %10
@@ -69,7 +69,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_setNormalize(ptr noundef %0,
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr @pSpanDataID, align 8
   %25 = ptrtoint ptr %11 to i64
-  tail call void %23(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %24, i64 noundef %25) #14
+  tail call void %23(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %24, i64 noundef %25) #15
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 51
   store i8 %2, ptr %26, align 1
   br label %MakeSpanData.exit.thread
@@ -84,12 +84,12 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_setOutputAreaXYXY(ptr nounde
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 808
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr @pSpanDataID, align 8
-  %11 = tail call i64 %9(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %10) #14
+  %11 = tail call i64 %9(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %10) #15
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %6
-  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #14
+  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #15
   br label %GetSpanData.exit.thread
 
 14:                                               ; preds = %6
@@ -100,7 +100,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_setOutputAreaXYXY(ptr nounde
   br i1 %or.cond.i.not, label %GetSpanData.exit, label %18
 
 18:                                               ; preds = %14
-  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #14
+  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #15
   br label %GetSpanData.exit.thread
 
 GetSpanData.exit:                                 ; preds = %14
@@ -125,12 +125,12 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_setRule(ptr noundef %0, ptr 
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 808
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @pSpanDataID, align 8
-  %8 = tail call i64 %6(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %7) #14
+  %8 = tail call i64 %6(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %7) #15
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %3
-  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #14
+  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #15
   br label %GetSpanData.exit.thread
 
 11:                                               ; preds = %3
@@ -141,7 +141,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_setRule(ptr noundef %0, ptr 
   br i1 %or.cond.i.not, label %GetSpanData.exit, label %15
 
 15:                                               ; preds = %11
-  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #14
+  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #15
   br label %GetSpanData.exit.thread
 
 GetSpanData.exit:                                 ; preds = %11
@@ -163,12 +163,12 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_addSegment(ptr noundef %0, p
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 808
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr @pSpanDataID, align 8
-  %10 = tail call i64 %8(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %9) #14
+  %10 = tail call i64 %8(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %9) #15
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %4
-  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #14
+  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #15
   br label %.critedge
 
 13:                                               ; preds = %4
@@ -179,18 +179,18 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_addSegment(ptr noundef %0, p
   br i1 %or.cond.i.not, label %GetSpanData.exit, label %17
 
 17:                                               ; preds = %13
-  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #14
+  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #15
   br label %.critedge
 
 GetSpanData.exit:                                 ; preds = %13
   %18 = load ptr, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 1640
   %20 = load ptr, ptr %19, align 8
-  call void %20(ptr noundef nonnull %0, ptr noundef %3, i32 noundef 0, i32 noundef 6, ptr noundef nonnull %5) #14
+  call void %20(ptr noundef nonnull %0, ptr noundef %3, i32 noundef 0, i32 noundef 6, ptr noundef nonnull %5) #15
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1824
   %23 = load ptr, ptr %22, align 8
-  %24 = call zeroext i8 %23(ptr noundef nonnull %0) #14
+  %24 = call zeroext i8 %23(ptr noundef nonnull %0) #15
   %.not = icmp eq i8 %24, 0
   br i1 %.not, label %25, label %.critedge
 
@@ -940,18 +940,18 @@ subdivideLine.exit355.thread:                     ; preds = %subdivideLine.exit3
   br label %.critedge
 
 416:                                              ; preds = %25
-  call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #14
+  call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #15
   br label %.critedge
 
 .critedge343:                                     ; preds = %subdivideLine.exit349, %215, %303, %subdivideLine.exit355, %109
-  call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #14
+  call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #15
   br label %.critedge
 
 .critedge:                                        ; preds = %380, %17, %12, %185, %271, %379, %subdivideLine.exit355.thread, %GetSpanData.exit, %.critedge343, %109, %416
   ret void
 }
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc zeroext range(i8 0, 2) i8 @subdivideLine(ptr noundef captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) unnamed_addr #1 {
   %6 = fcmp olt float %1, %3
   %. = select i1 %6, float %1, float %3
@@ -1002,8 +1002,8 @@ define internal fastcc zeroext range(i8 0, 2) i8 @subdivideLine(ptr noundef capt
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.floor.f64(double) #2
 
-; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @subdivideQuad(ptr noundef captures(none) %0, i32 noundef range(i32 0, 11) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7) unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc zeroext range(i8 0, 2) i8 @subdivideQuad(ptr noundef captures(none) %0, i32 noundef range(i32 0, 11) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7) unnamed_addr #3 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -1155,8 +1155,8 @@ ptSegDistSq.exit:                                 ; preds = %53, %61, %67
   ret i8 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @subdivideCubic(ptr noundef captures(none) %0, i32 noundef range(i32 0, 11) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9) unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc zeroext range(i8 0, 2) i8 @subdivideCubic(ptr noundef captures(none) %0, i32 noundef range(i32 0, 11) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9) unnamed_addr #3 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -1363,9 +1363,9 @@ ptSegDistSq.exit:                                 ; preds = %83, %91, %97
   ret i8 %.0
 }
 
-declare void @JNU_ThrowInternalError(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @JNU_ThrowInternalError(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @JNU_ThrowOutOfMemoryError(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @JNU_ThrowOutOfMemoryError(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_java2d_pipe_ShapeSpanIterator_getPathBox(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1374,12 +1374,12 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_getPathBox(ptr noundef %0, p
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 808
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr @pSpanDataID, align 8
-  %9 = tail call i64 %7(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %8) #14
+  %9 = tail call i64 %7(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %8) #15
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %3
-  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #14
+  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #15
   br label %GetSpanData.exit.thread
 
 12:                                               ; preds = %3
@@ -1390,7 +1390,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_getPathBox(ptr noundef %0, p
   br i1 %or.cond.i.not, label %GetSpanData.exit, label %16
 
 16:                                               ; preds = %12
-  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #14
+  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #15
   br label %GetSpanData.exit.thread
 
 GetSpanData.exit:                                 ; preds = %12
@@ -1420,7 +1420,7 @@ GetSpanData.exit:                                 ; preds = %12
   %36 = load ptr, ptr %0, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 1688
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %4) #14
+  call void %38(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %4) #15
   br label %GetSpanData.exit.thread
 
 GetSpanData.exit.thread:                          ; preds = %16, %11, %GetSpanData.exit
@@ -1428,7 +1428,7 @@ GetSpanData.exit.thread:                          ; preds = %16, %11, %GetSpanDa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @ShapeSIGetPathBox(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2) #4 {
+define internal void @ShapeSIGetPathBox(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2) #5 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %5 = load float, ptr %4, align 4
   %6 = tail call float @llvm.floor.f32(float %5)
@@ -1461,12 +1461,12 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_intersectClipBox(ptr noundef
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 808
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr @pSpanDataID, align 8
-  %11 = tail call i64 %9(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %10) #14
+  %11 = tail call i64 %9(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %10) #15
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %6
-  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #14
+  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #15
   br label %ShapeSIIntersectClipBox.exit
 
 14:                                               ; preds = %6
@@ -1477,7 +1477,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_intersectClipBox(ptr noundef
   br i1 %or.cond.i.not, label %GetSpanData.exit, label %18
 
 18:                                               ; preds = %14
-  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #14
+  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #15
   br label %ShapeSIIntersectClipBox.exit
 
 GetSpanData.exit:                                 ; preds = %14
@@ -1525,7 +1525,7 @@ ShapeSIIntersectClipBox.exit:                     ; preds = %18, %13, %37, %33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @ShapeSIIntersectClipBox(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #4 {
+define internal void @ShapeSIIntersectClipBox(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #5 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %2, %8
@@ -1576,12 +1576,12 @@ define zeroext range(i8 0, 2) i8 @Java_sun_java2d_pipe_ShapeSpanIterator_nextSpa
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 808
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr @pSpanDataID, align 8
-  %9 = tail call i64 %7(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %8) #14
+  %9 = tail call i64 %7(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %8) #15
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %3
-  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #14
+  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #15
   br label %GetSpanData.exit.thread
 
 12:                                               ; preds = %3
@@ -1593,7 +1593,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_java2d_pipe_ShapeSpanIterator_nextSpa
   br i1 %or.cond.i, label %17, label %GetSpanData.exit
 
 17:                                               ; preds = %12
-  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #14
+  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #15
   br label %GetSpanData.exit.thread
 
 GetSpanData.exit:                                 ; preds = %12
@@ -1605,7 +1605,7 @@ GetSpanData.exit:                                 ; preds = %12
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 1688
   %22 = load ptr, ptr %21, align 8
-  call void %22(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %4) #14
+  call void %22(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %4) #15
   br label %GetSpanData.exit.thread
 
 GetSpanData.exit.thread:                          ; preds = %17, %11, %GetSpanData.exit, %19
@@ -1614,7 +1614,7 @@ GetSpanData.exit.thread:                          ; preds = %17, %11, %GetSpanDa
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal zeroext range(i8 0, 2) i8 @ShapeSINextSpan(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) #5 {
+define internal zeroext range(i8 0, 2) i8 @ShapeSINextSpan(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1638,7 +1638,7 @@ define internal zeroext range(i8 0, 2) i8 @ShapeSINextSpan(ptr noundef captures(
 7:                                                ; preds = %2
   %8 = sext i32 %4 to i64
   %9 = shl nsw i64 %8, 3
-  %10 = tail call noalias ptr @malloc(i64 noundef %9) #16
+  %10 = tail call noalias ptr @malloc(i64 noundef %9) #17
   %11 = icmp eq ptr %10, null
   br i1 %11, label %34, label %12
 
@@ -1663,7 +1663,7 @@ define internal zeroext range(i8 0, 2) i8 @ShapeSINextSpan(ptr noundef captures(
   br i1 %exitcond.not.i, label %._crit_edge.i, label %16, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %16, %12
-  tail call void @qsort(ptr noundef nonnull %10, i64 noundef %8, i64 noundef 8, ptr noundef nonnull @sortSegmentsByLeadingY) #14
+  tail call void @qsort(ptr noundef nonnull %10, i64 noundef %8, i64 noundef 8, ptr noundef nonnull @sortSegmentsByLeadingY) #15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %10, ptr %19, align 8
   %20 = load i32, ptr %3, align 8
@@ -2029,12 +2029,12 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_skipDownTo(ptr noundef %0, p
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 808
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @pSpanDataID, align 8
-  %8 = tail call i64 %6(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %7) #14
+  %8 = tail call i64 %6(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %7) #15
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %3
-  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #14
+  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #15
   br label %GetSpanData.exit.thread
 
 11:                                               ; preds = %3
@@ -2046,7 +2046,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_skipDownTo(ptr noundef %0, p
   br i1 %or.cond.i, label %16, label %GetSpanData.exit
 
 16:                                               ; preds = %11
-  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #14
+  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #15
   br label %GetSpanData.exit.thread
 
 GetSpanData.exit:                                 ; preds = %11
@@ -2058,7 +2058,7 @@ GetSpanData.exit.thread:                          ; preds = %16, %10, %GetSpanDa
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ShapeSISkipDownTo(ptr noundef captures(none) %0, i32 noundef %1) #5 {
+define internal void @ShapeSISkipDownTo(ptr noundef captures(none) %0, i32 noundef %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i8, ptr %3, align 8
   %.not = icmp eq i8 %4, 4
@@ -2074,7 +2074,7 @@ define internal void @ShapeSISkipDownTo(ptr noundef captures(none) %0, i32 nound
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
   %9 = shl nsw i64 %8, 3
-  %10 = tail call noalias ptr @malloc(i64 noundef %9) #16
+  %10 = tail call noalias ptr @malloc(i64 noundef %9) #17
   %11 = icmp eq ptr %10, null
   br i1 %11, label %34, label %12
 
@@ -2099,7 +2099,7 @@ define internal void @ShapeSISkipDownTo(ptr noundef captures(none) %0, i32 nound
   br i1 %exitcond.not.i, label %._crit_edge.i, label %16, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %16, %12
-  tail call void @qsort(ptr noundef nonnull %10, i64 noundef %8, i64 noundef 8, ptr noundef nonnull @sortSegmentsByLeadingY) #14
+  tail call void @qsort(ptr noundef nonnull %10, i64 noundef %8, i64 noundef 8, ptr noundef nonnull @sortSegmentsByLeadingY) #15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %10, ptr %19, align 8
   %20 = load i32, ptr %6, align 8
@@ -2167,7 +2167,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @Java_sun_java2d_pipe_ShapeSpanIterator_getNativeIterator(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #6 {
+define noundef i64 @Java_sun_java2d_pipe_ShapeSpanIterator_getNativeIterator(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #7 {
   ret i64 ptrtoint (ptr @ShapeSIFuncs to i64)
 }
 
@@ -2177,7 +2177,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_dispose(ptr noundef %0, ptr 
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 808
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @pSpanDataID, align 8
-  %7 = tail call i64 %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6) #14
+  %7 = tail call i64 %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6) #15
   %8 = inttoptr i64 %7 to ptr
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %23, label %10
@@ -2189,7 +2189,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_dispose(ptr noundef %0, ptr 
   br i1 %.not, label %14, label %13
 
 13:                                               ; preds = %10
-  tail call void @free(ptr noundef nonnull %12) #14
+  tail call void @free(ptr noundef nonnull %12) #15
   br label %14
 
 14:                                               ; preds = %13, %10
@@ -2199,16 +2199,16 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_dispose(ptr noundef %0, ptr 
   br i1 %.not14, label %18, label %17
 
 17:                                               ; preds = %14
-  tail call void @free(ptr noundef nonnull %16) #14
+  tail call void @free(ptr noundef nonnull %16) #15
   br label %18
 
 18:                                               ; preds = %17, %14
-  tail call void @free(ptr noundef nonnull %8) #14
+  tail call void @free(ptr noundef nonnull %8) #15
   %19 = load ptr, ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 880
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr @pSpanDataID, align 8
-  tail call void %21(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %22, i64 noundef 0) #14
+  tail call void %21(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %22, i64 noundef 0) #15
   br label %23
 
 23:                                               ; preds = %2, %18
@@ -2216,7 +2216,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_dispose(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_java2d_pipe_ShapeSpanIterator_appendPoly(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
@@ -2226,12 +2226,12 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_appendPoly(ptr noundef %0, p
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 808
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr @pSpanDataID, align 8
-  %14 = tail call i64 %12(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %13) #14
+  %14 = tail call i64 %12(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %13) #15
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %7
-  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #14
+  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #15
   br label %GetSpanData.exit.thread
 
 17:                                               ; preds = %7
@@ -2242,7 +2242,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_appendPoly(ptr noundef %0, p
   br i1 %or.cond.i.not, label %GetSpanData.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #14
+  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #15
   br label %GetSpanData.exit.thread
 
 GetSpanData.exit:                                 ; preds = %17
@@ -2262,14 +2262,14 @@ GetSpanData.exit:                                 ; preds = %17
   br i1 %or.cond, label %29, label %30
 
 29:                                               ; preds = %GetSpanData.exit
-  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #14
+  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #15
   br label %GetSpanData.exit.thread
 
 30:                                               ; preds = %GetSpanData.exit
   %31 = load ptr, ptr %0, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 1368
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call i32 %33(ptr noundef nonnull %0, ptr noundef nonnull %2) #14
+  %34 = tail call i32 %33(ptr noundef nonnull %0, ptr noundef nonnull %2) #15
   %35 = icmp slt i32 %34, %4
   br i1 %35, label %42, label %36
 
@@ -2277,12 +2277,12 @@ GetSpanData.exit:                                 ; preds = %17
   %37 = load ptr, ptr %0, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 1368
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call i32 %39(ptr noundef nonnull %0, ptr noundef nonnull %3) #14
+  %40 = tail call i32 %39(ptr noundef nonnull %0, ptr noundef nonnull %3) #15
   %41 = icmp slt i32 %40, %4
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %36, %30
-  tail call void @JNU_ThrowArrayIndexOutOfBoundsException(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #14
+  tail call void @JNU_ThrowArrayIndexOutOfBoundsException(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #15
   br label %GetSpanData.exit.thread
 
 43:                                               ; preds = %36
@@ -2293,7 +2293,7 @@ GetSpanData.exit:                                 ; preds = %17
   %46 = load ptr, ptr %0, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 1776
   %48 = load ptr, ptr %47, align 8
-  %49 = tail call ptr %48(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef null) #14
+  %49 = tail call ptr %48(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef null) #15
   %.not193 = icmp eq ptr %49, null
   br i1 %.not193, label %GetSpanData.exit.thread, label %50
 
@@ -2301,7 +2301,7 @@ GetSpanData.exit:                                 ; preds = %17
   %51 = load ptr, ptr %0, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 1776
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call ptr %53(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef null) #14
+  %54 = tail call ptr %53(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef null) #15
   %.not194 = icmp eq ptr %54, null
   br i1 %.not194, label %GetSpanData.exit.thread.critedge, label %55
 
@@ -2566,22 +2566,22 @@ GetSpanData.exit:                                 ; preds = %17
   %196 = load ptr, ptr %0, align 8
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 1784
   %198 = load ptr, ptr %197, align 8
-  tail call void %198(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %54, i32 noundef 2) #14
+  tail call void %198(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %54, i32 noundef 2) #15
   %199 = load ptr, ptr %0, align 8
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 1784
   %201 = load ptr, ptr %200, align 8
-  tail call void %201(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %49, i32 noundef 2) #14
+  tail call void %201(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %49, i32 noundef 2) #15
   br i1 %.4174, label %.thread212, label %.critedge
 
 .thread212.critedge:                              ; preds = %85
   %202 = load ptr, ptr %0, align 8
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 1784
   %204 = load ptr, ptr %203, align 8
-  tail call void %204(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %54, i32 noundef 2) #14
+  tail call void %204(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %54, i32 noundef 2) #15
   %205 = load ptr, ptr %0, align 8
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 1784
   %207 = load ptr, ptr %206, align 8
-  tail call void %207(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %49, i32 noundef 2) #14
+  tail call void %207(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %49, i32 noundef 2) #15
   br label %.thread212
 
 .thread212:                                       ; preds = %.thread212.critedge, %43, %._crit_edge
@@ -2617,7 +2617,7 @@ GetSpanData.exit:                                 ; preds = %17
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge, %220
-  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #14
+  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #15
   br label %GetSpanData.exit.thread
 
 .critedge204:                                     ; preds = %.thread212, %215
@@ -2628,18 +2628,18 @@ GetSpanData.exit.thread.critedge:                 ; preds = %50
   %221 = load ptr, ptr %0, align 8
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 1784
   %223 = load ptr, ptr %222, align 8
-  tail call void %223(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %49, i32 noundef 2) #14
+  tail call void %223(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %49, i32 noundef 2) #15
   br label %GetSpanData.exit.thread
 
 GetSpanData.exit.thread:                          ; preds = %GetSpanData.exit.thread.critedge, %45, %21, %16, %.critedge204, %.critedge, %42, %29
   ret void
 }
 
-declare void @JNU_ThrowNullPointerException(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @JNU_ThrowNullPointerException(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @JNU_ThrowArrayIndexOutOfBoundsException(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @JNU_ThrowArrayIndexOutOfBoundsException(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc zeroext range(i8 0, 2) i8 @appendSegment(ptr noundef captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) unnamed_addr #1 {
   %6 = fcmp ogt float %2, %4
   %. = select i1 %6, i8 -1, i8 1
@@ -2684,7 +2684,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @appendSegment(ptr noundef capt
 24:                                               ; preds = %19
   %25 = add nsw i32 %23, 20
   %26 = sext i32 %25 to i64
-  %27 = tail call noalias ptr @calloc(i64 noundef %26, i64 noundef 28) #15
+  %27 = tail call noalias ptr @calloc(i64 noundef %26, i64 noundef 28) #16
   %28 = icmp eq ptr %27, null
   br i1 %28, label %72, label %29
 
@@ -2698,7 +2698,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @appendSegment(ptr noundef capt
   %33 = sext i32 %23 to i64
   %34 = mul nsw i64 %33, 28
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %27, ptr nonnull align 4 %31, i64 %34, i1 false)
-  tail call void @free(ptr noundef nonnull %31) #14
+  tail call void @free(ptr noundef nonnull %31) #15
   %.pre85.pre = load i32, ptr %20, align 8
   br label %35
 
@@ -2765,12 +2765,12 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_moveTo(ptr noundef %0, ptr n
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 808
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr @pSpanDataID, align 8
-  %9 = tail call i64 %7(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %8) #14
+  %9 = tail call i64 %7(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %8) #15
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %4
-  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #14
+  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #15
   br label %GetSpanData.exit.thread
 
 12:                                               ; preds = %4
@@ -2781,7 +2781,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_moveTo(ptr noundef %0, ptr n
   br i1 %or.cond.i.not, label %GetSpanData.exit, label %16
 
 16:                                               ; preds = %12
-  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #14
+  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #15
   br label %GetSpanData.exit.thread
 
 GetSpanData.exit:                                 ; preds = %12
@@ -2852,7 +2852,7 @@ subdivideLine.exit.subdivideLine.exit.thread_crit_edge: ; preds = %subdivideLine
   br label %subdivideLine.exit.thread
 
 50:                                               ; preds = %subdivideLine.exit
-  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #14
+  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #15
   br label %53
 
 subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.subdivideLine.exit.thread_crit_edge, %GetSpanData.exit._crit_edge, %31, %36
@@ -2962,12 +2962,12 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_lineTo(ptr noundef %0, ptr n
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 808
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr @pSpanDataID, align 8
-  %9 = tail call i64 %7(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %8) #14
+  %9 = tail call i64 %7(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %8) #15
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %4
-  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #14
+  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #15
   br label %GetSpanData.exit.thread
 
 12:                                               ; preds = %4
@@ -2978,7 +2978,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_lineTo(ptr noundef %0, ptr n
   br i1 %or.cond.i.not, label %GetSpanData.exit, label %16
 
 16:                                               ; preds = %12
-  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #14
+  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #15
   br label %GetSpanData.exit.thread
 
 GetSpanData.exit:                                 ; preds = %12
@@ -3056,7 +3056,7 @@ subdivideLine.exit:                               ; preds = %56, %58
   br i1 %.not52, label %60, label %subdivideLine.exit.thread
 
 60:                                               ; preds = %subdivideLine.exit
-  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #14
+  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #15
   br label %GetSpanData.exit.thread
 
 subdivideLine.exit.thread:                        ; preds = %30, %41, %46, %subdivideLine.exit
@@ -3132,12 +3132,12 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_quadTo(ptr noundef %0, ptr n
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 808
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr @pSpanDataID, align 8
-  %11 = tail call i64 %9(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %10) #14
+  %11 = tail call i64 %9(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %10) #15
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %6
-  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #14
+  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #15
   br label %GetSpanData.exit.thread
 
 14:                                               ; preds = %6
@@ -3148,7 +3148,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_quadTo(ptr noundef %0, ptr n
   br i1 %or.cond.i.not, label %GetSpanData.exit, label %18
 
 18:                                               ; preds = %14
-  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #14
+  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #15
   br label %GetSpanData.exit.thread
 
 GetSpanData.exit:                                 ; preds = %14
@@ -3194,7 +3194,7 @@ GetSpanData.exit:                                 ; preds = %14
   br i1 %.not86, label %46, label %47
 
 46:                                               ; preds = %40
-  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #14
+  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #15
   br label %GetSpanData.exit.thread
 
 47:                                               ; preds = %40
@@ -3313,12 +3313,12 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_curveTo(ptr noundef %0, ptr 
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 808
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr @pSpanDataID, align 8
-  %13 = tail call i64 %11(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %12) #14
+  %13 = tail call i64 %11(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %12) #15
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %8
-  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #14
+  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #15
   br label %GetSpanData.exit.thread
 
 16:                                               ; preds = %8
@@ -3329,7 +3329,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_curveTo(ptr noundef %0, ptr 
   br i1 %or.cond.i.not, label %GetSpanData.exit, label %20
 
 20:                                               ; preds = %16
-  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #14
+  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #15
   br label %GetSpanData.exit.thread
 
 GetSpanData.exit:                                 ; preds = %16
@@ -3375,7 +3375,7 @@ GetSpanData.exit:                                 ; preds = %16
   br i1 %.not116, label %46, label %47
 
 46:                                               ; preds = %40
-  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #14
+  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #15
   br label %GetSpanData.exit.thread
 
 47:                                               ; preds = %40
@@ -3534,12 +3534,12 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_closePath(ptr noundef %0, pt
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 808
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @pSpanDataID, align 8
-  %7 = tail call i64 %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6) #14
+  %7 = tail call i64 %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6) #15
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %2
-  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #14
+  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #15
   br label %GetSpanData.exit.thread
 
 10:                                               ; preds = %2
@@ -3550,7 +3550,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_closePath(ptr noundef %0, pt
   br i1 %or.cond.i.not, label %GetSpanData.exit, label %14
 
 14:                                               ; preds = %10
-  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #14
+  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #15
   br label %GetSpanData.exit.thread
 
 GetSpanData.exit:                                 ; preds = %10
@@ -3621,7 +3621,7 @@ subdivideLine.exit.subdivideLine.exit.thread_crit_edge: ; preds = %subdivideLine
   br label %subdivideLine.exit.thread
 
 48:                                               ; preds = %subdivideLine.exit
-  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #14
+  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #15
   br label %GetSpanData.exit.thread
 
 subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.subdivideLine.exit.thread_crit_edge, %GetSpanData.exit._crit_edge, %29, %34
@@ -3641,12 +3641,12 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_pathDone(ptr noundef %0, ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 808
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @pSpanDataID, align 8
-  %7 = tail call i64 %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6) #14
+  %7 = tail call i64 %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6) #15
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %2
-  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #14
+  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #15
   br label %GetSpanData.exit.thread
 
 10:                                               ; preds = %2
@@ -3657,7 +3657,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_pathDone(ptr noundef %0, ptr
   br i1 %or.cond.i.not, label %GetSpanData.exit, label %14
 
 14:                                               ; preds = %10
-  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #14
+  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #15
   br label %GetSpanData.exit.thread
 
 GetSpanData.exit:                                 ; preds = %10
@@ -3728,7 +3728,7 @@ subdivideLine.exit.subdivideLine.exit.thread_crit_edge: ; preds = %subdivideLine
   br label %subdivideLine.exit.thread
 
 48:                                               ; preds = %subdivideLine.exit
-  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #14
+  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #15
   br label %51
 
 subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.subdivideLine.exit.thread_crit_edge, %GetSpanData.exit._crit_edge, %29, %34
@@ -3752,12 +3752,12 @@ define i64 @Java_sun_java2d_pipe_ShapeSpanIterator_getNativeConsumer(ptr noundef
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 808
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @pSpanDataID, align 8
-  %7 = tail call i64 %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6) #14
+  %7 = tail call i64 %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6) #15
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %2
-  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #14
+  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #15
   br label %GetSpanData.exit
 
 10:                                               ; preds = %2
@@ -3768,7 +3768,7 @@ define i64 @Java_sun_java2d_pipe_ShapeSpanIterator_getNativeConsumer(ptr noundef
   br i1 %or.cond.i.not, label %GetSpanData.exit, label %14
 
 14:                                               ; preds = %10
-  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #14
+  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #15
   br label %GetSpanData.exit
 
 GetSpanData.exit:                                 ; preds = %9, %10, %14
@@ -3777,9 +3777,9 @@ GetSpanData.exit:                                 ; preds = %9, %10, %14
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal zeroext range(i8 0, 2) i8 @PCMoveTo(ptr noundef captures(none) %0, float noundef %1, float noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %5 = load float, ptr %4, align 4
@@ -3946,7 +3946,7 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
   ret i8 %.060
 }
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal zeroext range(i8 0, 2) i8 @PCLineTo(ptr noundef captures(none) %0, float noundef %1, float noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 51
   %5 = load i8, ptr %4, align 1
@@ -4089,8 +4089,8 @@ subdivideLine.exit.thread:                        ; preds = %17, %28, %33, %subd
   ret i8 %.048
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext range(i8 0, 2) i8 @PCQuadTo(ptr noundef captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal zeroext range(i8 0, 2) i8 @PCQuadTo(ptr noundef captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) #3 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 51
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
@@ -4243,8 +4243,8 @@ define internal zeroext range(i8 0, 2) i8 @PCQuadTo(ptr noundef captures(none) %
   ret i8 %.082
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext range(i8 0, 2) i8 @PCCubicTo(ptr noundef captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal zeroext range(i8 0, 2) i8 @PCCubicTo(ptr noundef captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) #3 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 51
   %9 = load i8, ptr %8, align 1
   %.not = icmp eq i8 %9, 0
@@ -4437,7 +4437,7 @@ define internal zeroext range(i8 0, 2) i8 @PCCubicTo(ptr noundef captures(none) 
   ret i8 %.0110
 }
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal zeroext range(i8 0, 2) i8 @PCClosePath(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load float, ptr %2, align 4
@@ -4517,7 +4517,7 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
   ret i8 %.0
 }
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal zeroext range(i8 0, 2) i8 @PCPathDone(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load float, ptr %2, align 4
@@ -4605,12 +4605,12 @@ define internal ptr @ShapeSIOpen(ptr noundef %0, ptr noundef %1) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 808
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @pSpanDataID, align 8
-  %7 = tail call i64 %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6) #14
+  %7 = tail call i64 %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6) #15
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %2
-  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #14
+  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #15
   br label %GetSpanData.exit
 
 10:                                               ; preds = %2
@@ -4621,7 +4621,7 @@ define internal ptr @ShapeSIOpen(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %or.cond.i.not, label %GetSpanData.exit, label %14
 
 14:                                               ; preds = %10
-  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #14
+  tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #15
   br label %GetSpanData.exit
 
 GetSpanData.exit:                                 ; preds = %9, %10, %14
@@ -4630,15 +4630,15 @@ GetSpanData.exit:                                 ; preds = %9, %10, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @ShapeSIClose(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #6 {
+define internal void @ShapeSIClose(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #7 {
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc float @ptSegDistSq(float noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5) unnamed_addr #6 {
+define internal fastcc float @ptSegDistSq(float noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5) unnamed_addr #7 {
   %7 = fsub float %2, %0
   %8 = fsub float %3, %1
   %9 = fsub float %4, %0
@@ -4677,13 +4677,13 @@ define internal fastcc float @ptSegDistSq(float noundef %0, float noundef %1, fl
 declare float @llvm.fmuladd.f32(float, float, float) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @sortSegmentsByLeadingY(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #12 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal range(i32 -1, 2) i32 @sortSegmentsByLeadingY(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #13 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -4726,34 +4726,35 @@ define internal range(i32 -1, 2) i32 @sortSegmentsByLeadingY(ptr noundef readonl
 }
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.floor.f32(float) #13
+declare float @llvm.floor.f32(float) #14
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.ceil.f32(float) #13
+declare float @llvm.ceil.f32(float) #14
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #13
+declare i32 @llvm.smax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #13
+declare i32 @llvm.smin.i32(i32, i32) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind allocsize(0,1) }
-attributes #16 = { nounwind allocsize(0) }
+attributes #3 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nounwind }
+attributes #16 = { nounwind allocsize(0,1) }
+attributes #17 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

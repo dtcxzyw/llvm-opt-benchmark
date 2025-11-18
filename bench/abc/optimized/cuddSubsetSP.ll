@@ -67,7 +67,7 @@ define ptr @cuddSubsetShortPaths(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %5
-  %14 = tail call i32 @Cudd_ReadSize(ptr noundef nonnull %0) #9
+  %14 = tail call i32 @Cudd_ReadSize(ptr noundef nonnull %0) #10
   br label %15
 
 15:                                               ; preds = %13, %5
@@ -98,7 +98,7 @@ define ptr @cuddSubsetShortPaths(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %31 = add i32 %.096, 1
   %32 = sext i32 %31 to i64
   %33 = shl nsw i64 %32, 2
-  %34 = tail call noalias ptr @malloc(i64 noundef %33) #10
+  %34 = tail call noalias ptr @malloc(i64 noundef %33) #11
   %.not145 = icmp slt i32 %.096, 0
   br i1 %.not145, label %._crit_edge, label %.lr.ph.preheader
 
@@ -111,44 +111,44 @@ define ptr @cuddSubsetShortPaths(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %30
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %38 = load ptr, ptr %37, align 8, !tbaa !28
-  %39 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #9
+  %39 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #10
   store i32 128, ptr @maxNodeDistPages, align 4, !tbaa !31
-  %40 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #10
+  %40 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #11
   store ptr %40, ptr @nodeDistPages, align 8, !tbaa !32
   %41 = icmp eq ptr %40, null
   br i1 %41, label %92, label %42
 
 42:                                               ; preds = %._crit_edge
   store i32 0, ptr @nodeDistPage, align 4, !tbaa !31
-  %43 = tail call noalias dereferenceable_or_null(65536) ptr @malloc(i64 noundef 65536) #10
+  %43 = tail call noalias dereferenceable_or_null(65536) ptr @malloc(i64 noundef 65536) #11
   store ptr %43, ptr %40, align 8, !tbaa !34
   store ptr %43, ptr @currentNodeDistPage, align 8, !tbaa !34
   %44 = icmp eq ptr %43, null
   br i1 %44, label %.preheader.split.i, label %45
 
 .preheader.split.i:                               ; preds = %42
-  tail call void @free(ptr noundef nonnull %40) #9
+  tail call void @free(ptr noundef nonnull %40) #10
   store ptr null, ptr @nodeDistPages, align 8, !tbaa !32
   br label %92
 
 45:                                               ; preds = %42
   store i32 0, ptr @nodeDistPageIndex, align 4, !tbaa !31
   store i32 128, ptr @maxQueuePages, align 4, !tbaa !31
-  %46 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #10
+  %46 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #11
   store ptr %46, ptr @queuePages, align 8, !tbaa !36
   %47 = icmp eq ptr %46, null
   br i1 %47, label %92, label %48
 
 48:                                               ; preds = %45
   store i32 0, ptr @queuePage, align 4, !tbaa !31
-  %49 = tail call noalias dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #10
+  %49 = tail call noalias dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #11
   store ptr %49, ptr %46, align 8, !tbaa !38
   store ptr %49, ptr @currentQueuePage, align 8, !tbaa !38
   %50 = icmp eq ptr %49, null
   br i1 %50, label %.preheader108.split.i, label %51
 
 .preheader108.split.i:                            ; preds = %48
-  tail call void @free(ptr noundef nonnull %46) #9
+  tail call void @free(ptr noundef nonnull %46) #10
   store ptr null, ptr @queuePages, align 8, !tbaa !36
   br label %92
 
@@ -159,13 +159,13 @@ define ptr @cuddSubsetShortPaths(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %.b85.i, label %52, label %53
 
 52:                                               ; preds = %51
-  tail call void @free(ptr noundef nonnull %43) #9
-  tail call void @free(ptr noundef nonnull %40) #9
+  tail call void @free(ptr noundef nonnull %43) #10
+  tail call void @free(ptr noundef nonnull %40) #10
   store ptr null, ptr @nodeDistPages, align 8, !tbaa !32
-  tail call void @free(ptr noundef nonnull %49) #9
-  tail call void @free(ptr noundef nonnull %46) #9
+  tail call void @free(ptr noundef nonnull %49) #10
+  tail call void @free(ptr noundef nonnull %46) #10
   store ptr null, ptr @queuePages, align 8, !tbaa !36
-  tail call void @st__free_table(ptr noundef %39) #9
+  tail call void @st__free_table(ptr noundef %39) #10
   br label %92
 
 53:                                               ; preds = %51
@@ -174,7 +174,7 @@ define ptr @cuddSubsetShortPaths(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %55 = getelementptr inbounds nuw i8, ptr %43, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 -1, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
-  %56 = tail call i32 @st__insert(ptr noundef %39, ptr noundef nonnull %27, ptr noundef nonnull %43) #9
+  %56 = tail call i32 @st__insert(ptr noundef %39, ptr noundef nonnull %27, ptr noundef nonnull %43) #10
   switch i32 %56, label %76 [
     i32 -10000, label %57
     i32 1, label %74
@@ -200,7 +200,7 @@ define ptr @cuddSubsetShortPaths(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %.not95.i, label %64, label %63
 
 63:                                               ; preds = %60
-  tail call void @free(ptr noundef nonnull %62) #9
+  tail call void @free(ptr noundef nonnull %62) #10
   store ptr null, ptr %61, align 8, !tbaa !34
   br label %64
 
@@ -214,7 +214,7 @@ define ptr @cuddSubsetShortPaths(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %.not91.i, label %65, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %64, %._crit_edge.i
-  tail call void @free(ptr noundef nonnull %.pre.i) #9
+  tail call void @free(ptr noundef nonnull %.pre.i) #10
   store ptr null, ptr @nodeDistPages, align 8, !tbaa !32
   br label %65
 
@@ -237,7 +237,7 @@ define ptr @cuddSubsetShortPaths(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %.not94.i, label %72, label %71
 
 71:                                               ; preds = %68
-  tail call void @free(ptr noundef nonnull %70) #9
+  tail call void @free(ptr noundef nonnull %70) #10
   store ptr null, ptr %69, align 8, !tbaa !38
   br label %72
 
@@ -251,12 +251,12 @@ define ptr @cuddSubsetShortPaths(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %.not93.i, label %73, label %._crit_edge117.thread.i
 
 ._crit_edge117.thread.i:                          ; preds = %72, %._crit_edge117.i
-  tail call void @free(ptr noundef nonnull %.pre154.i) #9
+  tail call void @free(ptr noundef nonnull %.pre154.i) #10
   store ptr null, ptr @queuePages, align 8, !tbaa !36
   br label %73
 
 73:                                               ; preds = %._crit_edge117.thread.i, %._crit_edge117.i
-  tail call void @st__free_table(ptr noundef %39) #9
+  tail call void @st__free_table(ptr noundef %39) #10
   br label %92
 
 74:                                               ; preds = %53
@@ -309,7 +309,7 @@ define ptr @cuddSubsetShortPaths(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %.not89.i, label %91, label %90
 
 90:                                               ; preds = %87
-  tail call void @free(ptr noundef nonnull %89) #9
+  tail call void @free(ptr noundef nonnull %89) #10
   store ptr null, ptr %88, align 8, !tbaa !38
   br label %91
 
@@ -323,7 +323,7 @@ define ptr @cuddSubsetShortPaths(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %.not88.i, label %CreatePathTable.exit, label %._crit_edge121.thread.i
 
 ._crit_edge121.thread.i:                          ; preds = %91, %._crit_edge121.i
-  tail call void @free(ptr noundef nonnull %.pre155.i) #9
+  tail call void @free(ptr noundef nonnull %.pre155.i) #10
   store ptr null, ptr @queuePages, align 8, !tbaa !36
   br label %CreatePathTable.exit
 
@@ -342,7 +342,7 @@ CreatePathTable.exit:                             ; preds = %._crit_edge121.i, %
   br i1 %94, label %.thread, label %96
 
 96:                                               ; preds = %95
-  tail call void @st__free_table(ptr noundef nonnull %39) #9
+  tail call void @st__free_table(ptr noundef nonnull %39) #10
   br label %.thread
 
 .thread:                                          ; preds = %92, %74, %83, %96, %95
@@ -350,7 +350,7 @@ CreatePathTable.exit:                             ; preds = %._crit_edge121.i, %
   br i1 %.not133, label %196, label %97
 
 97:                                               ; preds = %.thread
-  tail call void @free(ptr noundef nonnull %34) #9
+  tail call void @free(ptr noundef nonnull %34) #10
   br label %196
 
 98:                                               ; preds = %CreatePathTable.exit
@@ -412,18 +412,18 @@ AssessPathLength.exit:                            ; preds = %119, %121
   br i1 %.not117, label %174, label %123
 
 123:                                              ; preds = %AssessPathLength.exit
-  %124 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #10
+  %124 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #11
   store i32 %.2.i, ptr %124, align 8, !tbaa !46
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 4
   store i32 0, ptr %125, align 4, !tbaa !49
   %126 = getelementptr inbounds nuw i8, ptr %124, i64 8
   store i32 %storemerge.i, ptr %126, align 8, !tbaa !50
-  %127 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #9
+  %127 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #10
   %128 = getelementptr inbounds nuw i8, ptr %124, i64 16
   store ptr %127, ptr %128, align 8, !tbaa !51
   %129 = getelementptr inbounds nuw i8, ptr %124, i64 24
   store i32 %spec.select, ptr %129, align 8, !tbaa !52
-  %130 = call i32 @st__lookup(ptr noundef nonnull %39, ptr noundef nonnull %27, ptr noundef nonnull %6) #9
+  %130 = call i32 @st__lookup(ptr noundef nonnull %39, ptr noundef nonnull %27, ptr noundef nonnull %6) #10
   %.not118 = icmp eq i32 %130, 0
   br i1 %.not118, label %131, label %135
 
@@ -432,7 +432,7 @@ AssessPathLength.exit:                            ; preds = %119, %121
   %133 = call i64 @fwrite(ptr nonnull @.str.1, i64 44, i64 1, ptr %132)
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 5, ptr %134, align 8, !tbaa !29
-  call void @free(ptr noundef nonnull %124) #9
+  call void @free(ptr noundef nonnull %124) #10
   br label %196
 
 135:                                              ; preds = %123
@@ -474,7 +474,7 @@ AssessPathLength.exit:                            ; preds = %119, %121
 
 153:                                              ; preds = %151
   %154 = load ptr, ptr %37, align 8, !tbaa !28
-  %155 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %154, ptr noundef nonnull @.str.2, i32 noundef %.2.i, i32 noundef %.094) #9
+  %155 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %154, ptr noundef nonnull @.str.2, i32 noundef %.2.i, i32 noundef %.094) #10
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 5, ptr %156, align 8, !tbaa !29
   br label %196
@@ -484,7 +484,7 @@ AssessPathLength.exit:                            ; preds = %119, %121
   br i1 %.not124, label %160, label %158
 
 158:                                              ; preds = %157
-  %159 = call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #9
+  %159 = call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #10
   br label %160
 
 160:                                              ; preds = %157, %158
@@ -508,14 +508,14 @@ AssessPathLength.exit:                            ; preds = %119, %121
   br i1 %.not126, label %171, label %170
 
 170:                                              ; preds = %169
-  call void @st__free_table(ptr noundef nonnull %.0) #9
+  call void @st__free_table(ptr noundef nonnull %.0) #10
   br label %171
 
 171:                                              ; preds = %170, %169
   %172 = load ptr, ptr %128, align 8, !tbaa !51
-  call void @st__free_table(ptr noundef %172) #9
-  %173 = call i32 @st__foreach(ptr noundef nonnull %39, ptr noundef nonnull @stPathTableDdFree, ptr noundef nonnull %0) #9
-  call void @free(ptr noundef nonnull %124) #9
+  call void @st__free_table(ptr noundef %172) #10
+  %173 = call i32 @st__foreach(ptr noundef nonnull %39, ptr noundef nonnull @stPathTableDdFree, ptr noundef nonnull %0) #10
+  call void @free(ptr noundef nonnull %124) #10
   br label %178
 
 174:                                              ; preds = %AssessPathLength.exit
@@ -527,12 +527,12 @@ AssessPathLength.exit:                            ; preds = %119, %121
 
 178:                                              ; preds = %174, %171
   %.097 = phi ptr [ %161, %171 ], [ %1, %174 ]
-  call void @st__free_table(ptr noundef nonnull %39) #9
+  call void @st__free_table(ptr noundef nonnull %39) #10
   %.not127 = icmp eq ptr %34, null
   br i1 %.not127, label %180, label %179
 
 179:                                              ; preds = %178
-  call void @free(ptr noundef nonnull %34) #9
+  call void @free(ptr noundef nonnull %34) #10
   br label %180
 
 180:                                              ; preds = %178, %179
@@ -554,7 +554,7 @@ AssessPathLength.exit:                            ; preds = %119, %121
   br i1 %.not131, label %187, label %186
 
 186:                                              ; preds = %183
-  call void @free(ptr noundef nonnull %185) #9
+  call void @free(ptr noundef nonnull %185) #10
   store ptr null, ptr %184, align 8, !tbaa !34
   br label %187
 
@@ -568,7 +568,7 @@ AssessPathLength.exit:                            ; preds = %119, %121
   br i1 %.not129, label %188, label %._crit_edge151.thread
 
 ._crit_edge151.thread:                            ; preds = %187, %._crit_edge151
-  call void @free(ptr noundef nonnull %.pre) #9
+  call void @free(ptr noundef nonnull %.pre) #10
   store ptr null, ptr @nodeDistPages, align 8, !tbaa !32
   br label %188
 
@@ -658,7 +658,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef nonnull %
   br i1 %14, label %288, label %15
 
 15:                                               ; preds = %5
-  %16 = call i32 @st__lookup(ptr noundef nonnull %1, ptr noundef nonnull %12, ptr noundef nonnull %7) #9
+  %16 = call i32 @st__lookup(ptr noundef nonnull %1, ptr noundef nonnull %12, ptr noundef nonnull %7) #10
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %17, label %22
 
@@ -730,7 +730,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef nonnull %
   br i1 %58, label %288, label %83
 
 59:                                               ; preds = %31
-  %60 = call i32 @st__lookup(ptr noundef nonnull %1, ptr noundef nonnull %43, ptr noundef nonnull %6) #9
+  %60 = call i32 @st__lookup(ptr noundef nonnull %1, ptr noundef nonnull %43, ptr noundef nonnull %6) #10
   %.not223 = icmp eq i32 %60, 0
   br i1 %.not223, label %61, label %66
 
@@ -821,7 +821,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef nonnull %
   br label %128
 
 103:                                              ; preds = %83
-  %104 = call i32 @st__lookup(ptr noundef nonnull %1, ptr noundef nonnull %85, ptr noundef nonnull %8) #9
+  %104 = call i32 @st__lookup(ptr noundef nonnull %1, ptr noundef nonnull %85, ptr noundef nonnull %8) #10
   %.not230 = icmp eq i32 %104, 0
   br i1 %.not230, label %105, label %110
 
@@ -943,7 +943,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef nonnull %
 
 151:                                              ; preds = %144
   %152 = load ptr, ptr %131, align 8, !tbaa !51
-  %153 = call i32 @st__lookup(ptr noundef %152, ptr noundef %.0199, ptr noundef nonnull %9) #9
+  %153 = call i32 @st__lookup(ptr noundef %152, ptr noundef %.0199, ptr noundef nonnull %9) #10
   %.not246 = icmp eq i32 %153, 0
   br i1 %.not246, label %159, label %154
 
@@ -972,7 +972,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef nonnull %
 
 164:                                              ; preds = %162
   %165 = load ptr, ptr %131, align 8, !tbaa !51
-  %166 = call i32 @st__insert(ptr noundef %165, ptr noundef %.0199, ptr noundef null) #9
+  %166 = call i32 @st__insert(ptr noundef %165, ptr noundef %.0199, ptr noundef null) #10
   %167 = icmp eq i32 %166, -10000
   br i1 %167, label %168, label %172
 
@@ -997,7 +997,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef nonnull %
 
 178:                                              ; preds = %159
   %179 = load ptr, ptr %131, align 8, !tbaa !51
-  %180 = call i32 @st__insert(ptr noundef %179, ptr noundef %.0199, ptr noundef null) #9
+  %180 = call i32 @st__insert(ptr noundef %179, ptr noundef %.0199, ptr noundef null) #10
   %181 = icmp eq i32 %180, -10000
   br i1 %181, label %182, label %186
 
@@ -1034,7 +1034,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef nonnull %
   br i1 %.not250, label %197, label %196
 
 196:                                              ; preds = %195
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %.1192) #9
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %.1192) #10
   br label %197
 
 197:                                              ; preds = %196, %195
@@ -1042,7 +1042,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef nonnull %
   br i1 %.not251, label %288, label %198
 
 198:                                              ; preds = %197
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %.1195) #9
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %.1195) #10
   br label %288
 
 199:                                              ; preds = %193
@@ -1061,8 +1061,8 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef nonnull %
 
 208:                                              ; preds = %135
   store i32 0, ptr %132, align 4, !tbaa !49
-  %209 = call i32 @Cudd_NodeReadIndex(ptr noundef nonnull %12) #9
-  %210 = call ptr @Cudd_ReadVars(ptr noundef %0, i32 noundef %209) #9
+  %209 = call i32 @Cudd_NodeReadIndex(ptr noundef nonnull %12) #10
+  %210 = call ptr @Cudd_ReadVars(ptr noundef %0, i32 noundef %209) #10
   %211 = ptrtoint ptr %210 to i64
   %212 = and i64 %211, -2
   %213 = inttoptr i64 %212 to ptr
@@ -1070,7 +1070,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef nonnull %
   %215 = load i32, ptr %214, align 4, !tbaa !55
   %216 = add i32 %215, 1
   store i32 %216, ptr %214, align 4, !tbaa !55
-  %217 = call ptr @cuddBddIteRecur(ptr noundef %0, ptr noundef %210, ptr noundef %.1192, ptr noundef %.1195) #9
+  %217 = call ptr @cuddBddIteRecur(ptr noundef %0, ptr noundef %210, ptr noundef %.1192, ptr noundef %.1195) #10
   %.not239 = icmp eq ptr %217, null
   br i1 %.not239, label %225, label %218
 
@@ -1085,9 +1085,9 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef nonnull %
   br label %225
 
 225:                                              ; preds = %218, %208
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %210) #9
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.1192) #9
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.1195) #9
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %210) #10
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.1192) #10
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.1195) #10
   %.not240 = icmp eq ptr %4, null
   br i1 %.not240, label %247, label %226
 
@@ -1095,7 +1095,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef nonnull %
   %227 = ptrtoint ptr %217 to i64
   %228 = and i64 %227, -2
   %229 = inttoptr i64 %228 to ptr
-  %230 = call i32 @st__lookup(ptr noundef nonnull %4, ptr noundef %229, ptr noundef nonnull %9) #9
+  %230 = call i32 @st__lookup(ptr noundef nonnull %4, ptr noundef %229, ptr noundef nonnull %9) #10
   %.not241 = icmp eq i32 %230, 0
   br i1 %.not241, label %231, label %247
 
@@ -1105,7 +1105,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef nonnull %
   br i1 %233, label %247, label %234
 
 234:                                              ; preds = %231
-  %235 = call i32 @st__insert(ptr noundef nonnull %4, ptr noundef nonnull %229, ptr noundef null) #9
+  %235 = call i32 @st__insert(ptr noundef nonnull %4, ptr noundef nonnull %229, ptr noundef null) #10
   %236 = icmp eq i32 %235, -10000
   br i1 %236, label %237, label %240
 
@@ -1153,7 +1153,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef nonnull %
   br i1 %.not243, label %263, label %262
 
 262:                                              ; preds = %259
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %261) #9
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %261) #10
   %.pre = load ptr, ptr %7, align 8, !tbaa !34
   %.pre260 = load i32, ptr %253, align 4, !tbaa !55
   br label %263
@@ -1182,7 +1182,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef nonnull %
   br i1 %.not242, label %277, label %276
 
 276:                                              ; preds = %273
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %275) #9
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %275) #10
   %.pre261 = load ptr, ptr %7, align 8, !tbaa !34
   %.pre262 = load i32, ptr %253, align 4, !tbaa !55
   br label %277
@@ -1228,7 +1228,7 @@ define internal noundef i32 @stPathTableDdFree(ptr readnone captures(none) %0, p
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %3
-  tail call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef nonnull %5) #9
+  tail call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef nonnull %5) #10
   br label %7
 
 7:                                                ; preds = %6, %3
@@ -1238,15 +1238,15 @@ define internal noundef i32 @stPathTableDdFree(ptr readnone captures(none) %0, p
   br i1 %.not9, label %11, label %10
 
 10:                                               ; preds = %7
-  tail call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef nonnull %9) #9
+  tail call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef nonnull %9) #10
   br label %11
 
 11:                                               ; preds = %10, %7
   ret i32 0
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc void @ResizeNodeDistPages() unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc void @ResizeNodeDistPages() unnamed_addr #5 {
   %1 = load i32, ptr @nodeDistPage, align 4, !tbaa !31
   %2 = add nsw i32 %1, 1
   store i32 %2, ptr @nodeDistPage, align 4, !tbaa !31
@@ -1262,7 +1262,7 @@ define internal fastcc void @ResizeNodeDistPages() unnamed_addr #0 {
   %6 = add nsw i32 %1, 129
   %7 = sext i32 %6 to i64
   %8 = shl nsw i64 %7, 3
-  %9 = tail call noalias ptr @malloc(i64 noundef %8) #10
+  %9 = tail call noalias ptr @malloc(i64 noundef %8) #11
   %10 = icmp eq ptr %9, null
   %.pre54 = load ptr, ptr @nodeDistPages, align 8, !tbaa !32
   br i1 %10, label %.preheader, label %.preheader31
@@ -1291,7 +1291,7 @@ define internal fastcc void @ResizeNodeDistPages() unnamed_addr #0 {
   br i1 %.not27, label %16, label %15
 
 15:                                               ; preds = %12
-  tail call void @free(ptr noundef nonnull %14) #9
+  tail call void @free(ptr noundef nonnull %14) #10
   store ptr null, ptr %13, align 8, !tbaa !34
   br label %16
 
@@ -1305,7 +1305,7 @@ define internal fastcc void @ResizeNodeDistPages() unnamed_addr #0 {
   br i1 %.not26, label %17, label %._crit_edge40.thread
 
 ._crit_edge40.thread:                             ; preds = %16, %._crit_edge40
-  tail call void @free(ptr noundef nonnull %.pre54) #9
+  tail call void @free(ptr noundef nonnull %.pre54) #10
   store ptr null, ptr @nodeDistPages, align 8, !tbaa !32
   br label %17
 
@@ -1333,7 +1333,7 @@ define internal fastcc void @ResizeNodeDistPages() unnamed_addr #0 {
   br i1 %.not, label %23, label %22
 
 22:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  tail call void @free(ptr noundef nonnull %.pre54) #9
+  tail call void @free(ptr noundef nonnull %.pre54) #10
   br label %23
 
 23:                                               ; preds = %._crit_edge, %22
@@ -1342,7 +1342,7 @@ define internal fastcc void @ResizeNodeDistPages() unnamed_addr #0 {
 
 24:                                               ; preds = %._crit_edge52, %23
   %25 = phi ptr [ %.pre53, %._crit_edge52 ], [ %9, %23 ]
-  %26 = tail call noalias dereferenceable_or_null(65536) ptr @malloc(i64 noundef 65536) #10
+  %26 = tail call noalias dereferenceable_or_null(65536) ptr @malloc(i64 noundef 65536) #11
   %27 = sext i32 %2 to i64
   %28 = getelementptr inbounds ptr, ptr %25, i64 %27
   store ptr %26, ptr %28, align 8, !tbaa !34
@@ -1366,7 +1366,7 @@ define internal fastcc void @ResizeNodeDistPages() unnamed_addr #0 {
   br i1 %.not25, label %33, label %32
 
 32:                                               ; preds = %.lr.ph35
-  tail call void @free(ptr noundef nonnull %31) #9
+  tail call void @free(ptr noundef nonnull %31) #10
   store ptr null, ptr %30, align 8, !tbaa !34
   br label %33
 
@@ -1376,7 +1376,7 @@ define internal fastcc void @ResizeNodeDistPages() unnamed_addr #0 {
   br i1 %exitcond46.not, label %._crit_edge36, label %.lr.ph35, !llvm.loop !67
 
 ._crit_edge36:                                    ; preds = %33, %.preheader30
-  tail call void @free(ptr noundef nonnull %25) #9
+  tail call void @free(ptr noundef nonnull %25) #10
   store ptr null, ptr @nodeDistPages, align 8, !tbaa !32
   store i1 true, ptr @memOut, align 4
   br label %35
@@ -1453,7 +1453,7 @@ define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %34, label %135, label %35
 
 35:                                               ; preds = %30
-  %36 = call i32 @st__lookup(ptr noundef %0, ptr noundef nonnull %32, ptr noundef nonnull %6) #9
+  %36 = call i32 @st__lookup(ptr noundef %0, ptr noundef nonnull %32, ptr noundef nonnull %6) #10
   %.not99 = icmp eq i32 %36, 0
   br i1 %.not99, label %37, label %101
 
@@ -1489,7 +1489,7 @@ define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %.not112, label %48, label %47
 
 47:                                               ; preds = %44
-  call void @free(ptr noundef nonnull %46) #9
+  call void @free(ptr noundef nonnull %46) #10
   store ptr null, ptr %45, align 8, !tbaa !38
   br label %48
 
@@ -1503,12 +1503,12 @@ define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %.not111, label %49, label %._crit_edge42.thread
 
 ._crit_edge42.thread:                             ; preds = %48, %._crit_edge42
-  call void @free(ptr noundef nonnull %.pre79) #9
+  call void @free(ptr noundef nonnull %.pre79) #10
   store ptr null, ptr @queuePages, align 8, !tbaa !36
   br label %49
 
 49:                                               ; preds = %._crit_edge42, %._crit_edge42.thread
-  call void @st__free_table(ptr noundef %0) #9
+  call void @st__free_table(ptr noundef %0) #10
   br label %139
 
 50:                                               ; preds = %41
@@ -1536,7 +1536,7 @@ define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 n
   br label %61
 
 61:                                               ; preds = %59, %58
-  %62 = call i32 @st__insert(ptr noundef %0, ptr noundef nonnull %32, ptr noundef nonnull %54) #9
+  %62 = call i32 @st__insert(ptr noundef %0, ptr noundef nonnull %32, ptr noundef nonnull %54) #10
   %63 = icmp eq i32 %62, -10000
   br i1 %63, label %64, label %81
 
@@ -1560,7 +1560,7 @@ define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %.not109, label %71, label %70
 
 70:                                               ; preds = %67
-  call void @free(ptr noundef nonnull %69) #9
+  call void @free(ptr noundef nonnull %69) #10
   store ptr null, ptr %68, align 8, !tbaa !34
   br label %71
 
@@ -1574,7 +1574,7 @@ define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %.not105, label %72, label %._crit_edge33.thread
 
 ._crit_edge33.thread:                             ; preds = %71, %._crit_edge33
-  call void @free(ptr noundef nonnull %.pre77) #9
+  call void @free(ptr noundef nonnull %.pre77) #10
   store ptr null, ptr @nodeDistPages, align 8, !tbaa !32
   br label %72
 
@@ -1597,7 +1597,7 @@ define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %.not108, label %79, label %78
 
 78:                                               ; preds = %75
-  call void @free(ptr noundef nonnull %77) #9
+  call void @free(ptr noundef nonnull %77) #10
   store ptr null, ptr %76, align 8, !tbaa !38
   br label %79
 
@@ -1611,12 +1611,12 @@ define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %.not107, label %80, label %._crit_edge38.thread
 
 ._crit_edge38.thread:                             ; preds = %79, %._crit_edge38
-  call void @free(ptr noundef nonnull %.pre78) #9
+  call void @free(ptr noundef nonnull %.pre78) #10
   store ptr null, ptr @queuePages, align 8, !tbaa !36
   br label %80
 
 80:                                               ; preds = %._crit_edge38, %._crit_edge38.thread
-  call void @st__free_table(ptr noundef %0) #9
+  call void @st__free_table(ptr noundef %0) #10
   br label %139
 
 81:                                               ; preds = %61
@@ -1651,7 +1651,7 @@ define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %.not103, label %92, label %91
 
 91:                                               ; preds = %88
-  call void @free(ptr noundef nonnull %90) #9
+  call void @free(ptr noundef nonnull %90) #10
   store ptr null, ptr %89, align 8, !tbaa !34
   br label %92
 
@@ -1665,12 +1665,12 @@ define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %.not102, label %93, label %._crit_edge28.thread
 
 ._crit_edge28.thread:                             ; preds = %92, %._crit_edge28
-  call void @free(ptr noundef nonnull %.pre76) #9
+  call void @free(ptr noundef nonnull %.pre76) #10
   store ptr null, ptr @nodeDistPages, align 8, !tbaa !32
   br label %93
 
 93:                                               ; preds = %._crit_edge28, %._crit_edge28.thread
-  call void @st__free_table(ptr noundef %0) #9
+  call void @st__free_table(ptr noundef %0) #10
   br label %139
 
 94:                                               ; preds = %85
@@ -1733,7 +1733,7 @@ define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %.not116, label %121, label %120
 
 120:                                              ; preds = %117
-  call void @free(ptr noundef nonnull %119) #9
+  call void @free(ptr noundef nonnull %119) #10
   store ptr null, ptr %118, align 8, !tbaa !34
   br label %121
 
@@ -1747,12 +1747,12 @@ define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %.not115, label %122, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %121, %._crit_edge
-  call void @free(ptr noundef nonnull %.pre) #9
+  call void @free(ptr noundef nonnull %.pre) #10
   store ptr null, ptr @nodeDistPages, align 8, !tbaa !32
   br label %122
 
 122:                                              ; preds = %._crit_edge, %._crit_edge.thread
-  call void @st__free_table(ptr noundef %0) #9
+  call void @st__free_table(ptr noundef %0) #10
   br label %139
 
 123:                                              ; preds = %114
@@ -1811,7 +1811,7 @@ define internal fastcc range(i32 0, 2) i32 @CreateBotDist(ptr noundef %0, ptr no
   br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %4
-  %13 = call i32 @st__lookup(ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %5) #9
+  %13 = call i32 @st__lookup(ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %5) #10
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %16
 
@@ -1899,7 +1899,7 @@ define internal fastcc range(i32 0, 2) i32 @CreateBotDist(ptr noundef %0, ptr no
   br label %105
 
 58:                                               ; preds = %44
-  %59 = call i32 @st__lookup(ptr noundef %1, ptr noundef nonnull %49, ptr noundef nonnull %6) #9
+  %59 = call i32 @st__lookup(ptr noundef %1, ptr noundef nonnull %49, ptr noundef nonnull %6) #10
   %.not90 = icmp eq i32 %59, 0
   br i1 %.not90, label %60, label %62
 
@@ -2077,8 +2077,8 @@ define internal fastcc range(i32 0, 2) i32 @CreateBotDist(ptr noundef %0, ptr no
   ret i32 %.061
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc void @ResizeQueuePages() unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc void @ResizeQueuePages() unnamed_addr #5 {
   %1 = load i32, ptr @queuePage, align 4, !tbaa !31
   %2 = add nsw i32 %1, 1
   store i32 %2, ptr @queuePage, align 4, !tbaa !31
@@ -2094,7 +2094,7 @@ define internal fastcc void @ResizeQueuePages() unnamed_addr #0 {
   %6 = add nsw i32 %1, 129
   %7 = sext i32 %6 to i64
   %8 = shl nsw i64 %7, 3
-  %9 = tail call noalias ptr @malloc(i64 noundef %8) #10
+  %9 = tail call noalias ptr @malloc(i64 noundef %8) #11
   %10 = icmp eq ptr %9, null
   %.pre54 = load ptr, ptr @queuePages, align 8, !tbaa !36
   br i1 %10, label %.preheader, label %.preheader31
@@ -2123,7 +2123,7 @@ define internal fastcc void @ResizeQueuePages() unnamed_addr #0 {
   br i1 %.not27, label %16, label %15
 
 15:                                               ; preds = %12
-  tail call void @free(ptr noundef nonnull %14) #9
+  tail call void @free(ptr noundef nonnull %14) #10
   store ptr null, ptr %13, align 8, !tbaa !38
   br label %16
 
@@ -2137,7 +2137,7 @@ define internal fastcc void @ResizeQueuePages() unnamed_addr #0 {
   br i1 %.not26, label %17, label %._crit_edge40.thread
 
 ._crit_edge40.thread:                             ; preds = %16, %._crit_edge40
-  tail call void @free(ptr noundef nonnull %.pre54) #9
+  tail call void @free(ptr noundef nonnull %.pre54) #10
   store ptr null, ptr @queuePages, align 8, !tbaa !36
   br label %17
 
@@ -2165,7 +2165,7 @@ define internal fastcc void @ResizeQueuePages() unnamed_addr #0 {
   br i1 %.not, label %23, label %22
 
 22:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  tail call void @free(ptr noundef nonnull %.pre54) #9
+  tail call void @free(ptr noundef nonnull %.pre54) #10
   br label %23
 
 23:                                               ; preds = %._crit_edge, %22
@@ -2174,7 +2174,7 @@ define internal fastcc void @ResizeQueuePages() unnamed_addr #0 {
 
 24:                                               ; preds = %._crit_edge52, %23
   %25 = phi ptr [ %.pre53, %._crit_edge52 ], [ %9, %23 ]
-  %26 = tail call noalias dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #10
+  %26 = tail call noalias dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #11
   %27 = sext i32 %2 to i64
   %28 = getelementptr inbounds ptr, ptr %25, i64 %27
   store ptr %26, ptr %28, align 8, !tbaa !38
@@ -2198,7 +2198,7 @@ define internal fastcc void @ResizeQueuePages() unnamed_addr #0 {
   br i1 %.not25, label %33, label %32
 
 32:                                               ; preds = %.lr.ph35
-  tail call void @free(ptr noundef nonnull %31) #9
+  tail call void @free(ptr noundef nonnull %31) #10
   store ptr null, ptr %30, align 8, !tbaa !38
   br label %33
 
@@ -2208,7 +2208,7 @@ define internal fastcc void @ResizeQueuePages() unnamed_addr #0 {
   br i1 %exitcond46.not, label %._crit_edge36, label %.lr.ph35, !llvm.loop !77
 
 ._crit_edge36:                                    ; preds = %33, %.preheader30
-  tail call void @free(ptr noundef nonnull %25) #9
+  tail call void @free(ptr noundef nonnull %25) #10
   store ptr null, ptr @queuePages, align 8, !tbaa !36
   store i1 true, ptr @memOut, align 4
   br label %35
@@ -2230,34 +2230,35 @@ declare ptr @Cudd_ReadVars(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @cuddBddIteRecur(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #7
+declare i32 @llvm.umin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.uadd.sat.i32(i32, i32) #7
+declare i32 @llvm.uadd.sat.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nofree nounwind }
-attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind allocsize(0) }
+attributes #5 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nofree nounwind }
+attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -1555,7 +1555,7 @@ define internal void @_get_viewport_bounds(ptr noundef readonly captures(none) %
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_get_viewport_size(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #5 {
   %3 = load i32, ptr %1, align 4, !tbaa !170
   %4 = add i32 %3, 584
@@ -1845,7 +1845,7 @@ define internal void @_get_rect_bounds(ptr noundef readonly captures(none) %0, p
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_get_rect_size(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #5 {
   %3 = load i32, ptr %1, align 4, !tbaa !170
   %4 = add i32 %3, 584
@@ -2065,7 +2065,7 @@ define internal void @_get_circle_bounds(ptr noundef readonly captures(none) %0,
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_get_circle_size(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #5 {
   %3 = load i32, ptr %1, align 4, !tbaa !170
   %4 = add i32 %3, 584
@@ -2297,7 +2297,7 @@ define internal void @_get_ellipse_bounds(ptr noundef readonly captures(none) %0
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_get_ellipse_size(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #5 {
   %3 = load i32, ptr %1, align 4, !tbaa !170
   %4 = add i32 %3, 584
@@ -2532,7 +2532,7 @@ define internal void @_get_line_bounds(ptr noundef readonly captures(none) %0, p
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_get_line_size(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #5 {
   %3 = load i32, ptr %1, align 4, !tbaa !170
   %4 = add i32 %3, 584
@@ -2866,7 +2866,7 @@ define internal void @_destroy_poly(ptr noundef readonly captures(none) %0) #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_get_poly_size(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #5 {
   %3 = load i32, ptr %1, align 4, !tbaa !170
   %4 = add i32 %3, 584
@@ -4802,7 +4802,7 @@ define internal void @_destroy_content(ptr noundef readonly captures(none) %0) #
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_get_content_size(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #5 {
   %3 = load i32, ptr %1, align 4, !tbaa !170
   %4 = add i32 %3, 584
@@ -5207,7 +5207,7 @@ define internal void @_set_image_attr(ptr noundef %0, ptr noundef %1, ptr nounde
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_get_image_size(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #5 {
   %3 = load i32, ptr %1, align 4, !tbaa !170
   %4 = add i32 %3, 584
@@ -5547,7 +5547,7 @@ define internal void @_set_solid_ref(ptr noundef readonly captures(none) %0, ptr
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_get_solid_size(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #5 {
   %3 = load i32, ptr %1, align 4, !tbaa !170
   %4 = add i32 %3, 584
@@ -5920,7 +5920,7 @@ define internal void @_set_gradient_ref(ptr noundef %0, ptr noundef %1, ptr noun
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_get_grad_size(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #5 {
   %3 = load i32, ptr %1, align 4, !tbaa !170
   %4 = add i32 %3, 584
@@ -6832,7 +6832,7 @@ attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

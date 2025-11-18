@@ -1604,7 +1604,7 @@ define internal range(i32 0, 2) i32 @xor_init(ptr noundef writeonly captures(add
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 2) i32 @xor_derive(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) #10 {
   %5 = load ptr, ptr %0, align 8, !tbaa !54
   %6 = icmp eq ptr %5, null
@@ -5112,7 +5112,7 @@ define internal void @der2key_freectx(ptr noundef %0) #0 {
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2xorhmacsig_does_selection(ptr readnone captures(none) %0, i32 noundef %1) #12 {
   %PrivateKeyInfo_xorhmacsig_desc.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @PrivateKeyInfo_xorhmacsig_desc, i64 28), align 4
   %3 = icmp eq i32 %1, 0
@@ -5670,7 +5670,7 @@ der2key_newctx.exit:                              ; preds = %1, %3, %7
   ret ptr %2
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2xorhmacsig_does_selection(ptr readnone captures(none) %0, i32 noundef %1) #12 {
   %SubjectPublicKeyInfo_xorhmacsig_desc.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @SubjectPublicKeyInfo_xorhmacsig_desc, i64 28), align 4
   %3 = icmp eq i32 %1, 0
@@ -5822,7 +5822,7 @@ der2key_newctx.exit:                              ; preds = %1, %3, %7
   ret ptr %2
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2xorhmacsha2sig_does_selection(ptr readnone captures(none) %0, i32 noundef %1) #12 {
   %PrivateKeyInfo_xorhmacsha2sig_desc.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @PrivateKeyInfo_xorhmacsha2sig_desc, i64 28), align 4
   %3 = icmp eq i32 %1, 0
@@ -5875,7 +5875,7 @@ der2key_newctx.exit:                              ; preds = %1, %3, %7
   ret ptr %2
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2xorhmacsha2sig_does_selection(ptr readnone captures(none) %0, i32 noundef %1) #12 {
   %SubjectPublicKeyInfo_xorhmacsha2sig_desc.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @SubjectPublicKeyInfo_xorhmacsha2sig_desc, i64 28), align 4
   %3 = icmp eq i32 %1, 0
@@ -6882,9 +6882,9 @@ attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: read) }

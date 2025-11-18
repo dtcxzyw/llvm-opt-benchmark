@@ -433,7 +433,7 @@ define hidden noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17h2a8ed9ca41
   ret i64 %.sroa.02.0
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17h55b5c6604823347aE.llvm.11538535937534900153"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(296) %0, i64 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %14, label %4
@@ -927,7 +927,7 @@ define hidden noundef i64 @_ZN5prost8encoding5bytes11encoded_len17h836136b341bb3
   ret i64 %20
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN5prost8encoding7message11encoded_len17h1454c2fb4210b937E.llvm.11538535937534900153(i32 noundef %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(296) %1) unnamed_addr #3 {
   %3 = tail call noundef i64 @"_ZN94_$LT$live_kit_server..proto..RoomCompositeEgressRequest$u20$as$u20$prost..message..Message$GT$11encoded_len17h3a1f56b572ece6f2E.llvm.11538535937534900153"(ptr noalias noundef nonnull readonly align 8 dereferenceable(296) %1)
   %4 = shl i32 %0, 3
@@ -4367,7 +4367,7 @@ define hidden void @"_ZN73_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$bytes..buf..
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.11538535937534900153"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
@@ -4389,7 +4389,7 @@ define hidden noundef zeroext i1 @"_ZN77_$LT$alloc..string..String$u20$as$u20$co
   ret i1 %.sroa.0.0.i
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @"_ZN94_$LT$live_kit_server..proto..RoomCompositeEgressRequest$u20$as$u20$prost..message..Message$GT$11encoded_len17h3a1f56b572ece6f2E.llvm.11538535937534900153"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(296) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !alias.scope !1263, !noalias !1266, !noundef !4
@@ -5450,7 +5450,7 @@ define hidden noundef i64 @"_ZN83_$LT$live_kit_server..proto..AzureBlobUpload$u2
   ret i64 %33
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @"_ZN80_$LT$live_kit_server..proto..StreamOutput$u20$as$u20$prost..message..Message$GT$11encoded_len17h8c4170515e00c5b7E.llvm.11538535937534900153"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8, !noundef !4
@@ -5982,7 +5982,7 @@ define noundef range(i32 0, 2) i32 @"_ZN15live_kit_server5proto11server_info105_
   ret i32 %0
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @"_ZN78_$LT$live_kit_server..proto..RoomEgress$u20$as$u20$prost..message..Message$GT$11encoded_len17h7b27792f2ed021a3E.llvm.11538535937534900153"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(440) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !49, !noundef !4
   %3 = icmp eq i64 %2, -9223372036854775808
@@ -6054,7 +6054,7 @@ define hidden noundef i64 @"_ZN78_$LT$live_kit_server..proto..RoomEgress$u20$as$
   ret i64 %42
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @"_ZN78_$LT$live_kit_server..proto..RoomEgress$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17h6dfebbe4ad7a955eE.llvm.11538535937534900153"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(296) %0) unnamed_addr #3 {
   %2 = tail call noundef i64 @"_ZN94_$LT$live_kit_server..proto..RoomCompositeEgressRequest$u20$as$u20$prost..message..Message$GT$11encoded_len17h3a1f56b572ece6f2E.llvm.11538535937534900153"(ptr noalias noundef nonnull readonly align 8 dereferenceable(296) %0)
   %3 = or i64 %2, 1
@@ -6294,10 +6294,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #3 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #3 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #5 = { inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #6 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #5 = { inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #6 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

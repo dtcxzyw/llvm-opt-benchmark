@@ -443,7 +443,7 @@ define i32 @nk_strtoi(ptr noundef %0, ptr noundef writeonly captures(address_is_
   ret i32 %.019
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define double @nk_strtod(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %47, label %.preheader77
@@ -577,7 +577,7 @@ define double @nk_strtod(ptr noundef %0, ptr noundef writeonly captures(address_
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #5
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define float @nk_strtof(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #8 {
   %3 = tail call double @nk_strtod(ptr noundef %0, ptr noundef %1)
   %4 = fptrunc double %3 to float
@@ -804,7 +804,7 @@ nk_str_match_star.exit:                           ; preds = %tailrecurse, %30, %
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @nk_strmatch_fuzzy_text(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef readonly captures(address) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #8 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne i32 %1, 0
@@ -982,7 +982,7 @@ define range(i32 0, 2) i32 @nk_strmatch_fuzzy_text(ptr noundef readonly captures
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @nk_strmatch_fuzzy_string(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #10 {
   %.not5.i = icmp eq ptr %0, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
@@ -6419,7 +6419,7 @@ nk_str_append_text_char.exit:                     ; preds = %33, %30, %nk_str_ge
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @nk_str_at_rune(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #20 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %2, null
@@ -7318,7 +7318,7 @@ nk_utf_encode.exit:                               ; preds = %nk_utf_validate.exi
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_str_remove_chars(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = icmp eq ptr %0, null
   %4 = icmp slt i32 %1, 0
@@ -7347,7 +7347,7 @@ define void @nk_str_remove_chars(ptr noundef captures(address_is_null) %0, i32 n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_str_remove_runes(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #20 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -7435,7 +7435,7 @@ nk_str_remove_chars.exit:                         ; preds = %nk_str_remove_chars
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_str_delete_chars(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #20 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne i32 %2, 0
@@ -7506,7 +7506,7 @@ nk_str_remove_chars.exit:                         ; preds = %32, %29, %27, %17
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_str_delete_runes(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #20 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -7713,7 +7713,7 @@ define ptr @nk_str_at_char_const(ptr noundef readonly captures(address_is_null) 
   ret ptr %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @nk_str_at_const(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #20 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %2, null
@@ -7779,7 +7779,7 @@ define ptr @nk_str_at_const(ptr noundef readonly captures(address_is_null) %0, i
   ret ptr %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @nk_str_rune_at(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #20 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -11702,7 +11702,7 @@ nk_draw_list_alloc_elements.exit245:              ; preds = %nk_draw_list_alloc_
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_draw_list_path_clear(ptr noundef captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %2
@@ -16276,7 +16276,7 @@ define internal range(i32 -1, 2) i32 @rect_original_order(ptr noundef readonly c
   ret i32 %7
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @stbtt_FindGlyphIndex(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #26 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !406
@@ -17679,7 +17679,7 @@ stbtt__GetGlyphShapeTT.exit:                      ; preds = %540, %94, %.thread3
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @stbtt_GetGlyphBox(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #20 {
   %7 = alloca %struct.stbtt__csctx, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -17921,14 +17921,14 @@ stbtt__GetGlyfOffset.exit.thread:                 ; preds = %141, %140, %104, %3
   ret i32 %.1
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @stbtt_GetCodepointBox(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #20 {
   %7 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %1)
   %8 = tail call i32 @stbtt_GetGlyphBox(ptr noundef %0, i32 noundef %7, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   ret i32 %8
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @stbtt_IsGlyphEmpty(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #20 {
   %3 = alloca %struct.stbtt__csctx, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -18062,7 +18062,7 @@ stbtt__GetGlyfOffset.exit.thread:                 ; preds = %85, %15, %12, %88, 
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @stbtt_GetGlyphHMetrics(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #27 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !406
@@ -18179,7 +18179,7 @@ define void @stbtt_GetGlyphHMetrics(ptr noundef readonly captures(none) %0, i32 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 65536) i32 @stbtt_GetKerningTableLength(ptr noundef readonly captures(none) %0) local_unnamed_addr #28 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !406
@@ -18227,7 +18227,7 @@ define range(i32 0, 65536) i32 @stbtt_GetKerningTableLength(ptr noundef readonly
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 -2147483648, 65536) i32 @stbtt_GetKerningTable(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !406
@@ -18322,7 +18322,7 @@ define range(i32 -2147483648, 65536) i32 @stbtt_GetKerningTable(ptr noundef read
   ret i32 %.026
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 -32768, 32768) i32 @stbtt_GetGlyphKernAdvance(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #26 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8, !tbaa !442
@@ -18910,7 +18910,7 @@ stbtt__GetGlyphGPOSInfoAdvance.exit:              ; preds = %.loopexit.i, %166, 
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 -32768, 32768) i32 @stbtt_GetCodepointKernAdvance(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #26 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4, !tbaa !436
@@ -18934,7 +18934,7 @@ define range(i32 -32768, 32768) i32 @stbtt_GetCodepointKernAdvance(ptr noundef r
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @stbtt_GetCodepointHMetrics(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #8 {
   %5 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -19052,7 +19052,7 @@ stbtt_GetGlyphHMetrics.exit:                      ; preds = %34, %61, %.sink.spl
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @stbtt_GetFontVMetrics(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #27 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %19, label %5
@@ -19126,7 +19126,7 @@ define void @stbtt_GetFontVMetrics(ptr noundef readonly captures(none) %0, ptr n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @stbtt_GetFontVMetricsOS2(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #8 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !406
@@ -19268,7 +19268,7 @@ stbtt__find_table.exit.thread:                    ; preds = %37, %4, %78, %79, %
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @stbtt_GetFontBoundingBox(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) local_unnamed_addr #27 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !406
@@ -19328,7 +19328,7 @@ define void @stbtt_GetFontBoundingBox(ptr noundef readonly captures(none) %0, pt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define float @stbtt_ScaleForPixelHeight(ptr noundef readonly captures(none) %0, float noundef %1) local_unnamed_addr #28 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !406
@@ -19360,7 +19360,7 @@ define float @stbtt_ScaleForPixelHeight(ptr noundef readonly captures(none) %0, 
   ret float %25
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define float @stbtt_ScaleForMappingEmToPixels(ptr noundef readonly captures(none) %0, float noundef %1) local_unnamed_addr #28 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !406
@@ -19391,7 +19391,7 @@ define void @stbtt_FreeShape(ptr noundef readonly captures(none) %0, ptr noundef
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @stbtt_FindSVGDoc(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !406
@@ -19561,7 +19561,7 @@ stbtt__get_svg.exit:                              ; preds = %2, %.sink.split.i
   ret ptr %.2
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @stbtt_GetGlyphSVG(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !406
@@ -19624,7 +19624,7 @@ define i32 @stbtt_GetGlyphSVG(ptr noundef captures(none) %0, i32 noundef %1, ptr
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @stbtt_GetCodepointSVG(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #8 {
   %4 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %1)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -19688,7 +19688,7 @@ stbtt_GetGlyphSVG.exit:                           ; preds = %3, %10, %12
   ret i32 %.0.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @stbtt_GetGlyphBitmapBoxSubpixel(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #20 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -19797,7 +19797,7 @@ define void @stbtt_GetGlyphBitmapBoxSubpixel(ptr noundef readonly captures(none)
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @stbtt_GetGlyphBitmapBox(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #20 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -19906,7 +19906,7 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %20, %43, %.sink.spl
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @stbtt_GetCodepointBitmapBoxSubpixel(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #20 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -20016,7 +20016,7 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %23, %46, %.sink.spl
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @stbtt_GetCodepointBitmapBox(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #20 {
   tail call void @stbtt_GetCodepointBitmapBoxSubpixel(ptr noundef %0, i32 noundef %1, float noundef %2, float noundef %3, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   ret void
@@ -23141,7 +23141,7 @@ define void @stbtt_PackSetSkipMissingCodepoints(ptr noundef writeonly captures(n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @stbtt_PackFontRangesGatherRects(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #20 {
   %6 = alloca %struct.stbtt__csctx, align 8
   %7 = icmp sgt i32 %3, 0
@@ -25185,7 +25185,7 @@ define range(i32 0, 2) i32 @stbtt_PackFontRanges(ptr noundef captures(none) %0, 
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @stbtt_InitFont(ptr noundef captures(none) initializes((8, 20), (64, 80)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = alloca %struct.stbtt__buf, align 8
   %5 = alloca %struct.stbtt__buf, align 8
@@ -26854,7 +26854,7 @@ define range(i32 0, 2) i32 @stbtt_PackFontRange(ptr noundef captures(none) %0, p
   ret i32 %13
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @stbtt_GetScaledFontVMetrics(ptr noundef %0, i32 noundef %1, float noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) local_unnamed_addr #8 {
   %7 = alloca %struct.stbtt_fontinfo, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -28051,7 +28051,7 @@ define void @stbtt_FreeSDF(ptr noundef %0, ptr noundef readonly captures(none) %
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @stbtt_GetFontNameString(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #8 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !406
@@ -28761,7 +28761,7 @@ define noundef nonnull ptr @nk_font_korean_glyph_ranges() local_unnamed_addr #0 
   ret ptr @nk_font_korean_glyph_ranges.ranges
 }
 
-; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @nk_font_find_glyph(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #31 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
@@ -32759,13 +32759,13 @@ define range(i32 0, 2) i32 @nk_input_is_key_down(ptr noundef readonly captures(a
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_style_default(ptr noundef %0) local_unnamed_addr #23 {
   tail call void @nk_style_from_table(ptr noundef %0, ptr noundef null)
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_style_from_table(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #34 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %763, label %3
@@ -34550,7 +34550,7 @@ define void @nk_style_item_hide(ptr dead_on_unwind noalias writable writeonly sr
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_style_set_font(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_layout_reset_min_row_height.exit, label %3
@@ -34588,7 +34588,7 @@ nk_layout_reset_min_row_height.exit:              ; preds = %11, %8, %3, %2
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_layout_reset_min_row_height(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %20, label %2
@@ -34654,7 +34654,7 @@ define range(i32 0, 2) i32 @nk_style_push_font(ptr noundef %0, ptr noundef %1) l
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @nk_style_pop_font(ptr noundef captures(address_is_null) %0) local_unnamed_addr #35 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %2
@@ -34826,7 +34826,7 @@ define range(i32 0, 2) i32 @nk_style_push_color(ptr noundef captures(address_is_
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @nk_style_pop_style_item(ptr noundef captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %2
@@ -34853,7 +34853,7 @@ define range(i32 0, 2) i32 @nk_style_pop_style_item(ptr noundef captures(address
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @nk_style_pop_float(ptr noundef captures(address_is_null) %0) local_unnamed_addr #35 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %2
@@ -34881,7 +34881,7 @@ define range(i32 0, 2) i32 @nk_style_pop_float(ptr noundef captures(address_is_n
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @nk_style_pop_vec2(ptr noundef captures(address_is_null) %0) local_unnamed_addr #35 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %2
@@ -34909,7 +34909,7 @@ define range(i32 0, 2) i32 @nk_style_pop_vec2(ptr noundef captures(address_is_nu
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @nk_style_pop_flags(ptr noundef captures(address_is_null) %0) local_unnamed_addr #35 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %2
@@ -34937,7 +34937,7 @@ define range(i32 0, 2) i32 @nk_style_pop_flags(ptr noundef captures(address_is_n
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @nk_style_pop_color(ptr noundef captures(address_is_null) %0) local_unnamed_addr #35 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %2
@@ -35225,7 +35225,7 @@ nk_pool_init.exit:                                ; preds = %.loopexit46.i.i.thr
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @nk_init_fixed(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #20 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %52, label %5
@@ -35363,7 +35363,7 @@ nk_buffer_init_fixed.exit:                        ; preds = %nk_setup.exit, %nk_
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @nk_init_custom(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #20 {
   %5 = icmp ne ptr %1, null
   %6 = icmp ne ptr %2, null
@@ -35680,7 +35680,7 @@ nk_zero.exit36:                                   ; preds = %.loopexit46.i.i30.t
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_clear(ptr noundef %0) local_unnamed_addr #36 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %155, label %2
@@ -36083,7 +36083,7 @@ nk_remove_window.exit:                            ; preds = %136, %.thread.i, %.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @nk_free_window(ptr noundef nonnull captures(none) %0, ptr noundef nonnull initializes((456, 472)) %1) unnamed_addr #36 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 440
   %4 = load ptr, ptr %3, align 8, !tbaa !883
@@ -36261,7 +36261,7 @@ nk_free_page_element.exit:                        ; preds = %nk_link_page_elemen
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @nk_remove_window(ptr noundef nonnull captures(none) %0, ptr noundef captures(address) %1) unnamed_addr #23 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 18496
   %4 = load ptr, ptr %3, align 8, !tbaa !349
@@ -37207,7 +37207,7 @@ nk_create_page_element.exit.thread:               ; preds = %18, %40, %47
   ret ptr %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @nk_insert_window(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #20 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %4
@@ -39509,7 +39509,7 @@ nk_link_page_element_into_freelist.exit12.i.i:    ; preds = %680, %677
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { <2 x float>, <2 x float> } @nk_window_get_bounds(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #37 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
@@ -39534,7 +39534,7 @@ define { <2 x float>, <2 x float> } @nk_window_get_bounds(ptr noundef readonly c
   ret { <2 x float>, <2 x float> } %.fca.1.insert.merged
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define <2 x float> @nk_window_get_position(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #37 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
@@ -39559,7 +39559,7 @@ define <2 x float> @nk_window_get_position(ptr noundef readonly captures(address
   ret <2 x float> %.sroa.0.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define <2 x float> @nk_window_get_size(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #37 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
@@ -39584,7 +39584,7 @@ define <2 x float> @nk_window_get_size(ptr noundef readonly captures(address_is_
   ret <2 x float> %.sroa.0.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define float @nk_window_get_width(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #28 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
@@ -39605,7 +39605,7 @@ define float @nk_window_get_width(ptr noundef readonly captures(address_is_null)
   ret float %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define float @nk_window_get_height(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #28 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
@@ -39626,7 +39626,7 @@ define float @nk_window_get_height(ptr noundef readonly captures(address_is_null
   ret float %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { <2 x float>, <2 x float> } @nk_window_get_content_region(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #37 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %2
@@ -39653,7 +39653,7 @@ define { <2 x float>, <2 x float> } @nk_window_get_content_region(ptr noundef re
   ret { <2 x float>, <2 x float> } %.fca.1.insert.merged
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define <2 x float> @nk_window_get_content_region_min(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #37 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %2
@@ -39680,7 +39680,7 @@ define <2 x float> @nk_window_get_content_region_min(ptr noundef readonly captur
   ret <2 x float> %.sroa.0.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define <2 x float> @nk_window_get_content_region_max(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #37 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %18, label %2
@@ -39713,7 +39713,7 @@ define <2 x float> @nk_window_get_content_region_max(ptr noundef readonly captur
   ret <2 x float> %.sroa.0.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define <2 x float> @nk_window_get_content_region_size(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #37 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %2
@@ -39758,7 +39758,7 @@ define ptr @nk_window_get_canvas(ptr noundef readonly captures(address_is_null) 
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @nk_window_get_panel(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #28 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
@@ -39779,7 +39779,7 @@ define ptr @nk_window_get_panel(ptr noundef readonly captures(address_is_null) %
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_window_get_scroll(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #27 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %4
@@ -39837,7 +39837,7 @@ define range(i32 0, 2) i32 @nk_window_has_focus(ptr noundef readonly captures(ad
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @nk_window_is_hovered(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #37 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_input_is_mouse_hovering_rect.exit, label %2
@@ -39907,7 +39907,7 @@ nk_input_is_mouse_hovering_rect.exit:             ; preds = %31, %27, %21, %1, %
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @nk_window_is_any_hovered(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #38 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2
@@ -40026,7 +40026,7 @@ nk_input_is_mouse_hovering_rect.exit36.thread:    ; preds = %53, %52, %42, %41, 
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @nk_item_is_any_active(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #38 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_window_is_any_hovered.exit, label %2
@@ -40155,7 +40155,7 @@ nk_window_is_any_hovered.exit:                    ; preds = %26, %41, %52, %nk_i
   ret i32 %64
 }
 
-; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 32769) i32 @nk_window_is_collapsed(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #31 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_find_window.exit.thread, label %3
@@ -40266,7 +40266,7 @@ nk_find_window.exit.thread:                       ; preds = %nk_stricmpn.exit.i,
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 16385) i32 @nk_window_is_closed(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #31 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_find_window.exit.thread, label %3
@@ -40377,7 +40377,7 @@ nk_find_window.exit.thread:                       ; preds = %nk_stricmpn.exit.i,
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 8193) i32 @nk_window_is_hidden(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #31 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_find_window.exit.thread, label %3
@@ -40488,7 +40488,7 @@ nk_find_window.exit.thread:                       ; preds = %nk_stricmpn.exit.i,
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @nk_window_is_active(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #31 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_find_window.exit.thread, label %3
@@ -40600,7 +40600,7 @@ nk_find_window.exit.thread:                       ; preds = %nk_stricmpn.exit.i,
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @nk_window_find(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #31 {
   %.not5.i = icmp eq ptr %1, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
@@ -40701,7 +40701,7 @@ nk_find_window.exit:                              ; preds = %nk_stricmpn.exit.i,
   ret ptr %.3.i
 }
 
-; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_window_close(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #39 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %3
@@ -40728,7 +40728,7 @@ define void @nk_window_close(ptr noundef readonly captures(address_is_null) %0, 
   ret void
 }
 
-; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_window_set_bounds(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #40 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %5
@@ -40749,7 +40749,7 @@ define void @nk_window_set_bounds(ptr noundef readonly captures(address_is_null)
   ret void
 }
 
-; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_window_set_position(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, <2 x float> %2) local_unnamed_addr #40 {
   %4 = tail call ptr @nk_window_find(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq ptr %4, null
@@ -40768,7 +40768,7 @@ define void @nk_window_set_position(ptr noundef readonly captures(none) %0, ptr 
   ret void
 }
 
-; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_window_set_size(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, <2 x float> %2) local_unnamed_addr #40 {
   %4 = tail call ptr @nk_window_find(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq ptr %4, null
@@ -40787,7 +40787,7 @@ define void @nk_window_set_size(ptr noundef readonly captures(none) %0, ptr noun
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_window_set_scroll(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #35 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %4
@@ -40809,7 +40809,7 @@ define void @nk_window_set_scroll(ptr noundef readonly captures(address_is_null)
   ret void
 }
 
-; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_window_collapse(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #39 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_find_window.exit.thread, label %4
@@ -40923,7 +40923,7 @@ nk_find_window.exit.thread:                       ; preds = %nk_stricmpn.exit.i,
   ret void
 }
 
-; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_window_collapse_if(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #39 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne i32 %3, 0
@@ -40938,7 +40938,7 @@ define void @nk_window_collapse_if(ptr noundef readonly captures(address_is_null
   ret void
 }
 
-; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_window_show(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #39 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_find_window.exit.thread, label %4
@@ -41052,7 +41052,7 @@ nk_find_window.exit.thread:                       ; preds = %nk_stricmpn.exit.i,
   ret void
 }
 
-; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_window_show_if(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #39 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne i32 %3, 0
@@ -41067,7 +41067,7 @@ define void @nk_window_show_if(ptr noundef readonly captures(address_is_null) %0
   ret void
 }
 
-; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_window_set_focus(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #39 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %74, label %3
@@ -41751,7 +41751,7 @@ nk_free_panel.exit:                               ; preds = %nk_link_page_elemen
   ret i32 %.077
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_popup_close(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
@@ -41952,7 +41952,7 @@ nk_push_scissor.exit31:                           ; preds = %72, %nk_push_scisso
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_popup_get_scroll(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #27 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %18, label %4
@@ -41993,7 +41993,7 @@ define void @nk_popup_get_scroll(ptr noundef readonly captures(address_is_null) 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_popup_set_scroll(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %4
@@ -42789,7 +42789,7 @@ nk_draw_button_text.exit:                         ; preds = %112, %136
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_contextual_close(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %2
@@ -43803,7 +43803,7 @@ nk_input_is_mouse_hovering_rect.exit.thread:      ; preds = %54, %nk_input_is_mo
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_menubar_begin(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %33, label %2
@@ -44936,7 +44936,7 @@ define range(i32 0, 2) i32 @nk_menu_item_symbol_label(ptr noundef captures(addre
   ret i32 %5
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_menu_close(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_contextual_close.exit, label %2
@@ -44970,7 +44970,7 @@ define void @nk_menu_end(ptr noundef %0) local_unnamed_addr #18 {
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_layout_set_min_row_height(ptr noundef readonly captures(address_is_null) %0, float noundef %1) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %3
@@ -44996,7 +44996,7 @@ define void @nk_layout_set_min_row_height(ptr noundef readonly captures(address_
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define float @nk_layout_ratio_from_pixel(ptr noundef readonly captures(address_is_null) %0, float noundef %1) local_unnamed_addr #28 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %3
@@ -45296,7 +45296,7 @@ nk_panel_layout.exit:                             ; preds = %26, %31
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_layout_row_push(ptr noundef readonly captures(address_is_null) %0, float noundef %1) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %3
@@ -45351,7 +45351,7 @@ define void @nk_layout_row_push(ptr noundef readonly captures(address_is_null) %
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_layout_row_end(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %2
@@ -45600,7 +45600,7 @@ nk_panel_layout.exit:                             ; preds = %24, %29
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_layout_row_template_push_dynamic(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %20, label %2
@@ -45642,7 +45642,7 @@ define void @nk_layout_row_template_push_dynamic(ptr noundef readonly captures(a
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_layout_row_template_push_variable(ptr noundef readonly captures(address_is_null) %0, float noundef %1) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %22, label %3
@@ -45685,7 +45685,7 @@ define void @nk_layout_row_template_push_variable(ptr noundef readonly captures(
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_layout_row_template_push_static(ptr noundef readonly captures(address_is_null) %0, float noundef %1) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %21, label %3
@@ -45727,7 +45727,7 @@ define void @nk_layout_row_template_push_static(ptr noundef readonly captures(ad
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_layout_row_template_end(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2
@@ -45966,7 +45966,7 @@ nk_panel_layout.exit:                             ; preds = %26, %31
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_layout_space_end(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_zero.exit, label %2
@@ -46013,7 +46013,7 @@ nk_zero.exit:                                     ; preds = %.loopexit46.i.i, %.
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_layout_space_push(ptr noundef readonly captures(address_is_null) %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #41 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %4
@@ -46041,7 +46041,7 @@ define void @nk_layout_space_push(ptr noundef readonly captures(address_is_null)
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { <2 x float>, <2 x float> } @nk_layout_space_bounds(ptr noundef readonly captures(none) %0) local_unnamed_addr #28 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %3 = load ptr, ptr %2, align 8, !tbaa !824
@@ -46064,7 +46064,7 @@ define { <2 x float>, <2 x float> } @nk_layout_space_bounds(ptr noundef readonly
   ret { <2 x float>, <2 x float> } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { <2 x float>, <2 x float> } @nk_layout_widget_bounds(ptr noundef readonly captures(none) %0) local_unnamed_addr #28 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %3 = load ptr, ptr %2, align 8, !tbaa !824
@@ -46093,7 +46093,7 @@ define { <2 x float>, <2 x float> } @nk_layout_widget_bounds(ptr noundef readonl
   ret { <2 x float>, <2 x float> } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define <2 x float> @nk_layout_space_to_screen(ptr noundef readonly captures(none) %0, <2 x float> %1) local_unnamed_addr #37 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %4 = load ptr, ptr %3, align 8, !tbaa !824
@@ -46122,7 +46122,7 @@ define <2 x float> @nk_layout_space_to_screen(ptr noundef readonly captures(none
   ret <2 x float> %.sroa.0.4.vec.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define <2 x float> @nk_layout_space_to_local(ptr noundef readonly captures(none) %0, <2 x float> %1) local_unnamed_addr #37 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %4 = load ptr, ptr %3, align 8, !tbaa !824
@@ -46151,7 +46151,7 @@ define <2 x float> @nk_layout_space_to_local(ptr noundef readonly captures(none)
   ret <2 x float> %.sroa.0.4.vec.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { <2 x float>, <2 x float> } @nk_layout_space_rect_to_screen(ptr noundef readonly captures(none) %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #37 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %5 = load ptr, ptr %4, align 8, !tbaa !824
@@ -46182,7 +46182,7 @@ define { <2 x float>, <2 x float> } @nk_layout_space_rect_to_screen(ptr noundef 
   ret { <2 x float>, <2 x float> } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { <2 x float>, <2 x float> } @nk_layout_space_rect_to_local(ptr noundef readonly captures(none) %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #37 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %5 = load ptr, ptr %4, align 8, !tbaa !824
@@ -46832,7 +46832,7 @@ define range(i32 0, 2) i32 @nk_tree_state_image_push(ptr noundef captures(addres
   ret i32 %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_tree_state_pop(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %28, label %2
@@ -46977,7 +46977,7 @@ define range(i32 0, 2) i32 @nk_tree_image_push_hashed(ptr noundef captures(addre
   ret i32 %9
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_tree_pop(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_tree_state_pop.exit, label %2
@@ -47615,7 +47615,7 @@ define range(i32 0, 2) i32 @nk_tree_element_image_push_hashed(ptr noundef captur
   ret i32 %10
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_tree_element_pop(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_tree_state_pop.exit, label %2
@@ -48860,7 +48860,7 @@ define void @nk_list_view_end(ptr noundef readonly captures(address_is_null) %0)
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { <2 x float>, <2 x float> } @nk_widget_bounds(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #41 {
   %2 = alloca %struct.nk_rect, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -48932,7 +48932,7 @@ nk_layout_peek.exit:                              ; preds = %6, %27
   ret { <2 x float>, <2 x float> } %.fca.1.insert.merged
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define <2 x float> @nk_widget_position(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #41 {
   %2 = alloca %struct.nk_rect, align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -49003,7 +49003,7 @@ nk_layout_peek.exit:                              ; preds = %6, %27
   ret <2 x float> %.sroa.0.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define <2 x float> @nk_widget_size(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #41 {
   %2 = alloca %struct.nk_rect, align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -49074,7 +49074,7 @@ nk_layout_peek.exit:                              ; preds = %6, %27
   ret <2 x float> %.sroa.0.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define float @nk_widget_width(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #41 {
   %2 = alloca %struct.nk_rect, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -49125,7 +49125,7 @@ nk_layout_peek.exit:                              ; preds = %6, %20, %1, %3
   ret float %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define float @nk_widget_height(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #41 {
   %2 = alloca %struct.nk_rect, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -49176,7 +49176,7 @@ nk_layout_peek.exit:                              ; preds = %6, %20, %1, %3
   ret float %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @nk_widget_is_hovered(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #41 {
   %2 = alloca %struct.nk_rect, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -49301,7 +49301,7 @@ nk_input_is_mouse_hovering_rect.exit:             ; preds = %64, %60, %52, %nk_l
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @nk_widget_is_mouse_clicked(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #41 {
   %3 = alloca %struct.nk_rect, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -49405,7 +49405,7 @@ nk_layout_peek.exit:                              ; preds = %32, %34
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @nk_widget_has_mouse_click_down(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #41 {
   %4 = alloca %struct.nk_rect, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -49672,7 +49672,7 @@ nk_panel_alloc_row.exit:                          ; preds = %.lr.ph.split, %29, 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_widget_disable_begin(ptr noundef %0) local_unnamed_addr #35 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %114, label %2
@@ -49844,7 +49844,7 @@ define void @nk_widget_disable_begin(ptr noundef %0) local_unnamed_addr #35 {
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_widget_disable_end(ptr noundef captures(address_is_null) %0) local_unnamed_addr #35 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %52, label %2
@@ -51107,7 +51107,7 @@ define range(i32 0, 2) i32 @nk_button_push_behavior(ptr noundef %0, i32 noundef 
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @nk_button_pop_behavior(ptr noundef captures(address_is_null) %0) local_unnamed_addr #35 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %2
@@ -57669,7 +57669,7 @@ define i64 @nk_prog(ptr noundef captures(address) %0, i64 noundef %1, i64 nounde
   ret i64 %7
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_textedit_delete(ptr noundef initializes((5378, 5380), (5382, 5384)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #20 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -57936,7 +57936,7 @@ nk_textedit_makeundo_delete.exit:                 ; preds = %nk_str_rune_at.exit
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_textedit_delete_selection(ptr noundef %0) local_unnamed_addr #20 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load i32, ptr %2, align 8, !tbaa !1164
@@ -58071,7 +58071,7 @@ define internal fastcc void @nk_textedit_clamp(ptr noundef captures(none) %0) un
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @nk_textedit_cut(ptr noundef %0) local_unnamed_addr #20 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %3 = load i8, ptr %2, align 4, !tbaa !1168
@@ -60387,7 +60387,7 @@ define range(i32 0, 2) i32 @nk_filter_binary(ptr noundef readnone captures(none)
   ret i32 %.
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_edit_focus(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %3
@@ -60418,7 +60418,7 @@ define void @nk_edit_focus(ptr noundef readonly captures(address_is_null) %0, i3
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_edit_unfocus(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #35 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
@@ -65482,7 +65482,7 @@ define range(i32 0, 2) i32 @nk_chart_begin(ptr noundef readonly captures(address
   ret i32 %10
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_chart_add_slot_colored(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 %2, i32 %3, i32 noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %53, label %8
@@ -65579,7 +65579,7 @@ nk_rgb_factor.exit:                               ; preds = %28, %29
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_chart_add_slot(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #23 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 5936
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 5932
@@ -66110,7 +66110,7 @@ define range(i32 0, 4) i32 @nk_chart_push(ptr noundef readonly captures(address_
   ret i32 %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_chart_end(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_memset.exit, label %2
@@ -70525,7 +70525,7 @@ define void @nk_combo_end(ptr noundef %0) local_unnamed_addr #18 {
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @nk_combo_close(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_contextual_close.exit, label %2
@@ -71793,7 +71793,7 @@ define internal fastcc void @nk_draw_vertex_element(ptr noundef %0, ptr noundef 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 2) i32 @stbtt__run_charstring(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #20 {
   %4 = alloca [48 x float], align 16
   %5 = alloca [10 x %struct.stbtt__buf], align 16
@@ -73929,7 +73929,7 @@ stbtt__cff_int.exit:                              ; preds = %stbtt__buf_get8.exi
   ret i32 %.2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @stbtt__csctx_rmove_to(ptr noundef nonnull captures(none) %0, float noundef %1, float noundef %2) unnamed_addr #35 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load float, ptr %4, align 8, !tbaa !1279
@@ -74166,7 +74166,7 @@ stbtt__csctx_v.exit:                              ; preds = %stbtt__track_vertex
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @stbtt__csctx_rccurve_to(ptr noundef nonnull captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) unnamed_addr #35 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load float, ptr %8, align 8, !tbaa !1264
@@ -74370,7 +74370,7 @@ stbtt__csctx_v.exit:                              ; preds = %stbtt__track_vertex
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc { ptr, i64 } @stbtt__get_subrs(ptr %0, i64 %1, ptr %2, i64 %3) unnamed_addr #26 {
   %5 = alloca %struct.stbtt__buf, align 8
   %6 = alloca i32, align 4
@@ -74543,7 +74543,7 @@ stbtt__cff_get_index.exit:                        ; preds = %stbtt__buf_get.exit
   ret { ptr, i64 } %.pn
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @stbtt__dict_get_ints(ptr noundef nonnull captures(none) initializes((8, 12)) %0, i32 noundef range(i32 17, 294) %1, i32 noundef range(i32 1, 3) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #8 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4, !tbaa !573
@@ -74883,7 +74883,7 @@ stbtt__cff_int.exit:                              ; preds = %stbtt__buf_get8.exi
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc { ptr, i64 } @stbtt__cff_get_index(ptr noundef nonnull captures(none) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !572
@@ -75957,7 +75957,7 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #47
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #47
 
-; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal float @nk_font_text_width(ptr readonly captures(address_is_null) %0, float noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) #31 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %2, null
@@ -76295,7 +76295,7 @@ nk_utf_decode.exit.thread:                        ; preds = %20, %134, %138, %nk
   ret float %.0
 }
 
-; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @nk_font_query_font_glyph(ptr readonly captures(address_is_null) %0, float noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3, i32 %4) #48 {
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %2, null
@@ -77055,7 +77055,7 @@ define internal fastcc void @nk_draw_scrollbar(ptr noundef nonnull captures(addr
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @nk_layout_widget_space(ptr noundef writeonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #23 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 18520
   %5 = load ptr, ptr %4, align 8, !tbaa !824
@@ -81056,7 +81056,7 @@ nk_textedit_clamp.exit:                           ; preds = %19, %16
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc i32 @nk_textedit_move_to_word_next(ptr noundef readonly captures(none) %0) unnamed_addr #20 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load i32, ptr %2, align 8, !tbaa !1164
@@ -81376,7 +81376,7 @@ nk_textedit_get_width.exit:                       ; preds = %65, %.loopexit.i.i,
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 2) i32 @nk_is_word_boundary(ptr noundef readonly captures(none) %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #20 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -81447,7 +81447,7 @@ nk_str_at_rune.exit.thread:                       ; preds = %5, %.loopexit.i, %2
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef nonnull ptr @nk_dtoa(ptr noundef nonnull returned captures(ret: address, provenance) %0, double noundef %1) unnamed_addr #49 {
   %3 = fcmp oeq double %1, 0.000000e+00
   br i1 %3, label %4, label %6
@@ -81761,9 +81761,9 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #5 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -81773,36 +81773,36 @@ attributes #16 = { mustprogress nofree nounwind willreturn memory(inaccessibleme
 attributes #17 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #24 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #25 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #29 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #30 = { nofree norecurse nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #31 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #31 = { nofree norecurse nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #32 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #33 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #34 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #35 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #36 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #37 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #38 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #39 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #40 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #41 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #34 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #35 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #36 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #37 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #38 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #39 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #40 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #41 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #42 = { mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #43 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #44 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #45 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #46 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #47 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #48 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #49 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #48 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #49 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #50 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #51 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #52 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

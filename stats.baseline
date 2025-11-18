@@ -117,7 +117,7 @@
   "function-attrs.NumCapturesNone": 3404464,
   "function-attrs.NumCapturesPartial": 501424,
   "function-attrs.NumCold": 36818,
-  "function-attrs.NumMemoryAttr": 1484910,
+  "function-attrs.NumMemoryAttr": 1521494,
   "function-attrs.NumNoAlias": 107200,
   "function-attrs.NumNoFree": 770805,
   "function-attrs.NumNoRecurse": 1483566,

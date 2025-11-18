@@ -34,13 +34,13 @@ define noalias ptr @pdf_convert_utf(ptr noundef readonly captures(none) %0, i64 
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = add i64 %1, 1
-  %9 = tail call ptr @cli_max_calloc(i64 noundef 1, i64 noundef %8) #14
+  %9 = tail call ptr @cli_max_calloc(i64 noundef 1, i64 noundef %8) #15
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %30, label %10
 
 10:                                               ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr align 1 %0, i64 %1, i1 false)
-  %11 = tail call ptr @cli_max_calloc(i64 noundef 1, i64 noundef %8) #14
+  %11 = tail call ptr @cli_max_calloc(i64 noundef 1, i64 noundef %8) #15
   %.not34 = icmp eq ptr %11, null
   br i1 %.not34, label %14, label %.preheader.preheader
 
@@ -49,45 +49,45 @@ define noalias ptr @pdf_convert_utf(ptr noundef readonly captures(none) %0, i64 
   store ptr %11, ptr %4, align 8, !tbaa !3
   store i64 %1, ptr %6, align 8, !tbaa !8
   store i64 %1, ptr %5, align 8, !tbaa !8
-  %12 = tail call ptr @iconv_open(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str) #14
+  %12 = tail call ptr @iconv_open(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str) #15
   %13 = icmp eq ptr %12, inttoptr (i64 -1 to ptr)
   br i1 %13, label %15, label %19
 
 14:                                               ; preds = %10
-  tail call void @free(ptr noundef nonnull %9) #14
+  tail call void @free(ptr noundef nonnull %9) #15
   br label %30
 
 15:                                               ; preds = %.preheader.preheader
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %16 = tail call ptr @__errno_location() #15
+  %16 = tail call ptr @__errno_location() #16
   %17 = load i32, ptr %16, align 4, !tbaa !10
-  %18 = call ptr @cli_strerror(i32 noundef %17, ptr noundef nonnull %7, i64 noundef 128) #14
-  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, ptr noundef nonnull %7) #14
+  %18 = call ptr @cli_strerror(i32 noundef %17, ptr noundef nonnull %7, i64 noundef 128) #15
+  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, ptr noundef nonnull %7) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
 19:                                               ; preds = %.preheader.preheader
-  %20 = call i64 @iconv(ptr noundef %12, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6) #14
+  %20 = call i64 @iconv(ptr noundef %12, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6) #15
   %21 = load i64, ptr %6, align 8, !tbaa !8
   %22 = icmp eq i64 %21, %1
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %19
-  %24 = call i32 @iconv_close(ptr noundef %12) #14
+  %24 = call i32 @iconv_close(ptr noundef %12) #15
   br label %.loopexit
 
 25:                                               ; preds = %19
   %26 = sub i64 %1, %21
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 %26
   store i8 0, ptr %27, align 1, !tbaa !12
-  %28 = call noalias ptr @strdup(ptr noundef nonnull %11) #14
-  %29 = call i32 @iconv_close(ptr noundef %12) #14
+  %28 = call noalias ptr @strdup(ptr noundef nonnull %11) #15
+  %29 = call i32 @iconv_close(ptr noundef %12) #15
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %23, %25
   %.028 = phi ptr [ %28, %25 ], [ null, %23 ], [ null, %15 ]
-  call void @free(ptr noundef nonnull %9) #14
-  call void @free(ptr noundef nonnull %11) #14
+  call void @free(ptr noundef nonnull %9) #15
+  call void @free(ptr noundef nonnull %11) #15
   br label %30
 
 30:                                               ; preds = %2, %.loopexit, %14
@@ -134,7 +134,7 @@ define range(i32 0, 2) i32 @is_object_reference(ptr noundef %0, ptr noundef capt
 
 .lr.ph:                                           ; preds = %3
   %8 = ptrtoint ptr %0 to i64
-  %9 = tail call ptr @__ctype_b_loc() #15
+  %9 = tail call ptr @__ctype_b_loc() #16
   %10 = load ptr, ptr %9, align 8, !tbaa !13
   %11 = sub i64 %6, %8
   %scevgep = getelementptr i8, ptr %0, i64 %11
@@ -161,7 +161,7 @@ define range(i32 0, 2) i32 @is_object_reference(ptr noundef %0, ptr noundef capt
   br i1 %20, label %104, label %21
 
 21:                                               ; preds = %.critedge
-  %22 = tail call ptr @__ctype_b_loc() #15
+  %22 = tail call ptr @__ctype_b_loc() #16
   %23 = load ptr, ptr %22, align 8, !tbaa !13
   %24 = load i8, ptr %.0.lcssa, align 1, !tbaa !12
   %25 = sext i8 %24 to i64
@@ -192,12 +192,12 @@ define range(i32 0, 2) i32 @is_object_reference(ptr noundef %0, ptr noundef capt
   br i1 %36, label %104, label %37
 
 37:                                               ; preds = %.critedge2
-  %38 = call i64 @strtoul(ptr noundef nonnull %.0.lcssa, ptr noundef nonnull %4, i32 noundef 10) #14
+  %38 = call i64 @strtoul(ptr noundef nonnull %.0.lcssa, ptr noundef nonnull %4, i32 noundef 10) #15
   %39 = icmp eq i64 %38, -1
   br i1 %39, label %40, label %43
 
 40:                                               ; preds = %37
-  %41 = tail call ptr @__errno_location() #15
+  %41 = tail call ptr @__errno_location() #16
   %42 = load i32, ptr %41, align 4, !tbaa !10
   %.not56 = icmp eq i32 %42, 0
   br i1 %.not56, label %43, label %104
@@ -266,12 +266,12 @@ define range(i32 0, 2) i32 @is_object_reference(ptr noundef %0, ptr noundef capt
   br i1 %73, label %104, label %74
 
 74:                                               ; preds = %.critedge6
-  %75 = call i64 @strtoul(ptr noundef nonnull %.1.lcssa, ptr noundef nonnull %4, i32 noundef 10) #14
+  %75 = call i64 @strtoul(ptr noundef nonnull %.1.lcssa, ptr noundef nonnull %4, i32 noundef 10) #15
   %76 = icmp eq i64 %75, -1
   br i1 %76, label %77, label %80
 
 77:                                               ; preds = %74
-  %78 = tail call ptr @__errno_location() #15
+  %78 = tail call ptr @__errno_location() #16
   %79 = load i32, ptr %78, align 4, !tbaa !10
   %.not61 = icmp eq i32 %79, 0
   br i1 %.not61, label %80, label %104
@@ -348,18 +348,18 @@ define ptr @pdf_finalize_string(ptr noundef %0, ptr noundef %1, ptr noundef read
 
 8:                                                ; preds = %4
   %9 = add i64 %3, 1
-  %10 = tail call ptr @cli_max_calloc(i64 noundef %9, i64 noundef 1) #14
+  %10 = tail call ptr @cli_max_calloc(i64 noundef %9, i64 noundef 1) #15
   %.not116 = icmp eq ptr %10, null
   br i1 %.not116, label %.critedge, label %11
 
 11:                                               ; preds = %8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull align 1 %2, i64 %3, i1 false)
-  %12 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %10, i32 noundef 92) #16
+  %12 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %10, i32 noundef 92) #17
   %.not117 = icmp eq ptr %12, null
   br i1 %.not117, label %93, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call ptr @cli_max_calloc(i64 noundef %9, i64 noundef 1) #14
+  %14 = tail call ptr @cli_max_calloc(i64 noundef %9, i64 noundef 1) #15
   %.not118 = icmp eq ptr %14, null
   br i1 %.not118, label %16, label %.preheader
 
@@ -372,7 +372,7 @@ define ptr @pdf_finalize_string(ptr noundef %0, ptr noundef %1, ptr noundef read
   br label %17
 
 16:                                               ; preds = %13
-  tail call void @free(ptr noundef nonnull %10) #14
+  tail call void @free(ptr noundef nonnull %10) #15
   br label %.critedge
 
 17:                                               ; preds = %.lr.ph, %86
@@ -397,7 +397,7 @@ define ptr @pdf_finalize_string(ptr noundef %0, ptr noundef %1, ptr noundef read
   br label %58
 
 26:                                               ; preds = %23
-  %27 = tail call ptr @__ctype_b_loc() #15
+  %27 = tail call ptr @__ctype_b_loc() #16
   %28 = load ptr, ptr %27, align 8, !tbaa !13
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 %18
   %30 = load i8, ptr %29, align 1, !tbaa !12
@@ -433,7 +433,7 @@ define ptr @pdf_finalize_string(ptr noundef %0, ptr noundef %1, ptr noundef read
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %6, ptr noundef nonnull align 1 dereferenceable(3) %29, i64 3, i1 false)
   store i8 0, ptr %15, align 1, !tbaa !12
-  %50 = call i64 @strtoul(ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 8) #14
+  %50 = call i64 @strtoul(ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 8) #15
   %51 = load ptr, ptr %7, align 8, !tbaa !3
   %52 = icmp eq ptr %51, %15
   br i1 %52, label %53, label %57
@@ -527,19 +527,19 @@ define ptr @pdf_finalize_string(ptr noundef %0, ptr noundef %1, ptr noundef read
 
 ._crit_edge:                                      ; preds = %86, %.preheader
   %.097.lcssa = phi i64 [ 0, %.preheader ], [ %.3, %86 ]
-  call void @free(ptr noundef nonnull %10) #14
+  call void @free(ptr noundef nonnull %10) #15
   %89 = add i64 %.097.lcssa, 1
-  %90 = call ptr @cli_max_calloc(i64 noundef %89, i64 noundef 1) #14
+  %90 = call ptr @cli_max_calloc(i64 noundef %89, i64 noundef 1) #15
   %.not119 = icmp eq ptr %90, null
   br i1 %.not119, label %91, label %92
 
 91:                                               ; preds = %._crit_edge
-  call void @free(ptr noundef %14) #14
+  call void @free(ptr noundef %14) #15
   br label %.critedge
 
 92:                                               ; preds = %._crit_edge
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %90, ptr nonnull align 1 %14, i64 %.097.lcssa, i1 false)
-  call void @free(ptr noundef %14) #14
+  call void @free(ptr noundef %14) #15
   br label %93
 
 93:                                               ; preds = %92, %11
@@ -558,7 +558,7 @@ define ptr @pdf_finalize_string(ptr noundef %0, ptr noundef %1, ptr noundef read
   br i1 %.not.i, label %pdf_decrypt_string.exit.thread, label %99
 
 99:                                               ; preds = %97
-  %100 = call i32 @get_enc_method(ptr noundef nonnull %0, ptr noundef %1) #14
+  %100 = call i32 @get_enc_method(ptr noundef nonnull %0, ptr noundef %1) #15
   %101 = icmp ult i64 %.0100, 2
   br i1 %101, label %127, label %102
 
@@ -580,17 +580,17 @@ define ptr @pdf_finalize_string(ptr noundef %0, ptr noundef %1, ptr noundef read
 113:                                              ; preds = %102
   %114 = lshr i64 %112, 1
   store i64 %114, ptr %5, align 8, !tbaa !8
-  %115 = call ptr @cli_max_calloc(i64 noundef 1, i64 noundef %114) #14
+  %115 = call ptr @cli_max_calloc(i64 noundef 1, i64 noundef %114) #15
   %116 = icmp eq ptr %115, null
   br i1 %116, label %pdf_decrypt_string.exit.thread, label %117
 
 117:                                              ; preds = %113
-  %118 = call i32 @cli_hex2str_to(ptr noundef nonnull %105, ptr noundef nonnull %115, i64 noundef %112) #14
+  %118 = call i32 @cli_hex2str_to(ptr noundef nonnull %105, ptr noundef nonnull %115, i64 noundef %112) #15
   %.not48.i = icmp eq i32 %118, 0
   br i1 %.not48.i, label %120, label %.thread62.i
 
 .thread62.i:                                      ; preds = %117
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.13) #14
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.13) #15
   br label %129
 
 119:                                              ; preds = %102
@@ -602,12 +602,12 @@ define ptr @pdf_finalize_string(ptr noundef %0, ptr noundef %1, ptr noundef read
   %.142.i = phi ptr [ null, %119 ], [ %115, %117 ]
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %122 = load i32, ptr %121, align 8, !tbaa !24
-  %123 = call ptr @decrypt_any(ptr noundef nonnull %0, i32 noundef %122, ptr noundef nonnull %.043.i, ptr noundef nonnull %5, i32 noundef %100) #14
+  %123 = call ptr @decrypt_any(ptr noundef nonnull %0, i32 noundef %122, ptr noundef nonnull %.043.i, ptr noundef nonnull %5, i32 noundef %100) #15
   %.not49.i = icmp eq ptr %123, null
   br i1 %.not49.i, label %124, label %125
 
 124:                                              ; preds = %120
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.14) #14
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.14) #15
   br label %128
 
 125:                                              ; preds = %120
@@ -615,7 +615,7 @@ define ptr @pdf_finalize_string(ptr noundef %0, ptr noundef %1, ptr noundef read
   br label %128
 
 127:                                              ; preds = %99
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.12) #14
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.12) #15
   br label %pdf_decrypt_string.exit.thread
 
 128:                                              ; preds = %125, %124
@@ -627,35 +627,35 @@ define ptr @pdf_finalize_string(ptr noundef %0, ptr noundef %1, ptr noundef read
   %.1 = phi i64 [ %.0130, %128 ], [ %112, %.thread62.i ]
   %.039.ph67.i = phi ptr [ %123, %128 ], [ null, %.thread62.i ]
   %.041.ph66.i = phi ptr [ %.142.i, %128 ], [ %115, %.thread62.i ]
-  call void @free(ptr noundef nonnull %.041.ph66.i) #14
+  call void @free(ptr noundef nonnull %.041.ph66.i) #15
   br label %pdf_decrypt_string.exit
 
 pdf_decrypt_string.exit.thread:                   ; preds = %127, %97, %113
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @free(ptr noundef nonnull %.0103) #14
+  call void @free(ptr noundef nonnull %.0103) #15
   br label %.critedge
 
 pdf_decrypt_string.exit:                          ; preds = %128, %129
   %.2131 = phi i64 [ %.0130, %128 ], [ %.1, %129 ]
   %.1.i = phi ptr [ %123, %128 ], [ %.039.ph67.i, %129 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @free(ptr noundef nonnull %.0103) #14
+  call void @free(ptr noundef nonnull %.0103) #15
   %.not121 = icmp eq ptr %.1.i, null
   br i1 %.not121, label %.critedge, label %130
 
 130:                                              ; preds = %pdf_decrypt_string.exit
   %131 = add i64 %.2131, 1
-  %132 = call ptr @cli_max_calloc(i64 noundef %131, i64 noundef 1) #14
+  %132 = call ptr @cli_max_calloc(i64 noundef %131, i64 noundef 1) #15
   %.not122 = icmp eq ptr %132, null
   br i1 %.not122, label %133, label %134
 
 133:                                              ; preds = %130
-  call void @free(ptr noundef nonnull %.1.i) #14
+  call void @free(ptr noundef nonnull %.1.i) #15
   br label %.critedge
 
 134:                                              ; preds = %130
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %132, ptr nonnull align 1 %.1.i, i64 %.2131, i1 false)
-  call void @free(ptr noundef nonnull %.1.i) #14
+  call void @free(ptr noundef nonnull %.1.i) #15
   br label %135
 
 135:                                              ; preds = %134, %93
@@ -678,7 +678,7 @@ pdf_decrypt_string.exit:                          ; preds = %128, %129
 
 140:                                              ; preds = %.lr.ph143
   %141 = call ptr @pdf_convert_utf(ptr noundef nonnull %.1104, i64 noundef %.1101)
-  call void @free(ptr noundef nonnull %.1104) #14
+  call void @free(ptr noundef nonnull %.1104) #15
   br label %.critedge
 
 .critedge:                                        ; preds = %136, %135, %pdf_decrypt_string.exit.thread, %pdf_decrypt_string.exit, %133, %140, %8, %4, %91, %16
@@ -702,7 +702,7 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %7
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #14
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #15
   br label %._crit_edge.thread
 
 15:                                               ; preds = %7
@@ -724,7 +724,7 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %26, label %27, label %37
 
 27:                                               ; preds = %19
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4) #14
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4) #15
   br label %._crit_edge.thread
 
 28:                                               ; preds = %15
@@ -739,7 +739,7 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %28
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5) #14
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5) #15
   br label %._crit_edge.thread
 
 37:                                               ; preds = %28, %19
@@ -751,7 +751,7 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br label %53
 
 38:                                               ; preds = %37
-  %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #16
+  %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #17
   %40 = add i64 %39, 3
   %41 = icmp ult i64 %3, %40
   br i1 %41, label %._crit_edge.thread, label %.preheader318
@@ -763,12 +763,12 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %.not351, label %._crit_edge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader318
-  %44 = tail call i32 @strncmp(ptr noundef %2, ptr noundef nonnull %4, i64 noundef %39) #16
+  %44 = tail call i32 @strncmp(ptr noundef %2, ptr noundef nonnull %4, i64 noundef %39) #17
   %.not272449 = icmp eq i32 %44, 0
   br i1 %.not272449, label %._crit_edge, label %.lr.ph451
 
 .lr.ph:                                           ; preds = %.lr.ph451
-  %45 = tail call i32 @strncmp(ptr noundef nonnull %46, ptr noundef nonnull %4, i64 noundef %39) #16
+  %45 = tail call i32 @strncmp(ptr noundef nonnull %46, ptr noundef nonnull %4, i64 noundef %39) #17
   %.not272 = icmp eq i32 %45, 0
   br i1 %.not272, label %.lr.ph.._crit_edge_crit_edge, label %.lr.ph451
 
@@ -803,7 +803,7 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %55, label %.lr.ph335, label %.critedge
 
 .lr.ph335:                                        ; preds = %53
-  %56 = tail call ptr @__ctype_b_loc() #15
+  %56 = tail call ptr @__ctype_b_loc() #16
   %57 = load ptr, ptr %56, align 8, !tbaa !13
   %58 = load i8, ptr %.1231, align 1, !tbaa !12
   %59 = sext i8 %58 to i64
@@ -847,7 +847,7 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 77:                                               ; preds = %74
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %78 = load i32, ptr %9, align 4, !tbaa !10
-  %79 = call ptr @find_obj(ptr noundef %0, ptr noundef %1, i32 noundef %78) #14
+  %79 = call ptr @find_obj(ptr noundef %0, ptr noundef %1, i32 noundef %78) #15
   %.not290 = icmp eq ptr %79, null
   br i1 %.not290, label %202, label %80
 
@@ -884,7 +884,7 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %or.cond310, label %99, label %98
 
 98:                                               ; preds = %93, %87, %83, %80
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #14
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #15
   br label %202
 
 99:                                               ; preds = %93
@@ -899,7 +899,7 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %.not296, label %105, label %106
 
 105:                                              ; preds = %101
-  call void @pdf_parseobj(ptr noundef nonnull %0, ptr noundef nonnull %79) #14
+  call void @pdf_parseobj(ptr noundef nonnull %0, ptr noundef nonnull %79) #15
   br label %106
 
 106:                                              ; preds = %105, %101
@@ -910,7 +910,7 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %110 = load i32, ptr %11, align 4, !tbaa !28
   %111 = add i32 %110, 1
   store i32 %111, ptr %11, align 4, !tbaa !28
-  %112 = call i32 @pdf_extract_obj(ptr noundef nonnull %0, ptr noundef nonnull %79, i32 noundef 0) #14
+  %112 = call i32 @pdf_extract_obj(ptr noundef nonnull %0, ptr noundef nonnull %79, i32 noundef 0) #15
   %113 = load i32, ptr %11, align 4, !tbaa !28
   %114 = add i32 %113, -1
   store i32 %114, ptr %11, align 4, !tbaa !28
@@ -925,29 +925,29 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %.not298, label %202, label %118
 
 118:                                              ; preds = %115
-  %119 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %117, i32 noundef 0) #14
+  %119 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %117, i32 noundef 0) #15
   %120 = icmp eq i32 %119, -1
   br i1 %120, label %121, label %125
 
 121:                                              ; preds = %118
   %122 = load ptr, ptr %116, align 8, !tbaa !39
-  %123 = call i32 @cli_unlink(ptr noundef %122) #14
+  %123 = call i32 @cli_unlink(ptr noundef %122) #15
   %124 = load ptr, ptr %116, align 8, !tbaa !39
-  call void @free(ptr noundef %124) #14
+  call void @free(ptr noundef %124) #15
   store ptr null, ptr %116, align 8, !tbaa !39
   br label %202
 
 125:                                              ; preds = %118
-  %126 = call i32 @fstat(i32 noundef %119, ptr noundef nonnull %10) #14
+  %126 = call i32 @fstat(i32 noundef %119, ptr noundef nonnull %10) #15
   %.not299 = icmp eq i32 %126, 0
   br i1 %.not299, label %132, label %127
 
 127:                                              ; preds = %125
-  %128 = call i32 @close(i32 noundef %119) #14
+  %128 = call i32 @close(i32 noundef %119) #15
   %129 = load ptr, ptr %116, align 8, !tbaa !39
-  %130 = call i32 @cli_unlink(ptr noundef %129) #14
+  %130 = call i32 @cli_unlink(ptr noundef %129) #15
   %131 = load ptr, ptr %116, align 8, !tbaa !39
-  call void @free(ptr noundef %131) #14
+  call void @free(ptr noundef %131) #15
   store ptr null, ptr %116, align 8, !tbaa !39
   br label %202
 
@@ -959,38 +959,38 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 
 135:                                              ; preds = %132
   %136 = add nsw i64 %134, 1
-  %137 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %136) #17
+  %137 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %136) #18
   %.not301 = icmp eq ptr %137, null
   br i1 %.not301, label %138, label %143
 
 138:                                              ; preds = %135
-  %139 = call i32 @close(i32 noundef %119) #14
+  %139 = call i32 @close(i32 noundef %119) #15
   %140 = load ptr, ptr %116, align 8, !tbaa !39
-  %141 = call i32 @cli_unlink(ptr noundef %140) #14
+  %141 = call i32 @cli_unlink(ptr noundef %140) #15
   %142 = load ptr, ptr %116, align 8, !tbaa !39
-  call void @free(ptr noundef %142) #14
+  call void @free(ptr noundef %142) #15
   store ptr null, ptr %116, align 8, !tbaa !39
   br label %202
 
 143:                                              ; preds = %135
-  %144 = call i64 @read(i32 noundef %119, ptr noundef nonnull %137, i64 noundef %134) #14
+  %144 = call i64 @read(i32 noundef %119, ptr noundef nonnull %137, i64 noundef %134) #15
   %.not302 = icmp eq i64 %144, %134
   br i1 %.not302, label %.preheader317, label %148
 
 .preheader317:                                    ; preds = %143
   %145 = ptrtoint ptr %137 to i64
-  %146 = tail call ptr @__ctype_b_loc() #15
+  %146 = tail call ptr @__ctype_b_loc() #16
   %147 = load ptr, ptr %146, align 8, !tbaa !13
   br label %153
 
 148:                                              ; preds = %143
-  %149 = call i32 @close(i32 noundef %119) #14
+  %149 = call i32 @close(i32 noundef %119) #15
   %150 = load ptr, ptr %116, align 8, !tbaa !39
-  %151 = call i32 @cli_unlink(ptr noundef %150) #14
+  %151 = call i32 @cli_unlink(ptr noundef %150) #15
   %152 = load ptr, ptr %116, align 8, !tbaa !39
-  call void @free(ptr noundef %152) #14
+  call void @free(ptr noundef %152) #15
   store ptr null, ptr %116, align 8, !tbaa !39
-  call void @free(ptr noundef nonnull %137) #14
+  call void @free(ptr noundef nonnull %137) #15
   br label %202
 
 153:                                              ; preds = %.preheader317, %159
@@ -1042,18 +1042,18 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 
 174:                                              ; preds = %172
   %175 = add i64 %.0228.lcssa, 1
-  %176 = call ptr @cli_max_calloc(i64 noundef 1, i64 noundef %175) #14
+  %176 = call ptr @cli_max_calloc(i64 noundef 1, i64 noundef %175) #15
   %.not305 = icmp eq ptr %176, null
   br i1 %.not305, label %177, label %182
 
 177:                                              ; preds = %174
-  %178 = call i32 @close(i32 noundef %119) #14
+  %178 = call i32 @close(i32 noundef %119) #15
   %179 = load ptr, ptr %116, align 8, !tbaa !39
-  %180 = call i32 @cli_unlink(ptr noundef %179) #14
+  %180 = call i32 @cli_unlink(ptr noundef %179) #15
   %181 = load ptr, ptr %116, align 8, !tbaa !39
-  call void @free(ptr noundef %181) #14
+  call void @free(ptr noundef %181) #15
   store ptr null, ptr %116, align 8, !tbaa !39
-  call void @free(ptr noundef nonnull %137) #14
+  call void @free(ptr noundef nonnull %137) #15
   br label %202
 
 182:                                              ; preds = %174
@@ -1077,7 +1077,7 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %.not307, label %194, label %189
 
 189:                                              ; preds = %188
-  %190 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %173) #16
+  %190 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %173) #17
   %191 = trunc i64 %190 to i32
   store i32 %191, ptr %6, align 8, !tbaa !43
   %192 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1088,16 +1088,16 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 
 194:                                              ; preds = %184, %182, %189, %188, %166
   %.1234 = phi ptr [ %173, %189 ], [ %173, %188 ], [ %176, %184 ], [ %176, %182 ], [ %169, %166 ]
-  call void @free(ptr noundef %137) #14
+  call void @free(ptr noundef %137) #15
   br label %195
 
 195:                                              ; preds = %194, %132
   %.0233 = phi ptr [ %.1234, %194 ], [ null, %132 ]
-  %196 = call i32 @close(i32 noundef %119) #14
+  %196 = call i32 @close(i32 noundef %119) #15
   %197 = load ptr, ptr %116, align 8, !tbaa !39
-  %198 = call i32 @cli_unlink(ptr noundef %197) #14
+  %198 = call i32 @cli_unlink(ptr noundef %197) #15
   %199 = load ptr, ptr %116, align 8, !tbaa !39
-  call void @free(ptr noundef %199) #14
+  call void @free(ptr noundef %199) #15
   store ptr null, ptr %116, align 8, !tbaa !39
   %.not308 = icmp eq ptr %5, null
   br i1 %.not308, label %202, label %200
@@ -1146,7 +1146,7 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 
 215:                                              ; preds = %211
   %216 = add nsw i64 %212, 2
-  %217 = call ptr @cli_max_calloc(i64 noundef 1, i64 noundef %216) #14
+  %217 = call ptr @cli_max_calloc(i64 noundef 1, i64 noundef %216) #15
   %.not286 = icmp eq ptr %217, null
   br i1 %.not286, label %._crit_edge.thread, label %218
 
@@ -1168,7 +1168,7 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %.not288, label %230, label %225
 
 225:                                              ; preds = %224
-  %226 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %214) #16
+  %226 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %214) #17
   %227 = trunc i64 %226 to i32
   br label %.sink.split
 
@@ -1238,7 +1238,7 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 
 249:                                              ; preds = %243
   %250 = add i64 %246, 2
-  %251 = call ptr @cli_max_calloc(i64 noundef 1, i64 noundef %250) #14
+  %251 = call ptr @cli_max_calloc(i64 noundef 1, i64 noundef %250) #15
   %.not279 = icmp eq ptr %251, null
   br i1 %.not279, label %._crit_edge.thread, label %252
 
@@ -1254,7 +1254,7 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %.not281, label %260, label %255
 
 255:                                              ; preds = %254
-  %256 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %248) #16
+  %256 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %248) #17
   br label %.sink.split425
 
 .sink.split425:                                   ; preds = %252, %255
@@ -1332,7 +1332,7 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %10
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.7) #14
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.7) #15
   br label %244
 
 15:                                               ; preds = %10
@@ -1472,7 +1472,7 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %.not276, label %70, label %244
 
 70:                                               ; preds = %67
-  %71 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #17
+  %71 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #18
   %.not277 = icmp eq ptr %71, null
   br i1 %.not277, label %244, label %72
 
@@ -1482,7 +1482,7 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
 
 .lr.ph395:                                        ; preds = %72
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %75 = tail call ptr @__ctype_b_loc() #15
+  %75 = tail call ptr @__ctype_b_loc() #16
   %76 = getelementptr inbounds i8, ptr %.0232.lcssa.ptr, i64 -3
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 8
   br label %78
@@ -1584,7 +1584,7 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   %110 = ptrtoint ptr %.1242.lcssa to i64
   %111 = sub i64 %109, %110
   %112 = add nsw i64 %111, 2
-  %113 = call ptr @cli_max_calloc(i64 noundef %112, i64 noundef 1) #14
+  %113 = call ptr @cli_max_calloc(i64 noundef %112, i64 noundef 1) #15
   %.not282 = icmp eq ptr %113, null
   br i1 %.not282, label %.thread327, label %114
 
@@ -1596,7 +1596,7 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %115, label %.lr.ph384, label %.loopexit
 
 116:                                              ; preds = %114
-  %117 = call ptr @strncpy(ptr noundef nonnull %113, ptr noundef nonnull %.1242.lcssa, i64 noundef %111) #14
+  %117 = call ptr @strncpy(ptr noundef nonnull %113, ptr noundef nonnull %.1242.lcssa, i64 noundef %111) #15
   %118 = getelementptr inbounds i8, ptr %113, i64 %111
   store i8 0, ptr %118, align 1, !tbaa !12
   br label %.loopexit
@@ -1613,7 +1613,7 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   %123 = getelementptr inbounds nuw i8, ptr %.0216382, i64 1
   %124 = zext i32 %.0212383 to i64
   %125 = getelementptr inbounds nuw i8, ptr %113, i64 %124
-  %126 = call i32 @cli_hex2str_to(ptr noundef nonnull %123, ptr noundef nonnull %125, i64 noundef 2) #14
+  %126 = call i32 @cli_hex2str_to(ptr noundef nonnull %123, ptr noundef nonnull %125, i64 noundef 2) #15
   %127 = getelementptr inbounds nuw i8, ptr %.0216382, i64 2
   %.pre = load ptr, ptr %6, align 8, !tbaa !3
   br label %131
@@ -1662,7 +1662,7 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %148, label %149, label %150
 
 149:                                              ; preds = %.critedge9
-  call void @free(ptr noundef %113) #14
+  call void @free(ptr noundef %113) #15
   br label %.thread327
 
 150:                                              ; preds = %.critedge9
@@ -1742,12 +1742,12 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   %187 = ptrtoint ptr %.3244.lcssa to i64
   %188 = sub i64 %186, %187
   %189 = add nsw i64 %188, 2
-  %190 = call ptr @cli_max_calloc(i64 noundef %189, i64 noundef 1) #14
+  %190 = call ptr @cli_max_calloc(i64 noundef %189, i64 noundef 1) #15
   %.not285 = icmp eq ptr %190, null
   br i1 %.not285, label %198, label %.thread315
 
 .thread315:                                       ; preds = %.thread313
-  %191 = call ptr @strncpy(ptr noundef nonnull %190, ptr noundef nonnull %.3244.lcssa, i64 noundef %188) #14
+  %191 = call ptr @strncpy(ptr noundef nonnull %190, ptr noundef nonnull %.3244.lcssa, i64 noundef %188) #15
   %192 = getelementptr inbounds i8, ptr %190, i64 %188
   store i8 0, ptr %192, align 1, !tbaa !12
   %193 = load i8, ptr %185, align 1, !tbaa !12
@@ -1781,7 +1781,7 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %or.cond13, label %203, label %202
 
 202:                                              ; preds = %198
-  call void @free(ptr noundef %113) #14
+  call void @free(ptr noundef %113) #15
   br label %.thread327
 
 203:                                              ; preds = %.thread315, %198
@@ -1794,7 +1794,7 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   %.4245322 = phi ptr [ %spec.select294, %.thread315 ], [ %.4245, %198 ]
   %207 = load ptr, ptr %71, align 8, !tbaa !48
   %.not287 = icmp eq ptr %207, null
-  %208 = call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #17
+  %208 = call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #18
   br i1 %.not287, label %209, label %216
 
 209:                                              ; preds = %203
@@ -1804,7 +1804,7 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %.not288, label %210, label %229
 
 210:                                              ; preds = %209
-  call void @free(ptr noundef %113) #14
+  call void @free(ptr noundef %113) #15
   br i1 %205, label %211, label %212
 
 211:                                              ; preds = %210
@@ -1815,7 +1815,7 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %206, label %213, label %214
 
 213:                                              ; preds = %212
-  call void @free(ptr noundef %.0218323) #14
+  call void @free(ptr noundef %.0218323) #15
   br label %214
 
 214:                                              ; preds = %213, %212
@@ -1830,7 +1830,7 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %.not289, label %217, label %223
 
 217:                                              ; preds = %216
-  call void @free(ptr noundef %113) #14
+  call void @free(ptr noundef %113) #15
   br i1 %205, label %218, label %219
 
 218:                                              ; preds = %217
@@ -1841,7 +1841,7 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %206, label %220, label %221
 
 220:                                              ; preds = %219
-  call void @free(ptr noundef %.0218323) #14
+  call void @free(ptr noundef %.0218323) #15
   br label %221
 
 221:                                              ; preds = %220, %219
@@ -1874,7 +1874,7 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
 230:                                              ; preds = %229
   %231 = getelementptr inbounds nuw i8, ptr %208, i64 8
   store ptr %.0218323, ptr %231, align 8, !tbaa !56
-  %232 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0218323) #16
+  %232 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0218323) #17
   br label %.sink.split481
 
 233:                                              ; preds = %229
@@ -1947,7 +1947,7 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.8) #14
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.8) #15
   br label %.loopexit182
 
 16:                                               ; preds = %11
@@ -2048,7 +2048,7 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   br i1 %48, label %.lr.ph, label %.loopexit182
 
 49:                                               ; preds = %43
-  %50 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #17
+  %50 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #18
   %.not152 = icmp eq ptr %50, null
   br i1 %.not152, label %.loopexit182, label %51
 
@@ -2070,7 +2070,7 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   br i1 %57, label %.lr.ph203, label %.critedge
 
 .lr.ph203:                                        ; preds = %56
-  %58 = tail call ptr @__ctype_b_loc() #15
+  %58 = tail call ptr @__ctype_b_loc() #16
   %59 = load ptr, ptr %58, align 8, !tbaa !13
   br label %60
 
@@ -2154,7 +2154,7 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   br i1 %95, label %96, label %.critedge7
 
 96:                                               ; preds = %.preheader
-  %97 = tail call ptr @__ctype_b_loc() #15
+  %97 = tail call ptr @__ctype_b_loc() #16
   %98 = load ptr, ptr %97, align 8, !tbaa !13
   %99 = load i8, ptr %storemerge, align 1, !tbaa !12
   %100 = sext i8 %99 to i64
@@ -2170,12 +2170,12 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   %106 = ptrtoint ptr %.lcssa202 to i64
   %107 = sub i64 %105, %106
   %108 = add nsw i64 %107, 2
-  %109 = call ptr @cli_max_calloc(i64 noundef %108, i64 noundef 1) #14
+  %109 = call ptr @cli_max_calloc(i64 noundef %108, i64 noundef 1) #15
   %.not156 = icmp eq ptr %109, null
   br i1 %.not156, label %116, label %.thread168
 
 .thread168:                                       ; preds = %.critedge7
-  %110 = call ptr @strncpy(ptr noundef nonnull %109, ptr noundef nonnull %.lcssa202, i64 noundef %107) #14
+  %110 = call ptr @strncpy(ptr noundef nonnull %109, ptr noundef nonnull %.lcssa202, i64 noundef %107) #15
   %111 = getelementptr inbounds i8, ptr %109, i64 %107
   store i8 0, ptr %111, align 1, !tbaa !12
   store ptr %104, ptr %6, align 8, !tbaa !3
@@ -2212,7 +2212,7 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   %.0176 = phi ptr [ null, %.thread168 ], [ %.0, %116 ]
   %.0116175 = phi ptr [ null, %.thread168 ], [ %.0116, %116 ]
   %.0117174 = phi ptr [ %109, %.thread168 ], [ %.0117, %116 ]
-  %124 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #17
+  %124 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #18
   br i1 %.0124208, label %125, label %131
 
 125:                                              ; preds = %120
@@ -2232,7 +2232,7 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   br i1 %123, label %129, label %130
 
 129:                                              ; preds = %128
-  call void @free(ptr noundef %.0117174) #14
+  call void @free(ptr noundef %.0117174) #15
   br label %130
 
 130:                                              ; preds = %129, %128
@@ -2253,7 +2253,7 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   br i1 %123, label %135, label %136
 
 135:                                              ; preds = %134
-  call void @free(ptr noundef %.0117174) #14
+  call void @free(ptr noundef %.0117174) #15
   br label %136
 
 136:                                              ; preds = %135, %134
@@ -2282,7 +2282,7 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
 145:                                              ; preds = %143
   store i32 1, ptr %144, align 8, !tbaa !66
   store ptr %.0117174, ptr %124, align 8, !tbaa !67
-  %146 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0117174) #16
+  %146 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0117174) #17
   %147 = getelementptr inbounds nuw i8, ptr %124, i64 8
   store i64 %146, ptr %147, align 8, !tbaa !68
   br label %152
@@ -2330,8 +2330,8 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   ret ptr %.0123
 }
 
-; Function Attrs: nounwind uwtable
-define void @pdf_free_dict(ptr noundef captures(none) %0) local_unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define void @pdf_free_dict(ptr noundef captures(none) %0) local_unnamed_addr #13 {
   %2 = load ptr, ptr %0, align 8, !tbaa !48
   %.not14 = icmp eq ptr %2, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
@@ -2339,7 +2339,7 @@ define void @pdf_free_dict(ptr noundef captures(none) %0) local_unnamed_addr #0 
 .lr.ph:                                           ; preds = %1, %15
   %.015 = phi ptr [ %17, %15 ], [ %2, %1 ]
   %3 = load ptr, ptr %.015, align 8, !tbaa !55
-  tail call void @free(ptr noundef %3) #14
+  tail call void @free(ptr noundef %3) #15
   %4 = getelementptr inbounds nuw i8, ptr %.015, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !58
   switch i32 %5, label %15 [
@@ -2351,7 +2351,7 @@ define void @pdf_free_dict(ptr noundef captures(none) %0) local_unnamed_addr #0 
 6:                                                ; preds = %.lr.ph
   %7 = getelementptr inbounds nuw i8, ptr %.015, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !56
-  tail call void @free(ptr noundef %8) #14
+  tail call void @free(ptr noundef %8) #15
   br label %15
 
 9:                                                ; preds = %.lr.ph
@@ -2369,17 +2369,17 @@ define void @pdf_free_dict(ptr noundef captures(none) %0) local_unnamed_addr #0 
 15:                                               ; preds = %.lr.ph, %9, %12, %6
   %16 = getelementptr inbounds nuw i8, ptr %.015, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !54
-  tail call void @free(ptr noundef nonnull %.015) #14
+  tail call void @free(ptr noundef nonnull %.015) #15
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %15, %1
-  tail call void @free(ptr noundef %0) #14
+  tail call void @free(ptr noundef %0) #15
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define void @pdf_free_array(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define void @pdf_free_array(ptr noundef captures(address_is_null) %0) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %2
 
@@ -2407,18 +2407,18 @@ define void @pdf_free_array(ptr noundef captures(address_is_null) %0) local_unna
   br label %10
 
 9:                                                ; preds = %.lr.ph
-  tail call void @free(ptr noundef %6) #14
+  tail call void @free(ptr noundef %6) #15
   br label %10
 
 10:                                               ; preds = %8, %9, %7
   %11 = getelementptr inbounds nuw i8, ptr %.016, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !65
-  tail call void @free(ptr noundef nonnull %.016) #14
+  tail call void @free(ptr noundef nonnull %.016) #15
   %.not14 = icmp eq ptr %12, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %10, %2
-  tail call void @free(ptr noundef %0) #14
+  tail call void @free(ptr noundef %0) #15
   br label %13
 
 13:                                               ; preds = %1, %._crit_edge
@@ -2445,7 +2445,7 @@ define void @pdf_print_array(ptr noundef readonly captures(none) %0, i64 noundef
   br i1 %7, label %9, label %10
 
 9:                                                ; preds = %4
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.9, i64 noundef %1, i64 noundef %.012, ptr noundef %8) #14
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.9, i64 noundef %1, i64 noundef %.012, ptr noundef %8) #15
   br label %11
 
 10:                                               ; preds = %4
@@ -2487,12 +2487,12 @@ define void @pdf_print_dict(ptr noundef readonly captures(none) %0, i64 noundef 
   %8 = load ptr, ptr %.017, align 8, !tbaa !55
   %9 = getelementptr inbounds nuw i8, ptr %.017, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !56
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.10, i64 noundef %1, ptr noundef %8, ptr noundef %10) #14
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.10, i64 noundef %1, ptr noundef %8, ptr noundef %10) #15
   br label %18
 
 11:                                               ; preds = %4
   %12 = load ptr, ptr %.017, align 8, !tbaa !55
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.11, i64 noundef %1, ptr noundef %12) #14
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.11, i64 noundef %1, ptr noundef %12) #15
   %13 = getelementptr inbounds nuw i8, ptr %.017, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !56
   tail call void @pdf_print_array(ptr noundef %14, i64 noundef %1)
@@ -2519,10 +2519,10 @@ declare i32 @get_enc_method(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @decrypt_any(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -2537,11 +2537,12 @@ attributes #9 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"
 attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind willreturn memory(none) }
-attributes #16 = { nounwind willreturn memory(read) }
-attributes #17 = { nounwind allocsize(0,1) }
+attributes #13 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nounwind }
+attributes #16 = { nounwind willreturn memory(none) }
+attributes #17 = { nounwind willreturn memory(read) }
+attributes #18 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

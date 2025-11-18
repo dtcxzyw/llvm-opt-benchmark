@@ -54,7 +54,7 @@ define void @duckdb_je_prof_malloc_sample_object(ptr noundef readnone captures(n
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @duckdb_je_prof_sample_hook_get() local_unnamed_addr #1 {
 atomic_load_p.exit:
   %0 = load atomic i64, ptr @prof_sample_hook.0 acquire, align 8
@@ -67,7 +67,7 @@ define void @duckdb_je_prof_free_sampled_object(ptr noundef readnone captures(no
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @duckdb_je_prof_sample_free_hook_get() local_unnamed_addr #1 {
 atomic_load_p.exit:
   %0 = load atomic i64, ptr @prof_sample_free_hook.0 acquire, align 8
@@ -389,7 +389,7 @@ malloc_mutex_lock.exit:                           ; preds = %4, %8
   ret i1 %13
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @duckdb_je_prof_backtrace_hook_set(ptr noundef %0) local_unnamed_addr #1 {
 atomic_store_p.exit:
   %1 = ptrtoint ptr %0 to i64
@@ -397,7 +397,7 @@ atomic_store_p.exit:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @duckdb_je_prof_backtrace_hook_get() local_unnamed_addr #1 {
 atomic_load_p.exit:
   %0 = load atomic i64, ptr @duckdb_je_prof_backtrace_hook.0 acquire, align 8
@@ -405,7 +405,7 @@ atomic_load_p.exit:
   ret ptr %.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @duckdb_je_prof_dump_hook_set(ptr noundef %0) local_unnamed_addr #1 {
 atomic_store_p.exit:
   %1 = ptrtoint ptr %0 to i64
@@ -413,7 +413,7 @@ atomic_store_p.exit:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @duckdb_je_prof_dump_hook_get() local_unnamed_addr #1 {
 atomic_load_p.exit:
   %0 = load atomic i64, ptr @duckdb_je_prof_dump_hook.0 acquire, align 8
@@ -421,7 +421,7 @@ atomic_load_p.exit:
   ret ptr %.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @duckdb_je_prof_sample_hook_set(ptr noundef %0) local_unnamed_addr #1 {
 atomic_store_p.exit:
   %1 = ptrtoint ptr %0 to i64
@@ -429,7 +429,7 @@ atomic_store_p.exit:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @duckdb_je_prof_sample_free_hook_set(ptr noundef %0) local_unnamed_addr #1 {
 atomic_store_p.exit:
   %1 = ptrtoint ptr %0 to i64
@@ -487,7 +487,7 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

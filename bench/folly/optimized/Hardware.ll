@@ -30,7 +30,7 @@ $_ZN5folly15throw_exceptionISt13runtime_errorEEvOT_ = comdat any
 @_ZN5folly6detail8rtmTestVE = local_unnamed_addr global %"struct.std::atomic.4" { %"struct.std::__atomic_base.5" { ptr @_ZN5folly6detail9rtmTestVEEv } }, align 8
 @_ZN5folly6detail9rtmAbortVE = local_unnamed_addr global %"struct.std::atomic.6" { %"struct.std::__atomic_base.7" { ptr @_ZN5folly6detail10rtmAbortVEEh } }, align 8
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZN5folly10rtmEnabledEv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i32, ptr @_ZZN5folly10rtmEnabledEvE6result.0 monotonic, align 4
   %2 = icmp slt i32 %1, 0
@@ -275,7 +275,7 @@ _ZN5folly6detailL7rewriteEv.exit:                 ; preds = %_ZN5folly10rtmEnabl
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
-attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold nofree noreturn }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

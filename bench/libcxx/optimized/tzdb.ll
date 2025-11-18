@@ -17708,7 +17708,7 @@ define internal fastcc void @_ZNSt3__16vectorIZNS_6chronoL20__parse_leap_seconds
   unreachable
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZNSt3__111__introsortB8ne210000INS_15_RangeAlgPolicyERNS_14_ProjectedPredINS_6ranges4lessEMZNS_6chronoL20__parse_leap_secondsB8ne210000ERNS_6vectorINS5_11leap_secondENS_9allocatorIS7_EEEEONS_13basic_istreamIcNS_11char_traitsIcEEEEE7__entryNS5_10time_pointINS5_12system_clockENS5_8durationIxNS_5ratioILl1ELl1EEEEEEEEEPSH_Lb0EEEvT1_ST_T0_NS_15iterator_traitsIST_E15difference_typeEb(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #22 {
   %6 = alloca %struct.__entry, align 8
   %7 = alloca %struct.__entry, align 8
@@ -18887,7 +18887,7 @@ _ZNSt3__17__sort3B8ne210000INS_15_RangeAlgPolicyERNS_14_ProjectedPredINS_6ranges
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZNSt3__17__sort4B8ne210000INS_15_RangeAlgPolicyERNS_14_ProjectedPredINS_6ranges4lessEMZNS_6chronoL20__parse_leap_secondsB8ne210000ERNS_6vectorINS5_11leap_secondENS_9allocatorIS7_EEEEONS_13basic_istreamIcNS_11char_traitsIcEEEEE7__entryNS5_10time_pointINS5_12system_clockENS5_8durationIxNS_5ratioILl1ELl1EEEEEEEEEPSH_TnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEvSV_SV_SV_SV_SU_(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %4) unnamed_addr #23 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.val14.i = load ptr, ptr %6, align 8, !tbaa !424
@@ -19021,7 +19021,7 @@ _ZNSt3__17__sort3B8ne210000INS_15_RangeAlgPolicyERNS_14_ProjectedPredINS_6ranges
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZNSt3__127__insertion_sort_incompleteB8ne210000INS_15_RangeAlgPolicyERNS_14_ProjectedPredINS_6ranges4lessEMZNS_6chronoL20__parse_leap_secondsB8ne210000ERNS_6vectorINS5_11leap_secondENS_9allocatorIS7_EEEEONS_13basic_istreamIcNS_11char_traitsIcEEEEE7__entryNS5_10time_pointINS5_12system_clockENS5_8durationIxNS_5ratioILl1ELl1EEEEEEEEEPSH_EEbT1_ST_T0_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #24 {
   %4 = alloca %struct.__entry, align 8
   %5 = ptrtoint ptr %1 to i64
@@ -20721,9 +20721,9 @@ attributes #18 = { mustprogress nofree nosync nounwind willreturn memory(none) "
 attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #20 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #25 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #26 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #27 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }

@@ -1521,7 +1521,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7717StringTrieBuilder10equalNo
   ret i8 %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #10 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %_ZNKSt9type_infoeqERKS_.exit.thread6, label %4
@@ -1582,7 +1582,7 @@ define noundef i32 @_ZN6icu_7717StringTrieBuilder4Node19markRightEdgesFirstEi(pt
   ret i32 %1
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder14FinalValueNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(20) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #10 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.thread, label %4
@@ -1649,7 +1649,7 @@ define void @_ZN6icu_7717StringTrieBuilder14FinalValueNode5writeERS0_(ptr nounde
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #10 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.thread, label %4
@@ -1715,7 +1715,7 @@ _ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.thread: ; preds = %16, %_ZNKSt9
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder21IntermediateValueNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #10 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread, label %4
@@ -1830,7 +1830,7 @@ define void @_ZN6icu_7717StringTrieBuilder21IntermediateValueNode5writeERS0_(ptr
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder15LinearMatchNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #10 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread, label %4
@@ -1934,7 +1934,7 @@ define noundef i32 @_ZN6icu_7717StringTrieBuilder15LinearMatchNode19markRightEdg
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder14ListBranchNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(98) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #10 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %.critedge, label %4
@@ -2211,7 +2211,7 @@ _ZN6icu_7717StringTrieBuilder4Node26writeUnlessInsideRightEdgeEiiRS0_.exit: ; pr
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder15SplitBranchNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #10 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.thread, label %4
@@ -2366,7 +2366,7 @@ _ZN6icu_7717StringTrieBuilder4Node26writeUnlessInsideRightEdgeEiiRS0_.exit: ; pr
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder14BranchHeadNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #10 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread, label %4
@@ -2606,7 +2606,7 @@ attributes #6 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

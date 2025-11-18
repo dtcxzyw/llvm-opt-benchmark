@@ -122,7 +122,7 @@ _RINvXs5_NtCs68wO5nsWeTG_5alloc6stringNtB6_6StringINtNtNtNtCs1LoaDTb72WA_4core4i
   ret void
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_RINvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_7IterMuthENtNtNtNtBb_4iter6traits8iterator8Iterator4folduNCINvNvXs_NtNtB11_8adapters9enumerateINtB1Q_9EnumeratepEBV_4fold9enumerateQhuNCINvNvBV_8for_each4callTjB2S_ENCINvXsg_CshTjWJoR5NBV_13generic_arrayINtB3z_12GenericArrayhINtNtCs5FtjDnxWtNK_7typenum4uint4UIntIB4p_IB4p_IB4p_IB4p_IB4p_IB4p_NtB4r_5UTermNtNtB4t_3bit2B1ENtB5H_2B0EB5V_EB5V_EB5V_EB5V_EB5V_EEINtNtB3z_8sequence15GenericSequencehE8generateNCNvXNtB3z_5implsB42_NtNtBb_7default7Default7default0E0E0E0ECsff1zCjKRl2o_13turborepo_env.llvm.10116246802473599757(ptr noundef nonnull %0, ptr noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -165,7 +165,7 @@ define hidden void @_RINvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_7IterMuthE
   ret void
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_RINvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_7IterMuthENtNtNtNtBb_4iter6traits8iterator8Iterator4folduNCINvNvXs_NtNtB11_8adapters9enumerateINtB1Q_9EnumeratepEBV_4fold9enumerateQhuNCINvNvBV_8for_each4callTjB2S_ENCINvXsg_CshTjWJoR5NBV_13generic_arrayINtB3z_12GenericArrayhINtNtCs5FtjDnxWtNK_7typenum4uint4UIntIB4p_IB4p_IB4p_IB4p_IB4p_NtB4r_5UTermNtNtB4t_3bit2B1ENtB5C_2B0EB5Q_EB5Q_EB5Q_EB5Q_EEINtNtB3z_8sequence15GenericSequencehE8generateNCNvXNtB3z_5implsB42_NtNtBb_7default7Default7default0E0E0E0ECsff1zCjKRl2o_13turborepo_env.llvm.10116246802473599757(ptr noundef nonnull %0, ptr noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -306,7 +306,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #2 = { inlinehint nofree norecurse nosync nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #2 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

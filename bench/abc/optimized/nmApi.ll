@@ -57,7 +57,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %7
   %calloc18 = tail call ptr @calloc(i64 1, i64 %14)
   %15 = getelementptr inbounds nuw i8, ptr %calloc19, i64 8
   store ptr %calloc18, ptr %15, align 8, !tbaa !17
-  %16 = tail call ptr (...) @Extra_MmFlexStart() #10
+  %16 = tail call ptr (...) @Extra_MmFlexStart() #11
   %17 = getelementptr inbounds nuw i8, ptr %calloc19, i64 32
   store ptr %16, ptr %17, align 8, !tbaa !18
   ret ptr %calloc19
@@ -75,13 +75,13 @@ declare ptr @Extra_MmFlexStart(...) local_unnamed_addr #3
 define void @Nm_ManFree(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !18
-  tail call void @Extra_MmFlexStop(ptr noundef %3) #10
+  tail call void @Extra_MmFlexStop(ptr noundef %3) #11
   %4 = load ptr, ptr %0, align 8, !tbaa !16
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %4) #10
+  tail call void @free(ptr noundef nonnull %4) #11
   store ptr null, ptr %0, align 8, !tbaa !16
   br label %6
 
@@ -92,11 +92,11 @@ define void @Nm_ManFree(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   br i1 %.not10, label %10, label %9
 
 9:                                                ; preds = %6
-  tail call void @free(ptr noundef nonnull %8) #10
+  tail call void @free(ptr noundef nonnull %8) #11
   br label %10
 
 10:                                               ; preds = %9, %6
-  tail call void @free(ptr noundef nonnull %0) #10
+  tail call void @free(ptr noundef nonnull %0) #11
   ret void
 }
 
@@ -114,7 +114,7 @@ define i32 @Nm_ManNumEntries(ptr noundef readonly captures(none) %0) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Nm_ManStoreIdName(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = tail call ptr @Nm_ManTableLookupId(ptr noundef %0, i32 noundef %1) #10
+  %6 = tail call ptr @Nm_ManTableLookupId(ptr noundef %0, i32 noundef %1) #11
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %7
 
@@ -123,13 +123,13 @@ define noundef ptr @Nm_ManStoreIdName(ptr noundef %0, i32 noundef %1, i32 nounde
   br label %33
 
 9:                                                ; preds = %5
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #11
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #12
   %11 = add i64 %10, 32
   %.not25 = icmp eq ptr %4, null
   br i1 %.not25, label %14, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #11
+  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #12
   br label %14
 
 14:                                               ; preds = %9, %12
@@ -147,15 +147,15 @@ define noundef ptr @Nm_ManStoreIdName(ptr noundef %0, i32 noundef %1, i32 nounde
   %24 = and i32 %23, -8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8, !tbaa !18
-  %27 = tail call ptr @Extra_MmFlexEntryFetch(ptr noundef %26, i32 noundef %24) #10
+  %27 = tail call ptr @Extra_MmFlexEntryFetch(ptr noundef %26, i32 noundef %24) #11
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
   store i32 %1, ptr %29, align 4, !tbaa !20
   store i32 %2, ptr %27, align 8, !tbaa !23
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %31 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %3, ptr noundef nonnull %15) #10
-  %32 = tail call i32 @Nm_ManTableAdd(ptr noundef %0, ptr noundef nonnull %27) #10
+  %31 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %3, ptr noundef nonnull %15) #11
+  %32 = tail call i32 @Nm_ManTableAdd(ptr noundef %0, ptr noundef nonnull %27) #11
   br label %33
 
 33:                                               ; preds = %14, %7
@@ -180,7 +180,7 @@ declare i32 @Nm_ManTableAdd(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @Nm_ManDeleteIdName(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @Nm_ManTableLookupId(ptr noundef %0, i32 noundef %1) #10
+  %3 = tail call ptr @Nm_ManTableLookupId(ptr noundef %0, i32 noundef %1) #11
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
 
@@ -189,7 +189,7 @@ define void @Nm_ManDeleteIdName(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   br label %9
 
 7:                                                ; preds = %2
-  %8 = tail call i32 @Nm_ManTableDelete(ptr noundef %0, i32 noundef %1) #10
+  %8 = tail call i32 @Nm_ManTableDelete(ptr noundef %0, i32 noundef %1) #11
   br label %9
 
 9:                                                ; preds = %7, %5
@@ -200,7 +200,7 @@ declare i32 @Nm_ManTableDelete(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @Nm_ManCreateUniqueName(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @Nm_ManTableLookupId(ptr noundef %0, i32 noundef %1) #10
+  %3 = tail call ptr @Nm_ManTableLookupId(ptr noundef %0, i32 noundef %1) #11
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
 
@@ -209,16 +209,16 @@ define nonnull ptr @Nm_ManCreateUniqueName(ptr noundef %0, i32 noundef %1) local
   br label %.loopexit
 
 6:                                                ; preds = %2
-  %7 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Nm_ManCreateUniqueName.NameStr, ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %1) #10
-  %8 = tail call ptr @Nm_ManTableLookupName(ptr noundef %0, ptr noundef nonnull @Nm_ManCreateUniqueName.NameStr, i32 noundef -1) #10
+  %7 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Nm_ManCreateUniqueName.NameStr, ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %1) #11
+  %8 = tail call ptr @Nm_ManTableLookupName(ptr noundef %0, ptr noundef nonnull @Nm_ManCreateUniqueName.NameStr, i32 noundef -1) #11
   %.not1011 = icmp eq ptr %8, null
   br i1 %.not1011, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %.012 = phi i32 [ %10, %.lr.ph ], [ 1, %6 ]
-  %9 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Nm_ManCreateUniqueName.NameStr, ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %1, i32 noundef %.012) #10
+  %9 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Nm_ManCreateUniqueName.NameStr, ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %1, i32 noundef %.012) #11
   %10 = add nuw nsw i32 %.012, 1
-  %11 = tail call ptr @Nm_ManTableLookupName(ptr noundef %0, ptr noundef nonnull @Nm_ManCreateUniqueName.NameStr, i32 noundef -1) #10
+  %11 = tail call ptr @Nm_ManTableLookupName(ptr noundef %0, ptr noundef nonnull @Nm_ManCreateUniqueName.NameStr, i32 noundef -1) #11
   %.not10 = icmp eq ptr %11, null
   br i1 %.not10, label %.loopexit, label %.lr.ph, !llvm.loop !24
 
@@ -231,7 +231,7 @@ declare ptr @Nm_ManTableLookupName(ptr noundef, ptr noundef, i32 noundef) local_
 
 ; Function Attrs: nounwind uwtable
 define ptr @Nm_ManFindNameById(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @Nm_ManTableLookupId(ptr noundef %0, i32 noundef %1) #10
+  %3 = tail call ptr @Nm_ManTableLookupId(ptr noundef %0, i32 noundef %1) #11
   %.not = icmp eq ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.0 = select i1 %.not, ptr null, ptr %4
@@ -240,7 +240,7 @@ define ptr @Nm_ManFindNameById(ptr noundef %0, i32 noundef %1) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define i32 @Nm_ManFindIdByName(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @Nm_ManTableLookupName(ptr noundef %0, ptr noundef %1, i32 noundef %2) #10
+  %4 = tail call ptr @Nm_ManTableLookupName(ptr noundef %0, ptr noundef %1, i32 noundef %2) #11
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %5
 
@@ -256,7 +256,7 @@ define i32 @Nm_ManFindIdByName(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
 
 ; Function Attrs: nounwind uwtable
 define i32 @Nm_ManFindIdByNameTwoTypes(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call ptr @Nm_ManTableLookupName(ptr noundef %0, ptr noundef %1, i32 noundef %2) #10
+  %5 = tail call ptr @Nm_ManTableLookupName(ptr noundef %0, ptr noundef %1, i32 noundef %2) #11
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %Nm_ManFindIdByName.exit.thread, label %Nm_ManFindIdByName.exit
 
@@ -267,7 +267,7 @@ Nm_ManFindIdByName.exit:                          ; preds = %4
   br i1 %8, label %Nm_ManFindIdByName.exit.thread, label %Nm_ManFindIdByName.exit13
 
 Nm_ManFindIdByName.exit.thread:                   ; preds = %4, %Nm_ManFindIdByName.exit
-  %9 = tail call ptr @Nm_ManTableLookupName(ptr noundef %0, ptr noundef %1, i32 noundef %3) #10
+  %9 = tail call ptr @Nm_ManTableLookupName(ptr noundef %0, ptr noundef %1, i32 noundef %3) #11
   %.not.i11 = icmp eq ptr %9, null
   br i1 %.not.i11, label %Nm_ManFindIdByName.exit13, label %10
 
@@ -281,11 +281,11 @@ Nm_ManFindIdByName.exit13:                        ; preds = %10, %Nm_ManFindIdBy
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Nm_ManReturnNameIds(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define noalias noundef ptr @Nm_ManReturnNameIds(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4, !tbaa !19
-  %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #12
+  %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
   %5 = add i32 %3, -1
   %or.cond.i = icmp ult i32 %5, 15
   %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %3
@@ -298,7 +298,7 @@ define noalias noundef ptr @Nm_ManReturnNameIds(ptr noundef readonly captures(no
 7:                                                ; preds = %1
   %8 = sext i32 %spec.store.select.i to i64
   %9 = shl nsw i64 %8, 2
-  %10 = tail call noalias ptr @malloc(i64 noundef %9) #12
+  %10 = tail call noalias ptr @malloc(i64 noundef %9) #13
   br label %Vec_IntAlloc.exit
 
 Vec_IntAlloc.exit:                                ; preds = %1, %7
@@ -337,11 +337,11 @@ Vec_IntAlloc.exit:                                ; preds = %1, %7
   br i1 %.not9.i.i, label %32, label %30
 
 30:                                               ; preds = %29
-  %31 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %17, i64 noundef 64) #13
+  %31 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %17, i64 noundef 64) #14
   br label %Vec_IntPush.exit.sink.split
 
 32:                                               ; preds = %29
-  %33 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #12
+  %33 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #13
   br label %Vec_IntPush.exit.sink.split
 
 34:                                               ; preds = %27
@@ -352,11 +352,11 @@ Vec_IntAlloc.exit:                                ; preds = %1, %7
   br i1 %.not9.i9.i, label %40, label %38
 
 38:                                               ; preds = %34
-  %39 = tail call ptr @realloc(ptr noundef nonnull %17, i64 noundef %37) #13
+  %39 = tail call ptr @realloc(ptr noundef nonnull %17, i64 noundef %37) #14
   br label %Vec_IntPush.exit.sink.split
 
 40:                                               ; preds = %34
-  %41 = tail call noalias ptr @malloc(i64 noundef %37) #12
+  %41 = tail call noalias ptr @malloc(i64 noundef %37) #13
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %38, %40, %30, %32
@@ -389,10 +389,10 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -402,12 +402,13 @@ attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argm
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind willreturn memory(read) }
-attributes #12 = { nounwind allocsize(0) }
-attributes #13 = { nounwind allocsize(1) }
+attributes #8 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind willreturn memory(read) }
+attributes #13 = { nounwind allocsize(0) }
+attributes #14 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

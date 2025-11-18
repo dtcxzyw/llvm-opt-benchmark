@@ -1731,7 +1731,7 @@ _ZN5ropey4tree9node_text5inner15NodeSmallString18inline_if_possible17h729e92ebdd
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @"_ZN73_$LT$ropey..tree..node_text..NodeText$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78cc6849ab9be687E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(1000) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(1000) %1) unnamed_addr #6 {
 "_ZN76_$LT$ropey..tree..node_text..NodeText$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1a060fa94bb6231eE.exit":
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 992
@@ -1767,7 +1767,7 @@ define noundef zeroext i1 @"_ZN73_$LT$ropey..tree..node_text..NodeText$u20$as$u2
   ret i1 %.sroa.0.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @"_ZN5ropey4tree9node_text98_$LT$impl$u20$core..cmp..PartialEq$LT$ropey..tree..node_text..NodeText$GT$$u20$for$u20$$RF$str$GT$2eq17h071e857fbd31e8a9E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(1000) %1) unnamed_addr #6 {
 "_ZN76_$LT$ropey..tree..node_text..NodeText$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1a060fa94bb6231eE.exit":
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 992
@@ -1796,7 +1796,7 @@ define noundef zeroext i1 @"_ZN5ropey4tree9node_text98_$LT$impl$u20$core..cmp..P
   ret i1 %.sroa.0.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @"_ZN88_$LT$ropey..tree..node_text..NodeText$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17h2e70b641492ed5a8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(1000) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #6 {
 "_ZN76_$LT$ropey..tree..node_text..NodeText$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1a060fa94bb6231eE.exit":
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 992
@@ -2908,7 +2908,7 @@ attributes #2 = { inlinehint mustprogress nofree norecurse nosync nounwind nonla
 attributes #3 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #6 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #6 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { alwaysinline nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

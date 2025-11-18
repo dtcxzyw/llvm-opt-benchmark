@@ -357,7 +357,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h3a73d0484aeb42edE" = private unnamed_addr constant [256 x i64] [i64 6, i64 4, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 5, i64 6, i64 13, i64 13, i64 4, i64 5, i64 4, i64 16, i64 12, i64 12, i64 8, i64 11, i64 6, i64 10, i64 9, i64 4, i64 8, i64 13, i64 15, i64 13, i64 14, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 6, i64 6, i64 5, i64 3, i64 3, i64 9, i64 9, i64 9, i64 9, i64 9, i64 12, i64 12, i64 11, i64 9, i64 9, i64 5, i64 8, i64 10, i64 6, i64 5, i64 8, i64 11, i64 8, i64 2, i64 5, i64 6, i64 12, i64 6, i64 14, i64 9, i64 5, i64 3, i64 9, i64 10, i64 5, i64 5, i64 13, i64 8, i64 12, i64 13, i64 16, i64 33, i64 9, i64 13, i64 9, i64 17, i64 10, i64 15, i64 14, i64 15, i64 11, i64 17, i64 15, i64 14, i64 7, i64 11, i64 11, i64 5, i64 13, i64 15, i64 8, i64 11, i64 12, i64 11, i64 11, i64 11, i64 3, i64 5, i64 8, i64 20, i64 18, i64 14, i64 16, i64 11, i64 12, i64 4, i64 9, i64 11, i64 8, i64 10, i64 7, i64 10, i64 6, i64 10, i64 10, i64 8, i64 9, i64 19, i64 16, i64 20, i64 16, i64 12, i64 15, i64 9, i64 9, i64 20, i64 17, i64 5, i64 16, i64 7], align 8
 @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h3a73d0484aeb42edE.108" = private unnamed_addr constant [256 x ptr] [ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.193, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.194, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.65, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.66, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.67, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.68, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.69, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.70, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.71, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.72, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.73, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.74, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.75, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.76, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.77, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.78, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.79, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.80, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.81, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.82, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.83, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.84, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.85, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.86, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.87, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.88, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.89, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.90, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.91, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.92, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.93, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.94, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.95, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.96, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.97, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.98, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.99, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.100, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.101, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.102, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.103, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.104, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.105, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.106, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.107, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.108, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.109, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.110, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.111, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.112, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.113, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.114, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.115, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.116, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.117, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.118, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.119, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.120, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.121, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.122, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.123, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.124, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.125, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.126, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.127, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.128, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.129, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.130, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.131, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.132, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.133, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.134, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.135, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.136, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.137, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.138, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.139, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.140, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.141, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.142, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.143, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.144, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.145, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.146, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.147, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.148, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.149, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.150, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.151, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.152, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.153, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.154, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.155, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.156, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.157, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.158, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.159, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.160, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.161, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.162, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.163, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.164, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.165, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.166, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.167, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.168, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.169, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.170, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.171, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.172, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.173, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.174, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.175, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.176, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.177, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.178, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.179, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.180, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.181, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.182, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.183, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.184, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.185, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.186, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.187, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.188, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.189, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.190, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.191, ptr @anon.1eb937629536308b0fe3bd2cbcc08bd4.192], align 8
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden { i64, i64 } @"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h69f1c07866f5c0faE.llvm.18152640266846470746"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
@@ -453,7 +453,7 @@ define hidden { ptr, ptr } @"_ZN102_$LT$ide_db..RootDatabase$u20$as$u20$base_db.
   ret { ptr, ptr } %3
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h22f353d3a8956380E.llvm.18152640266846470746"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !9, !noundef !9
@@ -501,7 +501,7 @@ define hidden noundef nonnull ptr @"_ZN106_$LT$rowan..api..SyntaxToken$LT$L$GT$$
   ret ptr %0
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden { ptr, ptr } @"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hefcfda9315375cfdE.llvm.18152640266846470746"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 {
   %2 = load ptr, ptr %0, align 8, !noundef !9
   %3 = icmp eq ptr %2, null
@@ -532,7 +532,7 @@ define hidden { ptr, ptr } @"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT
   ret { ptr, ptr } %16
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden { i64, i64 } @"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17hdda360728c6263d1E.llvm.18152640266846470746"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = load ptr, ptr %0, align 8, !noundef !9
   %.not = icmp eq ptr %4, null
@@ -4522,7 +4522,7 @@ define hidden void @"_ZN3hir11term_search7tactics18impl_static_method28_$u7b$$u7
   resume { ptr, i32 } %14
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN3hir11term_search7tactics7trivial17hd18640127039590bE(ptr noalias noundef writeonly sret({ { { { { { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } } } }, { ptr, ptr, ptr } }) align 8 captures(none) dereferenceable(64) initializes((0, 26), (32, 64)) %0, ptr noalias noundef readonly align 8 dereferenceable(56) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef align 8 dereferenceable(200) %3) unnamed_addr #8 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8, !nonnull !9, !align !44, !noundef !9
@@ -10254,7 +10254,7 @@ define hidden { i64, ptr } @"_ZN5rowan3api260_$LT$impl$u20$core..convert..From$L
   ret { i64, ptr } %5
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i16 @_ZN5rowan6cursor10SyntaxNode4kind17hd8562337a2a58c83E.llvm.18152640266846470746(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #13 {
   %2 = load ptr, ptr %0, align 8, !nonnull !9, !noundef !9
   %3 = load i64, ptr %2, align 8, !range !982, !noundef !9
@@ -10267,7 +10267,7 @@ define hidden noundef i16 @_ZN5rowan6cursor10SyntaxNode4kind17hd8562337a2a58c83E
   ret i16 %.0
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i16 @_ZN5rowan6cursor11SyntaxToken4kind17h3ecb86ab0d6896b2E.llvm.18152640266846470746(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #13 {
   %2 = load ptr, ptr %0, align 8, !nonnull !9, !noundef !9
   %3 = load i64, ptr %2, align 8, !range !982, !noundef !9
@@ -11019,7 +11019,7 @@ define hidden void @"_ZN68_$LT$rowan..cursor..SyntaxToken$u20$as$u20$core..ops..
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden { i64, i64 } @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17ha5e1cd05b662f331E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #15 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2425)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2428)
@@ -11092,7 +11092,7 @@ define hidden { i64, i64 } @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..trai
   ret { i64, i64 } %27
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17he896f6dce6b101c6E"(ptr noalias noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #8 {
   %3 = load ptr, ptr %1, align 8, !nonnull !9, !align !44, !noundef !9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2460)
@@ -11426,7 +11426,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.18152640266846470746.e
   ret { i64, ptr } %80
 }
 
-; Function Attrs: nofree norecurse nosync nounwind nonlazybind uwtable
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden { i64, i64 } @"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..IteratorRefSpec$GT$13spec_try_fold17he09a6520af75132dE.llvm.18152640266846470746"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #15 personality ptr @rust_eh_personality {
   %4 = load ptr, ptr %0, align 8, !nonnull !9, !align !44, !noundef !9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2465)
@@ -29199,7 +29199,7 @@ define hidden void @_ZN14ide_completion6render13RenderContext11doc_aliases17h914
   resume { ptr, i32 } %5
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZN14ide_completion6render13RenderContext11snippet_cap17hd6118b20fccf8f18E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #18 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8, !nonnull !9, !align !44, !noundef !9
@@ -29211,7 +29211,7 @@ define hidden noundef zeroext i1 @_ZN14ide_completion6render13RenderContext11sni
   ret i1 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef nonnull align 8 ptr @_ZN14ide_completion6render13RenderContext2db17h61c5c7579c1829dfE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #18 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8, !nonnull !9, !align !44, !noundef !9
@@ -39164,25 +39164,25 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #31
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #32
 
-attributes #0 = { inlinehint nofree norecurse nosync nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #0 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #5 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #5 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #10 = { alwaysinline nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #13 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #13 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #14 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #15 = { nofree norecurse nosync nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #15 = { nofree norecurse nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #16 = { alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #17 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #18 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #21 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

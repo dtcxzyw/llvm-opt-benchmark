@@ -76,7 +76,7 @@ _ZN5zxing3RefINS_15LuminanceSourceEEC2ERKS2_.exit: ; preds = %2, %5
   %17 = load ptr, ptr %10, align 8, !tbaa !12
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(12) %10) #10
+  call void %19(ptr noundef nonnull align 8 dereferenceable(12) %10) #11
   br label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit
 
 _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit:    ; preds = %9, %11, %16
@@ -105,7 +105,7 @@ _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit:    ; preds = %9, %11, %16
   %30 = load ptr, ptr %23, align 8, !tbaa !12
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
-  call void %32(ptr noundef nonnull align 8 dereferenceable(12) %23) #10
+  call void %32(ptr noundef nonnull align 8 dereferenceable(12) %23) #11
   br label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit3
 
 _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit3:   ; preds = %21, %24, %29
@@ -121,14 +121,14 @@ declare void @_ZN5zxing24GlobalHistogramBinarizerD2Ev(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5zxing23SimpleAdaptiveBinarizerD2Ev(ptr noundef nonnull align 8 dereferenceable(122) %0) unnamed_addr #3 align 2 {
-  tail call void @_ZN5zxing24GlobalHistogramBinarizerD2Ev(ptr noundef nonnull align 8 dereferenceable(121) %0) #10
+  tail call void @_ZN5zxing24GlobalHistogramBinarizerD2Ev(ptr noundef nonnull align 8 dereferenceable(121) %0) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5zxing23SimpleAdaptiveBinarizerD0Ev(ptr noundef nonnull align 8 dereferenceable(122) %0) unnamed_addr #3 align 2 {
-  tail call void @_ZN5zxing24GlobalHistogramBinarizerD2Ev(ptr noundef nonnull align 8 dereferenceable(122) %0) #10
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #11
+  tail call void @_ZN5zxing24GlobalHistogramBinarizerD2Ev(ptr noundef nonnull align 8 dereferenceable(122) %0) #11
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #12
   ret void
 }
 
@@ -191,7 +191,7 @@ _ZN5zxing3RefINS_8BitArrayEEC2ERKS2_.exit:        ; preds = %16, %18
   %30 = load ptr, ptr %23, align 8, !tbaa !12
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
-  call void %32(ptr noundef nonnull align 8 dereferenceable(12) %23) #10
+  call void %32(ptr noundef nonnull align 8 dereferenceable(12) %23) #11
   br label %_ZN5zxing3RefINS_8BitArrayEED2Ev.exit
 
 33:                                               ; preds = %_ZN5zxing3RefINS_8BitArrayEEC2ERKS2_.exit
@@ -214,7 +214,7 @@ _ZN5zxing3RefINS_8BitArrayEEC2ERKS2_.exit:        ; preds = %16, %18
   %42 = load ptr, ptr %35, align 8, !tbaa !12
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(12) %35) #10
+  call void %44(ptr noundef nonnull align 8 dereferenceable(12) %35) #11
   br label %_ZN5zxing3RefINS_8BitArrayEED2Ev.exit8
 
 _ZN5zxing3RefINS_8BitArrayEED2Ev.exit8:           ; preds = %33, %36, %41
@@ -247,12 +247,12 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN5zxing23SimpleAdaptiveBinarizer14
   %12 = load ptr, ptr %5, align 8, !tbaa !12
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(12) %5) #10
+  call void %14(ptr noundef nonnull align 8 dereferenceable(12) %5) #11
   br label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit
 
 _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit:    ; preds = %2, %6, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %15 = call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #12
+  %15 = call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %17 = load i32, ptr %16, align 4, !tbaa !29
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -278,7 +278,7 @@ _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit:    ; preds = %2, %6, %11
 29:                                               ; preds = %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %15) #11
+  call void @_ZdlPv(ptr noundef nonnull %15) #12
   br label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit20
 
 31:                                               ; preds = %20
@@ -325,7 +325,7 @@ _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit:    ; preds = %2, %6, %11
   %57 = load ptr, ptr %50, align 8, !tbaa !12
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(12) %50) #10
+  call void %59(ptr noundef nonnull align 8 dereferenceable(12) %50) #11
   br label %_ZN5zxing3RefINS_9BitMatrixEEaSERKS2_.exit
 
 _ZN5zxing3RefINS_9BitMatrixEEaSERKS2_.exit:       ; preds = %37, %51, %56
@@ -348,7 +348,7 @@ _ZN5zxing3RefINS_9BitMatrixEEaSERKS2_.exit:       ; preds = %37, %51, %56
   %67 = load ptr, ptr %60, align 8, !tbaa !12
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load ptr, ptr %68, align 8
-  call void %69(ptr noundef nonnull align 8 dereferenceable(12) %60) #10
+  call void %69(ptr noundef nonnull align 8 dereferenceable(12) %60) #11
   br label %_ZN5zxing8ArrayRefIcED2Ev.exit
 
 _ZN5zxing8ArrayRefIcED2Ev.exit:                   ; preds = %_ZN5zxing3RefINS_9BitMatrixEEaSERKS2_.exit, %61, %66
@@ -374,7 +374,7 @@ _ZN5zxing8ArrayRefIcED2Ev.exit:                   ; preds = %_ZN5zxing3RefINS_9B
   %77 = load ptr, ptr %15, align 8, !tbaa !12
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load ptr, ptr %78, align 8
-  call void %79(ptr noundef nonnull align 8 dereferenceable(12) %15) #10
+  call void %79(ptr noundef nonnull align 8 dereferenceable(12) %15) #11
   br label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit
 
 _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit:           ; preds = %72, %76
@@ -393,7 +393,7 @@ _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit:           ; preds = %72, %76
   %85 = load ptr, ptr %15, align 8, !tbaa !12
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8
-  call void %87(ptr noundef nonnull align 8 dereferenceable(12) %15) #10
+  call void %87(ptr noundef nonnull align 8 dereferenceable(12) %15) #11
   br label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit20
 
 _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit20:         ; preds = %84, %80, %29
@@ -440,8 +440,8 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
 declare void @_ZN5zxing9BitMatrixC1EiiRNS_12ErrorHandlerE(ptr noundef nonnull align 8 dereferenceable(346), i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN5zxing23SimpleAdaptiveBinarizer10qrBinarizeEPKhPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(122) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 align 2 {
+; Function Attrs: mustprogress nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define hidden noundef i32 @_ZN5zxing23SimpleAdaptiveBinarizer10qrBinarizeEPKhPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(122) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %5 = load i32, ptr %4, align 4, !tbaa !29
   %6 = icmp sgt i32 %5, 0
@@ -496,7 +496,7 @@ define hidden noundef i32 @_ZN5zxing23SimpleAdaptiveBinarizer10qrBinarizeEPKhPh(
   %27 = add nuw nsw i32 %.053.lcssa, %.0.lcssa
   %28 = zext nneg i32 %5 to i64
   %29 = shl nuw nsw i64 %28, 2
-  %30 = tail call noalias ptr @malloc(i64 noundef %29) #13
+  %30 = tail call noalias ptr @malloc(i64 noundef %29) #14
   %31 = add nsw i32 %.053.lcssa, -1
   %smax = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
@@ -692,7 +692,7 @@ define hidden noundef i32 @_ZN5zxing23SimpleAdaptiveBinarizer10qrBinarizeEPKhPh(
   br i1 %exitcond164.not, label %.loopexit.backedge, label %.lr.ph140, !llvm.loop !49
 
 ._crit_edge143:                                   ; preds = %._crit_edge136
-  tail call void @free(ptr noundef nonnull %30) #10
+  tail call void @free(ptr noundef nonnull %30) #11
   br label %126
 
 126:                                              ; preds = %._crit_edge143, %7, %3
@@ -720,7 +720,7 @@ define linkonce_odr hidden void @_ZN5zxing8ArrayRefIcED2Ev(ptr noundef nonnull a
   %10 = load ptr, ptr %3, align 8, !tbaa !12
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %3) #10
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %3) #11
   br label %_ZN5zxing7Counted7releaseEv.exit
 
 _ZN5zxing7Counted7releaseEv.exit:                 ; preds = %9, %4, %1
@@ -729,15 +729,15 @@ _ZN5zxing7Counted7releaseEv.exit:                 ; preds = %9, %4, %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5zxing23SimpleAdaptiveBinarizer15createBinarizerENS_3RefINS_15LuminanceSourceEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.zxing::Ref.13") align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.zxing::Ref", align 8
-  %5 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #12
+  %5 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #13
   %6 = load ptr, ptr %2, align 8, !tbaa !3
   %.not.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i, label %_ZN5zxing3RefINS_15LuminanceSourceEEC2ERKS2_.exit.thread, label %7
@@ -777,7 +777,7 @@ _ZN5zxing3RefINS_15LuminanceSourceEEC2ERKS2_.exit.i: ; preds = %_ZN5zxing3RefINS
   %19 = load ptr, ptr %12, align 8, !tbaa !12
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(12) %12) #10
+  call void %21(ptr noundef nonnull align 8 dereferenceable(12) %12) #11
   br label %34
 
 22:                                               ; preds = %_ZN5zxing3RefINS_15LuminanceSourceEEC2ERKS2_.exit.i
@@ -800,7 +800,7 @@ _ZN5zxing3RefINS_15LuminanceSourceEEC2ERKS2_.exit.i: ; preds = %_ZN5zxing3RefINS
   %31 = load ptr, ptr %24, align 8, !tbaa !12
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(12) %24) #10
+  call void %33(ptr noundef nonnull align 8 dereferenceable(12) %24) #11
   br label %.body
 
 34:                                               ; preds = %11, %13, %18
@@ -828,7 +828,7 @@ _ZN5zxing3RefINS_15LuminanceSourceEEC2ERKS2_.exit.i: ; preds = %_ZN5zxing3RefINS
   %45 = load ptr, ptr %6, align 8, !tbaa !12
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
-  call void %47(ptr noundef nonnull align 8 dereferenceable(12) %6) #10
+  call void %47(ptr noundef nonnull align 8 dereferenceable(12) %6) #11
   br label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit
 
 _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit:    ; preds = %34, %39, %44
@@ -850,11 +850,11 @@ _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit:    ; preds = %34, %39, %44
   %54 = load ptr, ptr %6, align 8, !tbaa !12
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
-  call void %56(ptr noundef nonnull align 8 dereferenceable(12) %6) #10
+  call void %56(ptr noundef nonnull align 8 dereferenceable(12) %6) #11
   br label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit8.thread
 
 _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit8.thread: ; preds = %.body, %48, %53
-  call void @_ZdlPv(ptr noundef nonnull %5) #11
+  call void @_ZdlPv(ptr noundef nonnull %5) #12
   resume { ptr, i32 } %23
 }
 
@@ -881,25 +881,25 @@ define linkonce_odr hidden void @_ZN5zxing8ArrayRefIcED0Ev(ptr noundef nonnull a
   %10 = load ptr, ptr %3, align 8, !tbaa !12
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %3) #10
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %3) #11
   br label %_ZN5zxing8ArrayRefIcED2Ev.exit
 
 _ZN5zxing8ArrayRefIcED2Ev.exit:                   ; preds = %1, %4, %9
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #11
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #9
+declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #9
+declare i32 @llvm.smin.i32(i32, i32) #10
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
@@ -907,14 +907,15 @@ attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #5 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { builtin nounwind }
-attributes #12 = { builtin allocsize(0) }
-attributes #13 = { nounwind allocsize(0) }
+attributes #6 = { mustprogress nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { builtin nounwind }
+attributes #13 = { builtin allocsize(0) }
+attributes #14 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

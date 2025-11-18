@@ -8649,7 +8649,7 @@ _ZN8rationalpLERKS_.exit:                         ; preds = %114
   resume { ptr, i32 } %.pn.pn
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN3smt9theory_pb4card6negateEv(ptr noundef nonnull align 8 captures(none) dereferenceable(29) %0) local_unnamed_addr #10 align 2 {
   %2 = load i32, ptr %0, align 8, !tbaa !11
   %3 = xor i32 %2, 1
@@ -9657,7 +9657,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit10:   ; preds = %27, %32
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZN3smt9theory_pb4card17validate_conflictERS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(29) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(968) %1) local_unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !666
@@ -10207,7 +10207,7 @@ _ZN3smt9theory_pb10add_assignERNS0_4cardEN3sat7literalE.exit86: ; preds = %166, 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN3smt9theory_pb11clear_watchERNS0_4cardE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(968) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(29) %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !666
@@ -15010,7 +15010,7 @@ _ZN6vectorIPN3smt9theory_pb4ineqELb0EjE9push_backERKS3_.exit: ; preds = %38, %44
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN3smt9theory_pb15unwatch_literalEN3sat7literalEPNS0_4ineqE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(968) %0, i32 %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #10 align 2 {
   %4 = lshr i32 %1, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -15076,7 +15076,7 @@ _ZN3smt9theory_pb6removeER10ptr_vectorINS0_4ineqEEPS2_.exit: ; preds = %22, %3, 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN3smt9theory_pb6removeER10ptr_vectorINS0_4ineqEEPS2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(968) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #10 align 2 {
   %4 = load ptr, ptr %1, align 8, !tbaa !781
   %5 = icmp eq ptr %4, null
@@ -15483,7 +15483,7 @@ _ZNK3smt9theory_pb4card4sizeEv.exit24:            ; preds = %_ZNK3smt9theory_pb4
   br i1 %74, label %.critedge27, label %_ZNK3smt9theory_pb4card4sizeEv.exit24, !llvm.loop !792
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN3smt9theory_pb15unwatch_literalEN3sat7literalEPNS0_4cardE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(968) %0, i32 %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #10 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8, !tbaa !700
@@ -15550,7 +15550,7 @@ _ZN3smt9theory_pb6removeER10ptr_vectorINS0_4cardEEPS2_.exit: ; preds = %_ZNK6vec
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN3smt9theory_pb6removeER10ptr_vectorINS0_4cardEEPS2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(968) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #10 align 2 {
   %4 = load ptr, ptr %1, align 8, !tbaa !704
   %5 = icmp eq ptr %4, null
@@ -21881,7 +21881,7 @@ _ZNK3smt27simple_theory_justification10has_del_ehEv.exit.thread: ; preds = %.thr
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZNK3smt9theory_pb9get_coeffEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(968) %0, i32 noundef %1) local_unnamed_addr #11 align 2 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 856
@@ -21908,7 +21908,7 @@ _ZNK6vectorIiLb0EjE3getEjRKi.exit:                ; preds = %2, %_ZNK6vectorIiLb
   ret i32 %12
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef range(i32 0, -2147483648) i32 @_ZNK3smt9theory_pb13get_abs_coeffEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(968) %0, i32 noundef %1) local_unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %4 = load ptr, ptr %3, align 8, !tbaa !734
@@ -21935,7 +21935,7 @@ _ZNK3smt9theory_pb9get_coeffEj.exit.thread:       ; preds = %_ZNK3smt9theory_pb9
   ret i32 %11
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN3smt9theory_pb12reset_coeffsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(968) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %3 = load ptr, ptr %2, align 8, !tbaa !660
@@ -23775,7 +23775,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
   resume { ptr, i32 } %.pn41.pn.pn.pn
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZNK3smt9theory_pb22is_proof_justificationERKNS_13justificationE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(968) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1) local_unnamed_addr #17 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !662
   %4 = getelementptr inbounds i8, ptr %3, i64 -8
@@ -23816,7 +23816,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %2, %_ZNKSt9type_inf
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #18
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN3smt9theory_pb7arg_maxERi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(968) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %1) local_unnamed_addr #10 align 2 {
   store i32 0, ptr %1, align 4, !tbaa !9
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 960
@@ -23872,7 +23872,7 @@ _ZNK6vectorIjLb0EjE5emptyEv.exit.thread:          ; preds = %_ZNK6vectorIjLb0EjE
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden i32 @_ZN3smt9theory_pb21get_asserting_literalEN3sat7literalE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(968) %0, i32 %1) local_unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !675
@@ -24017,7 +24017,7 @@ _ZNK3smt9theory_pb9get_coeffEj.exit19:            ; preds = %_ZNK6vectorIiLb0EjE
   ret i32 %.sroa.023.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN3smt9theory_pb13reset_arg_maxEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(968) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %3 = load ptr, ptr %2, align 8, !tbaa !660
@@ -24693,7 +24693,7 @@ define hidden void @_ZN3smt9theory_pb9propagateEv(ptr nonnull readnone align 8 c
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZZN3smt9theory_pb16resolve_conflictERNS0_4cardERK7svectorIN3sat7literalEjEENK3$_0clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #19 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !798
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -26174,7 +26174,7 @@ _ZNK3smt7context11is_relevantEN3sat7literalE.exit: ; preds = %34, %41
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZN3smt9theory_pb20validate_antecedentsERK7svectorIN3sat7literalEjE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(968) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #11 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !666
   %4 = icmp eq ptr %3, null
@@ -26213,7 +26213,7 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %2
   ret i1 %.not.lcssa
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZN3smt9theory_pb25validate_unit_propagationERKNS0_4cardE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(968) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(29) %1) local_unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -46355,16 +46355,16 @@ attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-wid
 attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { cold nofree noreturn }
 attributes #14 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nofree nounwind willreturn memory(read) }
-attributes #19 = { inlinehint mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { inlinehint mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #21 = { cold noreturn }
 attributes #22 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

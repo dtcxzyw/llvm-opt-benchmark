@@ -5,19 +5,19 @@ target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [9 x i8] c"%19.16g\0A\00", align 1
 
-; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none, target_mem0: none, target_mem1: none) uwtable
 define noalias noundef ptr @N_VNewEmpty_Serial(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
+  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %3 = icmp eq ptr %2, null
   br i1 %3, label %40, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call noalias dereferenceable_or_null(200) ptr @malloc(i64 noundef 200) #17
+  %5 = tail call noalias dereferenceable_or_null(200) ptr @malloc(i64 noundef 200) #18
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %4
-  tail call void @free(ptr noundef nonnull %2) #18
+  tail call void @free(ptr noundef nonnull %2) #19
   br label %40
 
 8:                                                ; preds = %4
@@ -70,13 +70,13 @@ define noalias noundef ptr @N_VNewEmpty_Serial(i64 noundef %0) local_unnamed_add
   store ptr @N_VConstrMask_Serial, ptr %31, align 8, !tbaa !30
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 192
   store ptr @N_VMinQuotient_Serial, ptr %32, align 8, !tbaa !31
-  %33 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #17
+  %33 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #18
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %8
-  tail call void @free(ptr noundef nonnull %5) #18
-  tail call void @free(ptr noundef nonnull %2) #18
+  tail call void @free(ptr noundef nonnull %5) #19
+  tail call void @free(ptr noundef nonnull %2) #19
   br label %40
 
 36:                                               ; preds = %8
@@ -101,7 +101,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noalias noundef ptr @N_VClone_Serial(ptr noundef readonly captures(address_is_null) %0) #3 {
   %2 = tail call ptr @N_VCloneEmpty_Serial(ptr noundef %0)
   %3 = icmp eq ptr %2, null
@@ -115,7 +115,7 @@ define noalias noundef ptr @N_VClone_Serial(ptr noundef readonly captures(addres
 
 8:                                                ; preds = %4
   %9 = shl i64 %6, 3
-  %10 = tail call noalias ptr @malloc(i64 noundef %9) #17
+  %10 = tail call noalias ptr @malloc(i64 noundef %9) #18
   %11 = icmp eq ptr %10, null
   %12 = load ptr, ptr %2, align 8, !tbaa !39
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -129,16 +129,16 @@ define noalias noundef ptr @N_VClone_Serial(ptr noundef readonly captures(addres
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !38
-  tail call void @free(ptr noundef %19) #18
+  tail call void @free(ptr noundef %19) #19
   br label %N_VDestroy_Serial.exit
 
 N_VDestroy_Serial.exit:                           ; preds = %14, %17
-  tail call void @free(ptr noundef nonnull %12) #18
+  tail call void @free(ptr noundef nonnull %12) #19
   store ptr null, ptr %2, align 8, !tbaa !39
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !42
-  tail call void @free(ptr noundef %21) #18
-  tail call void @free(ptr noundef nonnull %2) #18
+  tail call void @free(ptr noundef %21) #19
+  tail call void @free(ptr noundef nonnull %2) #19
   br label %24
 
 22:                                               ; preds = %8
@@ -152,23 +152,23 @@ N_VDestroy_Serial.exit:                           ; preds = %14, %17
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: read) uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
 define noalias noundef ptr @N_VCloneEmpty_Serial(ptr noundef readonly captures(address_is_null) %0) #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %95, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
+  %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %5 = icmp eq ptr %4, null
   br i1 %5, label %95, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call noalias dereferenceable_or_null(200) ptr @malloc(i64 noundef 200) #17
+  %7 = tail call noalias dereferenceable_or_null(200) ptr @malloc(i64 noundef 200) #18
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %6
-  tail call void @free(ptr noundef nonnull %4) #18
+  tail call void @free(ptr noundef nonnull %4) #19
   br label %95
 
 10:                                               ; preds = %6
@@ -272,13 +272,13 @@ define noalias noundef ptr @N_VCloneEmpty_Serial(ptr noundef readonly captures(a
   %84 = load ptr, ptr %83, align 8, !tbaa !31
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 192
   store ptr %84, ptr %85, align 8, !tbaa !31
-  %86 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #17
+  %86 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #18
   %87 = icmp eq ptr %86, null
   br i1 %87, label %88, label %89
 
 88:                                               ; preds = %10
-  tail call void @free(ptr noundef nonnull %7) #18
-  tail call void @free(ptr noundef nonnull %4) #18
+  tail call void @free(ptr noundef nonnull %7) #19
+  tail call void @free(ptr noundef nonnull %4) #19
   br label %95
 
 89:                                               ; preds = %10
@@ -299,7 +299,7 @@ define noalias noundef ptr @N_VCloneEmpty_Serial(ptr noundef readonly captures(a
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @N_VDestroy_Serial(ptr noundef captures(none) %0) #3 {
   %2 = load ptr, ptr %0, align 8, !tbaa !39
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -310,7 +310,7 @@ define void @N_VDestroy_Serial(ptr noundef captures(none) %0) #3 {
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !38
-  tail call void @free(ptr noundef %8) #18
+  tail call void @free(ptr noundef %8) #19
   %9 = load ptr, ptr %0, align 8, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr null, ptr %10, align 8, !tbaa !38
@@ -318,16 +318,16 @@ define void @N_VDestroy_Serial(ptr noundef captures(none) %0) #3 {
 
 11:                                               ; preds = %6, %1
   %12 = phi ptr [ %9, %6 ], [ %2, %1 ]
-  tail call void @free(ptr noundef nonnull %12) #18
+  tail call void @free(ptr noundef nonnull %12) #19
   store ptr null, ptr %0, align 8, !tbaa !39
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !42
-  tail call void @free(ptr noundef %14) #18
-  tail call void @free(ptr noundef nonnull %0) #18
+  tail call void @free(ptr noundef %14) #19
+  tail call void @free(ptr noundef nonnull %0) #19
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @N_VSpace_Serial(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) #5 {
   %4 = load ptr, ptr %0, align 8, !tbaa !39
   %5 = load i64, ptr %4, align 8, !tbaa !32
@@ -336,7 +336,7 @@ define void @N_VSpace_Serial(ptr noundef readonly captures(none) %0, ptr noundef
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @N_VGetArrayPointer_Serial(ptr noundef readonly captures(none) %0) #6 {
   %2 = load ptr, ptr %0, align 8, !tbaa !39
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -344,7 +344,7 @@ define ptr @N_VGetArrayPointer_Serial(ptr noundef readonly captures(none) %0) #6
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @N_VSetArrayPointer_Serial(ptr noundef %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = load ptr, ptr %1, align 8, !tbaa !39
   %4 = load i64, ptr %3, align 8, !tbaa !32
@@ -360,7 +360,7 @@ define void @N_VSetArrayPointer_Serial(ptr noundef %0, ptr noundef readonly capt
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly captures(address) %1, double noundef %2, ptr noundef readonly captures(address) %3, ptr noundef readonly captures(address) %4) #8 {
   %6 = fcmp oeq double %2, 1.000000e+00
   %7 = icmp eq ptr %4, %3
@@ -731,7 +731,7 @@ Vaxpy_Serial.exit:                                ; preds = %.lr.ph, %.lr.ph.i15
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @N_VConst_Serial(double noundef %0, ptr noundef readonly captures(none) %1) #8 {
   %3 = load ptr, ptr %1, align 8, !tbaa !39
   %4 = load i64, ptr %3, align 8, !tbaa !32
@@ -752,7 +752,7 @@ define void @N_VConst_Serial(double noundef %0, ptr noundef readonly captures(no
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @N_VProd_Serial(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #8 {
   %4 = load ptr, ptr %0, align 8, !tbaa !39
   %5 = load i64, ptr %4, align 8, !tbaa !32
@@ -784,7 +784,7 @@ define void @N_VProd_Serial(ptr noundef readonly captures(none) %0, ptr noundef 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @N_VDiv_Serial(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #8 {
   %4 = load ptr, ptr %0, align 8, !tbaa !39
   %5 = load i64, ptr %4, align 8, !tbaa !32
@@ -816,7 +816,7 @@ define void @N_VDiv_Serial(ptr noundef readonly captures(none) %0, ptr noundef r
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @N_VScale_Serial(double noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) #8 {
   %4 = icmp eq ptr %2, %1
   br i1 %4, label %5, label %12
@@ -931,7 +931,7 @@ define void @N_VAbs_Serial(ptr noundef readonly captures(none) %0, ptr noundef r
   %.09 = phi i64 [ %15, %.lr.ph ], [ 0, %2 ]
   %11 = getelementptr inbounds nuw double, ptr %6, i64 %.09
   %12 = load double, ptr %11, align 8, !tbaa !44
-  %13 = tail call double @SUNRabs(double noundef %12) #18
+  %13 = tail call double @SUNRabs(double noundef %12) #19
   %14 = getelementptr inbounds nuw double, ptr %9, i64 %.09
   store double %13, ptr %14, align 8, !tbaa !44
   %15 = add nuw nsw i64 %.09, 1
@@ -942,7 +942,7 @@ define void @N_VAbs_Serial(ptr noundef readonly captures(none) %0, ptr noundef r
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @N_VInv_Serial(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
   %3 = load ptr, ptr %0, align 8, !tbaa !39
   %4 = load i64, ptr %3, align 8, !tbaa !32
@@ -969,7 +969,7 @@ define void @N_VInv_Serial(ptr noundef readonly captures(none) %0, ptr noundef r
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @N_VAddConst_Serial(ptr noundef readonly captures(none) %0, double noundef %1, ptr noundef readonly captures(none) %2) #8 {
   %4 = load ptr, ptr %0, align 8, !tbaa !39
   %5 = load i64, ptr %4, align 8, !tbaa !32
@@ -996,7 +996,7 @@ define void @N_VAddConst_Serial(ptr noundef readonly captures(none) %0, double n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define double @N_VDotProd_Serial(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #10 {
   %3 = load ptr, ptr %0, align 8, !tbaa !39
   %4 = load i64, ptr %3, align 8, !tbaa !32
@@ -1039,13 +1039,13 @@ define double @N_VMaxNorm_Serial(ptr noundef readonly captures(none) %0) #9 {
   %.01011 = phi i64 [ %15, %14 ], [ 0, %1 ]
   %7 = getelementptr inbounds nuw double, ptr %5, i64 %.01011
   %8 = load double, ptr %7, align 8, !tbaa !44
-  %9 = tail call double @SUNRabs(double noundef %8) #18
+  %9 = tail call double @SUNRabs(double noundef %8) #19
   %10 = fcmp ogt double %9, %.012
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %.lr.ph
   %12 = load double, ptr %7, align 8, !tbaa !44
-  %13 = tail call double @SUNRabs(double noundef %12) #18
+  %13 = tail call double @SUNRabs(double noundef %12) #19
   br label %14
 
 14:                                               ; preds = %.lr.ph, %11
@@ -1101,7 +1101,7 @@ define double @N_VWrmsNormMask_Serial(ptr noundef readonly captures(none) %0, pt
   %.017.lcssa = phi double [ 0.000000e+00, %3 ], [ %.1, %25 ]
   %27 = sitofp i64 %5 to double
   %28 = fdiv double %.017.lcssa, %27
-  %29 = tail call double @SUNRsqrt(double noundef %28) #18
+  %29 = tail call double @SUNRsqrt(double noundef %28) #19
   ret double %29
 }
 
@@ -1134,11 +1134,11 @@ define double @N_VWrmsNorm_Serial(ptr noundef readonly captures(none) %0, ptr no
   %.014.lcssa = phi double [ 0.000000e+00, %2 ], [ %16, %.lr.ph ]
   %18 = sitofp i64 %4 to double
   %19 = fdiv double %.014.lcssa, %18
-  %20 = tail call double @SUNRsqrt(double noundef %19) #18
+  %20 = tail call double @SUNRsqrt(double noundef %19) #19
   ret double %20
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define double @N_VMin_Serial(ptr noundef readonly captures(none) %0) #10 {
   %2 = load ptr, ptr %0, align 8, !tbaa !39
   %3 = load i64, ptr %2, align 8, !tbaa !32
@@ -1191,7 +1191,7 @@ define double @N_VWL2Norm_Serial(ptr noundef readonly captures(none) %0, ptr nou
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.013.lcssa = phi double [ 0.000000e+00, %2 ], [ %16, %.lr.ph ]
-  %18 = tail call double @SUNRsqrt(double noundef %.013.lcssa) #18
+  %18 = tail call double @SUNRsqrt(double noundef %.013.lcssa) #19
   ret double %18
 }
 
@@ -1209,7 +1209,7 @@ define double @N_VL1Norm_Serial(ptr noundef readonly captures(none) %0) #9 {
   %.089 = phi i64 [ %11, %.lr.ph ], [ 0, %1 ]
   %7 = getelementptr inbounds nuw double, ptr %5, i64 %.089
   %8 = load double, ptr %7, align 8, !tbaa !44
-  %9 = tail call double @SUNRabs(double noundef %8) #18
+  %9 = tail call double @SUNRabs(double noundef %8) #19
   %10 = fadd double %.010, %9
   %11 = add nuw nsw i64 %.089, 1
   %exitcond.not = icmp eq i64 %11, %3
@@ -1236,7 +1236,7 @@ define void @N_VCompare_Serial(double noundef %0, ptr noundef readonly captures(
   %.010 = phi i64 [ %18, %.lr.ph ], [ 0, %3 ]
   %12 = getelementptr inbounds nuw double, ptr %7, i64 %.010
   %13 = load double, ptr %12, align 8, !tbaa !44
-  %14 = tail call double @SUNRabs(double noundef %13) #18
+  %14 = tail call double @SUNRabs(double noundef %13) #19
   %15 = fcmp oge double %14, %0
   %16 = select i1 %15, double 1.000000e+00, double 0.000000e+00
   %17 = getelementptr inbounds nuw double, ptr %10, i64 %.010
@@ -1249,7 +1249,7 @@ define void @N_VCompare_Serial(double noundef %0, ptr noundef readonly captures(
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @N_VInvTest_Serial(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
   %3 = load ptr, ptr %0, align 8, !tbaa !39
   %4 = load i64, ptr %3, align 8, !tbaa !32
@@ -1286,7 +1286,7 @@ define range(i32 0, 2) i32 @N_VInvTest_Serial(ptr noundef readonly captures(none
   ret i32 %.0.lcssa
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @N_VConstrMask_Serial(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #8 {
   %4 = load ptr, ptr %1, align 8, !tbaa !39
   %5 = load i64, ptr %4, align 8, !tbaa !32
@@ -1349,7 +1349,7 @@ define range(i32 0, 2) i32 @N_VConstrMask_Serial(ptr noundef readonly captures(n
   ret i32 %.0.lcssa
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define double @N_VMinQuotient_Serial(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #10 {
   %3 = load ptr, ptr %0, align 8, !tbaa !39
   %4 = load i64, ptr %3, align 8, !tbaa !32
@@ -1394,7 +1394,7 @@ define double @N_VMinQuotient_Serial(ptr noundef readonly captures(none) %0, ptr
   ret double %.0.lcssa
 }
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noalias noundef ptr @N_VNew_Serial(i64 noundef %0) local_unnamed_addr #3 {
   %2 = tail call ptr @N_VNewEmpty_Serial(i64 noundef %0)
   %3 = icmp eq ptr %2, null
@@ -1406,7 +1406,7 @@ define noalias noundef ptr @N_VNew_Serial(i64 noundef %0) local_unnamed_addr #3 
 
 6:                                                ; preds = %4
   %7 = shl i64 %0, 3
-  %8 = tail call noalias ptr @malloc(i64 noundef %7) #17
+  %8 = tail call noalias ptr @malloc(i64 noundef %7) #18
   %9 = icmp eq ptr %8, null
   %10 = load ptr, ptr %2, align 8, !tbaa !39
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -1420,16 +1420,16 @@ define noalias noundef ptr @N_VNew_Serial(i64 noundef %0) local_unnamed_addr #3 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !38
-  tail call void @free(ptr noundef %17) #18
+  tail call void @free(ptr noundef %17) #19
   br label %N_VDestroy_Serial.exit
 
 N_VDestroy_Serial.exit:                           ; preds = %12, %15
-  tail call void @free(ptr noundef nonnull %10) #18
+  tail call void @free(ptr noundef nonnull %10) #19
   store ptr null, ptr %2, align 8, !tbaa !39
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !42
-  tail call void @free(ptr noundef %19) #18
-  tail call void @free(ptr noundef nonnull %2) #18
+  tail call void @free(ptr noundef %19) #19
+  tail call void @free(ptr noundef nonnull %2) #19
   br label %22
 
 20:                                               ; preds = %6
@@ -1443,7 +1443,7 @@ N_VDestroy_Serial.exit:                           ; preds = %12, %15
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noalias noundef ptr @N_VMake_Serial(i64 noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = tail call ptr @N_VNewEmpty_Serial(i64 noundef %0)
   %4 = icmp ne ptr %3, null
@@ -1463,15 +1463,15 @@ define noalias noundef ptr @N_VMake_Serial(i64 noundef %0, ptr noundef %1) local
   ret ptr %3
 }
 
-; Function Attrs: nounwind uwtable
-define noalias noundef ptr @N_VCloneVectorArray_Serial(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define noalias noundef ptr @N_VCloneVectorArray_Serial(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #11 {
   %3 = icmp slt i32 %0, 1
   br i1 %3, label %.loopexit, label %4
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %0 to i64
   %6 = shl nuw nsw i64 %5, 3
-  %7 = tail call noalias ptr @malloc(i64 noundef %6) #17
+  %7 = tail call noalias ptr @malloc(i64 noundef %6) #18
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %.lr.ph
 
@@ -1505,7 +1505,7 @@ define noalias noundef ptr @N_VCloneVectorArray_Serial(i32 noundef %0, ptr nound
 21:                                               ; preds = %.lr.ph.i
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !38
-  tail call void @free(ptr noundef %23) #18
+  tail call void @free(ptr noundef %23) #19
   %24 = load ptr, ptr %16, align 8, !tbaa !39
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr null, ptr %25, align 8, !tbaa !38
@@ -1513,18 +1513,18 @@ define noalias noundef ptr @N_VCloneVectorArray_Serial(i32 noundef %0, ptr nound
 
 N_VDestroy_Serial.exit.i:                         ; preds = %21, %.lr.ph.i
   %26 = phi ptr [ %24, %21 ], [ %17, %.lr.ph.i ]
-  tail call void @free(ptr noundef nonnull %26) #18
+  tail call void @free(ptr noundef nonnull %26) #19
   store ptr null, ptr %16, align 8, !tbaa !39
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !42
-  tail call void @free(ptr noundef %28) #18
-  tail call void @free(ptr noundef nonnull %16) #18
+  tail call void @free(ptr noundef %28) #19
+  tail call void @free(ptr noundef nonnull %16) #19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %N_VDestroyVectorArray_Serial.exit, label %.lr.ph.i, !llvm.loop !80
 
 N_VDestroyVectorArray_Serial.exit:                ; preds = %N_VDestroy_Serial.exit.i, %12
-  tail call void @free(ptr noundef nonnull %7) #18
+  tail call void @free(ptr noundef nonnull %7) #19
   br label %.loopexit
 
 29:                                               ; preds = %.lr.ph
@@ -1537,8 +1537,8 @@ N_VDestroyVectorArray_Serial.exit:                ; preds = %N_VDestroy_Serial.e
   ret ptr %.016
 }
 
-; Function Attrs: nounwind uwtable
-define void @N_VDestroyVectorArray_Serial(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define void @N_VDestroyVectorArray_Serial(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #11 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1559,7 +1559,7 @@ define void @N_VDestroyVectorArray_Serial(ptr noundef captures(none) %0, i32 nou
 10:                                               ; preds = %.lr.ph
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !38
-  tail call void @free(ptr noundef %12) #18
+  tail call void @free(ptr noundef %12) #19
   %13 = load ptr, ptr %5, align 8, !tbaa !39
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr null, ptr %14, align 8, !tbaa !38
@@ -1567,30 +1567,30 @@ define void @N_VDestroyVectorArray_Serial(ptr noundef captures(none) %0, i32 nou
 
 N_VDestroy_Serial.exit:                           ; preds = %.lr.ph, %10
   %15 = phi ptr [ %13, %10 ], [ %6, %.lr.ph ]
-  tail call void @free(ptr noundef nonnull %15) #18
+  tail call void @free(ptr noundef nonnull %15) #19
   store ptr null, ptr %5, align 8, !tbaa !39
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !42
-  tail call void @free(ptr noundef %17) #18
-  tail call void @free(ptr noundef nonnull %5) #18
+  tail call void @free(ptr noundef %17) #19
+  tail call void @free(ptr noundef nonnull %5) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %N_VDestroy_Serial.exit, %2
-  tail call void @free(ptr noundef %0) #18
+  tail call void @free(ptr noundef %0) #19
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define noalias noundef ptr @N_VCloneVectorArrayEmpty_Serial(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #9 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define noalias noundef ptr @N_VCloneVectorArrayEmpty_Serial(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #11 {
   %3 = icmp slt i32 %0, 1
   br i1 %3, label %.loopexit, label %4
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %0 to i64
   %6 = shl nuw nsw i64 %5, 3
-  %7 = tail call noalias ptr @malloc(i64 noundef %6) #17
+  %7 = tail call noalias ptr @malloc(i64 noundef %6) #18
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %.lr.ph
 
@@ -1624,7 +1624,7 @@ define noalias noundef ptr @N_VCloneVectorArrayEmpty_Serial(i32 noundef %0, ptr 
 21:                                               ; preds = %.lr.ph.i
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !38
-  tail call void @free(ptr noundef %23) #18
+  tail call void @free(ptr noundef %23) #19
   %24 = load ptr, ptr %16, align 8, !tbaa !39
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr null, ptr %25, align 8, !tbaa !38
@@ -1632,18 +1632,18 @@ define noalias noundef ptr @N_VCloneVectorArrayEmpty_Serial(i32 noundef %0, ptr 
 
 N_VDestroy_Serial.exit.i:                         ; preds = %21, %.lr.ph.i
   %26 = phi ptr [ %24, %21 ], [ %17, %.lr.ph.i ]
-  tail call void @free(ptr noundef nonnull %26) #18
+  tail call void @free(ptr noundef nonnull %26) #19
   store ptr null, ptr %16, align 8, !tbaa !39
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !42
-  tail call void @free(ptr noundef %28) #18
-  tail call void @free(ptr noundef nonnull %16) #18
+  tail call void @free(ptr noundef %28) #19
+  tail call void @free(ptr noundef nonnull %16) #19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %N_VDestroyVectorArray_Serial.exit, label %.lr.ph.i, !llvm.loop !80
 
 N_VDestroyVectorArray_Serial.exit:                ; preds = %N_VDestroy_Serial.exit.i, %12
-  tail call void @free(ptr noundef nonnull %7) #18
+  tail call void @free(ptr noundef nonnull %7) #19
   br label %.loopexit
 
 29:                                               ; preds = %.lr.ph
@@ -1657,7 +1657,7 @@ N_VDestroyVectorArray_Serial.exit:                ; preds = %N_VDestroy_Serial.e
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @N_VPrint_Serial(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+define void @N_VPrint_Serial(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load ptr, ptr %0, align 8, !tbaa !39
   %3 = load i64, ptr %2, align 8, !tbaa !32
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1680,40 +1680,41 @@ define void @N_VPrint_Serial(ptr noundef readonly captures(none) %0) local_unnam
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #12
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #13
+declare double @llvm.fmuladd.f64(double, double, double) #14
 
-declare double @SUNRabs(double noundef) local_unnamed_addr #14
+declare double @SUNRabs(double noundef) local_unnamed_addr #15
 
-declare double @SUNRsqrt(double noundef) local_unnamed_addr #14
+declare double @SUNRsqrt(double noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #15
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #16
+declare double @llvm.fabs.f64(double) #17
 
-attributes #0 = { mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nounwind willreturn memory(readwrite, argmem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn memory(readwrite, argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree nounwind }
-attributes #16 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nounwind allocsize(0) }
-attributes #18 = { nounwind }
+attributes #10 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree nounwind }
+attributes #17 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nounwind allocsize(0) }
+attributes #19 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

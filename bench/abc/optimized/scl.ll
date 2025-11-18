@@ -203,7 +203,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @Scl_ConReadMan() local_unnamed_addr #0 {
-  %1 = tail call ptr (...) @Abc_FrameGetGlobalFrame() #12
+  %1 = tail call ptr (...) @Abc_FrameGetGlobalFrame() #14
   %2 = getelementptr i8, ptr %1, i64 248
   %.val = load ptr, ptr %2, align 8, !tbaa !3
   ret ptr %.val
@@ -211,8 +211,8 @@ define ptr @Scl_ConReadMan() local_unnamed_addr #0 {
 
 declare ptr @Abc_FrameGetGlobalFrame(...) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
-define void @Abc_SclLoad(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define void @Abc_SclLoad(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !23
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -234,8 +234,8 @@ define void @Abc_SclLoad(ptr noundef %0, ptr noundef captures(none) %1) local_un
   ret void
 }
 
-; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @Abc_SclLibFree(ptr noundef nonnull captures(none) %0) unnamed_addr #2 {
+; Function Attrs: inlinehint nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc void @Abc_SclLibFree(ptr noundef nonnull captures(none) %0) unnamed_addr #3 {
   %2 = getelementptr i8, ptr %0, i64 52
   %.val108 = load i32, ptr %2, align 4, !tbaa !25
   %3 = icmp sgt i32 %.val108, 0
@@ -257,7 +257,7 @@ define internal fastcc void @Abc_SclLibFree(ptr noundef nonnull captures(none) %
   br i1 %.not.i.i, label %Vec_IntErase.exit.i, label %11
 
 11:                                               ; preds = %5
-  tail call void @free(ptr noundef nonnull %10) #12
+  tail call void @free(ptr noundef nonnull %10) #14
   store ptr null, ptr %9, align 8, !tbaa !29
   br label %Vec_IntErase.exit.i
 
@@ -272,7 +272,7 @@ Vec_IntErase.exit.i:                              ; preds = %11, %5
   br i1 %.not.i7.i, label %Vec_FltErase.exit.i, label %16
 
 16:                                               ; preds = %Vec_IntErase.exit.i
-  tail call void @free(ptr noundef nonnull %15) #12
+  tail call void @free(ptr noundef nonnull %15) #14
   store ptr null, ptr %14, align 8, !tbaa !33
   br label %Vec_FltErase.exit.i
 
@@ -285,11 +285,11 @@ Vec_FltErase.exit.i:                              ; preds = %16, %Vec_IntErase.e
   br i1 %.not.i, label %Abc_SclWireLoadFree.exit, label %19
 
 19:                                               ; preds = %Vec_FltErase.exit.i
-  tail call void @free(ptr noundef nonnull %18) #12
+  tail call void @free(ptr noundef nonnull %18) #14
   br label %Abc_SclWireLoadFree.exit
 
 Abc_SclWireLoadFree.exit:                         ; preds = %Vec_FltErase.exit.i, %19
-  tail call void @free(ptr noundef nonnull %7) #12
+  tail call void @free(ptr noundef nonnull %7) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %2, align 4, !tbaa !25
   %20 = sext i32 %.val to i64
@@ -304,7 +304,7 @@ Abc_SclWireLoadFree.exit:                         ; preds = %Vec_FltErase.exit.i
   br i1 %.not.i67, label %Vec_PtrErase.exit, label %25
 
 25:                                               ; preds = %.critedge
-  tail call void @free(ptr noundef nonnull %24) #12
+  tail call void @free(ptr noundef nonnull %24) #14
   store ptr null, ptr %23, align 8, !tbaa !27
   br label %Vec_PtrErase.exit
 
@@ -332,7 +332,7 @@ Vec_PtrErase.exit:                                ; preds = %.critedge, %25
   br i1 %.not.i.i68, label %Vec_FltErase.exit.i69, label %35
 
 35:                                               ; preds = %29
-  tail call void @free(ptr noundef nonnull %34) #12
+  tail call void @free(ptr noundef nonnull %34) #14
   store ptr null, ptr %33, align 8, !tbaa !33
   br label %Vec_FltErase.exit.i69
 
@@ -347,7 +347,7 @@ Vec_FltErase.exit.i69:                            ; preds = %35, %29
   br i1 %.not.i9.i, label %Vec_FltErase.exit10.i, label %40
 
 40:                                               ; preds = %Vec_FltErase.exit.i69
-  tail call void @free(ptr noundef nonnull %39) #12
+  tail call void @free(ptr noundef nonnull %39) #14
   store ptr null, ptr %38, align 8, !tbaa !33
   br label %Vec_FltErase.exit10.i
 
@@ -375,7 +375,7 @@ Vec_FltErase.exit10.i:                            ; preds = %40, %Vec_FltErase.e
   br i1 %49, label %51, label %50
 
 50:                                               ; preds = %46
-  tail call void @free(ptr noundef %48) #12
+  tail call void @free(ptr noundef %48) #14
   %.val.pre.i.i = load i32, ptr %43, align 4, !tbaa !25
   br label %51
 
@@ -393,7 +393,7 @@ Vec_PtrFreeData.exit.i:                           ; preds = %51, %Vec_FltErase.e
   br i1 %.not.i11.i, label %Vec_PtrErase.exit.i, label %56
 
 56:                                               ; preds = %Vec_PtrFreeData.exit.i
-  tail call void @free(ptr noundef nonnull %55) #12
+  tail call void @free(ptr noundef nonnull %55) #14
   store ptr null, ptr %54, align 8, !tbaa !27
   br label %Vec_PtrErase.exit.i
 
@@ -405,11 +405,11 @@ Vec_PtrErase.exit.i:                              ; preds = %56, %Vec_PtrFreeDat
   br i1 %.not.i70, label %Abc_SclWireLoadSelFree.exit, label %58
 
 58:                                               ; preds = %Vec_PtrErase.exit.i
-  tail call void @free(ptr noundef nonnull %57) #12
+  tail call void @free(ptr noundef nonnull %57) #14
   br label %Abc_SclWireLoadSelFree.exit
 
 Abc_SclWireLoadSelFree.exit:                      ; preds = %Vec_PtrErase.exit.i, %58
-  tail call void @free(ptr noundef nonnull %31) #12
+  tail call void @free(ptr noundef nonnull %31) #14
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %.val60 = load i32, ptr %26, align 4, !tbaa !25
   %59 = sext i32 %.val60 to i64
@@ -424,7 +424,7 @@ Abc_SclWireLoadSelFree.exit:                      ; preds = %Vec_PtrErase.exit.i
   br i1 %.not.i71, label %Vec_PtrErase.exit72, label %64
 
 64:                                               ; preds = %.critedge2
-  tail call void @free(ptr noundef nonnull %63) #12
+  tail call void @free(ptr noundef nonnull %63) #14
   store ptr null, ptr %62, align 8, !tbaa !27
   br label %Vec_PtrErase.exit72
 
@@ -465,7 +465,7 @@ Vec_PtrErase.exit72:                              ; preds = %.critedge2, %64
   br i1 %78, label %80, label %79
 
 79:                                               ; preds = %75
-  tail call void @free(ptr noundef %77) #12
+  tail call void @free(ptr noundef %77) #14
   %.val.pre.i.i82 = load i32, ptr %72, align 4, !tbaa !25
   br label %80
 
@@ -483,7 +483,7 @@ Vec_PtrFreeData.exit.i74:                         ; preds = %80, %68
   br i1 %.not.i.i75, label %Vec_PtrErase.exit.i76, label %85
 
 85:                                               ; preds = %Vec_PtrFreeData.exit.i74
-  tail call void @free(ptr noundef nonnull %84) #12
+  tail call void @free(ptr noundef nonnull %84) #14
   store ptr null, ptr %83, align 8, !tbaa !27
   br label %Vec_PtrErase.exit.i76
 
@@ -516,11 +516,11 @@ Vec_PtrErase.exit.i76:                            ; preds = %85, %Vec_PtrFreeDat
   br i1 %.not.i.i.i, label %Vec_PtrFree.exit.i.i, label %96
 
 96:                                               ; preds = %93
-  tail call void @free(ptr noundef nonnull %95) #12
+  tail call void @free(ptr noundef nonnull %95) #14
   br label %Vec_PtrFree.exit.i.i
 
 Vec_PtrFree.exit.i.i:                             ; preds = %96, %93
-  tail call void @free(ptr noundef nonnull %92) #12
+  tail call void @free(ptr noundef nonnull %92) #14
   %.val.pre.i11.i = load i32, ptr %87, align 4, !tbaa !47
   br label %97
 
@@ -538,7 +538,7 @@ Vec_PtrFree.exit.i.i:                             ; preds = %96, %93
   br i1 %.not.i9.i.i, label %Vec_VecErase.exit.i, label %102
 
 102:                                              ; preds = %.critedge.i.i
-  tail call void @free(ptr noundef nonnull %101) #12
+  tail call void @free(ptr noundef nonnull %101) #14
   store ptr null, ptr %100, align 8, !tbaa !27
   br label %Vec_VecErase.exit.i
 
@@ -550,11 +550,11 @@ Vec_VecErase.exit.i:                              ; preds = %102, %.critedge.i.i
   br i1 %.not.i77, label %Abc_SclTableTemplFree.exit, label %104
 
 104:                                              ; preds = %Vec_VecErase.exit.i
-  tail call void @free(ptr noundef nonnull %103) #12
+  tail call void @free(ptr noundef nonnull %103) #14
   br label %Abc_SclTableTemplFree.exit
 
 Abc_SclTableTemplFree.exit:                       ; preds = %Vec_VecErase.exit.i, %104
-  tail call void @free(ptr noundef nonnull %70) #12
+  tail call void @free(ptr noundef nonnull %70) #14
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %.val61 = load i32, ptr %65, align 4, !tbaa !25
   %105 = sext i32 %.val61 to i64
@@ -569,7 +569,7 @@ Abc_SclTableTemplFree.exit:                       ; preds = %Vec_VecErase.exit.i
   br i1 %.not.i85, label %Vec_PtrErase.exit86, label %110
 
 110:                                              ; preds = %.critedge4
-  tail call void @free(ptr noundef nonnull %109) #12
+  tail call void @free(ptr noundef nonnull %109) #14
   store ptr null, ptr %108, align 8, !tbaa !27
   br label %Vec_PtrErase.exit86
 
@@ -645,7 +645,7 @@ Vec_PtrErase.exit86:                              ; preds = %.critedge4, %110
   br i1 %.not.i.i.i.i, label %141, label %140
 
 140:                                              ; preds = %132
-  tail call void @free(ptr noundef nonnull %139) #12
+  tail call void @free(ptr noundef nonnull %139) #14
   store ptr null, ptr %134, align 8, !tbaa !54
   br label %141
 
@@ -656,11 +656,11 @@ Vec_PtrErase.exit86:                              ; preds = %.critedge4, %110
   br i1 %.not13.i.i.i.i, label %Abc_SclTimingFree.exit.i.i.i, label %144
 
 144:                                              ; preds = %141
-  tail call void @free(ptr noundef nonnull %143) #12
+  tail call void @free(ptr noundef nonnull %143) #14
   br label %Abc_SclTimingFree.exit.i.i.i
 
 Abc_SclTimingFree.exit.i.i.i:                     ; preds = %144, %141
-  tail call void @free(ptr noundef nonnull %134) #12
+  tail call void @free(ptr noundef nonnull %134) #14
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %.val.i.i.i = load i32, ptr %129, align 4, !tbaa !25
   %145 = sext i32 %.val.i.i.i to i64
@@ -675,7 +675,7 @@ Abc_SclTimingFree.exit.i.i.i:                     ; preds = %144, %141
   br i1 %.not.i13.i.i.i, label %Vec_PtrErase.exit.i.i.i, label %150
 
 150:                                              ; preds = %.critedge.i.i.i
-  tail call void @free(ptr noundef nonnull %149) #12
+  tail call void @free(ptr noundef nonnull %149) #14
   store ptr null, ptr %148, align 8, !tbaa !27
   br label %Vec_PtrErase.exit.i.i.i
 
@@ -687,11 +687,11 @@ Vec_PtrErase.exit.i.i.i:                          ; preds = %150, %.critedge.i.i
   br i1 %.not.i.i.i94, label %Abc_SclTimingsFree.exit.i.i, label %152
 
 152:                                              ; preds = %Vec_PtrErase.exit.i.i.i
-  tail call void @free(ptr noundef nonnull %151) #12
+  tail call void @free(ptr noundef nonnull %151) #14
   br label %Abc_SclTimingsFree.exit.i.i
 
 Abc_SclTimingsFree.exit.i.i:                      ; preds = %152, %Vec_PtrErase.exit.i.i.i
-  tail call void @free(ptr noundef nonnull %128) #12
+  tail call void @free(ptr noundef nonnull %128) #14
   %indvars.iv.next.i.i95 = add nuw nsw i64 %indvars.iv.i.i92, 1
   %.val.i.i96 = load i32, ptr %123, align 4, !tbaa !25
   %153 = sext i32 %.val.i.i96 to i64
@@ -706,7 +706,7 @@ Abc_SclTimingsFree.exit.i.i:                      ; preds = %152, %Vec_PtrErase.
   br i1 %.not.i19.i.i, label %Vec_PtrErase.exit.i.i, label %158
 
 158:                                              ; preds = %.critedge.i.i89
-  tail call void @free(ptr noundef nonnull %157) #12
+  tail call void @free(ptr noundef nonnull %157) #14
   store ptr null, ptr %156, align 8, !tbaa !27
   br label %Vec_PtrErase.exit.i.i
 
@@ -720,7 +720,7 @@ Vec_PtrErase.exit.i.i:                            ; preds = %158, %.critedge.i.i
   br i1 %.not.i20.i.i, label %Vec_WrdErase.exit.i.i, label %162
 
 162:                                              ; preds = %Vec_PtrErase.exit.i.i
-  tail call void @free(ptr noundef nonnull %161) #12
+  tail call void @free(ptr noundef nonnull %161) #14
   store ptr null, ptr %160, align 8, !tbaa !62
   br label %Vec_WrdErase.exit.i.i
 
@@ -734,7 +734,7 @@ Vec_WrdErase.exit.i.i:                            ; preds = %162, %Vec_PtrErase.
   br i1 %.not.i.i90, label %167, label %166
 
 166:                                              ; preds = %Vec_WrdErase.exit.i.i
-  tail call void @free(ptr noundef nonnull %165) #12
+  tail call void @free(ptr noundef nonnull %165) #14
   store ptr null, ptr %164, align 8, !tbaa !67
   br label %167
 
@@ -744,11 +744,11 @@ Vec_WrdErase.exit.i.i:                            ; preds = %162, %Vec_PtrErase.
   br i1 %.not17.i.i, label %Abc_SclPinFree.exit.i, label %169
 
 169:                                              ; preds = %167
-  tail call void @free(ptr noundef nonnull %168) #12
+  tail call void @free(ptr noundef nonnull %168) #14
   br label %Abc_SclPinFree.exit.i
 
 Abc_SclPinFree.exit.i:                            ; preds = %169, %167
-  tail call void @free(ptr noundef nonnull %122) #12
+  tail call void @free(ptr noundef nonnull %122) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.val.i = load i32, ptr %117, align 4, !tbaa !25
   %170 = sext i32 %.val.i to i64
@@ -763,7 +763,7 @@ Abc_SclPinFree.exit.i:                            ; preds = %169, %167
   br i1 %.not.i13.i, label %Vec_PtrErase.exit.i87, label %175
 
 175:                                              ; preds = %.critedge.i
-  tail call void @free(ptr noundef nonnull %174) #12
+  tail call void @free(ptr noundef nonnull %174) #14
   store ptr null, ptr %173, align 8, !tbaa !27
   br label %Vec_PtrErase.exit.i87
 
@@ -775,11 +775,11 @@ Vec_PtrErase.exit.i87:                            ; preds = %175, %.critedge.i
   br i1 %.not.i88, label %Abc_SclCellFree.exit, label %177
 
 177:                                              ; preds = %Vec_PtrErase.exit.i87
-  tail call void @free(ptr noundef nonnull %176) #12
+  tail call void @free(ptr noundef nonnull %176) #14
   br label %Abc_SclCellFree.exit
 
 Abc_SclCellFree.exit:                             ; preds = %Vec_PtrErase.exit.i87, %177
-  tail call void @free(ptr noundef nonnull %116) #12
+  tail call void @free(ptr noundef nonnull %116) #14
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %.val62 = load i32, ptr %111, align 4, !tbaa !25
   %178 = sext i32 %.val62 to i64
@@ -794,7 +794,7 @@ Abc_SclCellFree.exit:                             ; preds = %Vec_PtrErase.exit.i
   br i1 %.not.i97, label %Vec_PtrErase.exit98, label %183
 
 183:                                              ; preds = %.critedge6
-  tail call void @free(ptr noundef nonnull %182) #12
+  tail call void @free(ptr noundef nonnull %182) #14
   store ptr null, ptr %181, align 8, !tbaa !27
   br label %Vec_PtrErase.exit98
 
@@ -808,7 +808,7 @@ Vec_PtrErase.exit98:                              ; preds = %.critedge6, %183
   br i1 %.not.i99, label %Vec_PtrErase.exit100, label %187
 
 187:                                              ; preds = %Vec_PtrErase.exit98
-  tail call void @free(ptr noundef nonnull %186) #12
+  tail call void @free(ptr noundef nonnull %186) #14
   store ptr null, ptr %185, align 8, !tbaa !27
   br label %Vec_PtrErase.exit100
 
@@ -821,7 +821,7 @@ Vec_PtrErase.exit100:                             ; preds = %Vec_PtrErase.exit98
   br i1 %.not, label %191, label %190
 
 190:                                              ; preds = %Vec_PtrErase.exit100
-  tail call void @free(ptr noundef nonnull %189) #12
+  tail call void @free(ptr noundef nonnull %189) #14
   store ptr null, ptr %0, align 8, !tbaa !75
   br label %191
 
@@ -832,7 +832,7 @@ Vec_PtrErase.exit100:                             ; preds = %Vec_PtrErase.exit98
   br i1 %.not56, label %195, label %194
 
 194:                                              ; preds = %191
-  tail call void @free(ptr noundef nonnull %193) #12
+  tail call void @free(ptr noundef nonnull %193) #14
   store ptr null, ptr %192, align 8, !tbaa !77
   br label %195
 
@@ -843,7 +843,7 @@ Vec_PtrErase.exit100:                             ; preds = %Vec_PtrErase.exit98
   br i1 %.not57, label %199, label %198
 
 198:                                              ; preds = %195
-  tail call void @free(ptr noundef nonnull %197) #12
+  tail call void @free(ptr noundef nonnull %197) #14
   store ptr null, ptr %196, align 8, !tbaa !78
   br label %199
 
@@ -854,7 +854,7 @@ Vec_PtrErase.exit100:                             ; preds = %Vec_PtrErase.exit98
   br i1 %.not58, label %203, label %202
 
 202:                                              ; preds = %199
-  tail call void @free(ptr noundef nonnull %201) #12
+  tail call void @free(ptr noundef nonnull %201) #14
   store ptr null, ptr %200, align 8, !tbaa !79
   br label %203
 
@@ -865,37 +865,37 @@ Vec_PtrErase.exit100:                             ; preds = %Vec_PtrErase.exit98
   br i1 %.not59, label %207, label %206
 
 206:                                              ; preds = %203
-  tail call void @free(ptr noundef nonnull %205) #12
+  tail call void @free(ptr noundef nonnull %205) #14
   br label %207
 
 207:                                              ; preds = %206, %203
-  tail call void @free(ptr noundef nonnull %0) #12
+  tail call void @free(ptr noundef nonnull %0) #14
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @Scl_Init(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @Scl_CommandReadLib, i32 noundef 0) #12
-  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, ptr noundef nonnull @Scl_CommandWriteLib, i32 noundef 0) #12
-  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @Scl_CommandPrintLib, i32 noundef 0) #12
-  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, ptr noundef nonnull @Scl_CommandLeak2Area, i32 noundef 0) #12
-  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef nonnull @Scl_CommandReadScl, i32 noundef 0) #12
-  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull @Scl_CommandWriteScl, i32 noundef 0) #12
-  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, ptr noundef nonnull @Scl_CommandDumpGen, i32 noundef 0) #12
-  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8, ptr noundef nonnull @Scl_CommandPrintGS, i32 noundef 0) #12
-  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, ptr noundef nonnull @Scl_CommandStime, i32 noundef 0) #12
-  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, ptr noundef nonnull @Scl_CommandTopo, i32 noundef 1) #12
-  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, ptr noundef nonnull @Scl_CommandUnBuffer, i32 noundef 1) #12
-  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12, ptr noundef nonnull @Scl_CommandBuffer, i32 noundef 1) #12
-  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.13, ptr noundef nonnull @Scl_CommandMinsize, i32 noundef 1) #12
-  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, ptr noundef nonnull @Scl_CommandMaxsize, i32 noundef 1) #12
-  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.15, ptr noundef nonnull @Scl_CommandUpsize, i32 noundef 1) #12
-  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.16, ptr noundef nonnull @Scl_CommandDnsize, i32 noundef 1) #12
-  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @Scl_CommandPrintBuf, i32 noundef 0) #12
-  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18, ptr noundef nonnull @Scl_CommandReadConstr, i32 noundef 0) #12
-  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.19, ptr noundef nonnull @Scl_CommandWriteConstr, i32 noundef 0) #12
-  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.20, ptr noundef nonnull @Scl_CommandPrintConstr, i32 noundef 0) #12
-  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21, ptr noundef nonnull @Scl_CommandResetConstr, i32 noundef 0) #12
+  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @Scl_CommandReadLib, i32 noundef 0) #14
+  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, ptr noundef nonnull @Scl_CommandWriteLib, i32 noundef 0) #14
+  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @Scl_CommandPrintLib, i32 noundef 0) #14
+  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, ptr noundef nonnull @Scl_CommandLeak2Area, i32 noundef 0) #14
+  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef nonnull @Scl_CommandReadScl, i32 noundef 0) #14
+  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull @Scl_CommandWriteScl, i32 noundef 0) #14
+  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, ptr noundef nonnull @Scl_CommandDumpGen, i32 noundef 0) #14
+  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8, ptr noundef nonnull @Scl_CommandPrintGS, i32 noundef 0) #14
+  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, ptr noundef nonnull @Scl_CommandStime, i32 noundef 0) #14
+  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, ptr noundef nonnull @Scl_CommandTopo, i32 noundef 1) #14
+  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, ptr noundef nonnull @Scl_CommandUnBuffer, i32 noundef 1) #14
+  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12, ptr noundef nonnull @Scl_CommandBuffer, i32 noundef 1) #14
+  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.13, ptr noundef nonnull @Scl_CommandMinsize, i32 noundef 1) #14
+  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, ptr noundef nonnull @Scl_CommandMaxsize, i32 noundef 1) #14
+  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.15, ptr noundef nonnull @Scl_CommandUpsize, i32 noundef 1) #14
+  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.16, ptr noundef nonnull @Scl_CommandDnsize, i32 noundef 1) #14
+  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @Scl_CommandPrintBuf, i32 noundef 0) #14
+  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18, ptr noundef nonnull @Scl_CommandReadConstr, i32 noundef 0) #14
+  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.19, ptr noundef nonnull @Scl_CommandWriteConstr, i32 noundef 0) #14
+  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.20, ptr noundef nonnull @Scl_CommandPrintConstr, i32 noundef 0) #14
+  tail call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21, ptr noundef nonnull @Scl_CommandResetConstr, i32 noundef 0) #14
   ret void
 }
 
@@ -905,8 +905,8 @@ declare void @Cmd_CommandAdd(ptr noundef, ptr noundef, ptr noundef, ptr noundef,
 define internal range(i32 0, 2) i32 @Scl_CommandReadLib(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = sext i32 %1 to i64
   %5 = shl nsw i64 %4, 3
-  %6 = tail call noalias ptr @malloc(i64 noundef %5) #13
-  tail call void (...) @Extra_UtilGetoptReset() #12
+  %6 = tail call noalias ptr @malloc(i64 noundef %5) #15
+  tail call void (...) @Extra_UtilGetoptReset() #14
   br label %7
 
 7:                                                ; preds = %.backedge, %3
@@ -922,7 +922,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadLib(ptr noundef captures(non
   %.0145 = phi float [ 0.000000e+00, %3 ], [ %.0145.be, %.backedge ]
   %.0142 = phi float [ 0.000000e+00, %3 ], [ %.0142.be, %.backedge ]
   %.0139 = phi i32 [ 0, %3 ], [ %.0139.be, %.backedge ]
-  %8 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.25) #12
+  %8 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.25) #14
   switch i32 %8, label %.loopexit [
     i32 -1, label %69
     i32 83, label %9
@@ -952,7 +952,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadLib(ptr noundef captures(non
   %13 = sext i32 %10 to i64
   %14 = getelementptr inbounds ptr, ptr %2, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !82
-  %16 = tail call double @strtod(ptr noundef nonnull captures(none) %15, ptr noundef null) #12
+  %16 = tail call double @strtod(ptr noundef nonnull captures(none) %15, ptr noundef null) #14
   %17 = fptrunc double %16 to float
   %18 = add nsw i32 %10, 1
   store i32 %18, ptr @globalUtilOptind, align 4, !tbaa !81
@@ -972,7 +972,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadLib(ptr noundef captures(non
   %24 = sext i32 %21 to i64
   %25 = getelementptr inbounds ptr, ptr %2, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !82
-  %27 = tail call double @strtod(ptr noundef nonnull captures(none) %26, ptr noundef null) #12
+  %27 = tail call double @strtod(ptr noundef nonnull captures(none) %26, ptr noundef null) #14
   %28 = fptrunc double %27 to float
   %29 = add nsw i32 %21, 1
   store i32 %29, ptr @globalUtilOptind, align 4, !tbaa !81
@@ -992,7 +992,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadLib(ptr noundef captures(non
   %35 = sext i32 %32 to i64
   %36 = getelementptr inbounds ptr, ptr %2, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !82
-  %38 = tail call i64 @strtol(ptr noundef nonnull captures(none) %37, ptr noundef null, i32 noundef 10) #12
+  %38 = tail call i64 @strtol(ptr noundef nonnull captures(none) %37, ptr noundef null, i32 noundef 10) #14
   %39 = trunc i64 %38 to i32
   %40 = add nsw i32 %32, 1
   store i32 %40, ptr @globalUtilOptind, align 4, !tbaa !81
@@ -1083,7 +1083,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadLib(ptr noundef captures(non
 
 79:                                               ; preds = %73
   %80 = tail call i32 @fclose(ptr noundef nonnull %77)
-  %81 = tail call ptr @Abc_SclReadLiberty(ptr noundef %76, i32 noundef %.0159, i32 noundef %.0157, i32 %.sroa.0.0, ptr %6) #12
+  %81 = tail call ptr @Abc_SclReadLiberty(ptr noundef %76, i32 noundef %.0159, i32 noundef %.0157, i32 %.sroa.0.0, ptr %6) #14
   %82 = icmp eq ptr %81, null
   br i1 %82, label %.sink.split.i, label %Scl_ReadLibraryFile.exit
 
@@ -1091,7 +1091,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadLib(ptr noundef captures(non
   %.str.24.sink.i = phi ptr [ @.str.23, %73 ], [ @.str.24, %79 ]
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %84 = load ptr, ptr %83, align 8, !tbaa !84
-  %85 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %84, ptr noundef nonnull %.str.24.sink.i, ptr noundef %76) #12
+  %85 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %84, ptr noundef nonnull %.str.24.sink.i, ptr noundef %76) #14
   br label %Scl_ReadLibraryFile.exit
 
 Scl_ReadLibraryFile.exit:                         ; preds = %79, %.sink.split.i
@@ -1107,7 +1107,7 @@ Scl_ReadLibraryFile.exit:                         ; preds = %79, %.sink.split.i
 
 93:                                               ; preds = %Scl_ReadLibraryFile.exit
   %94 = tail call i32 @fclose(ptr noundef nonnull %91)
-  %95 = tail call ptr @Abc_SclReadLiberty(ptr noundef %90, i32 noundef %.0159, i32 noundef %.0157, i32 %.sroa.0.0, ptr %6) #12
+  %95 = tail call ptr @Abc_SclReadLiberty(ptr noundef %90, i32 noundef %.0159, i32 noundef %.0157, i32 %.sroa.0.0, ptr %6) #14
   %96 = icmp eq ptr %95, null
   br i1 %96, label %.sink.split.i209, label %Scl_ReadLibraryFile.exit211
 
@@ -1115,7 +1115,7 @@ Scl_ReadLibraryFile.exit:                         ; preds = %79, %.sink.split.i
   %.str.24.sink.i210 = phi ptr [ @.str.23, %Scl_ReadLibraryFile.exit ], [ @.str.24, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %98 = load ptr, ptr %97, align 8, !tbaa !84
-  %99 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %98, ptr noundef nonnull %.str.24.sink.i210, ptr noundef %90) #12
+  %99 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %98, ptr noundef nonnull %.str.24.sink.i210, ptr noundef %90) #14
   br label %Scl_ReadLibraryFile.exit211
 
 Scl_ReadLibraryFile.exit211:                      ; preds = %93, %.sink.split.i209
@@ -1124,7 +1124,7 @@ Scl_ReadLibraryFile.exit211:                      ; preds = %93, %.sink.split.i2
   br i1 %.not185, label %101, label %100
 
 100:                                              ; preds = %Scl_ReadLibraryFile.exit211
-  tail call void @free(ptr noundef nonnull %6) #12
+  tail call void @free(ptr noundef nonnull %6) #14
   br label %101
 
 101:                                              ; preds = %Scl_ReadLibraryFile.exit211, %100
@@ -1150,7 +1150,7 @@ Scl_ReadLibraryFile.exit211:                      ; preds = %93, %.sink.split.i2
   br label %.thread
 
 108:                                              ; preds = %101
-  %109 = tail call ptr @Abc_SclMergeLibraries(ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i208, i32 noundef %.0153) #12
+  %109 = tail call ptr @Abc_SclMergeLibraries(ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i208, i32 noundef %.0153) #14
   tail call fastcc void @Abc_SclLibFree(ptr noundef %.0.i)
   tail call fastcc void @Abc_SclLibFree(ptr noundef %.0.i208)
   br label %136
@@ -1170,7 +1170,7 @@ Scl_ReadLibraryFile.exit211:                      ; preds = %93, %.sink.split.i2
 
 119:                                              ; preds = %113
   %120 = tail call i32 @fclose(ptr noundef nonnull %117)
-  %121 = tail call ptr @Abc_SclReadLiberty(ptr noundef %116, i32 noundef %.0159, i32 noundef %.0157, i32 %.sroa.0.0, ptr %6) #12
+  %121 = tail call ptr @Abc_SclReadLiberty(ptr noundef %116, i32 noundef %.0159, i32 noundef %.0157, i32 %.sroa.0.0, ptr %6) #14
   %122 = icmp eq ptr %121, null
   br i1 %122, label %Scl_ReadLibraryFile.exit215.thread, label %Scl_ReadLibraryFile.exit215
 
@@ -1178,7 +1178,7 @@ Scl_ReadLibraryFile.exit215.thread:               ; preds = %113, %119
   %.str.24.sink.i214 = phi ptr [ @.str.23, %113 ], [ @.str.24, %119 ]
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %124 = load ptr, ptr %123, align 8, !tbaa !84
-  %125 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %124, ptr noundef nonnull %.str.24.sink.i214, ptr noundef %116) #12
+  %125 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %124, ptr noundef nonnull %.str.24.sink.i214, ptr noundef %116) #14
   br label %132
 
 Scl_ReadLibraryFile.exit215:                      ; preds = %119
@@ -1190,7 +1190,7 @@ Scl_ReadLibraryFile.exit215:                      ; preds = %119
   br i1 %or.cond3, label %130, label %132
 
 130:                                              ; preds = %Scl_ReadLibraryFile.exit215
-  %131 = tail call ptr @Abc_SclMergeLibraries(ptr noundef nonnull %127, ptr noundef nonnull %121, i32 noundef %.0153) #12
+  %131 = tail call ptr @Abc_SclMergeLibraries(ptr noundef nonnull %127, ptr noundef nonnull %121, i32 noundef %.0153) #14
   tail call fastcc void @Abc_SclLibFree(ptr noundef %121)
   br label %132
 
@@ -1200,7 +1200,7 @@ Scl_ReadLibraryFile.exit215:                      ; preds = %119
   br i1 %.not184, label %136, label %133
 
 133:                                              ; preds = %132
-  tail call void @free(ptr noundef nonnull %6) #12
+  tail call void @free(ptr noundef nonnull %6) #14
   br label %136
 
 134:                                              ; preds = %110
@@ -1208,7 +1208,7 @@ Scl_ReadLibraryFile.exit215:                      ; preds = %119
   br i1 %.not183, label %.loopexit, label %135
 
 135:                                              ; preds = %134
-  tail call void @free(ptr noundef nonnull %6) #12
+  tail call void @free(ptr noundef nonnull %6) #14
   br label %.loopexit
 
 136:                                              ; preds = %108, %133, %132
@@ -1217,15 +1217,15 @@ Scl_ReadLibraryFile.exit215:                      ; preds = %119
   br i1 %137, label %.thread, label %138
 
 138:                                              ; preds = %136
-  %139 = tail call i32 @Abc_SclLibClassNum(ptr noundef nonnull %.1138) #12
+  %139 = tail call i32 @Abc_SclLibClassNum(ptr noundef nonnull %.1138) #14
   %140 = icmp slt i32 %139, 3
   br i1 %140, label %141, label %146
 
 141:                                              ; preds = %138
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %143 = load ptr, ptr %142, align 8, !tbaa !84
-  %144 = tail call i32 @Abc_SclLibClassNum(ptr noundef nonnull %.1138) #12
-  %145 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef nonnull @.str.30, i32 noundef %144) #12
+  %144 = tail call i32 @Abc_SclLibClassNum(ptr noundef nonnull %.1138) #14
+  %145 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef nonnull @.str.30, i32 noundef %144) #14
   tail call fastcc void @Abc_SclLibFree(ptr noundef %.1138)
   br label %.thread
 
@@ -1245,7 +1245,7 @@ Abc_SclLoad.exit:                                 ; preds = %149, %146
   br i1 %.not190, label %151, label %150
 
 150:                                              ; preds = %Abc_SclLoad.exit
-  tail call void @Abc_SclShortNames(ptr noundef nonnull %.1138) #12
+  tail call void @Abc_SclShortNames(ptr noundef nonnull %.1138) #14
   br label %151
 
 151:                                              ; preds = %150, %Abc_SclLoad.exit
@@ -1262,9 +1262,9 @@ Abc_SclLoad.exit:                                 ; preds = %149, %146
   %156 = sext i32 %155 to i64
   %157 = getelementptr inbounds ptr, ptr %2, i64 %156
   %158 = load ptr, ptr %157, align 8, !tbaa !82
-  %159 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %158, ptr noundef nonnull @.str.31) #12
+  %159 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %158, ptr noundef nonnull @.str.31) #14
   %160 = load ptr, ptr %147, align 8, !tbaa !85
-  tail call void @Abc_SclWriteLiberty(ptr noundef %159, ptr noundef %160) #12
+  tail call void @Abc_SclWriteLiberty(ptr noundef %159, ptr noundef %160) #14
   br label %161
 
 161:                                              ; preds = %154, %152, %151
@@ -1299,8 +1299,8 @@ Abc_SclLoad.exit:                                 ; preds = %149, %146
   br i1 %.not194, label %.thread, label %170
 
 170:                                              ; preds = %.critedge
-  tail call void @Abc_SclInstallGenlib(ptr noundef nonnull %169, float noundef %.0142, float noundef %.0145, i32 noundef %.0151, i32 noundef %.0148) #12
-  tail call void (...) @Mio_LibraryTransferCellIds() #12
+  tail call void @Abc_SclInstallGenlib(ptr noundef nonnull %169, float noundef %.0142, float noundef %.0145, i32 noundef %.0151, i32 noundef %.0148) #14
+  tail call void (...) @Mio_LibraryTransferCellIds() #14
   br label %.thread
 
 .loopexit:                                        ; preds = %7, %34, %23, %12, %135, %134, %44, %33, %22, %11
@@ -1314,46 +1314,46 @@ Abc_SclLoad.exit:                                 ; preds = %149, %146
   %175 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 44, i64 1, ptr %174)
   %176 = load ptr, ptr %171, align 8, !tbaa !84
   %177 = fpext float %.1143 to double
-  %178 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %176, ptr noundef nonnull @.str.34, double noundef %177) #12
+  %178 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %176, ptr noundef nonnull @.str.34, double noundef %177) #14
   %179 = load ptr, ptr %171, align 8, !tbaa !84
   %180 = fpext float %.1146 to double
-  %181 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %179, ptr noundef nonnull @.str.35, double noundef %180) #12
+  %181 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %179, ptr noundef nonnull @.str.35, double noundef %180) #14
   %182 = load ptr, ptr %171, align 8, !tbaa !84
-  %183 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %182, ptr noundef nonnull @.str.36, i32 noundef %.1149) #12
+  %183 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %182, ptr noundef nonnull @.str.36, i32 noundef %.1149) #14
   %184 = load ptr, ptr %171, align 8, !tbaa !84
   %185 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 96, i64 1, ptr %184)
   %186 = load ptr, ptr %171, align 8, !tbaa !84
   %.not199 = icmp eq i32 %.0139, 0
   %187 = select i1 %.not199, ptr @.str.40, ptr @.str.39
-  %188 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %186, ptr noundef nonnull @.str.38, ptr noundef nonnull %187) #12
+  %188 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %186, ptr noundef nonnull @.str.38, ptr noundef nonnull %187) #14
   %189 = load ptr, ptr %171, align 8, !tbaa !84
   %.not200 = icmp eq i32 %.0163, 0
   %190 = select i1 %.not200, ptr @.str.40, ptr @.str.39
-  %191 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %189, ptr noundef nonnull @.str.41, ptr noundef nonnull %190) #12
+  %191 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %189, ptr noundef nonnull @.str.41, ptr noundef nonnull %190) #14
   %192 = load ptr, ptr %171, align 8, !tbaa !84
   %.not201 = icmp eq i32 %.0161, 0
   %193 = select i1 %.not201, ptr @.str.40, ptr @.str.39
-  %194 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %192, ptr noundef nonnull @.str.42, ptr noundef nonnull %193) #12
+  %194 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %192, ptr noundef nonnull @.str.42, ptr noundef nonnull %193) #14
   %195 = load ptr, ptr %171, align 8, !tbaa !84
   %.not202 = icmp eq i32 %.0159, 0
   %196 = select i1 %.not202, ptr @.str.40, ptr @.str.39
-  %197 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %195, ptr noundef nonnull @.str.43, ptr noundef nonnull %196) #12
+  %197 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %195, ptr noundef nonnull @.str.43, ptr noundef nonnull %196) #14
   %198 = load ptr, ptr %171, align 8, !tbaa !84
   %.not203 = icmp eq i32 %.0157, 0
   %199 = select i1 %.not203, ptr @.str.40, ptr @.str.39
-  %200 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %198, ptr noundef nonnull @.str.44, ptr noundef nonnull %199) #12
+  %200 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %198, ptr noundef nonnull @.str.44, ptr noundef nonnull %199) #14
   %201 = load ptr, ptr %171, align 8, !tbaa !84
   %.not204 = icmp eq i32 %.0155, 0
   %202 = select i1 %.not204, ptr @.str.40, ptr @.str.39
-  %203 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %201, ptr noundef nonnull @.str.45, ptr noundef nonnull %202) #12
+  %203 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %201, ptr noundef nonnull @.str.45, ptr noundef nonnull %202) #14
   %204 = load ptr, ptr %171, align 8, !tbaa !84
   %.not205 = icmp eq i32 %.0151, 0
   %205 = select i1 %.not205, ptr @.str.40, ptr @.str.39
-  %206 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %204, ptr noundef nonnull @.str.46, ptr noundef nonnull %205) #12
+  %206 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %204, ptr noundef nonnull @.str.46, ptr noundef nonnull %205) #14
   %207 = load ptr, ptr %171, align 8, !tbaa !84
   %.not206 = icmp eq i32 %.0153, 0
   %208 = select i1 %.not206, ptr @.str.40, ptr @.str.39
-  %209 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %207, ptr noundef nonnull @.str.47, ptr noundef nonnull %208) #12
+  %209 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %207, ptr noundef nonnull @.str.47, ptr noundef nonnull %208) #14
   %210 = load ptr, ptr %171, align 8, !tbaa !84
   %211 = tail call i64 @fwrite(ptr nonnull @.str.48, i64 39, i64 1, ptr %210)
   %212 = load ptr, ptr %171, align 8, !tbaa !84
@@ -1369,8 +1369,8 @@ Abc_SclLoad.exit:                                 ; preds = %149, %146
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Scl_CommandWriteLib(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
-  tail call void (...) @Extra_UtilGetoptReset() #12
-  %4 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.53) #12
+  tail call void (...) @Extra_UtilGetoptReset() #14
+  %4 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.53) #14
   %.not = icmp eq i32 %4, -1
   br i1 %.not, label %5, label %29
 
@@ -1403,13 +1403,13 @@ define internal range(i32 0, 2) i32 @Scl_CommandWriteLib(ptr noundef readonly ca
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %24 = load ptr, ptr %23, align 8, !tbaa !84
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.56, ptr noundef %19) #12
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.56, ptr noundef %19) #14
   br label %39
 
 26:                                               ; preds = %16
   %27 = tail call i32 @fclose(ptr noundef nonnull %20)
   %28 = load ptr, ptr %9, align 8, !tbaa !85
-  tail call void @Abc_SclWriteLiberty(ptr noundef %19, ptr noundef %28) #12
+  tail call void @Abc_SclWriteLiberty(ptr noundef %19, ptr noundef %28) #14
   br label %39
 
 29:                                               ; preds = %5, %3
@@ -1431,7 +1431,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandWriteLib(ptr noundef readonly ca
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Scl_CommandPrintLib(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
-  tail call void (...) @Extra_UtilGetoptReset() #12
+  tail call void (...) @Extra_UtilGetoptReset() #14
   br label %.outer
 
 .outer:                                           ; preds = %8, %3
@@ -1454,7 +1454,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintLib(ptr noundef readonly ca
 
 4:                                                ; preds = %.outer104, %28
   %.029 = phi i32 [ %29, %28 ], [ %.029.ph106, %.outer104 ]
-  %5 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.61) #12
+  %5 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.61) #14
   switch i32 %5, label %.loopexit [
     i32 -1, label %30
     i32 83, label %6
@@ -1472,7 +1472,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintLib(ptr noundef readonly ca
   %9 = sext i32 %7 to i64
   %10 = getelementptr inbounds ptr, ptr %2, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !82
-  %12 = tail call double @strtod(ptr noundef nonnull captures(none) %11, ptr noundef null) #12
+  %12 = tail call double @strtod(ptr noundef nonnull captures(none) %11, ptr noundef null) #14
   %13 = fptrunc double %12 to float
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4, !tbaa !81
@@ -1488,7 +1488,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintLib(ptr noundef readonly ca
   %19 = sext i32 %17 to i64
   %20 = getelementptr inbounds ptr, ptr %2, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !82
-  %22 = tail call double @strtod(ptr noundef nonnull captures(none) %21, ptr noundef null) #12
+  %22 = tail call double @strtod(ptr noundef nonnull captures(none) %21, ptr noundef null) #14
   %23 = fptrunc double %22 to float
   %24 = add nsw i32 %17, 1
   store i32 %24, ptr @globalUtilOptind, align 4, !tbaa !81
@@ -1516,7 +1516,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintLib(ptr noundef readonly ca
   br label %58
 
 38:                                               ; preds = %30
-  tail call void @Abc_SclPrintCells(ptr noundef nonnull %32, float noundef %.034.ph, float noundef %.032.ph101, i32 noundef %.030.ph105, i32 noundef %.029) #12
+  tail call void @Abc_SclPrintCells(ptr noundef nonnull %32, float noundef %.034.ph, float noundef %.032.ph101, i32 noundef %.030.ph105, i32 noundef %.029) #14
   br label %58
 
 .loopexit.sink.split:                             ; preds = %6, %16
@@ -1534,18 +1534,18 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintLib(ptr noundef readonly ca
   %43 = tail call i64 @fwrite(ptr nonnull @.str.63, i64 49, i64 1, ptr %42)
   %44 = load ptr, ptr %39, align 8, !tbaa !84
   %45 = fpext float %.135 to double
-  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.34, double noundef %45) #12
+  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.34, double noundef %45) #14
   %47 = load ptr, ptr %39, align 8, !tbaa !84
   %48 = fpext float %.133 to double
-  %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.35, double noundef %48) #12
+  %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.35, double noundef %48) #14
   %50 = load ptr, ptr %39, align 8, !tbaa !84
   %.not43 = icmp eq i32 %.030.ph105, 0
   %51 = select i1 %.not43, ptr @.str.40, ptr @.str.39
-  %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.64, ptr noundef nonnull %51) #12
+  %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.64, ptr noundef nonnull %51) #14
   %53 = load ptr, ptr %39, align 8, !tbaa !84
   %.not44 = icmp eq i32 %.029, 0
   %54 = select i1 %.not44, ptr @.str.40, ptr @.str.39
-  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.65, ptr noundef nonnull %54) #12
+  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.65, ptr noundef nonnull %54) #14
   %56 = load ptr, ptr %39, align 8, !tbaa !84
   %57 = tail call i64 @fwrite(ptr nonnull @.str.66, i64 35, i64 1, ptr %56)
   br label %58
@@ -1557,7 +1557,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintLib(ptr noundef readonly ca
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Scl_CommandLeak2Area(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
-  tail call void (...) @Extra_UtilGetoptReset() #12
+  tail call void (...) @Extra_UtilGetoptReset() #14
   br label %.outer
 
 .outer:                                           ; preds = %8, %3
@@ -1573,7 +1573,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandLeak2Area(ptr noundef readonly c
 
 4:                                                ; preds = %.outer77, %26
   %.0 = phi i32 [ %27, %26 ], [ %.0.ph79, %.outer77 ]
-  %5 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.67) #12
+  %5 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.67) #14
   switch i32 %5, label %.loopexit [
     i32 -1, label %28
     i32 65, label %6
@@ -1590,7 +1590,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandLeak2Area(ptr noundef readonly c
   %9 = sext i32 %7 to i64
   %10 = getelementptr inbounds ptr, ptr %2, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !82
-  %12 = tail call double @strtod(ptr noundef nonnull captures(none) %11, ptr noundef null) #12
+  %12 = tail call double @strtod(ptr noundef nonnull captures(none) %11, ptr noundef null) #14
   %13 = fptrunc double %12 to float
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4, !tbaa !81
@@ -1606,7 +1606,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandLeak2Area(ptr noundef readonly c
   %19 = sext i32 %17 to i64
   %20 = getelementptr inbounds ptr, ptr %2, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !82
-  %22 = tail call double @strtod(ptr noundef nonnull captures(none) %21, ptr noundef null) #12
+  %22 = tail call double @strtod(ptr noundef nonnull captures(none) %21, ptr noundef null) #14
   %23 = fptrunc double %22 to float
   %24 = add nsw i32 %17, 1
   store i32 %24, ptr @globalUtilOptind, align 4, !tbaa !81
@@ -1630,7 +1630,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandLeak2Area(ptr noundef readonly c
   br label %53
 
 36:                                               ; preds = %28
-  tail call void @Abc_SclConvertLeakageIntoArea(ptr noundef nonnull %30, float noundef %.027.ph, float noundef %.025.ph78) #12
+  tail call void @Abc_SclConvertLeakageIntoArea(ptr noundef nonnull %30, float noundef %.027.ph, float noundef %.025.ph78) #14
   br label %53
 
 .loopexit.sink.split:                             ; preds = %6, %16
@@ -1648,14 +1648,14 @@ define internal range(i32 0, 2) i32 @Scl_CommandLeak2Area(ptr noundef readonly c
   %41 = tail call i64 @fwrite(ptr nonnull @.str.71, i64 70, i64 1, ptr %40)
   %42 = load ptr, ptr %37, align 8, !tbaa !84
   %43 = fpext float %.128 to double
-  %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.72, double noundef %43) #12
+  %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.72, double noundef %43) #14
   %45 = load ptr, ptr %37, align 8, !tbaa !84
   %46 = fpext float %.126 to double
-  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.73, double noundef %46) #12
+  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.73, double noundef %46) #14
   %48 = load ptr, ptr %37, align 8, !tbaa !84
   %.not36 = icmp eq i32 %.0, 0
   %49 = select i1 %.not36, ptr @.str.40, ptr @.str.39
-  %50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str.74, ptr noundef nonnull %49) #12
+  %50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str.74, ptr noundef nonnull %49) #14
   %51 = load ptr, ptr %37, align 8, !tbaa !84
   %52 = tail call i64 @fwrite(ptr nonnull @.str.66, i64 35, i64 1, ptr %51)
   br label %53
@@ -1667,12 +1667,12 @@ define internal range(i32 0, 2) i32 @Scl_CommandLeak2Area(ptr noundef readonly c
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Scl_CommandReadScl(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
-  tail call void (...) @Extra_UtilGetoptReset() #12
+  tail call void (...) @Extra_UtilGetoptReset() #14
   br label %4
 
 4:                                                ; preds = %6, %3
   %.0 = phi i32 [ 0, %3 ], [ %7, %6 ]
-  %5 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.75) #12
+  %5 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.75) #14
   switch i32 %5, label %.loopexit [
     i32 -1, label %8
     i32 100, label %6
@@ -1699,19 +1699,19 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadScl(ptr noundef captures(non
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %19 = load ptr, ptr %18, align 8, !tbaa !84
-  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.23, ptr noundef %14) #12
+  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.23, ptr noundef %14) #14
   br label %49
 
 21:                                               ; preds = %11
   %22 = tail call i32 @fclose(ptr noundef nonnull %15)
-  %23 = tail call ptr @Abc_SclReadFromFile(ptr noundef %14) #12
+  %23 = tail call ptr @Abc_SclReadFromFile(ptr noundef %14) #14
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %27 = load ptr, ptr %26, align 8, !tbaa !84
-  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.24, ptr noundef %14) #12
+  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.24, ptr noundef %14) #14
   br label %49
 
 29:                                               ; preds = %21
@@ -1730,17 +1730,17 @@ Abc_SclLoad.exit:                                 ; preds = %32, %29
   br i1 %.not33, label %.thread, label %33
 
 33:                                               ; preds = %Abc_SclLoad.exit
-  %34 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %14, ptr noundef nonnull @.str.31) #12
+  %34 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %14, ptr noundef nonnull @.str.31) #14
   %35 = load ptr, ptr %30, align 8, !tbaa !85
-  tail call void @Abc_SclWriteLiberty(ptr noundef %34, ptr noundef %35) #12
+  tail call void @Abc_SclWriteLiberty(ptr noundef %34, ptr noundef %35) #14
   %.pr = load ptr, ptr %30, align 8, !tbaa !85
   %.not34 = icmp eq ptr %.pr, null
   br i1 %.not34, label %49, label %.thread
 
 .thread:                                          ; preds = %Abc_SclLoad.exit, %33
   %36 = phi ptr [ %.pr, %33 ], [ %23, %Abc_SclLoad.exit ]
-  tail call void @Abc_SclInstallGenlib(ptr noundef nonnull %36, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef 0, i32 noundef 0) #12
-  tail call void (...) @Mio_LibraryTransferCellIds() #12
+  tail call void @Abc_SclInstallGenlib(ptr noundef nonnull %36, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef 0, i32 noundef 0) #14
+  tail call void (...) @Mio_LibraryTransferCellIds() #14
   br label %49
 
 .loopexit:                                        ; preds = %4, %8
@@ -1752,7 +1752,7 @@ Abc_SclLoad.exit:                                 ; preds = %32, %29
   %42 = load ptr, ptr %37, align 8, !tbaa !84
   %.not35 = icmp eq i32 %.0, 0
   %43 = select i1 %.not35, ptr @.str.40, ptr @.str.39
-  %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.78, ptr noundef nonnull %43) #12
+  %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.78, ptr noundef nonnull %43) #14
   %45 = load ptr, ptr %37, align 8, !tbaa !84
   %46 = tail call i64 @fwrite(ptr nonnull @.str.79, i64 37, i64 1, ptr %45)
   %47 = load ptr, ptr %37, align 8, !tbaa !84
@@ -1766,8 +1766,8 @@ Abc_SclLoad.exit:                                 ; preds = %32, %29
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Scl_CommandWriteScl(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
-  tail call void (...) @Extra_UtilGetoptReset() #12
-  %4 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.53) #12
+  tail call void (...) @Extra_UtilGetoptReset() #14
+  %4 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.53) #14
   %.not = icmp eq i32 %4, -1
   br i1 %.not, label %5, label %29
 
@@ -1800,13 +1800,13 @@ define internal range(i32 0, 2) i32 @Scl_CommandWriteScl(ptr noundef readonly ca
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %24 = load ptr, ptr %23, align 8, !tbaa !84
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.56, ptr noundef %19) #12
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.56, ptr noundef %19) #14
   br label %39
 
 26:                                               ; preds = %16
   %27 = tail call i32 @fclose(ptr noundef nonnull %20)
   %28 = load ptr, ptr %9, align 8, !tbaa !85
-  tail call void @Abc_SclWriteScl(ptr noundef %19, ptr noundef %28) #12
+  tail call void @Abc_SclWriteScl(ptr noundef %19, ptr noundef %28) #14
   br label %39
 
 29:                                               ; preds = %5, %3
@@ -1828,7 +1828,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandWriteScl(ptr noundef readonly ca
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Scl_CommandDumpGen(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
-  tail call void (...) @Extra_UtilGetoptReset() #12
+  tail call void (...) @Extra_UtilGetoptReset() #14
   br label %.outer
 
 .outer:                                           ; preds = %9, %3
@@ -1851,7 +1851,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDumpGen(ptr noundef readonly cap
 
 4:                                                ; preds = %.outer132, %39
   %.0 = phi i32 [ %40, %39 ], [ %.0.ph134, %.outer132 ]
-  %5 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.83) #12
+  %5 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.83) #14
   switch i32 %5, label %.loopexit [
     i32 -1, label %41
     i32 83, label %6
@@ -1873,7 +1873,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDumpGen(ptr noundef readonly cap
   %10 = sext i32 %7 to i64
   %11 = getelementptr inbounds ptr, ptr %2, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !82
-  %13 = tail call double @strtod(ptr noundef nonnull captures(none) %12, ptr noundef null) #12
+  %13 = tail call double @strtod(ptr noundef nonnull captures(none) %12, ptr noundef null) #14
   %14 = fptrunc double %13 to float
   %15 = add nsw i32 %7, 1
   store i32 %15, ptr @globalUtilOptind, align 4, !tbaa !81
@@ -1893,7 +1893,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDumpGen(ptr noundef readonly cap
   %21 = sext i32 %18 to i64
   %22 = getelementptr inbounds ptr, ptr %2, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !82
-  %24 = tail call double @strtod(ptr noundef nonnull captures(none) %23, ptr noundef null) #12
+  %24 = tail call double @strtod(ptr noundef nonnull captures(none) %23, ptr noundef null) #14
   %25 = fptrunc double %24 to float
   %26 = add nsw i32 %18, 1
   store i32 %26, ptr @globalUtilOptind, align 4, !tbaa !81
@@ -1913,7 +1913,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDumpGen(ptr noundef readonly cap
   %32 = sext i32 %29 to i64
   %33 = getelementptr inbounds ptr, ptr %2, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !82
-  %35 = tail call i64 @strtol(ptr noundef nonnull captures(none) %34, ptr noundef null, i32 noundef 10) #12
+  %35 = tail call i64 @strtol(ptr noundef nonnull captures(none) %34, ptr noundef null, i32 noundef 10) #14
   %36 = trunc i64 %35 to i32
   %37 = add nsw i32 %29, 1
   store i32 %37, ptr @globalUtilOptind, align 4, !tbaa !81
@@ -1950,7 +1950,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDumpGen(ptr noundef readonly cap
 
 57:                                               ; preds = %53, %49
   %.043 = phi ptr [ %56, %53 ], [ null, %49 ]
-  tail call void @Abc_SclDumpGenlib(ptr noundef %.043, ptr noundef nonnull %43, float noundef %.040.ph, float noundef %.037.ph129, i32 noundef %.035.ph133) #12
+  tail call void @Abc_SclDumpGenlib(ptr noundef %.043, ptr noundef nonnull %43, float noundef %.040.ph, float noundef %.037.ph129, i32 noundef %.035.ph133) #14
   br label %78
 
 .loopexit:                                        ; preds = %20, %4, %31, %9, %45, %30, %19, %8
@@ -1964,16 +1964,16 @@ define internal range(i32 0, 2) i32 @Scl_CommandDumpGen(ptr noundef readonly cap
   %62 = tail call i64 @fwrite(ptr nonnull @.str.85, i64 47, i64 1, ptr %61)
   %63 = load ptr, ptr %58, align 8, !tbaa !84
   %64 = fpext float %.141 to double
-  %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef nonnull @.str.34, double noundef %64) #12
+  %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef nonnull @.str.34, double noundef %64) #14
   %66 = load ptr, ptr %58, align 8, !tbaa !84
   %67 = fpext float %.138 to double
-  %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.35, double noundef %67) #12
+  %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.35, double noundef %67) #14
   %69 = load ptr, ptr %58, align 8, !tbaa !84
-  %70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.36, i32 noundef %.136) #12
+  %70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.36, i32 noundef %.136) #14
   %71 = load ptr, ptr %58, align 8, !tbaa !84
   %.not53 = icmp eq i32 %.0, 0
   %72 = select i1 %.not53, ptr @.str.40, ptr @.str.39
-  %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.74, ptr noundef nonnull %72) #12
+  %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.74, ptr noundef nonnull %72) #14
   %74 = load ptr, ptr %58, align 8, !tbaa !84
   %75 = tail call i64 @fwrite(ptr nonnull @.str.86, i64 36, i64 1, ptr %74)
   %76 = load ptr, ptr %58, align 8, !tbaa !84
@@ -1987,13 +1987,13 @@ define internal range(i32 0, 2) i32 @Scl_CommandDumpGen(ptr noundef readonly cap
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Scl_CommandPrintGS(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
-  tail call void (...) @Extra_UtilGetoptReset() #12
-  %4 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.53) #12
+  tail call void (...) @Extra_UtilGetoptReset() #14
+  %4 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.53) #14
   %.not = icmp eq i32 %4, -1
   br i1 %.not, label %5, label %29
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
+  %6 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #14
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %12
 
@@ -2004,7 +2004,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintGS(ptr noundef %0, i32 noun
   br label %37
 
 12:                                               ; preds = %5
-  %13 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
+  %13 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #14
   %14 = getelementptr i8, ptr %13, i64 4
   %.val = load i32, ptr %14, align 4, !tbaa !92
   %.not15 = icmp eq i32 %.val, 4
@@ -2029,8 +2029,8 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintGS(ptr noundef %0, i32 noun
   br label %37
 
 27:                                               ; preds = %19
-  %28 = tail call ptr @Abc_FrameReadNtk(ptr noundef nonnull %0) #12
-  tail call void @Abc_SclPrintGateSizes(ptr noundef nonnull %21, ptr noundef %28) #12
+  %28 = tail call ptr @Abc_FrameReadNtk(ptr noundef nonnull %0) #14
+  tail call void @Abc_SclPrintGateSizes(ptr noundef nonnull %21, ptr noundef %28) #14
   br label %37
 
 29:                                               ; preds = %3
@@ -2050,7 +2050,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintGS(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Scl_CommandStime(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
-  tail call void (...) @Extra_UtilGetoptReset() #12
+  tail call void (...) @Extra_UtilGetoptReset() #14
   br label %.outer
 
 .outer:                                           ; preds = %19, %3
@@ -2081,7 +2081,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandStime(ptr noundef %0, i32 nounde
 
 4:                                                ; preds = %.outer128, %9
   %.0 = phi i32 [ %14, %9 ], [ %.0.ph130, %.outer128 ]
-  %5 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.92) #12
+  %5 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.92) #14
   switch i32 %5, label %.loopexit [
     i32 -1, label %25
     i32 88, label %6
@@ -2104,7 +2104,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandStime(ptr noundef %0, i32 nounde
   %10 = sext i32 %7 to i64
   %11 = getelementptr inbounds ptr, ptr %2, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !82
-  %13 = tail call i64 @strtol(ptr noundef nonnull captures(none) %12, ptr noundef null, i32 noundef 10) #12
+  %13 = tail call i64 @strtol(ptr noundef nonnull captures(none) %12, ptr noundef null, i32 noundef 10) #14
   %14 = trunc i64 %13 to i32
   %15 = add nsw i32 %7, 1
   store i32 %15, ptr @globalUtilOptind, align 4, !tbaa !81
@@ -2128,7 +2128,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandStime(ptr noundef %0, i32 nounde
   br label %.outer128, !llvm.loop !99
 
 25:                                               ; preds = %4
-  %26 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
+  %26 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #14
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %32
 
@@ -2139,7 +2139,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandStime(ptr noundef %0, i32 nounde
   br label %77
 
 32:                                               ; preds = %25
-  %33 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
+  %33 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #14
   %34 = getelementptr i8, ptr %33, i64 4
   %.val = load i32, ptr %34, align 4, !tbaa !92
   %.not = icmp eq i32 %.val, 4
@@ -2152,8 +2152,8 @@ define internal range(i32 0, 2) i32 @Scl_CommandStime(ptr noundef %0, i32 nounde
   br label %77
 
 39:                                               ; preds = %32
-  %40 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
-  %41 = tail call i32 @Abc_SclCheckNtk(ptr noundef %40, i32 noundef 0) #12
+  %40 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #14
+  %41 = tail call i32 @Abc_SclCheckNtk(ptr noundef %40, i32 noundef 0) #14
   %.not53 = icmp eq i32 %41, 0
   br i1 %.not53, label %42, label %46
 
@@ -2176,8 +2176,8 @@ define internal range(i32 0, 2) i32 @Scl_CommandStime(ptr noundef %0, i32 nounde
   br label %77
 
 54:                                               ; preds = %46
-  %55 = tail call ptr @Abc_FrameReadNtk(ptr noundef nonnull %0) #12
-  tail call void @Abc_SclTimePerform(ptr noundef nonnull %48, ptr noundef %55, i32 noundef %.0, i32 noundef %.042.ph120, i32 noundef %.044.ph, i32 noundef %.040.ph125, i32 noundef %.038.ph129) #12
+  %55 = tail call ptr @Abc_FrameReadNtk(ptr noundef nonnull %0) #14
+  tail call void @Abc_SclTimePerform(ptr noundef nonnull %48, ptr noundef %55, i32 noundef %.0, i32 noundef %.042.ph120, i32 noundef %.044.ph, i32 noundef %.040.ph125, i32 noundef %.038.ph129) #14
   br label %77
 
 .loopexit:                                        ; preds = %4, %9, %8
@@ -2188,23 +2188,23 @@ define internal range(i32 0, 2) i32 @Scl_CommandStime(ptr noundef %0, i32 nounde
   %59 = load ptr, ptr %56, align 8, !tbaa !84
   %60 = tail call i64 @fwrite(ptr nonnull @.str.96, i64 45, i64 1, ptr %59)
   %61 = load ptr, ptr %56, align 8, !tbaa !84
-  %62 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.97, i32 noundef %.1) #12
+  %62 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.97, i32 noundef %.1) #14
   %63 = load ptr, ptr %56, align 8, !tbaa !84
   %.not55 = icmp eq i32 %.042.ph120, 0
   %64 = select i1 %.not55, ptr @.str.40, ptr @.str.39
-  %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef nonnull @.str.98, ptr noundef nonnull %64) #12
+  %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef nonnull @.str.98, ptr noundef nonnull %64) #14
   %66 = load ptr, ptr %56, align 8, !tbaa !84
   %.not56 = icmp eq i32 %.044.ph, 0
   %67 = select i1 %.not56, ptr @.str.40, ptr @.str.39
-  %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.99, ptr noundef nonnull %67) #12
+  %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.99, ptr noundef nonnull %67) #14
   %69 = load ptr, ptr %56, align 8, !tbaa !84
   %.not57 = icmp eq i32 %.040.ph125, 0
   %70 = select i1 %.not57, ptr @.str.40, ptr @.str.39
-  %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.100, ptr noundef nonnull %70) #12
+  %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.100, ptr noundef nonnull %70) #14
   %72 = load ptr, ptr %56, align 8, !tbaa !84
   %.not58 = icmp eq i32 %.038.ph129, 0
   %73 = select i1 %.not58, ptr @.str.40, ptr @.str.39
-  %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %72, ptr noundef nonnull @.str.101, ptr noundef nonnull %73) #12
+  %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %72, ptr noundef nonnull @.str.101, ptr noundef nonnull %73) #14
   %75 = load ptr, ptr %56, align 8, !tbaa !84
   %76 = tail call i64 @fwrite(ptr nonnull @.str.59, i64 33, i64 1, ptr %75)
   br label %77
@@ -2216,13 +2216,13 @@ define internal range(i32 0, 2) i32 @Scl_CommandStime(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Scl_CommandTopo(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
-  %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
-  tail call void (...) @Extra_UtilGetoptReset() #12
+  %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #14
+  tail call void (...) @Extra_UtilGetoptReset() #14
   br label %5
 
 5:                                                ; preds = %7, %3
   %.0 = phi i32 [ 0, %3 ], [ %8, %7 ]
-  %6 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.102) #12
+  %6 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.102) #14
   switch i32 %6, label %19 [
     i32 -1, label %9
     i32 118, label %7
@@ -2250,7 +2250,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandTopo(ptr noundef %0, i32 noundef
   br label %30
 
 14:                                               ; preds = %12
-  %15 = tail call ptr @Abc_NtkDupDfs(ptr noundef nonnull %4) #12
+  %15 = tail call ptr @Abc_NtkDupDfs(ptr noundef nonnull %4) #14
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %18
 
@@ -2259,7 +2259,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandTopo(ptr noundef %0, i32 noundef
   br label %30
 
 18:                                               ; preds = %14
-  tail call void @Abc_FrameReplaceCurrentNetwork(ptr noundef %0, ptr noundef nonnull %15) #12
+  tail call void @Abc_FrameReplaceCurrentNetwork(ptr noundef %0, ptr noundef nonnull %15) #14
   br label %30
 
 19:                                               ; preds = %5
@@ -2271,7 +2271,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandTopo(ptr noundef %0, i32 noundef
   %25 = load ptr, ptr %20, align 8, !tbaa !84
   %.not21 = icmp eq i32 %.0, 0
   %26 = select i1 %.not21, ptr @.str.40, ptr @.str.39
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.74, ptr noundef nonnull %26) #12
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.74, ptr noundef nonnull %26) #14
   %28 = load ptr, ptr %20, align 8, !tbaa !84
   %29 = tail call i64 @fwrite(ptr nonnull @.str.86, i64 36, i64 1, ptr %28)
   br label %30
@@ -2283,8 +2283,8 @@ define internal range(i32 0, 2) i32 @Scl_CommandTopo(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Scl_CommandUnBuffer(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
-  %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
-  tail call void (...) @Extra_UtilGetoptReset() #12
+  %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #14
+  tail call void (...) @Extra_UtilGetoptReset() #14
   br label %.outer
 
 .outer:                                           ; preds = %7, %3
@@ -2294,7 +2294,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUnBuffer(ptr noundef %0, i32 nou
 
 5:                                                ; preds = %.outer, %9
   %.0 = phi i32 [ %10, %9 ], [ %.0.ph, %.outer ]
-  %6 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.108) #12
+  %6 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.108) #14
   switch i32 %6, label %31 [
     i32 -1, label %11
     i32 105, label %7
@@ -2335,11 +2335,11 @@ define internal range(i32 0, 2) i32 @Scl_CommandUnBuffer(ptr noundef %0, i32 nou
   br i1 %.not32, label %25, label %23
 
 23:                                               ; preds = %22
-  %24 = tail call ptr @Abc_SclUnBufferPhase(ptr noundef nonnull %4, i32 noundef %.0) #12
+  %24 = tail call ptr @Abc_SclUnBufferPhase(ptr noundef nonnull %4, i32 noundef %.0) #14
   br label %27
 
 25:                                               ; preds = %22
-  %26 = tail call ptr @Abc_SclUnBufferPerform(ptr noundef nonnull %4, i32 noundef %.0) #12
+  %26 = tail call ptr @Abc_SclUnBufferPerform(ptr noundef nonnull %4, i32 noundef %.0) #14
   br label %27
 
 27:                                               ; preds = %25, %23
@@ -2352,7 +2352,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUnBuffer(ptr noundef %0, i32 nou
   br label %45
 
 30:                                               ; preds = %27
-  tail call void @Abc_FrameReplaceCurrentNetwork(ptr noundef %0, ptr noundef nonnull %.028) #12
+  tail call void @Abc_FrameReplaceCurrentNetwork(ptr noundef %0, ptr noundef nonnull %.028) #14
   br label %45
 
 31:                                               ; preds = %5
@@ -2364,11 +2364,11 @@ define internal range(i32 0, 2) i32 @Scl_CommandUnBuffer(ptr noundef %0, i32 nou
   %37 = load ptr, ptr %32, align 8, !tbaa !84
   %.not33 = icmp eq i32 %.025.ph, 0
   %38 = select i1 %.not33, ptr @.str.40, ptr @.str.39
-  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.112, ptr noundef nonnull %38) #12
+  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.112, ptr noundef nonnull %38) #14
   %40 = load ptr, ptr %32, align 8, !tbaa !84
   %.not34 = icmp eq i32 %.0, 0
   %41 = select i1 %.not34, ptr @.str.40, ptr @.str.39
-  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.74, ptr noundef nonnull %41) #12
+  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.74, ptr noundef nonnull %41) #14
   %43 = load ptr, ptr %32, align 8, !tbaa !84
   %44 = tail call i64 @fwrite(ptr nonnull @.str.86, i64 36, i64 1, ptr %43)
   br label %45
@@ -2382,7 +2382,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUnBuffer(ptr noundef %0, i32 nou
 define internal range(i32 0, 2) i32 @Scl_CommandBuffer(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.SC_BusPars_, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
+  %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %4, i8 0, i64 36, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %7 = load ptr, ptr %6, align 8, !tbaa !85
@@ -2390,7 +2390,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandBuffer(ptr noundef %0, i32 nound
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %3
-  %9 = tail call float @Abc_SclComputeAverageSlew(ptr noundef nonnull %7) #12
+  %9 = tail call float @Abc_SclComputeAverageSlew(ptr noundef nonnull %7) #14
   %10 = fptosi float %9 to i32
   br label %11
 
@@ -2404,7 +2404,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandBuffer(ptr noundef %0, i32 nound
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  tail call void (...) @Extra_UtilGetoptReset() #12
+  tail call void (...) @Extra_UtilGetoptReset() #14
   br label %21
 
 21:                                               ; preds = %.backedge, %11
@@ -2417,7 +2417,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandBuffer(ptr noundef %0, i32 nound
   %28 = phi i32 [ 0, %11 ], [ %.be284, %.backedge ]
   %29 = phi i32 [ 0, %11 ], [ %.be285, %.backedge ]
   %30 = phi i32 [ 0, %11 ], [ %.be286, %.backedge ]
-  %31 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.113) #12
+  %31 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.113) #14
   switch i32 %31, label %.loopexit [
     i32 -1, label %77
     i32 71, label %32
@@ -2440,7 +2440,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandBuffer(ptr noundef %0, i32 nound
   %35 = sext i32 %33 to i64
   %36 = getelementptr inbounds ptr, ptr %2, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !82
-  %38 = tail call i64 @strtol(ptr noundef nonnull captures(none) %37, ptr noundef null, i32 noundef 10) #12
+  %38 = tail call i64 @strtol(ptr noundef nonnull captures(none) %37, ptr noundef null, i32 noundef 10) #14
   %39 = trunc i64 %38 to i32
   %40 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
   %41 = add nsw i32 %40, 1
@@ -2457,7 +2457,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandBuffer(ptr noundef %0, i32 nound
   %46 = sext i32 %44 to i64
   %47 = getelementptr inbounds ptr, ptr %2, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !82
-  %49 = tail call i64 @strtol(ptr noundef nonnull captures(none) %48, ptr noundef null, i32 noundef 10) #12
+  %49 = tail call i64 @strtol(ptr noundef nonnull captures(none) %48, ptr noundef null, i32 noundef 10) #14
   %50 = trunc i64 %49 to i32
   %51 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
   %52 = add nsw i32 %51, 1
@@ -2474,7 +2474,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandBuffer(ptr noundef %0, i32 nound
   %57 = sext i32 %55 to i64
   %58 = getelementptr inbounds ptr, ptr %2, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !82
-  %60 = tail call i64 @strtol(ptr noundef nonnull captures(none) %59, ptr noundef null, i32 noundef 10) #12
+  %60 = tail call i64 @strtol(ptr noundef nonnull captures(none) %59, ptr noundef null, i32 noundef 10) #14
   %61 = trunc i64 %60 to i32
   %62 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
   %63 = add nsw i32 %62, 1
@@ -2566,7 +2566,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandBuffer(ptr noundef %0, i32 nound
   br i1 %.not80, label %92, label %90
 
 90:                                               ; preds = %88
-  %91 = tail call i32 @Abc_SclHasDelayInfo(ptr noundef nonnull %89) #12
+  %91 = tail call i32 @Abc_SclHasDelayInfo(ptr noundef nonnull %89) #14
   %.not81 = icmp eq i32 %91, 0
   br i1 %.not81, label %92, label %93
 
@@ -2576,7 +2576,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandBuffer(ptr noundef %0, i32 nound
 
 93:                                               ; preds = %90
   %94 = load ptr, ptr %6, align 8, !tbaa !85
-  %95 = call ptr @Abc_SclBufferingPerform(ptr noundef nonnull %5, ptr noundef %94, ptr noundef nonnull %4) #12
+  %95 = call ptr @Abc_SclBufferingPerform(ptr noundef nonnull %5, ptr noundef %94, ptr noundef nonnull %4) #14
   %96 = icmp eq ptr %95, null
   br i1 %96, label %97, label %98
 
@@ -2585,7 +2585,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandBuffer(ptr noundef %0, i32 nound
   br label %133
 
 98:                                               ; preds = %93
-  call void @Abc_FrameReplaceCurrentNetwork(ptr noundef nonnull %0, ptr noundef nonnull %95) #12
+  call void @Abc_FrameReplaceCurrentNetwork(ptr noundef nonnull %0, ptr noundef nonnull %95) #14
   br label %133
 
 .loopexit.sink.split:                             ; preds = %54, %43, %32
@@ -2603,35 +2603,35 @@ define internal range(i32 0, 2) i32 @Scl_CommandBuffer(ptr noundef %0, i32 nound
   %105 = load ptr, ptr %102, align 8, !tbaa !84
   %106 = tail call i64 @fwrite(ptr nonnull @.str.120, i64 60, i64 1, ptr %105)
   %107 = load ptr, ptr %102, align 8, !tbaa !84
-  %108 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef nonnull @.str.121, i32 noundef %101) #12
+  %108 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef nonnull @.str.121, i32 noundef %101) #14
   %109 = load ptr, ptr %102, align 8, !tbaa !84
-  %110 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef nonnull @.str.122, i32 noundef %100) #12
+  %110 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef nonnull @.str.122, i32 noundef %100) #14
   %111 = load ptr, ptr %102, align 8, !tbaa !84
-  %112 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %111, ptr noundef nonnull @.str.123, i32 noundef %99) #12
+  %112 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %111, ptr noundef nonnull @.str.123, i32 noundef %99) #14
   %113 = load ptr, ptr %102, align 8, !tbaa !84
   %.not85 = icmp eq i32 %25, 0
   %114 = select i1 %.not85, ptr @.str.40, ptr @.str.39
-  %115 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef nonnull @.str.124, ptr noundef nonnull %114) #12
+  %115 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef nonnull @.str.124, ptr noundef nonnull %114) #14
   %116 = load ptr, ptr %102, align 8, !tbaa !84
   %.not86 = icmp eq i32 %26, 0
   %117 = select i1 %.not86, ptr @.str.40, ptr @.str.39
-  %118 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %116, ptr noundef nonnull @.str.125, ptr noundef nonnull %117) #12
+  %118 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %116, ptr noundef nonnull @.str.125, ptr noundef nonnull %117) #14
   %119 = load ptr, ptr %102, align 8, !tbaa !84
   %.not87 = icmp eq i32 %27, 0
   %120 = select i1 %.not87, ptr @.str.40, ptr @.str.39
-  %121 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %119, ptr noundef nonnull @.str.126, ptr noundef nonnull %120) #12
+  %121 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %119, ptr noundef nonnull @.str.126, ptr noundef nonnull %120) #14
   %122 = load ptr, ptr %102, align 8, !tbaa !84
   %.not88 = icmp eq i32 %28, 0
   %123 = select i1 %.not88, ptr @.str.40, ptr @.str.39
-  %124 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef nonnull @.str.127, ptr noundef nonnull %123) #12
+  %124 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef nonnull @.str.127, ptr noundef nonnull %123) #14
   %125 = load ptr, ptr %102, align 8, !tbaa !84
   %.not89 = icmp eq i32 %29, 0
   %126 = select i1 %.not89, ptr @.str.40, ptr @.str.39
-  %127 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %125, ptr noundef nonnull @.str.74, ptr noundef nonnull %126) #12
+  %127 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %125, ptr noundef nonnull @.str.74, ptr noundef nonnull %126) #14
   %128 = load ptr, ptr %102, align 8, !tbaa !84
   %.not90 = icmp eq i32 %30, 0
   %129 = select i1 %.not90, ptr @.str.40, ptr @.str.39
-  %130 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %128, ptr noundef nonnull @.str.128, ptr noundef nonnull %129) #12
+  %130 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %128, ptr noundef nonnull @.str.128, ptr noundef nonnull %129) #14
   %131 = load ptr, ptr %102, align 8, !tbaa !84
   %132 = tail call i64 @fwrite(ptr nonnull @.str.86, i64 36, i64 1, ptr %131)
   br label %133
@@ -2644,13 +2644,13 @@ define internal range(i32 0, 2) i32 @Scl_CommandBuffer(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Scl_CommandMinsize(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
-  %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
-  tail call void (...) @Extra_UtilGetoptReset() #12
+  %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #14
+  tail call void (...) @Extra_UtilGetoptReset() #14
   br label %5
 
 5:                                                ; preds = %7, %3
   %.0 = phi i32 [ 0, %3 ], [ %8, %7 ]
-  %6 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.102) #12
+  %6 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.102) #14
   switch i32 %6, label %39 [
     i32 -1, label %9
     i32 118, label %7
@@ -2661,7 +2661,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandMinsize(ptr noundef %0, i32 noun
   br label %5, !llvm.loop !105
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
+  %10 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #14
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %16
 
@@ -2672,7 +2672,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandMinsize(ptr noundef %0, i32 noun
   br label %50
 
 16:                                               ; preds = %9
-  %17 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
+  %17 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #14
   %18 = getelementptr i8, ptr %17, i64 4
   %.val = load i32, ptr %18, align 4, !tbaa !92
   %.not = icmp eq i32 %.val, 4
@@ -2685,8 +2685,8 @@ define internal range(i32 0, 2) i32 @Scl_CommandMinsize(ptr noundef %0, i32 noun
   br label %50
 
 23:                                               ; preds = %16
-  %24 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
-  %25 = tail call i32 @Abc_SclCheckNtk(ptr noundef %24, i32 noundef 0) #12
+  %24 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #14
+  %25 = tail call i32 @Abc_SclCheckNtk(ptr noundef %24, i32 noundef 0) #14
   %.not25 = icmp eq i32 %25, 0
   br i1 %.not25, label %26, label %30
 
@@ -2709,7 +2709,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandMinsize(ptr noundef %0, i32 noun
   br label %50
 
 38:                                               ; preds = %30
-  tail call void @Abc_SclMinsizePerform(ptr noundef nonnull %32, ptr noundef %4, i32 noundef 0, i32 noundef %.0) #12
+  tail call void @Abc_SclMinsizePerform(ptr noundef nonnull %32, ptr noundef %4, i32 noundef 0, i32 noundef %.0) #14
   br label %50
 
 39:                                               ; preds = %5
@@ -2721,7 +2721,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandMinsize(ptr noundef %0, i32 noun
   %45 = load ptr, ptr %40, align 8, !tbaa !84
   %.not26 = icmp eq i32 %.0, 0
   %46 = select i1 %.not26, ptr @.str.40, ptr @.str.39
-  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.74, ptr noundef nonnull %46) #12
+  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.74, ptr noundef nonnull %46) #14
   %48 = load ptr, ptr %40, align 8, !tbaa !84
   %49 = tail call i64 @fwrite(ptr nonnull @.str.86, i64 36, i64 1, ptr %48)
   br label %50
@@ -2733,13 +2733,13 @@ define internal range(i32 0, 2) i32 @Scl_CommandMinsize(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Scl_CommandMaxsize(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
-  %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
-  tail call void (...) @Extra_UtilGetoptReset() #12
+  %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #14
+  tail call void (...) @Extra_UtilGetoptReset() #14
   br label %5
 
 5:                                                ; preds = %7, %3
   %.0 = phi i32 [ 0, %3 ], [ %8, %7 ]
-  %6 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.102) #12
+  %6 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.102) #14
   switch i32 %6, label %39 [
     i32 -1, label %9
     i32 118, label %7
@@ -2750,7 +2750,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandMaxsize(ptr noundef %0, i32 noun
   br label %5, !llvm.loop !106
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
+  %10 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #14
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %16
 
@@ -2761,7 +2761,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandMaxsize(ptr noundef %0, i32 noun
   br label %50
 
 16:                                               ; preds = %9
-  %17 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
+  %17 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #14
   %18 = getelementptr i8, ptr %17, i64 4
   %.val = load i32, ptr %18, align 4, !tbaa !92
   %.not = icmp eq i32 %.val, 4
@@ -2774,8 +2774,8 @@ define internal range(i32 0, 2) i32 @Scl_CommandMaxsize(ptr noundef %0, i32 noun
   br label %50
 
 23:                                               ; preds = %16
-  %24 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
-  %25 = tail call i32 @Abc_SclCheckNtk(ptr noundef %24, i32 noundef 0) #12
+  %24 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #14
+  %25 = tail call i32 @Abc_SclCheckNtk(ptr noundef %24, i32 noundef 0) #14
   %.not25 = icmp eq i32 %25, 0
   br i1 %.not25, label %26, label %30
 
@@ -2798,7 +2798,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandMaxsize(ptr noundef %0, i32 noun
   br label %50
 
 38:                                               ; preds = %30
-  tail call void @Abc_SclMinsizePerform(ptr noundef nonnull %32, ptr noundef %4, i32 noundef 1, i32 noundef %.0) #12
+  tail call void @Abc_SclMinsizePerform(ptr noundef nonnull %32, ptr noundef %4, i32 noundef 1, i32 noundef %.0) #14
   br label %50
 
 39:                                               ; preds = %5
@@ -2810,7 +2810,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandMaxsize(ptr noundef %0, i32 noun
   %45 = load ptr, ptr %40, align 8, !tbaa !84
   %.not26 = icmp eq i32 %.0, 0
   %46 = select i1 %.not26, ptr @.str.40, ptr @.str.39
-  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.74, ptr noundef nonnull %46) #12
+  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.74, ptr noundef nonnull %46) #14
   %48 = load ptr, ptr %40, align 8, !tbaa !84
   %49 = tail call i64 @fwrite(ptr nonnull @.str.86, i64 36, i64 1, ptr %48)
   br label %50
@@ -2824,7 +2824,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandMaxsize(ptr noundef %0, i32 noun
 define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.SC_SizePars_, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
+  %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #14
   store i32 1000, ptr %4, align 4, !tbaa !107
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 50, ptr %6, align 4, !tbaa !109
@@ -2847,7 +2847,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 52
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %17, i8 0, i64 12, i1 false)
-  tail call void (...) @Extra_UtilGetoptReset() #12
+  tail call void (...) @Extra_UtilGetoptReset() #14
   %.promoted = load i32, ptr %15, align 4
   %.promoted445 = load i32, ptr %14, align 4
   %.promoted457 = load i32, ptr %13, align 4
@@ -2877,7 +2877,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   %39 = phi i32 [ 0, %3 ], [ %.be762, %.backedge ]
   %40 = phi i32 [ 0, %3 ], [ %.be763, %.backedge ]
   %41 = phi i32 [ 0, %3 ], [ %.be764, %.backedge ]
-  %42 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.133) #12
+  %42 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.133) #14
   switch i32 %42, label %.loopexit [
     i32 -1, label %172
     i32 73, label %43
@@ -2916,7 +2916,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   %47 = sext i32 %44 to i64
   %48 = getelementptr inbounds ptr, ptr %2, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !82
-  %50 = tail call i64 @strtol(ptr noundef nonnull captures(none) %49, ptr noundef null, i32 noundef 10) #12
+  %50 = tail call i64 @strtol(ptr noundef nonnull captures(none) %49, ptr noundef null, i32 noundef 10) #14
   %51 = trunc i64 %50 to i32
   store i32 %51, ptr %4, align 4, !tbaa !107
   %52 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
@@ -2944,7 +2944,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   %59 = sext i32 %56 to i64
   %60 = getelementptr inbounds ptr, ptr %2, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !82
-  %62 = tail call i64 @strtol(ptr noundef nonnull captures(none) %61, ptr noundef null, i32 noundef 10) #12
+  %62 = tail call i64 @strtol(ptr noundef nonnull captures(none) %61, ptr noundef null, i32 noundef 10) #14
   %63 = trunc i64 %62 to i32
   store i32 %63, ptr %6, align 4, !tbaa !109
   %64 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
@@ -2972,7 +2972,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   %71 = sext i32 %68 to i64
   %72 = getelementptr inbounds ptr, ptr %2, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !82
-  %74 = tail call i64 @strtol(ptr noundef nonnull captures(none) %73, ptr noundef null, i32 noundef 10) #12
+  %74 = tail call i64 @strtol(ptr noundef nonnull captures(none) %73, ptr noundef null, i32 noundef 10) #14
   %75 = trunc i64 %74 to i32
   store i32 %75, ptr %7, align 4, !tbaa !110
   %76 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
@@ -3000,7 +3000,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   %83 = sext i32 %80 to i64
   %84 = getelementptr inbounds ptr, ptr %2, i64 %83
   %85 = load ptr, ptr %84, align 8, !tbaa !82
-  %86 = tail call i64 @strtol(ptr noundef nonnull captures(none) %85, ptr noundef null, i32 noundef 10) #12
+  %86 = tail call i64 @strtol(ptr noundef nonnull captures(none) %85, ptr noundef null, i32 noundef 10) #14
   %87 = trunc i64 %86 to i32
   store i32 %87, ptr %8, align 4, !tbaa !111
   %88 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
@@ -3028,7 +3028,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   %95 = sext i32 %92 to i64
   %96 = getelementptr inbounds ptr, ptr %2, i64 %95
   %97 = load ptr, ptr %96, align 8, !tbaa !82
-  %98 = tail call i64 @strtol(ptr noundef nonnull captures(none) %97, ptr noundef null, i32 noundef 10) #12
+  %98 = tail call i64 @strtol(ptr noundef nonnull captures(none) %97, ptr noundef null, i32 noundef 10) #14
   %99 = trunc i64 %98 to i32
   store i32 %99, ptr %9, align 4, !tbaa !112
   %100 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
@@ -3056,7 +3056,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   %107 = sext i32 %104 to i64
   %108 = getelementptr inbounds ptr, ptr %2, i64 %107
   %109 = load ptr, ptr %108, align 8, !tbaa !82
-  %110 = tail call i64 @strtol(ptr noundef nonnull captures(none) %109, ptr noundef null, i32 noundef 10) #12
+  %110 = tail call i64 @strtol(ptr noundef nonnull captures(none) %109, ptr noundef null, i32 noundef 10) #14
   %111 = trunc i64 %110 to i32
   store i32 %111, ptr %10, align 4, !tbaa !114
   %112 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
@@ -3084,7 +3084,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   %119 = sext i32 %116 to i64
   %120 = getelementptr inbounds ptr, ptr %2, i64 %119
   %121 = load ptr, ptr %120, align 8, !tbaa !82
-  %122 = tail call i64 @strtol(ptr noundef nonnull captures(none) %121, ptr noundef null, i32 noundef 10) #12
+  %122 = tail call i64 @strtol(ptr noundef nonnull captures(none) %121, ptr noundef null, i32 noundef 10) #14
   %123 = trunc i64 %122 to i32
   %124 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
   %125 = add nsw i32 %124, 1
@@ -3110,7 +3110,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   %130 = sext i32 %127 to i64
   %131 = getelementptr inbounds ptr, ptr %2, i64 %130
   %132 = load ptr, ptr %131, align 8, !tbaa !82
-  %133 = tail call i64 @strtol(ptr noundef nonnull captures(none) %132, ptr noundef null, i32 noundef 10) #12
+  %133 = tail call i64 @strtol(ptr noundef nonnull captures(none) %132, ptr noundef null, i32 noundef 10) #14
   %134 = trunc i64 %133 to i32
   %135 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
   %136 = add nsw i32 %135, 1
@@ -3137,7 +3137,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   %142 = sext i32 %139 to i64
   %143 = getelementptr inbounds ptr, ptr %2, i64 %142
   %144 = load ptr, ptr %143, align 8, !tbaa !82
-  %145 = tail call i64 @strtol(ptr noundef nonnull captures(none) %144, ptr noundef null, i32 noundef 10) #12
+  %145 = tail call i64 @strtol(ptr noundef nonnull captures(none) %144, ptr noundef null, i32 noundef 10) #14
   %146 = trunc i64 %145 to i32
   %147 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
   %148 = add nsw i32 %147, 1
@@ -3164,7 +3164,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   %154 = sext i32 %151 to i64
   %155 = getelementptr inbounds ptr, ptr %2, i64 %154
   %156 = load ptr, ptr %155, align 8, !tbaa !82
-  %157 = tail call i64 @strtol(ptr noundef nonnull captures(none) %156, ptr noundef null, i32 noundef 10) #12
+  %157 = tail call i64 @strtol(ptr noundef nonnull captures(none) %156, ptr noundef null, i32 noundef 10) #14
   %158 = trunc i64 %157 to i32
   %159 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
   %160 = add nsw i32 %159, 1
@@ -3226,7 +3226,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   store i32 %41, ptr %19, align 4
   store i32 %40, ptr %18, align 4
   store i32 %39, ptr %17, align 4
-  %173 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
+  %173 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #14
   %174 = icmp eq ptr %173, null
   br i1 %174, label %175, label %179
 
@@ -3237,7 +3237,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   br label %265
 
 179:                                              ; preds = %172
-  %180 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
+  %180 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #14
   %181 = getelementptr i8, ptr %180, i64 4
   %.val = load i32, ptr %181, align 4, !tbaa !92
   %.not = icmp eq i32 %.val, 4
@@ -3250,8 +3250,8 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   br label %265
 
 186:                                              ; preds = %179
-  %187 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
-  %188 = tail call i32 @Abc_SclCheckNtk(ptr noundef %187, i32 noundef 0) #12
+  %187 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #14
+  %188 = tail call i32 @Abc_SclCheckNtk(ptr noundef %187, i32 noundef 0) #14
   %.not121 = icmp eq i32 %188, 0
   br i1 %.not121, label %189, label %193
 
@@ -3268,7 +3268,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   br i1 %.not122, label %198, label %196
 
 196:                                              ; preds = %193
-  %197 = tail call i32 @Abc_SclHasDelayInfo(ptr noundef nonnull %195) #12
+  %197 = tail call i32 @Abc_SclHasDelayInfo(ptr noundef nonnull %195) #14
   %.not123 = icmp eq i32 %197, 0
   br i1 %.not123, label %198, label %199
 
@@ -3278,7 +3278,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
 
 199:                                              ; preds = %196
   %200 = load ptr, ptr %194, align 8, !tbaa !85
-  call void @Abc_SclUpsizePerform(ptr noundef %200, ptr noundef %5, ptr noundef nonnull %4, ptr noundef null) #12
+  call void @Abc_SclUpsizePerform(ptr noundef %200, ptr noundef %5, ptr noundef nonnull %4, ptr noundef null) #14
   br label %265
 
 .loopexit:                                        ; preds = %46, %58, %70, %82, %94, %106, %129, %141, %153, %20
@@ -3318,45 +3318,45 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   %226 = load ptr, ptr %223, align 8, !tbaa !84
   %227 = tail call i64 @fwrite(ptr nonnull @.str.142, i64 66, i64 1, ptr %226)
   %228 = load ptr, ptr %223, align 8, !tbaa !84
-  %229 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %228, ptr noundef nonnull @.str.143, i32 noundef %222) #12
+  %229 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %228, ptr noundef nonnull @.str.143, i32 noundef %222) #14
   %230 = load ptr, ptr %223, align 8, !tbaa !84
-  %231 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %230, ptr noundef nonnull @.str.144, i32 noundef %221) #12
+  %231 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %230, ptr noundef nonnull @.str.144, i32 noundef %221) #14
   %232 = load ptr, ptr %223, align 8, !tbaa !84
-  %233 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %232, ptr noundef nonnull @.str.145, i32 noundef %220) #12
+  %233 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %232, ptr noundef nonnull @.str.145, i32 noundef %220) #14
   %234 = load ptr, ptr %223, align 8, !tbaa !84
-  %235 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %234, ptr noundef nonnull @.str.146, i32 noundef %219) #12
+  %235 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %234, ptr noundef nonnull @.str.146, i32 noundef %219) #14
   %236 = load ptr, ptr %223, align 8, !tbaa !84
-  %237 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %236, ptr noundef nonnull @.str.147, i32 noundef %218) #12
+  %237 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %236, ptr noundef nonnull @.str.147, i32 noundef %218) #14
   %238 = load ptr, ptr %223, align 8, !tbaa !84
-  %239 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %238, ptr noundef nonnull @.str.148, i32 noundef %217) #12
+  %239 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %238, ptr noundef nonnull @.str.148, i32 noundef %217) #14
   %240 = load ptr, ptr %223, align 8, !tbaa !84
-  %241 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %240, ptr noundef nonnull @.str.149, i32 noundef %30) #12
+  %241 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %240, ptr noundef nonnull @.str.149, i32 noundef %30) #14
   %242 = load ptr, ptr %223, align 8, !tbaa !84
-  %243 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %242, ptr noundef nonnull @.str.150, i32 noundef %216) #12
+  %243 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %242, ptr noundef nonnull @.str.150, i32 noundef %216) #14
   %244 = load ptr, ptr %223, align 8, !tbaa !84
-  %245 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %244, ptr noundef nonnull @.str.151, i32 noundef %215) #12
+  %245 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %244, ptr noundef nonnull @.str.151, i32 noundef %215) #14
   %246 = load ptr, ptr %223, align 8, !tbaa !84
-  %247 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %246, ptr noundef nonnull @.str.152, i32 noundef %214) #12
+  %247 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %246, ptr noundef nonnull @.str.152, i32 noundef %214) #14
   %248 = load ptr, ptr %223, align 8, !tbaa !84
   %.not134 = icmp eq i32 %37, 0
   %249 = select i1 %.not134, ptr @.str.40, ptr @.str.39
-  %250 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %248, ptr noundef nonnull @.str.127, ptr noundef nonnull %249) #12
+  %250 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %248, ptr noundef nonnull @.str.127, ptr noundef nonnull %249) #14
   %251 = load ptr, ptr %223, align 8, !tbaa !84
   %.not135 = icmp eq i32 %38, 0
   %252 = select i1 %.not135, ptr @.str.40, ptr @.str.39
-  %253 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %251, ptr noundef nonnull @.str.153, ptr noundef nonnull %252) #12
+  %253 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %251, ptr noundef nonnull @.str.153, ptr noundef nonnull %252) #14
   %254 = load ptr, ptr %223, align 8, !tbaa !84
   %.not136 = icmp eq i32 %39, 0
   %255 = select i1 %.not136, ptr @.str.40, ptr @.str.39
-  %256 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %254, ptr noundef nonnull @.str.154, ptr noundef nonnull %255) #12
+  %256 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %254, ptr noundef nonnull @.str.154, ptr noundef nonnull %255) #14
   %257 = load ptr, ptr %223, align 8, !tbaa !84
   %.not137 = icmp eq i32 %40, 0
   %258 = select i1 %.not137, ptr @.str.40, ptr @.str.39
-  %259 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %257, ptr noundef nonnull @.str.74, ptr noundef nonnull %258) #12
+  %259 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %257, ptr noundef nonnull @.str.74, ptr noundef nonnull %258) #14
   %260 = load ptr, ptr %223, align 8, !tbaa !84
   %.not138 = icmp eq i32 %41, 0
   %261 = select i1 %.not138, ptr @.str.40, ptr @.str.39
-  %262 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %260, ptr noundef nonnull @.str.128, ptr noundef nonnull %261) #12
+  %262 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %260, ptr noundef nonnull @.str.128, ptr noundef nonnull %261) #14
   %263 = load ptr, ptr %223, align 8, !tbaa !84
   %264 = tail call i64 @fwrite(ptr nonnull @.str.86, i64 36, i64 1, ptr %263)
   br label %265
@@ -3371,7 +3371,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
 define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.SC_SizePars_, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
+  %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #14
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %6, i8 0, i64 52, i1 false)
   store i32 5, ptr %4, align 4, !tbaa !107
@@ -3389,7 +3389,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 52
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  tail call void (...) @Extra_UtilGetoptReset() #12
+  tail call void (...) @Extra_UtilGetoptReset() #14
   %.promoted = load i32, ptr %11, align 4
   %.promoted356 = load i32, ptr %10, align 4
   %.promoted366 = load i32, ptr %9, align 4
@@ -3417,7 +3417,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
   %34 = phi i32 [ 0, %3 ], [ %.be577, %.backedge ]
   %35 = phi i32 [ 0, %3 ], [ %.be578, %.backedge ]
   %36 = phi i32 [ 0, %3 ], [ %.be579, %.backedge ]
-  %37 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.155) #12
+  %37 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.155) #14
   switch i32 %37, label %.loopexit [
     i32 -1, label %131
     i32 73, label %38
@@ -3453,7 +3453,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
   %42 = sext i32 %39 to i64
   %43 = getelementptr inbounds ptr, ptr %2, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !82
-  %45 = tail call i64 @strtol(ptr noundef nonnull captures(none) %44, ptr noundef null, i32 noundef 10) #12
+  %45 = tail call i64 @strtol(ptr noundef nonnull captures(none) %44, ptr noundef null, i32 noundef 10) #14
   %46 = trunc i64 %45 to i32
   %47 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
   %48 = add nsw i32 %47, 1
@@ -3480,7 +3480,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
   %54 = sext i32 %51 to i64
   %55 = getelementptr inbounds ptr, ptr %2, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !82
-  %57 = tail call i64 @strtol(ptr noundef nonnull captures(none) %56, ptr noundef null, i32 noundef 10) #12
+  %57 = tail call i64 @strtol(ptr noundef nonnull captures(none) %56, ptr noundef null, i32 noundef 10) #14
   %58 = trunc i64 %57 to i32
   %59 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
   %60 = add nsw i32 %59, 1
@@ -3507,7 +3507,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
   %66 = sext i32 %63 to i64
   %67 = getelementptr inbounds ptr, ptr %2, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !82
-  %69 = tail call i64 @strtol(ptr noundef nonnull captures(none) %68, ptr noundef null, i32 noundef 10) #12
+  %69 = tail call i64 @strtol(ptr noundef nonnull captures(none) %68, ptr noundef null, i32 noundef 10) #14
   %70 = trunc i64 %69 to i32
   %71 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
   %72 = add nsw i32 %71, 1
@@ -3534,7 +3534,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
   %78 = sext i32 %75 to i64
   %79 = getelementptr inbounds ptr, ptr %2, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !82
-  %81 = tail call i64 @strtol(ptr noundef nonnull captures(none) %80, ptr noundef null, i32 noundef 10) #12
+  %81 = tail call i64 @strtol(ptr noundef nonnull captures(none) %80, ptr noundef null, i32 noundef 10) #14
   %82 = trunc i64 %81 to i32
   %83 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
   %84 = add nsw i32 %83, 1
@@ -3561,7 +3561,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
   %90 = sext i32 %87 to i64
   %91 = getelementptr inbounds ptr, ptr %2, i64 %90
   %92 = load ptr, ptr %91, align 8, !tbaa !82
-  %93 = tail call i64 @strtol(ptr noundef nonnull captures(none) %92, ptr noundef null, i32 noundef 10) #12
+  %93 = tail call i64 @strtol(ptr noundef nonnull captures(none) %92, ptr noundef null, i32 noundef 10) #14
   %94 = trunc i64 %93 to i32
   %95 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
   %96 = add nsw i32 %95, 1
@@ -3587,7 +3587,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
   %101 = sext i32 %98 to i64
   %102 = getelementptr inbounds ptr, ptr %2, i64 %101
   %103 = load ptr, ptr %102, align 8, !tbaa !82
-  %104 = tail call i64 @strtol(ptr noundef nonnull captures(none) %103, ptr noundef null, i32 noundef 10) #12
+  %104 = tail call i64 @strtol(ptr noundef nonnull captures(none) %103, ptr noundef null, i32 noundef 10) #14
   %105 = trunc i64 %104 to i32
   %106 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
   %107 = add nsw i32 %106, 1
@@ -3614,7 +3614,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
   %113 = sext i32 %110 to i64
   %114 = getelementptr inbounds ptr, ptr %2, i64 %113
   %115 = load ptr, ptr %114, align 8, !tbaa !82
-  %116 = tail call i64 @strtol(ptr noundef nonnull captures(none) %115, ptr noundef null, i32 noundef 10) #12
+  %116 = tail call i64 @strtol(ptr noundef nonnull captures(none) %115, ptr noundef null, i32 noundef 10) #14
   %117 = trunc i64 %116 to i32
   %118 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
   %119 = add nsw i32 %118, 1
@@ -3676,7 +3676,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
   store i32 %33, ptr %13, align 4
   store i32 %32, ptr %14, align 4
   store i32 %31, ptr %12, align 4
-  %132 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
+  %132 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #14
   %133 = icmp eq ptr %132, null
   br i1 %133, label %134, label %138
 
@@ -3687,7 +3687,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
   br label %214
 
 138:                                              ; preds = %131
-  %139 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
+  %139 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #14
   %140 = getelementptr i8, ptr %139, i64 4
   %.val = load i32, ptr %140, align 4, !tbaa !92
   %.not = icmp eq i32 %.val, 4
@@ -3700,8 +3700,8 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
   br label %214
 
 145:                                              ; preds = %138
-  %146 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
-  %147 = tail call i32 @Abc_SclCheckNtk(ptr noundef %146, i32 noundef 0) #12
+  %146 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #14
+  %147 = tail call i32 @Abc_SclCheckNtk(ptr noundef %146, i32 noundef 0) #14
   %.not97 = icmp eq i32 %147, 0
   br i1 %.not97, label %148, label %152
 
@@ -3718,7 +3718,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
   br i1 %.not98, label %157, label %155
 
 155:                                              ; preds = %152
-  %156 = tail call i32 @Abc_SclHasDelayInfo(ptr noundef nonnull %154) #12
+  %156 = tail call i32 @Abc_SclHasDelayInfo(ptr noundef nonnull %154) #14
   %.not99 = icmp eq i32 %156, 0
   br i1 %.not99, label %157, label %158
 
@@ -3728,7 +3728,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
 
 158:                                              ; preds = %155
   %159 = load ptr, ptr %153, align 8, !tbaa !85
-  call void @Abc_SclDnsizePerform(ptr noundef %159, ptr noundef %5, ptr noundef nonnull %4, ptr noundef null) #12
+  call void @Abc_SclDnsizePerform(ptr noundef %159, ptr noundef %5, ptr noundef nonnull %4, ptr noundef null) #14
   br label %214
 
 .loopexit:                                        ; preds = %41, %53, %65, %77, %100, %112, %18
@@ -3764,39 +3764,39 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
   %181 = load ptr, ptr %178, align 8, !tbaa !84
   %182 = tail call i64 @fwrite(ptr nonnull @.str.157, i64 69, i64 1, ptr %181)
   %183 = load ptr, ptr %178, align 8, !tbaa !84
-  %184 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %183, ptr noundef nonnull @.str.158, i32 noundef %177) #12
+  %184 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %183, ptr noundef nonnull @.str.158, i32 noundef %177) #14
   %185 = load ptr, ptr %178, align 8, !tbaa !84
-  %186 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %185, ptr noundef nonnull @.str.144, i32 noundef %176) #12
+  %186 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %185, ptr noundef nonnull @.str.144, i32 noundef %176) #14
   %187 = load ptr, ptr %178, align 8, !tbaa !84
-  %188 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %187, ptr noundef nonnull @.str.159, i32 noundef %175) #12
+  %188 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %187, ptr noundef nonnull @.str.159, i32 noundef %175) #14
   %189 = load ptr, ptr %178, align 8, !tbaa !84
-  %190 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %189, ptr noundef nonnull @.str.148, i32 noundef %174) #12
+  %190 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %189, ptr noundef nonnull @.str.148, i32 noundef %174) #14
   %191 = load ptr, ptr %178, align 8, !tbaa !84
-  %192 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %191, ptr noundef nonnull @.str.149, i32 noundef %26) #12
+  %192 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %191, ptr noundef nonnull @.str.149, i32 noundef %26) #14
   %193 = load ptr, ptr %178, align 8, !tbaa !84
-  %194 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %193, ptr noundef nonnull @.str.150, i32 noundef %173) #12
+  %194 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %193, ptr noundef nonnull @.str.150, i32 noundef %173) #14
   %195 = load ptr, ptr %178, align 8, !tbaa !84
-  %196 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %195, ptr noundef nonnull @.str.151, i32 noundef %172) #12
+  %196 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %195, ptr noundef nonnull @.str.151, i32 noundef %172) #14
   %197 = load ptr, ptr %178, align 8, !tbaa !84
   %.not107 = icmp eq i32 %32, 0
   %198 = select i1 %.not107, ptr @.str.40, ptr @.str.39
-  %199 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %197, ptr noundef nonnull @.str.127, ptr noundef nonnull %198) #12
+  %199 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %197, ptr noundef nonnull @.str.127, ptr noundef nonnull %198) #14
   %200 = load ptr, ptr %178, align 8, !tbaa !84
   %.not108 = icmp eq i32 %33, 0
   %201 = select i1 %.not108, ptr @.str.40, ptr @.str.39
-  %202 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %200, ptr noundef nonnull @.str.153, ptr noundef nonnull %201) #12
+  %202 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %200, ptr noundef nonnull @.str.153, ptr noundef nonnull %201) #14
   %203 = load ptr, ptr %178, align 8, !tbaa !84
   %.not109 = icmp eq i32 %34, 0
   %204 = select i1 %.not109, ptr @.str.40, ptr @.str.39
-  %205 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %203, ptr noundef nonnull @.str.154, ptr noundef nonnull %204) #12
+  %205 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %203, ptr noundef nonnull @.str.154, ptr noundef nonnull %204) #14
   %206 = load ptr, ptr %178, align 8, !tbaa !84
   %.not110 = icmp eq i32 %35, 0
   %207 = select i1 %.not110, ptr @.str.40, ptr @.str.39
-  %208 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %206, ptr noundef nonnull @.str.74, ptr noundef nonnull %207) #12
+  %208 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %206, ptr noundef nonnull @.str.74, ptr noundef nonnull %207) #14
   %209 = load ptr, ptr %178, align 8, !tbaa !84
   %.not111 = icmp eq i32 %36, 0
   %210 = select i1 %.not111, ptr @.str.40, ptr @.str.39
-  %211 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %209, ptr noundef nonnull @.str.128, ptr noundef nonnull %210) #12
+  %211 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %209, ptr noundef nonnull @.str.128, ptr noundef nonnull %210) #14
   %212 = load ptr, ptr %178, align 8, !tbaa !84
   %213 = tail call i64 @fwrite(ptr nonnull @.str.86, i64 36, i64 1, ptr %212)
   br label %214
@@ -3809,13 +3809,13 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Scl_CommandPrintBuf(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
-  %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
-  tail call void (...) @Extra_UtilGetoptReset() #12
+  %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #14
+  tail call void (...) @Extra_UtilGetoptReset() #14
   br label %5
 
 5:                                                ; preds = %7, %3
   %.0 = phi i32 [ 0, %3 ], [ %8, %7 ]
-  %6 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.102) #12
+  %6 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.102) #14
   switch i32 %6, label %38 [
     i32 -1, label %9
     i32 118, label %7
@@ -3826,7 +3826,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintBuf(ptr noundef %0, i32 nou
   br label %5, !llvm.loop !118
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
+  %10 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #14
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %16
 
@@ -3837,7 +3837,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintBuf(ptr noundef %0, i32 nou
   br label %49
 
 16:                                               ; preds = %9
-  %17 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
+  %17 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #14
   %18 = getelementptr i8, ptr %17, i64 4
   %.val = load i32, ptr %18, align 4, !tbaa !92
   %.not = icmp eq i32 %.val, 4
@@ -3850,8 +3850,8 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintBuf(ptr noundef %0, i32 nou
   br label %49
 
 23:                                               ; preds = %16
-  %24 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
-  %25 = tail call i32 @Abc_SclCheckNtk(ptr noundef %24, i32 noundef 0) #12
+  %24 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #14
+  %25 = tail call i32 @Abc_SclCheckNtk(ptr noundef %24, i32 noundef 0) #14
   %.not25 = icmp eq i32 %25, 0
   br i1 %.not25, label %26, label %30
 
@@ -3868,7 +3868,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintBuf(ptr noundef %0, i32 nou
   br i1 %.not26, label %35, label %33
 
 33:                                               ; preds = %30
-  %34 = tail call i32 @Abc_SclHasDelayInfo(ptr noundef nonnull %32) #12
+  %34 = tail call i32 @Abc_SclHasDelayInfo(ptr noundef nonnull %32) #14
   %.not27 = icmp eq i32 %34, 0
   br i1 %.not27, label %35, label %36
 
@@ -3878,7 +3878,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintBuf(ptr noundef %0, i32 nou
 
 36:                                               ; preds = %33
   %37 = load ptr, ptr %31, align 8, !tbaa !85
-  tail call void @Abc_SclPrintBuffers(ptr noundef %37, ptr noundef %4, i32 noundef %.0) #12
+  tail call void @Abc_SclPrintBuffers(ptr noundef %37, ptr noundef %4, i32 noundef %.0) #14
   br label %49
 
 38:                                               ; preds = %5
@@ -3890,7 +3890,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintBuf(ptr noundef %0, i32 nou
   %44 = load ptr, ptr %39, align 8, !tbaa !84
   %.not28 = icmp eq i32 %.0, 0
   %45 = select i1 %.not28, ptr @.str.40, ptr @.str.39
-  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.74, ptr noundef nonnull %45) #12
+  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.74, ptr noundef nonnull %45) #14
   %47 = load ptr, ptr %39, align 8, !tbaa !84
   %48 = tail call i64 @fwrite(ptr nonnull @.str.86, i64 36, i64 1, ptr %47)
   br label %49
@@ -3902,13 +3902,13 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintBuf(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Scl_CommandReadConstr(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
-  %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
-  tail call void (...) @Extra_UtilGetoptReset() #12
+  %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #14
+  tail call void (...) @Extra_UtilGetoptReset() #14
   br label %5
 
 5:                                                ; preds = %7, %3
   %.033 = phi i32 [ 0, %3 ], [ %.1, %7 ]
-  %6 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.162) #12
+  %6 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.162) #14
   switch i32 %6, label %.loopexit [
     i32 -1, label %8
     i32 110, label %7
@@ -3936,12 +3936,12 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadConstr(ptr noundef %0, i32 n
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %19 = load ptr, ptr %18, align 8, !tbaa !84
-  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.23, ptr noundef %14) #12
+  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.23, ptr noundef %14) #14
   br label %37
 
 21:                                               ; preds = %11
   %22 = tail call i32 @fclose(ptr noundef nonnull %15)
-  tail call void @Abc_SclReadTimingConstr(ptr noundef %0, ptr noundef %14, i32 noundef %.033) #12
+  tail call void @Abc_SclReadTimingConstr(ptr noundef %0, ptr noundef %14, i32 noundef %.033) #14
   br label %37
 
 .loopexit:                                        ; preds = %5, %8
@@ -3951,11 +3951,11 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadConstr(ptr noundef %0, i32 n
   %26 = load ptr, ptr %23, align 8, !tbaa !84
   %27 = tail call i64 @fwrite(ptr nonnull @.str.164, i64 70, i64 1, ptr %26)
   %28 = load ptr, ptr %23, align 8, !tbaa !84
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.165, ptr noundef nonnull @.str.40) #12
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.165, ptr noundef nonnull @.str.40) #14
   %30 = load ptr, ptr %23, align 8, !tbaa !84
   %.not39 = icmp eq i32 %.033, 0
   %31 = select i1 %.not39, ptr @.str.40, ptr @.str.39
-  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.166, ptr noundef nonnull %31) #12
+  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.166, ptr noundef nonnull %31) #14
   %33 = load ptr, ptr %23, align 8, !tbaa !84
   %34 = tail call i64 @fwrite(ptr nonnull @.str.79, i64 37, i64 1, ptr %33)
   %35 = load ptr, ptr %23, align 8, !tbaa !84
@@ -3971,12 +3971,12 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadConstr(ptr noundef %0, i32 n
 define internal range(i32 0, 2) i32 @Scl_CommandWriteConstr(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 248
   %.val = load ptr, ptr %4, align 8, !tbaa !3
-  tail call void (...) @Extra_UtilGetoptReset() #12
+  tail call void (...) @Extra_UtilGetoptReset() #14
   br label %5
 
 5:                                                ; preds = %7, %3
   %.0 = phi i32 [ 0, %3 ], [ %8, %7 ]
-  %6 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.102) #12
+  %6 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.102) #14
   switch i32 %6, label %31 [
     i32 -1, label %9
     i32 118, label %7
@@ -4012,7 +4012,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandWriteConstr(ptr noundef readonly
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %.val, align 8, !tbaa !121
-  %24 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %23, ptr noundef nonnull @.str.187) #12
+  %24 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %23, ptr noundef nonnull @.str.187) #14
   br label %26
 
 25:                                               ; preds = %20
@@ -4021,8 +4021,8 @@ define internal range(i32 0, 2) i32 @Scl_CommandWriteConstr(ptr noundef readonly
 
 26:                                               ; preds = %22, %16
   %.022 = phi ptr [ %19, %16 ], [ %24, %22 ]
-  %27 = tail call ptr @Extra_FileNameExtension(ptr noundef %.022) #12
-  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(7) @.str.189) #14
+  %27 = tail call ptr @Extra_FileNameExtension(ptr noundef %.022) #14
+  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(7) @.str.189) #16
   %.not26 = icmp eq i32 %28, 0
   br i1 %.not26, label %29, label %30
 
@@ -4043,7 +4043,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandWriteConstr(ptr noundef readonly
   %37 = load ptr, ptr %32, align 8, !tbaa !84
   %.not28 = icmp eq i32 %.0, 0
   %38 = select i1 %.not28, ptr @.str.40, ptr @.str.39
-  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.166, ptr noundef nonnull %38) #12
+  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.166, ptr noundef nonnull %38) #14
   %40 = load ptr, ptr %32, align 8, !tbaa !84
   %41 = tail call i64 @fwrite(ptr nonnull @.str.79, i64 37, i64 1, ptr %40)
   %42 = load ptr, ptr %32, align 8, !tbaa !84
@@ -4059,12 +4059,12 @@ define internal range(i32 0, 2) i32 @Scl_CommandWriteConstr(ptr noundef readonly
 define internal range(i32 0, 2) i32 @Scl_CommandPrintConstr(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 248
   %.val = load ptr, ptr %4, align 8, !tbaa !3
-  tail call void (...) @Extra_UtilGetoptReset() #12
+  tail call void (...) @Extra_UtilGetoptReset() #14
   br label %5
 
 5:                                                ; preds = %7, %3
   %.0 = phi i32 [ 0, %3 ], [ %8, %7 ]
-  %6 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.102) #12
+  %6 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.102) #14
   switch i32 %6, label %11 [
     i32 -1, label %9
     i32 118, label %7
@@ -4091,7 +4091,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintConstr(ptr noundef readonly
   %17 = load ptr, ptr %12, align 8, !tbaa !84
   %.not17 = icmp eq i32 %.0, 0
   %18 = select i1 %.not17, ptr @.str.40, ptr @.str.39
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.166, ptr noundef nonnull %18) #12
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.166, ptr noundef nonnull %18) #14
   %20 = load ptr, ptr %12, align 8, !tbaa !84
   %21 = tail call i64 @fwrite(ptr nonnull @.str.79, i64 37, i64 1, ptr %20)
   %22 = load ptr, ptr %12, align 8, !tbaa !84
@@ -4105,12 +4105,12 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintConstr(ptr noundef readonly
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Scl_CommandResetConstr(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
-  tail call void (...) @Extra_UtilGetoptReset() #12
+  tail call void (...) @Extra_UtilGetoptReset() #14
   br label %4
 
 4:                                                ; preds = %6, %3
   %.0 = phi i32 [ 0, %3 ], [ %7, %6 ]
-  %5 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.102) #12
+  %5 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.102) #14
   switch i32 %5, label %9 [
     i32 -1, label %8
     i32 118, label %6
@@ -4121,8 +4121,8 @@ define internal range(i32 0, 2) i32 @Scl_CommandResetConstr(ptr noundef captures
   br label %4, !llvm.loop !124
 
 8:                                                ; preds = %4
-  tail call void @Abc_FrameSetDrivingCell(ptr noundef null) #12
-  tail call void @Abc_FrameSetMaxLoad(float noundef 0.000000e+00) #12
+  tail call void @Abc_FrameSetDrivingCell(ptr noundef null) #14
+  tail call void @Abc_FrameSetMaxLoad(float noundef 0.000000e+00) #14
   tail call fastcc void @Scl_ConUpdateMan(ptr noundef %0)
   br label %22
 
@@ -4135,7 +4135,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandResetConstr(ptr noundef captures
   %15 = load ptr, ptr %10, align 8, !tbaa !84
   %.not13 = icmp eq i32 %.0, 0
   %16 = select i1 %.not13, ptr @.str.40, ptr @.str.39
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.166, ptr noundef nonnull %16) #12
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.166, ptr noundef nonnull %16) #14
   %18 = load ptr, ptr %10, align 8, !tbaa !84
   %19 = tail call i64 @fwrite(ptr nonnull @.str.79, i64 37, i64 1, ptr %18)
   %20 = load ptr, ptr %10, align 8, !tbaa !84
@@ -4165,7 +4165,7 @@ Abc_SclLoad.exit:                                 ; preds = %1, %4
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @Scl_ConUpdateMan(ptr noundef captures(none) %0) unnamed_addr #2 {
+define internal fastcc void @Scl_ConUpdateMan(ptr noundef captures(none) %0) unnamed_addr #4 {
   %2 = getelementptr i8, ptr %0, i64 248
   %.val = load ptr, ptr %2, align 8, !tbaa !3
   %.not.i = icmp eq ptr %.val, null
@@ -4179,7 +4179,7 @@ define internal fastcc void @Scl_ConUpdateMan(ptr noundef captures(none) %0) unn
   br i1 %.not.i.i.i, label %Vec_PtrErase.exit.i.i, label %7
 
 7:                                                ; preds = %3
-  tail call void @free(ptr noundef nonnull %6) #12
+  tail call void @free(ptr noundef nonnull %6) #14
   store ptr null, ptr %5, align 8, !tbaa !27
   br label %Vec_PtrErase.exit.i.i
 
@@ -4207,7 +4207,7 @@ Vec_PtrErase.exit.i.i:                            ; preds = %7, %3
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %13
-  tail call void @free(ptr noundef %15) #12
+  tail call void @free(ptr noundef %15) #14
   %.val.pre.i.i.i = load i32, ptr %10, align 4, !tbaa !25
   br label %18
 
@@ -4225,7 +4225,7 @@ Vec_PtrFreeData.exit.i.i:                         ; preds = %18, %Vec_PtrErase.e
   br i1 %.not.i25.i.i, label %Vec_PtrErase.exit26.i.i, label %23
 
 23:                                               ; preds = %Vec_PtrFreeData.exit.i.i
-  tail call void @free(ptr noundef nonnull %22) #12
+  tail call void @free(ptr noundef nonnull %22) #14
   store ptr null, ptr %21, align 8, !tbaa !27
   br label %Vec_PtrErase.exit26.i.i
 
@@ -4239,7 +4239,7 @@ Vec_PtrErase.exit26.i.i:                          ; preds = %23, %Vec_PtrFreeDat
   br i1 %.not.i27.i.i, label %Vec_IntErase.exit.i.i, label %27
 
 27:                                               ; preds = %Vec_PtrErase.exit26.i.i
-  tail call void @free(ptr noundef nonnull %26) #12
+  tail call void @free(ptr noundef nonnull %26) #14
   store ptr null, ptr %25, align 8, !tbaa !29
   br label %Vec_IntErase.exit.i.i
 
@@ -4254,7 +4254,7 @@ Vec_IntErase.exit.i.i:                            ; preds = %27, %Vec_PtrErase.e
   br i1 %.not.i28.i.i, label %Vec_IntErase.exit29.i.i, label %32
 
 32:                                               ; preds = %Vec_IntErase.exit.i.i
-  tail call void @free(ptr noundef nonnull %31) #12
+  tail call void @free(ptr noundef nonnull %31) #14
   store ptr null, ptr %30, align 8, !tbaa !29
   br label %Vec_IntErase.exit29.i.i
 
@@ -4269,7 +4269,7 @@ Vec_IntErase.exit29.i.i:                          ; preds = %32, %Vec_IntErase.e
   br i1 %.not.i30.i.i, label %Vec_IntErase.exit31.i.i, label %37
 
 37:                                               ; preds = %Vec_IntErase.exit29.i.i
-  tail call void @free(ptr noundef nonnull %36) #12
+  tail call void @free(ptr noundef nonnull %36) #14
   store ptr null, ptr %35, align 8, !tbaa !29
   br label %Vec_IntErase.exit31.i.i
 
@@ -4284,7 +4284,7 @@ Vec_IntErase.exit31.i.i:                          ; preds = %37, %Vec_IntErase.e
   br i1 %.not.i32.i.i, label %Vec_IntErase.exit33.i.i, label %42
 
 42:                                               ; preds = %Vec_IntErase.exit31.i.i
-  tail call void @free(ptr noundef nonnull %41) #12
+  tail call void @free(ptr noundef nonnull %41) #14
   store ptr null, ptr %40, align 8, !tbaa !29
   br label %Vec_IntErase.exit33.i.i
 
@@ -4299,7 +4299,7 @@ Vec_IntErase.exit33.i.i:                          ; preds = %42, %Vec_IntErase.e
   br i1 %.not.i34.i.i, label %Vec_IntErase.exit35.i.i, label %47
 
 47:                                               ; preds = %Vec_IntErase.exit33.i.i
-  tail call void @free(ptr noundef nonnull %46) #12
+  tail call void @free(ptr noundef nonnull %46) #14
   store ptr null, ptr %45, align 8, !tbaa !29
   br label %Vec_IntErase.exit35.i.i
 
@@ -4309,17 +4309,17 @@ Vec_IntErase.exit35.i.i:                          ; preds = %47, %Vec_IntErase.e
   store i32 0, ptr %44, align 8, !tbaa !32
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 160
   %50 = load ptr, ptr %49, align 8, !tbaa !125
-  tail call void @Abc_NamDeref(ptr noundef %50) #12
+  tail call void @Abc_NamDeref(ptr noundef %50) #14
   %51 = getelementptr inbounds nuw i8, ptr %.val, i64 168
   %52 = load ptr, ptr %51, align 8, !tbaa !126
-  tail call void @Abc_NamDeref(ptr noundef %52) #12
+  tail call void @Abc_NamDeref(ptr noundef %52) #14
   %53 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %54 = load ptr, ptr %53, align 8, !tbaa !127
   %.not.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i, label %56, label %55
 
 55:                                               ; preds = %Vec_IntErase.exit35.i.i
-  tail call void @free(ptr noundef nonnull %54) #12
+  tail call void @free(ptr noundef nonnull %54) #14
   store ptr null, ptr %53, align 8, !tbaa !127
   br label %56
 
@@ -4330,7 +4330,7 @@ Vec_IntErase.exit35.i.i:                          ; preds = %47, %Vec_IntErase.e
   br i1 %.not23.i.i, label %60, label %59
 
 59:                                               ; preds = %56
-  tail call void @free(ptr noundef nonnull %58) #12
+  tail call void @free(ptr noundef nonnull %58) #14
   store ptr null, ptr %57, align 8, !tbaa !128
   br label %60
 
@@ -4340,11 +4340,11 @@ Vec_IntErase.exit35.i.i:                          ; preds = %47, %Vec_IntErase.e
   br i1 %.not24.i.i, label %Scl_ConFree.exit.i, label %62
 
 62:                                               ; preds = %60
-  tail call void @free(ptr noundef nonnull %61) #12
+  tail call void @free(ptr noundef nonnull %61) #14
   br label %Scl_ConFree.exit.i
 
 Scl_ConFree.exit.i:                               ; preds = %62, %60
-  tail call void @free(ptr noundef nonnull %.val) #12
+  tail call void @free(ptr noundef nonnull %.val) #14
   br label %Scl_ConFreeMan.exit
 
 Scl_ConFreeMan.exit:                              ; preds = %1, %Scl_ConFree.exit.i
@@ -4360,7 +4360,7 @@ define ptr @Scl_ReadLibraryFile(ptr noundef readonly captures(none) %0, ptr noun
 
 9:                                                ; preds = %6
   %10 = tail call i32 @fclose(ptr noundef nonnull %7)
-  %11 = tail call ptr @Abc_SclReadLiberty(ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 %4, ptr %5) #12
+  %11 = tail call ptr @Abc_SclReadLiberty(ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 %4, ptr %5) #14
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.sink.split, label %16
 
@@ -4368,7 +4368,7 @@ define ptr @Scl_ReadLibraryFile(ptr noundef readonly captures(none) %0, ptr noun
   %.str.24.sink = phi ptr [ @.str.23, %6 ], [ @.str.24, %9 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %14 = load ptr, ptr %13, align 8, !tbaa !84
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull %.str.24.sink, ptr noundef %1) #12
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull %.str.24.sink, ptr noundef %1) #14
   br label %16
 
 16:                                               ; preds = %.sink.split, %9
@@ -4377,21 +4377,21 @@ define ptr @Scl_ReadLibraryFile(ptr noundef readonly captures(none) %0, ptr noun
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @Abc_SclReadLiberty(ptr noundef, i32 noundef, i32 noundef, i32, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
-; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @Abc_SclSurfaceFree(ptr noundef captures(none) initializes((8, 16), (24, 32), (56, 64), (72, 80)) %0) unnamed_addr #2 {
+; Function Attrs: inlinehint nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc void @Abc_SclSurfaceFree(ptr noundef captures(none) initializes((8, 16), (24, 32), (56, 64), (72, 80)) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !33
@@ -4399,7 +4399,7 @@ define internal fastcc void @Abc_SclSurfaceFree(ptr noundef captures(none) initi
   br i1 %.not.i, label %Vec_FltErase.exit, label %5
 
 5:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %4) #12
+  tail call void @free(ptr noundef nonnull %4) #14
   store ptr null, ptr %3, align 8, !tbaa !33
   br label %Vec_FltErase.exit
 
@@ -4414,7 +4414,7 @@ Vec_FltErase.exit:                                ; preds = %1, %5
   br i1 %.not.i9, label %Vec_FltErase.exit10, label %10
 
 10:                                               ; preds = %Vec_FltErase.exit
-  tail call void @free(ptr noundef nonnull %9) #12
+  tail call void @free(ptr noundef nonnull %9) #14
   store ptr null, ptr %8, align 8, !tbaa !33
   br label %Vec_FltErase.exit10
 
@@ -4429,7 +4429,7 @@ Vec_FltErase.exit10:                              ; preds = %Vec_FltErase.exit, 
   br i1 %.not.i11, label %Vec_IntErase.exit, label %15
 
 15:                                               ; preds = %Vec_FltErase.exit10
-  tail call void @free(ptr noundef nonnull %14) #12
+  tail call void @free(ptr noundef nonnull %14) #14
   store ptr null, ptr %13, align 8, !tbaa !29
   br label %Vec_IntErase.exit
 
@@ -4444,7 +4444,7 @@ Vec_IntErase.exit:                                ; preds = %Vec_FltErase.exit10
   br i1 %.not.i12, label %Vec_IntErase.exit13, label %20
 
 20:                                               ; preds = %Vec_IntErase.exit
-  tail call void @free(ptr noundef nonnull %19) #12
+  tail call void @free(ptr noundef nonnull %19) #14
   store ptr null, ptr %18, align 8, !tbaa !29
   br label %Vec_IntErase.exit13
 
@@ -4478,11 +4478,11 @@ Vec_IntErase.exit13:                              ; preds = %Vec_IntErase.exit, 
   br i1 %.not.i.i, label %Vec_PtrFree.exit.i, label %32
 
 32:                                               ; preds = %29
-  tail call void @free(ptr noundef nonnull %31) #12
+  tail call void @free(ptr noundef nonnull %31) #14
   br label %Vec_PtrFree.exit.i
 
 Vec_PtrFree.exit.i:                               ; preds = %32, %29
-  tail call void @free(ptr noundef nonnull %28) #12
+  tail call void @free(ptr noundef nonnull %28) #14
   %.val.pre.i = load i32, ptr %23, align 4, !tbaa !47
   br label %33
 
@@ -4500,7 +4500,7 @@ Vec_PtrFree.exit.i:                               ; preds = %32, %29
   br i1 %.not.i9.i, label %Vec_VecErase.exit, label %38
 
 38:                                               ; preds = %.critedge.i
-  tail call void @free(ptr noundef nonnull %37) #12
+  tail call void @free(ptr noundef nonnull %37) #14
   store ptr null, ptr %36, align 8, !tbaa !27
   br label %Vec_VecErase.exit
 
@@ -4533,11 +4533,11 @@ Vec_VecErase.exit:                                ; preds = %.critedge.i, %38
   br i1 %.not.i.i23, label %Vec_PtrFree.exit.i24, label %49
 
 49:                                               ; preds = %46
-  tail call void @free(ptr noundef nonnull %48) #12
+  tail call void @free(ptr noundef nonnull %48) #14
   br label %Vec_PtrFree.exit.i24
 
 Vec_PtrFree.exit.i24:                             ; preds = %49, %46
-  tail call void @free(ptr noundef nonnull %45) #12
+  tail call void @free(ptr noundef nonnull %45) #14
   %.val.pre.i25 = load i32, ptr %40, align 4, !tbaa !47
   br label %50
 
@@ -4555,7 +4555,7 @@ Vec_PtrFree.exit.i24:                             ; preds = %49, %46
   br i1 %.not.i9.i17, label %Vec_VecErase.exit28, label %55
 
 55:                                               ; preds = %.critedge.i16
-  tail call void @free(ptr noundef nonnull %54) #12
+  tail call void @free(ptr noundef nonnull %54) #14
   store ptr null, ptr %53, align 8, !tbaa !27
   br label %Vec_VecErase.exit28
 
@@ -4567,7 +4567,7 @@ Vec_VecErase.exit28:                              ; preds = %.critedge.i16, %55
   br i1 %.not, label %58, label %57
 
 57:                                               ; preds = %Vec_VecErase.exit28
-  tail call void @free(ptr noundef nonnull %56) #12
+  tail call void @free(ptr noundef nonnull %56) #14
   store ptr null, ptr %0, align 8, !tbaa !129
   br label %58
 
@@ -4578,17 +4578,17 @@ Vec_VecErase.exit28:                              ; preds = %.critedge.i16, %55
 declare void @Abc_NamDeref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 declare void @Extra_UtilGetoptReset(...) local_unnamed_addr #1
 
 declare i32 @Extra_UtilGetopt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @Abc_Print(i32 noundef range(i32 -1, 2) %0, ptr noundef %1, ...) unnamed_addr #2 {
+define internal void @Abc_Print(i32 noundef range(i32 -1, 2) %0, ptr noundef %1, ...) unnamed_addr #4 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !81
@@ -4596,7 +4596,7 @@ define internal void @Abc_Print(i32 noundef range(i32 -1, 2) %0, ptr noundef %1,
   br i1 %.not, label %31, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #12
+  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #14
   %.not8 = icmp eq i32 %6, 0
   br i1 %.not8, label %7, label %12
 
@@ -4622,32 +4622,32 @@ define internal void @Abc_Print(i32 noundef range(i32 -1, 2) %0, ptr noundef %1,
 
 13:                                               ; preds = %12
   %14 = load ptr, ptr @stdout, align 8, !tbaa !130
-  %15 = tail call i32 @Gia_ManToBridgeText(ptr noundef %14, i32 noundef 7, ptr noundef nonnull @.str.51) #12
+  %15 = tail call i32 @Gia_ManToBridgeText(ptr noundef %14, i32 noundef 7, ptr noundef nonnull @.str.51) #14
   br label %19
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr @stdout, align 8, !tbaa !130
-  %18 = tail call i32 @Gia_ManToBridgeText(ptr noundef %17, i32 noundef 9, ptr noundef nonnull @.str.52) #12
+  %18 = tail call i32 @Gia_ManToBridgeText(ptr noundef %17, i32 noundef 9, ptr noundef nonnull @.str.52) #14
   br label %19
 
 19:                                               ; preds = %12, %7, %13, %16, %8, %10
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %20 = call i32 (...) @Abc_FrameIsBridgeMode() #12
+  %20 = call i32 (...) @Abc_FrameIsBridgeMode() #14
   %.not9 = icmp eq i32 %20, 0
   br i1 %.not9, label %27, label %21
 
 21:                                               ; preds = %19
-  %22 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #12
+  %22 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #14
   %23 = load ptr, ptr @stdout, align 8, !tbaa !130
-  %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #14
+  %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #16
   %25 = trunc i64 %24 to i32
-  %26 = call i32 @Gia_ManToBridgeText(ptr noundef %23, i32 noundef %25, ptr noundef nonnull %22) #12
-  call void @free(ptr noundef %22) #12
+  %26 = call i32 @Gia_ManToBridgeText(ptr noundef %23, i32 noundef %25, ptr noundef nonnull %22) #14
+  call void @free(ptr noundef %22) #14
   br label %30
 
 27:                                               ; preds = %19
   %28 = load ptr, ptr @stdout, align 8, !tbaa !130, !noalias !131
-  %29 = call i32 @vfprintf(ptr noundef %28, ptr noundef %1, ptr noundef nonnull %3) #12
+  %29 = call i32 @vfprintf(ptr noundef %28, ptr noundef %1, ptr noundef nonnull %3) #14
   br label %30
 
 30:                                               ; preds = %27, %21
@@ -4676,29 +4676,29 @@ declare void @Mio_LibraryTransferCellIds(...) local_unnamed_addr #1
 declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #7
+declare void @llvm.va_start.p0(ptr) #9
 
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #7
+declare void @llvm.va_end.p0(ptr) #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #3
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #9
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #9
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #11
 
 declare void @Abc_SclPrintCells(ptr noundef, float noundef, float noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -4743,12 +4743,12 @@ declare void @Abc_SclPrintBuffers(ptr noundef, ptr noundef, i32 noundef) local_u
 declare void @Abc_SclReadTimingConstr(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 declare ptr @Extra_FileNameExtension(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %3
 
@@ -4772,14 +4772,14 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !128
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.194, ptr noundef %14) #12
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.194, ptr noundef %14) #14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !127
   %.not118 = icmp eq ptr %17, null
   br i1 %.not118, label %20, label %18
 
 18:                                               ; preds = %12
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.195, ptr noundef nonnull @.str.196, ptr noundef nonnull %17) #12
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.195, ptr noundef nonnull @.str.196, ptr noundef nonnull %17) #14
   br label %20
 
 20:                                               ; preds = %18, %12
@@ -4792,7 +4792,7 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   %24 = sitofp i32 %22 to float
   %25 = fdiv float %24, 1.000000e+03
   %26 = fpext float %25 to double
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.197, ptr noundef nonnull @.str.198, double noundef %26) #12
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.197, ptr noundef nonnull @.str.198, double noundef %26) #14
   br label %28
 
 28:                                               ; preds = %23, %20
@@ -4805,7 +4805,7 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   %32 = sitofp i32 %30 to float
   %33 = fdiv float %32, 1.000000e+03
   %34 = fpext float %33 to double
-  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.197, ptr noundef nonnull @.str.199, double noundef %34) #12
+  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.197, ptr noundef nonnull @.str.199, double noundef %34) #14
   br label %36
 
 36:                                               ; preds = %31, %28
@@ -4818,7 +4818,7 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   %40 = sitofp i32 %38 to float
   %41 = fdiv float %40, 1.000000e+03
   %42 = fpext float %41 to double
-  %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.197, ptr noundef nonnull @.str.200, double noundef %42) #12
+  %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.197, ptr noundef nonnull @.str.200, double noundef %42) #14
   br label %44
 
 44:                                               ; preds = %39, %36
@@ -4831,7 +4831,7 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   %48 = sitofp i32 %46 to float
   %49 = fdiv float %48, 1.000000e+03
   %50 = fpext float %49 to double
-  %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.197, ptr noundef nonnull @.str.201, double noundef %50) #12
+  %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.197, ptr noundef nonnull @.str.201, double noundef %50) #14
   br label %52
 
 52:                                               ; preds = %47, %44
@@ -4844,7 +4844,7 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   %56 = sitofp i32 %54 to float
   %57 = fdiv float %56, 1.000000e+03
   %58 = fpext float %57 to double
-  %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.197, ptr noundef nonnull @.str.202, double noundef %58) #12
+  %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.197, ptr noundef nonnull @.str.202, double noundef %58) #14
   br label %60
 
 60:                                               ; preds = %55, %52
@@ -4884,7 +4884,7 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   br i1 %.not131, label %76, label %74
 
 74:                                               ; preds = %72
-  %75 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(1) %73) #14
+  %75 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(1) %73) #16
   %.not132 = icmp eq i32 %75, 0
   br i1 %.not132, label %82, label %76
 
@@ -4892,8 +4892,8 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   %77 = load ptr, ptr %64, align 8, !tbaa !125
   %78 = trunc i64 %indvars.iv to i32
   %79 = add i32 %78, 1
-  %80 = tail call ptr @Abc_NamStr(ptr noundef %77, i32 noundef %79) #12
-  %81 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.203, ptr noundef nonnull @.str.196, ptr noundef %80, ptr noundef nonnull %71) #12
+  %80 = tail call ptr @Abc_NamStr(ptr noundef %77, i32 noundef %79) #14
+  %81 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.203, ptr noundef nonnull @.str.196, ptr noundef %80, ptr noundef nonnull %71) #14
   %.val.pre = load i32, ptr %61, align 4, !tbaa !25
   br label %82
 
@@ -4933,11 +4933,11 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   %94 = load ptr, ptr %68, align 8, !tbaa !125
   %95 = add nuw nsw i64 %indvars.iv162, 1
   %96 = trunc nuw nsw i64 %95 to i32
-  %97 = tail call ptr @Abc_NamStr(ptr noundef %94, i32 noundef %96) #12
+  %97 = tail call ptr @Abc_NamStr(ptr noundef %94, i32 noundef %96) #14
   %98 = sitofp i32 %91 to float
   %99 = fdiv float %98, 1.000000e+03
   %100 = fpext float %99 to double
-  %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.204, ptr noundef nonnull @.str.198, ptr noundef %97, double noundef %100) #12
+  %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.204, ptr noundef nonnull @.str.198, ptr noundef %97, double noundef %100) #14
   %.val138.pre = load i32, ptr %65, align 4, !tbaa !31
   br label %.critedge
 
@@ -4977,11 +4977,11 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   %113 = load ptr, ptr %88, align 8, !tbaa !125
   %114 = add nuw nsw i64 %indvars.iv165, 1
   %115 = trunc nuw nsw i64 %114 to i32
-  %116 = tail call ptr @Abc_NamStr(ptr noundef %113, i32 noundef %115) #12
+  %116 = tail call ptr @Abc_NamStr(ptr noundef %113, i32 noundef %115) #14
   %117 = sitofp i32 %110 to float
   %118 = fdiv float %117, 1.000000e+03
   %119 = fpext float %118 to double
-  %120 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.204, ptr noundef nonnull @.str.199, ptr noundef %116, double noundef %119) #12
+  %120 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.204, ptr noundef nonnull @.str.199, ptr noundef %116, double noundef %119) #14
   %.val137.pre = load i32, ptr %85, align 4, !tbaa !31
   br label %.critedge2
 
@@ -5021,11 +5021,11 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   %132 = load ptr, ptr %107, align 8, !tbaa !125
   %133 = add nuw nsw i64 %indvars.iv168, 1
   %134 = trunc nuw nsw i64 %133 to i32
-  %135 = tail call ptr @Abc_NamStr(ptr noundef %132, i32 noundef %134) #12
+  %135 = tail call ptr @Abc_NamStr(ptr noundef %132, i32 noundef %134) #14
   %136 = sitofp i32 %129 to float
   %137 = fdiv float %136, 1.000000e+03
   %138 = fpext float %137 to double
-  %139 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.204, ptr noundef nonnull @.str.200, ptr noundef %135, double noundef %138) #12
+  %139 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.204, ptr noundef nonnull @.str.200, ptr noundef %135, double noundef %138) #14
   %.val136.pre = load i32, ptr %104, align 4, !tbaa !31
   br label %.critedge4
 
@@ -5065,11 +5065,11 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   %151 = load ptr, ptr %126, align 8, !tbaa !126
   %152 = add nuw nsw i64 %indvars.iv171, 1
   %153 = trunc nuw nsw i64 %152 to i32
-  %154 = tail call ptr @Abc_NamStr(ptr noundef %151, i32 noundef %153) #12
+  %154 = tail call ptr @Abc_NamStr(ptr noundef %151, i32 noundef %153) #14
   %155 = sitofp i32 %148 to float
   %156 = fdiv float %155, 1.000000e+03
   %157 = fpext float %156 to double
-  %158 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.204, ptr noundef nonnull @.str.201, ptr noundef %154, double noundef %157) #12
+  %158 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.204, ptr noundef nonnull @.str.201, ptr noundef %154, double noundef %157) #14
   %.val135.pre = load i32, ptr %123, align 4, !tbaa !31
   br label %.critedge6
 
@@ -5098,11 +5098,11 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   %166 = load ptr, ptr %145, align 8, !tbaa !126
   %167 = add nuw nsw i64 %indvars.iv174, 1
   %168 = trunc nuw nsw i64 %167 to i32
-  %169 = tail call ptr @Abc_NamStr(ptr noundef %166, i32 noundef %168) #12
+  %169 = tail call ptr @Abc_NamStr(ptr noundef %166, i32 noundef %168) #14
   %170 = sitofp i32 %163 to float
   %171 = fdiv float %170, 1.000000e+03
   %172 = fpext float %171 to double
-  %173 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.204, ptr noundef nonnull @.str.202, ptr noundef %169, double noundef %172) #12
+  %173 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.204, ptr noundef nonnull @.str.202, ptr noundef %169, double noundef %172) #14
   %.val134.pre = load i32, ptr %142, align 4, !tbaa !31
   br label %.critedge8
 
@@ -5133,32 +5133,34 @@ declare void @Abc_FrameSetDrivingCell(ptr noundef) local_unnamed_addr #1
 declare void @Abc_FrameSetMaxLoad(float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #11
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nofree nounwind }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind allocsize(0) }
-attributes #14 = { nounwind willreturn memory(read) }
+attributes #2 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nofree nounwind }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind allocsize(0) }
+attributes #16 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

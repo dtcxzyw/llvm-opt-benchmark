@@ -332,7 +332,7 @@ define dso_local i32 @decNumberToInt32(ptr noundef readonly captures(none) %0, p
   br label %40
 
 .thread:                                          ; preds = %._crit_edge, %33, %2, %6, %9
-  %39 = tail call ptr @decContextSetStatus(ptr noundef %1, i32 noundef 128) #18
+  %39 = tail call ptr @decContextSetStatus(ptr noundef %1, i32 noundef 128) #19
   br label %40
 
 40:                                               ; preds = %33, %.thread44, %.thread
@@ -420,7 +420,7 @@ define dso_local i32 @decNumberToUInt32(ptr noundef readonly captures(none) %0, 
   br label %38
 
 .thread:                                          ; preds = %32, %._crit_edge, %2, %6, %9, %13
-  %37 = tail call ptr @decContextSetStatus(ptr noundef %1, i32 noundef 128) #18
+  %37 = tail call ptr @decContextSetStatus(ptr noundef %1, i32 noundef 128) #19
   br label %38
 
 38:                                               ; preds = %.thread54, %.thread
@@ -428,13 +428,13 @@ define dso_local i32 @decNumberToUInt32(ptr noundef readonly captures(none) %0, 
   ret i32 %.1
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef ptr @decNumberToString(ptr noundef readonly captures(none) %0, ptr noundef returned writeonly captures(ret: address, provenance) %1) local_unnamed_addr #5 {
   tail call fastcc void @decToString(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 0)
   ret ptr %1
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @decToString(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i8 noundef zeroext range(i8 0, 2) %2) unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !9
@@ -492,7 +492,7 @@ define internal fastcc void @decToString(ptr noundef readonly captures(none) %0,
 29:                                               ; preds = %27
   store i32 6712905, ptr %.0276, align 1
   %30 = getelementptr inbounds nuw i8, ptr %.0276, i64 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %30, ptr noundef nonnull align 1 dereferenceable(6) @.str.17, i64 6, i1 false) #18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %30, ptr noundef nonnull align 1 dereferenceable(6) @.str.17, i64 6, i1 false) #19
   br label %290
 
 31:                                               ; preds = %27
@@ -1107,7 +1107,7 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef ptr @decNumberToEngString(ptr noundef readonly captures(none) %0, ptr noundef returned writeonly captures(ret: address, provenance) %1) local_unnamed_addr #5 {
   tail call fastcc void @decToString(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 1)
   ret ptr %1
@@ -1508,7 +1508,7 @@ decBiStr.exit:                                    ; preds = %40, %50
   %144 = phi i32 [ %135, %.thread ], [ %140, %136 ]
   %145 = shl nuw nsw i32 %144, 1
   %146 = zext nneg i32 %145 to i64
-  %147 = tail call noalias ptr @malloc(i64 noundef %146) #19
+  %147 = tail call noalias ptr @malloc(i64 noundef %146) #20
   %148 = icmp eq ptr %147, null
   br i1 %148, label %.thread295, label %.thread281
 
@@ -1625,7 +1625,7 @@ decBiStr.exit:                                    ; preds = %40, %50
   br i1 %.not254, label %.thread286, label %201
 
 201:                                              ; preds = %200
-  call void @free(ptr noundef nonnull %.1204361) #18
+  call void @free(ptr noundef nonnull %.1204361) #19
   br label %.thread286
 
 .thread286:                                       ; preds = %._crit_edge, %90, %69, %66, %63, %84, %._crit_edge319, %201, %200
@@ -1660,7 +1660,7 @@ decBiStr.exit:                                    ; preds = %40, %50
 
 decStatus.exit:                                   ; preds = %.thread286.thread, %205, %.thread295
   %.0.i272 = phi i32 [ %206, %205 ], [ %207, %.thread295 ], [ %.pr289, %.thread286.thread ]
-  %211 = call ptr @decContextSetStatus(ptr noundef %2, i32 noundef %.0.i272) #18
+  %211 = call ptr @decContextSetStatus(ptr noundef %2, i32 noundef %.0.i272) #19
   br label %.thread286.thread292
 
 .thread286.thread292:                             ; preds = %74, %decBiStr.exit, %decStatus.exit, %.thread286
@@ -1968,8 +1968,8 @@ define internal fastcc void @decSetCoeff(ptr noundef captures(address) %0, ptr n
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc void @decFinalize(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #3 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc void @decFinalize(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #7 {
   %5 = alloca %struct.decNumber, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 4, !tbaa !30
@@ -2104,7 +2104,7 @@ define internal fastcc void @decFinalize(ptr noundef %0, ptr noundef readonly ca
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @decNumberAbs(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef %2) local_unnamed_addr #3 {
@@ -2156,7 +2156,7 @@ define dso_local noundef ptr @decNumberAbs(ptr noundef returned %0, ptr noundef 
 
 decStatus.exit:                                   ; preds = %16, %20, %22
   %.0.i = phi i32 [ %21, %20 ], [ %15, %22 ], [ %15, %16 ]
-  %26 = call ptr @decContextSetStatus(ptr noundef %2, i32 noundef %.0.i) #18
+  %26 = call ptr @decContextSetStatus(ptr noundef %2, i32 noundef %.0.i) #19
   br label %27
 
 27:                                               ; preds = %decStatus.exit, %3
@@ -2165,8 +2165,8 @@ decStatus.exit:                                   ; preds = %16, %20, %22
   ret ptr %0
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, i8 noundef zeroext range(i8 0, -127) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #3 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, i8 noundef zeroext range(i8 0, -127) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #7 {
   %7 = alloca i32, align 4
   %8 = alloca [31 x i16], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -2645,7 +2645,7 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
   %264 = shl nuw nsw i32 %261, 1
   %265 = add nuw nsw i32 %264, 2
   %266 = zext nneg i32 %265 to i64
-  %267 = tail call noalias ptr @malloc(i64 noundef %266) #19
+  %267 = tail call noalias ptr @malloc(i64 noundef %266) #20
   %268 = icmp eq ptr %267, null
   br i1 %268, label %269, label %.thread356
 
@@ -2896,7 +2896,7 @@ decGetDigits.exit347:                             ; preds = %365, %367, %352, %3
   br i1 %.not328, label %.thread365, label %393
 
 393:                                              ; preds = %392
-  call void @free(ptr noundef nonnull %.1271) #18
+  call void @free(ptr noundef nonnull %.1271) #19
   br label %.thread365
 
 .thread365:                                       ; preds = %168, %190, %241, %269, %132, %95, %34, %31, %23, %393, %392
@@ -2941,7 +2941,7 @@ define dso_local noundef ptr @decNumberAdd(ptr noundef returned %0, ptr noundef 
 
 decStatus.exit:                                   ; preds = %8, %12, %14
   %.0.i = phi i32 [ %13, %12 ], [ %7, %14 ], [ %7, %8 ]
-  %18 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #18
+  %18 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #19
   br label %19
 
 19:                                               ; preds = %decStatus.exit, %4
@@ -2982,7 +2982,7 @@ define dso_local noundef ptr @decNumberAnd(ptr noundef returned %0, ptr noundef 
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 10
   store i16 0, ptr %19, align 2, !tbaa !11
   store i8 32, ptr %17, align 4, !tbaa !4
-  %20 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef 128) #18
+  %20 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef 128) #19
   br label %133
 
 21:                                               ; preds = %13
@@ -3171,7 +3171,7 @@ define dso_local noundef ptr @decNumberAnd(ptr noundef returned %0, ptr noundef 
   store i32 1, ptr %0, align 4, !tbaa !10
   store i16 0, ptr %24, align 2, !tbaa !11
   store i8 32, ptr %119, align 4, !tbaa !4
-  %121 = tail call ptr @decContextSetStatus(ptr noundef nonnull %3, i32 noundef 128) #18
+  %121 = tail call ptr @decContextSetStatus(ptr noundef nonnull %3, i32 noundef 128) #19
   br label %133
 
 .loopexit:                                        ; preds = %102, %118, %82
@@ -3272,7 +3272,7 @@ decCompareOp.exit:                                ; preds = %4
 
 decStatus.exit:                                   ; preds = %23, %27, %.thread9
   %.0.i = phi i32 [ %28, %27 ], [ %29, %.thread9 ], [ %.pr.pre, %23 ]
-  %33 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #18
+  %33 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #19
   br label %decCompareOp.exit.thread
 
 decCompareOp.exit.thread:                         ; preds = %21, %19, %.thread.i, %decStatus.exit, %decCompareOp.exit
@@ -3280,8 +3280,8 @@ decCompareOp.exit.thread:                         ; preds = %21, %19, %.thread.i
   ret ptr %0
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @decCompareOp(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, i8 noundef zeroext range(i8 1, 9) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #3 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc noundef ptr @decCompareOp(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, i8 noundef zeroext range(i8 1, 9) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #7 {
   %7 = alloca i32, align 4
   %8 = icmp eq i8 %4, 4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3685,7 +3685,7 @@ decCompareOp.exit:                                ; preds = %4
 
 decStatus.exit:                                   ; preds = %23, %27, %.thread9
   %.0.i = phi i32 [ %28, %27 ], [ %29, %.thread9 ], [ %.pr.pre, %23 ]
-  %33 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #18
+  %33 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #19
   br label %decCompareOp.exit.thread
 
 decCompareOp.exit.thread:                         ; preds = %21, %19, %.thread.i, %decStatus.exit, %decCompareOp.exit
@@ -3729,7 +3729,7 @@ define dso_local noundef ptr @decNumberCompareTotal(ptr noundef returned %0, ptr
 
 decStatus.exit:                                   ; preds = %8, %12, %14
   %.0.i = phi i32 [ %13, %12 ], [ %7, %14 ], [ %7, %8 ]
-  %18 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #18
+  %18 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #19
   br label %19
 
 19:                                               ; preds = %decStatus.exit, %4
@@ -3777,7 +3777,7 @@ define dso_local noundef ptr @decNumberCompareTotalMag(ptr noundef returned %0, 
   %26 = shl nuw nsw i32 %25, 1
   %27 = add nuw nsw i32 %26, 10
   %28 = zext nneg i32 %27 to i64
-  %29 = tail call noalias ptr @malloc(i64 noundef %28) #19
+  %29 = tail call noalias ptr @malloc(i64 noundef %28) #20
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.thread76, label %31
 
@@ -3877,7 +3877,7 @@ decNumberCopy.exit:                               ; preds = %.decNumberCopy.exit
   %79 = shl nuw nsw i32 %78, 1
   %80 = add nuw nsw i32 %79, 10
   %81 = zext nneg i32 %80 to i64
-  %82 = call noalias ptr @malloc(i64 noundef %81) #19
+  %82 = call noalias ptr @malloc(i64 noundef %81) #20
   %83 = icmp eq ptr %82, null
   br i1 %83, label %84, label %85
 
@@ -3961,7 +3961,7 @@ decNumberCopy.exit64:                             ; preds = %.decNumberCopy.exit
   br i1 %.not53, label %120, label %119
 
 119:                                              ; preds = %118
-  call void @free(ptr noundef nonnull %.036) #18
+  call void @free(ptr noundef nonnull %.036) #19
   br label %120
 
 120:                                              ; preds = %119, %118
@@ -3969,7 +3969,7 @@ decNumberCopy.exit64:                             ; preds = %.decNumberCopy.exit
   br i1 %.not54, label %122, label %121
 
 121:                                              ; preds = %120
-  call void @free(ptr noundef nonnull %.035) #18
+  call void @free(ptr noundef nonnull %.035) #19
   br label %122
 
 122:                                              ; preds = %121, %120
@@ -4004,7 +4004,7 @@ decNumberCopy.exit64:                             ; preds = %.decNumberCopy.exit
 
 decStatus.exit:                                   ; preds = %123, %127, %.thread76
   %.0.i = phi i32 [ %128, %127 ], [ %129, %.thread76 ], [ %.pr, %123 ]
-  %133 = call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #18
+  %133 = call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #19
   br label %134
 
 134:                                              ; preds = %decStatus.exit, %122
@@ -4114,7 +4114,7 @@ define dso_local noundef ptr @decNumberDivide(ptr noundef returned %0, ptr nound
 
 decStatus.exit:                                   ; preds = %8, %12, %14
   %.0.i = phi i32 [ %13, %12 ], [ %7, %14 ], [ %7, %8 ]
-  %18 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #18
+  %18 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #19
   br label %19
 
 19:                                               ; preds = %decStatus.exit, %4
@@ -4122,8 +4122,8 @@ decStatus.exit:                                   ; preds = %8, %12, %14
   ret ptr %0
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @decDivideOp(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, i8 noundef zeroext range(i8 16, -127) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #3 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc noundef ptr @decDivideOp(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, i8 noundef zeroext range(i8 16, -127) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #7 {
   %7 = alloca [17 x i16], align 16
   %8 = alloca [25 x i16], align 16
   %9 = alloca i32, align 4
@@ -4430,7 +4430,7 @@ thread-pre-split:                                 ; preds = %91, %96
 
 163:                                              ; preds = %159
   %164 = shl nuw nsw i64 %161, 1
-  %165 = tail call noalias ptr @malloc(i64 noundef %164) #19
+  %165 = tail call noalias ptr @malloc(i64 noundef %164) #20
   %166 = icmp eq ptr %165, null
   br i1 %166, label %167, label %170
 
@@ -4475,7 +4475,7 @@ thread-pre-split:                                 ; preds = %91, %96
   %188 = shl nuw nsw i32 %spec.select598, 1
   %189 = add nuw nsw i32 %188, 2
   %190 = zext nneg i32 %189 to i64
-  %191 = tail call noalias ptr @malloc(i64 noundef %190) #19
+  %191 = tail call noalias ptr @malloc(i64 noundef %190) #20
   %192 = icmp eq ptr %191, null
   br i1 %192, label %193, label %196
 
@@ -5169,7 +5169,7 @@ select.unfold:                                    ; preds = %491, %496
   br i1 %.not591, label %.thread645, label %515
 
 515:                                              ; preds = %514
-  call void @free(ptr noundef nonnull %.1447) #18
+  call void @free(ptr noundef nonnull %.1447) #19
   br label %.thread645
 
 .thread645:                                       ; preds = %193, %515, %514
@@ -5177,7 +5177,7 @@ select.unfold:                                    ; preds = %491, %496
   br i1 %.not592, label %.thread645.thread, label %516
 
 516:                                              ; preds = %.thread645
-  call void @free(ptr noundef nonnull %.1) #18
+  call void @free(ptr noundef nonnull %.1) #19
   br label %.thread645.thread
 
 .thread645.thread:                                ; preds = %23, %30, %33, %56, %74, %86, %88, %100, %111, %122, %115, %167, %136, %145, %516, %.thread645
@@ -5223,7 +5223,7 @@ define dso_local noundef ptr @decNumberDivideInteger(ptr noundef returned %0, pt
 
 decStatus.exit:                                   ; preds = %8, %12, %14
   %.0.i = phi i32 [ %13, %12 ], [ %7, %14 ], [ %7, %8 ]
-  %18 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #18
+  %18 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #19
   br label %19
 
 19:                                               ; preds = %decStatus.exit, %4
@@ -5313,7 +5313,7 @@ define dso_local noundef ptr @decNumberExp(ptr noundef returned %0, ptr noundef 
 
 decStatus.exit:                                   ; preds = %.thread, %39, %41
   %.0.i = phi i32 [ %40, %39 ], [ %35, %41 ], [ %35, %.thread ]
-  %45 = tail call ptr @decContextSetStatus(ptr noundef nonnull %2, i32 noundef %.0.i) #18
+  %45 = tail call ptr @decContextSetStatus(ptr noundef nonnull %2, i32 noundef %.0.i) #19
   br label %46
 
 46:                                               ; preds = %decStatus.exit, %33
@@ -5497,7 +5497,7 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
   br label %.thread277
 
 91:                                               ; preds = %79
-  %92 = call ptr @decContextDefault(ptr noundef nonnull %7, i32 noundef 64) #18
+  %92 = call ptr @decContextDefault(ptr noundef nonnull %7, i32 noundef 64) #19
   %93 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %94 = load i32, ptr %93, align 4, !tbaa !31
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -5570,7 +5570,7 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
   %134 = shl nuw nsw i32 %131, 1
   %135 = add nuw nsw i32 %134, 10
   %136 = zext nneg i32 %135 to i64
-  %137 = call noalias ptr @malloc(i64 noundef %136) #19
+  %137 = call noalias ptr @malloc(i64 noundef %136) #20
   %138 = icmp eq ptr %137, null
   br i1 %138, label %.thread289, label %.thread
 
@@ -5622,7 +5622,7 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
   %162 = shl nuw i32 %159, 1
   %163 = add nuw i32 %162, 10
   %164 = zext nneg i32 %163 to i64
-  %165 = call noalias ptr @malloc(i64 noundef %164) #19
+  %165 = call noalias ptr @malloc(i64 noundef %164) #20
   %166 = icmp eq ptr %165, null
   br i1 %166, label %167, label %170
 
@@ -5660,7 +5660,7 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
   %185 = shl nuw nsw i32 %182, 1
   %186 = add nuw nsw i32 %185, 10
   %187 = zext nneg i32 %186 to i64
-  %188 = call noalias ptr @malloc(i64 noundef %187) #19
+  %188 = call noalias ptr @malloc(i64 noundef %187) #20
   %189 = icmp eq ptr %188, null
   br i1 %189, label %190, label %193
 
@@ -5692,7 +5692,7 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
   store i32 1, ptr %14, align 4, !tbaa !10
   %200 = getelementptr inbounds nuw i8, ptr %14, i64 10
   store i16 1, ptr %200, align 2, !tbaa !11
-  %201 = call ptr @decContextDefault(ptr noundef nonnull %8, i32 noundef 64) #18
+  %201 = call ptr @decContextDefault(ptr noundef nonnull %8, i32 noundef 64) #19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %9, ptr noundef nonnull align 4 dereferenceable(28) %8, i64 28, i1 false), !tbaa.struct !46
   store i32 %148, ptr %7, align 4, !tbaa !25
   store i32 %147, ptr %8, align 4, !tbaa !25
@@ -5854,7 +5854,7 @@ decNumberCopy.exit:                               ; preds = %190, %167, %261
   br i1 %.not223, label %271, label %270
 
 270:                                              ; preds = %decNumberCopy.exit
-  call void @free(ptr noundef nonnull %.0187) #18
+  call void @free(ptr noundef nonnull %.0187) #19
   br label %271
 
 271:                                              ; preds = %270, %decNumberCopy.exit
@@ -5862,7 +5862,7 @@ decNumberCopy.exit:                               ; preds = %190, %167, %261
   br i1 %.not224, label %273, label %272
 
 272:                                              ; preds = %271
-  call void @free(ptr noundef nonnull %.0176) #18
+  call void @free(ptr noundef nonnull %.0176) #19
   br label %273
 
 273:                                              ; preds = %272, %271
@@ -5870,7 +5870,7 @@ decNumberCopy.exit:                               ; preds = %190, %167, %261
   br i1 %.not225, label %.thread277, label %274
 
 274:                                              ; preds = %273
-  call void @free(ptr noundef nonnull %.0183) #18
+  call void @free(ptr noundef nonnull %.0183) #19
   br label %.thread277
 
 .thread277:                                       ; preds = %.lr.ph.i, %.thread289, %28, %26, %81, %76, %63, %54, %22, %274, %273
@@ -6066,7 +6066,7 @@ decCheckMath.exit55.thread:                       ; preds = %86, %81, %decCheckM
   %109 = shl nuw nsw i32 %106, 1
   %110 = add nuw nsw i32 %109, 10
   %111 = zext nneg i32 %110 to i64
-  %112 = tail call noalias ptr @malloc(i64 noundef %111) #19
+  %112 = tail call noalias ptr @malloc(i64 noundef %111) #20
   %113 = icmp eq ptr %112, null
   br i1 %113, label %.thread73, label %114
 
@@ -6114,7 +6114,7 @@ decCheckMath.exit55.thread:                       ; preds = %86, %81, %decCheckM
   br i1 %.not44, label %.thread, label %131
 
 131:                                              ; preds = %130
-  call void @free(ptr noundef nonnull %.1) #18
+  call void @free(ptr noundef nonnull %.1) #19
   br label %.thread
 
 .thread:                                          ; preds = %131, %130
@@ -6150,7 +6150,7 @@ decCheckMath.exit55.thread:                       ; preds = %86, %81, %decCheckM
 
 decStatus.exit:                                   ; preds = %.thread.thread, %136, %.thread73
   %.0.i = phi i32 [ %137, %136 ], [ %138, %.thread73 ], [ %132, %.thread.thread ]
-  %142 = call ptr @decContextSetStatus(ptr noundef nonnull %4, i32 noundef %.0.i) #18
+  %142 = call ptr @decContextSetStatus(ptr noundef nonnull %4, i32 noundef %.0.i) #19
   br label %143
 
 143:                                              ; preds = %decStatus.exit, %.thread
@@ -6162,10 +6162,10 @@ decStatus.exit:                                   ; preds = %.thread.thread, %13
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #3 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #7 {
   %6 = alloca i32, align 4
   %7 = alloca [49 x i16], align 16
   %8 = alloca [10 x i32], align 16
@@ -6277,7 +6277,7 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
 71:                                               ; preds = %64
   %72 = shl nuw nsw i32 %66, 2
   %73 = zext nneg i32 %72 to i64
-  %74 = tail call noalias ptr @malloc(i64 noundef %73) #19
+  %74 = tail call noalias ptr @malloc(i64 noundef %73) #20
   br label %75
 
 75:                                               ; preds = %71, %64
@@ -6289,7 +6289,7 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
 77:                                               ; preds = %75
   %78 = shl nuw nsw i32 %68, 2
   %79 = zext nneg i32 %78 to i64
-  %80 = tail call noalias ptr @malloc(i64 noundef %79) #19
+  %80 = tail call noalias ptr @malloc(i64 noundef %79) #20
   br label %81
 
 81:                                               ; preds = %77, %75
@@ -6302,7 +6302,7 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
 
 85:                                               ; preds = %81
   %86 = zext nneg i32 %83 to i64
-  %87 = tail call noalias ptr @malloc(i64 noundef %86) #19
+  %87 = tail call noalias ptr @malloc(i64 noundef %86) #20
   br label %88
 
 88:                                               ; preds = %85, %81
@@ -6579,7 +6579,7 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
 215:                                              ; preds = %207
   %216 = shl nuw nsw i32 %213, 1
   %217 = zext nneg i32 %216 to i64
-  %218 = tail call noalias ptr @malloc(i64 noundef %217) #19
+  %218 = tail call noalias ptr @malloc(i64 noundef %217) #20
   %219 = icmp eq ptr %218, null
   br i1 %219, label %.thread313, label %222
 
@@ -6735,7 +6735,7 @@ decGetDigits.exit:                                ; preds = %264, %266, %.loopex
   br i1 %.not292, label %281, label %280
 
 280:                                              ; preds = %279
-  call void @free(ptr noundef nonnull %.1245) #18
+  call void @free(ptr noundef nonnull %.1245) #19
   br label %281
 
 281:                                              ; preds = %280, %279
@@ -6743,7 +6743,7 @@ decGetDigits.exit:                                ; preds = %264, %266, %.loopex
   br i1 %.not293, label %283, label %282
 
 282:                                              ; preds = %281
-  call void @free(ptr noundef nonnull %.1255) #18
+  call void @free(ptr noundef nonnull %.1255) #19
   br label %283
 
 283:                                              ; preds = %282, %281
@@ -6751,7 +6751,7 @@ decGetDigits.exit:                                ; preds = %264, %266, %.loopex
   br i1 %.not294, label %285, label %284
 
 284:                                              ; preds = %283
-  call void @free(ptr noundef nonnull %.1259) #18
+  call void @free(ptr noundef nonnull %.1259) #19
   br label %285
 
 285:                                              ; preds = %.thread313, %283, %284, %52, %49, %22
@@ -6784,7 +6784,7 @@ define dso_local noundef ptr @decNumberInvert(ptr noundef returned %0, ptr nound
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 10
   store i16 0, ptr %12, align 2, !tbaa !11
   store i8 32, ptr %10, align 4, !tbaa !4
-  %13 = tail call ptr @decContextSetStatus(ptr noundef %2, i32 noundef 128) #18
+  %13 = tail call ptr @decContextSetStatus(ptr noundef %2, i32 noundef 128) #19
   br label %107
 
 14:                                               ; preds = %6
@@ -6926,7 +6926,7 @@ define dso_local noundef ptr @decNumberInvert(ptr noundef returned %0, ptr nound
   store i32 1, ptr %0, align 4, !tbaa !10
   store i16 0, ptr %.ptr77, align 2, !tbaa !11
   store i8 32, ptr %81, align 4, !tbaa !4
-  %83 = tail call ptr @decContextSetStatus(ptr noundef nonnull %2, i32 noundef 128) #18
+  %83 = tail call ptr @decContextSetStatus(ptr noundef nonnull %2, i32 noundef 128) #19
   br label %107
 
 .split85.us:                                      ; preds = %68, %80
@@ -7077,7 +7077,7 @@ define dso_local noundef ptr @decNumberLn(ptr noundef returned %0, ptr noundef r
 
 decStatus.exit:                                   ; preds = %.thread, %39, %41
   %.0.i = phi i32 [ %40, %39 ], [ %35, %41 ], [ %35, %.thread ]
-  %45 = tail call ptr @decContextSetStatus(ptr noundef nonnull %2, i32 noundef %.0.i) #18
+  %45 = tail call ptr @decContextSetStatus(ptr noundef nonnull %2, i32 noundef %.0.i) #19
   br label %46
 
 46:                                               ; preds = %decStatus.exit, %33
@@ -7291,7 +7291,7 @@ define internal fastcc noundef ptr @decLnOp(ptr noundef returned %0, ptr noundef
   %106 = shl nuw nsw i32 %103, 1
   %107 = add nuw nsw i32 %106, 10
   %108 = zext nneg i32 %107 to i64
-  %109 = tail call noalias ptr @malloc(i64 noundef %108) #19
+  %109 = tail call noalias ptr @malloc(i64 noundef %108) #20
   %110 = icmp eq ptr %109, null
   br i1 %110, label %111, label %114
 
@@ -7330,7 +7330,7 @@ define internal fastcc noundef ptr @decLnOp(ptr noundef returned %0, ptr noundef
   %130 = shl nuw nsw i32 %127, 1
   %131 = add nuw nsw i32 %130, 10
   %132 = zext nneg i32 %131 to i64
-  %133 = tail call noalias ptr @malloc(i64 noundef %132) #19
+  %133 = tail call noalias ptr @malloc(i64 noundef %132) #20
   %134 = icmp eq ptr %133, null
   br i1 %134, label %135, label %138
 
@@ -7343,7 +7343,7 @@ define internal fastcc noundef ptr @decLnOp(ptr noundef returned %0, ptr noundef
 138:                                              ; preds = %129, %126
   %.1 = phi ptr [ null, %126 ], [ %133, %129 ]
   %.0 = phi ptr [ %8, %126 ], [ %133, %129 ]
-  %139 = call ptr @decContextDefault(ptr noundef nonnull %11, i32 noundef 64) #18
+  %139 = call ptr @decContextDefault(ptr noundef nonnull %11, i32 noundef 64) #19
   %140 = load i32, ptr %69, align 4, !tbaa !9
   %141 = load i32, ptr %1, align 4, !tbaa !10
   %142 = add nsw i32 %141, %140
@@ -7809,7 +7809,7 @@ decNumberCopy.exit:                               ; preds = %328, %135
   br i1 %.not176, label %336, label %335
 
 335:                                              ; preds = %decNumberCopy.exit
-  call void @free(ptr noundef nonnull %.1149) #18
+  call void @free(ptr noundef nonnull %.1149) #19
   br label %336
 
 336:                                              ; preds = %335, %decNumberCopy.exit
@@ -7817,7 +7817,7 @@ decNumberCopy.exit:                               ; preds = %328, %135
   br i1 %.not177, label %.thread229, label %337
 
 337:                                              ; preds = %336
-  call void @free(ptr noundef nonnull %.0146) #18
+  call void @free(ptr noundef nonnull %.0146) #19
   br label %.thread229
 
 .thread229:                                       ; preds = %.lr.ph.i, %20, %51, %60, %65, %77, %85, %111, %23, %25, %337, %336
@@ -8152,7 +8152,7 @@ decNumberFromInt32.exit47:                        ; preds = %89, %decNumberFromU
 
 decStatus.exit.i:                                 ; preds = %130, %128, %124
   %.0.i.i = phi i32 [ %129, %128 ], [ %123, %130 ], [ %123, %124 ]
-  %134 = call ptr @decContextSetStatus(ptr noundef nonnull %2, i32 noundef %.0.i.i) #18
+  %134 = call ptr @decContextSetStatus(ptr noundef nonnull %2, i32 noundef %.0.i.i) #19
   br label %decNumberPlus.exit
 
 decNumberPlus.exit:                               ; preds = %decNumberFromInt32.exit47, %decStatus.exit.i
@@ -8193,7 +8193,7 @@ decNumberFromInt32.exit:                          ; preds = %3
 
 decStatus.exit:                                   ; preds = %.thread, %136, %140, %142
   %.0.i50 = phi i32 [ %141, %140 ], [ %.pr.pre, %142 ], [ %.pr.pre, %136 ], [ 2, %.thread ]
-  %146 = tail call ptr @decContextSetStatus(ptr noundef %2, i32 noundef %.0.i50) #18
+  %146 = tail call ptr @decContextSetStatus(ptr noundef %2, i32 noundef %.0.i50) #19
   br label %decNumberFromInt32.exit.thread
 
 decNumberFromInt32.exit.thread:                   ; preds = %decNumberCopyAbs.exit, %decNumberPlus.exit, %59, %decNumberFromUInt32.exit.i, %88, %decStatus.exit, %decNumberFromInt32.exit
@@ -8201,8 +8201,8 @@ decNumberFromInt32.exit.thread:                   ; preds = %decNumberCopyAbs.ex
   ret ptr %0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @decNaNs(ptr noundef returned captures(address, ret: address, provenance) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #9 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc noundef ptr @decNaNs(ptr noundef returned captures(address, ret: address, provenance) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #10 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i8, ptr %6, align 4, !tbaa !4
   %8 = zext i8 %7 to i32
@@ -8583,7 +8583,7 @@ define dso_local noundef ptr @decNumberPlus(ptr noundef returned %0, ptr noundef
 
 decStatus.exit:                                   ; preds = %13, %17, %19
   %.0.i = phi i32 [ %18, %17 ], [ %12, %19 ], [ %12, %13 ]
-  %23 = call ptr @decContextSetStatus(ptr noundef %2, i32 noundef %.0.i) #18
+  %23 = call ptr @decContextSetStatus(ptr noundef %2, i32 noundef %.0.i) #19
   br label %24
 
 24:                                               ; preds = %decStatus.exit, %3
@@ -8655,7 +8655,7 @@ define dso_local noundef ptr @decNumberLog10(ptr noundef returned %0, ptr nounde
   br i1 %39, label %40, label %.thread100.thread
 
 40:                                               ; preds = %25, %35
-  %41 = call ptr @decContextDefault(ptr noundef nonnull %9, i32 noundef 64) #18
+  %41 = call ptr @decContextDefault(ptr noundef nonnull %9, i32 noundef 64) #19
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %43 = load i8, ptr %42, align 4, !tbaa !4
   %.not82 = icmp ult i8 %43, 16
@@ -8817,7 +8817,7 @@ decNumberFromUInt32.exit.i:                       ; preds = %79, %77, %83, %81, 
   %108 = shl nuw nsw i32 %107, 1
   %109 = add nuw nsw i32 %108, 10
   %110 = zext nneg i32 %109 to i64
-  %111 = call noalias ptr @malloc(i64 noundef %110) #19
+  %111 = call noalias ptr @malloc(i64 noundef %110) #20
   %112 = icmp eq ptr %111, null
   br i1 %112, label %.thread125, label %113
 
@@ -8937,7 +8937,7 @@ decNumberFromUInt32.exit.i:                       ; preds = %79, %77, %83, %81, 
   %177 = shl nuw nsw i32 %176, 1
   %178 = add nuw nsw i32 %177, 10
   %179 = zext nneg i32 %178 to i64
-  %180 = call noalias ptr @malloc(i64 noundef %179) #19
+  %180 = call noalias ptr @malloc(i64 noundef %179) #20
   %181 = icmp eq ptr %180, null
   br i1 %181, label %182, label %184
 
@@ -8969,7 +8969,7 @@ decNumberCopy.exit:                               ; preds = %.lr.ph.preheader.i,
   br i1 %.not87, label %192, label %191
 
 191:                                              ; preds = %decNumberCopy.exit
-  call void @free(ptr noundef nonnull %.167) #18
+  call void @free(ptr noundef nonnull %.167) #19
   br label %192
 
 192:                                              ; preds = %191, %decNumberCopy.exit
@@ -8977,7 +8977,7 @@ decNumberCopy.exit:                               ; preds = %.lr.ph.preheader.i,
   br i1 %.not88, label %.thread100, label %193
 
 193:                                              ; preds = %192
-  call void @free(ptr noundef nonnull %.064) #18
+  call void @free(ptr noundef nonnull %.064) #19
   br label %.thread100
 
 .thread100:                                       ; preds = %87, %193, %192
@@ -9013,7 +9013,7 @@ decNumberCopy.exit:                               ; preds = %.lr.ph.preheader.i,
 
 decStatus.exit:                                   ; preds = %.thread100.thread, %198, %.thread125
   %.0.i93 = phi i32 [ %199, %198 ], [ %200, %.thread125 ], [ %194, %.thread100.thread ]
-  %204 = call ptr @decContextSetStatus(ptr noundef nonnull %2, i32 noundef %.0.i93) #18
+  %204 = call ptr @decContextSetStatus(ptr noundef nonnull %2, i32 noundef %.0.i93) #19
   br label %205
 
 205:                                              ; preds = %decStatus.exit, %.thread100
@@ -9064,7 +9064,7 @@ define dso_local noundef ptr @decNumberMax(ptr noundef returned %0, ptr noundef 
 
 decStatus.exit:                                   ; preds = %8, %12, %14
   %.0.i = phi i32 [ %13, %12 ], [ %7, %14 ], [ %7, %8 ]
-  %18 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #18
+  %18 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #19
   br label %19
 
 19:                                               ; preds = %decStatus.exit, %4
@@ -9108,7 +9108,7 @@ define dso_local noundef ptr @decNumberMaxMag(ptr noundef returned %0, ptr nound
 
 decStatus.exit:                                   ; preds = %8, %12, %14
   %.0.i = phi i32 [ %13, %12 ], [ %7, %14 ], [ %7, %8 ]
-  %18 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #18
+  %18 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #19
   br label %19
 
 19:                                               ; preds = %decStatus.exit, %4
@@ -9152,7 +9152,7 @@ define dso_local noundef ptr @decNumberMin(ptr noundef returned %0, ptr noundef 
 
 decStatus.exit:                                   ; preds = %8, %12, %14
   %.0.i = phi i32 [ %13, %12 ], [ %7, %14 ], [ %7, %8 ]
-  %18 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #18
+  %18 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #19
   br label %19
 
 19:                                               ; preds = %decStatus.exit, %4
@@ -9196,7 +9196,7 @@ define dso_local noundef ptr @decNumberMinMag(ptr noundef returned %0, ptr nound
 
 decStatus.exit:                                   ; preds = %8, %12, %14
   %.0.i = phi i32 [ %13, %12 ], [ %7, %14 ], [ %7, %8 ]
-  %18 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #18
+  %18 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #19
   br label %19
 
 19:                                               ; preds = %decStatus.exit, %4
@@ -9251,7 +9251,7 @@ define dso_local noundef ptr @decNumberMinus(ptr noundef returned %0, ptr nounde
 
 decStatus.exit:                                   ; preds = %13, %17, %19
   %.0.i = phi i32 [ %18, %17 ], [ %12, %19 ], [ %12, %13 ]
-  %23 = call ptr @decContextSetStatus(ptr noundef %2, i32 noundef %.0.i) #18
+  %23 = call ptr @decContextSetStatus(ptr noundef %2, i32 noundef %.0.i) #19
   br label %24
 
 24:                                               ; preds = %decStatus.exit, %3
@@ -9349,7 +9349,7 @@ decSetMaxValue.exit:                              ; preds = %.lr.ph.i, %11
 
 decStatus.exit:                                   ; preds = %38, %36, %40
   %.0.i = phi i32 [ %35, %40 ], [ %35, %36 ], [ 128, %38 ]
-  %44 = call ptr @decContextSetStatus(ptr noundef nonnull %2, i32 noundef %.0.i) #18
+  %44 = call ptr @decContextSetStatus(ptr noundef nonnull %2, i32 noundef %.0.i) #19
   br label %45
 
 45:                                               ; preds = %28, %decStatus.exit, %decSetMaxValue.exit
@@ -9484,7 +9484,7 @@ decSetMaxValue.exit:                              ; preds = %.lr.ph.i, %10
 
 decStatus.exit:                                   ; preds = %37, %35, %39
   %.0.i = phi i32 [ %34, %39 ], [ %34, %35 ], [ 128, %37 ]
-  %43 = call ptr @decContextSetStatus(ptr noundef nonnull %2, i32 noundef %.0.i) #18
+  %43 = call ptr @decContextSetStatus(ptr noundef nonnull %2, i32 noundef %.0.i) #19
   br label %44
 
 44:                                               ; preds = %27, %decStatus.exit, %decSetMaxValue.exit
@@ -9690,7 +9690,7 @@ decNumberIsNormal.exit.thread:                    ; preds = %73, %64, %decNumber
 
 decStatus.exit:                                   ; preds = %83, %87, %.thread50
   %.0.i42 = phi i32 [ %88, %87 ], [ %89, %.thread50 ], [ %.pr, %83 ]
-  %93 = call ptr @decContextSetStatus(ptr noundef nonnull %3, i32 noundef %.0.i42) #18
+  %93 = call ptr @decContextSetStatus(ptr noundef nonnull %3, i32 noundef %.0.i42) #19
   br label %.critedge
 
 .critedge:                                        ; preds = %decNumberIsNormal.exit, %58, %63, %decNumberIsNormal.exit.thread, %decStatus.exit
@@ -9700,8 +9700,8 @@ decStatus.exit:                                   ; preds = %83, %87, %.thread50
   ret ptr %0
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc i32 @decCompare(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, i8 noundef zeroext range(i8 0, 2) %2) unnamed_addr #3 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc i32 @decCompare(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, i8 noundef zeroext range(i8 0, 2) %2) unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %5 = load i16, ptr %4, align 2, !tbaa !11
   %6 = icmp eq i16 %5, 0
@@ -9965,7 +9965,7 @@ decNumberCopy.exit:                               ; preds = %.lr.ph.i, %.decNumb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @decNumberIsNormal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
+define dso_local range(i32 0, 2) i32 @decNumberIsNormal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 4, !tbaa !4
   %5 = and i8 %4, 112
@@ -10029,7 +10029,7 @@ define dso_local noundef ptr @decNumberOr(ptr noundef returned %0, ptr noundef r
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 10
   store i16 0, ptr %19, align 2, !tbaa !11
   store i8 32, ptr %17, align 4, !tbaa !4
-  %20 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef 128) #18
+  %20 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef 128) #19
   br label %132
 
 21:                                               ; preds = %13
@@ -10218,7 +10218,7 @@ define dso_local noundef ptr @decNumberOr(ptr noundef returned %0, ptr noundef r
   store i32 1, ptr %0, align 4, !tbaa !10
   store i16 0, ptr %24, align 2, !tbaa !11
   store i8 32, ptr %118, align 4, !tbaa !4
-  %120 = tail call ptr @decContextSetStatus(ptr noundef nonnull %3, i32 noundef 128) #18
+  %120 = tail call ptr @decContextSetStatus(ptr noundef nonnull %3, i32 noundef 128) #19
   br label %132
 
 .loopexit:                                        ; preds = %101, %117, %82
@@ -10283,7 +10283,7 @@ define dso_local noundef ptr @decNumberMultiply(ptr noundef returned %0, ptr nou
 
 decStatus.exit:                                   ; preds = %8, %12, %14
   %.0.i = phi i32 [ %13, %12 ], [ %7, %14 ], [ %7, %8 ]
-  %18 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #18
+  %18 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #19
   br label %19
 
 19:                                               ; preds = %decStatus.exit, %4
@@ -10551,7 +10551,7 @@ define dso_local noundef ptr @decNumberPower(ptr noundef returned %0, ptr nounde
   br i1 %or.cond255, label %decCheckMath.exit224.thread, label %.thread250
 
 decCheckMath.exit224.thread:                      ; preds = %125, %120
-  %132 = call ptr @decContextDefault(ptr noundef nonnull %7, i32 noundef 64) #18
+  %132 = call ptr @decContextDefault(ptr noundef nonnull %7, i32 noundef 64) #19
   %133 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 999999, ptr %133, align 4, !tbaa !31
   %134 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -10617,7 +10617,7 @@ decCheckMath.exit224.thread:                      ; preds = %125, %120
   br i1 %168, label %169, label %172
 
 169:                                              ; preds = %163
-  %170 = call noalias ptr @malloc(i64 noundef %167) #19
+  %170 = call noalias ptr @malloc(i64 noundef %167) #20
   %171 = icmp eq ptr %170, null
   br i1 %171, label %.thread250, label %172
 
@@ -10689,7 +10689,7 @@ decCheckMath.exit224.thread:                      ; preds = %125, %120
   br i1 %168, label %206, label %.thread
 
 206:                                              ; preds = %203
-  %207 = call noalias ptr @malloc(i64 noundef %167) #19
+  %207 = call noalias ptr @malloc(i64 noundef %167) #20
   %208 = icmp eq ptr %207, null
   br i1 %208, label %211, label %.thread
 
@@ -10809,7 +10809,7 @@ split.thread:                                     ; preds = %218, %226, %split
   br i1 %.not208, label %256, label %255
 
 255:                                              ; preds = %254
-  call void @free(ptr noundef nonnull %.1155) #18
+  call void @free(ptr noundef nonnull %.1155) #19
   br label %256
 
 256:                                              ; preds = %255, %254
@@ -10817,7 +10817,7 @@ split.thread:                                     ; preds = %218, %226, %split
   br i1 %.not209, label %.thread243, label %257
 
 257:                                              ; preds = %256
-  call void @free(ptr noundef nonnull %.0157) #18
+  call void @free(ptr noundef nonnull %.0157) #19
   br label %.thread243
 
 .thread243:                                       ; preds = %22, %87, %139, %48, %47, %57, %58, %70, %74, %257, %256
@@ -10853,7 +10853,7 @@ split.thread:                                     ; preds = %218, %226, %split
 
 decStatus.exit:                                   ; preds = %.thread243.thread.thread248, %.thread243.thread, %261, %.thread250
   %.0.i = phi i32 [ %262, %261 ], [ %263, %.thread250 ], [ %258, %.thread243.thread ], [ 2080, %.thread243.thread.thread248 ]
-  %267 = call ptr @decContextSetStatus(ptr noundef nonnull %3, i32 noundef %.0.i) #18
+  %267 = call ptr @decContextSetStatus(ptr noundef nonnull %3, i32 noundef %.0.i) #19
   br label %268
 
 268:                                              ; preds = %decStatus.exit, %.thread243
@@ -11231,7 +11231,7 @@ define dso_local noundef ptr @decNumberQuantize(ptr noundef returned %0, ptr nou
 
 decStatus.exit:                                   ; preds = %8, %12, %14
   %.0.i = phi i32 [ %13, %12 ], [ %7, %14 ], [ %7, %8 ]
-  %18 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #18
+  %18 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #19
   br label %19
 
 19:                                               ; preds = %decStatus.exit, %4
@@ -11239,8 +11239,8 @@ decStatus.exit:                                   ; preds = %8, %12, %14
   ret ptr %0
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @decQuantizeOp(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, i8 noundef zeroext range(i8 0, 2) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #3 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc noundef ptr @decQuantizeOp(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, i8 noundef zeroext range(i8 0, 2) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #7 {
   %7 = alloca i32, align 4
   %8 = alloca %struct.decContext, align 4
   %9 = load i32, ptr %3, align 4, !tbaa !25
@@ -11575,7 +11575,7 @@ define dso_local noundef ptr @decNumberReduce(ptr noundef returned %0, ptr nound
 
 decStatus.exit:                                   ; preds = %22, %26, %28
   %.0.i = phi i32 [ %27, %26 ], [ %21, %28 ], [ %21, %22 ]
-  %32 = tail call ptr @decContextSetStatus(ptr noundef %2, i32 noundef %.0.i) #18
+  %32 = tail call ptr @decContextSetStatus(ptr noundef %2, i32 noundef %.0.i) #19
   br label %33
 
 33:                                               ; preds = %decStatus.exit, %20
@@ -11787,7 +11787,7 @@ define dso_local noundef ptr @decNumberRescale(ptr noundef returned %0, ptr noun
 
 decStatus.exit:                                   ; preds = %8, %12, %14
   %.0.i = phi i32 [ %13, %12 ], [ %7, %14 ], [ %7, %8 ]
-  %18 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #18
+  %18 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #19
   br label %19
 
 19:                                               ; preds = %decStatus.exit, %4
@@ -11831,7 +11831,7 @@ define dso_local noundef ptr @decNumberRemainder(ptr noundef returned %0, ptr no
 
 decStatus.exit:                                   ; preds = %8, %12, %14
   %.0.i = phi i32 [ %13, %12 ], [ %7, %14 ], [ %7, %8 ]
-  %18 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #18
+  %18 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #19
   br label %19
 
 19:                                               ; preds = %decStatus.exit, %4
@@ -11875,7 +11875,7 @@ define dso_local noundef ptr @decNumberRemainderNear(ptr noundef returned %0, pt
 
 decStatus.exit:                                   ; preds = %8, %12, %14
   %.0.i = phi i32 [ %13, %12 ], [ %7, %14 ], [ %7, %8 ]
-  %18 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #18
+  %18 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #19
   br label %19
 
 19:                                               ; preds = %decStatus.exit, %4
@@ -12225,7 +12225,7 @@ decReverse.exit137:                               ; preds = %.lr.ph.i134, %decRe
 
 decStatus.exit:                                   ; preds = %181, %185, %.thread141
   %.0.i = phi i32 [ %186, %185 ], [ %187, %.thread141 ], [ %.pr.pre, %181 ]
-  %191 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #18
+  %191 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #19
   br label %.thread
 
 .thread:                                          ; preds = %decReverse.exit137, %35, %33, %32, %decStatus.exit, %179
@@ -12234,7 +12234,7 @@ decStatus.exit:                                   ; preds = %181, %185, %.thread
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #11
+declare i32 @llvm.abs.i32(i32, i1 immarg) #12
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc i32 @decShiftToLeast(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
@@ -12398,7 +12398,7 @@ define internal fastcc i32 @decShiftToLeast(ptr noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @decNumberSameQuantum(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 9), (10, 12)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #12 {
+define dso_local noundef ptr @decNumberSameQuantum(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 9), (10, 12)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #13 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 4, !tbaa !4
   %6 = zext i8 %5 to i32
@@ -12562,7 +12562,7 @@ define dso_local noundef ptr @decNumberScaleB(ptr noundef returned %0, ptr nound
 
 decStatus.exit:                                   ; preds = %48, %52, %.thread45
   %.0.i = phi i32 [ %53, %52 ], [ %54, %.thread45 ], [ %.pr, %48 ]
-  %58 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #18
+  %58 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #19
   br label %59
 
 59:                                               ; preds = %decStatus.exit, %47
@@ -12740,7 +12740,7 @@ define dso_local noundef ptr @decNumberShift(ptr noundef returned %0, ptr nounde
 
 decStatus.exit:                                   ; preds = %76, %80, %.thread69
   %.0.i = phi i32 [ %81, %80 ], [ %82, %.thread69 ], [ %.pr65.pre, %76 ]
-  %86 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #18
+  %86 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #19
   br label %.thread
 
 .thread:                                          ; preds = %48, %51, %36, %69, %58, %27, %25, %decStatus.exit, %74
@@ -13016,7 +13016,7 @@ decNumberCopy.exit245:                            ; preds = %66, %64
   %89 = shl nuw nsw i32 %88, 1
   %90 = add nuw nsw i32 %89, 10
   %91 = zext nneg i32 %90 to i64
-  %92 = tail call noalias ptr @malloc(i64 noundef %91) #19
+  %92 = tail call noalias ptr @malloc(i64 noundef %91) #20
   %93 = icmp eq ptr %92, null
   br i1 %93, label %.thread304.thread.thread.thread, label %94
 
@@ -13047,8 +13047,8 @@ decNumberCopy.exit245:                            ; preds = %66, %64
   %108 = shl nuw nsw i32 %105, 1
   %109 = add nuw nsw i32 %108, 10
   %110 = zext nneg i32 %109 to i64
-  %111 = tail call noalias ptr @malloc(i64 noundef %110) #19
-  %112 = tail call noalias ptr @malloc(i64 noundef %110) #19
+  %111 = tail call noalias ptr @malloc(i64 noundef %110) #20
+  %112 = tail call noalias ptr @malloc(i64 noundef %110) #20
   %113 = icmp eq ptr %111, null
   %114 = icmp eq ptr %112, null
   %or.cond = or i1 %113, %114
@@ -13120,7 +13120,7 @@ decNumberCopy.exit254:                            ; preds = %.decNumberCopy.exit
   %142 = add nsw i32 %74, %140
   %143 = sub nsw i32 0, %74
   store i32 %143, ptr %141, align 4, !tbaa !9
-  %144 = call ptr @decContextDefault(ptr noundef nonnull %5, i32 noundef 64) #18
+  %144 = call ptr @decContextDefault(ptr noundef nonnull %5, i32 noundef 64) #19
   %145 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 999999999, ptr %145, align 4, !tbaa !31
   %146 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -13755,7 +13755,7 @@ decNumberCopy.exit:                               ; preds = %.lr.ph.preheader.i2
   br i1 %.not231, label %463, label %462
 
 462:                                              ; preds = %decNumberCopy.exit
-  call void @free(ptr noundef nonnull %.1192) #18
+  call void @free(ptr noundef nonnull %.1192) #19
   br label %463
 
 463:                                              ; preds = %462, %decNumberCopy.exit
@@ -13763,7 +13763,7 @@ decNumberCopy.exit:                               ; preds = %.lr.ph.preheader.i2
   br i1 %.not232, label %465, label %464
 
 464:                                              ; preds = %463
-  call void @free(ptr noundef nonnull %.0198) #18
+  call void @free(ptr noundef nonnull %.0198) #19
   br label %465
 
 465:                                              ; preds = %464, %463
@@ -13771,7 +13771,7 @@ decNumberCopy.exit:                               ; preds = %.lr.ph.preheader.i2
   br i1 %.not233, label %.thread304, label %466
 
 466:                                              ; preds = %465
-  call void @free(ptr noundef nonnull %.0196) #18
+  call void @free(ptr noundef nonnull %.0196) #19
   br label %.thread304
 
 .thread304:                                       ; preds = %.lr.ph.i, %26, %24, %decNumberCopy.exit245, %52, %466, %465
@@ -13806,7 +13806,7 @@ decNumberCopy.exit:                               ; preds = %.lr.ph.preheader.i2
 
 decStatus.exit:                                   ; preds = %.thread304.thread, %469, %.thread304.thread.thread.thread
   %.0.i = phi i32 [ %470, %469 ], [ %471, %.thread304.thread.thread.thread ], [ %.pr307, %.thread304.thread ]
-  %475 = call ptr @decContextSetStatus(ptr noundef %2, i32 noundef %.0.i) #18
+  %475 = call ptr @decContextSetStatus(ptr noundef %2, i32 noundef %.0.i) #19
   br label %476
 
 476:                                              ; preds = %decStatus.exit, %.thread304
@@ -13860,7 +13860,7 @@ define dso_local noundef ptr @decNumberSubtract(ptr noundef returned %0, ptr nou
 
 decStatus.exit:                                   ; preds = %8, %12, %14
   %.0.i = phi i32 [ %13, %12 ], [ %7, %14 ], [ %7, %8 ]
-  %18 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #18
+  %18 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #19
   br label %19
 
 19:                                               ; preds = %decStatus.exit, %4
@@ -14055,7 +14055,7 @@ define dso_local noundef ptr @decNumberToIntegralExact(ptr noundef returned %0, 
 
 decStatus.exit.i:                                 ; preds = %88, %86, %82
   %.0.i.i = phi i32 [ %87, %86 ], [ %81, %88 ], [ %81, %82 ]
-  %92 = call ptr @decContextSetStatus(ptr noundef nonnull %6, i32 noundef %.0.i.i) #18
+  %92 = call ptr @decContextSetStatus(ptr noundef nonnull %6, i32 noundef %.0.i.i) #19
   br label %decNumberQuantize.exit
 
 decNumberQuantize.exit:                           ; preds = %74, %decStatus.exit.i
@@ -14095,7 +14095,7 @@ decNumberCopy.exit:                               ; preds = %42, %decNumberQuant
 
 decStatus.exit:                                   ; preds = %96, %100, %102
   %.0.i = phi i32 [ %101, %100 ], [ %95, %102 ], [ %95, %96 ]
-  %106 = call ptr @decContextSetStatus(ptr noundef %2, i32 noundef %.0.i) #18
+  %106 = call ptr @decContextSetStatus(ptr noundef %2, i32 noundef %.0.i) #19
   br label %decNumberCopy.exit29
 
 decNumberCopy.exit29:                             ; preds = %.lr.ph.i, %.lr.ph.i26, %16, %14, %50, %48, %decNumberCopy.exit, %decStatus.exit
@@ -14157,7 +14157,7 @@ define dso_local noundef ptr @decNumberXor(ptr noundef returned %0, ptr noundef 
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 10
   store i16 0, ptr %19, align 2, !tbaa !11
   store i8 32, ptr %17, align 4, !tbaa !4
-  %20 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef 128) #18
+  %20 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef 128) #19
   br label %132
 
 21:                                               ; preds = %13
@@ -14346,7 +14346,7 @@ define dso_local noundef ptr @decNumberXor(ptr noundef returned %0, ptr noundef 
   store i32 1, ptr %0, align 4, !tbaa !10
   store i16 0, ptr %24, align 2, !tbaa !11
   store i8 32, ptr %118, align 4, !tbaa !4
-  %120 = tail call ptr @decContextSetStatus(ptr noundef nonnull %3, i32 noundef 128) #18
+  %120 = tail call ptr @decContextSetStatus(ptr noundef nonnull %3, i32 noundef 128) #19
   br label %132
 
 .loopexit:                                        ; preds = %101, %117, %82
@@ -14376,7 +14376,7 @@ define dso_local noundef ptr @decNumberXor(ptr noundef returned %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 10) i32 @decNumberClass(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
+define dso_local range(i32 0, 10) i32 @decNumberClass(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 4, !tbaa !4
   %5 = zext i8 %4 to i32
@@ -14453,7 +14453,7 @@ decNumberIsNormal.exit.thread.thread:             ; preds = %14, %decNumberIsNor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @decNumberClassToString(i32 noundef %0) local_unnamed_addr #13 {
+define dso_local noundef nonnull ptr @decNumberClassToString(i32 noundef %0) local_unnamed_addr #14 {
   %2 = icmp ult i32 %0, 10
   br i1 %2, label %switch.lookup, label %4
 
@@ -14667,7 +14667,7 @@ define dso_local noundef ptr @decNumberSetBCD(ptr noundef returned captures(ret:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @decNumberIsSubnormal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
+define dso_local range(i32 0, 2) i32 @decNumberIsSubnormal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 4, !tbaa !4
   %5 = and i8 %4, 112
@@ -14704,7 +14704,7 @@ define dso_local noundef ptr @decNumberTrim(ptr noundef returned %0) local_unnam
   %3 = alloca %struct.decContext, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = call ptr @decContextDefault(ptr noundef nonnull %3, i32 noundef 0) #18
+  %4 = call ptr @decContextDefault(ptr noundef nonnull %3, i32 noundef 0) #19
   %5 = call fastcc ptr @decTrim(ptr noundef %0, ptr noundef nonnull %3, i8 noundef zeroext 0, i8 noundef zeroext 1, ptr noundef %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -14712,7 +14712,7 @@ define dso_local noundef ptr @decNumberTrim(ptr noundef returned %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @decNumberVersion() local_unnamed_addr #13 {
+define dso_local noundef nonnull ptr @decNumberVersion() local_unnamed_addr #14 {
   ret ptr @.str.15
 }
 
@@ -15007,8 +15007,8 @@ define internal fastcc i32 @decUnitAddSub(ptr noundef readonly captures(address)
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2) i32 @decUnitCompare(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 715827883) %3, i32 noundef %4) unnamed_addr #3 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 -2147483648, 2) i32 @decUnitCompare(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 715827883) %3, i32 noundef %4) unnamed_addr #7 {
   %6 = alloca [25 x i16], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq i32 %4, 0
@@ -15085,7 +15085,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @decUnitCompare(ptr noundef
   %43 = shl nuw i32 %.pre-phi, 1
   %44 = add nuw i32 %43, 4
   %45 = zext i32 %44 to i64
-  %46 = tail call noalias ptr @malloc(i64 noundef %45) #19
+  %46 = tail call noalias ptr @malloc(i64 noundef %45) #20
   %47 = icmp eq ptr %46, null
   br i1 %47, label %.loopexit, label %48
 
@@ -15134,7 +15134,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @decUnitCompare(ptr noundef
   br i1 %.not, label %.loopexit, label %70
 
 70:                                               ; preds = %69
-  call void @free(ptr noundef nonnull %.065) #18
+  call void @free(ptr noundef nonnull %.065) #19
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %21, %17, %.thread78, %.thread, %69, %70, %42, %36, %25, %10, %8
@@ -15143,8 +15143,8 @@ define internal fastcc range(i32 -2147483648, 2) i32 @decUnitCompare(ptr noundef
   ret i32 %.059
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @decApplyRound(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef nonnull captures(none) %3) unnamed_addr #14 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc void @decApplyRound(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef nonnull captures(none) %3) unnamed_addr #15 {
   %5 = icmp eq i32 %2, 0
   br i1 %5, label %.critedge, label %6
 
@@ -15548,8 +15548,8 @@ decSetMaxValue.exit:                              ; preds = %.lr.ph.i, %.critedg
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @decSetSubnormal(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #14 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc void @decSetSubnormal(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #15 {
   %5 = alloca %struct.decContext, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -15786,52 +15786,53 @@ decShiftToMost.exit:                              ; preds = %.lr.ph91.i, %57, %.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #16
+declare i32 @llvm.umax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #16
+declare i32 @llvm.smin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #16
+declare i32 @llvm.smax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #16
+declare i32 @llvm.umin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #16
+declare i64 @llvm.umax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #16
+declare i32 @llvm.usub.sat.i32(i32, i32) #17
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #18 = { nounwind }
-attributes #19 = { nounwind allocsize(0) }
+attributes #7 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #19 = { nounwind }
+attributes #20 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

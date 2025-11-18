@@ -3777,7 +3777,7 @@ define noundef i32 @_ZNK5arrow7compute16SetLookupOptions23GetNullMatchingBehavio
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute17ArithmeticOptionsC2Eb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %0, i1 noundef zeroext %1) unnamed_addr #2 align 2 {
   %3 = zext i1 %1 to i8
   %4 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_122kArithmeticOptionsTypeE, align 8, !tbaa !37
@@ -3789,7 +3789,7 @@ define void @_ZN5arrow7compute17ArithmeticOptionsC2Eb(ptr noundef nonnull writeo
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute21AssumeTimezoneOptionsC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_9AmbiguousENS1_11NonexistentE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 16)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_126kAssumeTimezoneOptionsTypeE, align 8, !tbaa !37
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3833,7 +3833,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %12
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute21AssumeTimezoneOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 16)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit:
   %1 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_126kAssumeTimezoneOptionsTypeE, align 8, !tbaa !37
@@ -3908,7 +3908,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute16DayOfWeekOptionsC2Ebj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 17), (20, 24)) %0, i1 noundef zeroext %1, i32 noundef %2) unnamed_addr #2 align 2 {
   %4 = zext i1 %1 to i8
   %5 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_121kDayOfWeekOptionsTypeE, align 8, !tbaa !37
@@ -3922,7 +3922,7 @@ define void @_ZN5arrow7compute16DayOfWeekOptionsC2Ebj(ptr noundef nonnull writeo
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute27ElementWiseAggregateOptionsC2Eb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %0, i1 noundef zeroext %1) unnamed_addr #2 align 2 {
   %3 = zext i1 %1 to i8
   %4 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_132kElementWiseAggregateOptionsTypeE, align 8, !tbaa !37
@@ -3934,7 +3934,7 @@ define void @_ZN5arrow7compute27ElementWiseAggregateOptionsC2Eb(ptr noundef nonn
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute19ExtractRegexOptionsC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_124kExtractRegexOptionsTypeE, align 8, !tbaa !37
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3974,7 +3974,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %10
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute19ExtractRegexOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 16)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit:
   %1 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_124kExtractRegexOptionsTypeE, align 8, !tbaa !37
@@ -3990,7 +3990,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute11JoinOptionsC2ENS1_20NullHandlingBehaviorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 20)) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_116kJoinOptionsTypeE, align 8, !tbaa !37
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4032,7 +4032,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %12
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute17MakeStructOptionsC2ESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EES2_IbSaIbEES2_ISt10shared_ptrIKNS_16KeyValueMetadataEESaISG_EE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(104) initializes((0, 104)) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_122kMakeStructOptionsTypeE, align 8, !tbaa !37
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4401,7 +4401,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute16MapLookupOptionsC2ESt10shared_ptrINS_6ScalarEENS1_10OccurrenceE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(36) initializes((0, 36)) %0, ptr noundef captures(none) %1, i32 noundef %2) unnamed_addr #5 align 2 {
   %4 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_121kMapLookupOptionsTypeE, align 8, !tbaa !37
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4448,7 +4448,7 @@ _ZNSt12__shared_ptrIN5arrow10NullScalarELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute21MatchSubstringOptionsC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 16)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_126kMatchSubstringOptionsTypeE, align 8, !tbaa !37
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4491,7 +4491,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %11
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute21MatchSubstringOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 16)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit:
   %1 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_126kMatchSubstringOptionsTypeE, align 8, !tbaa !37
@@ -4509,7 +4509,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute11NullOptionsC2Eb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %0, i1 noundef zeroext %1) unnamed_addr #2 align 2 {
   %3 = zext i1 %1 to i8
   %4 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_116kNullOptionsTypeE, align 8, !tbaa !37
@@ -4521,7 +4521,7 @@ define void @_ZN5arrow7compute11NullOptionsC2Eb(ptr noundef nonnull writeonly al
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute10PadOptionsC2ElNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 24)) %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_115kPadOptionsTypeE, align 8, !tbaa !37
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4566,7 +4566,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %13
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute10PadOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 24)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit:
   %1 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_115kPadOptionsTypeE, align 8, !tbaa !37
@@ -4586,7 +4586,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute19ReplaceSliceOptionsC2EllNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 32)) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_124kReplaceSliceOptionsTypeE, align 8, !tbaa !37
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4630,7 +4630,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %14
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute19ReplaceSliceOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 32)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit:
   %1 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_124kReplaceSliceOptionsTypeE, align 8, !tbaa !37
@@ -4648,7 +4648,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute23ReplaceSubstringOptionsC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_l(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 16)) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_128kReplaceSubstringOptionsTypeE, align 8, !tbaa !37
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4721,7 +4721,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit2: ; preds = %2
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute23ReplaceSubstringOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 16)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13:
   %1 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_128kReplaceSubstringOptionsTypeE, align 8, !tbaa !37
@@ -4745,7 +4745,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute12RoundOptionsC2ElNS0_9RoundModeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(25) initializes((0, 25)) %0, i64 noundef %1, i8 noundef signext %2) unnamed_addr #2 align 2 {
   %4 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_117kRoundOptionsTypeE, align 8, !tbaa !37
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4758,7 +4758,7 @@ define void @_ZN5arrow7compute12RoundOptionsC2ElNS0_9RoundModeE(ptr noundef nonn
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute18RoundBinaryOptionsC2ENS0_9RoundModeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %0, i8 noundef signext %1) unnamed_addr #2 align 2 {
   %3 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_123kRoundBinaryOptionsTypeE, align 8, !tbaa !37
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4769,7 +4769,7 @@ define void @_ZN5arrow7compute18RoundBinaryOptionsC2ENS0_9RoundModeE(ptr noundef
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute20RoundTemporalOptionsC2EiNS0_12CalendarUnitEbbb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, i32 noundef %1, i8 noundef signext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #2 align 2 {
   %7 = zext i1 %3 to i8
   %8 = zext i1 %4 to i8
@@ -4819,7 +4819,7 @@ _ZNSt12__shared_ptrIN5arrow12DoubleScalarELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute22RoundToMultipleOptionsC2ESt10shared_ptrINS_6ScalarEENS0_9RoundModeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(33) initializes((0, 33)) %0, ptr noundef captures(none) %1, i8 noundef signext %2) unnamed_addr #5 align 2 {
   %4 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_127kRoundToMultipleOptionsTypeE, align 8, !tbaa !37
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4840,7 +4840,7 @@ define void @_ZN5arrow7compute22RoundToMultipleOptionsC2ESt10shared_ptrINS_6Scal
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute16SetLookupOptionsC2ENS_5DatumEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(46) initializes((0, 16), (32, 33), (40, 46)) %0, ptr noundef captures(none) %1, i1 noundef zeroext %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_121kSetLookupOptionsTypeE, align 8, !tbaa !37
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4879,7 +4879,7 @@ _ZN5arrow5DatumC2EOS0_.exit:                      ; preds = %3, %.sink.split.i.i
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute16SetLookupOptionsC2ENS_5DatumENS1_20NullMatchingBehaviorE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(46) initializes((0, 16), (32, 33), (40, 44), (45, 46)) %0, ptr noundef captures(none) %1, i32 noundef %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_121kSetLookupOptionsTypeE, align 8, !tbaa !37
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4966,7 +4966,7 @@ _ZNSt8__detail9__variant16_Variant_storageILb0EJN5arrow5Datum5EmptyESt10shared_p
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute12SliceOptionsC2Elll(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #2 align 2 {
   %5 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_117kSliceOptionsTypeE, align 8, !tbaa !37
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4981,7 +4981,7 @@ define void @_ZN5arrow7compute12SliceOptionsC2Elll(ptr noundef nonnull writeonly
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute12SliceOptionsC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #2 align 2 {
   %2 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_117kSliceOptionsTypeE, align 8, !tbaa !37
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4994,7 +4994,7 @@ define void @_ZN5arrow7compute12SliceOptionsC2Ev(ptr noundef nonnull writeonly a
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute16ListSliceOptionsC2ElSt8optionalIlElS2_IbE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(50) initializes((0, 33), (40, 50)) %0, i64 noundef %1, i64 %2, i8 %3, i64 noundef %4, i16 %5) unnamed_addr #2 align 2 {
   %7 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_121kListSliceOptionsTypeE, align 8, !tbaa !37
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5016,7 +5016,7 @@ define void @_ZN5arrow7compute16ListSliceOptionsC2ElSt8optionalIlElS2_IbE(ptr no
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute16ListSliceOptionsC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(50) initializes((0, 24), (32, 33), (40, 50)) %0) unnamed_addr #2 align 2 {
   %2 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_121kListSliceOptionsTypeE, align 8, !tbaa !37
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5033,7 +5033,7 @@ define void @_ZN5arrow7compute16ListSliceOptionsC2Ev(ptr noundef nonnull writeon
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute12SplitOptionsC2Elb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(25) initializes((0, 25)) %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #2 align 2 {
   %4 = zext i1 %2 to i8
   %5 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_117kSplitOptionsTypeE, align 8, !tbaa !37
@@ -5047,7 +5047,7 @@ define void @_ZN5arrow7compute12SplitOptionsC2Elb(ptr noundef nonnull writeonly 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute19SplitPatternOptionsC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElb(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 16)) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_124kSplitPatternOptionsTypeE, align 8, !tbaa !37
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5092,7 +5092,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %12
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute19SplitPatternOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 16)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit:
   %1 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_124kSplitPatternOptionsTypeE, align 8, !tbaa !37
@@ -5112,7 +5112,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute15StrftimeOptionsC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 16)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_120kStrftimeOptionsTypeE, align 8, !tbaa !37
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5242,7 +5242,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %_ZN
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute15StrptimeOptionsC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8TimeUnit4typeEb(ptr noundef nonnull align 8 dereferenceable(53) initializes((0, 16)) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_120kStrptimeOptionsTypeE, align 8, !tbaa !37
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5287,7 +5287,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %12
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute15StrptimeOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(53) initializes((0, 16)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit:
   %1 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_120kStrptimeOptionsTypeE, align 8, !tbaa !37
@@ -5434,7 +5434,7 @@ _ZN5arrow9FieldPathD2Ev.exit8:                    ; preds = %24, %21
   resume { ptr, i32 } %22
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute18StructFieldOptionsC2ENS_8FieldRefE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 16), (48, 49)) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_123kStructFieldOptionsTypeE, align 8, !tbaa !37
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5523,7 +5523,7 @@ _ZN5arrow8FieldRefC2EOS0_.exit:                   ; preds = %2, %9, %_ZNSt8__det
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute18StructFieldOptionsC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((0, 40), (48, 49)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_123kStructFieldOptionsTypeE, align 8, !tbaa !37
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5536,7 +5536,7 @@ define void @_ZN5arrow7compute18StructFieldOptionsC2Ev(ptr noundef nonnull write
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute11TrimOptionsC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_116kTrimOptionsTypeE, align 8, !tbaa !37
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5576,7 +5576,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %10
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute11TrimOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 16)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit:
   %1 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_116kTrimOptionsTypeE, align 8, !tbaa !37
@@ -5592,7 +5592,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute20Utf8NormalizeOptionsC2ENS1_4FormE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(20) initializes((0, 20)) %0, i32 noundef %1) unnamed_addr #2 align 2 {
   %3 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_125kUtf8NormalizeOptionsTypeE, align 8, !tbaa !37
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5603,7 +5603,7 @@ define void @_ZN5arrow7compute20Utf8NormalizeOptionsC2ENS1_4FormE(ptr noundef no
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute11WeekOptionsC2Ebbb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(19) initializes((0, 19)) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #2 align 2 {
   %5 = zext i1 %1 to i8
   %6 = zext i1 %2 to i8
@@ -5621,7 +5621,7 @@ define void @_ZN5arrow7compute11WeekOptionsC2Ebbb(ptr noundef nonnull writeonly 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute13RandomOptionsC2ENS1_11InitializerEm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 20), (24, 32)) %0, i32 noundef %1, i64 noundef %2) unnamed_addr #2 align 2 {
   %4 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_118kRandomOptionsTypeE, align 8, !tbaa !37
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5634,7 +5634,7 @@ define void @_ZN5arrow7compute13RandomOptionsC2ENS1_11InitializerEm(ptr noundef 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN5arrow7compute13RandomOptionsC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 20), (24, 32)) %0) unnamed_addr #2 align 2 {
   %2 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_118kRandomOptionsTypeE, align 8, !tbaa !37
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -133703,10 +133703,10 @@ declare i64 @llvm.smax.i64(i64, i64) #24
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

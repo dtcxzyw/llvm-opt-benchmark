@@ -6,9 +6,9 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.Branch = type { %struct.Rect, ptr }
 %struct.Rect = type { [4 x i32] }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define noalias noundef ptr @RTreeNewLeafList(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #7
+  %2 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %3
 
@@ -24,13 +24,13 @@ define noalias noundef ptr @RTreeNewLeafList(ptr noundef %0) local_unnamed_addr 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @RTreeLeafListAdd(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #7
+  %4 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %RTreeNewLeafList.exit, label %5
 
@@ -48,7 +48,7 @@ RTreeNewLeafList.exit:                            ; preds = %3, %5
   ret ptr %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @RTreeLeafListFree(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !10
   %.not6 = icmp eq ptr %2, null
@@ -57,14 +57,14 @@ define void @RTreeLeafListFree(ptr noundef captures(none) %0) local_unnamed_addr
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %3 = phi ptr [ %4, %.lr.ph ], [ %2, %1 ]
   %.07 = phi ptr [ %3, %.lr.ph ], [ %0, %1 ]
-  tail call void @free(ptr noundef nonnull %.07) #8
+  tail call void @free(ptr noundef nonnull %.07) #9
   %4 = load ptr, ptr %3, align 8, !tbaa !10
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi ptr [ %0, %1 ], [ %3, %.lr.ph ]
-  tail call void @free(ptr noundef nonnull %.0.lcssa) #8
+  tail call void @free(ptr noundef nonnull %.0.lcssa) #9
   ret void
 }
 
@@ -72,13 +72,13 @@ define void @RTreeLeafListFree(ptr noundef captures(none) %0) local_unnamed_addr
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @RTreeOpen() local_unnamed_addr #2 {
-  %1 = tail call noalias dereferenceable_or_null(2168) ptr @calloc(i64 noundef 1, i64 noundef 2168) #7
+define noalias noundef ptr @RTreeOpen() local_unnamed_addr #4 {
+  %1 = tail call noalias dereferenceable_or_null(2168) ptr @calloc(i64 noundef 1, i64 noundef 2168) #8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %0
-  %3 = tail call ptr @RTreeNewNode() #8
+  %3 = tail call ptr @RTreeNewNode() #9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4, !tbaa !13
   store ptr %3, ptr %1, align 8, !tbaa !16
@@ -89,27 +89,27 @@ define noalias noundef ptr @RTreeOpen() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @RTreeNewIndex() local_unnamed_addr #2 {
-  %1 = tail call ptr @RTreeNewNode() #8
+define ptr @RTreeNewIndex() local_unnamed_addr #4 {
+  %1 = tail call ptr @RTreeNewNode() #9
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %2, align 4, !tbaa !13
   ret ptr %1
 }
 
-declare ptr @RTreeNewNode() local_unnamed_addr #4
+declare ptr @RTreeNewNode() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @RTreeClose(ptr noundef captures(none) %0) local_unnamed_addr #2 {
+define noundef i32 @RTreeClose(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !tbaa !16
   tail call fastcc void @RTreeClose2(ptr noundef %2)
   %3 = load ptr, ptr %0, align 8, !tbaa !16
-  tail call void @free(ptr noundef %3) #8
-  tail call void @free(ptr noundef %0) #8
+  tail call void @free(ptr noundef %3) #9
+  tail call void @free(ptr noundef %0) #9
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @RTreeClose2(ptr noundef %0) unnamed_addr #2 {
+define internal fastcc void @RTreeClose2(ptr noundef %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !13
   %4 = icmp sgt i32 %3, 0
@@ -126,9 +126,9 @@ define internal fastcc void @RTreeClose2(ptr noundef %0) unnamed_addr #2 {
 8:                                                ; preds = %.preheader
   tail call fastcc void @RTreeClose2(ptr noundef nonnull %7)
   %9 = load ptr, ptr %6, align 8, !tbaa !22
-  tail call void @free(ptr noundef %9) #8
+  tail call void @free(ptr noundef %9) #9
   %10 = trunc nuw nsw i64 %indvars.iv7 to i32
-  tail call void @DisconBranch(ptr noundef nonnull %0, i32 noundef %10) #8
+  tail call void @DisconBranch(ptr noundef nonnull %0, i32 noundef %10) #9
   br label %11
 
 11:                                               ; preds = %8, %.preheader
@@ -146,7 +146,7 @@ define internal fastcc void @RTreeClose2(ptr noundef %0) unnamed_addr #2 {
 
 15:                                               ; preds = %.preheader1
   %16 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void @DisconBranch(ptr noundef nonnull %0, i32 noundef %16) #8
+  tail call void @DisconBranch(ptr noundef nonnull %0, i32 noundef %16) #9
   br label %17
 
 17:                                               ; preds = %.preheader1, %15
@@ -159,7 +159,7 @@ define internal fastcc void @RTreeClose2(ptr noundef %0) unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @RTreeSearch(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define ptr @RTreeSearch(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !13
   %6 = icmp sgt i32 %5, 0
@@ -176,7 +176,7 @@ define ptr @RTreeSearch(ptr noundef readnone captures(none) %0, ptr noundef %1, 
   br i1 %.not33, label %18, label %11
 
 11:                                               ; preds = %.preheader36
-  %12 = tail call zeroext i1 @Overlap(ptr noundef %2, ptr noundef nonnull %8) #8
+  %12 = tail call zeroext i1 @Overlap(ptr noundef %2, ptr noundef nonnull %8) #9
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %11
@@ -211,11 +211,11 @@ define ptr @RTreeSearch(ptr noundef readnone captures(none) %0, ptr noundef %1, 
   br i1 %.not, label %29, label %23
 
 23:                                               ; preds = %.preheader37
-  %24 = tail call zeroext i1 @Overlap(ptr noundef %2, ptr noundef nonnull %20) #8
+  %24 = tail call zeroext i1 @Overlap(ptr noundef %2, ptr noundef nonnull %20) #9
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %23
-  %26 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #7
+  %26 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #8
   %.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i, label %RTreeLeafListAdd.exit, label %27
 
@@ -239,10 +239,10 @@ RTreeLeafListAdd.exit:                            ; preds = %25, %27
   ret ptr %.3
 }
 
-declare zeroext i1 @Overlap(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @Overlap(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @RTreeInsert(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @RTreeInsert(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.Branch, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -254,14 +254,14 @@ define range(i32 0, 2) i32 @RTreeInsert(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not, label %29, label %10
 
 10:                                               ; preds = %5
-  %11 = call ptr @RTreeNewNode() #8
+  %11 = call ptr @RTreeNewNode() #9
   %12 = load ptr, ptr %3, align 8, !tbaa !29
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !13
   %15 = add nsw i32 %14, 1
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %15, ptr %16, align 4, !tbaa !13
-  %17 = call { i64, i64 } @NodeCover(ptr noundef %12) #8
+  %17 = call { i64, i64 } @NodeCover(ptr noundef %12) #9
   %18 = extractvalue { i64, i64 } %17, 0
   %19 = extractvalue { i64, i64 } %17, 1
   store i64 %18, ptr %7, align 8
@@ -270,16 +270,16 @@ define range(i32 0, 2) i32 @RTreeInsert(ptr noundef %0, ptr noundef %1, ptr noun
   %20 = load ptr, ptr %3, align 8, !tbaa !29
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %20, ptr %21, align 8, !tbaa !22
-  %22 = call i32 @AddBranch(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, ptr noundef null) #8
+  %22 = call i32 @AddBranch(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, ptr noundef null) #9
   %23 = load ptr, ptr %6, align 8, !tbaa !29
-  %24 = call { i64, i64 } @NodeCover(ptr noundef %23) #8
+  %24 = call { i64, i64 } @NodeCover(ptr noundef %23) #9
   %25 = extractvalue { i64, i64 } %24, 0
   %26 = extractvalue { i64, i64 } %24, 1
   store i64 %25, ptr %7, align 8
   store i64 %26, ptr %.sroa.42.0..sroa_idx, align 8, !tbaa !30
   %27 = load ptr, ptr %6, align 8, !tbaa !29
   store ptr %27, ptr %21, align 8, !tbaa !22
-  %28 = call i32 @AddBranch(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, ptr noundef null) #8
+  %28 = call i32 @AddBranch(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, ptr noundef null) #9
   store ptr %11, ptr %3, align 8, !tbaa !29
   br label %29
 
@@ -291,7 +291,7 @@ define range(i32 0, 2) i32 @RTreeInsert(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %5) unnamed_addr #2 {
+define internal fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %5) unnamed_addr #4 {
   %7 = alloca %struct.Branch, align 8
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -303,7 +303,7 @@ define internal fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %11, label %12, label %35
 
 12:                                               ; preds = %6
-  %13 = tail call i32 @PickBranch(ptr noundef %1, ptr noundef nonnull %3) #8
+  %13 = tail call i32 @PickBranch(ptr noundef %1, ptr noundef nonnull %3) #9
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = sext i32 %13 to i64
   %16 = getelementptr inbounds %struct.Branch, ptr %14, i64 %15
@@ -314,7 +314,7 @@ define internal fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not, label %20, label %24
 
 20:                                               ; preds = %12
-  %21 = call { i64, i64 } @CombineRect(ptr noundef %1, ptr noundef nonnull %16) #8
+  %21 = call { i64, i64 } @CombineRect(ptr noundef %1, ptr noundef nonnull %16) #9
   %22 = extractvalue { i64, i64 } %21, 0
   %23 = extractvalue { i64, i64 } %21, 1
   store i64 %22, ptr %16, align 8
@@ -324,7 +324,7 @@ define internal fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr nou
 
 24:                                               ; preds = %12
   %25 = load ptr, ptr %17, align 8, !tbaa !22
-  %26 = call { i64, i64 } @NodeCover(ptr noundef %25) #8
+  %26 = call { i64, i64 } @NodeCover(ptr noundef %25) #9
   %27 = extractvalue { i64, i64 } %26, 0
   %28 = extractvalue { i64, i64 } %26, 1
   store i64 %27, ptr %16, align 8
@@ -333,13 +333,13 @@ define internal fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr nou
   %29 = load ptr, ptr %8, align 8, !tbaa !29
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %29, ptr %30, align 8, !tbaa !22
-  %31 = call { i64, i64 } @NodeCover(ptr noundef %29) #8
+  %31 = call { i64, i64 } @NodeCover(ptr noundef %29) #9
   %32 = extractvalue { i64, i64 } %31, 0
   %33 = extractvalue { i64, i64 } %31, 1
   store i64 %32, ptr %7, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %33, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !30
-  %34 = call i32 @AddBranch(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
+  %34 = call i32 @AddBranch(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
   br label %40
 
 35:                                               ; preds = %6
@@ -350,7 +350,7 @@ define internal fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr nou
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !31
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %2, ptr %38, align 8, !tbaa !22
-  %39 = call i32 @AddBranch(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
+  %39 = call i32 @AddBranch(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
   br label %40
 
 40:                                               ; preds = %35, %20, %24, %37
@@ -360,34 +360,35 @@ define internal fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr nou
   ret i32 %.1
 }
 
-declare { i64, i64 } @NodeCover(ptr noundef) local_unnamed_addr #4
+declare { i64, i64 } @NodeCover(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
-declare i32 @AddBranch(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @AddBranch(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare void @DisconBranch(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @DisconBranch(ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare i32 @PickBranch(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @PickBranch(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare { i64, i64 } @CombineRect(ptr noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+declare { i64, i64 } @CombineRect(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
-attributes #0 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
+attributes #0 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind allocsize(0,1) }
-attributes #8 = { nounwind }
+attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nounwind allocsize(0,1) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

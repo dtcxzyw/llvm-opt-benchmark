@@ -4260,7 +4260,7 @@ _ZN8nanobind6detail11type_casterINS_5typedINS_8iteratorEJiEEEiE8from_cppERKS4_NS
   ret ptr %.1.i
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind optsize willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind optsize willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef ptr @_ZZN8nanobind6detail11func_createILb0ELb1EZNS0_18make_iterator_implINS0_19iterator_key_accessIZL36nanobind_init_test_make_iterator_extRNS_7module_EEN11IdentityMap8iteratorEEELNS_9rv_policyE1ES7_S7_iJEEENS_5typedINS_8iteratorEJT3_EEENS_6handleEPKcT1_T2_DpOT4_EUlSE_E_SE_JSE_EJLm0EEJNS_5scopeENS_4nameENS_9is_methodEEEEP7_objectOSH_PFSI_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSR_PhS9_PNS0_12cleanup_listEE_8__invokeES13_S14_S15_S9_S17_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readonly captures(none) %2, i32 %3, ptr readnone captures(none) %4) #15 align 2 personality ptr @__gxx_personality_v0 {
   %6 = load ptr, ptr %1, align 8, !tbaa !44
   %.not.i.i.i = icmp eq ptr %6, null
@@ -4513,7 +4513,7 @@ _ZN8nanobind6detail18make_iterator_implINS0_15iterator_accessIZL36nanobind_init_
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind optsize willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind optsize willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef ptr @_ZZN8nanobind6detail11func_createILb0ELb1EZNS0_18make_iterator_implINS0_15iterator_accessIZL36nanobind_init_test_make_iterator_extRNS_7module_EEN11IdentityMap8iteratorEEELNS_9rv_policyE1ES7_S7_St4pairIiiEJEEENS_5typedINS_8iteratorEJT3_EEENS_6handleEPKcT1_T2_DpOT4_EUlSG_E_SG_JSG_EJLm0EEJNS_5scopeENS_4nameENS_9is_methodEEEEP7_objectOSJ_PFSK_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPST_PhS9_PNS0_12cleanup_listEE_8__invokeES15_S16_S17_S9_S19_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readonly captures(none) %2, i32 %3, ptr readnone captures(none) %4) #15 align 2 personality ptr @__gxx_personality_v0 {
   %6 = load ptr, ptr %1, align 8, !tbaa !44
   %.not.i.i.i = icmp eq ptr %6, null
@@ -4880,7 +4880,7 @@ _ZN8nanobind6detail11type_casterINS_5typedINS_8iteratorEJiEEEiE8from_cppERKS4_NS
   ret ptr %.1.i
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind optsize willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind optsize willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef ptr @_ZZN8nanobind6detail11func_createILb0ELb1EZNS0_18make_iterator_implINS0_21iterator_value_accessIZL36nanobind_init_test_make_iterator_extRNS_7module_EEN11IdentityMap8iteratorEEELNS_9rv_policyE1ES7_S7_iJEEENS_5typedINS_8iteratorEJT3_EEENS_6handleEPKcT1_T2_DpOT4_EUlSE_E_SE_JSE_EJLm0EEJNS_5scopeENS_4nameENS_9is_methodEEEEP7_objectOSH_PFSI_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSR_PhS9_PNS0_12cleanup_listEE_8__invokeES13_S14_S15_S9_S17_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readonly captures(none) %2, i32 %3, ptr readnone captures(none) %4) #15 align 2 personality ptr @__gxx_personality_v0 {
   %6 = load ptr, ptr %1, align 8, !tbaa !44
   %.not.i.i.i = icmp eq ptr %6, null
@@ -5086,7 +5086,7 @@ attributes #11 = { nobuiltin nounwind optsize "no-trapping-math"="true" "stack-p
 attributes #12 = { inlinehint mustprogress nounwind optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { inlinehint mustprogress optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { cold noreturn }
-attributes #15 = { inlinehint mustprogress nofree norecurse nosync nounwind optsize willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { inlinehint mustprogress nofree norecurse nosync nounwind optsize willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

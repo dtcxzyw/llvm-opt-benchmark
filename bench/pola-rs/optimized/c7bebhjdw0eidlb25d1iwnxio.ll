@@ -398,7 +398,7 @@ _ZN20signal_hook_registry23register_unchecked_impl17hb714d807d5249600E.exit: ; p
   unreachable
 }
 
-; Function Attrs: inlinehint nofree norecurse nounwind nonlazybind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint nofree norecurse nounwind nonlazybind memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN20signal_hook_registry8register28_$u7b$$u7b$closure$u7d$$u7d$17h332753d3ea39cb79E"(ptr noalias nonnull readonly align 1 captures(none) %0, ptr noalias readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load atomic i64, ptr @_ZN12polars_error7signals15INTERRUPT_STATE17h69cd2df7099d644eE monotonic, align 8
   br label %4
@@ -419,7 +419,7 @@ define internal void @"_ZN20signal_hook_registry8register28_$u7b$$u7b$closure$u7
   ret void
 }
 
-; Function Attrs: inlinehint nofree norecurse nounwind nonlazybind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint nofree norecurse nounwind nonlazybind memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17ha58eb143f7273622E"(ptr readnone captures(none) %0, ptr noalias readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load atomic i64, ptr @_ZN12polars_error7signals15INTERRUPT_STATE17h69cd2df7099d644eE monotonic, align 8
   br label %4
@@ -525,7 +525,7 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 declare void @llvm.experimental.noalias.scope.decl(metadata) #9
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #1 = { inlinehint nofree norecurse nounwind nonlazybind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #1 = { inlinehint nofree norecurse nounwind nonlazybind memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

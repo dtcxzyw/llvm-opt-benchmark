@@ -523,13 +523,13 @@ define internal void @TransformDCUV_C(ptr noalias noundef %0, ptr noalias nounde
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @VFilter16_C(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
   tail call fastcc void @FilterLoop26_C(ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 16, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @VFilter16i_C(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
   %6 = shl nsw i32 %1, 2
   %7 = sext i32 %6 to i64
@@ -548,20 +548,20 @@ define internal void @VFilter16i_C(ptr noundef captures(none) %0, i32 noundef %1
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @HFilter16_C(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
   tail call fastcc void @FilterLoop26_C(ptr noundef %0, i32 noundef 1, i32 noundef %1, i32 noundef 16, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @VFilter8_C(ptr noalias noundef captures(none) %0, ptr noalias noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #5 {
   tail call fastcc void @FilterLoop26_C(ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 8, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   tail call fastcc void @FilterLoop26_C(ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 8, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @VFilter8i_C(ptr noalias noundef captures(none) %0, ptr noalias noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #5 {
   %7 = shl nsw i32 %2, 2
   %8 = sext i32 %7 to i64
@@ -572,7 +572,7 @@ define internal void @VFilter8i_C(ptr noalias noundef captures(none) %0, ptr noa
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SimpleVFilter16_C(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) #5 {
   %4 = shl nsw i32 %2, 1
   %5 = or disjoint i32 %4, 1
@@ -656,7 +656,7 @@ define internal void @SimpleVFilter16_C(ptr noundef captures(none) %0, i32 nound
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SimpleHFilter16_C(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) #5 {
   %4 = shl nsw i32 %2, 1
   %5 = or disjoint i32 %4, 1
@@ -737,7 +737,7 @@ define internal void @SimpleHFilter16_C(ptr noundef captures(none) %0, i32 nound
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SimpleVFilter16i_C(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) #5 {
   %4 = shl nsw i32 %1, 2
   %5 = sext i32 %4 to i64
@@ -834,7 +834,7 @@ SimpleVFilter16_C.exit:                           ; preds = %71
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @SimpleHFilter16i_C(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) #5 {
   %4 = shl nsw i32 %2, 1
   %5 = or disjoint i32 %4, 1
@@ -926,7 +926,7 @@ SimpleHFilter16_C.exit:                           ; preds = %66
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @HFilter16i_C(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
   br label %6
 
@@ -943,14 +943,14 @@ define internal void @HFilter16i_C(ptr noundef captures(none) %0, i32 noundef %1
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @HFilter8_C(ptr noalias noundef captures(none) %0, ptr noalias noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #5 {
   tail call fastcc void @FilterLoop26_C(ptr noundef %0, i32 noundef 1, i32 noundef %2, i32 noundef 8, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   tail call fastcc void @FilterLoop26_C(ptr noundef %1, i32 noundef 1, i32 noundef %2, i32 noundef 8, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @HFilter8i_C(ptr noalias noundef captures(none) %0, ptr noalias noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #5 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call fastcc void @FilterLoop24_C(ptr noundef nonnull %7, i32 noundef 1, i32 noundef %2, i32 noundef 8, i32 noundef %3, i32 noundef %4, i32 noundef %5)
@@ -999,7 +999,7 @@ define internal void @DC4_C(ptr noundef captures(none) %0) #3 {
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @TM4_C(ptr noundef captures(none) %0) #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
   %3 = load ptr, ptr @VP8kclip1, align 8, !tbaa !18
@@ -1800,7 +1800,7 @@ Put16.exit:                                       ; preds = %17
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @TM16_C(ptr noundef captures(none) %0) #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
   %3 = load ptr, ptr @VP8kclip1, align 8, !tbaa !18
@@ -2006,7 +2006,7 @@ Put8x8uv.exit:                                    ; preds = %17
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @TM8uv_C(ptr noundef captures(none) %0) #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
   %3 = load ptr, ptr @VP8kclip1, align 8, !tbaa !18
@@ -2346,7 +2346,7 @@ define internal fastcc void @TransformOne_C(ptr noalias noundef readonly capture
   ret void
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @FilterLoop26_C(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 8, 17) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #7 {
   %8 = shl nsw i32 %4, 1
   %9 = or disjoint i32 %8, 1
@@ -2579,7 +2579,7 @@ NeedsFilter2_C.exit.thread:                       ; preds = %63, %72, %78, %84, 
   ret void
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @FilterLoop24_C(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 8, 17) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #7 {
   %8 = shl nsw i32 %4, 1
   %9 = or disjoint i32 %8, 1
@@ -2822,9 +2822,9 @@ attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { inlinehint nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { inlinehint nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

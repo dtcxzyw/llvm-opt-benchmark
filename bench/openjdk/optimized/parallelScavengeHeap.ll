@@ -609,7 +609,7 @@ define hidden noundef i64 @_ZNK20ParallelScavengeHeap4usedEv(ptr nonnull readnon
 
 declare noundef i64 @_ZNK10PSYoungGen13used_in_bytesEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap16is_maximal_no_gcEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -682,7 +682,7 @@ define hidden noundef i64 @_ZNK20ParallelScavengeHeap12max_capacityEv(ptr nounde
   ret i64 %35
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap5is_inEPKv(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -714,7 +714,7 @@ define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap5is_inEPKv(ptr nonnu
   ret i1 %23
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap14is_in_reservedEPKv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(264) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -745,7 +745,7 @@ define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap14is_in_reservedEPKv
   ret i1 %19
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap17requires_barriersEP17stackChunkOopDesc(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2581,7 +2581,7 @@ declare void @_ZN8PSOldGen6verifyEv(ptr noundef nonnull align 8 dereferenceable(
 
 declare void @_ZN10PSYoungGen6verifyEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef ptr @_ZN20ParallelScavengeHeap10card_tableEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(264) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -2728,7 +2728,7 @@ declare void @_ZN13CollectedHeap24create_metaspace_summaryEv(ptr dead_on_unwind 
 
 declare void @_ZNK8GCTracer24report_metaspace_summaryEN6GCWhen4TypeERK16MetaspaceSummary(ptr noundef nonnull align 8 dereferenceable(80), i32 noundef, ptr noundef nonnull align 8 dereferenceable(208)) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef ptr @_ZN20ParallelScavengeHeap11barrier_setEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(264) %0) local_unnamed_addr #6 align 2 {
   %2 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   ret ptr %2
@@ -3404,10 +3404,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

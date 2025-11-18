@@ -4254,7 +4254,7 @@ define internal range(i32 0, 23) i32 @config_xmalloc_ctl(ptr readnone captures(n
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_abort_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -4297,7 +4297,7 @@ define internal range(i32 0, 23) i32 @opt_abort_ctl(ptr readnone captures(none) 
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_abort_conf_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -4340,7 +4340,7 @@ define internal range(i32 0, 23) i32 @opt_abort_conf_ctl(ptr readnone captures(n
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_cache_oblivious_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -4383,7 +4383,7 @@ define internal range(i32 0, 23) i32 @opt_cache_oblivious_ctl(ptr readnone captu
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_trust_madvise_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -4426,7 +4426,7 @@ define internal range(i32 0, 23) i32 @opt_trust_madvise_ctl(ptr readnone capture
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_confirm_conf_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -4469,7 +4469,7 @@ define internal range(i32 0, 23) i32 @opt_confirm_conf_ctl(ptr readnone captures
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_hpa_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -4512,7 +4512,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_ctl(ptr readnone captures(none) %0
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_hpa_slab_max_alloc_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -4550,7 +4550,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_slab_max_alloc_ctl(ptr readnone ca
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_hpa_hugification_threshold_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -4588,7 +4588,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_hugification_threshold_ctl(ptr rea
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_hpa_hugify_delay_ms_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -4626,7 +4626,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_hugify_delay_ms_ctl(ptr readnone c
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_hpa_min_purge_interval_ms_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -4664,7 +4664,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_min_purge_interval_ms_ctl(ptr read
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_hpa_dirty_mult_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -4702,7 +4702,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_dirty_mult_ctl(ptr readnone captur
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_hpa_sec_nshards_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -4740,7 +4740,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_sec_nshards_ctl(ptr readnone captu
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_hpa_sec_max_alloc_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -4778,7 +4778,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_sec_max_alloc_ctl(ptr readnone cap
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_hpa_sec_max_bytes_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -4816,7 +4816,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_sec_max_bytes_ctl(ptr readnone cap
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_hpa_sec_bytes_after_flush_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -4854,7 +4854,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_sec_bytes_after_flush_ctl(ptr read
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_hpa_sec_batch_fill_extra_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -4892,7 +4892,7 @@ define internal range(i32 0, 23) i32 @opt_hpa_sec_batch_fill_extra_ctl(ptr readn
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_metadata_thp_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -4933,7 +4933,7 @@ define internal range(i32 0, 23) i32 @opt_metadata_thp_ctl(ptr readnone captures
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_retain_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -4976,7 +4976,7 @@ define internal range(i32 0, 23) i32 @opt_retain_ctl(ptr readnone captures(none)
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_dss_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5014,7 +5014,7 @@ define internal range(i32 0, 23) i32 @opt_dss_ctl(ptr readnone captures(none) %0
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_narenas_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5052,7 +5052,7 @@ define internal range(i32 0, 23) i32 @opt_narenas_ctl(ptr readnone captures(none
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_percpu_arena_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5093,7 +5093,7 @@ define internal range(i32 0, 23) i32 @opt_percpu_arena_ctl(ptr readnone captures
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_oversize_threshold_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5131,7 +5131,7 @@ define internal range(i32 0, 23) i32 @opt_oversize_threshold_ctl(ptr readnone ca
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_mutex_max_spin_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5169,7 +5169,7 @@ define internal range(i32 0, 23) i32 @opt_mutex_max_spin_ctl(ptr readnone captur
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_background_thread_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5212,7 +5212,7 @@ define internal range(i32 0, 23) i32 @opt_background_thread_ctl(ptr readnone cap
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_max_background_threads_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5250,7 +5250,7 @@ define internal range(i32 0, 23) i32 @opt_max_background_threads_ctl(ptr readnon
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_dirty_decay_ms_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5288,7 +5288,7 @@ define internal range(i32 0, 23) i32 @opt_dirty_decay_ms_ctl(ptr readnone captur
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_muzzy_decay_ms_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5326,7 +5326,7 @@ define internal range(i32 0, 23) i32 @opt_muzzy_decay_ms_ctl(ptr readnone captur
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_stats_print_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5406,7 +5406,7 @@ define internal range(i32 0, 23) i32 @opt_stats_print_opts_ctl(ptr readnone capt
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_stats_interval_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5481,7 +5481,7 @@ define internal range(i32 0, 23) i32 @opt_stats_interval_opts_ctl(ptr readnone c
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_junk_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5519,7 +5519,7 @@ define internal range(i32 0, 23) i32 @opt_junk_ctl(ptr readnone captures(none) %
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_zero_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5577,7 +5577,7 @@ define internal noundef i32 @opt_experimental_infallible_new_ctl(ptr readnone ca
   ret i32 2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_tcache_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5620,7 +5620,7 @@ define internal range(i32 0, 23) i32 @opt_tcache_ctl(ptr readnone captures(none)
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_tcache_max_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5658,7 +5658,7 @@ define internal range(i32 0, 23) i32 @opt_tcache_max_ctl(ptr readnone captures(n
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_tcache_nslots_small_min_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5696,7 +5696,7 @@ define internal range(i32 0, 23) i32 @opt_tcache_nslots_small_min_ctl(ptr readno
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_tcache_nslots_small_max_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5734,7 +5734,7 @@ define internal range(i32 0, 23) i32 @opt_tcache_nslots_small_max_ctl(ptr readno
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_tcache_nslots_large_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5772,7 +5772,7 @@ define internal range(i32 0, 23) i32 @opt_tcache_nslots_large_ctl(ptr readnone c
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_lg_tcache_nslots_mul_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5810,7 +5810,7 @@ define internal range(i32 0, 23) i32 @opt_lg_tcache_nslots_mul_ctl(ptr readnone 
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_tcache_gc_incr_bytes_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5848,7 +5848,7 @@ define internal range(i32 0, 23) i32 @opt_tcache_gc_incr_bytes_ctl(ptr readnone 
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_tcache_gc_delay_bytes_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5886,7 +5886,7 @@ define internal range(i32 0, 23) i32 @opt_tcache_gc_delay_bytes_ctl(ptr readnone
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_lg_tcache_flush_small_div_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5924,7 +5924,7 @@ define internal range(i32 0, 23) i32 @opt_lg_tcache_flush_small_div_ctl(ptr read
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_lg_tcache_flush_large_div_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5962,7 +5962,7 @@ define internal range(i32 0, 23) i32 @opt_lg_tcache_flush_large_div_ctl(ptr read
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_thp_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -6003,7 +6003,7 @@ define internal range(i32 0, 23) i32 @opt_thp_ctl(ptr readnone captures(none) %0
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_lg_extent_max_active_fit_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -6121,7 +6121,7 @@ define internal noundef i32 @opt_lg_san_uaf_align_ctl(ptr readnone captures(none
   ret i32 2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @opt_zero_realloc_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -6940,7 +6940,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   ret i32 %.042
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @arena_i_oversize_threshold_ctl(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i64 noundef %6) #12 {
   %8 = alloca i64, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7883,7 +7883,7 @@ define internal range(i32 0, 23) i32 @arenas_page_ctl(ptr readnone captures(none
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @arenas_tcache_max_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -7958,7 +7958,7 @@ define internal range(i32 0, 23) i32 @arenas_nbins_ctl(ptr readnone captures(non
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @arenas_nhbins_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -8317,7 +8317,7 @@ define internal noundef ptr @arenas_bin_i_index(ptr readnone captures(none) %0, 
   ret ptr %.super_arenas_bin_i_node
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @arenas_bin_i_size_ctl(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -8358,7 +8358,7 @@ define internal range(i32 0, 23) i32 @arenas_bin_i_size_ctl(ptr readnone capture
   ret i32 %.019
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @arenas_bin_i_nregs_ctl(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -8400,7 +8400,7 @@ define internal range(i32 0, 23) i32 @arenas_bin_i_nregs_ctl(ptr readnone captur
   ret i32 %.019
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @arenas_bin_i_slab_size_ctl(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -8442,7 +8442,7 @@ define internal range(i32 0, 23) i32 @arenas_bin_i_slab_size_ctl(ptr readnone ca
   ret i32 %.019
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @arenas_bin_i_nshards_ctl(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -8491,7 +8491,7 @@ define internal noundef ptr @arenas_lextent_i_index(ptr readnone captures(none) 
   ret ptr %.super_arenas_lextent_i_node
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 23) i32 @arenas_lextent_i_size_ctl(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -33229,8 +33229,8 @@ attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nounwind }

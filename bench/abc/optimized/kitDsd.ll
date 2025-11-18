@@ -264,7 +264,7 @@ define noalias noundef ptr @Kit_DsdManAlloc(i32 noundef %0, i32 noundef %1) loca
   %10 = add nsw i64 %9, 8
   %11 = sext i32 %0 to i64
   %12 = mul i64 %10, %11
-  %13 = tail call noalias ptr @malloc(i64 noundef %12) #26
+  %13 = tail call noalias ptr @malloc(i64 noundef %12) #28
   %14 = getelementptr inbounds ptr, ptr %13, i64 %11
   %15 = icmp sgt i32 %0, 0
   br i1 %15, label %.lr.ph.preheader.i.i, label %Vec_PtrAllocSimInfo.exit.i
@@ -284,7 +284,7 @@ define noalias noundef ptr @Kit_DsdManAlloc(i32 noundef %0, i32 noundef %1) loca
   br i1 %exitcond.not.i.i, label %Vec_PtrAllocSimInfo.exit.i, label %.lr.ph.i.i, !llvm.loop !14
 
 Vec_PtrAllocSimInfo.exit.i:                       ; preds = %.lr.ph.i.i, %2
-  %19 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
+  %19 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %0, ptr %20, align 4, !tbaa !16
   store i32 %0, ptr %19, align 8, !tbaa !18
@@ -347,7 +347,7 @@ Vec_PtrAllocTruthTables.exit:                     ; preds = %..loopexit27_crit_e
   store ptr %19, ptr %37, align 8, !tbaa !24
   %38 = sext i32 %1 to i64
   %39 = mul i64 %10, %38
-  %40 = tail call noalias ptr @malloc(i64 noundef %39) #26
+  %40 = tail call noalias ptr @malloc(i64 noundef %39) #28
   %41 = getelementptr inbounds ptr, ptr %40, i64 %38
   %42 = icmp sgt i32 %1, 0
   br i1 %42, label %.lr.ph.preheader.i, label %Vec_PtrAllocSimInfo.exit
@@ -367,7 +367,7 @@ Vec_PtrAllocTruthTables.exit:                     ; preds = %..loopexit27_crit_e
   br i1 %exitcond.not.i, label %Vec_PtrAllocSimInfo.exit, label %.lr.ph.i, !llvm.loop !14
 
 Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %Vec_PtrAllocTruthTables.exit
-  %46 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
+  %46 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store i32 %1, ptr %47, align 4, !tbaa !16
   store i32 %1, ptr %46, align 8, !tbaa !18
@@ -375,11 +375,11 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %Vec_PtrA
   store ptr %40, ptr %48, align 8, !tbaa !19
   %49 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
   store ptr %46, ptr %49, align 8, !tbaa !25
-  %50 = tail call ptr @Cloud_Init(i32 noundef 16, i32 noundef 14) #27
+  %50 = tail call ptr @Cloud_Init(i32 noundef 16, i32 noundef 14) #29
   %51 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
   store ptr %50, ptr %51, align 8, !tbaa !26
   %52 = shl nsw i64 %10, 12
-  %53 = tail call noalias ptr @malloc(i64 noundef %52) #26
+  %53 = tail call noalias ptr @malloc(i64 noundef %52) #28
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 32768
   br label %.lr.ph.i15
 
@@ -394,7 +394,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %Vec_PtrA
   br i1 %exitcond.not.i18, label %Vec_PtrAllocSimInfo.exit19, label %.lr.ph.i15, !llvm.loop !14
 
 Vec_PtrAllocSimInfo.exit19:                       ; preds = %.lr.ph.i15
-  %58 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
+  %58 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   store i32 4096, ptr %59, align 4, !tbaa !16
   store i32 4096, ptr %58, align 8, !tbaa !18
@@ -402,11 +402,11 @@ Vec_PtrAllocSimInfo.exit19:                       ; preds = %.lr.ph.i15
   store ptr %53, ptr %60, align 8, !tbaa !19
   %61 = getelementptr inbounds nuw i8, ptr %calloc, i64 32
   store ptr %58, ptr %61, align 8, !tbaa !27
-  %62 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
+  %62 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   store i32 0, ptr %63, align 4, !tbaa !28
   store i32 512, ptr %62, align 8, !tbaa !31
-  %64 = tail call noalias dereferenceable_or_null(2048) ptr @malloc(i64 noundef 2048) #26
+  %64 = tail call noalias dereferenceable_or_null(2048) ptr @malloc(i64 noundef 2048) #28
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %64, ptr %65, align 8, !tbaa !32
   %66 = getelementptr inbounds nuw i8, ptr %calloc, i64 40
@@ -426,7 +426,7 @@ declare ptr @Cloud_Init(i32 noundef, i32 noundef) local_unnamed_addr #3
 define void @Kit_DsdManFree(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !26
-  tail call void @Cloud_Quit(ptr noundef %3) #27
+  tail call void @Cloud_Quit(ptr noundef %3) #29
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !33
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -435,11 +435,11 @@ define void @Kit_DsdManFree(ptr noundef captures(none) %0) local_unnamed_addr #0
   br i1 %.not.i, label %Vec_IntFree.exit, label %8
 
 8:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %7) #27
+  tail call void @free(ptr noundef nonnull %7) #29
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %1, %8
-  tail call void @free(ptr noundef nonnull %5) #27
+  tail call void @free(ptr noundef nonnull %5) #29
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !27
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -448,11 +448,11 @@ Vec_IntFree.exit:                                 ; preds = %1, %8
   br i1 %.not.i7, label %Vec_PtrFree.exit, label %13
 
 13:                                               ; preds = %Vec_IntFree.exit
-  tail call void @free(ptr noundef nonnull %12) #27
+  tail call void @free(ptr noundef nonnull %12) #29
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %Vec_IntFree.exit, %13
-  tail call void @free(ptr noundef nonnull %10) #27
+  tail call void @free(ptr noundef nonnull %10) #29
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !24
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -461,11 +461,11 @@ Vec_PtrFree.exit:                                 ; preds = %Vec_IntFree.exit, %
   br i1 %.not.i8, label %Vec_PtrFree.exit9, label %18
 
 18:                                               ; preds = %Vec_PtrFree.exit
-  tail call void @free(ptr noundef nonnull %17) #27
+  tail call void @free(ptr noundef nonnull %17) #29
   br label %Vec_PtrFree.exit9
 
 Vec_PtrFree.exit9:                                ; preds = %Vec_PtrFree.exit, %18
-  tail call void @free(ptr noundef nonnull %15) #27
+  tail call void @free(ptr noundef nonnull %15) #29
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !25
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -474,12 +474,12 @@ Vec_PtrFree.exit9:                                ; preds = %Vec_PtrFree.exit, %
   br i1 %.not.i10, label %24, label %23
 
 23:                                               ; preds = %Vec_PtrFree.exit9
-  tail call void @free(ptr noundef nonnull %22) #27
+  tail call void @free(ptr noundef nonnull %22) #29
   br label %24
 
 24:                                               ; preds = %Vec_PtrFree.exit9, %23
-  tail call void @free(ptr noundef nonnull %20) #27
-  tail call void @free(ptr noundef nonnull %0) #27
+  tail call void @free(ptr noundef nonnull %20) #29
+  tail call void @free(ptr noundef nonnull %0) #29
   ret void
 }
 
@@ -488,7 +488,7 @@ declare void @Cloud_Quit(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @Kit_DsdObjAlloc(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = ashr i32 %2, 1
   %5 = and i32 %2, 1
@@ -544,12 +544,12 @@ define noundef ptr @Kit_DsdObjAlloc(ptr noundef captures(none) %0, i32 noundef %
   br i1 %.not, label %46, label %44
 
 44:                                               ; preds = %38
-  %45 = tail call ptr @realloc(ptr noundef nonnull %41, i64 noundef %43) #28
+  %45 = tail call ptr @realloc(ptr noundef nonnull %41, i64 noundef %43) #30
   %.pre27.pre = load i16, ptr %19, align 4, !tbaa !38
   br label %48
 
 46:                                               ; preds = %38
-  %47 = tail call noalias ptr @malloc(i64 noundef %43) #26
+  %47 = tail call noalias ptr @malloc(i64 noundef %43) #28
   br label %48
 
 48:                                               ; preds = %46, %44
@@ -578,20 +578,20 @@ define void @Kit_DsdObjFree(ptr noundef readnone captures(none) %0, ptr noundef 
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %2
-  tail call void @free(ptr noundef nonnull %1) #27
+  tail call void @free(ptr noundef nonnull %1) #29
   br label %4
 
 4:                                                ; preds = %2, %3
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define noalias noundef ptr @Kit_DsdNtkAlloc(i32 noundef %0) local_unnamed_addr #8 {
   %calloc = tail call dereferenceable_or_null(32) ptr @calloc(i64 1, i64 32)
   %2 = add nsw i32 %0, 1
   %3 = sext i32 %2 to i64
   %4 = shl nsw i64 %3, 3
-  %5 = tail call noalias ptr @malloc(i64 noundef %4) #26
+  %5 = tail call noalias ptr @malloc(i64 noundef %4) #28
   %6 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
   store ptr %5, ptr %6, align 8, !tbaa !40
   %7 = trunc i32 %0 to i16
@@ -605,14 +605,14 @@ define noalias noundef ptr @Kit_DsdNtkAlloc(i32 noundef %0) local_unnamed_addr #
   %13 = select i1 %10, i32 6, i32 %12
   %14 = sext i32 %13 to i64
   %15 = shl nsw i64 %14, 2
-  %16 = tail call noalias ptr @malloc(i64 noundef %15) #26
+  %16 = tail call noalias ptr @malloc(i64 noundef %15) #28
   %17 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
   store ptr %16, ptr %17, align 8, !tbaa !43
   ret ptr %calloc
 }
 
-; Function Attrs: nounwind uwtable
-define void @Kit_DsdNtkFree(ptr noundef captures(none) %0) local_unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define void @Kit_DsdNtkFree(ptr noundef captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i16, ptr %3, align 4, !tbaa !38
@@ -628,7 +628,7 @@ define void @Kit_DsdNtkFree(ptr noundef captures(none) %0) local_unnamed_addr #0
   br i1 %.not, label %.critedge, label %8
 
 8:                                                ; preds = %.lr.ph
-  tail call void @free(ptr noundef nonnull %7) #27
+  tail call void @free(ptr noundef nonnull %7) #29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i16, ptr %3, align 4, !tbaa !38
   %10 = zext i16 %9 to i64
@@ -642,7 +642,7 @@ define void @Kit_DsdNtkFree(ptr noundef captures(none) %0) local_unnamed_addr #0
   br i1 %.not22, label %15, label %14
 
 14:                                               ; preds = %.critedge
-  tail call void @free(ptr noundef nonnull %13) #27
+  tail call void @free(ptr noundef nonnull %13) #29
   store ptr null, ptr %12, align 8, !tbaa !45
   br label %15
 
@@ -652,7 +652,7 @@ define void @Kit_DsdNtkFree(ptr noundef captures(none) %0) local_unnamed_addr #0
   br i1 %.not23, label %18, label %17
 
 17:                                               ; preds = %15
-  tail call void @free(ptr noundef nonnull %16) #27
+  tail call void @free(ptr noundef nonnull %16) #29
   store ptr null, ptr %2, align 8, !tbaa !40
   br label %18
 
@@ -663,16 +663,16 @@ define void @Kit_DsdNtkFree(ptr noundef captures(none) %0) local_unnamed_addr #0
   br i1 %.not24, label %22, label %21
 
 21:                                               ; preds = %18
-  tail call void @free(ptr noundef nonnull %20) #27
+  tail call void @free(ptr noundef nonnull %20) #29
   br label %22
 
 22:                                               ; preds = %18, %21
-  tail call void @free(ptr noundef nonnull %0) #27
+  tail call void @free(ptr noundef nonnull %0) #29
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Kit_DsdPrintHex(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #9 {
+define void @Kit_DsdPrintHex(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #10 {
   %4 = shl nuw i32 1, %2
   %5 = icmp sgt i32 %4, 3
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
@@ -696,7 +696,7 @@ define void @Kit_DsdPrintHex(ptr noundef captures(none) %0, ptr noundef readonly
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %.lr.ph
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %14) #27
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %14) #29
   br label %20
 
 18:                                               ; preds = %.lr.ph
@@ -713,10 +713,10 @@ define void @Kit_DsdPrintHex(ptr noundef captures(none) %0, ptr noundef readonly
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define ptr @Kit_DsdWriteHex(ptr noundef writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #11 {
+define ptr @Kit_DsdWriteHex(ptr noundef writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #12 {
   %4 = shl nuw i32 1, %2
   %5 = icmp sgt i32 %4, 3
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
@@ -753,7 +753,7 @@ define ptr @Kit_DsdWriteHex(ptr noundef writeonly captures(ret: address, provena
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Kit_DsdPrint2_rec(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #9 {
+define void @Kit_DsdPrint2_rec(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #10 {
   %4 = load i16, ptr %1, align 8, !tbaa !34
   %5 = zext i16 %4 to i32
   %6 = icmp slt i32 %2, %5
@@ -864,7 +864,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %3, %Kit_DsdNtkObj.e
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Kit_DsdPrint2(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
+define void @Kit_DsdPrint2(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %4 = load i16, ptr %3, align 2, !tbaa !51
   %5 = and i16 %4, 1
@@ -885,7 +885,7 @@ define void @Kit_DsdPrint2(ptr noundef captures(none) %0, ptr noundef readonly c
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Kit_DsdPrint_rec(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #9 {
+define void @Kit_DsdPrint_rec(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #10 {
   %4 = load i16, ptr %1, align 8, !tbaa !34
   %5 = zext i16 %4 to i32
   %6 = icmp slt i32 %2, %5
@@ -962,7 +962,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %3, %Kit_DsdNtkObj.e
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %.lr.ph.i
-  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %43) #27
+  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %43) #29
   br label %49
 
 47:                                               ; preds = %.lr.ph.i
@@ -1029,7 +1029,7 @@ Kit_DsdPrintHex.exit:                             ; preds = %49, %26, %23
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Kit_DsdPrint(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
+define void @Kit_DsdPrint(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
   %3 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 4, i64 1, ptr %0)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %5 = load i16, ptr %4, align 2, !tbaa !51
@@ -1050,8 +1050,8 @@ define void @Kit_DsdPrint(ptr noundef captures(none) %0, ptr noundef readonly ca
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define nonnull ptr @Kit_DsdWrite_rec(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #12 {
+; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define nonnull ptr @Kit_DsdWrite_rec(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #13 {
   %4 = load i16, ptr %1, align 8, !tbaa !34
   %5 = zext i16 %4 to i32
   %6 = icmp slt i32 %2, %5
@@ -1202,8 +1202,8 @@ Kit_DsdWriteHex.exit:                             ; preds = %.lr.ph.i, %28, %25
   ret ptr %.034
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Kit_DsdWrite(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #12 {
+; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define void @Kit_DsdWrite(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #13 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %4 = load i16, ptr %3, align 2, !tbaa !51
   %5 = and i16 %4, 1
@@ -1260,7 +1260,7 @@ Kit_DsdNtkRoot.exit.thread:
   %3 = add nuw nsw i32 %2, 1
   %4 = shl nuw nsw i32 %3, 3
   %5 = zext nneg i32 %4 to i64
-  %6 = tail call noalias ptr @malloc(i64 noundef %5) #26
+  %6 = tail call noalias ptr @malloc(i64 noundef %5) #28
   %7 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 24
   store ptr %6, ptr %7, align 8, !tbaa !40
   store i16 %1, ptr %calloc.i, align 8, !tbaa !34
@@ -1273,7 +1273,7 @@ Kit_DsdNtkRoot.exit.thread:
   %13 = sext i32 %12 to i64
   %14 = shl nsw i64 %13, 2
   %15 = select i1 %10, i64 24, i64 %14
-  %16 = tail call noalias ptr @malloc(i64 noundef %15) #26
+  %16 = tail call noalias ptr @malloc(i64 noundef %15) #28
   %17 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %16, ptr %17, align 8, !tbaa !43
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 6
@@ -1309,11 +1309,11 @@ Kit_DsdNtkRoot.exit.thread:
   br i1 %.not.i, label %37, label %35
 
 35:                                               ; preds = %34
-  %36 = tail call ptr @realloc(ptr noundef nonnull %6, i64 noundef 0) #28
+  %36 = tail call ptr @realloc(ptr noundef nonnull %6, i64 noundef 0) #30
   br label %39
 
 37:                                               ; preds = %34
-  %38 = tail call noalias ptr @malloc(i64 noundef 0) #26
+  %38 = tail call noalias ptr @malloc(i64 noundef 0) #28
   br label %39
 
 39:                                               ; preds = %37, %35
@@ -1346,11 +1346,11 @@ Kit_DsdObjAlloc.exit:                             ; preds = %29, %39
   br i1 %.not.i28, label %53, label %51
 
 51:                                               ; preds = %50
-  %52 = tail call ptr @realloc(ptr noundef nonnull %6, i64 noundef 0) #28
+  %52 = tail call ptr @realloc(ptr noundef nonnull %6, i64 noundef 0) #30
   br label %55
 
 53:                                               ; preds = %50
-  %54 = tail call noalias ptr @malloc(i64 noundef 0) #26
+  %54 = tail call noalias ptr @malloc(i64 noundef 0) #28
   br label %55
 
 55:                                               ; preds = %53, %51
@@ -1995,7 +1995,7 @@ Kit_TruthNot.exit127:                             ; preds = %Kit_TruthNot.exit12
   %192 = load ptr, ptr %191, align 8, !tbaa !27
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %194 = load ptr, ptr %193, align 8, !tbaa !33
-  %195 = call ptr @Kit_TruthCompose(ptr noundef %180, ptr noundef %188, i32 noundef %.lcssa, ptr noundef nonnull %4, i32 noundef %190, ptr noundef %192, ptr noundef %194) #27
+  %195 = call ptr @Kit_TruthCompose(ptr noundef %180, ptr noundef %188, i32 noundef %.lcssa, ptr noundef nonnull %4, i32 noundef %190, ptr noundef %192, ptr noundef %194) #29
   %196 = load i16, ptr %1, align 8, !tbaa !34
   %197 = zext i16 %196 to i32
   %198 = icmp ult i16 %196, 6
@@ -2616,7 +2616,7 @@ Kit_TruthNot.exit174:                             ; preds = %Kit_TruthNot.exit17
   %233 = load ptr, ptr %232, align 8, !tbaa !27
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %235 = load ptr, ptr %234, align 8, !tbaa !33
-  %236 = call ptr @Kit_TruthCompose(ptr noundef %221, ptr noundef %229, i32 noundef %.lcssa, ptr noundef nonnull %5, i32 noundef %231, ptr noundef %233, ptr noundef %235) #27
+  %236 = call ptr @Kit_TruthCompose(ptr noundef %221, ptr noundef %229, i32 noundef %.lcssa, ptr noundef nonnull %5, i32 noundef %231, ptr noundef %233, ptr noundef %235) #29
   %237 = load i16, ptr %1, align 8, !tbaa !34
   %238 = zext i16 %237 to i32
   %239 = icmp ult i16 %237, 6
@@ -2657,7 +2657,7 @@ define ptr @Kit_DsdTruthComputeOne(ptr noundef %0, ptr noundef %1, i32 noundef %
   %6 = load i16, ptr %5, align 4, !tbaa !38
   %7 = zext i16 %6 to i64
   %8 = shl nuw nsw i64 %7, 2
-  %9 = tail call noalias ptr @malloc(i64 noundef %8) #26
+  %9 = tail call noalias ptr @malloc(i64 noundef %8) #28
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %9, ptr %10, align 8, !tbaa !45
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 6
@@ -2816,13 +2816,13 @@ Kit_TruthNot.exit:                                ; preds = %select.unfold.i22, 
   ret ptr %73
 }
 
-; Function Attrs: nofree nounwind uwtable
-define i32 @Kit_DsdGetSupports(ptr noundef captures(none) initializes((16, 24)) %0) local_unnamed_addr #9 {
+; Function Attrs: nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define i32 @Kit_DsdGetSupports(ptr noundef captures(none) initializes((16, 24)) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4, !tbaa !38
   %4 = zext i16 %3 to i64
   %5 = shl nuw nsw i64 %4, 2
-  %6 = tail call noalias ptr @malloc(i64 noundef %5) #26
+  %6 = tail call noalias ptr @malloc(i64 noundef %5) #28
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %7, align 8, !tbaa !45
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 6
@@ -3748,7 +3748,7 @@ Kit_TruthNot.exit316:                             ; preds = %Kit_TruthNot.exit31
   %389 = load ptr, ptr %388, align 8, !tbaa !27
   %390 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %391 = load ptr, ptr %390, align 8, !tbaa !33
-  %392 = call ptr @Kit_TruthCompose(ptr noundef %377, ptr noundef %385, i32 noundef %.lcssa, ptr noundef nonnull %8, i32 noundef %387, ptr noundef %389, ptr noundef %391) #27
+  %392 = call ptr @Kit_TruthCompose(ptr noundef %377, ptr noundef %385, i32 noundef %.lcssa, ptr noundef nonnull %8, i32 noundef %387, ptr noundef %389, ptr noundef %391) #29
   %393 = load i16, ptr %1, align 8, !tbaa !34
   %394 = zext i16 %393 to i32
   %395 = icmp ult i16 %393, 6
@@ -3785,7 +3785,7 @@ define ptr @Kit_DsdTruthComputeTwo(ptr noundef %0, ptr noundef initializes((16, 
   %7 = load i16, ptr %6, align 4, !tbaa !38
   %8 = zext i16 %7 to i64
   %9 = shl nuw nsw i64 %8, 2
-  %10 = tail call noalias ptr @malloc(i64 noundef %9) #26
+  %10 = tail call noalias ptr @malloc(i64 noundef %9) #28
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %10, ptr %11, align 8, !tbaa !45
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 6
@@ -4383,8 +4383,8 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %4
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @Kit_DsdCountLuts_rec(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #13 {
+; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define i32 @Kit_DsdCountLuts_rec(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #15 {
   %5 = load i16, ptr %0, align 8, !tbaa !34
   %6 = zext i16 %5 to i32
   %7 = icmp slt i32 %2, %6
@@ -4490,8 +4490,8 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %4, %Kit_DsdNtkObj.e
   ret i32 %.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define range(i32 -2147483648, 1000) i32 @Kit_DsdCountLuts(ptr noundef %0, i32 noundef %1) local_unnamed_addr #14 {
+; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
+define range(i32 -2147483648, 1000) i32 @Kit_DsdCountLuts(ptr noundef %0, i32 noundef %1) local_unnamed_addr #16 {
 Kit_DsdNtkRoot.exit.thread:
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -4529,8 +4529,8 @@ Kit_DsdNtkRoot.exit.thread:
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 64) i32 @Kit_DsdNonDsdSizeMax(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define range(i32 0, 64) i32 @Kit_DsdNonDsdSizeMax(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4, !tbaa !38
   %.not17 = icmp eq i16 %3, 0
@@ -4566,8 +4566,8 @@ define range(i32 0, 64) i32 @Kit_DsdNonDsdSizeMax(ptr noundef readonly captures(
   ret i32 %.0.lcssa
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @Kit_DsdNonDsdPrimeMax(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define ptr @Kit_DsdNonDsdPrimeMax(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4, !tbaa !38
   %.not22 = icmp eq i16 %3, 0
@@ -4607,13 +4607,13 @@ define ptr @Kit_DsdNonDsdPrimeMax(ptr noundef readonly captures(none) %0) local_
   ret ptr %.011.lcssa
 }
 
-; Function Attrs: nofree nounwind uwtable
-define i32 @Kit_DsdNonDsdSupports(ptr noundef captures(none) initializes((16, 24)) %0) local_unnamed_addr #9 {
+; Function Attrs: nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define i32 @Kit_DsdNonDsdSupports(ptr noundef captures(none) initializes((16, 24)) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4, !tbaa !38
   %4 = zext i16 %3 to i64
   %5 = shl nuw nsw i64 %4, 2
-  %6 = tail call noalias ptr @malloc(i64 noundef %5) #26
+  %6 = tail call noalias ptr @malloc(i64 noundef %5) #28
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %7, align 8, !tbaa !45
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 6
@@ -4748,8 +4748,8 @@ Kit_DsdLitSupport.exit:                           ; preds = %54, %61, %63
   ret i32 %.0.lcssa
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Kit_DsdExpandCollectAnd_rec(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #13 {
+; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define void @Kit_DsdExpandCollectAnd_rec(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #15 {
   %5 = ashr i32 %1, 1
   %6 = load i16, ptr %0, align 8, !tbaa !34
   %7 = zext i16 %6 to i32
@@ -4807,8 +4807,8 @@ Kit_DsdNtkObj.exit:                               ; preds = %4, %Kit_DsdNtkObj.e
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Kit_DsdExpandCollectXor_rec(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #13 {
+; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define void @Kit_DsdExpandCollectXor_rec(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #15 {
   %5 = ashr i32 %1, 1
   %6 = load i16, ptr %0, align 8, !tbaa !34
   %7 = zext i16 %6 to i32
@@ -5051,7 +5051,7 @@ Kit_TruthCopy.exit:                               ; preds = %Kit_TruthCopy.exit.
   %102 = load i32, ptr %66, align 4
   %103 = lshr i32 %102, 26
   %104 = trunc nuw nsw i64 %indvars.iv142 to i32
-  tail call void @Kit_TruthChangePhase(ptr noundef %81, i32 noundef %103, i32 noundef %104) #27
+  tail call void @Kit_TruthChangePhase(ptr noundef %81, i32 noundef %103, i32 noundef %104) #29
   br label %105
 
 105:                                              ; preds = %.lr.ph127, %100
@@ -5203,7 +5203,7 @@ define void @Kit_DsdCompSort(ptr noundef readonly captures(none) %0, ptr noundef
   br i1 %9, label %.lr.ph.preheader, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %5
-  call void @Extra_BubbleSort(ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef %3, i32 noundef 0) #27
+  call void @Extra_BubbleSort(ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef %3, i32 noundef 0) #29
   %10 = getelementptr inbounds i8, ptr %2, i64 -2
   %11 = load i16, ptr %10, align 2, !tbaa !49
   %12 = zext i16 %11 to i32
@@ -5274,7 +5274,7 @@ define void @Kit_DsdCompSort(ptr noundef readonly captures(none) %0, ptr noundef
   br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %28
-  call void @Extra_BubbleSort(ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef %3, i32 noundef 0) #27
+  call void @Extra_BubbleSort(ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef %3, i32 noundef 0) #29
   %wide.trip.count82 = zext nneg i32 %3 to i64
   br label %.lr.ph67
 
@@ -5503,12 +5503,12 @@ Kit_DsdLitSupport.exit:                           ; preds = %40, %42
   br i1 %.not.i108, label %71, label %69
 
 69:                                               ; preds = %64
-  %70 = tail call ptr @realloc(ptr noundef nonnull %66, i64 noundef %68) #28
+  %70 = tail call ptr @realloc(ptr noundef nonnull %66, i64 noundef %68) #30
   %.pre27.pre.i = load i16, ptr %52, align 4, !tbaa !38
   br label %73
 
 71:                                               ; preds = %64
-  %72 = tail call noalias ptr @malloc(i64 noundef %68) #26
+  %72 = tail call noalias ptr @malloc(i64 noundef %68) #28
   br label %73
 
 73:                                               ; preds = %71, %69
@@ -5617,12 +5617,12 @@ Kit_DsdLitSupport.exit110:                        ; preds = %101, %103
   br i1 %.not.i115, label %132, label %130
 
 130:                                              ; preds = %125
-  %131 = tail call ptr @realloc(ptr noundef nonnull %127, i64 noundef %129) #28
+  %131 = tail call ptr @realloc(ptr noundef nonnull %127, i64 noundef %129) #30
   %.pre27.pre.i116 = load i16, ptr %113, align 4, !tbaa !38
   br label %134
 
 132:                                              ; preds = %125
-  %133 = tail call noalias ptr @malloc(i64 noundef %129) #26
+  %133 = tail call noalias ptr @malloc(i64 noundef %129) #28
   br label %134
 
 134:                                              ; preds = %132, %130
@@ -5732,7 +5732,7 @@ Kit_TruthCopy.exit:                               ; preds = %Kit_TruthCopy.exit.
   %194 = load i32, ptr %158, align 4
   %195 = lshr i32 %194, 26
   %196 = trunc nuw nsw i64 %indvars.iv171 to i32
-  tail call void @Kit_TruthChangePhase(ptr noundef %173, i32 noundef %195, i32 noundef %196) #27
+  tail call void @Kit_TruthChangePhase(ptr noundef %173, i32 noundef %195, i32 noundef %196) #29
   br label %197
 
 197:                                              ; preds = %.lr.ph143, %192
@@ -5797,7 +5797,7 @@ Kit_DsdNtkRoot.exit.thread:
   %4 = add nuw nsw i32 %3, 1
   %5 = shl nuw nsw i32 %4, 3
   %6 = zext nneg i32 %5 to i64
-  %7 = tail call noalias ptr @malloc(i64 noundef %6) #26
+  %7 = tail call noalias ptr @malloc(i64 noundef %6) #28
   %8 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 24
   store ptr %7, ptr %8, align 8, !tbaa !40
   store i16 %2, ptr %calloc.i, align 8, !tbaa !34
@@ -5810,7 +5810,7 @@ Kit_DsdNtkRoot.exit.thread:
   %14 = sext i32 %13 to i64
   %15 = shl nsw i64 %14, 2
   %16 = select i1 %11, i64 24, i64 %15
-  %17 = tail call noalias ptr @malloc(i64 noundef %16) #26
+  %17 = tail call noalias ptr @malloc(i64 noundef %16) #28
   %18 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %17, ptr %18, align 8, !tbaa !43
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 6
@@ -5846,11 +5846,11 @@ Kit_DsdNtkRoot.exit.thread:
   br i1 %.not.i, label %38, label %36
 
 36:                                               ; preds = %35
-  %37 = tail call ptr @realloc(ptr noundef nonnull %7, i64 noundef 0) #28
+  %37 = tail call ptr @realloc(ptr noundef nonnull %7, i64 noundef 0) #30
   br label %40
 
 38:                                               ; preds = %35
-  %39 = tail call noalias ptr @malloc(i64 noundef 0) #26
+  %39 = tail call noalias ptr @malloc(i64 noundef 0) #28
   br label %40
 
 40:                                               ; preds = %38, %36
@@ -5883,11 +5883,11 @@ Kit_DsdObjAlloc.exit:                             ; preds = %30, %40
   br i1 %.not.i29, label %54, label %52
 
 52:                                               ; preds = %51
-  %53 = tail call ptr @realloc(ptr noundef nonnull %7, i64 noundef 0) #28
+  %53 = tail call ptr @realloc(ptr noundef nonnull %7, i64 noundef 0) #30
   br label %56
 
 54:                                               ; preds = %51
-  %55 = tail call noalias ptr @malloc(i64 noundef 0) #26
+  %55 = tail call noalias ptr @malloc(i64 noundef 0) #28
   br label %56
 
 56:                                               ; preds = %54, %52
@@ -6075,7 +6075,7 @@ Kit_DsdLitSupport.exit:                           ; preds = %19, %27, %29
   %66 = load i32, ptr %12, align 4
   %67 = lshr i32 %66, 26
   %68 = trunc nuw nsw i64 %indvars.iv.next106 to i32
-  tail call void @Kit_TruthSwapAdjacentVars(ptr noundef %.06080, ptr noundef %.05981, i32 noundef %67, i32 noundef %68) #27
+  tail call void @Kit_TruthSwapAdjacentVars(ptr noundef %.06080, ptr noundef %.05981, i32 noundef %67, i32 noundef %68) #29
   %69 = add nuw nsw i32 %.082, 1
   %exitcond108.not = icmp eq i32 %69, %spec.select71
   br i1 %exitcond108.not, label %._crit_edge, label %.lr.ph83, !llvm.loop !108
@@ -6123,8 +6123,8 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %5
 
 declare void @Kit_TruthSwapAdjacentVars(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Kit_DsdGetSupports_rec(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #12 {
+; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define i32 @Kit_DsdGetSupports_rec(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #13 {
   %3 = ashr i32 %1, 1
   %4 = load i16, ptr %0, align 8, !tbaa !34
   %5 = zext i16 %4 to i32
@@ -6207,8 +6207,8 @@ Kit_DsdLitSupport.exit:                           ; preds = %Kit_DsdNtkObj.exit.
   ret i32 %.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Kit_DsdFindLargeBox_rec(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #16 {
+; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define range(i32 0, 2) i32 @Kit_DsdFindLargeBox_rec(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #18 {
   %4 = load i16, ptr %0, align 8, !tbaa !34
   %5 = zext i16 %4 to i32
   %6 = icmp slt i32 %1, %5
@@ -6260,8 +6260,8 @@ Kit_DsdNtkObj.exit:                               ; preds = %3
   ret i32 %.017
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Kit_DsdFindLargeBox(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #16 {
+; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define range(i32 0, 2) i32 @Kit_DsdFindLargeBox(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %4 = load i16, ptr %3, align 2, !tbaa !51
   %5 = lshr i16 %4, 1
@@ -6270,8 +6270,8 @@ define range(i32 0, 2) i32 @Kit_DsdFindLargeBox(ptr noundef readonly captures(no
   ret i32 %7
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Kit_DsdCountAigNodes_rec(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #16 {
+; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define i32 @Kit_DsdCountAigNodes_rec(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #18 {
   %3 = load i16, ptr %0, align 8, !tbaa !34
   %4 = zext i16 %3 to i32
   %5 = icmp slt i32 %1, %4
@@ -6347,8 +6347,8 @@ Kit_DsdNtkObj.exit:                               ; preds = %2
   ret i32 %.021
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Kit_DsdCountAigNodes2(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 {
+; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define i32 @Kit_DsdCountAigNodes2(ptr noundef readonly captures(none) %0) local_unnamed_addr #18 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %3 = load i16, ptr %2, align 2, !tbaa !51
   %4 = lshr i16 %3, 1
@@ -6357,8 +6357,8 @@ define i32 @Kit_DsdCountAigNodes2(ptr noundef readonly captures(none) %0) local_
   ret i32 %6
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Kit_DsdCountAigNodes(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define i32 @Kit_DsdCountAigNodes(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4, !tbaa !38
   %.not = icmp eq i16 %3, 0
@@ -6413,7 +6413,7 @@ define i32 @Kit_DsdCountAigNodes(ptr noundef readonly captures(none) %0) local_u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @Kit_DsdRootNodeHasCommonVars(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #17 {
+define range(i32 0, 2) i32 @Kit_DsdRootNodeHasCommonVars(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #19 {
   %3 = load i32, ptr %0, align 4
   %4 = lshr i32 %3, 26
   %.not = icmp eq i32 %4, 0
@@ -6465,8 +6465,8 @@ define range(i32 0, 2) i32 @Kit_DsdRootNodeHasCommonVars(ptr noundef readonly ca
   ret i32 %.013
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Kit_DsdCheckVar4Dec2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #16 {
+; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define range(i32 0, 2) i32 @Kit_DsdCheckVar4Dec2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %4 = load i16, ptr %3, align 2, !tbaa !51
   %5 = lshr i16 %4, 1
@@ -6644,7 +6644,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %60 = and i32 %59, 31
   %61 = lshr i32 %59, 16
   %62 = add nuw nsw i32 %60, %61
-  tail call void @Kit_TruthShrink(ptr noundef %24, ptr noundef %23, i32 noundef %62, i32 noundef %12, i32 noundef %.tr651, i32 noundef 1) #27
+  tail call void @Kit_TruthShrink(ptr noundef %24, ptr noundef %23, i32 noundef %62, i32 noundef %12, i32 noundef %.tr651, i32 noundef 1) #29
   %63 = load i32, ptr %.tr650.ph, align 4
   %.not761 = icmp ult i32 %63, 67108864
   br i1 %.not761, label %._crit_edge, label %.lr.ph.preheader
@@ -6731,10 +6731,10 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 102:                                              ; preds = %.preheader659
   %103 = lshr i32 %101, 26
-  tail call void @Kit_TruthCofactor0New(ptr noundef %24, ptr noundef %23, i32 noundef %103, i32 noundef %.0476) #27
+  tail call void @Kit_TruthCofactor0New(ptr noundef %24, ptr noundef %23, i32 noundef %103, i32 noundef %.0476) #29
   %104 = load i32, ptr %.tr650.ph, align 4
   %105 = lshr i32 %104, 26
-  tail call void @Kit_TruthCofactor1New(ptr noundef nonnull %26, ptr noundef %23, i32 noundef %105, i32 noundef %.0476) #27
+  tail call void @Kit_TruthCofactor1New(ptr noundef nonnull %26, ptr noundef %23, i32 noundef %105, i32 noundef %.0476) #29
   %106 = load i32, ptr %.tr650.ph, align 4
   %107 = lshr i32 %106, 26
   %108 = icmp ult i32 %106, 402653184
@@ -6838,10 +6838,10 @@ Kit_TruthIsOpposite.exit:                         ; preds = %select.unfold.i520,
   br i1 %149, label %150, label %243
 
 150:                                              ; preds = %Kit_TruthIsOpposite.exit
-  %151 = tail call i32 @Kit_TruthSupport(ptr noundef nonnull %24, i32 noundef %107) #27
+  %151 = tail call i32 @Kit_TruthSupport(ptr noundef nonnull %24, i32 noundef %107) #29
   %152 = load i32, ptr %.tr650.ph, align 4
   %153 = lshr i32 %152, 26
-  %154 = tail call i32 @Kit_TruthSupport(ptr noundef nonnull %26, i32 noundef %153) #27
+  %154 = tail call i32 @Kit_TruthSupport(ptr noundef nonnull %26, i32 noundef %153) #29
   %155 = and i32 %154, %151
   %.not492 = icmp eq i32 %155, 0
   br i1 %.not492, label %156, label %.preheader659, !llvm.loop !120
@@ -7041,12 +7041,12 @@ tailrecurse.outer.backedge:                       ; preds = %Kit_TruthCopy.exit5
   br i1 %.not.i532, label %260, label %258
 
 258:                                              ; preds = %253
-  %259 = tail call ptr @realloc(ptr noundef nonnull %255, i64 noundef %257) #28
+  %259 = tail call ptr @realloc(ptr noundef nonnull %255, i64 noundef %257) #30
   %.pre27.pre.i = load i16, ptr %7, align 4, !tbaa !38
   br label %262
 
 260:                                              ; preds = %253
-  %261 = tail call noalias ptr @malloc(i64 noundef %257) #26
+  %261 = tail call noalias ptr @malloc(i64 noundef %257) #28
   br label %262
 
 262:                                              ; preds = %260, %258
@@ -7262,16 +7262,16 @@ select.unfold.i559:                               ; preds = %select.unfold.i559,
   %.1477.in733 = phi i32 [ %.1477734, %.loopexit ], [ %365, %.loopexit660 ]
   %.1477734 = add nsw i32 %.1477.in733, -1
   %369 = lshr i32 %368, 26
-  tail call void @Kit_TruthCofactor0New(ptr noundef %24, ptr noundef %23, i32 noundef %369, i32 noundef %.1477734) #27
+  tail call void @Kit_TruthCofactor0New(ptr noundef %24, ptr noundef %23, i32 noundef %369, i32 noundef %.1477734) #29
   %370 = load i32, ptr %.tr650.ph, align 4
   %371 = lshr i32 %370, 26
-  tail call void @Kit_TruthCofactor1New(ptr noundef nonnull %26, ptr noundef %23, i32 noundef %371, i32 noundef %.1477734) #27
+  tail call void @Kit_TruthCofactor1New(ptr noundef nonnull %26, ptr noundef %23, i32 noundef %371, i32 noundef %.1477734) #29
   %372 = load i32, ptr %.tr650.ph, align 4
   %373 = lshr i32 %372, 26
-  %374 = tail call i32 @Kit_TruthSupport(ptr noundef %24, i32 noundef %373) #27
+  %374 = tail call i32 @Kit_TruthSupport(ptr noundef %24, i32 noundef %373) #29
   %375 = load i32, ptr %.tr650.ph, align 4
   %376 = lshr i32 %375, 26
-  %377 = tail call i32 @Kit_TruthSupport(ptr noundef nonnull %26, i32 noundef %376) #27
+  %377 = tail call i32 @Kit_TruthSupport(ptr noundef nonnull %26, i32 noundef %376) #29
   %378 = icmp eq i32 %374, 0
   %379 = icmp eq i32 %377, 0
   %or.cond = select i1 %378, i1 true, i1 %379
@@ -7368,16 +7368,16 @@ Kit_WordFindFirstBit.exit569:                     ; preds = %432, %435
   %.06.i567 = phi i32 [ %.07.i565, %432 ], [ -1, %435 ]
   %437 = load i32, ptr %.tr650.ph, align 4
   %438 = lshr i32 %437, 26
-  tail call void @Kit_TruthCofactor0New(ptr noundef nonnull %29, ptr noundef %24, i32 noundef %438, i32 noundef %.06.i) #27
+  tail call void @Kit_TruthCofactor0New(ptr noundef nonnull %29, ptr noundef %24, i32 noundef %438, i32 noundef %.06.i) #29
   %439 = load i32, ptr %.tr650.ph, align 4
   %440 = lshr i32 %439, 26
-  tail call void @Kit_TruthCofactor1New(ptr noundef nonnull %33, ptr noundef %24, i32 noundef %440, i32 noundef %.06.i) #27
+  tail call void @Kit_TruthCofactor1New(ptr noundef nonnull %33, ptr noundef %24, i32 noundef %440, i32 noundef %.06.i) #29
   %441 = load i32, ptr %.tr650.ph, align 4
   %442 = lshr i32 %441, 26
-  tail call void @Kit_TruthCofactor0New(ptr noundef nonnull %36, ptr noundef nonnull %26, i32 noundef %442, i32 noundef %.06.i567) #27
+  tail call void @Kit_TruthCofactor0New(ptr noundef nonnull %36, ptr noundef nonnull %26, i32 noundef %442, i32 noundef %.06.i567) #29
   %443 = load i32, ptr %.tr650.ph, align 4
   %444 = lshr i32 %443, 26
-  tail call void @Kit_TruthCofactor1New(ptr noundef nonnull %40, ptr noundef nonnull %26, i32 noundef %444, i32 noundef %.06.i567) #27
+  tail call void @Kit_TruthCofactor1New(ptr noundef nonnull %40, ptr noundef nonnull %26, i32 noundef %444, i32 noundef %.06.i567) #29
   %445 = load i32, ptr %.tr650.ph, align 4
   %446 = lshr i32 %445, 26
   %447 = icmp ult i32 %445, 402653184
@@ -7505,7 +7505,7 @@ Kit_TruthIsEqual.exit592:                         ; preds = %select.unfold.i588,
   store i16 %514, ptr %509, align 2, !tbaa !49
   %515 = load i32, ptr %.tr650.ph, align 4
   %516 = lshr i32 %515, 26
-  tail call void @Kit_TruthMuxVar(ptr noundef %23, ptr noundef nonnull %36, ptr noundef nonnull %40, i32 noundef %516, i32 noundef %.1477734) #27
+  tail call void @Kit_TruthMuxVar(ptr noundef %23, ptr noundef nonnull %36, ptr noundef nonnull %40, i32 noundef %516, i32 noundef %.1477734) #29
   br i1 %or.cond11, label %517, label %tailrecurse.backedge
 
 517:                                              ; preds = %483
@@ -7523,16 +7523,16 @@ Kit_TruthIsEqual.exit592:                         ; preds = %select.unfold.i588,
 .lr.ph731:                                        ; preds = %520, %662
   %523 = phi i32 [ %531, %662 ], [ %.pre-phi, %520 ]
   %.3729 = phi i32 [ %663, %662 ], [ %.1477.in733, %520 ]
-  tail call void @Kit_TruthCofactor0New(ptr noundef nonnull %29, ptr noundef nonnull %24, i32 noundef %523, i32 noundef %.3729) #27
+  tail call void @Kit_TruthCofactor0New(ptr noundef nonnull %29, ptr noundef nonnull %24, i32 noundef %523, i32 noundef %.3729) #29
   %524 = load i32, ptr %.tr650.ph, align 4
   %525 = lshr i32 %524, 26
-  tail call void @Kit_TruthCofactor1New(ptr noundef nonnull %33, ptr noundef nonnull %24, i32 noundef %525, i32 noundef %.3729) #27
+  tail call void @Kit_TruthCofactor1New(ptr noundef nonnull %33, ptr noundef nonnull %24, i32 noundef %525, i32 noundef %.3729) #29
   %526 = load i32, ptr %.tr650.ph, align 4
   %527 = lshr i32 %526, 26
-  tail call void @Kit_TruthCofactor0New(ptr noundef nonnull %36, ptr noundef nonnull %26, i32 noundef %527, i32 noundef %.3729) #27
+  tail call void @Kit_TruthCofactor0New(ptr noundef nonnull %36, ptr noundef nonnull %26, i32 noundef %527, i32 noundef %.3729) #29
   %528 = load i32, ptr %.tr650.ph, align 4
   %529 = lshr i32 %528, 26
-  tail call void @Kit_TruthCofactor1New(ptr noundef nonnull %40, ptr noundef nonnull %26, i32 noundef %529, i32 noundef %.3729) #27
+  tail call void @Kit_TruthCofactor1New(ptr noundef nonnull %40, ptr noundef nonnull %26, i32 noundef %529, i32 noundef %.3729) #29
   %530 = load i32, ptr %.tr650.ph, align 4
   %531 = lshr i32 %530, 26
   %532 = icmp ult i32 %530, 402653184
@@ -7690,12 +7690,12 @@ Kit_TruthIsEqual.exit628:                         ; preds = %select.unfold.i624,
   br i1 %.not.i633, label %606, label %604
 
 604:                                              ; preds = %599
-  %605 = tail call ptr @realloc(ptr noundef nonnull %601, i64 noundef %603) #28
+  %605 = tail call ptr @realloc(ptr noundef nonnull %601, i64 noundef %603) #30
   %.pre27.pre.i634 = load i16, ptr %7, align 4, !tbaa !38
   br label %608
 
 606:                                              ; preds = %599
-  %607 = tail call noalias ptr @malloc(i64 noundef %603) #26
+  %607 = tail call noalias ptr @malloc(i64 noundef %603) #28
   br label %608
 
 608:                                              ; preds = %606, %604
@@ -7748,7 +7748,7 @@ Kit_DsdObjAlloc.exit636:                          ; preds = %._crit_edge.i630, %
   store i16 %636, ptr %630, align 2, !tbaa !49
   %637 = load i32, ptr %.tr650.ph, align 4
   %638 = lshr i32 %637, 26
-  tail call void @Kit_TruthMuxVar(ptr noundef %23, ptr noundef nonnull %40, ptr noundef nonnull %29, i32 noundef %638, i32 noundef %.3729) #27
+  tail call void @Kit_TruthMuxVar(ptr noundef %23, ptr noundef nonnull %40, ptr noundef nonnull %29, i32 noundef %638, i32 noundef %.3729) #29
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %634, %647, %657, %654, %640, %483, %517, %380
@@ -7765,7 +7765,7 @@ tailrecurse.backedge:                             ; preds = %634, %647, %657, %6
   store i16 %641, ptr %630, align 2, !tbaa !49
   %642 = load i32, ptr %.tr650.ph, align 4
   %643 = lshr i32 %642, 26
-  tail call void @Kit_TruthMuxVar(ptr noundef %23, ptr noundef nonnull %29, ptr noundef nonnull %33, i32 noundef %643, i32 noundef %.3729) #27
+  tail call void @Kit_TruthMuxVar(ptr noundef %23, ptr noundef nonnull %29, ptr noundef nonnull %33, i32 noundef %643, i32 noundef %.3729) #29
   br label %tailrecurse.backedge
 
 644:                                              ; preds = %639
@@ -7779,7 +7779,7 @@ tailrecurse.backedge:                             ; preds = %634, %647, %657, %6
   store i16 %648, ptr %624, align 4, !tbaa !49
   %649 = load i32, ptr %.tr650.ph, align 4
   %650 = lshr i32 %649, 26
-  tail call void @Kit_TruthMuxVar(ptr noundef %23, ptr noundef nonnull %29, ptr noundef nonnull %36, i32 noundef %650, i32 noundef %.3729) #27
+  tail call void @Kit_TruthMuxVar(ptr noundef %23, ptr noundef nonnull %29, ptr noundef nonnull %36, i32 noundef %650, i32 noundef %.3729) #29
   br label %tailrecurse.backedge
 
 651:                                              ; preds = %644
@@ -7791,7 +7791,7 @@ tailrecurse.backedge:                             ; preds = %634, %647, %657, %6
 654:                                              ; preds = %651
   %655 = load i32, ptr %.tr650.ph, align 4
   %656 = lshr i32 %655, 26
-  tail call void @Kit_TruthMuxVar(ptr noundef %23, ptr noundef nonnull %29, ptr noundef nonnull %40, i32 noundef %656, i32 noundef %.3729) #27
+  tail call void @Kit_TruthMuxVar(ptr noundef %23, ptr noundef nonnull %29, ptr noundef nonnull %40, i32 noundef %656, i32 noundef %.3729) #29
   br label %tailrecurse.backedge
 
 657:                                              ; preds = %651
@@ -7800,7 +7800,7 @@ tailrecurse.backedge:                             ; preds = %634, %647, %657, %6
   store i32 %659, ptr %calloc.i629, align 4
   %660 = load i32, ptr %.tr650.ph, align 4
   %661 = lshr i32 %660, 26
-  tail call void @Kit_TruthMuxVar(ptr noundef %23, ptr noundef nonnull %29, ptr noundef nonnull %33, i32 noundef %661, i32 noundef %.3729) #27
+  tail call void @Kit_TruthMuxVar(ptr noundef %23, ptr noundef nonnull %29, ptr noundef nonnull %33, i32 noundef %661, i32 noundef %.3729) #29
   br label %tailrecurse.backedge
 
 662:                                              ; preds = %Kit_TruthIsEqual.exit628
@@ -7818,13 +7818,13 @@ tailrecurse.backedge:                             ; preds = %634, %647, %657, %6
   br i1 %668, label %669, label %.loopexit661
 
 669:                                              ; preds = %666
-  %670 = tail call i32 @Kit_TruthBestCofVar(ptr noundef %23, i32 noundef %667, ptr noundef %24, ptr noundef nonnull %26) #27
+  %670 = tail call i32 @Kit_TruthBestCofVar(ptr noundef %23, i32 noundef %667, ptr noundef %24, ptr noundef nonnull %26) #29
   %671 = load i32, ptr %.tr650.ph, align 4
   %672 = lshr i32 %671, 26
-  %673 = tail call i32 @Kit_TruthSupport(ptr noundef %24, i32 noundef %672) #27
+  %673 = tail call i32 @Kit_TruthSupport(ptr noundef %24, i32 noundef %672) #29
   %674 = load i32, ptr %.tr650.ph, align 4
   %675 = lshr i32 %674, 26
-  %676 = tail call i32 @Kit_TruthSupport(ptr noundef nonnull %26, i32 noundef %675) #27
+  %676 = tail call i32 @Kit_TruthSupport(ptr noundef nonnull %26, i32 noundef %675) #29
   %677 = load i32, ptr %.tr650.ph, align 4
   %678 = lshr i32 %677, 26
   %679 = tail call ptr @Kit_DsdObjAlloc(ptr noundef %0, i32 noundef 5, i32 noundef %678)
@@ -7985,7 +7985,7 @@ define noundef ptr @Kit_DsdDecomposeInt(ptr noundef %0, i32 noundef %1, i32 noun
   %4 = add nsw i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = shl nsw i64 %5, 3
-  %7 = tail call noalias ptr @malloc(i64 noundef %6) #26
+  %7 = tail call noalias ptr @malloc(i64 noundef %6) #28
   %8 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 24
   store ptr %7, ptr %8, align 8, !tbaa !40
   %9 = trunc i32 %1 to i16
@@ -7999,7 +7999,7 @@ define noundef ptr @Kit_DsdDecomposeInt(ptr noundef %0, i32 noundef %1, i32 noun
   %15 = select i1 %12, i32 6, i32 %14
   %16 = sext i32 %15 to i64
   %17 = shl nsw i64 %16, 2
-  %18 = tail call noalias ptr @malloc(i64 noundef %17) #26
+  %18 = tail call noalias ptr @malloc(i64 noundef %17) #28
   %19 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %18, ptr %19, align 8, !tbaa !43
   %20 = shl i16 %9, 1
@@ -8064,7 +8064,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
 
 Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %._crit_edge
   %49 = phi ptr [ %35, %._crit_edge ], [ %43, %select.unfold.i ]
-  %50 = tail call i32 @Kit_TruthSupport(ptr noundef %0, i32 noundef %1) #27
+  %50 = tail call i32 @Kit_TruthSupport(ptr noundef %0, i32 noundef %1) #29
   %51 = and i32 %50, 1431655765
   %52 = lshr i32 %50, 1
   %53 = and i32 %52, 1431655765
@@ -8173,7 +8173,7 @@ define noundef i32 @Kit_DsdTestCofs(ptr noundef readonly captures(none) %0, ptr 
   %14 = load ptr, ptr @stdout, align 8, !tbaa !54
   %15 = load i16, ptr %0, align 8, !tbaa !34
   %16 = zext i16 %15 to i32
-  tail call void @Extra_PrintHexadecimal(ptr noundef %14, ptr noundef %1, i32 noundef %16) #27
+  tail call void @Extra_PrintHexadecimal(ptr noundef %14, ptr noundef %1, i32 noundef %16) #29
   %putchar = tail call i32 @putchar(i32 10)
   %17 = load ptr, ptr @stdout, align 8, !tbaa !54
   %18 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 4, i64 1, ptr %17)
@@ -8205,7 +8205,7 @@ Kit_DsdPrint.exit:                                ; preds = %2, %22
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %Kit_DsdPrint.exit46
   %28 = phi i32 [ %61, %Kit_DsdPrint.exit46 ], [ %27, %.lr.ph.preheader ]
   %.047 = phi i32 [ %59, %Kit_DsdPrint.exit46 ], [ 0, %.lr.ph.preheader ]
-  tail call void @Kit_TruthCofactor0New(ptr noundef %4, ptr noundef %1, i32 noundef %28, i32 noundef %.047) #27
+  tail call void @Kit_TruthCofactor0New(ptr noundef %4, ptr noundef %1, i32 noundef %28, i32 noundef %.047) #29
   %29 = load i16, ptr %0, align 8, !tbaa !34
   %30 = zext i16 %29 to i32
   %31 = tail call noundef ptr @Kit_DsdDecomposeInt(ptr noundef %4, i32 noundef %30, i32 noundef 0)
@@ -8233,7 +8233,7 @@ Kit_DsdPrint.exit42:                              ; preds = %.lr.ph, %39
   %putchar37 = tail call i32 @putchar(i32 10)
   %43 = load i16, ptr %0, align 8, !tbaa !34
   %44 = zext i16 %43 to i32
-  tail call void @Kit_TruthCofactor1New(ptr noundef nonnull %12, ptr noundef %1, i32 noundef %44, i32 noundef %.047) #27
+  tail call void @Kit_TruthCofactor1New(ptr noundef nonnull %12, ptr noundef %1, i32 noundef %44, i32 noundef %.047) #29
   %45 = load i16, ptr %0, align 8, !tbaa !34
   %46 = zext i16 %45 to i32
   %47 = tail call noundef ptr @Kit_DsdDecomposeInt(ptr noundef nonnull %12, i32 noundef %46, i32 noundef 0)
@@ -8273,7 +8273,7 @@ Kit_DsdPrint.exit46:                              ; preds = %Kit_DsdPrint.exit42
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #10
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 declare void @Extra_PrintHexadecimal(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -8598,7 +8598,7 @@ define void @Kit_DsdPrecompute4Vars() local_unnamed_addr #0 {
   %.02034 = phi i32 [ 0, %.lr.ph ], [ %.121, %Extra_TruthIsEqual.exit ]
   %.02233 = phi i32 [ 0, %.lr.ph ], [ %80, %Extra_TruthIsEqual.exit ]
   store i8 0, ptr %5, align 2, !tbaa !47
-  %8 = call i32 @Extra_ReadHexadecimal(ptr noundef nonnull %1, ptr noundef nonnull %6, i32 noundef 4) #27
+  %8 = call i32 @Extra_ReadHexadecimal(ptr noundef nonnull %1, ptr noundef nonnull %6, i32 noundef 4) #29
   %9 = load i32, ptr %1, align 4, !tbaa !20
   %10 = and i32 %9, 65535
   %11 = mul nuw i32 %10, 65537
@@ -8759,18 +8759,18 @@ Extra_TruthIsEqual.exit:                          ; preds = %Kit_DsdTruthCompute
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #10
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 declare i32 @Extra_ReadHexadecimal(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #11
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @Kit_DsdCofactoringGetVars(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #18 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define i32 @Kit_DsdCofactoringGetVars(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #20 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.preheader42.preheader, label %._crit_edge58
 
@@ -8907,7 +8907,7 @@ define i32 @Kit_DsdCofactoring(ptr noundef readonly captures(none) %0, i32 nound
   %12 = select i1 %9, i32 80, i32 %11
   %13 = sext i32 %12 to i64
   %14 = shl nsw i64 %13, 2
-  %15 = tail call noalias ptr @malloc(i64 noundef %14) #26
+  %15 = tail call noalias ptr @malloc(i64 noundef %14) #28
   store ptr %15, ptr %7, align 16, !tbaa !60
   %16 = select i1 %9, i32 0, i32 %10
   br label %.preheader240
@@ -9148,11 +9148,11 @@ Kit_DsdCofactoringGetVars.exit:                   ; preds = %.critedge.i
   %94 = load ptr, ptr %93, align 16, !tbaa !60
   %95 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv275
   %96 = load ptr, ptr %95, align 8, !tbaa !60
-  tail call void @Kit_TruthCofactor0New(ptr noundef %94, ptr noundef %96, i32 noundef %1, i32 noundef %85) #27
+  tail call void @Kit_TruthCofactor0New(ptr noundef %94, ptr noundef %96, i32 noundef %1, i32 noundef %85) #29
   %97 = or disjoint i64 %92, 1
   %98 = getelementptr inbounds nuw ptr, ptr %81, i64 %97
   %99 = load ptr, ptr %98, align 8, !tbaa !60
-  tail call void @Kit_TruthCofactor1New(ptr noundef %99, ptr noundef %96, i32 noundef %1, i32 noundef %85) #27
+  tail call void @Kit_TruthCofactor1New(ptr noundef %99, ptr noundef %96, i32 noundef %1, i32 noundef %85) #29
   %100 = tail call noundef ptr @Kit_DsdDecomposeInt(ptr noundef %94, i32 noundef %1, i32 noundef 0)
   %101 = getelementptr inbounds nuw ptr, ptr %83, i64 %92
   store ptr %100, ptr %101, align 16, !tbaa !130
@@ -9229,9 +9229,9 @@ Kit_DsdNonDsdSizeMax.exit184.us.loopexit:         ; preds = %123, %120
 
 Kit_DsdNonDsdSizeMax.exit184.us:                  ; preds = %Kit_DsdNonDsdSizeMax.exit184.us.loopexit, %Kit_DsdNonDsdSizeMax.exit.us
   %.0.lcssa.i183.us = phi i32 [ %115, %Kit_DsdNonDsdSizeMax.exit.us ], [ %127, %Kit_DsdNonDsdSizeMax.exit184.us.loopexit ]
-  %128 = tail call i32 @Kit_TruthSupportSize(ptr noundef %94, i32 noundef %1) #27
+  %128 = tail call i32 @Kit_TruthSupportSize(ptr noundef %94, i32 noundef %1) #29
   %129 = add nsw i32 %128, %.0149247.us
-  %130 = tail call i32 @Kit_TruthSupportSize(ptr noundef %99, i32 noundef %1) #27
+  %130 = tail call i32 @Kit_TruthSupportSize(ptr noundef %99, i32 noundef %1) #29
   %131 = add nsw i32 %129, %130
   %132 = getelementptr inbounds nuw i8, ptr %100, i64 24
   %133 = load i16, ptr %104, align 4, !tbaa !38
@@ -9247,7 +9247,7 @@ Kit_DsdNonDsdSizeMax.exit184.us:                  ; preds = %Kit_DsdNonDsdSizeMa
   br i1 %.not.i187.us, label %.critedge.i189.us, label %137
 
 137:                                              ; preds = %.lr.ph.i185.us
-  tail call void @free(ptr noundef nonnull %136) #27
+  tail call void @free(ptr noundef nonnull %136) #29
   %indvars.iv.next.i188.us = add nuw nsw i64 %indvars.iv.i186.us, 1
   %138 = load i16, ptr %104, align 4, !tbaa !38
   %139 = zext i16 %138 to i64
@@ -9261,7 +9261,7 @@ Kit_DsdNonDsdSizeMax.exit184.us:                  ; preds = %Kit_DsdNonDsdSizeMa
   br i1 %.not22.i.us, label %144, label %143
 
 143:                                              ; preds = %.critedge.i189.us
-  tail call void @free(ptr noundef nonnull %142) #27
+  tail call void @free(ptr noundef nonnull %142) #29
   store ptr null, ptr %141, align 8, !tbaa !45
   br label %144
 
@@ -9271,7 +9271,7 @@ Kit_DsdNonDsdSizeMax.exit184.us:                  ; preds = %Kit_DsdNonDsdSizeMa
   br i1 %.not23.i.us, label %147, label %146
 
 146:                                              ; preds = %144
-  tail call void @free(ptr noundef nonnull %145) #27
+  tail call void @free(ptr noundef nonnull %145) #29
   store ptr null, ptr %132, align 8, !tbaa !40
   br label %147
 
@@ -9282,11 +9282,11 @@ Kit_DsdNonDsdSizeMax.exit184.us:                  ; preds = %Kit_DsdNonDsdSizeMa
   br i1 %.not24.i.us, label %Kit_DsdNtkFree.exit.us, label %150
 
 150:                                              ; preds = %147
-  tail call void @free(ptr noundef nonnull %149) #27
+  tail call void @free(ptr noundef nonnull %149) #29
   br label %Kit_DsdNtkFree.exit.us
 
 Kit_DsdNtkFree.exit.us:                           ; preds = %150, %147
-  tail call void @free(ptr noundef nonnull %100) #27
+  tail call void @free(ptr noundef nonnull %100) #29
   %151 = getelementptr inbounds nuw i8, ptr %102, i64 24
   %152 = load i16, ptr %116, align 4, !tbaa !38
   %.not28.i190.us = icmp eq i16 %152, 0
@@ -9301,7 +9301,7 @@ Kit_DsdNtkFree.exit.us:                           ; preds = %150, %147
   br i1 %.not.i193.us, label %.critedge.i195.us, label %156
 
 156:                                              ; preds = %.lr.ph.i191.us
-  tail call void @free(ptr noundef nonnull %155) #27
+  tail call void @free(ptr noundef nonnull %155) #29
   %indvars.iv.next.i194.us = add nuw nsw i64 %indvars.iv.i192.us, 1
   %157 = load i16, ptr %116, align 4, !tbaa !38
   %158 = zext i16 %157 to i64
@@ -9315,7 +9315,7 @@ Kit_DsdNtkFree.exit.us:                           ; preds = %150, %147
   br i1 %.not22.i196.us, label %163, label %162
 
 162:                                              ; preds = %.critedge.i195.us
-  tail call void @free(ptr noundef nonnull %161) #27
+  tail call void @free(ptr noundef nonnull %161) #29
   store ptr null, ptr %160, align 8, !tbaa !45
   br label %163
 
@@ -9325,7 +9325,7 @@ Kit_DsdNtkFree.exit.us:                           ; preds = %150, %147
   br i1 %.not23.i197.us, label %166, label %165
 
 165:                                              ; preds = %163
-  tail call void @free(ptr noundef nonnull %164) #27
+  tail call void @free(ptr noundef nonnull %164) #29
   store ptr null, ptr %151, align 8, !tbaa !40
   br label %166
 
@@ -9336,11 +9336,11 @@ Kit_DsdNtkFree.exit.us:                           ; preds = %150, %147
   br i1 %.not24.i198.us, label %Kit_DsdNtkFree.exit199.us, label %169
 
 169:                                              ; preds = %166
-  tail call void @free(ptr noundef nonnull %168) #27
+  tail call void @free(ptr noundef nonnull %168) #29
   br label %Kit_DsdNtkFree.exit199.us
 
 Kit_DsdNtkFree.exit199.us:                        ; preds = %169, %166
-  tail call void @free(ptr noundef nonnull %102) #27
+  tail call void @free(ptr noundef nonnull %102) #29
   %indvars.iv.next276 = add nuw nsw i64 %indvars.iv275, 1
   %exitcond278.not = icmp eq i64 %indvars.iv.next276, %wide.trip.count
   br i1 %exitcond278.not, label %._crit_edge.us, label %91, !llvm.loop !139
@@ -9375,11 +9375,11 @@ Kit_DsdNtkFree.exit199.us:                        ; preds = %169, %166
   %181 = load ptr, ptr %180, align 16, !tbaa !60
   %182 = getelementptr inbounds nuw ptr, ptr %175, i64 %indvars.iv285
   %183 = load ptr, ptr %182, align 8, !tbaa !60
-  tail call void @Kit_TruthCofactor0New(ptr noundef %181, ptr noundef %183, i32 noundef %1, i32 noundef %.0147.lcssa) #27
+  tail call void @Kit_TruthCofactor0New(ptr noundef %181, ptr noundef %183, i32 noundef %1, i32 noundef %.0147.lcssa) #29
   %184 = or disjoint i64 %179, 1
   %185 = getelementptr inbounds nuw ptr, ptr %174, i64 %184
   %186 = load ptr, ptr %185, align 8, !tbaa !60
-  tail call void @Kit_TruthCofactor1New(ptr noundef %186, ptr noundef %183, i32 noundef %1, i32 noundef %.0147.lcssa) #27
+  tail call void @Kit_TruthCofactor1New(ptr noundef %186, ptr noundef %183, i32 noundef %1, i32 noundef %.0147.lcssa) #29
   %187 = tail call noundef ptr @Kit_DsdDecomposeInt(ptr noundef %181, i32 noundef %1, i32 noundef 0)
   %188 = getelementptr inbounds nuw ptr, ptr %176, i64 %179
   store ptr %187, ptr %188, align 16, !tbaa !130
@@ -9406,7 +9406,7 @@ Kit_DsdNtkFree.exit199.us:                        ; preds = %169, %166
   br i1 %.not.i203, label %.critedge.i205, label %199
 
 199:                                              ; preds = %.lr.ph.i201
-  tail call void @free(ptr noundef nonnull %198) #27
+  tail call void @free(ptr noundef nonnull %198) #29
   %indvars.iv.next.i204 = add nuw nsw i64 %indvars.iv.i202, 1
   %200 = load i16, ptr %194, align 4, !tbaa !38
   %201 = zext i16 %200 to i64
@@ -9420,7 +9420,7 @@ Kit_DsdNtkFree.exit199.us:                        ; preds = %169, %166
   br i1 %.not22.i206, label %206, label %205
 
 205:                                              ; preds = %.critedge.i205
-  tail call void @free(ptr noundef nonnull %204) #27
+  tail call void @free(ptr noundef nonnull %204) #29
   store ptr null, ptr %203, align 8, !tbaa !45
   br label %206
 
@@ -9430,7 +9430,7 @@ Kit_DsdNtkFree.exit199.us:                        ; preds = %169, %166
   br i1 %.not23.i207, label %209, label %208
 
 208:                                              ; preds = %206
-  tail call void @free(ptr noundef nonnull %207) #27
+  tail call void @free(ptr noundef nonnull %207) #29
   store ptr null, ptr %193, align 8, !tbaa !40
   br label %209
 
@@ -9441,11 +9441,11 @@ Kit_DsdNtkFree.exit199.us:                        ; preds = %169, %166
   br i1 %.not24.i208, label %Kit_DsdNtkFree.exit209, label %212
 
 212:                                              ; preds = %209
-  tail call void @free(ptr noundef nonnull %211) #27
+  tail call void @free(ptr noundef nonnull %211) #29
   br label %Kit_DsdNtkFree.exit209
 
 Kit_DsdNtkFree.exit209:                           ; preds = %209, %212
-  tail call void @free(ptr noundef nonnull %187) #27
+  tail call void @free(ptr noundef nonnull %187) #29
   %213 = tail call ptr @Kit_DsdExpand(ptr noundef %189)
   store ptr %213, ptr %190, align 8, !tbaa !130
   %214 = getelementptr inbounds nuw i8, ptr %189, i64 24
@@ -9463,7 +9463,7 @@ Kit_DsdNtkFree.exit209:                           ; preds = %209, %212
   br i1 %.not.i213, label %.critedge.i215, label %220
 
 220:                                              ; preds = %.lr.ph.i211
-  tail call void @free(ptr noundef nonnull %219) #27
+  tail call void @free(ptr noundef nonnull %219) #29
   %indvars.iv.next.i214 = add nuw nsw i64 %indvars.iv.i212, 1
   %221 = load i16, ptr %215, align 4, !tbaa !38
   %222 = zext i16 %221 to i64
@@ -9477,7 +9477,7 @@ Kit_DsdNtkFree.exit209:                           ; preds = %209, %212
   br i1 %.not22.i216, label %227, label %226
 
 226:                                              ; preds = %.critedge.i215
-  tail call void @free(ptr noundef nonnull %225) #27
+  tail call void @free(ptr noundef nonnull %225) #29
   store ptr null, ptr %224, align 8, !tbaa !45
   br label %227
 
@@ -9487,7 +9487,7 @@ Kit_DsdNtkFree.exit209:                           ; preds = %209, %212
   br i1 %.not23.i217, label %230, label %229
 
 229:                                              ; preds = %227
-  tail call void @free(ptr noundef nonnull %228) #27
+  tail call void @free(ptr noundef nonnull %228) #29
   store ptr null, ptr %214, align 8, !tbaa !40
   br label %230
 
@@ -9498,11 +9498,11 @@ Kit_DsdNtkFree.exit209:                           ; preds = %209, %212
   br i1 %.not24.i218, label %Kit_DsdNtkFree.exit219, label %233
 
 233:                                              ; preds = %230
-  tail call void @free(ptr noundef nonnull %232) #27
+  tail call void @free(ptr noundef nonnull %232) #29
   br label %Kit_DsdNtkFree.exit219
 
 Kit_DsdNtkFree.exit219:                           ; preds = %230, %233
-  tail call void @free(ptr noundef nonnull %189) #27
+  tail call void @free(ptr noundef nonnull %189) #29
   %234 = trunc nuw nsw i64 %179 to i32
   %235 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %177, i32 noundef %234)
   %236 = load ptr, ptr @stdout, align 8, !tbaa !54
@@ -9588,7 +9588,7 @@ Kit_DsdCofactoringGetVars.exit.thread:            ; preds = %._crit_edge, %Kit_D
   br i1 %.not.i229, label %.critedge.i231, label %268
 
 268:                                              ; preds = %.lr.ph.i227
-  tail call void @free(ptr noundef nonnull %267) #27
+  tail call void @free(ptr noundef nonnull %267) #29
   %indvars.iv.next.i230 = add nuw nsw i64 %indvars.iv.i228, 1
   %269 = load i16, ptr %263, align 4, !tbaa !38
   %270 = zext i16 %269 to i64
@@ -9602,7 +9602,7 @@ Kit_DsdCofactoringGetVars.exit.thread:            ; preds = %._crit_edge, %Kit_D
   br i1 %.not22.i232, label %275, label %274
 
 274:                                              ; preds = %.critedge.i231
-  tail call void @free(ptr noundef nonnull %273) #27
+  tail call void @free(ptr noundef nonnull %273) #29
   store ptr null, ptr %272, align 8, !tbaa !45
   br label %275
 
@@ -9612,7 +9612,7 @@ Kit_DsdCofactoringGetVars.exit.thread:            ; preds = %._crit_edge, %Kit_D
   br i1 %.not23.i233, label %278, label %277
 
 277:                                              ; preds = %275
-  tail call void @free(ptr noundef nonnull %276) #27
+  tail call void @free(ptr noundef nonnull %276) #29
   store ptr null, ptr %262, align 8, !tbaa !40
   br label %278
 
@@ -9623,11 +9623,11 @@ Kit_DsdCofactoringGetVars.exit.thread:            ; preds = %._crit_edge, %Kit_D
   br i1 %.not24.i234, label %Kit_DsdNtkFree.exit235, label %281
 
 281:                                              ; preds = %278
-  tail call void @free(ptr noundef nonnull %280) #27
+  tail call void @free(ptr noundef nonnull %280) #29
   br label %Kit_DsdNtkFree.exit235
 
 Kit_DsdNtkFree.exit235:                           ; preds = %278, %281
-  tail call void @free(ptr noundef nonnull %260) #27
+  tail call void @free(ptr noundef nonnull %260) #29
   br label %282
 
 282:                                              ; preds = %258, %Kit_DsdNtkFree.exit235
@@ -9645,7 +9645,7 @@ Kit_DsdNtkFree.exit235:                           ; preds = %278, %281
   br i1 %.not159, label %286, label %285
 
 285:                                              ; preds = %284
-  tail call void @free(ptr noundef nonnull %29) #27
+  tail call void @free(ptr noundef nonnull %29) #29
   br label %286
 
 286:                                              ; preds = %284, %285
@@ -9699,7 +9699,7 @@ Kit_DsdPrint.exit:                                ; preds = %9, %15
   %23 = select i1 %20, i32 80, i32 %22
   %24 = sext i32 %23 to i64
   %25 = shl nsw i64 %24, 2
-  %26 = tail call noalias ptr @malloc(i64 noundef %25) #26
+  %26 = tail call noalias ptr @malloc(i64 noundef %25) #28
   store ptr %26, ptr %5, align 16, !tbaa !60
   %27 = select i1 %20, i32 0, i32 %21
   br label %.preheader490
@@ -9775,8 +9775,8 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %3
   %53 = add nuw nsw i32 %.0295499, 97
   %54 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %53)
   %puts327 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.6)
-  tail call void @Kit_TruthCofactor0New(ptr noundef %49, ptr noundef %40, i32 noundef %1, i32 noundef %.0295499) #27
-  tail call void @Kit_TruthCofactor1New(ptr noundef %51, ptr noundef %40, i32 noundef %1, i32 noundef %.0295499) #27
+  tail call void @Kit_TruthCofactor0New(ptr noundef %49, ptr noundef %40, i32 noundef %1, i32 noundef %.0295499) #29
+  tail call void @Kit_TruthCofactor1New(ptr noundef %51, ptr noundef %40, i32 noundef %1, i32 noundef %.0295499) #29
   br label %55
 
 55:                                               ; preds = %.preheader486, %Kit_DsdNtkFree.exit351
@@ -9803,7 +9803,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %3
   br i1 %.not.i330, label %.critedge.i, label %67
 
 67:                                               ; preds = %.lr.ph.i
-  tail call void @free(ptr noundef nonnull %66) #27
+  tail call void @free(ptr noundef nonnull %66) #29
   %indvars.iv.next.i331 = add nuw nsw i64 %indvars.iv.i329, 1
   %68 = load i16, ptr %62, align 4, !tbaa !38
   %69 = zext i16 %68 to i64
@@ -9817,7 +9817,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %3
   br i1 %.not22.i, label %74, label %73
 
 73:                                               ; preds = %.critedge.i
-  tail call void @free(ptr noundef nonnull %72) #27
+  tail call void @free(ptr noundef nonnull %72) #29
   store ptr null, ptr %71, align 8, !tbaa !45
   br label %74
 
@@ -9827,7 +9827,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %3
   br i1 %.not23.i, label %77, label %76
 
 76:                                               ; preds = %74
-  tail call void @free(ptr noundef nonnull %75) #27
+  tail call void @free(ptr noundef nonnull %75) #29
   store ptr null, ptr %61, align 8, !tbaa !40
   br label %77
 
@@ -9838,11 +9838,11 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %3
   br i1 %.not24.i, label %Kit_DsdNtkFree.exit, label %80
 
 80:                                               ; preds = %77
-  tail call void @free(ptr noundef nonnull %79) #27
+  tail call void @free(ptr noundef nonnull %79) #29
   br label %Kit_DsdNtkFree.exit
 
 Kit_DsdNtkFree.exit:                              ; preds = %77, %80
-  tail call void @free(ptr noundef nonnull %59) #27
+  tail call void @free(ptr noundef nonnull %59) #29
   br i1 %.not, label %93, label %81
 
 81:                                               ; preds = %Kit_DsdNtkFree.exit
@@ -9914,7 +9914,7 @@ Kit_DsdNonDsdSizeMax.exit:                        ; preds = %98, %101
   br i1 %.not.i345, label %.critedge.i347, label %109
 
 109:                                              ; preds = %.lr.ph.i343
-  tail call void @free(ptr noundef nonnull %108) #27
+  tail call void @free(ptr noundef nonnull %108) #29
   %indvars.iv.next.i346 = add nuw nsw i64 %indvars.iv.i344, 1
   %110 = load i16, ptr %94, align 4, !tbaa !38
   %111 = zext i16 %110 to i64
@@ -9929,7 +9929,7 @@ Kit_DsdNonDsdSizeMax.exit:                        ; preds = %98, %101
   br i1 %.not22.i348, label %117, label %116
 
 116:                                              ; preds = %.critedge.i347
-  tail call void @free(ptr noundef nonnull %115) #27
+  tail call void @free(ptr noundef nonnull %115) #29
   store ptr null, ptr %114, align 8, !tbaa !45
   br label %117
 
@@ -9939,7 +9939,7 @@ Kit_DsdNonDsdSizeMax.exit:                        ; preds = %98, %101
   br i1 %.not23.i349, label %120, label %119
 
 119:                                              ; preds = %117
-  tail call void @free(ptr noundef nonnull %118) #27
+  tail call void @free(ptr noundef nonnull %118) #29
   store ptr null, ptr %96, align 8, !tbaa !40
   br label %120
 
@@ -9950,12 +9950,12 @@ Kit_DsdNonDsdSizeMax.exit:                        ; preds = %98, %101
   br i1 %.not24.i350, label %Kit_DsdNtkFree.exit351, label %123
 
 123:                                              ; preds = %120
-  tail call void @free(ptr noundef nonnull %122) #27
+  tail call void @free(ptr noundef nonnull %122) #29
   br label %Kit_DsdNtkFree.exit351
 
 Kit_DsdNtkFree.exit351:                           ; preds = %120, %123
-  tail call void @free(ptr noundef nonnull %60) #27
-  %124 = tail call i32 @Kit_TruthSupportSize(ptr noundef %58, i32 noundef %1) #27
+  tail call void @free(ptr noundef nonnull %60) #29
+  %124 = tail call i32 @Kit_TruthSupportSize(ptr noundef %58, i32 noundef %1) #29
   %125 = add nsw i32 %124, %.0308496
   br i1 %56, label %55, label %126, !llvm.loop !146
 
@@ -10020,10 +10020,10 @@ Kit_DsdNtkFree.exit351:                           ; preds = %120, %123
   %148 = load ptr, ptr %147, align 16, !tbaa !60
   %149 = getelementptr inbounds nuw ptr, ptr %141, i64 %indvars.iv570
   %150 = load ptr, ptr %149, align 8, !tbaa !60
-  tail call void @Kit_TruthCofactor0New(ptr noundef %148, ptr noundef %150, i32 noundef %1, i32 noundef %144) #27
+  tail call void @Kit_TruthCofactor0New(ptr noundef %148, ptr noundef %150, i32 noundef %1, i32 noundef %144) #29
   %151 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %152 = load ptr, ptr %151, align 8, !tbaa !60
-  tail call void @Kit_TruthCofactor1New(ptr noundef %152, ptr noundef %150, i32 noundef %1, i32 noundef %144) #27
+  tail call void @Kit_TruthCofactor1New(ptr noundef %152, ptr noundef %150, i32 noundef %1, i32 noundef %144) #29
   %indvars.iv.next571 = add nuw nsw i64 %indvars.iv570, 1
   %153 = trunc nuw i64 %indvars.iv.next571 to i32
   %.5.highbits = lshr i32 %153, %145
@@ -10061,7 +10061,7 @@ Kit_DsdNtkFree.exit351:                           ; preds = %120, %123
   br i1 %.not.i355, label %.critedge.i357, label %167
 
 167:                                              ; preds = %.lr.ph.i353
-  tail call void @free(ptr noundef nonnull %166) #27
+  tail call void @free(ptr noundef nonnull %166) #29
   %indvars.iv.next.i356 = add nuw nsw i64 %indvars.iv.i354, 1
   %168 = load i16, ptr %162, align 4, !tbaa !38
   %169 = zext i16 %168 to i64
@@ -10075,7 +10075,7 @@ Kit_DsdNtkFree.exit351:                           ; preds = %120, %123
   br i1 %.not22.i358, label %174, label %173
 
 173:                                              ; preds = %.critedge.i357
-  tail call void @free(ptr noundef nonnull %172) #27
+  tail call void @free(ptr noundef nonnull %172) #29
   store ptr null, ptr %171, align 8, !tbaa !45
   br label %174
 
@@ -10085,7 +10085,7 @@ Kit_DsdNtkFree.exit351:                           ; preds = %120, %123
   br i1 %.not23.i359, label %177, label %176
 
 176:                                              ; preds = %174
-  tail call void @free(ptr noundef nonnull %175) #27
+  tail call void @free(ptr noundef nonnull %175) #29
   store ptr null, ptr %161, align 8, !tbaa !40
   br label %177
 
@@ -10096,11 +10096,11 @@ Kit_DsdNtkFree.exit351:                           ; preds = %120, %123
   br i1 %.not24.i360, label %Kit_DsdNtkFree.exit361, label %180
 
 180:                                              ; preds = %177
-  tail call void @free(ptr noundef nonnull %179) #27
+  tail call void @free(ptr noundef nonnull %179) #29
   br label %Kit_DsdNtkFree.exit361
 
 Kit_DsdNtkFree.exit361:                           ; preds = %177, %180
-  tail call void @free(ptr noundef nonnull %159) #27
+  tail call void @free(ptr noundef nonnull %159) #29
   br i1 %.not, label %193, label %181
 
 181:                                              ; preds = %Kit_DsdNtkFree.exit361
@@ -10172,7 +10172,7 @@ Kit_DsdNonDsdSizeMax.exit379:                     ; preds = %198, %201
   br i1 %.not.i383, label %.critedge.i385, label %209
 
 209:                                              ; preds = %.lr.ph.i381
-  tail call void @free(ptr noundef nonnull %208) #27
+  tail call void @free(ptr noundef nonnull %208) #29
   %indvars.iv.next.i384 = add nuw nsw i64 %indvars.iv.i382, 1
   %210 = load i16, ptr %194, align 4, !tbaa !38
   %211 = zext i16 %210 to i64
@@ -10187,7 +10187,7 @@ Kit_DsdNonDsdSizeMax.exit379:                     ; preds = %198, %201
   br i1 %.not22.i386, label %217, label %216
 
 216:                                              ; preds = %.critedge.i385
-  tail call void @free(ptr noundef nonnull %215) #27
+  tail call void @free(ptr noundef nonnull %215) #29
   store ptr null, ptr %214, align 8, !tbaa !45
   br label %217
 
@@ -10197,7 +10197,7 @@ Kit_DsdNonDsdSizeMax.exit379:                     ; preds = %198, %201
   br i1 %.not23.i387, label %220, label %219
 
 219:                                              ; preds = %217
-  tail call void @free(ptr noundef nonnull %218) #27
+  tail call void @free(ptr noundef nonnull %218) #29
   store ptr null, ptr %196, align 8, !tbaa !40
   br label %220
 
@@ -10208,12 +10208,12 @@ Kit_DsdNonDsdSizeMax.exit379:                     ; preds = %198, %201
   br i1 %.not24.i388, label %Kit_DsdNtkFree.exit389, label %223
 
 223:                                              ; preds = %220
-  tail call void @free(ptr noundef nonnull %222) #27
+  tail call void @free(ptr noundef nonnull %222) #29
   br label %Kit_DsdNtkFree.exit389
 
 Kit_DsdNtkFree.exit389:                           ; preds = %220, %223
-  tail call void @free(ptr noundef nonnull %160) #27
-  %224 = tail call i32 @Kit_TruthSupportSize(ptr noundef %158, i32 noundef %1) #27
+  tail call void @free(ptr noundef nonnull %160) #29
+  %224 = tail call i32 @Kit_TruthSupportSize(ptr noundef %158, i32 noundef %1) #29
   %225 = add nsw i32 %224, %.1309505
   %indvars.iv.next582 = add nuw nsw i64 %indvars.iv581, 1
   %exitcond584.not = icmp eq i64 %indvars.iv.next582, 4
@@ -10303,10 +10303,10 @@ Kit_DsdNtkFree.exit389:                           ; preds = %220, %223
   %253 = load ptr, ptr %252, align 16, !tbaa !60
   %254 = getelementptr inbounds nuw ptr, ptr %246, i64 %indvars.iv591
   %255 = load ptr, ptr %254, align 8, !tbaa !60
-  tail call void @Kit_TruthCofactor0New(ptr noundef %253, ptr noundef %255, i32 noundef %1, i32 noundef %249) #27
+  tail call void @Kit_TruthCofactor0New(ptr noundef %253, ptr noundef %255, i32 noundef %1, i32 noundef %249) #29
   %256 = getelementptr inbounds nuw i8, ptr %252, i64 8
   %257 = load ptr, ptr %256, align 8, !tbaa !60
-  tail call void @Kit_TruthCofactor1New(ptr noundef %257, ptr noundef %255, i32 noundef %1, i32 noundef %249) #27
+  tail call void @Kit_TruthCofactor1New(ptr noundef %257, ptr noundef %255, i32 noundef %1, i32 noundef %249) #29
   %indvars.iv.next592 = add nuw nsw i64 %indvars.iv591, 1
   %258 = trunc nuw i64 %indvars.iv.next592 to i32
   %.8.highbits = lshr i32 %258, %250
@@ -10346,7 +10346,7 @@ Kit_DsdNtkFree.exit389:                           ; preds = %220, %223
   br i1 %.not.i393, label %.critedge.i395, label %272
 
 272:                                              ; preds = %.lr.ph.i391
-  tail call void @free(ptr noundef nonnull %271) #27
+  tail call void @free(ptr noundef nonnull %271) #29
   %indvars.iv.next.i394 = add nuw nsw i64 %indvars.iv.i392, 1
   %273 = load i16, ptr %267, align 4, !tbaa !38
   %274 = zext i16 %273 to i64
@@ -10360,7 +10360,7 @@ Kit_DsdNtkFree.exit389:                           ; preds = %220, %223
   br i1 %.not22.i396, label %279, label %278
 
 278:                                              ; preds = %.critedge.i395
-  tail call void @free(ptr noundef nonnull %277) #27
+  tail call void @free(ptr noundef nonnull %277) #29
   store ptr null, ptr %276, align 8, !tbaa !45
   br label %279
 
@@ -10370,7 +10370,7 @@ Kit_DsdNtkFree.exit389:                           ; preds = %220, %223
   br i1 %.not23.i397, label %282, label %281
 
 281:                                              ; preds = %279
-  tail call void @free(ptr noundef nonnull %280) #27
+  tail call void @free(ptr noundef nonnull %280) #29
   store ptr null, ptr %266, align 8, !tbaa !40
   br label %282
 
@@ -10381,11 +10381,11 @@ Kit_DsdNtkFree.exit389:                           ; preds = %220, %223
   br i1 %.not24.i398, label %Kit_DsdNtkFree.exit399, label %285
 
 285:                                              ; preds = %282
-  tail call void @free(ptr noundef nonnull %284) #27
+  tail call void @free(ptr noundef nonnull %284) #29
   br label %Kit_DsdNtkFree.exit399
 
 Kit_DsdNtkFree.exit399:                           ; preds = %282, %285
-  tail call void @free(ptr noundef nonnull %264) #27
+  tail call void @free(ptr noundef nonnull %264) #29
   br i1 %.not, label %298, label %286
 
 286:                                              ; preds = %Kit_DsdNtkFree.exit399
@@ -10457,7 +10457,7 @@ Kit_DsdNonDsdSizeMax.exit417:                     ; preds = %303, %306
   br i1 %.not.i421, label %.critedge.i423, label %314
 
 314:                                              ; preds = %.lr.ph.i419
-  tail call void @free(ptr noundef nonnull %313) #27
+  tail call void @free(ptr noundef nonnull %313) #29
   %indvars.iv.next.i422 = add nuw nsw i64 %indvars.iv.i420, 1
   %315 = load i16, ptr %299, align 4, !tbaa !38
   %316 = zext i16 %315 to i64
@@ -10472,7 +10472,7 @@ Kit_DsdNonDsdSizeMax.exit417:                     ; preds = %303, %306
   br i1 %.not22.i424, label %322, label %321
 
 321:                                              ; preds = %.critedge.i423
-  tail call void @free(ptr noundef nonnull %320) #27
+  tail call void @free(ptr noundef nonnull %320) #29
   store ptr null, ptr %319, align 8, !tbaa !45
   br label %322
 
@@ -10482,7 +10482,7 @@ Kit_DsdNonDsdSizeMax.exit417:                     ; preds = %303, %306
   br i1 %.not23.i425, label %325, label %324
 
 324:                                              ; preds = %322
-  tail call void @free(ptr noundef nonnull %323) #27
+  tail call void @free(ptr noundef nonnull %323) #29
   store ptr null, ptr %301, align 8, !tbaa !40
   br label %325
 
@@ -10493,12 +10493,12 @@ Kit_DsdNonDsdSizeMax.exit417:                     ; preds = %303, %306
   br i1 %.not24.i426, label %Kit_DsdNtkFree.exit427, label %328
 
 328:                                              ; preds = %325
-  tail call void @free(ptr noundef nonnull %327) #27
+  tail call void @free(ptr noundef nonnull %327) #29
   br label %Kit_DsdNtkFree.exit427
 
 Kit_DsdNtkFree.exit427:                           ; preds = %325, %328
-  tail call void @free(ptr noundef nonnull %265) #27
-  %329 = tail call i32 @Kit_TruthSupportSize(ptr noundef %263, i32 noundef %1) #27
+  tail call void @free(ptr noundef nonnull %265) #29
+  %329 = tail call i32 @Kit_TruthSupportSize(ptr noundef %263, i32 noundef %1) #29
   %330 = add nsw i32 %329, %.2310519
   %indvars.iv.next603 = add nuw nsw i64 %indvars.iv602, 1
   %exitcond605.not = icmp eq i64 %indvars.iv.next603, 8
@@ -10598,10 +10598,10 @@ Kit_DsdNtkFree.exit427:                           ; preds = %325, %328
   %361 = load ptr, ptr %360, align 16, !tbaa !60
   %362 = getelementptr inbounds nuw ptr, ptr %354, i64 %indvars.iv613
   %363 = load ptr, ptr %362, align 8, !tbaa !60
-  tail call void @Kit_TruthCofactor0New(ptr noundef %361, ptr noundef %363, i32 noundef %1, i32 noundef %357) #27
+  tail call void @Kit_TruthCofactor0New(ptr noundef %361, ptr noundef %363, i32 noundef %1, i32 noundef %357) #29
   %364 = getelementptr inbounds nuw i8, ptr %360, i64 8
   %365 = load ptr, ptr %364, align 8, !tbaa !60
-  tail call void @Kit_TruthCofactor1New(ptr noundef %365, ptr noundef %363, i32 noundef %1, i32 noundef %357) #27
+  tail call void @Kit_TruthCofactor1New(ptr noundef %365, ptr noundef %363, i32 noundef %1, i32 noundef %357) #29
   %indvars.iv.next614 = add nuw nsw i64 %indvars.iv613, 1
   %366 = trunc nuw i64 %indvars.iv.next614 to i32
   %.11.highbits = lshr i32 %366, %358
@@ -10641,7 +10641,7 @@ Kit_DsdNtkFree.exit427:                           ; preds = %325, %328
   br i1 %.not.i431, label %.critedge.i433, label %380
 
 380:                                              ; preds = %.lr.ph.i429
-  tail call void @free(ptr noundef nonnull %379) #27
+  tail call void @free(ptr noundef nonnull %379) #29
   %indvars.iv.next.i432 = add nuw nsw i64 %indvars.iv.i430, 1
   %381 = load i16, ptr %375, align 4, !tbaa !38
   %382 = zext i16 %381 to i64
@@ -10655,7 +10655,7 @@ Kit_DsdNtkFree.exit427:                           ; preds = %325, %328
   br i1 %.not22.i434, label %387, label %386
 
 386:                                              ; preds = %.critedge.i433
-  tail call void @free(ptr noundef nonnull %385) #27
+  tail call void @free(ptr noundef nonnull %385) #29
   store ptr null, ptr %384, align 8, !tbaa !45
   br label %387
 
@@ -10665,7 +10665,7 @@ Kit_DsdNtkFree.exit427:                           ; preds = %325, %328
   br i1 %.not23.i435, label %390, label %389
 
 389:                                              ; preds = %387
-  tail call void @free(ptr noundef nonnull %388) #27
+  tail call void @free(ptr noundef nonnull %388) #29
   store ptr null, ptr %374, align 8, !tbaa !40
   br label %390
 
@@ -10676,11 +10676,11 @@ Kit_DsdNtkFree.exit427:                           ; preds = %325, %328
   br i1 %.not24.i436, label %Kit_DsdNtkFree.exit437, label %393
 
 393:                                              ; preds = %390
-  tail call void @free(ptr noundef nonnull %392) #27
+  tail call void @free(ptr noundef nonnull %392) #29
   br label %Kit_DsdNtkFree.exit437
 
 Kit_DsdNtkFree.exit437:                           ; preds = %390, %393
-  tail call void @free(ptr noundef nonnull %372) #27
+  tail call void @free(ptr noundef nonnull %372) #29
   br i1 %.not, label %406, label %394
 
 394:                                              ; preds = %Kit_DsdNtkFree.exit437
@@ -10752,7 +10752,7 @@ Kit_DsdNonDsdSizeMax.exit455:                     ; preds = %411, %414
   br i1 %.not.i459, label %.critedge.i461, label %422
 
 422:                                              ; preds = %.lr.ph.i457
-  tail call void @free(ptr noundef nonnull %421) #27
+  tail call void @free(ptr noundef nonnull %421) #29
   %indvars.iv.next.i460 = add nuw nsw i64 %indvars.iv.i458, 1
   %423 = load i16, ptr %407, align 4, !tbaa !38
   %424 = zext i16 %423 to i64
@@ -10767,7 +10767,7 @@ Kit_DsdNonDsdSizeMax.exit455:                     ; preds = %411, %414
   br i1 %.not22.i462, label %430, label %429
 
 429:                                              ; preds = %.critedge.i461
-  tail call void @free(ptr noundef nonnull %428) #27
+  tail call void @free(ptr noundef nonnull %428) #29
   store ptr null, ptr %427, align 8, !tbaa !45
   br label %430
 
@@ -10777,7 +10777,7 @@ Kit_DsdNonDsdSizeMax.exit455:                     ; preds = %411, %414
   br i1 %.not23.i463, label %433, label %432
 
 432:                                              ; preds = %430
-  tail call void @free(ptr noundef nonnull %431) #27
+  tail call void @free(ptr noundef nonnull %431) #29
   store ptr null, ptr %409, align 8, !tbaa !40
   br label %433
 
@@ -10788,12 +10788,12 @@ Kit_DsdNonDsdSizeMax.exit455:                     ; preds = %411, %414
   br i1 %.not24.i464, label %Kit_DsdNtkFree.exit465, label %436
 
 436:                                              ; preds = %433
-  tail call void @free(ptr noundef nonnull %435) #27
+  tail call void @free(ptr noundef nonnull %435) #29
   br label %Kit_DsdNtkFree.exit465
 
 Kit_DsdNtkFree.exit465:                           ; preds = %433, %436
-  tail call void @free(ptr noundef nonnull %373) #27
-  %437 = tail call i32 @Kit_TruthSupportSize(ptr noundef %371, i32 noundef %1) #27
+  tail call void @free(ptr noundef nonnull %373) #29
+  %437 = tail call i32 @Kit_TruthSupportSize(ptr noundef %371, i32 noundef %1) #29
   %438 = add nsw i32 %437, %.3311536
   %indvars.iv.next625 = add nuw nsw i64 %indvars.iv624, 1
   %exitcond627.not = icmp eq i64 %indvars.iv.next625, 16
@@ -10811,7 +10811,7 @@ Kit_DsdNtkFree.exit465:                           ; preds = %433, %436
   br i1 %.not321, label %444, label %443
 
 443:                                              ; preds = %.loopexit474
-  tail call void @free(ptr noundef nonnull %442) #27
+  tail call void @free(ptr noundef nonnull %442) #29
   br label %444
 
 444:                                              ; preds = %.loopexit474, %443
@@ -10821,75 +10821,77 @@ Kit_DsdNtkFree.exit465:                           ; preds = %433, %436
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @Kit_DsdNpn4ClassNames() local_unnamed_addr #19 {
+define noundef nonnull ptr @Kit_DsdNpn4ClassNames() local_unnamed_addr #21 {
   ret ptr @Kit_DsdNpn4ClassNames.pNames
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #20
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #22
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #23
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #23
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #22
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #22
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #22
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #24
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #22
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #23
+declare i32 @llvm.smax.i32(i32, i32) #25
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #23
+declare i32 @llvm.umax.i32(i32, i32) #25
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #24
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #25
+declare void @llvm.assume(i1 noundef) #27
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #23
+declare i32 @llvm.smin.i32(i32, i32) #25
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #22 = { nofree nounwind }
-attributes #23 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #24 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #26 = { nounwind allocsize(0) }
-attributes #27 = { nounwind }
-attributes #28 = { nounwind allocsize(1) }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nofree nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #24 = { nofree nounwind }
+attributes #25 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #26 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #27 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #28 = { nounwind allocsize(0) }
+attributes #29 = { nounwind }
+attributes #30 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

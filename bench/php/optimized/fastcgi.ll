@@ -48,19 +48,19 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [11 x i8] c"AUTHORIZER\00", align 1
 @.str.16 = private unnamed_addr constant [7 x i8] c"FILTER\00", align 1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @fcgi_set_in_shutdown(i32 noundef %0) local_unnamed_addr #0 {
   store i32 %0, ptr @in_shutdown, align 4, !tbaa !4
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden i32 @fcgi_in_shutdown() local_unnamed_addr #1 {
   %1 = load i32, ptr @in_shutdown, align 4, !tbaa !4
   ret i32 %1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @fcgi_terminate() local_unnamed_addr #0 {
   store i32 1, ptr @in_shutdown, align 4, !tbaa !4
   ret void
@@ -79,7 +79,7 @@ define weak hidden void @fcgi_log(i32 noundef %0, ptr noundef %1, ...) local_unn
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %5 = call i32 @vfprintf(ptr noundef %4, ptr noundef %1, ptr noundef nonnull %3) #32
+  %5 = call i32 @vfprintf(ptr noundef %4, ptr noundef %1, ptr noundef nonnull %3) #34
   call void @llvm.va_end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -108,9 +108,9 @@ define hidden range(i32 0, 2) i32 @fcgi_init() local_unnamed_addr #3 {
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 112, ptr %5, align 4, !tbaa !4
-  tail call void @_zend_hash_init(ptr noundef nonnull @fcgi_mgmt_vars, i32 noundef 8, ptr noundef nonnull @fcgi_free_mgmt_var_cb, i1 noundef zeroext true) #33
+  tail call void @_zend_hash_init(ptr noundef nonnull @fcgi_mgmt_vars, i32 noundef 8, ptr noundef nonnull @fcgi_free_mgmt_var_cb, i1 noundef zeroext true) #35
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %7 = tail call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #34
+  %7 = tail call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #36
   store i32 1, ptr %7, align 4, !tbaa !20
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 150, ptr %8, align 4, !tbaa !22
@@ -122,7 +122,7 @@ define hidden range(i32 0, 2) i32 @fcgi_init() local_unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %11, ptr noundef nonnull align 1 dereferenceable(15) @.str, i64 15, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 39
   store i8 0, ptr %12, align 1, !tbaa !22
-  %13 = tail call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #34
+  %13 = tail call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #36
   store i32 1, ptr %13, align 4, !tbaa !20
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 150, ptr %14, align 4, !tbaa !22
@@ -137,7 +137,7 @@ define hidden range(i32 0, 2) i32 @fcgi_init() local_unnamed_addr #3 {
   store ptr %13, ptr %3, align 8, !tbaa !22
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 262, ptr %19, align 8, !tbaa !22
-  %20 = call ptr @zend_hash_add(ptr noundef nonnull @fcgi_mgmt_vars, ptr noundef nonnull %7, ptr noundef nonnull %3) #33
+  %20 = call ptr @zend_hash_add(ptr noundef nonnull @fcgi_mgmt_vars, ptr noundef nonnull %7, ptr noundef nonnull %3) #35
   %21 = load i32, ptr %8, align 4, !tbaa !22
   %22 = and i32 %21, 64
   %.not.i.i = icmp eq i32 %22, 0
@@ -153,15 +153,15 @@ define hidden range(i32 0, 2) i32 @fcgi_init() local_unnamed_addr #3 {
   br i1 %27, label %28, label %fcgi_set_mgmt_var.exit
 
 28:                                               ; preds = %23
-  call void @free(ptr noundef nonnull %7) #33
+  call void @free(ptr noundef nonnull %7) #35
   br label %fcgi_set_mgmt_var.exit
 
 fcgi_set_mgmt_var.exit:                           ; preds = %6, %23, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i1 true, ptr @is_initialized, align 4
-  %29 = tail call ptr @__errno_location() #35
+  %29 = tail call ptr @__errno_location() #37
   store i32 0, ptr %29, align 4, !tbaa !4
-  %30 = call i32 @getpeername(i32 noundef 0, ptr nonnull %4, ptr noundef nonnull %5) #33
+  %30 = call i32 @getpeername(i32 noundef 0, ptr nonnull %4, ptr noundef nonnull %5) #35
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %45, label %31
 
@@ -174,19 +174,19 @@ fcgi_set_mgmt_var.exit:                           ; preds = %6, %23, %28
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %36 = call i32 @sigemptyset(ptr noundef nonnull %35) #33
+  %36 = call i32 @sigemptyset(ptr noundef nonnull %35) #35
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store i32 0, ptr %37, align 8, !tbaa !27
   store ptr @fcgi_signal_handler, ptr %1, align 8, !tbaa !22
-  %38 = call i32 @sigaction(i32 noundef 10, ptr noundef nonnull %1, ptr noundef null) #33
-  %39 = call i32 @sigaction(i32 noundef 15, ptr noundef nonnull %1, ptr noundef null) #33
-  %40 = call i32 @sigaction(i32 noundef 13, ptr noundef null, ptr noundef nonnull %2) #33
+  %38 = call i32 @sigaction(i32 noundef 10, ptr noundef nonnull %1, ptr noundef null) #35
+  %39 = call i32 @sigaction(i32 noundef 15, ptr noundef nonnull %1, ptr noundef null) #35
+  %40 = call i32 @sigaction(i32 noundef 13, ptr noundef null, ptr noundef nonnull %2) #35
   %41 = load ptr, ptr %2, align 8, !tbaa !22
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %fcgi_setup_signals.exit
 
 43:                                               ; preds = %34
-  %44 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %1, ptr noundef null) #33
+  %44 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %1, ptr noundef null) #35
   br label %fcgi_setup_signals.exit
 
 fcgi_setup_signals.exit:                          ; preds = %34, %43
@@ -214,10 +214,10 @@ fcgi_setup_signals.exit:                          ; preds = %34, %43
 
 declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #6
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @fcgi_free_mgmt_var_cb(ptr noundef readonly captures(none) %0) #7 {
   %2 = load ptr, ptr %0, align 8, !tbaa !22
-  tail call void @free(ptr noundef %2) #33
+  tail call void @free(ptr noundef %2) #35
   ret void
 }
 
@@ -227,7 +227,7 @@ define hidden void @fcgi_set_mgmt_var(ptr noundef readonly captures(none) %0, i6
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = and i64 %1, -8
   %7 = add i64 %6, 32
-  %8 = tail call noalias ptr @__zend_malloc(i64 noundef %7) #34
+  %8 = tail call noalias ptr @__zend_malloc(i64 noundef %7) #36
   store i32 1, ptr %8, align 4, !tbaa !20
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 150, ptr %9, align 4, !tbaa !22
@@ -241,7 +241,7 @@ define hidden void @fcgi_set_mgmt_var(ptr noundef readonly captures(none) %0, i6
   store i8 0, ptr %13, align 1, !tbaa !22
   %14 = and i64 %3, -8
   %15 = add i64 %14, 32
-  %16 = tail call noalias ptr @__zend_malloc(i64 noundef %15) #34
+  %16 = tail call noalias ptr @__zend_malloc(i64 noundef %15) #36
   store i32 1, ptr %16, align 4, !tbaa !20
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 150, ptr %17, align 4, !tbaa !22
@@ -256,7 +256,7 @@ define hidden void @fcgi_set_mgmt_var(ptr noundef readonly captures(none) %0, i6
   store ptr %16, ptr %5, align 8, !tbaa !22
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 262, ptr %22, align 8, !tbaa !22
-  %23 = call ptr @zend_hash_add(ptr noundef nonnull @fcgi_mgmt_vars, ptr noundef nonnull %8, ptr noundef nonnull %5) #33
+  %23 = call ptr @zend_hash_add(ptr noundef nonnull @fcgi_mgmt_vars, ptr noundef nonnull %8, ptr noundef nonnull %5) #35
   %24 = load i32, ptr %9, align 4, !tbaa !22
   %25 = and i32 %24, 64
   %.not.i = icmp eq i32 %25, 0
@@ -272,7 +272,7 @@ define hidden void @fcgi_set_mgmt_var(ptr noundef readonly captures(none) %0, i6
   br i1 %30, label %31, label %zend_string_release_ex.exit
 
 31:                                               ; preds = %26
-  call void @free(ptr noundef nonnull %8) #33
+  call void @free(ptr noundef nonnull %8) #35
   br label %zend_string_release_ex.exit
 
 zend_string_release_ex.exit:                      ; preds = %4, %26, %31
@@ -311,7 +311,7 @@ define hidden void @fcgi_shutdown() local_unnamed_addr #3 {
   br i1 %.b, label %1, label %2
 
 1:                                                ; preds = %0
-  tail call void @zend_hash_destroy(ptr noundef nonnull @fcgi_mgmt_vars) #33
+  tail call void @zend_hash_destroy(ptr noundef nonnull @fcgi_mgmt_vars) #35
   br label %2
 
 2:                                                ; preds = %1, %0
@@ -321,7 +321,7 @@ define hidden void @fcgi_shutdown() local_unnamed_addr #3 {
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %2
-  tail call void @free(ptr noundef nonnull %3) #33
+  tail call void @free(ptr noundef nonnull %3) #35
   br label %5
 
 5:                                                ; preds = %4, %2
@@ -344,13 +344,13 @@ define hidden range(i32 -1, -2147483648) i32 @fcgi_listen(ptr noundef %0, i32 no
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 1, ptr %7, align 4, !tbaa !4
-  %8 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 58) #36
+  %8 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 58) #38
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %17, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %11 = tail call i64 @strtol(ptr noundef nonnull captures(none) %10, ptr noundef null, i32 noundef 10) #33
+  %11 = tail call i64 @strtol(ptr noundef nonnull captures(none) %10, ptr noundef null, i32 noundef 10) #35
   %sext.mask90116 = and i64 %11, 65535
   %.not89 = icmp eq i64 %sext.mask90116, 0
   br i1 %.not89, label %.loopexit, label %12
@@ -381,7 +381,7 @@ define hidden range(i32 -1, -2147483648) i32 @fcgi_listen(ptr noundef %0, i32 no
   br i1 %or.cond.i, label %.loopexit, label %19
 
 .loopexit118:                                     ; preds = %19, %17
-  %24 = tail call i64 @strtol(ptr noundef nonnull captures(none) %0, ptr noundef null, i32 noundef 10) #33
+  %24 = tail call i64 @strtol(ptr noundef nonnull captures(none) %0, ptr noundef null, i32 noundef 10) #35
   %sext.mask117 = and i64 %24, 65535
   %.not88 = icmp eq i64 %sext.mask117, 0
   br i1 %.not88, label %.loopexit, label %is_port_number.exit.thread
@@ -398,7 +398,7 @@ is_port_number.exit.thread:                       ; preds = %.loopexit118
   br label %31
 
 is_port_number.exit:                              ; preds = %12
-  %27 = call ptr @strncpy(ptr noundef nonnull %5, ptr noundef nonnull %0, i64 noundef %15) #33
+  %27 = call ptr @strncpy(ptr noundef nonnull %5, ptr noundef nonnull %0, i64 noundef %15) #35
   %28 = getelementptr inbounds i8, ptr %5, i64 %15
   store i8 0, ptr %28, align 1, !tbaa !22
   %.pre = load i8, ptr %5, align 16, !tbaa !22
@@ -421,17 +421,17 @@ is_port_number.exit:                              ; preds = %12
 
 33:                                               ; preds = %is_port_number.exit
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %35 = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %34) #33
+  %35 = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %34) #35
   %.not94 = icmp eq i32 %35, 0
   br i1 %.not94, label %36, label %62
 
 36:                                               ; preds = %33
-  %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #36
+  %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #38
   %38 = icmp ugt i64 %37, 255
   br i1 %38, label %.thread, label %39
 
 39:                                               ; preds = %36
-  %40 = call ptr @php_network_gethostbyname(ptr noundef nonnull %5) #33
+  %40 = call ptr @php_network_gethostbyname(ptr noundef nonnull %5) #35
   %.not95 = icmp eq ptr %40, null
   br i1 %.not95, label %.thread, label %41
 
@@ -468,7 +468,7 @@ is_port_number.exit:                              ; preds = %12
   br label %62
 
 .loopexit:                                        ; preds = %.lr.ph.i, %12, %9, %.loopexit118
-  %54 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #36
+  %54 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #38
   %55 = icmp ult i64 %54, 108
   br i1 %55, label %.thread114, label %61
 
@@ -480,7 +480,7 @@ is_port_number.exit:                              ; preds = %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %56, ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %57, i1 false)
   %58 = trunc nuw nsw i64 %54 to i32
   %59 = add nuw nsw i32 %58, 2
-  %60 = tail call i32 @unlink(ptr noundef nonnull %0) #33
+  %60 = tail call i32 @unlink(ptr noundef nonnull %0) #35
   br label %62
 
 61:                                               ; preds = %.loopexit
@@ -492,30 +492,30 @@ is_port_number.exit:                              ; preds = %12
   %.075 = phi i32 [ 16, %33 ], [ 16, %52 ], [ 16, %31 ], [ %59, %.thread114 ]
   %63 = load i16, ptr %6, align 4, !tbaa !22
   %64 = zext i16 %63 to i32
-  %65 = call i32 @socket(i32 noundef %64, i32 noundef 1, i32 noundef 0) #33
+  %65 = call i32 @socket(i32 noundef %64, i32 noundef 1, i32 noundef 0) #35
   %66 = icmp slt i32 %65, 0
   br i1 %66, label %76, label %67
 
 67:                                               ; preds = %62
-  %68 = call i32 @setsockopt(i32 noundef %65, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %7, i32 noundef 4) #33
+  %68 = call i32 @setsockopt(i32 noundef %65, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %7, i32 noundef 4) #35
   %69 = icmp slt i32 %68, 0
   br i1 %69, label %76, label %70
 
 70:                                               ; preds = %67
-  %71 = call i32 @bind(i32 noundef %65, ptr nonnull %6, i32 noundef %.075) #33
+  %71 = call i32 @bind(i32 noundef %65, ptr nonnull %6, i32 noundef %.075) #35
   %72 = icmp slt i32 %71, 0
   br i1 %72, label %76, label %73
 
 73:                                               ; preds = %70
-  %74 = call i32 @listen(i32 noundef %65, i32 noundef %1) #33
+  %74 = call i32 @listen(i32 noundef %65, i32 noundef %1) #35
   %75 = icmp slt i32 %74, 0
   br i1 %75, label %76, label %81
 
 76:                                               ; preds = %73, %70, %67, %62
-  %77 = call i32 @close(i32 noundef %65) #33
-  %78 = tail call ptr @__errno_location() #35
+  %77 = call i32 @close(i32 noundef %65) #35
+  %78 = tail call ptr @__errno_location() #37
   %79 = load i32, ptr %78, align 4, !tbaa !4
-  %80 = call ptr @strerror(i32 noundef %79) #33
+  %80 = call ptr @strerror(i32 noundef %79) #35
   call void (i32, ptr, ...) @fcgi_log(i32 noundef 4, ptr noundef nonnull @.str.6, i32 noundef %79, ptr noundef %80)
   br label %.critedge
 
@@ -523,16 +523,16 @@ is_port_number.exit:                              ; preds = %12
   br i1 %.not91110, label %82, label %84
 
 82:                                               ; preds = %81
-  %83 = call i32 @chmod(ptr noundef nonnull %0, i32 noundef 511) #33
+  %83 = call i32 @chmod(ptr noundef nonnull %0, i32 noundef 511) #35
   br label %127
 
 84:                                               ; preds = %81
-  %85 = call ptr @getenv(ptr noundef nonnull @.str.7) #33
+  %85 = call ptr @getenv(ptr noundef nonnull @.str.7) #35
   %.not99 = icmp eq ptr %85, null
   br i1 %.not99, label %127, label %86
 
 86:                                               ; preds = %84
-  %87 = call noalias ptr @strdup(ptr noundef nonnull %85) #33
+  %87 = call noalias ptr @strdup(ptr noundef nonnull %85) #35
   br label %88
 
 88:                                               ; preds = %92, %86
@@ -557,7 +557,7 @@ is_port_number.exit:                              ; preds = %12
   %95 = add nsw i32 %.0, 2
   %96 = sext i32 %95 to i64
   %97 = mul nsw i64 %96, 112
-  %98 = call noalias ptr @malloc(i64 noundef %97) #34
+  %98 = call noalias ptr @malloc(i64 noundef %97) #36
   store ptr %98, ptr @allowed_clients, align 8, !tbaa !30
   %.not101119 = icmp eq ptr %87, null
   br i1 %.not101119, label %._crit_edge, label %.lr.ph
@@ -565,7 +565,7 @@ is_port_number.exit:                              ; preds = %12
 .lr.ph:                                           ; preds = %94, %122
   %.2121 = phi i32 [ %.3, %122 ], [ 0, %94 ]
   %.167120 = phi ptr [ %.065, %122 ], [ %87, %94 ]
-  %99 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.167120, i32 noundef 44) #36
+  %99 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.167120, i32 noundef 44) #38
   %.not103 = icmp eq ptr %99, null
   br i1 %.not103, label %102, label %100
 
@@ -580,7 +580,7 @@ is_port_number.exit:                              ; preds = %12
   %104 = sext i32 %.2121 to i64
   %105 = getelementptr inbounds %union._sa_t, ptr %103, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 4
-  %107 = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %.167120, ptr noundef nonnull %106) #33
+  %107 = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %.167120, ptr noundef nonnull %106) #35
   %108 = icmp sgt i32 %107, 0
   %109 = load ptr, ptr @allowed_clients, align 8, !tbaa !30
   %110 = getelementptr inbounds %union._sa_t, ptr %109, i64 %104
@@ -593,7 +593,7 @@ is_port_number.exit:                              ; preds = %12
 
 113:                                              ; preds = %102
   %114 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %115 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %.167120, ptr noundef nonnull %114) #33
+  %115 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %.167120, ptr noundef nonnull %114) #35
   %116 = icmp sgt i32 %115, 0
   br i1 %116, label %117, label %121
 
@@ -623,7 +623,7 @@ is_port_number.exit:                              ; preds = %12
   %124 = sext i32 %.2.lcssa to i64
   %125 = getelementptr inbounds %union._sa_t, ptr %123, i64 %124
   store i16 0, ptr %125, align 4, !tbaa !22
-  call void @free(ptr noundef %87) #33
+  call void @free(ptr noundef %87) #35
   %.not102 = icmp eq i32 %.2.lcssa, 0
   br i1 %.not102, label %126, label %127
 
@@ -644,19 +644,19 @@ is_port_number.exit:                              ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %131 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %132 = call i32 @sigemptyset(ptr noundef nonnull %131) #33
+  %132 = call i32 @sigemptyset(ptr noundef nonnull %131) #35
   %133 = getelementptr inbounds nuw i8, ptr %3, i64 136
   store i32 0, ptr %133, align 8, !tbaa !27
   store ptr @fcgi_signal_handler, ptr %3, align 8, !tbaa !22
-  %134 = call i32 @sigaction(i32 noundef 10, ptr noundef nonnull %3, ptr noundef null) #33
-  %135 = call i32 @sigaction(i32 noundef 15, ptr noundef nonnull %3, ptr noundef null) #33
-  %136 = call i32 @sigaction(i32 noundef 13, ptr noundef null, ptr noundef nonnull %4) #33
+  %134 = call i32 @sigaction(i32 noundef 10, ptr noundef nonnull %3, ptr noundef null) #35
+  %135 = call i32 @sigaction(i32 noundef 15, ptr noundef nonnull %3, ptr noundef null) #35
+  %136 = call i32 @sigaction(i32 noundef 13, ptr noundef null, ptr noundef nonnull %4) #35
   %137 = load ptr, ptr %4, align 8, !tbaa !22
   %138 = icmp eq ptr %137, null
   br i1 %138, label %139, label %fcgi_setup_signals.exit
 
 139:                                              ; preds = %130
-  %140 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %3, ptr noundef null) #33
+  %140 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %3, ptr noundef null) #35
   br label %fcgi_setup_signals.exit
 
 fcgi_setup_signals.exit:                          ; preds = %130, %139
@@ -730,7 +730,7 @@ define hidden void @fcgi_set_allowed_clients(ptr noundef readonly captures(addre
   br i1 %.not, label %46, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call noalias ptr @strdup(ptr noundef nonnull %0) #33
+  %3 = tail call noalias ptr @strdup(ptr noundef nonnull %0) #35
   br label %4
 
 4:                                                ; preds = %8, %2
@@ -757,14 +757,14 @@ define hidden void @fcgi_set_allowed_clients(ptr noundef readonly captures(addre
   br i1 %.not35, label %13, label %12
 
 12:                                               ; preds = %10
-  tail call void @free(ptr noundef nonnull %11) #33
+  tail call void @free(ptr noundef nonnull %11) #35
   br label %13
 
 13:                                               ; preds = %12, %10
   %14 = add nsw i32 %.0, 2
   %15 = sext i32 %14 to i64
   %16 = mul nsw i64 %15, 112
-  %17 = tail call noalias ptr @malloc(i64 noundef %16) #34
+  %17 = tail call noalias ptr @malloc(i64 noundef %16) #36
   store ptr %17, ptr @allowed_clients, align 8, !tbaa !30
   %.not3639 = icmp eq ptr %3, null
   br i1 %.not3639, label %._crit_edge, label %.lr.ph
@@ -772,7 +772,7 @@ define hidden void @fcgi_set_allowed_clients(ptr noundef readonly captures(addre
 .lr.ph:                                           ; preds = %13, %41
   %.241 = phi i32 [ %.3, %41 ], [ 0, %13 ]
   %.12840 = phi ptr [ %.026, %41 ], [ %3, %13 ]
-  %18 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.12840, i32 noundef 44) #36
+  %18 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.12840, i32 noundef 44) #38
   %.not38 = icmp eq ptr %18, null
   br i1 %.not38, label %21, label %19
 
@@ -787,7 +787,7 @@ define hidden void @fcgi_set_allowed_clients(ptr noundef readonly captures(addre
   %23 = sext i32 %.241 to i64
   %24 = getelementptr inbounds %union._sa_t, ptr %22, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %26 = tail call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %.12840, ptr noundef nonnull %25) #33
+  %26 = tail call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %.12840, ptr noundef nonnull %25) #35
   %27 = icmp sgt i32 %26, 0
   %28 = load ptr, ptr @allowed_clients, align 8, !tbaa !30
   %29 = getelementptr inbounds %union._sa_t, ptr %28, i64 %23
@@ -800,7 +800,7 @@ define hidden void @fcgi_set_allowed_clients(ptr noundef readonly captures(addre
 
 32:                                               ; preds = %21
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %34 = tail call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %.12840, ptr noundef nonnull %33) #33
+  %34 = tail call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %.12840, ptr noundef nonnull %33) #35
   %35 = icmp sgt i32 %34, 0
   br i1 %35, label %36, label %40
 
@@ -830,7 +830,7 @@ define hidden void @fcgi_set_allowed_clients(ptr noundef readonly captures(addre
   %43 = sext i32 %.2.lcssa to i64
   %44 = getelementptr inbounds %union._sa_t, ptr %42, i64 %43
   store i16 0, ptr %44, align 4, !tbaa !22
-  tail call void @free(ptr noundef %3) #33
+  tail call void @free(ptr noundef %3) #35
   %.not37 = icmp eq i32 %.2.lcssa, 0
   br i1 %.not37, label %45, label %46
 
@@ -842,9 +842,9 @@ define hidden void @fcgi_set_allowed_clients(ptr noundef readonly captures(addre
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef ptr @fcgi_init_request(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #18 {
-  %5 = tail call noalias dereferenceable_or_null(9344) ptr @calloc(i64 noundef 1, i64 noundef 9344) #37
+  %5 = tail call noalias dereferenceable_or_null(9344) ptr @calloc(i64 noundef 1, i64 noundef 9344) #39
   store i32 %0, ptr %5, align 8, !tbaa !39
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 -1, ptr %6, align 8, !tbaa !40
@@ -865,13 +865,13 @@ define hidden noundef ptr @fcgi_init_request(i32 noundef %0, ptr noundef %1, ptr
   %14 = select i1 %.not17, ptr @fcgi_hook_dummy, ptr %3
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8280
   store ptr %14, ptr %15, align 8, !tbaa !45
-  %16 = tail call noalias dereferenceable_or_null(6160) ptr @malloc(i64 noundef 6160) #34
+  %16 = tail call noalias dereferenceable_or_null(6160) ptr @malloc(i64 noundef 6160) #36
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 9328
   store ptr %16, ptr %17, align 8, !tbaa !46
   store i32 0, ptr %16, align 8, !tbaa !47
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr null, ptr %18, align 8, !tbaa !49
-  %19 = tail call noalias dereferenceable_or_null(4127) ptr @malloc(i64 noundef 4127) #34
+  %19 = tail call noalias dereferenceable_or_null(4127) ptr @malloc(i64 noundef 4127) #36
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 9336
   store ptr %19, ptr %20, align 8, !tbaa !50
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 24
@@ -892,8 +892,8 @@ define internal void @fcgi_hook_dummy() #20 {
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @fcgi_destroy_request(ptr noundef captures(none) %0) local_unnamed_addr #3 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define hidden void @fcgi_destroy_request(ptr noundef captures(none) %0) local_unnamed_addr #21 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 9328
   %3 = load ptr, ptr %2, align 8, !tbaa !46
   %.not12.i = icmp eq ptr %3, null
@@ -903,7 +903,7 @@ define hidden void @fcgi_destroy_request(ptr noundef captures(none) %0) local_un
   %.013.i = phi ptr [ %5, %.lr.ph.i ], [ %3, %1 ]
   %4 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !49
-  tail call void @free(ptr noundef nonnull %.013.i) #33
+  tail call void @free(ptr noundef nonnull %.013.i) #35
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -917,17 +917,17 @@ define hidden void @fcgi_destroy_request(ptr noundef captures(none) %0) local_un
   %.01015.i = phi ptr [ %9, %.lr.ph17.i ], [ %7, %._crit_edge.i ]
   %8 = getelementptr inbounds nuw i8, ptr %.01015.i, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !54
-  tail call void @free(ptr noundef nonnull %.01015.i) #33
+  tail call void @free(ptr noundef nonnull %.01015.i) #35
   %.not11.i = icmp eq ptr %9, null
   br i1 %.not11.i, label %fcgi_hash_destroy.exit, label %.lr.ph17.i
 
 fcgi_hash_destroy.exit:                           ; preds = %.lr.ph17.i, %._crit_edge.i
-  tail call void @free(ptr noundef nonnull %0) #33
+  tail call void @free(ptr noundef nonnull %0) #35
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden i32 @fcgi_read(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #21 {
+define hidden i32 @fcgi_read(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #22 {
   %4 = alloca %struct._fcgi_header, align 1
   %5 = alloca [255 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -954,7 +954,7 @@ define hidden i32 @fcgi_read(ptr noundef captures(none) %0, ptr noundef captures
   br i1 %16, label %17, label %51
 
 17:                                               ; preds = %14
-  %18 = tail call ptr @__errno_location() #35
+  %18 = tail call ptr @__errno_location() #37
   br label %19
 
 19:                                               ; preds = %35, %17
@@ -963,7 +963,7 @@ define hidden i32 @fcgi_read(ptr noundef captures(none) %0, ptr noundef captures
   %20 = load i32, ptr %8, align 8, !tbaa !40
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 %.0.i
   %22 = sub i64 8, %.0.i
-  %23 = call i64 @read(i32 noundef %20, ptr noundef nonnull %21, i64 noundef %22) #33
+  %23 = call i64 @read(i32 noundef %20, ptr noundef nonnull %21, i64 noundef %22) #35
   %24 = trunc i64 %23 to i32
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %26, label %29
@@ -1024,7 +1024,7 @@ safe_read.exit:                                   ; preds = %29, %35, %33
 51:                                               ; preds = %41, %14
   %52 = phi i32 [ %47, %41 ], [ %15, %14 ]
   %.not = icmp slt i32 %52, %.089
-  %53 = tail call ptr @__errno_location() #35
+  %53 = tail call ptr @__errno_location() #37
   br i1 %.not, label %73, label %54
 
 54:                                               ; preds = %51
@@ -1037,7 +1037,7 @@ safe_read.exit:                                   ; preds = %29, %35, %33
   %57 = load i32, ptr %8, align 8, !tbaa !40
   %58 = getelementptr inbounds nuw i8, ptr %.04986, i64 %.0.i55
   %59 = sub i64 %55, %.0.i55
-  %60 = tail call i64 @read(i32 noundef %57, ptr noundef %58, i64 noundef %59) #33
+  %60 = tail call i64 @read(i32 noundef %57, ptr noundef %58, i64 noundef %59) #35
   %61 = trunc i64 %60 to i32
   %62 = icmp sgt i32 %61, 0
   br i1 %62, label %63, label %66
@@ -1080,7 +1080,7 @@ thread-pre-split.i57:                             ; preds = %66
   %76 = load i32, ptr %8, align 8, !tbaa !40
   %77 = getelementptr inbounds nuw i8, ptr %.04986, i64 %.0.i63
   %78 = sub i64 %74, %.0.i63
-  %79 = tail call i64 @read(i32 noundef %76, ptr noundef %77, i64 noundef %78) #33
+  %79 = tail call i64 @read(i32 noundef %76, ptr noundef %77, i64 noundef %78) #35
   %80 = trunc i64 %79 to i32
   %81 = icmp sgt i32 %80, 0
   br i1 %81, label %82, label %85
@@ -1141,7 +1141,7 @@ safe_read.exit62:                                 ; preds = %72, %66, %91, %85, 
 
 104:                                              ; preds = %102
   %105 = sext i32 %103 to i64
-  %106 = tail call ptr @__errno_location() #35
+  %106 = tail call ptr @__errno_location() #37
   br label %107
 
 107:                                              ; preds = %123, %104
@@ -1150,7 +1150,7 @@ safe_read.exit62:                                 ; preds = %72, %66, %91, %85, 
   %108 = load i32, ptr %8, align 8, !tbaa !40
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 %.0.i71
   %110 = sub i64 %105, %.0.i71
-  %111 = call i64 @read(i32 noundef %108, ptr noundef nonnull %109, i64 noundef %110) #33
+  %111 = call i64 @read(i32 noundef %108, ptr noundef nonnull %109, i64 noundef %110) #35
   %112 = trunc i64 %111 to i32
   %113 = icmp sgt i32 %112, 0
   br i1 %113, label %114, label %117
@@ -1233,7 +1233,7 @@ define hidden void @fcgi_close(ptr noundef captures(none) %0, i32 noundef %1, i3
   %14 = phi ptr [ %18, %.lr.ph.i ], [ %13, %8 ]
   %15 = phi ptr [ %16, %.lr.ph.i ], [ %11, %8 ]
   store ptr %14, ptr %10, align 8, !tbaa !46
-  tail call void @free(ptr noundef nonnull %15) #33
+  tail call void @free(ptr noundef nonnull %15) #35
   %16 = load ptr, ptr %10, align 8, !tbaa !46
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !49
@@ -1254,7 +1254,7 @@ define hidden void @fcgi_close(ptr noundef captures(none) %0, i32 noundef %1, i3
   %23 = phi ptr [ %27, %.lr.ph21.i ], [ %22, %._crit_edge.i ]
   %24 = phi ptr [ %25, %.lr.ph21.i ], [ %20, %._crit_edge.i ]
   store ptr %23, ptr %19, align 8, !tbaa !50
-  tail call void @free(ptr noundef nonnull %24) #33
+  tail call void @free(ptr noundef nonnull %24) #35
   %25 = load ptr, ptr %19, align 8, !tbaa !50
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !54
@@ -1292,12 +1292,12 @@ fcgi_hash_clean.exit:                             ; preds = %.lr.ph21.i, %._crit
 
 40:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %41 = tail call i32 @shutdown(i32 noundef %35, i32 noundef 1) #33
+  %41 = tail call i32 @shutdown(i32 noundef %35, i32 noundef 1) #35
   br label %42
 
 42:                                               ; preds = %42, %40
   %43 = load i32, ptr %34, align 8, !tbaa !40
-  %44 = call i64 @recv(i32 noundef %43, ptr noundef nonnull %4, i64 noundef 8, i32 noundef 0) #33
+  %44 = call i64 @recv(i32 noundef %43, ptr noundef nonnull %4, i64 noundef 8, i32 noundef 0) #35
   %45 = icmp sgt i64 %44, 0
   br i1 %45, label %42, label %46
 
@@ -1309,13 +1309,13 @@ fcgi_hash_clean.exit:                             ; preds = %.lr.ph21.i, %._crit
 .thread16:                                        ; preds = %.thread, %46
   %47 = phi i32 [ %.pre, %46 ], [ %38, %.thread ]
   %48 = phi ptr [ %34, %46 ], [ %37, %.thread ]
-  %49 = call i32 @close(i32 noundef %47) #33
+  %49 = call i32 @close(i32 noundef %47) #35
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %50, align 4, !tbaa !62
   store i32 -1, ptr %48, align 8, !tbaa !40
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8280
   %52 = load ptr, ptr %51, align 8, !tbaa !45
-  call void %52() #33
+  call void %52() #35
   br label %53
 
 53:                                               ; preds = %.thread, %.thread16, %33, %30
@@ -1328,7 +1328,7 @@ declare i32 @shutdown(i32 noundef, i32 noundef) local_unnamed_addr #9
 declare i64 @recv(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @fcgi_is_closed(ptr noundef readonly captures(none) %0) local_unnamed_addr #22 {
+define hidden range(i32 0, 2) i32 @fcgi_is_closed(ptr noundef readonly captures(none) %0) local_unnamed_addr #23 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !40
   %.lobit = lshr i32 %3, 31
@@ -1391,12 +1391,12 @@ fcgi_close.exit59:                                ; preds = %fcgi_close.exit59.b
 
 .lr.ph:                                           ; preds = %.preheader, %.backedge
   %44 = load ptr, ptr %9, align 8, !tbaa !43
-  call void %44() #33
+  call void %44() #35
   %45 = load i32, ptr %0, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 112, ptr %6, align 4, !tbaa !4
-  %46 = call i32 @accept(i32 noundef %45, ptr nonnull %5, ptr noundef nonnull %6) #33
+  %46 = call i32 @accept(i32 noundef %45, ptr nonnull %5, ptr noundef nonnull %6) #35
   store i32 %46, ptr %8, align 8, !tbaa !40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) @client_sa, ptr noundef nonnull align 4 dereferenceable(112) %5, i64 112, i1 false), !tbaa.struct !63
   %47 = load i32, ptr %8, align 8, !tbaa !40
@@ -1501,7 +1501,7 @@ fcgi_is_allowed.exit:                             ; preds = %.preheader.split.i,
   ]
 
 74:                                               ; preds = %fcgi_is_allowed.exit
-  %75 = call ptr @inet_ntop(i32 noundef 2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @client_sa, i64 4), ptr noundef nonnull @fcgi_get_last_client_ip.str, i32 noundef 46) #33
+  %75 = call ptr @inet_ntop(i32 noundef 2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @client_sa, i64 4), ptr noundef nonnull @fcgi_get_last_client_ip.str, i32 noundef 46) #35
   br label %87
 
 76:                                               ; preds = %fcgi_is_allowed.exit
@@ -1516,18 +1516,18 @@ fcgi_is_allowed.exit:                             ; preds = %.preheader.split.i,
   br i1 %or.cond8.i, label %83, label %85
 
 83:                                               ; preds = %76
-  %84 = call ptr @inet_ntop(i32 noundef 2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @client_sa, i64 20), ptr noundef nonnull @fcgi_get_last_client_ip.str, i32 noundef 46) #33
+  %84 = call ptr @inet_ntop(i32 noundef 2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @client_sa, i64 20), ptr noundef nonnull @fcgi_get_last_client_ip.str, i32 noundef 46) #35
   br label %87
 
 85:                                               ; preds = %76
-  %86 = call ptr @inet_ntop(i32 noundef 10, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @client_sa, i64 8), ptr noundef nonnull @fcgi_get_last_client_ip.str, i32 noundef 46) #33
+  %86 = call ptr @inet_ntop(i32 noundef 10, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @client_sa, i64 8), ptr noundef nonnull @fcgi_get_last_client_ip.str, i32 noundef 46) #35
   br label %87
 
 87:                                               ; preds = %53, %85, %83, %74, %fcgi_is_allowed.exit
   %.0.i43 = phi ptr [ %75, %74 ], [ %84, %83 ], [ %86, %85 ], [ null, %fcgi_is_allowed.exit ], [ null, %53 ]
   call void (i32, ptr, ...) @fcgi_log(i32 noundef 4, ptr noundef nonnull @.str.10, ptr noundef %.0.i43)
   %88 = load i32, ptr %8, align 8, !tbaa !40
-  %89 = call i32 @close(i32 noundef %88) #33
+  %89 = call i32 @close(i32 noundef %88) #35
   store i32 -1, ptr %8, align 8, !tbaa !40
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1551,7 +1551,7 @@ fcgi_is_allowed.exit:                             ; preds = %.preheader.split.i,
   br i1 %.not35, label %93, label %.loopexit90
 
 93:                                               ; preds = %91
-  %94 = tail call ptr @__errno_location() #35
+  %94 = tail call ptr @__errno_location() #37
   %95 = load i32, ptr %94, align 4, !tbaa !4
   switch i32 %95, label %.loopexit90 [
     i32 4, label %96
@@ -1559,7 +1559,7 @@ fcgi_is_allowed.exit:                             ; preds = %.preheader.split.i,
   ]
 
 96:                                               ; preds = %.loopexit79, %93, %93
-  %97 = call i32 (i32, i32, ...) @fcntl(i32 noundef %47, i32 noundef 1) #33
+  %97 = call i32 (i32, i32, ...) @fcntl(i32 noundef %47, i32 noundef 1) #35
   %98 = icmp slt i32 %97, 0
   br i1 %98, label %99, label %100
 
@@ -1570,7 +1570,7 @@ fcgi_is_allowed.exit:                             ; preds = %.preheader.split.i,
 100:                                              ; preds = %99, %96
   %101 = load i32, ptr %8, align 8, !tbaa !40
   %102 = or i32 %97, 1
-  %103 = call i32 (i32, i32, ...) @fcntl(i32 noundef %101, i32 noundef 2, i32 noundef %102) #33
+  %103 = call i32 (i32, i32, ...) @fcntl(i32 noundef %101, i32 noundef 2, i32 noundef %102) #35
   %104 = icmp slt i32 %103, 0
   br i1 %104, label %105, label %106
 
@@ -1588,12 +1588,12 @@ fcgi_is_allowed.exit:                             ; preds = %.preheader.split.i,
   store i32 %107, ptr %7, align 4, !tbaa !64
   store i16 1, ptr %10, align 4, !tbaa !67
   store i16 0, ptr %11, align 2, !tbaa !68
-  %110 = tail call ptr @__errno_location() #35
+  %110 = tail call ptr @__errno_location() #37
   br label %111
 
 111:                                              ; preds = %114, %109
   store i32 0, ptr %110, align 4, !tbaa !4
-  %112 = call i32 @poll(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 5000) #33
+  %112 = call i32 @poll(ptr noundef nonnull %7, i64 noundef 1, i32 noundef 5000) #35
   %113 = icmp slt i32 %112, 0
   br i1 %113, label %114, label %.critedge
 
@@ -1618,11 +1618,11 @@ fcgi_is_allowed.exit:                             ; preds = %.preheader.split.i,
   br i1 %121, label %.thread16.i, label %fcgi_close.exit.thread
 
 .thread16.i:                                      ; preds = %.critedge.thread
-  %122 = call i32 @close(i32 noundef %120) #33
+  %122 = call i32 @close(i32 noundef %120) #35
   store i32 0, ptr %12, align 4, !tbaa !62
   store i32 -1, ptr %8, align 8, !tbaa !40
   %123 = load ptr, ptr %13, align 8, !tbaa !45
-  call void %123() #33
+  call void %123() #35
   br label %fcgi_close.exit.thread
 
 fcgi_close.exit.thread:                           ; preds = %.critedge.thread, %.thread16.i
@@ -1638,7 +1638,7 @@ fcgi_close.exit.thread:                           ; preds = %.critedge.thread, %
 
 125:                                              ; preds = %.thread68, %124
   %126 = load ptr, ptr %14, align 8, !tbaa !44
-  call void %126() #33
+  call void %126() #35
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %15, align 8, !tbaa !8
@@ -1662,7 +1662,7 @@ fcgi_close.exit.thread:                           ; preds = %.critedge.thread, %
   %132 = phi ptr [ %136, %.lr.ph.i.i ], [ %131, %128 ]
   %133 = phi ptr [ %134, %.lr.ph.i.i ], [ %129, %128 ]
   store ptr %132, ptr %23, align 8, !tbaa !46
-  call void @free(ptr noundef nonnull %133) #33
+  call void @free(ptr noundef nonnull %133) #35
   %134 = load ptr, ptr %23, align 8, !tbaa !46
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %136 = load ptr, ptr %135, align 8, !tbaa !49
@@ -1682,7 +1682,7 @@ fcgi_close.exit.thread:                           ; preds = %.critedge.thread, %
   %140 = phi ptr [ %144, %.lr.ph21.i.i ], [ %139, %._crit_edge.i.i ]
   %141 = phi ptr [ %142, %.lr.ph21.i.i ], [ %137, %._crit_edge.i.i ]
   store ptr %140, ptr %24, align 8, !tbaa !50
-  call void @free(ptr noundef nonnull %141) #33
+  call void @free(ptr noundef nonnull %141) #35
   %142 = load ptr, ptr %24, align 8, !tbaa !50
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %144 = load ptr, ptr %143, align 8, !tbaa !54
@@ -1700,7 +1700,7 @@ fcgi_hash_clean.exit.i:                           ; preds = %.lr.ph21.i.i, %._cr
   br label %147
 
 147:                                              ; preds = %146, %fcgi_hash_clean.exit.i
-  %148 = tail call ptr @__errno_location() #35
+  %148 = tail call ptr @__errno_location() #37
   br label %149
 
 149:                                              ; preds = %165, %147
@@ -1709,7 +1709,7 @@ fcgi_hash_clean.exit.i:                           ; preds = %.lr.ph21.i.i, %._cr
   %150 = load i32, ptr %8, align 8, !tbaa !40
   %151 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.i.i
   %152 = sub i64 8, %.0.i.i
-  %153 = call i64 @read(i32 noundef %150, ptr noundef nonnull %151, i64 noundef %152) #33
+  %153 = call i64 @read(i32 noundef %150, ptr noundef nonnull %151, i64 noundef %152) #35
   %154 = trunc i64 %153 to i32
   %155 = icmp sgt i32 %154, 0
   br i1 %155, label %156, label %159
@@ -1769,7 +1769,7 @@ safe_read.exit.i:                                 ; preds = %165, %163
   %180 = load i32, ptr %8, align 8, !tbaa !40
   %181 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.i147.i
   %182 = sub i64 8, %.0.i147.i
-  %183 = call i64 @read(i32 noundef %180, ptr noundef nonnull %181, i64 noundef %182) #33
+  %183 = call i64 @read(i32 noundef %180, ptr noundef nonnull %181, i64 noundef %182) #35
   %184 = trunc i64 %183 to i32
   %185 = icmp sgt i32 %184, 0
   br i1 %185, label %186, label %189
@@ -1863,7 +1863,7 @@ safe_read.exit154.i:                              ; preds = %195, %193
   %225 = load i32, ptr %8, align 8, !tbaa !40
   %226 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.i155.i
   %227 = sub i64 %223, %.0.i155.i
-  %228 = call i64 @read(i32 noundef %225, ptr noundef nonnull %226, i64 noundef %227) #33
+  %228 = call i64 @read(i32 noundef %225, ptr noundef nonnull %226, i64 noundef %227) #35
   %229 = trunc i64 %228 to i32
   %230 = icmp sgt i32 %229, 0
   br i1 %230, label %231, label %234
@@ -1923,7 +1923,7 @@ safe_read.exit162.thread.i:                       ; preds = %240, %safe_read.exi
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 1, ptr %4, align 4, !tbaa !4
   %249 = load i32, ptr %8, align 8, !tbaa !40
-  %250 = call i32 @setsockopt(i32 noundef %249, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %4, i32 noundef 4) #33
+  %250 = call i32 @setsockopt(i32 noundef %249, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %4, i32 noundef 4) #35
   store i32 1, ptr %12, align 4, !tbaa !62
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %251
@@ -1962,7 +1962,7 @@ safe_read.exit162.thread.i:                       ; preds = %240, %safe_read.exi
   %264 = load i32, ptr %8, align 8, !tbaa !40
   %265 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.i163.i
   %266 = sub i64 8, %.0.i163.i
-  %267 = call i64 @read(i32 noundef %264, ptr noundef nonnull %265, i64 noundef %266) #33
+  %267 = call i64 @read(i32 noundef %264, ptr noundef nonnull %265, i64 noundef %266) #35
   %268 = trunc i64 %267 to i32
   %269 = icmp sgt i32 %268, 0
   br i1 %269, label %270, label %273
@@ -2037,7 +2037,7 @@ safe_read.exit170.i:                              ; preds = %279, %277
   %299 = load i32, ptr %8, align 8, !tbaa !40
   %300 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.i171.i
   %301 = sub i64 %297, %.0.i171.i
-  %302 = call i64 @read(i32 noundef %299, ptr noundef nonnull %300, i64 noundef %301) #33
+  %302 = call i64 @read(i32 noundef %299, ptr noundef nonnull %300, i64 noundef %301) #35
   %303 = trunc i64 %302 to i32
   %304 = icmp sgt i32 %303, 0
   br i1 %304, label %305, label %308
@@ -2088,7 +2088,7 @@ safe_read.exit178.thread.i:                       ; preds = %314, %safe_read.exi
   %318 = load i32, ptr %8, align 8, !tbaa !40
   %319 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.i179.i
   %320 = sub i64 8, %.0.i179.i
-  %321 = call i64 @read(i32 noundef %318, ptr noundef nonnull %319, i64 noundef %320) #33
+  %321 = call i64 @read(i32 noundef %318, ptr noundef nonnull %319, i64 noundef %320) #35
   %322 = trunc i64 %321 to i32
   %323 = icmp sgt i32 %322, 0
   br i1 %323, label %324, label %327
@@ -2156,7 +2156,7 @@ safe_read.exit186.i:                              ; preds = %333, %331
   %353 = load i32, ptr %8, align 8, !tbaa !40
   %354 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.i187.i
   %355 = sub i64 %351, %.0.i187.i
-  %356 = call i64 @read(i32 noundef %353, ptr noundef nonnull %354, i64 noundef %355) #33
+  %356 = call i64 @read(i32 noundef %353, ptr noundef nonnull %354, i64 noundef %355) #35
   %357 = trunc i64 %356 to i32
   %358 = icmp sgt i32 %357, 0
   br i1 %358, label %359, label %362
@@ -2217,7 +2217,7 @@ safe_read.exit194.thread.i:                       ; preds = %368, %safe_read.exi
   %375 = getelementptr inbounds nuw i8, ptr %.0278.i, i64 4
   %376 = load i32, ptr %375, align 4, !tbaa !82
   %377 = zext i32 %376 to i64
-  %378 = call ptr @zend_hash_str_find(ptr noundef nonnull @fcgi_mgmt_vars, ptr noundef %374, i64 noundef %377) #33
+  %378 = call ptr @zend_hash_str_find(ptr noundef nonnull @fcgi_mgmt_vars, ptr noundef %374, i64 noundef %377) #35
   %379 = icmp eq ptr %378, null
   br i1 %379, label %380, label %382
 
@@ -2313,12 +2313,12 @@ safe_read.exit194.thread.i:                       ; preds = %368, %safe_read.exi
   %427 = load ptr, ptr %383, align 8, !tbaa !80
   %428 = load i32, ptr %384, align 4, !tbaa !82
   %429 = zext i32 %428 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.2126.ptr.i, ptr noundef align 1 %427, i64 noundef range(i64 -2147483646, 4294967296) %429, i1 false) #33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.2126.ptr.i, ptr noundef align 1 %427, i64 noundef range(i64 -2147483646, 4294967296) %429, i1 false) #35
   %.2126.add.i = add nsw i64 %.2126.idx.i, %429
   %.ptr218.i = getelementptr inbounds i8, ptr %3, i64 %.2126.add.i
   %430 = load ptr, ptr %378, align 8, !tbaa !22
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.ptr218.i, ptr noundef nonnull align 1 %431, i64 noundef range(i64 -2147483646, 4294967296) %390, i1 false) #33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.ptr218.i, ptr noundef nonnull align 1 %431, i64 noundef range(i64 -2147483646, 4294967296) %390, i1 false) #35
   %.add212.i = add nsw i64 %.2126.add.i, %390
   %432 = getelementptr inbounds nuw i8, ptr %.0278.i, i64 40
   %.0276.i = load ptr, ptr %432, align 8, !tbaa !79
@@ -2365,7 +2365,7 @@ fcgi_make_header.exit.i:                          ; preds = %442, %.loopexit.i
   %449 = load i32, ptr %8, align 8, !tbaa !40
   %450 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.i60
   %451 = sub i64 %447, %.0.i60
-  %452 = call i64 @write(i32 noundef %449, ptr noundef nonnull readonly %450, i64 noundef %451) #33
+  %452 = call i64 @write(i32 noundef %449, ptr noundef nonnull readonly %450, i64 noundef %451) #35
   %453 = trunc i64 %452 to i32
   %454 = icmp sgt i32 %453, 0
   br i1 %454, label %455, label %458
@@ -2427,7 +2427,7 @@ safe_write.exit.thread:                           ; preds = %460, %safe_write.ex
   %468 = phi ptr [ %472, %.lr.ph.i.i49 ], [ %467, %464 ]
   %469 = phi ptr [ %470, %.lr.ph.i.i49 ], [ %465, %464 ]
   store ptr %468, ptr %23, align 8, !tbaa !46
-  call void @free(ptr noundef nonnull %469) #33
+  call void @free(ptr noundef nonnull %469) #35
   %470 = load ptr, ptr %23, align 8, !tbaa !46
   %471 = getelementptr inbounds nuw i8, ptr %470, i64 8
   %472 = load ptr, ptr %471, align 8, !tbaa !49
@@ -2447,7 +2447,7 @@ safe_write.exit.thread:                           ; preds = %460, %safe_write.ex
   %476 = phi ptr [ %480, %.lr.ph21.i.i54 ], [ %475, %._crit_edge.i.i51 ]
   %477 = phi ptr [ %478, %.lr.ph21.i.i54 ], [ %473, %._crit_edge.i.i51 ]
   store ptr %476, ptr %24, align 8, !tbaa !50
-  call void @free(ptr noundef nonnull %477) #33
+  call void @free(ptr noundef nonnull %477) #35
   %478 = load ptr, ptr %24, align 8, !tbaa !50
   %479 = getelementptr inbounds nuw i8, ptr %478, i64 16
   %480 = load ptr, ptr %479, align 8, !tbaa !54
@@ -2467,11 +2467,11 @@ fcgi_hash_clean.exit.i56:                         ; preds = %.lr.ph21.i.i54, %._
   br i1 %484, label %.thread16.i58, label %fcgi_close.exit59.backedge
 
 .thread16.i58:                                    ; preds = %482
-  %485 = call i32 @close(i32 noundef %483) #33
+  %485 = call i32 @close(i32 noundef %483) #35
   store i32 0, ptr %12, align 4, !tbaa !62
   store i32 -1, ptr %8, align 8, !tbaa !40
   %486 = load ptr, ptr %13, align 8, !tbaa !45
-  call void %486() #33
+  call void %486() #35
   br label %fcgi_close.exit59.backedge
 
 fcgi_close.exit59.backedge:                       ; preds = %.thread16.i58, %482, %safe_write.exit.thread
@@ -2493,7 +2493,7 @@ define hidden ptr @fcgi_get_last_client_ip() local_unnamed_addr #3 {
   ]
 
 2:                                                ; preds = %0
-  %3 = tail call ptr @inet_ntop(i32 noundef 2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @client_sa, i64 4), ptr noundef nonnull @fcgi_get_last_client_ip.str, i32 noundef 46) #33
+  %3 = tail call ptr @inet_ntop(i32 noundef 2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @client_sa, i64 4), ptr noundef nonnull @fcgi_get_last_client_ip.str, i32 noundef 46) #35
   br label %.critedge
 
 4:                                                ; preds = %0
@@ -2508,11 +2508,11 @@ define hidden ptr @fcgi_get_last_client_ip() local_unnamed_addr #3 {
   br i1 %or.cond8, label %11, label %13
 
 11:                                               ; preds = %4
-  %12 = tail call ptr @inet_ntop(i32 noundef 2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @client_sa, i64 20), ptr noundef nonnull @fcgi_get_last_client_ip.str, i32 noundef 46) #33
+  %12 = tail call ptr @inet_ntop(i32 noundef 2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @client_sa, i64 20), ptr noundef nonnull @fcgi_get_last_client_ip.str, i32 noundef 46) #35
   br label %.critedge
 
 13:                                               ; preds = %4
-  %14 = tail call ptr @inet_ntop(i32 noundef 10, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @client_sa, i64 8), ptr noundef nonnull @fcgi_get_last_client_ip.str, i32 noundef 46) #33
+  %14 = tail call ptr @inet_ntop(i32 noundef 10, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @client_sa, i64 8), ptr noundef nonnull @fcgi_get_last_client_ip.str, i32 noundef 46) #35
   br label %.critedge
 
 .critedge:                                        ; preds = %0, %13, %11, %2
@@ -2525,7 +2525,7 @@ declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #6
 declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 0, 2) i32 @fcgi_flush(ptr noundef %0, i32 noundef %1) local_unnamed_addr #21 {
+define hidden range(i32 0, 2) i32 @fcgi_flush(ptr noundef %0, i32 noundef %1) local_unnamed_addr #22 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !70
   %.not.i = icmp eq ptr %4, null
@@ -2623,7 +2623,7 @@ close_packet.exit:                                ; preds = %2, %fcgi_make_heade
   %.022 = phi i64 [ %54, %40 ], [ %39, %close_packet.exit ]
   %sext = shl i64 %.022, 32
   %56 = ashr exact i64 %sext, 32
-  %57 = tail call ptr @__errno_location() #35
+  %57 = tail call ptr @__errno_location() #37
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %59
 
@@ -2633,7 +2633,7 @@ close_packet.exit:                                ; preds = %2, %fcgi_make_heade
   %60 = load i32, ptr %58, align 8, !tbaa !40
   %61 = getelementptr inbounds nuw i8, ptr %36, i64 %.0.i
   %62 = sub i64 %56, %.0.i
-  %63 = tail call i64 @write(i32 noundef %60, ptr noundef nonnull readonly %61, i64 noundef %62) #33
+  %63 = tail call i64 @write(i32 noundef %60, ptr noundef nonnull readonly %61, i64 noundef %62) #35
   %64 = trunc i64 %63 to i32
   %65 = icmp sgt i32 %64, 0
   br i1 %65, label %66, label %69
@@ -2673,7 +2673,7 @@ safe_write.exit.thread:                           ; preds = %71, %safe_write.exi
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 -1, -2147483648) i32 @fcgi_write(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #21 {
+define hidden range(i32 -1, -2147483648) i32 @fcgi_write(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #22 {
   %5 = icmp slt i32 %3, 1
   br i1 %5, label %.critedge, label %6
 
@@ -2775,7 +2775,7 @@ close_packet.exit:                                ; preds = %13, %39
 61:                                               ; preds = %57, %56
   %62 = phi ptr [ %60, %57 ], [ %48, %56 ]
   %63 = zext nneg i32 %3 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %62, ptr noundef align 1 %2, i64 noundef range(i64 -2147483646, 4294967296) %63, i1 false) #33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %62, ptr noundef align 1 %2, i64 noundef range(i64 -2147483646, 4294967296) %63, i1 false) #35
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 %63
   store ptr %64, ptr %47, align 8, !tbaa !42
   br label %.critedge
@@ -2804,7 +2804,7 @@ close_packet.exit:                                ; preds = %13, %39
 75:                                               ; preds = %71, %70
   %76 = phi ptr [ %74, %71 ], [ %48, %70 ]
   %77 = zext nneg i32 %.094 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %76, ptr noundef align 1 %2, i64 noundef range(i64 -2147483646, 4294967296) %77, i1 false) #33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %76, ptr noundef align 1 %2, i64 noundef range(i64 -2147483646, 4294967296) %77, i1 false) #35
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 %77
   store ptr %78, ptr %47, align 8, !tbaa !42
   br label %79
@@ -2829,7 +2829,7 @@ close_packet.exit:                                ; preds = %13, %39
   %88 = sext i32 %.094 to i64
   %89 = getelementptr inbounds i8, ptr %2, i64 %88
   %90 = zext nneg i32 %66 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %87, ptr noundef align 1 %89, i64 noundef range(i64 -2147483646, 4294967296) %90, i1 false) #33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %87, ptr noundef align 1 %89, i64 noundef range(i64 -2147483646, 4294967296) %90, i1 false) #35
   %91 = getelementptr inbounds nuw i8, ptr %87, i64 %90
   store ptr %91, ptr %47, align 8, !tbaa !42
   br label %.critedge
@@ -2928,7 +2928,7 @@ close_packet.exit116:                             ; preds = %92, %fcgi_make_head
 
 142:                                              ; preds = %127
   %143 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
-  %144 = tail call ptr @__errno_location() #35
+  %144 = tail call ptr @__errno_location() #37
   br label %145
 
 145:                                              ; preds = %157, %142
@@ -2937,7 +2937,7 @@ close_packet.exit116:                             ; preds = %92, %fcgi_make_head
   %146 = load i32, ptr %126, align 8, !tbaa !40
   %147 = getelementptr inbounds nuw i8, ptr %143, i64 %.0.i
   %148 = sub i64 65528, %.0.i
-  %149 = tail call i64 @write(i32 noundef %146, ptr noundef readonly %147, i64 noundef %148) #33
+  %149 = tail call i64 @write(i32 noundef %146, ptr noundef readonly %147, i64 noundef %148) #35
   %150 = trunc i64 %149 to i32
   %151 = icmp sgt i32 %150, 0
   br i1 %151, label %152, label %155
@@ -3040,7 +3040,7 @@ fcgi_make_header.exit:                            ; preds = %._crit_edge, %190
 195:                                              ; preds = %fcgi_make_header.exit
   %196 = getelementptr inbounds nuw i8, ptr %2, i64 %.092.lcssa
   %197 = sext i32 %173 to i64
-  %198 = tail call ptr @__errno_location() #35
+  %198 = tail call ptr @__errno_location() #37
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %200
 
@@ -3050,7 +3050,7 @@ fcgi_make_header.exit:                            ; preds = %._crit_edge, %190
   %201 = load i32, ptr %199, align 8, !tbaa !40
   %202 = getelementptr inbounds nuw i8, ptr %196, i64 %.0.i119
   %203 = sub i64 %197, %.0.i119
-  %204 = tail call i64 @write(i32 noundef %201, ptr noundef readonly %202, i64 noundef %203) #33
+  %204 = tail call i64 @write(i32 noundef %201, ptr noundef readonly %202, i64 noundef %203) #35
   %205 = trunc i64 %204 to i32
   %206 = icmp sgt i32 %205, 0
   br i1 %206, label %207, label %210
@@ -3098,7 +3098,7 @@ safe_write.exit124.thread:                        ; preds = %212, %safe_write.ex
   %222 = sext i32 %167 to i64
   %223 = sub nsw i64 0, %222
   %224 = getelementptr inbounds i8, ptr %221, i64 %223
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %219, ptr noundef nonnull align 1 %224, i64 noundef range(i64 -2147483646, 4294967296) %222, i1 false) #33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %219, ptr noundef nonnull align 1 %224, i64 noundef range(i64 -2147483646, 4294967296) %222, i1 false) #35
   %225 = getelementptr inbounds i8, ptr %219, i64 %222
   store ptr %225, ptr %47, align 8, !tbaa !42
   br label %.critedge
@@ -3109,7 +3109,7 @@ safe_write.exit124.thread:                        ; preds = %212, %safe_write.ex
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 0, 2) i32 @fcgi_end(ptr noundef %0) local_unnamed_addr #21 {
+define hidden range(i32 0, 2) i32 @fcgi_end(ptr noundef %0) local_unnamed_addr #22 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8, !tbaa !69
   %.not = icmp eq i32 %3, 0
@@ -3154,7 +3154,7 @@ fcgi_end.exit:                                    ; preds = %6, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @fcgi_has_env(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #22 {
+define hidden range(i32 0, 2) i32 @fcgi_has_env(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -3170,8 +3170,8 @@ define hidden range(i32 0, 2) i32 @fcgi_has_env(ptr noundef readonly captures(ad
   ret i32 %8
 }
 
-; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @fcgi_getenv(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #23 {
+; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define hidden ptr @fcgi_getenv(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #24 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %fcgi_hash_get.exit, label %4
 
@@ -3247,8 +3247,8 @@ fcgi_hash_get.exit:                               ; preds = %44, %41, %24, %3
   ret ptr %.0
 }
 
-; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @fcgi_quick_getenv(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #23 {
+; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define hidden ptr @fcgi_quick_getenv(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #24 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8296
   %6 = and i32 %3, 127
   %7 = zext nneg i32 %6 to i64
@@ -3296,8 +3296,8 @@ fcgi_hash_get.exit:                               ; preds = %24, %4, %21
   ret ptr %.015.i
 }
 
-; Function Attrs: nofree nounwind uwtable
-define hidden ptr @fcgi_putenv(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #21 {
+; Function Attrs: nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define hidden ptr @fcgi_putenv(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #25 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %fcgi_hash_del.exit, label %5
 
@@ -3402,7 +3402,7 @@ define hidden ptr @fcgi_putenv(ptr noundef captures(address_is_null) %0, ptr nou
 
 72:                                               ; preds = %54, %55
   %73 = phi i32 [ %71, %55 ], [ %2, %54 ]
-  %74 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #36
+  %74 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #38
   %75 = trunc i64 %74 to i32
   %76 = tail call fastcc ptr @fcgi_hash_set(ptr noundef nonnull %7, i32 noundef %73, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3, i32 noundef %75)
   br label %fcgi_hash_del.exit
@@ -3412,8 +3412,8 @@ fcgi_hash_del.exit:                               ; preds = %51, %46, %27, %4, %
   ret ptr %.0
 }
 
-; Function Attrs: nofree nounwind uwtable
-define internal fastcc ptr @fcgi_hash_set(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) unnamed_addr #21 {
+; Function Attrs: nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc ptr @fcgi_hash_set(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) unnamed_addr #25 {
   %7 = and i32 %1, 127
   %8 = zext nneg i32 %7 to i64
   %9 = getelementptr inbounds nuw ptr, ptr %0, i64 %8
@@ -3464,7 +3464,7 @@ define internal fastcc ptr @fcgi_hash_set(ptr noundef captures(none) %0, i32 nou
   br i1 %30, label %31, label %34, !prof !85
 
 31:                                               ; preds = %._crit_edge
-  %32 = tail call noalias dereferenceable_or_null(6160) ptr @malloc(i64 noundef 6160) #34
+  %32 = tail call noalias dereferenceable_or_null(6160) ptr @malloc(i64 noundef 6160) #36
   store i32 0, ptr %32, align 8, !tbaa !47
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %28, ptr %33, align 8, !tbaa !49
@@ -3506,7 +3506,7 @@ define internal fastcc ptr @fcgi_hash_set(ptr noundef captures(none) %0, i32 nou
   %55 = tail call i32 @llvm.umax.i32(i32 %.pre.i, i32 4096)
   %56 = zext i32 %55 to i64
   %57 = add nuw nsw i64 %56, 31
-  %58 = tail call noalias ptr @malloc(i64 noundef %57) #34
+  %58 = tail call noalias ptr @malloc(i64 noundef %57) #36
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   store ptr %59, ptr %58, align 8, !tbaa !51
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 %56
@@ -3544,7 +3544,7 @@ fcgi_hash_strndup.exit:                           ; preds = %34, %54
   %77 = tail call i32 @llvm.umax.i32(i32 %.pre.i56, i32 4096)
   %78 = zext i32 %77 to i64
   %79 = add nuw nsw i64 %78, 31
-  %80 = tail call noalias ptr @malloc(i64 noundef %79) #34
+  %80 = tail call noalias ptr @malloc(i64 noundef %79) #36
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 24
   store ptr %81, ptr %80, align 8, !tbaa !51
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 %78
@@ -3575,8 +3575,8 @@ fcgi_hash_strndup.exit57:                         ; preds = %fcgi_hash_strndup.e
   ret ptr %.sink
 }
 
-; Function Attrs: nofree nounwind uwtable
-define hidden ptr @fcgi_quick_putenv(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #21 {
+; Function Attrs: nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define hidden ptr @fcgi_quick_putenv(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #25 {
   %6 = icmp eq ptr %4, null
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8296
   br i1 %6, label %8, label %34
@@ -3630,7 +3630,7 @@ define hidden ptr @fcgi_quick_putenv(ptr noundef captures(none) %0, ptr noundef 
   br i1 %.not.i, label %fcgi_hash_del.exit, label %14
 
 34:                                               ; preds = %5
-  %35 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #36
+  %35 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #38
   %36 = trunc i64 %35 to i32
   %37 = tail call fastcc ptr @fcgi_hash_set(ptr noundef nonnull %7, i32 noundef %3, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %4, i32 noundef %36)
   br label %fcgi_hash_del.exit
@@ -3661,7 +3661,7 @@ define hidden void @fcgi_loadenv(ptr noundef readonly captures(none) %0, ptr nou
   %11 = load i32, ptr %10, align 4, !tbaa !82
   %12 = getelementptr inbounds nuw i8, ptr %.014.i, i64 16
   %13 = load i32, ptr %12, align 8, !tbaa !88
-  tail call void %1(ptr noundef %9, i32 noundef %11, ptr noundef nonnull %6, i32 noundef %13, ptr noundef %2) #33
+  tail call void %1(ptr noundef %9, i32 noundef %11, ptr noundef nonnull %6, i32 noundef %13, ptr noundef %2) #35
   br label %14
 
 14:                                               ; preds = %7, %.lr.ph.i
@@ -3682,7 +3682,7 @@ declare ptr @inet_ntop(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local
 ; Function Attrs: nounwind
 declare i32 @sigemptyset(ptr noundef) local_unnamed_addr #9
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @fcgi_signal_handler(i32 noundef %0) #0 {
   switch i32 %0, label %3 [
     i32 15, label %2
@@ -3701,13 +3701,13 @@ define internal void @fcgi_signal_handler(i32 noundef %0) #0 {
 declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #24
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #26
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #25
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #27
 
-; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @fcgi_get_params(ptr noundef captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #21 {
+; Function Attrs: nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @fcgi_get_params(ptr noundef captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #25 {
   %4 = icmp ult ptr %1, %2
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -3838,10 +3838,10 @@ define internal fastcc range(i32 0, 2) i32 @fcgi_get_params(ptr noundef captures
 declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #25
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #27
 
-; Function Attrs: inlinehint mustprogress nofree nounwind willreturn uwtable
-define internal fastcc ptr @fcgi_hash_strndup(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #26 {
+; Function Attrs: inlinehint mustprogress nofree nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc ptr @fcgi_hash_strndup(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #28 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %5 = load ptr, ptr %4, align 8, !tbaa !50
   %6 = load ptr, ptr %5, align 8, !tbaa !51
@@ -3858,7 +3858,7 @@ define internal fastcc ptr @fcgi_hash_strndup(ptr noundef captures(none) %0, ptr
   %13 = tail call i32 @llvm.umax.i32(i32 %.pre, i32 4096)
   %14 = zext i32 %13 to i64
   %15 = add nuw nsw i64 %14, 31
-  %16 = tail call noalias ptr @malloc(i64 noundef %15) #34
+  %16 = tail call noalias ptr @malloc(i64 noundef %15) #36
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %17, ptr %16, align 8, !tbaa !51
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 %14
@@ -3883,37 +3883,37 @@ define internal fastcc ptr @fcgi_hash_strndup(ptr noundef captures(none) %0, ptr
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #27
+declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #29
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #28
+declare void @llvm.assume(i1 noundef) #30
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #29
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #31
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #29
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #31
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #30
+declare i16 @llvm.bswap.i16(i16) #32
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #31
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #33
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #30
+declare i32 @llvm.smax.i32(i32, i32) #32
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #30
+declare i32 @llvm.umax.i32(i32, i32) #32
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3924,26 +3924,28 @@ attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #15 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { inlinehint mustprogress nofree nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #29 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #30 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #31 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #32 = { cold nounwind }
-attributes #33 = { nounwind }
-attributes #34 = { nounwind allocsize(0) }
-attributes #35 = { nounwind willreturn memory(none) }
-attributes #36 = { nounwind willreturn memory(read) }
-attributes #37 = { nounwind allocsize(0,1) }
+attributes #21 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { nofree norecurse nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { inlinehint mustprogress nofree nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #30 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #31 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #32 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #33 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #34 = { cold nounwind }
+attributes #35 = { nounwind }
+attributes #36 = { nounwind allocsize(0) }
+attributes #37 = { nounwind willreturn memory(none) }
+attributes #38 = { nounwind willreturn memory(read) }
+attributes #39 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -42,7 +42,7 @@ target triple = "x86_64-pc-linux-gnu"
 @enable_dbg_outs = external local_unnamed_addr global i32, align 4
 @switch.table.Abc_TruthNpnPerform = private unnamed_addr constant [12 x ptr] [ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17], align 8
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define i32 @Abc_TruthNpnCountUnique(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !3
@@ -78,9 +78,9 @@ define i32 @Abc_TruthNpnCountUnique(ptr noundef captures(none) %0) local_unnamed
 Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %7
   %12 = sext i32 %5 to i64
   %13 = shl nsw i64 %12, 2
-  %14 = tail call noalias ptr @malloc(i64 noundef %13) #17
+  %14 = tail call noalias ptr @malloc(i64 noundef %13) #18
   tail call void @llvm.memset.p0.i64(ptr align 1 %14, i8 -1, i64 %13, i1 false)
-  %15 = tail call noalias ptr @malloc(i64 noundef %13) #17
+  %15 = tail call noalias ptr @malloc(i64 noundef %13) #18
   tail call void @llvm.memset.p0.i64(ptr align 1 %15, i8 -1, i64 %13, i1 false)
   %16 = icmp sgt i32 %3, 0
   br i1 %16, label %.lr.ph, label %._crit_edge
@@ -215,7 +215,7 @@ Abc_TruthHashLookup.exit:                         ; preds = %49
   br i1 %.not, label %58, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %57, %._crit_edge
-  tail call void @free(ptr noundef nonnull %14) #18
+  tail call void @free(ptr noundef nonnull %14) #19
   br label %58
 
 58:                                               ; preds = %._crit_edge, %._crit_edge.thread
@@ -223,7 +223,7 @@ Abc_TruthHashLookup.exit:                         ; preds = %49
   br i1 %.not46, label %60, label %59
 
 59:                                               ; preds = %58
-  tail call void @free(ptr noundef nonnull %15) #18
+  tail call void @free(ptr noundef nonnull %15) #19
   br label %60
 
 60:                                               ; preds = %58, %59
@@ -272,14 +272,14 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @Abc_TruthCompare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = load ptr, ptr %0, align 8, !tbaa !15
   %4 = load ptr, ptr %1, align 8, !tbaa !15
   %5 = load i32, ptr @nWords, align 4, !tbaa !19
   %6 = sext i32 %5 to i64
   %7 = shl nsw i64 %6, 3
-  %8 = tail call i32 @memcmp(ptr noundef %3, ptr noundef %4, i64 noundef %7) #19
+  %8 = tail call i32 @memcmp(ptr noundef %3, ptr noundef %4, i64 noundef %7) #20
   ret i32 %8
 }
 
@@ -296,7 +296,7 @@ define i32 @Abc_TruthNpnCountUniqueSort(ptr noundef captures(none) %0) local_unn
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !3
   %8 = sext i32 %7 to i64
-  tail call void @qsort(ptr noundef %5, i64 noundef %8, i64 noundef 8, ptr noundef nonnull @Abc_TruthCompare) #18
+  tail call void @qsort(ptr noundef %5, i64 noundef %8, i64 noundef 8, ptr noundef nonnull @Abc_TruthCompare) #19
   %9 = load i32, ptr %6, align 8, !tbaa !3
   %10 = icmp sgt i32 %9, 1
   br i1 %10, label %.lr.ph, label %._crit_edge
@@ -417,7 +417,7 @@ define void @Abc_TruthNpnPrint(ptr noundef readonly captures(address_is_null) %0
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_TruthNpnPerform(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Abc_TruthNpnPerform(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca [16 x i8], align 16
   %6 = alloca %struct.timespec, align 8
@@ -430,7 +430,7 @@ define void @Abc_TruthNpnPerform(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %11 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #18
+  %11 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #19
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %Abc_Clock.exit, label %13
 
@@ -504,7 +504,7 @@ switch.lookup:                                    ; preds = %18
   %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv359
   %43 = load ptr, ptr %42, align 8, !tbaa !15
   %44 = load i32, ptr %0, align 8, !tbaa !31
-  call void @Extra_PrintHex(ptr noundef %40, ptr noundef %43, i32 noundef %44) #18
+  call void @Extra_PrintHex(ptr noundef %40, ptr noundef %43, i32 noundef %44) #19
   %putchar226 = call i32 @putchar(i32 10)
   %.pre = load i32, ptr %31, align 8, !tbaa !3
   br label %.critedge
@@ -544,7 +544,7 @@ switch.lookup:                                    ; preds = %18
   %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv317
   %55 = load ptr, ptr %54, align 8, !tbaa !15
   %56 = load i32, ptr %0, align 8, !tbaa !31
-  %57 = call i32 @Abc_TtCanonicizePhase(ptr noundef %55, i32 noundef %56) #18
+  %57 = call i32 @Abc_TtCanonicizePhase(ptr noundef %55, i32 noundef %56) #19
   %indvars.iv.next318 = add nuw nsw i64 %indvars.iv317, 1
   %58 = load i32, ptr %49, align 8, !tbaa !3
   %59 = sext i32 %58 to i64
@@ -567,7 +567,7 @@ switch.lookup:                                    ; preds = %18
   %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv323
   %67 = load ptr, ptr %66, align 8, !tbaa !15
   %68 = load i32, ptr %0, align 8, !tbaa !31
-  %69 = call i32 @Abc_TtCanonicize(ptr noundef %67, i32 noundef %68, ptr noundef nonnull %10) #18
+  %69 = call i32 @Abc_TtCanonicize(ptr noundef %67, i32 noundef %68, ptr noundef nonnull %10) #19
   %indvars.iv.next324 = add nuw nsw i64 %indvars.iv323, 1
   %70 = load i32, ptr %61, align 8, !tbaa !3
   %71 = sext i32 %70 to i64
@@ -587,12 +587,12 @@ switch.lookup:                                    ; preds = %18
 .critedge234.us:                                  ; preds = %.lr.ph271, %.critedge234.us
   %indvars.iv329 = phi i64 [ %indvars.iv.next330, %.critedge234.us ], [ 0, %.lr.ph271 ]
   %77 = load i32, ptr %0, align 8, !tbaa !31
-  call void @resetPCanonPermArray(ptr noundef nonnull %10, i32 noundef %77) #18
+  call void @resetPCanonPermArray(ptr noundef nonnull %10, i32 noundef %77) #19
   %78 = load ptr, ptr %76, align 8, !tbaa !13
   %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv329
   %80 = load ptr, ptr %79, align 8, !tbaa !15
   %81 = load i32, ptr %0, align 8, !tbaa !31
-  %82 = call i32 @luckyCanonicizer_final_fast1(ptr noundef %80, i32 noundef %81, ptr noundef nonnull %10) #18
+  %82 = call i32 @luckyCanonicizer_final_fast1(ptr noundef %80, i32 noundef %81, ptr noundef nonnull %10) #19
   %indvars.iv.next330 = add nuw nsw i64 %indvars.iv329, 1
   %83 = load i32, ptr %73, align 8, !tbaa !3
   %84 = sext i32 %83 to i64
@@ -612,12 +612,12 @@ switch.lookup:                                    ; preds = %18
 .critedge232.us:                                  ; preds = %.lr.ph273, %.critedge232.us
   %indvars.iv335 = phi i64 [ %indvars.iv.next336, %.critedge232.us ], [ 0, %.lr.ph273 ]
   %90 = load i32, ptr %0, align 8, !tbaa !31
-  call void @resetPCanonPermArray(ptr noundef nonnull %10, i32 noundef %90) #18
+  call void @resetPCanonPermArray(ptr noundef nonnull %10, i32 noundef %90) #19
   %91 = load ptr, ptr %89, align 8, !tbaa !13
   %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv335
   %93 = load ptr, ptr %92, align 8, !tbaa !15
   %94 = load i32, ptr %0, align 8, !tbaa !31
-  %95 = call i32 @luckyCanonicizer_final_fast(ptr noundef %93, i32 noundef %94, ptr noundef nonnull %10) #18
+  %95 = call i32 @luckyCanonicizer_final_fast(ptr noundef %93, i32 noundef %94, ptr noundef nonnull %10) #19
   %indvars.iv.next336 = add nuw nsw i64 %indvars.iv335, 1
   %96 = load i32, ptr %86, align 8, !tbaa !3
   %97 = sext i32 %96 to i64
@@ -637,12 +637,12 @@ switch.lookup:                                    ; preds = %18
 .critedge230.us:                                  ; preds = %.lr.ph275, %.critedge230.us
   %indvars.iv341 = phi i64 [ %indvars.iv.next342, %.critedge230.us ], [ 0, %.lr.ph275 ]
   %103 = load i32, ptr %0, align 8, !tbaa !31
-  call void @resetPCanonPermArray(ptr noundef nonnull %10, i32 noundef %103) #18
+  call void @resetPCanonPermArray(ptr noundef nonnull %10, i32 noundef %103) #19
   %104 = load ptr, ptr %102, align 8, !tbaa !13
   %105 = getelementptr inbounds nuw ptr, ptr %104, i64 %indvars.iv341
   %106 = load ptr, ptr %105, align 8, !tbaa !15
   %107 = load i32, ptr %0, align 8, !tbaa !31
-  %108 = call i32 @Kit_TruthSemiCanonicize(ptr noundef %106, ptr noundef nonnull %7, i32 noundef %107, ptr noundef nonnull %10) #18
+  %108 = call i32 @Kit_TruthSemiCanonicize(ptr noundef %106, ptr noundef nonnull %7, i32 noundef %107, ptr noundef nonnull %10) #19
   %indvars.iv.next342 = add nuw nsw i64 %indvars.iv341, 1
   %109 = load i32, ptr %99, align 8, !tbaa !3
   %110 = sext i32 %109 to i64
@@ -652,7 +652,7 @@ switch.lookup:                                    ; preds = %18
 112:                                              ; preds = %48
   %113 = call i32 @Abc_TruthNpnCountUnique(ptr noundef %0)
   %114 = load i32, ptr %0, align 8, !tbaa !31
-  %115 = call ptr @setPermInfoPtr(i32 noundef %114) #18
+  %115 = call ptr @setPermInfoPtr(i32 noundef %114) #19
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %117 = load i32, ptr %116, align 8, !tbaa !3
   %118 = icmp sgt i32 %117, 0
@@ -668,7 +668,7 @@ switch.lookup:                                    ; preds = %18
   %121 = getelementptr inbounds nuw ptr, ptr %120, i64 %indvars.iv347
   %122 = load ptr, ptr %121, align 8, !tbaa !15
   %123 = load i32, ptr %0, align 8, !tbaa !31
-  call void @simpleMinimal(ptr noundef %122, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %115, i32 noundef %123) #18
+  call void @simpleMinimal(ptr noundef %122, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %115, i32 noundef %123) #19
   %indvars.iv.next348 = add nuw nsw i64 %indvars.iv347, 1
   %124 = load i32, ptr %116, align 8, !tbaa !3
   %125 = sext i32 %124 to i64
@@ -683,13 +683,13 @@ switch.lookup:                                    ; preds = %18
   %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %indvars.iv344
   %131 = load ptr, ptr %130, align 8, !tbaa !15
   %132 = load i32, ptr %0, align 8, !tbaa !31
-  call void @simpleMinimal(ptr noundef %131, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %115, i32 noundef %132) #18
+  call void @simpleMinimal(ptr noundef %131, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %115, i32 noundef %132) #19
   %133 = load ptr, ptr @stdout, align 8, !tbaa !32
   %134 = load ptr, ptr %119, align 8, !tbaa !13
   %135 = getelementptr inbounds nuw ptr, ptr %134, i64 %indvars.iv344
   %136 = load ptr, ptr %135, align 8, !tbaa !15
   %137 = load i32, ptr %0, align 8, !tbaa !31
-  call void @Extra_PrintHex(ptr noundef %133, ptr noundef %136, i32 noundef %137) #18
+  call void @Extra_PrintHex(ptr noundef %133, ptr noundef %136, i32 noundef %137) #19
   %138 = load i32, ptr %0, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %139 = icmp sgt i32 %138, 0
@@ -730,7 +730,7 @@ Abc_TruthNpnPrint.exit:                           ; preds = %143, %._crit_edge22
   br i1 %154, label %.lr.ph278.split, label %._crit_edge279, !llvm.loop !40
 
 ._crit_edge279:                                   ; preds = %Abc_TruthNpnPrint.exit, %.critedge228.us, %112
-  call void @freePermInfoPtr(ptr noundef %115) #18
+  call void @freePermInfoPtr(ptr noundef %115) #19
   br label %.loopexit
 
 .lr.ph275.split:                                  ; preds = %.lr.ph275, %.lr.ph275.split
@@ -738,18 +738,18 @@ Abc_TruthNpnPrint.exit:                           ; preds = %143, %._crit_edge22
   %155 = trunc nuw nsw i64 %indvars.iv338 to i32
   %156 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %155)
   %157 = load i32, ptr %0, align 8, !tbaa !31
-  call void @resetPCanonPermArray(ptr noundef nonnull %10, i32 noundef %157) #18
+  call void @resetPCanonPermArray(ptr noundef nonnull %10, i32 noundef %157) #19
   %158 = load ptr, ptr %102, align 8, !tbaa !13
   %159 = getelementptr inbounds nuw ptr, ptr %158, i64 %indvars.iv338
   %160 = load ptr, ptr %159, align 8, !tbaa !15
   %161 = load i32, ptr %0, align 8, !tbaa !31
-  %162 = call i32 @Kit_TruthSemiCanonicize(ptr noundef %160, ptr noundef nonnull %7, i32 noundef %161, ptr noundef nonnull %10) #18
+  %162 = call i32 @Kit_TruthSemiCanonicize(ptr noundef %160, ptr noundef nonnull %7, i32 noundef %161, ptr noundef nonnull %10) #19
   %163 = load ptr, ptr @stdout, align 8, !tbaa !32
   %164 = load ptr, ptr %102, align 8, !tbaa !13
   %165 = getelementptr inbounds nuw ptr, ptr %164, i64 %indvars.iv338
   %166 = load ptr, ptr %165, align 8, !tbaa !15
   %167 = load i32, ptr %0, align 8, !tbaa !31
-  call void @Extra_PrintHex(ptr noundef %163, ptr noundef %166, i32 noundef %167) #18
+  call void @Extra_PrintHex(ptr noundef %163, ptr noundef %166, i32 noundef %167) #19
   %168 = load i32, ptr %0, align 8, !tbaa !31
   call void @Abc_TruthNpnPrint(ptr noundef nonnull %10, i32 noundef %162, i32 noundef %168)
   %putchar224 = call i32 @putchar(i32 10)
@@ -764,18 +764,18 @@ Abc_TruthNpnPrint.exit:                           ; preds = %143, %._crit_edge22
   %172 = trunc nuw nsw i64 %indvars.iv332 to i32
   %173 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %172)
   %174 = load i32, ptr %0, align 8, !tbaa !31
-  call void @resetPCanonPermArray(ptr noundef nonnull %10, i32 noundef %174) #18
+  call void @resetPCanonPermArray(ptr noundef nonnull %10, i32 noundef %174) #19
   %175 = load ptr, ptr %89, align 8, !tbaa !13
   %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %indvars.iv332
   %177 = load ptr, ptr %176, align 8, !tbaa !15
   %178 = load i32, ptr %0, align 8, !tbaa !31
-  %179 = call i32 @luckyCanonicizer_final_fast(ptr noundef %177, i32 noundef %178, ptr noundef nonnull %10) #18
+  %179 = call i32 @luckyCanonicizer_final_fast(ptr noundef %177, i32 noundef %178, ptr noundef nonnull %10) #19
   %180 = load ptr, ptr @stdout, align 8, !tbaa !32
   %181 = load ptr, ptr %89, align 8, !tbaa !13
   %182 = getelementptr inbounds nuw ptr, ptr %181, i64 %indvars.iv332
   %183 = load ptr, ptr %182, align 8, !tbaa !15
   %184 = load i32, ptr %0, align 8, !tbaa !31
-  call void @Extra_PrintHex(ptr noundef %180, ptr noundef %183, i32 noundef %184) #18
+  call void @Extra_PrintHex(ptr noundef %180, ptr noundef %183, i32 noundef %184) #19
   %185 = load i32, ptr %0, align 8, !tbaa !31
   call void @Abc_TruthNpnPrint(ptr noundef nonnull %10, i32 noundef %179, i32 noundef %185)
   %putchar223 = call i32 @putchar(i32 10)
@@ -790,18 +790,18 @@ Abc_TruthNpnPrint.exit:                           ; preds = %143, %._crit_edge22
   %189 = trunc nuw nsw i64 %indvars.iv326 to i32
   %190 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %189)
   %191 = load i32, ptr %0, align 8, !tbaa !31
-  call void @resetPCanonPermArray(ptr noundef nonnull %10, i32 noundef %191) #18
+  call void @resetPCanonPermArray(ptr noundef nonnull %10, i32 noundef %191) #19
   %192 = load ptr, ptr %76, align 8, !tbaa !13
   %193 = getelementptr inbounds nuw ptr, ptr %192, i64 %indvars.iv326
   %194 = load ptr, ptr %193, align 8, !tbaa !15
   %195 = load i32, ptr %0, align 8, !tbaa !31
-  %196 = call i32 @luckyCanonicizer_final_fast1(ptr noundef %194, i32 noundef %195, ptr noundef nonnull %10) #18
+  %196 = call i32 @luckyCanonicizer_final_fast1(ptr noundef %194, i32 noundef %195, ptr noundef nonnull %10) #19
   %197 = load ptr, ptr @stdout, align 8, !tbaa !32
   %198 = load ptr, ptr %76, align 8, !tbaa !13
   %199 = getelementptr inbounds nuw ptr, ptr %198, i64 %indvars.iv326
   %200 = load ptr, ptr %199, align 8, !tbaa !15
   %201 = load i32, ptr %0, align 8, !tbaa !31
-  call void @Extra_PrintHex(ptr noundef %197, ptr noundef %200, i32 noundef %201) #18
+  call void @Extra_PrintHex(ptr noundef %197, ptr noundef %200, i32 noundef %201) #19
   %202 = load i32, ptr %0, align 8, !tbaa !31
   call void @Abc_TruthNpnPrint(ptr noundef nonnull %10, i32 noundef %196, i32 noundef %202)
   %putchar222 = call i32 @putchar(i32 10)
@@ -819,13 +819,13 @@ Abc_TruthNpnPrint.exit:                           ; preds = %143, %._crit_edge22
   %209 = getelementptr inbounds nuw ptr, ptr %208, i64 %indvars.iv320
   %210 = load ptr, ptr %209, align 8, !tbaa !15
   %211 = load i32, ptr %0, align 8, !tbaa !31
-  %212 = call i32 @Abc_TtCanonicize(ptr noundef %210, i32 noundef %211, ptr noundef nonnull %10) #18
+  %212 = call i32 @Abc_TtCanonicize(ptr noundef %210, i32 noundef %211, ptr noundef nonnull %10) #19
   %213 = load ptr, ptr @stdout, align 8, !tbaa !32
   %214 = load ptr, ptr %64, align 8, !tbaa !13
   %215 = getelementptr inbounds nuw ptr, ptr %214, i64 %indvars.iv320
   %216 = load ptr, ptr %215, align 8, !tbaa !15
   %217 = load i32, ptr %0, align 8, !tbaa !31
-  call void @Extra_PrintHex(ptr noundef %213, ptr noundef %216, i32 noundef %217) #18
+  call void @Extra_PrintHex(ptr noundef %213, ptr noundef %216, i32 noundef %217) #19
   %218 = load i32, ptr %0, align 8, !tbaa !31
   call void @Abc_TruthNpnPrint(ptr noundef nonnull %10, i32 noundef %212, i32 noundef %218)
   %putchar221 = call i32 @putchar(i32 10)
@@ -843,13 +843,13 @@ Abc_TruthNpnPrint.exit:                           ; preds = %143, %._crit_edge22
   %225 = getelementptr inbounds nuw ptr, ptr %224, i64 %indvars.iv314
   %226 = load ptr, ptr %225, align 8, !tbaa !15
   %227 = load i32, ptr %0, align 8, !tbaa !31
-  %228 = call i32 @Abc_TtCanonicizePhase(ptr noundef %226, i32 noundef %227) #18
+  %228 = call i32 @Abc_TtCanonicizePhase(ptr noundef %226, i32 noundef %227) #19
   %229 = load ptr, ptr @stdout, align 8, !tbaa !32
   %230 = load ptr, ptr %52, align 8, !tbaa !13
   %231 = getelementptr inbounds nuw ptr, ptr %230, i64 %indvars.iv314
   %232 = load ptr, ptr %231, align 8, !tbaa !15
   %233 = load i32, ptr %0, align 8, !tbaa !31
-  call void @Extra_PrintHex(ptr noundef %229, ptr noundef %232, i32 noundef %233) #18
+  call void @Extra_PrintHex(ptr noundef %229, ptr noundef %232, i32 noundef %233) #19
   %234 = load i32, ptr %0, align 8, !tbaa !31
   call void @Abc_TruthNpnPrint(ptr noundef null, i32 noundef %228, i32 noundef %234)
   %putchar220 = call i32 @putchar(i32 10)
@@ -861,7 +861,7 @@ Abc_TruthNpnPrint.exit:                           ; preds = %143, %._crit_edge22
 
 238:                                              ; preds = %48
   %239 = load i32, ptr %0, align 8, !tbaa !31
-  %240 = call ptr @Abc_TtHieManStart(i32 noundef %239, i32 noundef 5) #18
+  %240 = call ptr @Abc_TtHieManStart(i32 noundef %239, i32 noundef 5) #19
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %242 = load i32, ptr %241, align 8, !tbaa !3
   %243 = icmp sgt i32 %242, 0
@@ -877,7 +877,7 @@ Abc_TruthNpnPrint.exit:                           ; preds = %143, %._crit_edge22
   %246 = getelementptr inbounds nuw ptr, ptr %245, i64 %indvars.iv311
   %247 = load ptr, ptr %246, align 8, !tbaa !15
   %248 = load i32, ptr %0, align 8, !tbaa !31
-  %249 = call i32 @Abc_TtCanonicizeHie(ptr noundef %240, ptr noundef %247, i32 noundef %248, ptr noundef nonnull %10, i32 noundef 0) #18
+  %249 = call i32 @Abc_TtCanonicizeHie(ptr noundef %240, ptr noundef %247, i32 noundef %248, ptr noundef nonnull %10, i32 noundef 0) #19
   %indvars.iv.next312 = add nuw nsw i64 %indvars.iv311, 1
   %250 = load i32, ptr %241, align 8, !tbaa !3
   %251 = sext i32 %250 to i64
@@ -892,7 +892,7 @@ Abc_TruthNpnPrint.exit:                           ; preds = %143, %._crit_edge22
   %256 = getelementptr inbounds nuw ptr, ptr %255, i64 %indvars.iv308
   %257 = load ptr, ptr %256, align 8, !tbaa !15
   %258 = load i32, ptr %0, align 8, !tbaa !31
-  %259 = call i32 @Abc_TtCanonicizeHie(ptr noundef %240, ptr noundef %257, i32 noundef %258, ptr noundef nonnull %10, i32 noundef 0) #18
+  %259 = call i32 @Abc_TtCanonicizeHie(ptr noundef %240, ptr noundef %257, i32 noundef %258, ptr noundef nonnull %10, i32 noundef 0) #19
   %putchar219 = call i32 @putchar(i32 10)
   %indvars.iv.next309 = add nuw nsw i64 %indvars.iv308, 1
   %260 = load i32, ptr %241, align 8, !tbaa !3
@@ -901,12 +901,12 @@ Abc_TruthNpnPrint.exit:                           ; preds = %143, %._crit_edge22
   br i1 %262, label %.lr.ph264.split, label %._crit_edge265, !llvm.loop !41
 
 ._crit_edge265:                                   ; preds = %.lr.ph264.split, %.critedge240.us, %238
-  call void @Abc_TtHieManStop(ptr noundef %240) #18
+  call void @Abc_TtHieManStop(ptr noundef %240) #19
   br label %.loopexit
 
 263:                                              ; preds = %48
   %264 = load i32, ptr %0, align 8, !tbaa !31
-  %265 = call ptr @Abc_TtHieManStart(i32 noundef %264, i32 noundef 5) #18
+  %265 = call ptr @Abc_TtHieManStart(i32 noundef %264, i32 noundef 5) #19
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %267 = load i32, ptr %266, align 8, !tbaa !3
   %268 = icmp sgt i32 %267, 0
@@ -922,7 +922,7 @@ Abc_TruthNpnPrint.exit:                           ; preds = %143, %._crit_edge22
   %271 = getelementptr inbounds nuw ptr, ptr %270, i64 %indvars.iv305
   %272 = load ptr, ptr %271, align 8, !tbaa !15
   %273 = load i32, ptr %0, align 8, !tbaa !31
-  %274 = call i32 @Abc_TtCanonicizeWrap(ptr noundef nonnull @Abc_TtCanonicizeAda, ptr noundef %265, ptr noundef %272, i32 noundef %273, ptr noundef nonnull %10, i32 noundef 125) #18
+  %274 = call i32 @Abc_TtCanonicizeWrap(ptr noundef nonnull @Abc_TtCanonicizeAda, ptr noundef %265, ptr noundef %272, i32 noundef %273, ptr noundef nonnull %10, i32 noundef 125) #19
   %indvars.iv.next306 = add nuw nsw i64 %indvars.iv305, 1
   %275 = load i32, ptr %266, align 8, !tbaa !3
   %276 = sext i32 %275 to i64
@@ -937,13 +937,13 @@ Abc_TruthNpnPrint.exit:                           ; preds = %143, %._crit_edge22
   %281 = getelementptr inbounds nuw ptr, ptr %280, i64 %indvars.iv
   %282 = load ptr, ptr %281, align 8, !tbaa !15
   %283 = load i32, ptr %0, align 8, !tbaa !31
-  %284 = call i32 @Abc_TtCanonicizeWrap(ptr noundef nonnull @Abc_TtCanonicizeAda, ptr noundef %265, ptr noundef %282, i32 noundef %283, ptr noundef nonnull %10, i32 noundef 125) #18
+  %284 = call i32 @Abc_TtCanonicizeWrap(ptr noundef nonnull @Abc_TtCanonicizeAda, ptr noundef %265, ptr noundef %282, i32 noundef %283, ptr noundef nonnull %10, i32 noundef 125) #19
   %285 = load ptr, ptr @stdout, align 8, !tbaa !32
   %286 = load ptr, ptr %269, align 8, !tbaa !13
   %287 = getelementptr inbounds nuw ptr, ptr %286, i64 %indvars.iv
   %288 = load ptr, ptr %287, align 8, !tbaa !15
   %289 = load i32, ptr %0, align 8, !tbaa !31
-  call void @Extra_PrintHex(ptr noundef %285, ptr noundef %288, i32 noundef %289) #18
+  call void @Extra_PrintHex(ptr noundef %285, ptr noundef %288, i32 noundef %289) #19
   %290 = load i32, ptr %0, align 8, !tbaa !31
   call void @Abc_TruthNpnPrint(ptr noundef nonnull %10, i32 noundef %284, i32 noundef %290)
   %putchar218 = call i32 @putchar(i32 10)
@@ -954,7 +954,7 @@ Abc_TruthNpnPrint.exit:                           ; preds = %143, %._crit_edge22
   br i1 %293, label %.lr.ph.split, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.critedge242.us, %263
-  call void @Abc_TtHieManStop(ptr noundef %265) #18
+  call void @Abc_TtHieManStop(ptr noundef %265) #19
   br label %.loopexit
 
 294:                                              ; preds = %48
@@ -964,7 +964,7 @@ Abc_TruthNpnPrint.exit:                           ; preds = %143, %._crit_edge22
 
 296:                                              ; preds = %294
   %297 = load i32, ptr %0, align 8, !tbaa !31
-  %298 = call ptr @Abc_TtHieManStart(i32 noundef %297, i32 noundef 5) #18
+  %298 = call ptr @Abc_TtHieManStart(i32 noundef %297, i32 noundef 5) #19
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %300 = load i32, ptr %299, align 8, !tbaa !3
   %301 = icmp sgt i32 %300, 0
@@ -996,7 +996,7 @@ Abc_TruthNpnPrint.exit:                           ; preds = %143, %._crit_edge22
   %310 = getelementptr inbounds nuw ptr, ptr %309, i64 %indvars.iv356
   %311 = load ptr, ptr %310, align 8, !tbaa !15
   %312 = load i32, ptr %0, align 8, !tbaa !31
-  %313 = call i32 @Abc_TtCanonicizeWrap(ptr noundef nonnull @Abc_TtCanonicizeAda, ptr noundef %298, ptr noundef %311, i32 noundef %312, ptr noundef nonnull %10, i32 noundef 125) #18
+  %313 = call i32 @Abc_TtCanonicizeWrap(ptr noundef nonnull @Abc_TtCanonicizeAda, ptr noundef %298, ptr noundef %311, i32 noundef %312, ptr noundef nonnull %10, i32 noundef 125) #19
   br label %326
 
 314:                                              ; preds = %307
@@ -1004,7 +1004,7 @@ Abc_TruthNpnPrint.exit:                           ; preds = %143, %._crit_edge22
   %316 = getelementptr inbounds nuw ptr, ptr %315, i64 %indvars.iv356
   %317 = load ptr, ptr %316, align 8, !tbaa !15
   %318 = load i32, ptr %0, align 8, !tbaa !31
-  %319 = call i32 @Abc_TtCanonicizeWrap(ptr noundef nonnull @Abc_TtCanonicizeAda, ptr noundef %298, ptr noundef %317, i32 noundef %318, ptr noundef nonnull %10, i32 noundef 1199) #18
+  %319 = call i32 @Abc_TtCanonicizeWrap(ptr noundef nonnull @Abc_TtCanonicizeAda, ptr noundef %298, ptr noundef %317, i32 noundef %318, ptr noundef nonnull %10, i32 noundef 1199) #19
   br label %326
 
 320:                                              ; preds = %307
@@ -1012,7 +1012,7 @@ Abc_TruthNpnPrint.exit:                           ; preds = %143, %._crit_edge22
   %322 = getelementptr inbounds nuw ptr, ptr %321, i64 %indvars.iv356
   %323 = load ptr, ptr %322, align 8, !tbaa !15
   %324 = load i32, ptr %0, align 8, !tbaa !31
-  %325 = call i32 @Abc_TtCanonicizeWrap(ptr noundef nonnull @Abc_TtCanonicizeCA, ptr noundef %298, ptr noundef %323, i32 noundef %324, ptr noundef nonnull %10, i32 noundef 1) #18
+  %325 = call i32 @Abc_TtCanonicizeWrap(ptr noundef nonnull @Abc_TtCanonicizeCA, ptr noundef %298, ptr noundef %323, i32 noundef %324, ptr noundef nonnull %10, i32 noundef 1) #19
   br label %326
 
 326:                                              ; preds = %307, %314, %320, %308
@@ -1025,7 +1025,7 @@ Abc_TruthNpnPrint.exit:                           ; preds = %143, %._crit_edge22
   %330 = getelementptr inbounds nuw ptr, ptr %329, i64 %indvars.iv356
   %331 = load ptr, ptr %330, align 8, !tbaa !15
   %332 = load i32, ptr %0, align 8, !tbaa !31
-  call void @Extra_PrintHex(ptr noundef %328, ptr noundef %331, i32 noundef %332) #18
+  call void @Extra_PrintHex(ptr noundef %328, ptr noundef %331, i32 noundef %332) #19
   %333 = load i32, ptr %0, align 8, !tbaa !31
   call void @Abc_TruthNpnPrint(ptr noundef nonnull %10, i32 noundef %.1, i32 noundef %333)
   %putchar217 = call i32 @putchar(i32 10)
@@ -1039,7 +1039,7 @@ Abc_TruthNpnPrint.exit:                           ; preds = %143, %._crit_edge22
   br i1 %337, label %303, label %._crit_edge286, !llvm.loop !43
 
 ._crit_edge286:                                   ; preds = %334, %296
-  call void @Abc_TtHieManStop(ptr noundef %298) #18
+  call void @Abc_TtHieManStop(ptr noundef %298) #19
   br label %.loopexit
 
 338:                                              ; preds = %294
@@ -1062,7 +1062,7 @@ Abc_TruthNpnPrint.exit:                           ; preds = %143, %._crit_edge22
   %345 = getelementptr inbounds nuw ptr, ptr %344, i64 %indvars.iv353
   %346 = load ptr, ptr %345, align 8, !tbaa !15
   %347 = load i32, ptr %0, align 8, !tbaa !31
-  %348 = call i32 @Abc_TtCanonicizePerm(ptr noundef %346, i32 noundef %347, ptr noundef nonnull %10) #18
+  %348 = call i32 @Abc_TtCanonicizePerm(ptr noundef %346, i32 noundef %347, ptr noundef nonnull %10) #19
   %indvars.iv.next354 = add nuw nsw i64 %indvars.iv353, 1
   %349 = load i32, ptr %340, align 8, !tbaa !3
   %350 = sext i32 %349 to i64
@@ -1077,13 +1077,13 @@ Abc_TruthNpnPrint.exit:                           ; preds = %143, %._crit_edge22
   %355 = getelementptr inbounds nuw ptr, ptr %354, i64 %indvars.iv350
   %356 = load ptr, ptr %355, align 8, !tbaa !15
   %357 = load i32, ptr %0, align 8, !tbaa !31
-  %358 = call i32 @Abc_TtCanonicizePerm(ptr noundef %356, i32 noundef %357, ptr noundef nonnull %10) #18
+  %358 = call i32 @Abc_TtCanonicizePerm(ptr noundef %356, i32 noundef %357, ptr noundef nonnull %10) #19
   %359 = load ptr, ptr @stdout, align 8, !tbaa !32
   %360 = load ptr, ptr %343, align 8, !tbaa !13
   %361 = getelementptr inbounds nuw ptr, ptr %360, i64 %indvars.iv350
   %362 = load ptr, ptr %361, align 8, !tbaa !15
   %363 = load i32, ptr %0, align 8, !tbaa !31
-  call void @Extra_PrintHex(ptr noundef %359, ptr noundef %362, i32 noundef %363) #18
+  call void @Extra_PrintHex(ptr noundef %359, ptr noundef %362, i32 noundef %363) #19
   %364 = load i32, ptr %0, align 8, !tbaa !31
   call void @Abc_TruthNpnPrint(ptr noundef nonnull %10, i32 noundef %358, i32 noundef %364)
   %putchar216 = call i32 @putchar(i32 10)
@@ -1095,7 +1095,7 @@ Abc_TruthNpnPrint.exit:                           ; preds = %143, %._crit_edge22
 
 .loopexit:                                        ; preds = %.lr.ph267.split, %.critedge238.us, %.lr.ph269.split, %.critedge236.us, %.lr.ph271.split, %.critedge234.us, %.lr.ph273.split, %.critedge232.us, %.lr.ph275.split, %.critedge230.us, %.lr.ph281.split, %.critedge244.us, %.critedge, %.preheader259, %.preheader257, %.preheader255, %.preheader253, %.preheader251, %.preheader249, %.preheader, %._crit_edge279, %._crit_edge265, %._crit_edge286, %338, %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %368 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #18
+  %368 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #19
   %369 = icmp slt i32 %368, 0
   br i1 %369, label %Abc_Clock.exit246, label %370
 
@@ -1125,43 +1125,43 @@ Abc_Clock.exit246:                                ; preds = %.loopexit, %370
   ret void
 }
 
-declare void @Extra_PrintHex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
+declare void @Extra_PrintHex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #10
 
-declare ptr @setPermInfoPtr(i32 noundef) local_unnamed_addr #9
+declare ptr @setPermInfoPtr(i32 noundef) local_unnamed_addr #10
 
-declare void @simpleMinimal(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
+declare void @simpleMinimal(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #10
 
-declare void @freePermInfoPtr(ptr noundef) local_unnamed_addr #9
+declare void @freePermInfoPtr(ptr noundef) local_unnamed_addr #10
 
-declare void @resetPCanonPermArray(ptr noundef, i32 noundef) local_unnamed_addr #9
+declare void @resetPCanonPermArray(ptr noundef, i32 noundef) local_unnamed_addr #10
 
-declare i32 @Kit_TruthSemiCanonicize(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
+declare i32 @Kit_TruthSemiCanonicize(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #10
 
-declare i32 @luckyCanonicizer_final_fast(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
+declare i32 @luckyCanonicizer_final_fast(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #10
 
-declare i32 @luckyCanonicizer_final_fast1(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
+declare i32 @luckyCanonicizer_final_fast1(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #10
 
-declare i32 @Abc_TtCanonicize(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
+declare i32 @Abc_TtCanonicize(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #10
 
-declare i32 @Abc_TtCanonicizePhase(ptr noundef, i32 noundef) local_unnamed_addr #9
+declare i32 @Abc_TtCanonicizePhase(ptr noundef, i32 noundef) local_unnamed_addr #10
 
-declare ptr @Abc_TtHieManStart(i32 noundef, i32 noundef) local_unnamed_addr #9
+declare ptr @Abc_TtHieManStart(i32 noundef, i32 noundef) local_unnamed_addr #10
 
-declare i32 @Abc_TtCanonicizeHie(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
+declare i32 @Abc_TtCanonicizeHie(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #10
 
-declare void @Abc_TtHieManStop(ptr noundef) local_unnamed_addr #9
+declare void @Abc_TtHieManStop(ptr noundef) local_unnamed_addr #10
 
-declare i32 @Abc_TtCanonicizeWrap(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
+declare i32 @Abc_TtCanonicizeWrap(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #10
 
-declare i32 @Abc_TtCanonicizeAda(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #9
+declare i32 @Abc_TtCanonicizeAda(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #10
 
-declare i32 @Abc_TtCanonicizeCA(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #9
+declare i32 @Abc_TtCanonicizeCA(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #10
 
-declare i32 @Abc_TtCanonicizePerm(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
+declare i32 @Abc_TtCanonicizePerm(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_TruthNpnTest(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
-  %7 = tail call ptr @Abc_TtStoreLoad(ptr noundef %0, i32 noundef %2) #18
+define void @Abc_TruthNpnTest(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #9 {
+  %7 = tail call ptr @Abc_TtStoreLoad(ptr noundef %0, i32 noundef %2) #19
   %8 = icmp eq ptr %7, null
   br i1 %8, label %15, label %9
 
@@ -1173,8 +1173,8 @@ define void @Abc_TruthNpnTest(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
 10:                                               ; preds = %9
   %.not17 = icmp eq i32 %4, 0
   %.str.25..str.24 = select i1 %.not17, ptr @.str.25, ptr @.str.24
-  %11 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %0, ptr noundef nonnull %.str.25..str.24) #18
-  tail call void @Abc_TtStoreWrite(ptr noundef %11, ptr noundef nonnull %7, i32 noundef %4) #18
+  %11 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %0, ptr noundef nonnull %.str.25..str.24) #19
+  tail call void @Abc_TtStoreWrite(ptr noundef %11, ptr noundef nonnull %7, i32 noundef %4) #19
   %.not18 = icmp eq i32 %5, 0
   br i1 %.not18, label %14, label %12
 
@@ -1183,23 +1183,23 @@ define void @Abc_TruthNpnTest(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   br label %14
 
 14:                                               ; preds = %10, %12, %9
-  tail call void @Abc_TtStoreFree(ptr noundef nonnull %7, i32 noundef %2) #18
+  tail call void @Abc_TtStoreFree(ptr noundef nonnull %7, i32 noundef %2) #19
   br label %15
 
 15:                                               ; preds = %6, %14
   ret void
 }
 
-declare ptr @Abc_TtStoreLoad(ptr noundef, i32 noundef) local_unnamed_addr #9
+declare ptr @Abc_TtStoreLoad(ptr noundef, i32 noundef) local_unnamed_addr #10
 
-declare ptr @Extra_FileNameGenericAppend(ptr noundef, ptr noundef) local_unnamed_addr #9
+declare ptr @Extra_FileNameGenericAppend(ptr noundef, ptr noundef) local_unnamed_addr #10
 
-declare void @Abc_TtStoreWrite(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
+declare void @Abc_TtStoreWrite(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #10
 
-declare void @Abc_TtStoreFree(ptr noundef, i32 noundef) local_unnamed_addr #9
+declare void @Abc_TtStoreFree(ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NpnTest(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define noundef i32 @Abc_NpnTest(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #9 {
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %9, label %7
 
@@ -1212,7 +1212,7 @@ define noundef i32 @Abc_NpnTest(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br i1 %or.cond, label %10, label %19
 
 10:                                               ; preds = %9
-  %11 = tail call ptr @Abc_TtStoreLoad(ptr noundef %0, i32 noundef %2) #18
+  %11 = tail call ptr @Abc_TtStoreLoad(ptr noundef %0, i32 noundef %2) #19
   %12 = icmp eq ptr %11, null
   br i1 %12, label %Abc_TruthNpnTest.exit, label %13
 
@@ -1224,8 +1224,8 @@ define noundef i32 @Abc_NpnTest(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 14:                                               ; preds = %13
   %.not17.i = icmp eq i32 %4, 0
   %.str.25..str.24.i = select i1 %.not17.i, ptr @.str.25, ptr @.str.24
-  %15 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %0, ptr noundef nonnull %.str.25..str.24.i) #18
-  tail call void @Abc_TtStoreWrite(ptr noundef %15, ptr noundef nonnull %11, i32 noundef %4) #18
+  %15 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %0, ptr noundef nonnull %.str.25..str.24.i) #19
+  tail call void @Abc_TtStoreWrite(ptr noundef %15, ptr noundef nonnull %11, i32 noundef %4) #19
   br i1 %.not, label %18, label %16
 
 16:                                               ; preds = %14
@@ -1233,7 +1233,7 @@ define noundef i32 @Abc_NpnTest(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br label %18
 
 18:                                               ; preds = %16, %14, %13
-  tail call void @Abc_TtStoreFree(ptr noundef nonnull %11, i32 noundef %2) #18
+  tail call void @Abc_TtStoreFree(ptr noundef nonnull %11, i32 noundef %2) #19
   br label %Abc_TruthNpnTest.exit
 
 19:                                               ; preds = %9
@@ -1250,10 +1250,10 @@ Abc_TruthNpnTest.exit:                            ; preds = %18, %10, %19
 declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #10
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #11 {
+define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #12 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !19
@@ -1261,24 +1261,24 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #11 {
   br i1 %.not, label %18, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #18
+  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #19
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %7 = call i32 (...) @Abc_FrameIsBridgeMode() #18
+  %7 = call i32 (...) @Abc_FrameIsBridgeMode() #19
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
 
 8:                                                ; preds = %5
-  %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #18
+  %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #19
   %10 = load ptr, ptr @stdout, align 8, !tbaa !32
-  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #19
+  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #20
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #18
-  call void @free(ptr noundef %9) #18
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #19
+  call void @free(ptr noundef %9) #19
   br label %17
 
 14:                                               ; preds = %5
   %15 = load ptr, ptr @stdout, align 8, !tbaa !32, !noalias !45
-  %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #18
+  %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #19
   br label %17
 
 17:                                               ; preds = %14, %8
@@ -1290,59 +1290,60 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #11 {
   ret void
 }
 
-declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #9
+declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #10
 
-declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
+declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #12
+declare void @llvm.va_start.p0(ptr) #13
 
-declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #9
+declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #12
+declare void @llvm.va_end.p0(ptr) #13
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #15
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
 
-attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #15 = { nofree nounwind }
-attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nounwind allocsize(0) }
-attributes #18 = { nounwind }
-attributes #19 = { nounwind willreturn memory(read) }
+attributes #9 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #16 = { nofree nounwind }
+attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nounwind allocsize(0) }
+attributes #19 = { nounwind }
+attributes #20 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

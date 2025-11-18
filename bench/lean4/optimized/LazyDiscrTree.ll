@@ -13986,13 +13986,13 @@ lean_dec.exit:                                    ; preds = %16, %15, %13, %7
   ret ptr %19
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Lean_Meta_LazyDiscrTree_instInhabitedTrie(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr @l_Lean_Meta_LazyDiscrTree_instInhabitedTrie___closed__5, align 8, !tbaa !4
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Lean_Meta_LazyDiscrTree_instEmptyCollectionTrie(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr @l_Lean_Meta_LazyDiscrTree_instEmptyCollectionTrie___closed__1, align 8, !tbaa !4
   ret ptr %2
@@ -14223,7 +14223,7 @@ lean_alloc_small_object.exit:                     ; preds = %3
   ret ptr %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Lean_Meta_LazyDiscrTree_instInhabited(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr @l_Lean_Meta_LazyDiscrTree_instInhabited___closed__3, align 8, !tbaa !4
   ret ptr %2
@@ -71018,7 +71018,7 @@ lean_alloc_closure.exit:                          ; preds = %1
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Lean_Meta_LazyDiscrTree_instInhabitedPreDiscrTree(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr @l_Lean_Meta_LazyDiscrTree_instInhabitedPreDiscrTree___closed__1, align 8, !tbaa !4
   ret ptr %2
@@ -79026,7 +79026,7 @@ lean_alloc_closure.exit:                          ; preds = %1
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Lean_Meta_LazyDiscrTree_PreDiscrTree_instAppendPreDiscrTree(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr @l_Lean_Meta_LazyDiscrTree_PreDiscrTree_instAppendPreDiscrTree___closed__1, align 8, !tbaa !4
   ret ptr %2
@@ -92874,7 +92874,7 @@ lean_dec.exit:                                    ; preds = %39, %38, %36, %lean
   ret ptr %12
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Lean_Meta_LazyDiscrTree_instInhabitedInitResults(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr @l_Lean_Meta_LazyDiscrTree_instInhabitedInitResults___closed__2, align 8, !tbaa !4
   ret ptr %2
@@ -93141,7 +93141,7 @@ lean_alloc_closure.exit:                          ; preds = %1
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Lean_Meta_LazyDiscrTree_InitResults_instAppendInitResults(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr @l_Lean_Meta_LazyDiscrTree_InitResults_instAppendInitResults___closed__1, align 8, !tbaa !4
   ret ptr %2
@@ -134369,7 +134369,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 attributes #0 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nounwind }

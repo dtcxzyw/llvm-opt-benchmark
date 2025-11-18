@@ -1915,7 +1915,7 @@ _ZN5boost6system6detail30generic_error_category_messageEiPcm.exit: ; preds = %6,
   ret ptr %.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @__cxx_global_var_init.33() #10 section ".text.startup" comdat($_ZN5boost6spirit7classic7static_INS_19thread_specific_ptrINS_8weak_ptrINS1_4impl14grammar_helperINS1_7grammarINS_4wave8grammars14intlit_grammarENS1_15closure_contextINS9_8closures14intlit_closureEEEEESA_NS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEEEEEENS5_30get_definition_static_data_tagEE5data_E) {
   %1 = load i8, ptr @_ZGVN5boost6spirit7classic7static_INS_19thread_specific_ptrINS_8weak_ptrINS1_4impl14grammar_helperINS1_7grammarINS_4wave8grammars14intlit_grammarENS1_15closure_contextINS9_8closures14intlit_closureEEEEESA_NS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEEEEEENS5_30get_definition_static_data_tagEE5data_E, align 8
   %2 = icmp eq i8 %1, 0
@@ -1929,7 +1929,7 @@ define internal void @__cxx_global_var_init.33() #10 section ".text.startup" com
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @__cxx_global_var_init.34() #10 section ".text.startup" comdat($_ZN5boost6spirit7classic7static_INS_19thread_specific_ptrINS_8weak_ptrINS1_4impl14grammar_helperINS1_7grammarINS_4wave8grammars13chlit_grammarENS1_15closure_contextINS9_8closures13chlit_closureEEEEESA_NS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEEEEEENS5_30get_definition_static_data_tagEE5data_E) {
   %1 = load i8, ptr @_ZGVN5boost6spirit7classic7static_INS_19thread_specific_ptrINS_8weak_ptrINS1_4impl14grammar_helperINS1_7grammarINS_4wave8grammars13chlit_grammarENS1_15closure_contextINS9_8closures13chlit_closureEEEEESA_NS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEEEEEENS5_30get_definition_static_data_tagEE5data_E, align 8
   %2 = icmp eq i8 %1, 0
@@ -11451,7 +11451,7 @@ attributes #6 = { cold nofree noreturn }
 attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

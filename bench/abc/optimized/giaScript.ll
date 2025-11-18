@@ -115,11 +115,11 @@ define void @Gia_ManAigPrintPiLevels(ptr noundef readonly captures(none) %0) loc
   br i1 %.not9.i.i.i.i.i, label %28, label %26
 
 26:                                               ; preds = %21
-  %27 = tail call ptr @realloc(ptr noundef nonnull %23, i64 noundef %25) #15
+  %27 = tail call ptr @realloc(ptr noundef nonnull %23, i64 noundef %25) #16
   br label %30
 
 28:                                               ; preds = %21
-  %29 = tail call noalias ptr @malloc(i64 noundef %25) #16
+  %29 = tail call noalias ptr @malloc(i64 noundef %25) #17
   br label %30
 
 30:                                               ; preds = %28, %26
@@ -139,11 +139,11 @@ define void @Gia_ManAigPrintPiLevels(ptr noundef readonly captures(none) %0) loc
   br i1 %.not9.i21.i.i.i.i, label %40, label %38
 
 38:                                               ; preds = %33
-  %39 = tail call ptr @realloc(ptr noundef nonnull %35, i64 noundef %37) #15
+  %39 = tail call ptr @realloc(ptr noundef nonnull %35, i64 noundef %37) #16
   br label %42
 
 40:                                               ; preds = %33
-  %41 = tail call noalias ptr @malloc(i64 noundef %37) #16
+  %41 = tail call noalias ptr @malloc(i64 noundef %37) #17
   br label %42
 
 42:                                               ; preds = %40, %38
@@ -213,11 +213,11 @@ define ptr @Gia_ManAigSyn2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %8
-  call void @Jf_ManSetDefaultPars(ptr noundef nonnull %9) #17
+  call void @Jf_ManSetDefaultPars(ptr noundef nonnull %9) #18
   br label %16
 
 11:                                               ; preds = %8
-  call void @Lf_ManSetDefaultPars(ptr noundef nonnull %9) #17
+  call void @Lf_ManSetDefaultPars(ptr noundef nonnull %9) #18
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 84
   store i32 %2, ptr %12, align 4, !tbaa !37
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 20
@@ -235,12 +235,12 @@ define ptr @Gia_ManAigSyn2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   br i1 %.not90, label %19, label %18
 
 18:                                               ; preds = %16
-  call void @Gia_ManPrintStats(ptr noundef %0, ptr noundef null) #17
+  call void @Gia_ManPrintStats(ptr noundef %0, ptr noundef null) #18
   br label %19
 
 19:                                               ; preds = %18, %16
-  %20 = call ptr @Gia_ManDup(ptr noundef %0) #17
-  call void @Gia_ManTransferTiming(ptr noundef %20, ptr noundef %0) #17
+  %20 = call ptr @Gia_ManDup(ptr noundef %0) #18
+  call void @Gia_ManTransferTiming(ptr noundef %20, ptr noundef %0) #18
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8, !tbaa !44
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 64
@@ -257,8 +257,8 @@ define ptr @Gia_ManAigSyn2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %19
-  %32 = call ptr @Gia_ManDup(ptr noundef nonnull %20) #17
-  call void @Gia_ManTransferTiming(ptr noundef %32, ptr noundef nonnull %20) #17
+  %32 = call ptr @Gia_ManDup(ptr noundef nonnull %20) #18
+  call void @Gia_ManTransferTiming(ptr noundef %32, ptr noundef nonnull %20) #18
   br label %105
 
 33:                                               ; preds = %19
@@ -285,19 +285,19 @@ define ptr @Gia_ManAigSyn2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   br i1 %.not, label %52, label %46
 
 46:                                               ; preds = %38
-  %47 = call ptr @Jf_ManPerformMapping(ptr noundef nonnull %20, ptr noundef nonnull %9) #17
+  %47 = call ptr @Jf_ManPerformMapping(ptr noundef nonnull %20, ptr noundef nonnull %9) #18
   %48 = load i64, ptr %44, align 8, !tbaa !47
   %49 = load i64, ptr %45, align 8, !tbaa !48
-  %50 = call ptr @Gia_ManPerformDsdBalance(ptr noundef nonnull %20, i32 noundef 6, i32 noundef 4, i32 noundef 0, i32 noundef 0) #17
-  %51 = call ptr @Jf_ManPerformMapping(ptr noundef %50, ptr noundef nonnull %9) #17
+  %50 = call ptr @Gia_ManPerformDsdBalance(ptr noundef nonnull %20, i32 noundef 6, i32 noundef 4, i32 noundef 0, i32 noundef 0) #18
+  %51 = call ptr @Jf_ManPerformMapping(ptr noundef %50, ptr noundef nonnull %9) #18
   br label %58
 
 52:                                               ; preds = %38
-  %53 = call ptr @Lf_ManPerformMapping(ptr noundef nonnull %20, ptr noundef nonnull %9) #17
+  %53 = call ptr @Lf_ManPerformMapping(ptr noundef nonnull %20, ptr noundef nonnull %9) #18
   %54 = load i64, ptr %44, align 8, !tbaa !47
   %55 = load i64, ptr %45, align 8, !tbaa !48
-  %56 = call ptr @Gia_ManPerformDsdBalance(ptr noundef nonnull %20, i32 noundef 6, i32 noundef 4, i32 noundef 0, i32 noundef 0) #17
-  %57 = call ptr @Lf_ManPerformMapping(ptr noundef %56, ptr noundef nonnull %9) #17
+  %56 = call ptr @Gia_ManPerformDsdBalance(ptr noundef nonnull %20, i32 noundef 6, i32 noundef 4, i32 noundef 0, i32 noundef 0) #18
+  %57 = call ptr @Lf_ManPerformMapping(ptr noundef %56, ptr noundef nonnull %9) #18
   br label %58
 
 58:                                               ; preds = %52, %46
@@ -329,11 +329,11 @@ define ptr @Gia_ManAigSyn2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   br i1 %77, label %78, label %79
 
 78:                                               ; preds = %71, %58
-  call void @Gia_ManStop(ptr noundef nonnull %20) #17
+  call void @Gia_ManStop(ptr noundef nonnull %20) #18
   br label %Vec_IntFreeP.exit
 
 79:                                               ; preds = %71, %68
-  call void @Gia_ManStop(ptr noundef %59) #17
+  call void @Gia_ManStop(ptr noundef %59) #18
   %80 = getelementptr inbounds nuw i8, ptr %20, i64 264
   %81 = load ptr, ptr %80, align 8, !tbaa !49
   %82 = icmp eq ptr %81, null
@@ -346,7 +346,7 @@ define ptr @Gia_ManAigSyn2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   br i1 %.not.i, label %88, label %.thread.i
 
 .thread.i:                                        ; preds = %83
-  call void @free(ptr noundef nonnull %85) #17
+  call void @free(ptr noundef nonnull %85) #18
   %86 = load ptr, ptr %80, align 8, !tbaa !49
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store ptr null, ptr %87, align 8, !tbaa !31
@@ -354,7 +354,7 @@ define ptr @Gia_ManAigSyn2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
 
 88:                                               ; preds = %.thread.i, %83
   %89 = phi ptr [ %86, %.thread.i ], [ %81, %83 ]
-  call void @free(ptr noundef nonnull %89) #17
+  call void @free(ptr noundef nonnull %89) #18
   store ptr null, ptr %80, align 8, !tbaa !49
   br label %Vec_IntFreeP.exit
 
@@ -367,23 +367,23 @@ Vec_IntFreeP.exit:                                ; preds = %88, %79, %78
 
 90:                                               ; preds = %Vec_IntFreeP.exit, %34, %33
   %.085 = phi ptr [ %.1, %Vec_IntFreeP.exit ], [ %20, %34 ], [ %20, %33 ]
-  %91 = call ptr @Gia_ManAreaBalance(ptr noundef %.085, i32 noundef 0, i32 noundef 1000000000, i32 noundef %7, i32 noundef 0) #17
+  %91 = call ptr @Gia_ManAreaBalance(ptr noundef %.085, i32 noundef 0, i32 noundef 1000000000, i32 noundef %7, i32 noundef 0) #18
   br i1 %.not90, label %93, label %92
 
 92:                                               ; preds = %90
-  call void @Gia_ManPrintStats(ptr noundef %91, ptr noundef null) #17
+  call void @Gia_ManPrintStats(ptr noundef %91, ptr noundef null) #18
   br label %93
 
 93:                                               ; preds = %92, %90
-  call void @Gia_ManStop(ptr noundef %.085) #17
+  call void @Gia_ManStop(ptr noundef %.085) #18
   br i1 %.not, label %96, label %94
 
 94:                                               ; preds = %93
-  %95 = call ptr @Jf_ManPerformMapping(ptr noundef %91, ptr noundef nonnull %9) #17
+  %95 = call ptr @Jf_ManPerformMapping(ptr noundef %91, ptr noundef nonnull %9) #18
   br label %98
 
 96:                                               ; preds = %93
-  %97 = call ptr @Lf_ManPerformMapping(ptr noundef %91, ptr noundef nonnull %9) #17
+  %97 = call ptr @Lf_ManPerformMapping(ptr noundef %91, ptr noundef nonnull %9) #18
   br label %98
 
 98:                                               ; preds = %96, %94
@@ -391,7 +391,7 @@ Vec_IntFreeP.exit:                                ; preds = %88, %79, %78
   br i1 %.not90, label %100, label %99
 
 99:                                               ; preds = %98
-  call void @Gia_ManPrintStats(ptr noundef %.086, ptr noundef null) #17
+  call void @Gia_ManPrintStats(ptr noundef %.086, ptr noundef null) #18
   br label %100
 
 100:                                              ; preds = %99, %98
@@ -399,21 +399,21 @@ Vec_IntFreeP.exit:                                ; preds = %88, %79, %78
   br i1 %.not92, label %102, label %101
 
 101:                                              ; preds = %100
-  call void @Gia_ManStop(ptr noundef %91) #17
+  call void @Gia_ManStop(ptr noundef %91) #18
   br label %102
 
 102:                                              ; preds = %101, %100
-  %103 = call ptr @Gia_ManAreaBalance(ptr noundef %.086, i32 noundef 0, i32 noundef 1000000000, i32 noundef %7, i32 noundef 0) #17
+  %103 = call ptr @Gia_ManAreaBalance(ptr noundef %.086, i32 noundef 0, i32 noundef 1000000000, i32 noundef %7, i32 noundef 0) #18
   br i1 %.not90, label %105, label %104
 
 104:                                              ; preds = %102
-  call void @Gia_ManPrintStats(ptr noundef %103, ptr noundef null) #17
+  call void @Gia_ManPrintStats(ptr noundef %103, ptr noundef null) #18
   br label %105
 
 105:                                              ; preds = %102, %104, %31
   %.086.sink = phi ptr [ %20, %31 ], [ %.086, %104 ], [ %.086, %102 ]
   %.0 = phi ptr [ %32, %31 ], [ %103, %104 ], [ %103, %102 ]
-  call void @Gia_ManStop(ptr noundef %.086.sink) #17
+  call void @Gia_ManStop(ptr noundef %.086.sink) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.0
 }
@@ -442,14 +442,14 @@ declare ptr @Gia_ManAreaBalance(ptr noundef, i32 noundef, i32 noundef, i32 nound
 define ptr @Gia_ManAigSyn3(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.Jf_Par_t_, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @Jf_ManSetDefaultPars(ptr noundef nonnull %4) #17
+  call void @Jf_ManSetDefaultPars(ptr noundef nonnull %4) #18
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 40, ptr %5, align 4, !tbaa !40
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %3
-  call void @Gia_ManPrintStats(ptr noundef %0, ptr noundef null) #17
+  call void @Gia_ManPrintStats(ptr noundef %0, ptr noundef null) #18
   br label %7
 
 7:                                                ; preds = %6, %3
@@ -469,50 +469,50 @@ define ptr @Gia_ManAigSyn3(ptr noundef %0, i32 noundef %1, i32 noundef %2) local
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %7
-  %19 = call ptr @Gia_ManDup(ptr noundef nonnull %0) #17
-  call void @Gia_ManTransferTiming(ptr noundef %19, ptr noundef nonnull %0) #17
+  %19 = call ptr @Gia_ManDup(ptr noundef nonnull %0) #18
+  call void @Gia_ManTransferTiming(ptr noundef %19, ptr noundef nonnull %0) #18
   br label %36
 
 20:                                               ; preds = %7
-  %21 = call ptr @Gia_ManAreaBalance(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 1000000000, i32 noundef %2, i32 noundef 0) #17
+  %21 = call ptr @Gia_ManAreaBalance(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 1000000000, i32 noundef %2, i32 noundef 0) #18
   br i1 %.not, label %.thread34, label %24
 
 .thread34:                                        ; preds = %20
   store i32 6, ptr %4, align 8, !tbaa !50
-  %22 = call ptr @Jf_ManPerformMapping(ptr noundef %21, ptr noundef nonnull %4) #17
-  %23 = call ptr @Gia_ManAreaBalance(ptr noundef %22, i32 noundef 0, i32 noundef 1000000000, i32 noundef %2, i32 noundef 0) #17
+  %22 = call ptr @Jf_ManPerformMapping(ptr noundef %21, ptr noundef nonnull %4) #18
+  %23 = call ptr @Gia_ManAreaBalance(ptr noundef %22, i32 noundef 0, i32 noundef 1000000000, i32 noundef %2, i32 noundef 0) #18
   br label %27
 
 24:                                               ; preds = %20
-  call void @Gia_ManPrintStats(ptr noundef %21, ptr noundef null) #17
+  call void @Gia_ManPrintStats(ptr noundef %21, ptr noundef null) #18
   store i32 6, ptr %4, align 8, !tbaa !50
-  %25 = call ptr @Jf_ManPerformMapping(ptr noundef %21, ptr noundef nonnull %4) #17
-  call void @Gia_ManPrintStats(ptr noundef %25, ptr noundef null) #17
-  %26 = call ptr @Gia_ManAreaBalance(ptr noundef %25, i32 noundef 0, i32 noundef 1000000000, i32 noundef %2, i32 noundef 0) #17
-  call void @Gia_ManPrintStats(ptr noundef %26, ptr noundef null) #17
+  %25 = call ptr @Jf_ManPerformMapping(ptr noundef %21, ptr noundef nonnull %4) #18
+  call void @Gia_ManPrintStats(ptr noundef %25, ptr noundef null) #18
+  %26 = call ptr @Gia_ManAreaBalance(ptr noundef %25, i32 noundef 0, i32 noundef 1000000000, i32 noundef %2, i32 noundef 0) #18
+  call void @Gia_ManPrintStats(ptr noundef %26, ptr noundef null) #18
   br label %27
 
 27:                                               ; preds = %.thread34, %24
   %28 = phi ptr [ %23, %.thread34 ], [ %26, %24 ]
   %29 = phi ptr [ %22, %.thread34 ], [ %25, %24 ]
-  call void @Gia_ManStop(ptr noundef %29) #17
+  call void @Gia_ManStop(ptr noundef %29) #18
   store i32 4, ptr %4, align 8, !tbaa !50
-  %30 = call ptr @Jf_ManPerformMapping(ptr noundef %28, ptr noundef nonnull %4) #17
+  %30 = call ptr @Jf_ManPerformMapping(ptr noundef %28, ptr noundef nonnull %4) #18
   br i1 %.not, label %.thread35, label %32
 
 .thread35:                                        ; preds = %27
-  %31 = call ptr @Gia_ManAreaBalance(ptr noundef %30, i32 noundef 0, i32 noundef 1000000000, i32 noundef %2, i32 noundef 0) #17
+  %31 = call ptr @Gia_ManAreaBalance(ptr noundef %30, i32 noundef 0, i32 noundef 1000000000, i32 noundef %2, i32 noundef 0) #18
   br label %34
 
 32:                                               ; preds = %27
-  call void @Gia_ManPrintStats(ptr noundef %30, ptr noundef null) #17
-  %33 = call ptr @Gia_ManAreaBalance(ptr noundef %30, i32 noundef 0, i32 noundef 1000000000, i32 noundef %2, i32 noundef 0) #17
-  call void @Gia_ManPrintStats(ptr noundef %33, ptr noundef null) #17
+  call void @Gia_ManPrintStats(ptr noundef %30, ptr noundef null) #18
+  %33 = call ptr @Gia_ManAreaBalance(ptr noundef %30, i32 noundef 0, i32 noundef 1000000000, i32 noundef %2, i32 noundef 0) #18
+  call void @Gia_ManPrintStats(ptr noundef %33, ptr noundef null) #18
   br label %34
 
 34:                                               ; preds = %.thread35, %32
   %35 = phi ptr [ %31, %.thread35 ], [ %33, %32 ]
-  call void @Gia_ManStop(ptr noundef %30) #17
+  call void @Gia_ManStop(ptr noundef %30) #18
   br label %36
 
 36:                                               ; preds = %34, %18
@@ -525,14 +525,14 @@ define ptr @Gia_ManAigSyn3(ptr noundef %0, i32 noundef %1, i32 noundef %2) local
 define ptr @Gia_ManAigSyn4(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.Jf_Par_t_, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @Jf_ManSetDefaultPars(ptr noundef nonnull %4) #17
+  call void @Jf_ManSetDefaultPars(ptr noundef nonnull %4) #18
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 40, ptr %5, align 4, !tbaa !40
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %3
-  call void @Gia_ManPrintStats(ptr noundef %0, ptr noundef null) #17
+  call void @Gia_ManPrintStats(ptr noundef %0, ptr noundef null) #18
   br label %7
 
 7:                                                ; preds = %6, %3
@@ -552,68 +552,68 @@ define ptr @Gia_ManAigSyn4(ptr noundef %0, i32 noundef %1, i32 noundef %2) local
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %7
-  %19 = call ptr @Gia_ManDup(ptr noundef nonnull %0) #17
-  call void @Gia_ManTransferTiming(ptr noundef %19, ptr noundef nonnull %0) #17
+  %19 = call ptr @Gia_ManDup(ptr noundef nonnull %0) #18
+  call void @Gia_ManTransferTiming(ptr noundef %19, ptr noundef nonnull %0) #18
   br label %42
 
 20:                                               ; preds = %7
-  %21 = call ptr @Gia_ManAreaBalance(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 1000000000, i32 noundef %2, i32 noundef 0) #17
+  %21 = call ptr @Gia_ManAreaBalance(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 1000000000, i32 noundef %2, i32 noundef 0) #18
   br i1 %.not, label %.thread44, label %24
 
 .thread44:                                        ; preds = %20
   store i32 7, ptr %4, align 8, !tbaa !50
-  %22 = call ptr @Jf_ManPerformMapping(ptr noundef %21, ptr noundef nonnull %4) #17
-  %23 = call ptr @Gia_ManPerformFx(ptr noundef %22, i32 noundef 1000000000, i32 noundef 0, i32 noundef 0, i32 noundef %2, i32 noundef 0) #17
+  %22 = call ptr @Jf_ManPerformMapping(ptr noundef %21, ptr noundef nonnull %4) #18
+  %23 = call ptr @Gia_ManPerformFx(ptr noundef %22, i32 noundef 1000000000, i32 noundef 0, i32 noundef 0, i32 noundef %2, i32 noundef 0) #18
   br label %27
 
 24:                                               ; preds = %20
-  call void @Gia_ManPrintStats(ptr noundef %21, ptr noundef null) #17
+  call void @Gia_ManPrintStats(ptr noundef %21, ptr noundef null) #18
   store i32 7, ptr %4, align 8, !tbaa !50
-  %25 = call ptr @Jf_ManPerformMapping(ptr noundef %21, ptr noundef nonnull %4) #17
-  call void @Gia_ManPrintStats(ptr noundef %25, ptr noundef null) #17
-  %26 = call ptr @Gia_ManPerformFx(ptr noundef %25, i32 noundef 1000000000, i32 noundef 0, i32 noundef 0, i32 noundef %2, i32 noundef 0) #17
-  call void @Gia_ManPrintStats(ptr noundef %26, ptr noundef null) #17
+  %25 = call ptr @Jf_ManPerformMapping(ptr noundef %21, ptr noundef nonnull %4) #18
+  call void @Gia_ManPrintStats(ptr noundef %25, ptr noundef null) #18
+  %26 = call ptr @Gia_ManPerformFx(ptr noundef %25, i32 noundef 1000000000, i32 noundef 0, i32 noundef 0, i32 noundef %2, i32 noundef 0) #18
+  call void @Gia_ManPrintStats(ptr noundef %26, ptr noundef null) #18
   br label %27
 
 27:                                               ; preds = %.thread44, %24
   %28 = phi ptr [ %23, %.thread44 ], [ %26, %24 ]
   %29 = phi ptr [ %22, %.thread44 ], [ %25, %24 ]
-  call void @Gia_ManStop(ptr noundef %29) #17
-  %30 = call ptr @Gia_ManAreaBalance(ptr noundef %28, i32 noundef 0, i32 noundef 1000000000, i32 noundef %2, i32 noundef 0) #17
+  call void @Gia_ManStop(ptr noundef %29) #18
+  %30 = call ptr @Gia_ManAreaBalance(ptr noundef %28, i32 noundef 0, i32 noundef 1000000000, i32 noundef %2, i32 noundef 0) #18
   br i1 %.not, label %32, label %31
 
 31:                                               ; preds = %27
-  call void @Gia_ManPrintStats(ptr noundef %30, ptr noundef null) #17
+  call void @Gia_ManPrintStats(ptr noundef %30, ptr noundef null) #18
   br label %32
 
 32:                                               ; preds = %31, %27
-  call void @Gia_ManStop(ptr noundef %28) #17
+  call void @Gia_ManStop(ptr noundef %28) #18
   store i32 5, ptr %4, align 8, !tbaa !50
-  %33 = call ptr @Jf_ManPerformMapping(ptr noundef %30, ptr noundef nonnull %4) #17
+  %33 = call ptr @Jf_ManPerformMapping(ptr noundef %30, ptr noundef nonnull %4) #18
   br i1 %.not, label %.thread45, label %35
 
 .thread45:                                        ; preds = %32
-  %34 = call ptr @Gia_ManPerformFx(ptr noundef %33, i32 noundef 1000000000, i32 noundef 0, i32 noundef 0, i32 noundef %2, i32 noundef 0) #17
+  %34 = call ptr @Gia_ManPerformFx(ptr noundef %33, i32 noundef 1000000000, i32 noundef 0, i32 noundef 0, i32 noundef %2, i32 noundef 0) #18
   br label %37
 
 35:                                               ; preds = %32
-  call void @Gia_ManPrintStats(ptr noundef %33, ptr noundef null) #17
-  %36 = call ptr @Gia_ManPerformFx(ptr noundef %33, i32 noundef 1000000000, i32 noundef 0, i32 noundef 0, i32 noundef %2, i32 noundef 0) #17
-  call void @Gia_ManPrintStats(ptr noundef %36, ptr noundef null) #17
+  call void @Gia_ManPrintStats(ptr noundef %33, ptr noundef null) #18
+  %36 = call ptr @Gia_ManPerformFx(ptr noundef %33, i32 noundef 1000000000, i32 noundef 0, i32 noundef 0, i32 noundef %2, i32 noundef 0) #18
+  call void @Gia_ManPrintStats(ptr noundef %36, ptr noundef null) #18
   br label %37
 
 37:                                               ; preds = %.thread45, %35
   %38 = phi ptr [ %34, %.thread45 ], [ %36, %35 ]
-  call void @Gia_ManStop(ptr noundef %33) #17
-  %39 = call ptr @Gia_ManAreaBalance(ptr noundef %38, i32 noundef 0, i32 noundef 1000000000, i32 noundef %2, i32 noundef 0) #17
+  call void @Gia_ManStop(ptr noundef %33) #18
+  %39 = call ptr @Gia_ManAreaBalance(ptr noundef %38, i32 noundef 0, i32 noundef 1000000000, i32 noundef %2, i32 noundef 0) #18
   br i1 %.not, label %41, label %40
 
 40:                                               ; preds = %37
-  call void @Gia_ManPrintStats(ptr noundef %39, ptr noundef null) #17
+  call void @Gia_ManPrintStats(ptr noundef %39, ptr noundef null) #18
   br label %41
 
 41:                                               ; preds = %40, %37
-  call void @Gia_ManStop(ptr noundef %38) #17
+  call void @Gia_ManStop(ptr noundef %38) #18
   br label %42
 
 42:                                               ; preds = %41, %18
@@ -624,14 +624,14 @@ define ptr @Gia_ManAigSyn4(ptr noundef %0, i32 noundef %1, i32 noundef %2) local
 
 declare ptr @Gia_ManPerformFx(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Gia_ManOrderPios(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define noalias noundef ptr @Gia_ManOrderPios(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %0, i64 136
   %.val18 = load i32, ptr %3, align 8, !tbaa !32
   %4 = getelementptr i8, ptr %0, i64 140
   %.val19 = load i32, ptr %4, align 4, !tbaa !32
   %5 = add nsw i32 %.val19, %.val18
-  %6 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
+  %6 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
   %7 = add i32 %5, -1
   %or.cond.i = icmp ult i32 %7, 7
   %spec.store.select.i = select i1 %or.cond.i, i32 8, i32 %5
@@ -644,7 +644,7 @@ define noalias noundef ptr @Gia_ManOrderPios(ptr noundef readonly captures(none)
 9:                                                ; preds = %2
   %10 = sext i32 %spec.store.select.i to i64
   %11 = shl nsw i64 %10, 3
-  %12 = tail call noalias ptr @malloc(i64 noundef %11) #16
+  %12 = tail call noalias ptr @malloc(i64 noundef %11) #17
   br label %Vec_PtrAlloc.exit
 
 Vec_PtrAlloc.exit:                                ; preds = %2, %9
@@ -703,11 +703,11 @@ Vec_PtrAlloc.exit:                                ; preds = %2, %9
   br i1 %.not9.i.i, label %41, label %39
 
 39:                                               ; preds = %37
-  %40 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %38, i64 noundef 128) #15
+  %40 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %38, i64 noundef 128) #16
   br label %Vec_PtrGrow.exit.i
 
 41:                                               ; preds = %37
-  %42 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #16
+  %42 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #17
   br label %Vec_PtrGrow.exit.i
 
 Vec_PtrGrow.exit.i:                               ; preds = %41, %39
@@ -725,11 +725,11 @@ Vec_PtrGrow.exit.i:                               ; preds = %41, %39
   br i1 %.not9.i10.i, label %51, label %49
 
 49:                                               ; preds = %44
-  %50 = tail call ptr @realloc(ptr noundef nonnull %46, i64 noundef %48) #15
+  %50 = tail call ptr @realloc(ptr noundef nonnull %46, i64 noundef %48) #16
   br label %53
 
 51:                                               ; preds = %44
-  %52 = tail call noalias ptr @malloc(i64 noundef %48) #16
+  %52 = tail call noalias ptr @malloc(i64 noundef %48) #17
   br label %53
 
 53:                                               ; preds = %51, %49
@@ -771,11 +771,11 @@ Vec_PtrGrow.exit.i:                               ; preds = %41, %39
   br i1 %.not9.i.i32, label %72, label %70
 
 70:                                               ; preds = %68
-  %71 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %69, i64 noundef 128) #15
+  %71 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %69, i64 noundef 128) #16
   br label %Vec_PtrGrow.exit.i33
 
 72:                                               ; preds = %68
-  %73 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #16
+  %73 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #17
   br label %Vec_PtrGrow.exit.i33
 
 Vec_PtrGrow.exit.i33:                             ; preds = %72, %70
@@ -793,11 +793,11 @@ Vec_PtrGrow.exit.i33:                             ; preds = %72, %70
   br i1 %.not9.i10.i31, label %82, label %80
 
 80:                                               ; preds = %75
-  %81 = tail call ptr @realloc(ptr noundef nonnull %77, i64 noundef %79) #15
+  %81 = tail call ptr @realloc(ptr noundef nonnull %77, i64 noundef %79) #16
   br label %84
 
 82:                                               ; preds = %75
-  %83 = tail call noalias ptr @malloc(i64 noundef %79) #16
+  %83 = tail call noalias ptr @malloc(i64 noundef %79) #17
   br label %84
 
 84:                                               ; preds = %82, %80
@@ -836,16 +836,16 @@ Vec_PtrGrow.exit.i33:                             ; preds = %72, %70
 define ptr @Gia_ManDupFromBarBufs(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 24
   %.val72 = load i32, ptr %2, align 8, !tbaa !44
-  %3 = tail call ptr @Gia_ManStart(i32 noundef %.val72) #17
+  %3 = tail call ptr @Gia_ManStart(i32 noundef %.val72) #18
   %4 = load ptr, ptr %0, align 8, !tbaa !65
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #18
+  %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #19
   %7 = add i64 %6, 1
-  %8 = tail call noalias ptr @malloc(i64 noundef %7) #16
-  %9 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull readonly dereferenceable(1) %4) #17
+  %8 = tail call noalias ptr @malloc(i64 noundef %7) #17
+  %9 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull readonly dereferenceable(1) %4) #18
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %1, %5
@@ -857,17 +857,17 @@ Abc_UtilStrsav.exit:                              ; preds = %1, %5
   br i1 %.not.i83, label %Abc_UtilStrsav.exit84, label %13
 
 13:                                               ; preds = %Abc_UtilStrsav.exit
-  %14 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %12) #18
+  %14 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %12) #19
   %15 = add i64 %14, 1
-  %16 = tail call noalias ptr @malloc(i64 noundef %15) #16
-  %17 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull readonly dereferenceable(1) %12) #17
+  %16 = tail call noalias ptr @malloc(i64 noundef %15) #17
+  %17 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull readonly dereferenceable(1) %12) #18
   br label %Abc_UtilStrsav.exit84
 
 Abc_UtilStrsav.exit84:                            ; preds = %Abc_UtilStrsav.exit, %13
   %18 = phi ptr [ %16, %13 ], [ null, %Abc_UtilStrsav.exit ]
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %18, ptr %19, align 8, !tbaa !66
-  tail call void @Gia_ManFillValue(ptr noundef nonnull %0) #17
+  tail call void @Gia_ManFillValue(ptr noundef nonnull %0) #18
   %20 = getelementptr i8, ptr %0, i64 32
   %.val73 = load ptr, ptr %20, align 8, !tbaa !30
   %21 = getelementptr inbounds nuw i8, ptr %.val73, i64 8
@@ -907,7 +907,7 @@ Abc_UtilStrsav.exit84:                            ; preds = %Abc_UtilStrsav.exit
 .critedge:                                        ; preds = %.lr.ph, %27, %Abc_UtilStrsav.exit84
   %39 = getelementptr i8, ptr %0, i64 56
   %.val74 = load i32, ptr %39, align 8, !tbaa !70
-  %40 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
+  %40 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
   %41 = add i32 %.val74, -1
   %or.cond.i = icmp ult i32 %41, 15
   %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %.val74
@@ -920,7 +920,7 @@ Abc_UtilStrsav.exit84:                            ; preds = %Abc_UtilStrsav.exit
 43:                                               ; preds = %.critedge
   %44 = sext i32 %spec.store.select.i to i64
   %45 = shl nsw i64 %44, 2
-  %46 = tail call noalias ptr @malloc(i64 noundef %45) #16
+  %46 = tail call noalias ptr @malloc(i64 noundef %45) #17
   br label %Vec_IntAlloc.exit
 
 Vec_IntAlloc.exit:                                ; preds = %.critedge, %43
@@ -955,11 +955,11 @@ Vec_IntAlloc.exit:                                ; preds = %.critedge, %43
   br i1 %.not9.i.i, label %63, label %61
 
 61:                                               ; preds = %60
-  %62 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %53, i64 noundef 64) #15
+  %62 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %53, i64 noundef 64) #16
   br label %Vec_IntPush.exit.sink.split
 
 63:                                               ; preds = %60
-  %64 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #16
+  %64 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #17
   br label %Vec_IntPush.exit.sink.split
 
 65:                                               ; preds = %58
@@ -970,11 +970,11 @@ Vec_IntAlloc.exit:                                ; preds = %.critedge, %43
   br i1 %.not9.i9.i, label %71, label %69
 
 69:                                               ; preds = %65
-  %70 = tail call ptr @realloc(ptr noundef nonnull %53, i64 noundef %68) #15
+  %70 = tail call ptr @realloc(ptr noundef nonnull %53, i64 noundef %68) #16
   br label %Vec_IntPush.exit.sink.split
 
 71:                                               ; preds = %65
-  %72 = tail call noalias ptr @malloc(i64 noundef %68) #16
+  %72 = tail call noalias ptr @malloc(i64 noundef %68) #17
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %69, %71, %61, %63
@@ -1096,11 +1096,11 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br i1 %.not.i89, label %Vec_IntFree.exit, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph102, %._crit_edge
-  tail call void @free(ptr noundef nonnull %50) #17
+  tail call void @free(ptr noundef nonnull %50) #18
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %._crit_edge, %._crit_edge.thread
-  tail call void @free(ptr noundef nonnull %40) #17
+  tail call void @free(ptr noundef nonnull %40) #18
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %132 = load ptr, ptr %131, align 8, !tbaa !45
   %133 = getelementptr i8, ptr %132, i64 4
@@ -1144,7 +1144,7 @@ Vec_IntFree.exit:                                 ; preds = %._crit_edge, %._cri
 .critedge4:                                       ; preds = %.lr.ph105, %136, %Vec_IntFree.exit
   %156 = getelementptr i8, ptr %0, i64 16
   %.val82 = load i32, ptr %156, align 8, !tbaa !3
-  tail call void @Gia_ManSetRegNum(ptr noundef nonnull %3, i32 noundef %.val82) #17
+  tail call void @Gia_ManSetRegNum(ptr noundef nonnull %3, i32 noundef %.val82) #18
   ret ptr %3
 }
 
@@ -1153,7 +1153,7 @@ declare ptr @Gia_ManStart(i32 noundef) local_unnamed_addr #2
 declare void @Gia_ManFillValue(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendCi(ptr noundef captures(none) %0) unnamed_addr #3 {
+define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendCi(ptr noundef captures(none) %0) unnamed_addr #4 {
   %2 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %3 = load i64, ptr %2, align 4
   %4 = or i64 %3, 2684354559
@@ -1193,11 +1193,11 @@ define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendCi(ptr noundef capture
   br i1 %.not9.i.i, label %26, label %24
 
 24:                                               ; preds = %21
-  %25 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %23, i64 noundef 64) #15
+  %25 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %23, i64 noundef 64) #16
   br label %Vec_IntGrow.exit.i
 
 26:                                               ; preds = %21
-  %27 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #16
+  %27 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #17
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %26, %24
@@ -1216,11 +1216,11 @@ Vec_IntGrow.exit.i:                               ; preds = %26, %24
   br i1 %.not9.i9.i, label %37, label %35
 
 35:                                               ; preds = %29
-  %36 = tail call ptr @realloc(ptr noundef nonnull %32, i64 noundef %34) #15
+  %36 = tail call ptr @realloc(ptr noundef nonnull %32, i64 noundef %34) #16
   br label %39
 
 37:                                               ; preds = %29
-  %38 = tail call noalias ptr @malloc(i64 noundef %34) #16
+  %38 = tail call noalias ptr @malloc(i64 noundef %34) #17
   br label %39
 
 39:                                               ; preds = %37, %35
@@ -1252,7 +1252,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #4 {
   %4 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %5 = icmp slt i32 %1, %2
   %6 = getelementptr i8, ptr %0, i64 32
@@ -1333,13 +1333,13 @@ define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendAnd(ptr noundef %0, i3
   %65 = and i64 %storemerge, 536870911
   %66 = sub nsw i64 0, %65
   %67 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %4, i64 %66
-  tail call void @Gia_ObjAddFanout(ptr noundef nonnull %0, ptr noundef nonnull %67, ptr noundef nonnull %4) #17
+  tail call void @Gia_ObjAddFanout(ptr noundef nonnull %0, ptr noundef nonnull %67, ptr noundef nonnull %4) #18
   %68 = load i64, ptr %4, align 4
   %69 = lshr i64 %68, 32
   %70 = and i64 %69, 536870911
   %71 = sub nsw i64 0, %70
   %72 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %4, i64 %71
-  tail call void @Gia_ObjAddFanout(ptr noundef nonnull %0, ptr noundef nonnull %72, ptr noundef nonnull %4) #17
+  tail call void @Gia_ObjAddFanout(ptr noundef nonnull %0, ptr noundef nonnull %72, ptr noundef nonnull %4) #18
   br label %73
 
 73:                                               ; preds = %64, %61
@@ -1421,7 +1421,7 @@ define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendAnd(ptr noundef %0, i3
   %126 = sub i64 %124, %125
   %127 = sdiv exact i64 %126, 12
   %128 = trunc i64 %127 to i32
-  tail call void @Gia_ManBuiltInSimPerform(ptr noundef nonnull %0, i32 noundef %128) #17
+  tail call void @Gia_ManBuiltInSimPerform(ptr noundef nonnull %0, i32 noundef %128) #18
   br label %129
 
 129:                                              ; preds = %103, %100
@@ -1431,7 +1431,7 @@ define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendAnd(ptr noundef %0, i3
   br i1 %.not71, label %133, label %132
 
 132:                                              ; preds = %129
-  tail call void @Gia_ManQuantSetSuppAnd(ptr noundef nonnull %0, ptr noundef nonnull %4) #17
+  tail call void @Gia_ManQuantSetSuppAnd(ptr noundef nonnull %0, ptr noundef nonnull %4) #18
   br label %133
 
 133:                                              ; preds = %132, %129
@@ -1447,7 +1447,7 @@ define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendAnd(ptr noundef %0, i3
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #3 {
+define internal fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #4 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648
@@ -1508,11 +1508,11 @@ define internal fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unn
   br i1 %.not9.i.i, label %46, label %44
 
 44:                                               ; preds = %41
-  %45 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %43, i64 noundef 64) #15
+  %45 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %43, i64 noundef 64) #16
   br label %Vec_IntGrow.exit.i
 
 46:                                               ; preds = %41
-  %47 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #16
+  %47 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #17
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %46, %44
@@ -1531,11 +1531,11 @@ Vec_IntGrow.exit.i:                               ; preds = %46, %44
   br i1 %.not9.i9.i, label %57, label %55
 
 55:                                               ; preds = %49
-  %56 = tail call ptr @realloc(ptr noundef nonnull %52, i64 noundef %54) #15
+  %56 = tail call ptr @realloc(ptr noundef nonnull %52, i64 noundef %54) #16
   br label %59
 
 57:                                               ; preds = %49
-  %58 = tail call noalias ptr @malloc(i64 noundef %54) #16
+  %58 = tail call noalias ptr @malloc(i64 noundef %54) #17
   br label %59
 
 59:                                               ; preds = %57, %55
@@ -1562,7 +1562,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %70 = and i64 %69, 536870911
   %71 = sub nsw i64 0, %70
   %72 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %3, i64 %71
-  tail call void @Gia_ObjAddFanout(ptr noundef nonnull %0, ptr noundef nonnull %72, ptr noundef nonnull %3) #17
+  tail call void @Gia_ObjAddFanout(ptr noundef nonnull %0, ptr noundef nonnull %72, ptr noundef nonnull %3) #18
   br label %73
 
 73:                                               ; preds = %68, %Vec_IntPush.exit
@@ -1585,16 +1585,16 @@ define ptr @Gia_ManDupToBarBufs(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %8 = sub i32 %.val104.val, %1
   %9 = getelementptr i8, ptr %0, i64 24
   %.val89 = load i32, ptr %9, align 8, !tbaa !44
-  %10 = tail call ptr @Gia_ManStart(i32 noundef %.val89) #17
+  %10 = tail call ptr @Gia_ManStart(i32 noundef %.val89) #18
   %11 = load ptr, ptr %0, align 8, !tbaa !65
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %12
 
 12:                                               ; preds = %2
-  %13 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %11) #18
+  %13 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %11) #19
   %14 = add i64 %13, 1
-  %15 = tail call noalias ptr @malloc(i64 noundef %14) #16
-  %16 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(1) %11) #17
+  %15 = tail call noalias ptr @malloc(i64 noundef %14) #17
+  %16 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(1) %11) #18
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %2, %12
@@ -1606,10 +1606,10 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %12
   br i1 %.not.i107, label %Abc_UtilStrsav.exit108, label %20
 
 20:                                               ; preds = %Abc_UtilStrsav.exit
-  %21 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %19) #18
+  %21 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %19) #19
   %22 = add i64 %21, 1
-  %23 = tail call noalias ptr @malloc(i64 noundef %22) #16
-  %24 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull readonly dereferenceable(1) %19) #17
+  %23 = tail call noalias ptr @malloc(i64 noundef %22) #17
+  %24 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull readonly dereferenceable(1) %19) #18
   br label %Abc_UtilStrsav.exit108
 
 Abc_UtilStrsav.exit108:                           ; preds = %Abc_UtilStrsav.exit, %20
@@ -1624,13 +1624,13 @@ Abc_UtilStrsav.exit108:                           ; preds = %Abc_UtilStrsav.exit
 28:                                               ; preds = %Abc_UtilStrsav.exit108
   %.val88 = load i32, ptr %9, align 8, !tbaa !44
   %29 = sext i32 %.val88 to i64
-  %30 = tail call noalias ptr @calloc(i64 noundef %29, i64 noundef 4) #19
+  %30 = tail call noalias ptr @calloc(i64 noundef %29, i64 noundef 4) #20
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 208
   store ptr %30, ptr %31, align 8, !tbaa !79
   br label %32
 
 32:                                               ; preds = %28, %Abc_UtilStrsav.exit108
-  tail call void @Gia_ManFillValue(ptr noundef nonnull %0) #17
+  tail call void @Gia_ManFillValue(ptr noundef nonnull %0) #18
   %33 = getelementptr i8, ptr %0, i64 32
   %.val90 = load ptr, ptr %33, align 8, !tbaa !30
   %34 = getelementptr inbounds nuw i8, ptr %.val90, i64 8
@@ -1971,20 +1971,20 @@ Gia_ObjSibl.exit.thread:                          ; preds = %._crit_edge, %52, %
 ._crit_edge135:                                   ; preds = %.lr.ph134, %.preheader
   %227 = getelementptr i8, ptr %0, i64 16
   %.val102 = load i32, ptr %227, align 8, !tbaa !3
-  tail call void @Gia_ManSetRegNum(ptr noundef nonnull %10, i32 noundef %.val102) #17
+  tail call void @Gia_ManSetRegNum(ptr noundef nonnull %10, i32 noundef %.val102) #18
   ret ptr %10
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define ptr @Gia_ManAigSynch2Choices(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
+  %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %6, align 4, !tbaa !51
   store i32 8, ptr %5, align 8, !tbaa !53
-  %7 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #16
+  %7 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #17
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %8, align 8, !tbaa !54
   %.not = icmp eq ptr %2, null
@@ -2022,37 +2022,37 @@ Vec_PtrPush.exit42:                               ; preds = %14
   br label %19
 
 19:                                               ; preds = %Vec_PtrPush.exit42, %14
-  %20 = tail call ptr @Gia_ManChoiceMiter(ptr noundef nonnull %5) #17
+  %20 = tail call ptr @Gia_ManChoiceMiter(ptr noundef nonnull %5) #18
   %21 = load ptr, ptr %8, align 8, !tbaa !54
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %Vec_PtrFree.exit, label %22
 
 22:                                               ; preds = %19
-  tail call void @free(ptr noundef nonnull %21) #17
+  tail call void @free(ptr noundef nonnull %21) #18
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %19, %22
-  tail call void @free(ptr noundef nonnull %5) #17
-  %23 = tail call ptr @Gia_ManToAigSkip(ptr noundef %20, i32 noundef 3) #17
-  tail call void @Gia_ManStop(ptr noundef %20) #17
-  %24 = tail call ptr @Dch_ComputeChoices(ptr noundef %23, ptr noundef %3) #17
-  tail call void @Aig_ManStop(ptr noundef %23) #17
+  tail call void @free(ptr noundef nonnull %5) #18
+  %23 = tail call ptr @Gia_ManToAigSkip(ptr noundef %20, i32 noundef 3) #18
+  tail call void @Gia_ManStop(ptr noundef %20) #18
+  %24 = tail call ptr @Dch_ComputeChoices(ptr noundef %23, ptr noundef %3) #18
+  tail call void @Aig_ManStop(ptr noundef %23) #18
   %25 = tail call ptr @Gia_ManOrderPios(ptr noundef %24, ptr noundef %0)
-  %26 = tail call ptr @Aig_ManDupDfsGuided(ptr noundef %24, ptr noundef %25) #17
-  tail call void @Aig_ManStop(ptr noundef %24) #17
+  %26 = tail call ptr @Aig_ManDupDfsGuided(ptr noundef %24, ptr noundef %25) #18
+  tail call void @Aig_ManStop(ptr noundef %24) #18
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !54
   %.not.i43 = icmp eq ptr %28, null
   br i1 %.not.i43, label %Vec_PtrFree.exit44, label %29
 
 29:                                               ; preds = %Vec_PtrFree.exit
-  tail call void @free(ptr noundef nonnull %28) #17
+  tail call void @free(ptr noundef nonnull %28) #18
   br label %Vec_PtrFree.exit44
 
 Vec_PtrFree.exit44:                               ; preds = %Vec_PtrFree.exit, %29
-  tail call void @free(ptr noundef nonnull %25) #17
-  %30 = tail call ptr @Gia_ManFromAigChoices(ptr noundef %26) #17
-  tail call void @Aig_ManStop(ptr noundef %26) #17
+  tail call void @free(ptr noundef nonnull %25) #18
+  %30 = tail call ptr @Gia_ManFromAigChoices(ptr noundef %26) #18
+  tail call void @Aig_ManStop(ptr noundef %26) #18
   ret ptr %30
 }
 
@@ -2074,7 +2074,7 @@ define noundef ptr @Gia_ManAigSynch2(ptr noundef %0, ptr noundef %1, i32 noundef
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %7 = load i32, ptr %6, align 4, !tbaa !85
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @Lf_ManSetDefaultPars(ptr noundef nonnull %5) #17
+  call void @Lf_ManSetDefaultPars(ptr noundef nonnull %5) #18
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i32 1, ptr %8, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 84
@@ -2091,11 +2091,11 @@ define noundef ptr @Gia_ManAigSynch2(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not, label %15, label %14
 
 14:                                               ; preds = %4
-  call void @Gia_ManPrintStats(ptr noundef %0, ptr noundef null) #17
+  call void @Gia_ManPrintStats(ptr noundef %0, ptr noundef null) #18
   br label %15
 
 15:                                               ; preds = %14, %4
-  %16 = call ptr @Gia_ManDup(ptr noundef %0) #17
+  %16 = call ptr @Gia_ManDup(ptr noundef %0) #18
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load i32, ptr %17, align 8, !tbaa !44
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 64
@@ -2124,7 +2124,7 @@ define noundef ptr @Gia_ManAigSynch2(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %30
-  %35 = call i32 @Gia_ManLevelWithBoxes(ptr noundef nonnull %16) #17
+  %35 = call i32 @Gia_ManLevelWithBoxes(ptr noundef nonnull %16) #18
   br label %36
 
 36:                                               ; preds = %34, %30, %27
@@ -2134,24 +2134,24 @@ define noundef ptr @Gia_ManAigSynch2(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not102, label %40, label %38
 
 38:                                               ; preds = %36
-  call void @Gia_ManTransferMapping(ptr noundef nonnull %16, ptr noundef nonnull %0) #17
-  %39 = call ptr @Dsm_ManDeriveGia(ptr noundef nonnull %16, i32 noundef 0) #17
-  call void @Gia_ManStop(ptr noundef nonnull %16) #17
+  call void @Gia_ManTransferMapping(ptr noundef nonnull %16, ptr noundef nonnull %0) #18
+  %39 = call ptr @Dsm_ManDeriveGia(ptr noundef nonnull %16, i32 noundef 0) #18
+  call void @Gia_ManStop(ptr noundef nonnull %16) #18
   br label %40
 
 40:                                               ; preds = %38, %36
   %.078 = phi ptr [ %39, %38 ], [ %16, %36 ]
-  %41 = call ptr @Gia_ManAreaBalance(ptr noundef %.078, i32 noundef 0, i32 noundef 1000000000, i32 noundef 0, i32 noundef 0) #17
+  %41 = call ptr @Gia_ManAreaBalance(ptr noundef %.078, i32 noundef 0, i32 noundef 1000000000, i32 noundef 0, i32 noundef 0) #18
   br i1 %.not, label %.thread, label %43
 
 .thread:                                          ; preds = %40
-  %42 = call ptr @Lf_ManPerformMapping(ptr noundef %41, ptr noundef nonnull %5) #17
+  %42 = call ptr @Lf_ManPerformMapping(ptr noundef %41, ptr noundef nonnull %5) #18
   br label %45
 
 43:                                               ; preds = %40
-  call void @Gia_ManPrintStats(ptr noundef %41, ptr noundef null) #17
-  %44 = call ptr @Lf_ManPerformMapping(ptr noundef %41, ptr noundef nonnull %5) #17
-  call void @Gia_ManPrintStats(ptr noundef %44, ptr noundef null) #17
+  call void @Gia_ManPrintStats(ptr noundef %41, ptr noundef null) #18
+  %44 = call ptr @Lf_ManPerformMapping(ptr noundef %41, ptr noundef nonnull %5) #18
+  call void @Gia_ManPrintStats(ptr noundef %44, ptr noundef null) #18
   br label %45
 
 45:                                               ; preds = %.thread, %43
@@ -2160,7 +2160,7 @@ define noundef ptr @Gia_ManAigSynch2(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not89, label %48, label %47
 
 47:                                               ; preds = %45
-  call void @Gia_ManStop(ptr noundef %41) #17
+  call void @Gia_ManStop(ptr noundef %41) #18
   br label %48
 
 48:                                               ; preds = %47, %45
@@ -2176,20 +2176,20 @@ define noundef ptr @Gia_ManAigSynch2(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not91, label %55, label %53
 
 53:                                               ; preds = %51, %48
-  %54 = call ptr @Gia_ManAreaBalance(ptr noundef %46, i32 noundef 0, i32 noundef 1000000000, i32 noundef 0, i32 noundef 0) #17
+  %54 = call ptr @Gia_ManAreaBalance(ptr noundef %46, i32 noundef 0, i32 noundef 1000000000, i32 noundef 0, i32 noundef 0) #18
   br label %60
 
 55:                                               ; preds = %51
-  %56 = call ptr @Gia_ManAreaBalance(ptr noundef nonnull %46, i32 noundef 0, i32 noundef 1000000000, i32 noundef 0, i32 noundef 0) #17
+  %56 = call ptr @Gia_ManAreaBalance(ptr noundef nonnull %46, i32 noundef 0, i32 noundef 1000000000, i32 noundef 0, i32 noundef 0) #18
   br i1 %.not, label %58, label %57
 
 57:                                               ; preds = %55
-  call void @Gia_ManPrintStats(ptr noundef %56, ptr noundef null) #17
+  call void @Gia_ManPrintStats(ptr noundef %56, ptr noundef null) #18
   br label %58
 
 58:                                               ; preds = %57, %55
-  call void @Gia_ManStop(ptr noundef nonnull %46) #17
-  %59 = call ptr @Gia_ManPerformDsdBalance(ptr noundef %56, i32 noundef 6, i32 noundef 8, i32 noundef 0, i32 noundef 0) #17
+  call void @Gia_ManStop(ptr noundef nonnull %46) #18
+  %59 = call ptr @Gia_ManPerformDsdBalance(ptr noundef %56, i32 noundef 6, i32 noundef 8, i32 noundef 0, i32 noundef 0) #18
   br label %60
 
 60:                                               ; preds = %58, %53
@@ -2198,7 +2198,7 @@ define noundef ptr @Gia_ManAigSynch2(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not, label %62, label %61
 
 61:                                               ; preds = %60
-  call void @Gia_ManPrintStats(ptr noundef %.080, ptr noundef null) #17
+  call void @Gia_ManPrintStats(ptr noundef %.080, ptr noundef null) #18
   br label %62
 
 62:                                               ; preds = %61, %60
@@ -2209,11 +2209,11 @@ define noundef ptr @Gia_ManAigSynch2(ptr noundef %0, ptr noundef %1, i32 noundef
 
 64:                                               ; preds = %62
   %65 = call ptr @Gia_ManDupFromBarBufs(ptr noundef %.078)
-  call void @Gia_ManStop(ptr noundef %.078) #17
+  call void @Gia_ManStop(ptr noundef %.078) #18
   %66 = call ptr @Gia_ManDupFromBarBufs(ptr noundef %.082)
-  call void @Gia_ManStop(ptr noundef %.082) #17
+  call void @Gia_ManStop(ptr noundef %.082) #18
   %67 = call ptr @Gia_ManDupFromBarBufs(ptr noundef %.080)
-  call void @Gia_ManStop(ptr noundef %.080) #17
+  call void @Gia_ManStop(ptr noundef %.080) #18
   br label %68
 
 68:                                               ; preds = %64, %62
@@ -2221,16 +2221,16 @@ define noundef ptr @Gia_ManAigSynch2(ptr noundef %0, ptr noundef %1, i32 noundef
   %.181 = phi ptr [ %67, %64 ], [ %.080, %62 ]
   %.1 = phi ptr [ %65, %64 ], [ %.078, %62 ]
   %69 = call ptr @Gia_ManAigSynch2Choices(ptr noundef %.1, ptr noundef %.183, ptr noundef %.181, ptr noundef nonnull %1)
-  call void @Gia_ManStop(ptr noundef %.1) #17
-  call void @Gia_ManStop(ptr noundef %.183) #17
-  call void @Gia_ManStop(ptr noundef %.181) #17
+  call void @Gia_ManStop(ptr noundef %.1) #18
+  call void @Gia_ManStop(ptr noundef %.183) #18
+  call void @Gia_ManStop(ptr noundef %.181) #18
   %.val96 = load i32, ptr %63, align 8, !tbaa !70
   %.not93 = icmp eq i32 %.val96, 0
   br i1 %.not93, label %72, label %70
 
 70:                                               ; preds = %68
   %71 = call ptr @Gia_ManDupToBarBufs(ptr noundef %69, i32 noundef %.val96)
-  call void @Gia_ManStop(ptr noundef %69) #17
+  call void @Gia_ManStop(ptr noundef %69) #18
   br label %72
 
 72:                                               ; preds = %70, %68
@@ -2240,7 +2240,7 @@ define noundef ptr @Gia_ManAigSynch2(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not94, label %75, label %74
 
 74:                                               ; preds = %72
-  call void @free(ptr noundef nonnull %73) #17
+  call void @free(ptr noundef nonnull %73) #18
   store ptr null, ptr %.079, align 8, !tbaa !65
   br label %75
 
@@ -2251,7 +2251,7 @@ define noundef ptr @Gia_ManAigSynch2(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not95, label %79, label %78
 
 78:                                               ; preds = %75
-  call void @free(ptr noundef nonnull %77) #17
+  call void @free(ptr noundef nonnull %77) #18
   store ptr null, ptr %76, align 8, !tbaa !66
   br label %79
 
@@ -2261,10 +2261,10 @@ define noundef ptr @Gia_ManAigSynch2(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %81
 
 81:                                               ; preds = %79
-  %82 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %80) #18
+  %82 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %80) #19
   %83 = add i64 %82, 1
-  %84 = call noalias ptr @malloc(i64 noundef %83) #16
-  %85 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %84, ptr noundef nonnull readonly dereferenceable(1) %80) #17
+  %84 = call noalias ptr @malloc(i64 noundef %83) #17
+  %85 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %84, ptr noundef nonnull readonly dereferenceable(1) %80) #18
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %79, %81
@@ -2276,10 +2276,10 @@ Abc_UtilStrsav.exit:                              ; preds = %79, %81
   br i1 %.not.i100, label %Abc_UtilStrsav.exit101, label %89
 
 89:                                               ; preds = %Abc_UtilStrsav.exit
-  %90 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %88) #18
+  %90 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %88) #19
   %91 = add i64 %90, 1
-  %92 = call noalias ptr @malloc(i64 noundef %91) #16
-  %93 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %92, ptr noundef nonnull readonly dereferenceable(1) %88) #17
+  %92 = call noalias ptr @malloc(i64 noundef %91) #17
+  %93 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %92, ptr noundef nonnull readonly dereferenceable(1) %88) #18
   br label %Abc_UtilStrsav.exit101
 
 Abc_UtilStrsav.exit101:                           ; preds = %Abc_UtilStrsav.exit, %89
@@ -2289,7 +2289,7 @@ Abc_UtilStrsav.exit101:                           ; preds = %Abc_UtilStrsav.exit
 
 95:                                               ; preds = %15, %Abc_UtilStrsav.exit101
   %.079.sink = phi ptr [ %.079, %Abc_UtilStrsav.exit101 ], [ %16, %15 ]
-  call void @Gia_ManTransferTiming(ptr noundef nonnull %.079.sink, ptr noundef %0) #17
+  call void @Gia_ManTransferTiming(ptr noundef nonnull %.079.sink, ptr noundef %0) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.079.sink
 }
@@ -2301,7 +2301,7 @@ declare void @Gia_ManTransferMapping(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @Dsm_ManDeriveGia(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define void @Gia_ManPerformMap(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
@@ -2309,31 +2309,31 @@ define void @Gia_ManPerformMap(i32 noundef %0, i32 noundef %1, i32 noundef %2, i
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq i32 %3, 0
   %8 = select i1 %.not, ptr @.str.4, ptr @.str.3
-  %9 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %8) #17
-  %10 = tail call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %11 = call i32 @Cmd_CommandExecute(ptr noundef %10, ptr noundef nonnull %7) #17
+  %9 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %8) #18
+  %10 = tail call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %11 = call i32 @Cmd_CommandExecute(ptr noundef %10, ptr noundef nonnull %7) #18
   %.not28 = icmp eq i32 %5, 0
   br i1 %.not28, label %.critedge, label %12
 
 12:                                               ; preds = %6
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %puts29 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  %13 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %14 = call i32 @Cmd_CommandExecute(ptr noundef %13, ptr noundef nonnull @.str.7) #17
-  %15 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %8) #17
-  %16 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %17 = call i32 @Cmd_CommandExecute(ptr noundef %16, ptr noundef nonnull %7) #17
+  %13 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %14 = call i32 @Cmd_CommandExecute(ptr noundef %13, ptr noundef nonnull @.str.7) #18
+  %15 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %8) #18
+  %16 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %17 = call i32 @Cmd_CommandExecute(ptr noundef %16, ptr noundef nonnull %7) #18
   %puts30 = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   br label %19
 
 .critedge:                                        ; preds = %6
-  %18 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %8) #17
+  %18 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %8) #18
   br label %19
 
 19:                                               ; preds = %.critedge, %12
   %.sink34 = phi ptr [ %7, %.critedge ], [ @.str.7, %12 ]
-  %20 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %21 = call i32 @Cmd_CommandExecute(ptr noundef %20, ptr noundef nonnull %.sink34) #17
+  %20 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %21 = call i32 @Cmd_CommandExecute(ptr noundef %20, ptr noundef nonnull %.sink34) #18
   %22 = icmp eq i32 %1, 4
   %23 = icmp slt i32 %0, 100000
   %or.cond = and i1 %23, %22
@@ -2349,11 +2349,11 @@ define void @Gia_ManPerformMap(i32 noundef %0, i32 noundef %1, i32 noundef %2, i
   %28 = shl nuw nsw i32 %1, 1
   %29 = add nsw i32 %28, -1
   %30 = shl nsw i32 %2, 1
-  %31 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %1, i32 noundef %1, i32 noundef %29, i32 noundef %30, ptr noundef nonnull %8) #17
-  %32 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %33 = call i32 @Cmd_CommandExecute(ptr noundef %32, ptr noundef nonnull %7) #17
-  %34 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %35 = call ptr @Abc_FrameReadGia(ptr noundef %34) #17
+  %31 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %1, i32 noundef %1, i32 noundef %29, i32 noundef %30, ptr noundef nonnull %8) #18
+  %32 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %33 = call i32 @Cmd_CommandExecute(ptr noundef %32, ptr noundef nonnull %7) #18
+  %34 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %35 = call ptr @Abc_FrameReadGia(ptr noundef %34) #18
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 304
   %37 = load ptr, ptr %36, align 8, !tbaa !49
   %38 = icmp eq ptr %37, null
@@ -2366,7 +2366,7 @@ define void @Gia_ManPerformMap(i32 noundef %0, i32 noundef %1, i32 noundef %2, i
   br i1 %.not.i, label %44, label %.thread.i
 
 .thread.i:                                        ; preds = %39
-  call void @free(ptr noundef nonnull %41) #17
+  call void @free(ptr noundef nonnull %41) #18
   %42 = load ptr, ptr %36, align 8, !tbaa !49
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr null, ptr %43, align 8, !tbaa !31
@@ -2374,30 +2374,30 @@ define void @Gia_ManPerformMap(i32 noundef %0, i32 noundef %1, i32 noundef %2, i
 
 44:                                               ; preds = %.thread.i, %39
   %45 = phi ptr [ %42, %.thread.i ], [ %37, %39 ]
-  call void @free(ptr noundef nonnull %45) #17
+  call void @free(ptr noundef nonnull %45) #18
   store ptr null, ptr %36, align 8, !tbaa !49
   br label %Vec_IntFreeP.exit
 
 Vec_IntFreeP.exit:                                ; preds = %27, %44
-  %46 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %47 = call i32 @Cmd_CommandExecute(ptr noundef %46, ptr noundef nonnull @.str.11) #17
+  %46 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %47 = call i32 @Cmd_CommandExecute(ptr noundef %46, ptr noundef nonnull @.str.11) #18
   br i1 %.not28, label %52, label %48
 
 48:                                               ; preds = %Vec_IntFreeP.exit
   %49 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %1, i32 noundef %1, i32 noundef %29, i32 noundef %30, ptr noundef nonnull %8)
-  %50 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %51 = call i32 @Cmd_CommandExecute(ptr noundef %50, ptr noundef nonnull @.str.7) #17
+  %50 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %51 = call i32 @Cmd_CommandExecute(ptr noundef %50, ptr noundef nonnull @.str.7) #18
   br label %52
 
 52:                                               ; preds = %Vec_IntFreeP.exit, %48, %24
-  %53 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %54 = call i32 @Cmd_CommandExecute(ptr noundef %53, ptr noundef nonnull @.str.13) #17
+  %53 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %54 = call i32 @Cmd_CommandExecute(ptr noundef %53, ptr noundef nonnull @.str.13) #18
   %.not31 = icmp eq i32 %4, 0
   br i1 %.not31, label %58, label %55
 
 55:                                               ; preds = %52
-  %56 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %57 = call i32 @Cmd_CommandExecute(ptr noundef %56, ptr noundef nonnull @.str.14) #17
+  %56 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %57 = call i32 @Cmd_CommandExecute(ptr noundef %56, ptr noundef nonnull @.str.14) #18
   br label %58
 
 58:                                               ; preds = %55, %52
@@ -2405,8 +2405,8 @@ Vec_IntFreeP.exit:                                ; preds = %27, %44
 
 59:                                               ; preds = %58
   %puts32 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  %60 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %61 = call i32 @Cmd_CommandExecute(ptr noundef %60, ptr noundef nonnull @.str.7) #17
+  %60 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %61 = call i32 @Cmd_CommandExecute(ptr noundef %60, ptr noundef nonnull @.str.7) #18
   br label %62
 
 62:                                               ; preds = %59, %58
@@ -2431,61 +2431,61 @@ define void @Gia_ManPerformRound(i32 %0, i32 noundef %1, i32 %2, i32 noundef %3,
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %8
-  %12 = tail call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %13 = tail call i32 @Cmd_CommandExecute(ptr noundef %12, ptr noundef nonnull @.str.4) #17
+  %12 = tail call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %13 = tail call i32 @Cmd_CommandExecute(ptr noundef %12, ptr noundef nonnull @.str.4) #18
   %.not = icmp eq i32 %5, 0
   %14 = select i1 %.not, ptr @.str.4, ptr @.str.3
-  %15 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %14) #17
-  %16 = tail call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %17 = call i32 @Cmd_CommandExecute(ptr noundef %16, ptr noundef nonnull %9) #17
+  %15 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %14) #18
+  %16 = tail call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %17 = call i32 @Cmd_CommandExecute(ptr noundef %16, ptr noundef nonnull %9) #18
   %.not35 = icmp eq i32 %7, 0
   br i1 %.not35, label %22, label %18
 
 18:                                               ; preds = %11
   %19 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %14)
-  %20 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %21 = call i32 @Cmd_CommandExecute(ptr noundef %20, ptr noundef nonnull @.str.7) #17
+  %20 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %21 = call i32 @Cmd_CommandExecute(ptr noundef %20, ptr noundef nonnull @.str.7) #18
   br label %22
 
 22:                                               ; preds = %11, %18
-  %23 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %24 = call i32 @Cmd_CommandExecute(ptr noundef %23, ptr noundef nonnull @.str.18) #17
+  %23 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %24 = call i32 @Cmd_CommandExecute(ptr noundef %23, ptr noundef nonnull @.str.18) #18
   %25 = icmp slt i32 %1, 20000
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %22
-  %27 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %28 = call i32 @Cmd_CommandExecute(ptr noundef %27, ptr noundef nonnull @.str.4) #17
-  %29 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %14) #17
-  %30 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %31 = call i32 @Cmd_CommandExecute(ptr noundef %30, ptr noundef nonnull %9) #17
+  %27 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %28 = call i32 @Cmd_CommandExecute(ptr noundef %27, ptr noundef nonnull @.str.4) #18
+  %29 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %14) #18
+  %30 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %31 = call i32 @Cmd_CommandExecute(ptr noundef %30, ptr noundef nonnull %9) #18
   br i1 %.not35, label %36, label %32
 
 32:                                               ; preds = %26
   %33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %14)
-  %34 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %35 = call i32 @Cmd_CommandExecute(ptr noundef %34, ptr noundef nonnull @.str.7) #17
+  %34 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %35 = call i32 @Cmd_CommandExecute(ptr noundef %34, ptr noundef nonnull @.str.7) #18
   br label %36
 
 36:                                               ; preds = %32, %26
-  %37 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %38 = call i32 @Cmd_CommandExecute(ptr noundef %37, ptr noundef nonnull @.str.18) #17
+  %37 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %38 = call i32 @Cmd_CommandExecute(ptr noundef %37, ptr noundef nonnull @.str.18) #18
   br label %.thread
 
 .thread:                                          ; preds = %8, %36, %22
   call void @Gia_ManPerformMap(i32 noundef %1, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7)
-  %39 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %40 = call i32 @Cmd_CommandExecute(ptr noundef %39, ptr noundef nonnull @.str.18) #17
-  %41 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %42 = call i32 @Cmd_CommandExecute(ptr noundef %41, ptr noundef nonnull @.str.19) #17
+  %39 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %40 = call i32 @Cmd_CommandExecute(ptr noundef %39, ptr noundef nonnull @.str.18) #18
+  %41 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %42 = call i32 @Cmd_CommandExecute(ptr noundef %41, ptr noundef nonnull @.str.19) #18
   call void @Gia_ManPerformMap(i32 noundef %1, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7)
-  %43 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %44 = call i32 @Cmd_CommandExecute(ptr noundef %43, ptr noundef nonnull @.str.18) #17
-  %45 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %46 = call i32 @Cmd_CommandExecute(ptr noundef %45, ptr noundef nonnull @.str.20) #17
-  %47 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %3) #17
-  %48 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %49 = call i32 @Cmd_CommandExecute(ptr noundef %48, ptr noundef nonnull %9) #17
+  %43 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %44 = call i32 @Cmd_CommandExecute(ptr noundef %43, ptr noundef nonnull @.str.18) #18
+  %45 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %46 = call i32 @Cmd_CommandExecute(ptr noundef %45, ptr noundef nonnull @.str.20) #18
+  %47 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %3) #18
+  %48 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %49 = call i32 @Cmd_CommandExecute(ptr noundef %48, ptr noundef nonnull %9) #18
   call void @Gia_ManPerformMap(i32 noundef %1, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
@@ -2497,14 +2497,14 @@ define void @Gia_ManPerformFlow(i32 noundef %0, i32 noundef %1, i32 noundef %2, 
   br i1 %.not, label %.split, label %.split18
 
 .split18:                                         ; preds = %8
-  %9 = tail call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %10 = tail call i32 @Cmd_CommandExecute(ptr noundef %9, ptr noundef nonnull @.str.18) #17
+  %9 = tail call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %10 = tail call i32 @Cmd_CommandExecute(ptr noundef %9, ptr noundef nonnull @.str.18) #18
   br label %.split
 
 .split:                                           ; preds = %8, %.split18
   tail call void @Gia_ManPerformRound(i32 poison, i32 noundef %1, i32 poison, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7)
-  %11 = tail call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %12 = tail call i32 @Cmd_CommandExecute(ptr noundef %11, ptr noundef nonnull @.str.22) #17
+  %11 = tail call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %12 = tail call i32 @Cmd_CommandExecute(ptr noundef %11, ptr noundef nonnull @.str.22) #18
   tail call void @Gia_ManPerformRound(i32 poison, i32 noundef %1, i32 poison, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7)
   ret void
 }
@@ -2528,17 +2528,17 @@ define void @Gia_ManPerformFlow2(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   br i1 %14, label %18, label %23
 
 18:                                               ; preds = %9
-  %19 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.23, ptr noundef nonnull %15, i32 noundef %4, ptr noundef nonnull %16) #17
-  %20 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) @.str.26, ptr noundef nonnull %15, i32 noundef %17, ptr noundef nonnull %16) #17
-  %21 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) @.str.27, ptr noundef nonnull %15, i32 noundef %4, ptr noundef nonnull %16) #17
-  %22 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef nonnull %15, i32 noundef %17, ptr noundef nonnull %16) #17
+  %19 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.23, ptr noundef nonnull %15, i32 noundef %4, ptr noundef nonnull %16) #18
+  %20 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) @.str.26, ptr noundef nonnull %15, i32 noundef %17, ptr noundef nonnull %16) #18
+  %21 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) @.str.27, ptr noundef nonnull %15, i32 noundef %4, ptr noundef nonnull %16) #18
+  %22 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef nonnull %15, i32 noundef %17, ptr noundef nonnull %16) #18
   br label %28
 
 23:                                               ; preds = %9
-  %24 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.29, i32 noundef %3, ptr noundef nonnull %15, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %16) #17
-  %25 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef nonnull %15, i32 noundef %3, i32 noundef %17, ptr noundef nonnull %16) #17
-  %26 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %3, ptr noundef nonnull %15, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %16) #17
-  %27 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) @.str.32, ptr noundef nonnull %15, i32 noundef %3, i32 noundef %17, ptr noundef nonnull %16) #17
+  %24 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.29, i32 noundef %3, ptr noundef nonnull %15, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %16) #18
+  %25 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef nonnull %15, i32 noundef %3, i32 noundef %17, ptr noundef nonnull %16) #18
+  %26 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %3, ptr noundef nonnull %15, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %16) #18
+  %27 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) @.str.32, ptr noundef nonnull %15, i32 noundef %3, i32 noundef %17, ptr noundef nonnull %16) #18
   br label %28
 
 28:                                               ; preds = %23, %18
@@ -2554,34 +2554,34 @@ define void @Gia_ManPerformFlow2(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   br i1 %.not58, label %34, label %31
 
 31:                                               ; preds = %30
-  %32 = tail call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %33 = tail call i32 @Cmd_CommandExecute(ptr noundef %32, ptr noundef nonnull @.str.18) #17
+  %32 = tail call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %33 = tail call i32 @Cmd_CommandExecute(ptr noundef %32, ptr noundef nonnull @.str.18) #18
   br label %34
 
 34:                                               ; preds = %31, %30
-  %35 = tail call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %36 = call i32 @Cmd_CommandExecute(ptr noundef %35, ptr noundef nonnull %10) #17
-  %37 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
+  %35 = tail call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %36 = call i32 @Cmd_CommandExecute(ptr noundef %35, ptr noundef nonnull %10) #18
+  %37 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
   br i1 %.not57, label %.critedge, label %38
 
 38:                                               ; preds = %34
-  %39 = call i32 @Cmd_CommandExecute(ptr noundef %37, ptr noundef nonnull @.str.7) #17
-  %40 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %41 = call i32 @Cmd_CommandExecute(ptr noundef %40, ptr noundef nonnull @.str.18) #17
-  %42 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %43 = call i32 @Cmd_CommandExecute(ptr noundef %42, ptr noundef nonnull %11) #17
+  %39 = call i32 @Cmd_CommandExecute(ptr noundef %37, ptr noundef nonnull @.str.7) #18
+  %40 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %41 = call i32 @Cmd_CommandExecute(ptr noundef %40, ptr noundef nonnull @.str.18) #18
+  %42 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %43 = call i32 @Cmd_CommandExecute(ptr noundef %42, ptr noundef nonnull %11) #18
   br label %45
 
 .critedge:                                        ; preds = %34
-  %44 = call i32 @Cmd_CommandExecute(ptr noundef %37, ptr noundef nonnull @.str.18) #17
+  %44 = call i32 @Cmd_CommandExecute(ptr noundef %37, ptr noundef nonnull @.str.18) #18
   br label %45
 
 45:                                               ; preds = %.critedge, %38
   %.sink85 = phi ptr [ %11, %.critedge ], [ @.str.7, %38 ]
-  %46 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %47 = call i32 @Cmd_CommandExecute(ptr noundef %46, ptr noundef nonnull %.sink85) #17
-  %48 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %49 = call i32 @Cmd_CommandExecute(ptr noundef %48, ptr noundef nonnull @.str.13) #17
+  %46 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %47 = call i32 @Cmd_CommandExecute(ptr noundef %46, ptr noundef nonnull %.sink85) #18
+  %48 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %49 = call i32 @Cmd_CommandExecute(ptr noundef %48, ptr noundef nonnull @.str.13) #18
   br i1 %.not57, label %50, label %.thread
 
 50:                                               ; preds = %45
@@ -2589,8 +2589,8 @@ define void @Gia_ManPerformFlow2(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   br i1 %.not59, label %57, label %54
 
 .thread:                                          ; preds = %45
-  %51 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %52 = call i32 @Cmd_CommandExecute(ptr noundef %51, ptr noundef nonnull @.str.7) #17
+  %51 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %52 = call i32 @Cmd_CommandExecute(ptr noundef %51, ptr noundef nonnull @.str.7) #18
   %.not5977 = icmp eq i32 %5, 0
   br i1 %.not5977, label %57, label %53
 
@@ -2599,40 +2599,40 @@ define void @Gia_ManPerformFlow2(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   br label %54
 
 54:                                               ; preds = %50, %53
-  %55 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %56 = call i32 @Cmd_CommandExecute(ptr noundef %55, ptr noundef nonnull @.str.35) #17
+  %55 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %56 = call i32 @Cmd_CommandExecute(ptr noundef %55, ptr noundef nonnull @.str.35) #18
   br label %57
 
 57:                                               ; preds = %.thread, %54, %50
   %.not5979 = phi i1 [ true, %.thread ], [ false, %54 ], [ true, %50 ]
-  %58 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %59 = call i32 @Cmd_CommandExecute(ptr noundef %58, ptr noundef nonnull %12) #17
-  %60 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
+  %58 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %59 = call i32 @Cmd_CommandExecute(ptr noundef %58, ptr noundef nonnull %12) #18
+  %60 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
   br i1 %.not57, label %.critedge66, label %61
 
 61:                                               ; preds = %57
-  %62 = call i32 @Cmd_CommandExecute(ptr noundef %60, ptr noundef nonnull @.str.7) #17
-  %63 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %64 = call i32 @Cmd_CommandExecute(ptr noundef %63, ptr noundef nonnull @.str.18) #17
-  %65 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %66 = call i32 @Cmd_CommandExecute(ptr noundef %65, ptr noundef nonnull %11) #17
+  %62 = call i32 @Cmd_CommandExecute(ptr noundef %60, ptr noundef nonnull @.str.7) #18
+  %63 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %64 = call i32 @Cmd_CommandExecute(ptr noundef %63, ptr noundef nonnull @.str.18) #18
+  %65 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %66 = call i32 @Cmd_CommandExecute(ptr noundef %65, ptr noundef nonnull %11) #18
   br label %68
 
 .critedge66:                                      ; preds = %57
-  %67 = call i32 @Cmd_CommandExecute(ptr noundef %60, ptr noundef nonnull @.str.18) #17
+  %67 = call i32 @Cmd_CommandExecute(ptr noundef %60, ptr noundef nonnull @.str.18) #18
   br label %68
 
 68:                                               ; preds = %.critedge66, %61
   %.sink86 = phi ptr [ %11, %.critedge66 ], [ @.str.7, %61 ]
-  %69 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %70 = call i32 @Cmd_CommandExecute(ptr noundef %69, ptr noundef nonnull %.sink86) #17
-  %71 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %72 = call i32 @Cmd_CommandExecute(ptr noundef %71, ptr noundef nonnull @.str.13) #17
+  %69 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %70 = call i32 @Cmd_CommandExecute(ptr noundef %69, ptr noundef nonnull %.sink86) #18
+  %71 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %72 = call i32 @Cmd_CommandExecute(ptr noundef %71, ptr noundef nonnull @.str.13) #18
   br i1 %.not57, label %76, label %73
 
 73:                                               ; preds = %68
-  %74 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %75 = call i32 @Cmd_CommandExecute(ptr noundef %74, ptr noundef nonnull @.str.7) #17
+  %74 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %75 = call i32 @Cmd_CommandExecute(ptr noundef %74, ptr noundef nonnull @.str.7) #18
   br label %76
 
 76:                                               ; preds = %73, %68
@@ -2650,39 +2650,39 @@ define void @Gia_ManPerformFlow2(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   br label %81
 
 81:                                               ; preds = %80, %79
-  %82 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %83 = call i32 @Cmd_CommandExecute(ptr noundef %82, ptr noundef nonnull @.str.36) #17
+  %82 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %83 = call i32 @Cmd_CommandExecute(ptr noundef %82, ptr noundef nonnull @.str.36) #18
   br label %84
 
 84:                                               ; preds = %81, %78
-  %85 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %86 = call i32 @Cmd_CommandExecute(ptr noundef %85, ptr noundef nonnull %12) #17
-  %87 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
+  %85 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %86 = call i32 @Cmd_CommandExecute(ptr noundef %85, ptr noundef nonnull %12) #18
+  %87 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
   br i1 %.not57, label %.critedge70, label %88
 
 88:                                               ; preds = %84
-  %89 = call i32 @Cmd_CommandExecute(ptr noundef %87, ptr noundef nonnull @.str.7) #17
-  %90 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %91 = call i32 @Cmd_CommandExecute(ptr noundef %90, ptr noundef nonnull @.str.18) #17
-  %92 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %93 = call i32 @Cmd_CommandExecute(ptr noundef %92, ptr noundef nonnull %11) #17
+  %89 = call i32 @Cmd_CommandExecute(ptr noundef %87, ptr noundef nonnull @.str.7) #18
+  %90 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %91 = call i32 @Cmd_CommandExecute(ptr noundef %90, ptr noundef nonnull @.str.18) #18
+  %92 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %93 = call i32 @Cmd_CommandExecute(ptr noundef %92, ptr noundef nonnull %11) #18
   br label %95
 
 .critedge70:                                      ; preds = %84
-  %94 = call i32 @Cmd_CommandExecute(ptr noundef %87, ptr noundef nonnull @.str.18) #17
+  %94 = call i32 @Cmd_CommandExecute(ptr noundef %87, ptr noundef nonnull @.str.18) #18
   br label %95
 
 95:                                               ; preds = %.critedge70, %88
   %.sink87 = phi ptr [ %11, %.critedge70 ], [ @.str.7, %88 ]
-  %96 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %97 = call i32 @Cmd_CommandExecute(ptr noundef %96, ptr noundef nonnull %.sink87) #17
-  %98 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %99 = call i32 @Cmd_CommandExecute(ptr noundef %98, ptr noundef nonnull @.str.13) #17
+  %96 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %97 = call i32 @Cmd_CommandExecute(ptr noundef %96, ptr noundef nonnull %.sink87) #18
+  %98 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %99 = call i32 @Cmd_CommandExecute(ptr noundef %98, ptr noundef nonnull @.str.13) #18
   br i1 %.not57, label %103, label %100
 
 100:                                              ; preds = %95
-  %101 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %102 = call i32 @Cmd_CommandExecute(ptr noundef %101, ptr noundef nonnull @.str.7) #17
+  %101 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %102 = call i32 @Cmd_CommandExecute(ptr noundef %101, ptr noundef nonnull @.str.7) #18
   br label %103
 
 103:                                              ; preds = %100, %95
@@ -2700,39 +2700,39 @@ define void @Gia_ManPerformFlow2(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   br label %108
 
 108:                                              ; preds = %107, %106
-  %109 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %110 = call i32 @Cmd_CommandExecute(ptr noundef %109, ptr noundef nonnull @.str.36) #17
+  %109 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %110 = call i32 @Cmd_CommandExecute(ptr noundef %109, ptr noundef nonnull @.str.36) #18
   br label %111
 
 111:                                              ; preds = %108, %105
-  %112 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %113 = call i32 @Cmd_CommandExecute(ptr noundef %112, ptr noundef nonnull %12) #17
-  %114 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
+  %112 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %113 = call i32 @Cmd_CommandExecute(ptr noundef %112, ptr noundef nonnull %12) #18
+  %114 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
   br i1 %.not57, label %.critedge74, label %115
 
 115:                                              ; preds = %111
-  %116 = call i32 @Cmd_CommandExecute(ptr noundef %114, ptr noundef nonnull @.str.7) #17
-  %117 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %118 = call i32 @Cmd_CommandExecute(ptr noundef %117, ptr noundef nonnull @.str.18) #17
-  %119 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %120 = call i32 @Cmd_CommandExecute(ptr noundef %119, ptr noundef nonnull %11) #17
+  %116 = call i32 @Cmd_CommandExecute(ptr noundef %114, ptr noundef nonnull @.str.7) #18
+  %117 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %118 = call i32 @Cmd_CommandExecute(ptr noundef %117, ptr noundef nonnull @.str.18) #18
+  %119 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %120 = call i32 @Cmd_CommandExecute(ptr noundef %119, ptr noundef nonnull %11) #18
   br label %122
 
 .critedge74:                                      ; preds = %111
-  %121 = call i32 @Cmd_CommandExecute(ptr noundef %114, ptr noundef nonnull @.str.18) #17
+  %121 = call i32 @Cmd_CommandExecute(ptr noundef %114, ptr noundef nonnull @.str.18) #18
   br label %122
 
 122:                                              ; preds = %.critedge74, %115
   %.sink88 = phi ptr [ %11, %.critedge74 ], [ @.str.7, %115 ]
-  %123 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %124 = call i32 @Cmd_CommandExecute(ptr noundef %123, ptr noundef nonnull %.sink88) #17
-  %125 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %126 = call i32 @Cmd_CommandExecute(ptr noundef %125, ptr noundef nonnull @.str.13) #17
+  %123 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %124 = call i32 @Cmd_CommandExecute(ptr noundef %123, ptr noundef nonnull %.sink88) #18
+  %125 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %126 = call i32 @Cmd_CommandExecute(ptr noundef %125, ptr noundef nonnull @.str.13) #18
   br i1 %.not57, label %130, label %127
 
 127:                                              ; preds = %122
-  %128 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %129 = call i32 @Cmd_CommandExecute(ptr noundef %128, ptr noundef nonnull @.str.7) #17
+  %128 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %129 = call i32 @Cmd_CommandExecute(ptr noundef %128, ptr noundef nonnull @.str.7) #18
   br label %130
 
 130:                                              ; preds = %122, %127, %103, %76
@@ -2757,27 +2757,27 @@ define void @Gia_ManPerformFlow3(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   br i1 %.not, label %20, label %12
 
 12:                                               ; preds = %7
-  %13 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.37, i32 noundef %1, i32 noundef %1) #17
-  %14 = tail call i32 (...) @Abc_NtkRecIsRunning3() #17
+  %13 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.37, i32 noundef %1, i32 noundef %1) #18
+  %14 = tail call i32 (...) @Abc_NtkRecIsRunning3() #18
   %.not29 = icmp eq i32 %14, 0
   %15 = select i1 %.not29, ptr @.str.41, ptr @.str.40
-  %16 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef nonnull %15, i32 noundef %1, ptr noundef nonnull %11) #17
-  %17 = tail call i32 (...) @Abc_NtkRecIsRunning3() #17
+  %16 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef nonnull %15, i32 noundef %1, ptr noundef nonnull %11) #18
+  %17 = tail call i32 (...) @Abc_NtkRecIsRunning3() #18
   %.not33 = icmp eq i32 %17, 0
   %18 = select i1 %.not33, ptr @.str.41, ptr @.str.40
-  %19 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef nonnull %18, i32 noundef %1, ptr noundef nonnull %11) #17
+  %19 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef nonnull %18, i32 noundef %1, ptr noundef nonnull %11) #18
   br label %28
 
 20:                                               ; preds = %7
-  %21 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.38, i32 noundef %1, i32 noundef %0, i32 noundef %1, i32 noundef %0) #17
-  %22 = tail call i32 (...) @Abc_NtkRecIsRunning3() #17
+  %21 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.38, i32 noundef %1, i32 noundef %0, i32 noundef %1, i32 noundef %0) #18
+  %22 = tail call i32 (...) @Abc_NtkRecIsRunning3() #18
   %.not27 = icmp eq i32 %22, 0
   %23 = select i1 %.not27, ptr @.str.41, ptr @.str.40
-  %24 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.43, ptr noundef nonnull %23, i32 noundef %1, i32 noundef %0, ptr noundef nonnull %11) #17
-  %25 = tail call i32 (...) @Abc_NtkRecIsRunning3() #17
+  %24 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.43, ptr noundef nonnull %23, i32 noundef %1, i32 noundef %0, ptr noundef nonnull %11) #18
+  %25 = tail call i32 (...) @Abc_NtkRecIsRunning3() #18
   %.not31 = icmp eq i32 %25, 0
   %26 = select i1 %.not31, ptr @.str.41, ptr @.str.40
-  %27 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.45, ptr noundef nonnull %26, i32 noundef %1, i32 noundef %0, ptr noundef nonnull %11) #17
+  %27 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.45, ptr noundef nonnull %26, i32 noundef %1, i32 noundef %0, ptr noundef nonnull %11) #18
   br label %28
 
 28:                                               ; preds = %20, %12
@@ -2785,24 +2785,24 @@ define void @Gia_ManPerformFlow3(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   br i1 %.not35, label %.critedge, label %29
 
 29:                                               ; preds = %28
-  %30 = tail call i32 (...) @Abc_NtkRecIsRunning3() #17
+  %30 = tail call i32 (...) @Abc_NtkRecIsRunning3() #18
   %.not36 = icmp eq i32 %30, 0
   %31 = select i1 %.not36, ptr @.str.48, ptr @.str.47
   %32 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, ptr noundef nonnull %31)
-  %33 = tail call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %34 = call i32 @Cmd_CommandExecute(ptr noundef %33, ptr noundef nonnull %8) #17
-  %35 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %36 = call i32 @Cmd_CommandExecute(ptr noundef %35, ptr noundef nonnull @.str.7) #17
+  %33 = tail call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %34 = call i32 @Cmd_CommandExecute(ptr noundef %33, ptr noundef nonnull %8) #18
+  %35 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %36 = call i32 @Cmd_CommandExecute(ptr noundef %35, ptr noundef nonnull @.str.7) #18
   br label %39
 
 .critedge:                                        ; preds = %28
-  %37 = tail call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %38 = call i32 @Cmd_CommandExecute(ptr noundef %37, ptr noundef nonnull %8) #17
+  %37 = tail call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %38 = call i32 @Cmd_CommandExecute(ptr noundef %37, ptr noundef nonnull %8) #18
   br label %39
 
 39:                                               ; preds = %.critedge, %29
-  %40 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %41 = call ptr @Abc_FrameReadGia(ptr noundef %40) #17
+  %40 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %41 = call ptr @Abc_FrameReadGia(ptr noundef %40) #18
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load i32, ptr %42, align 8, !tbaa !44
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 64
@@ -2823,19 +2823,19 @@ define void @Gia_ManPerformFlow3(i32 noundef %0, i32 noundef %1, i32 noundef %2,
 
 54:                                               ; preds = %53
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.8)
-  %55 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %56 = call i32 @Cmd_CommandExecute(ptr noundef %55, ptr noundef nonnull %9) #17
+  %55 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %56 = call i32 @Cmd_CommandExecute(ptr noundef %55, ptr noundef nonnull %9) #18
   br label %.sink.split
 
 .sink.split:                                      ; preds = %53, %54
   %.sink52 = phi ptr [ @.str.7, %54 ], [ %9, %53 ]
-  %57 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %58 = call i32 @Cmd_CommandExecute(ptr noundef %57, ptr noundef nonnull %.sink52) #17
+  %57 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %58 = call i32 @Cmd_CommandExecute(ptr noundef %57, ptr noundef nonnull %.sink52) #18
   br label %59
 
 59:                                               ; preds = %.sink.split, %39
-  %60 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %61 = call ptr @Abc_FrameReadGia(ptr noundef %60) #17
+  %60 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %61 = call ptr @Abc_FrameReadGia(ptr noundef %60) #18
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %63 = load i32, ptr %62, align 8, !tbaa !44
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 64
@@ -2856,10 +2856,10 @@ define void @Gia_ManPerformFlow3(i32 noundef %0, i32 noundef %1, i32 noundef %2,
 
 .thread50:                                        ; preds = %73
   %puts37 = call i32 @puts(ptr nonnull dereferenceable(1) @str.9)
-  %74 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %75 = call i32 @Cmd_CommandExecute(ptr noundef %74, ptr noundef nonnull %10) #17
-  %76 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %77 = call i32 @Cmd_CommandExecute(ptr noundef %76, ptr noundef nonnull @.str.7) #17
+  %74 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %75 = call i32 @Cmd_CommandExecute(ptr noundef %74, ptr noundef nonnull %10) #18
+  %76 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %77 = call i32 @Cmd_CommandExecute(ptr noundef %76, ptr noundef nonnull @.str.7) #18
   br label %.critedge44
 
 78:                                               ; preds = %59
@@ -2871,8 +2871,8 @@ define void @Gia_ManPerformFlow3(i32 noundef %0, i32 noundef %1, i32 noundef %2,
 
 .critedge45.sink.split:                           ; preds = %73, %.critedge44
   %.sink53 = phi ptr [ @.str.7, %.critedge44 ], [ %10, %73 ]
-  %79 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %80 = call i32 @Cmd_CommandExecute(ptr noundef %79, ptr noundef nonnull %.sink53) #17
+  %79 = call ptr (...) @Abc_FrameGetGlobalFrame() #18
+  %80 = call i32 @Cmd_CommandExecute(ptr noundef %79, ptr noundef nonnull %.sink53) #18
   br label %.critedge45
 
 .critedge45:                                      ; preds = %.critedge45.sink.split, %78
@@ -2885,19 +2885,19 @@ define void @Gia_ManPerformFlow3(i32 noundef %0, i32 noundef %1, i32 noundef %2,
 declare i32 @Abc_NtkRecIsRunning3(...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #8
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unnamed_addr #3 {
+define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8, !tbaa !44
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -2913,7 +2913,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
 
 11:                                               ; preds = %7
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.11)
-  tail call void @exit(i32 noundef 1) #20
+  tail call void @exit(i32 noundef 1) #21
   unreachable
 
 12:                                               ; preds = %7
@@ -2935,11 +2935,11 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
   br i1 %.not33, label %24, label %22
 
 22:                                               ; preds = %17
-  %23 = tail call ptr @realloc(ptr noundef nonnull %19, i64 noundef %21) #15
+  %23 = tail call ptr @realloc(ptr noundef nonnull %19, i64 noundef %21) #16
   br label %26
 
 24:                                               ; preds = %17
-  %25 = tail call noalias ptr @malloc(i64 noundef %21) #16
+  %25 = tail call noalias ptr @malloc(i64 noundef %21) #17
   br label %26
 
 26:                                               ; preds = %24, %22
@@ -2960,7 +2960,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
 36:                                               ; preds = %26
   %37 = sext i32 %9 to i64
   %38 = shl nsw i64 %37, 2
-  %39 = tail call ptr @realloc(ptr noundef nonnull %35, i64 noundef %38) #15
+  %39 = tail call ptr @realloc(ptr noundef nonnull %35, i64 noundef %38) #16
   store ptr %39, ptr %34, align 8, !tbaa !92
   %40 = load i32, ptr %4, align 4, !tbaa !90
   %41 = sext i32 %40 to i64
@@ -3005,11 +3005,11 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
   br i1 %.not9.i.i, label %62, label %60
 
 60:                                               ; preds = %57
-  %61 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %59, i64 noundef 64) #15
+  %61 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %59, i64 noundef 64) #16
   br label %Vec_IntGrow.exit.i
 
 62:                                               ; preds = %57
-  %63 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #16
+  %63 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #17
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %62, %60
@@ -3028,11 +3028,11 @@ Vec_IntGrow.exit.i:                               ; preds = %62, %60
   br i1 %.not9.i9.i, label %73, label %71
 
 71:                                               ; preds = %65
-  %72 = tail call ptr @realloc(ptr noundef nonnull %68, i64 noundef %70) #15
+  %72 = tail call ptr @realloc(ptr noundef nonnull %68, i64 noundef %70) #16
   br label %75
 
 73:                                               ; preds = %65
-  %74 = tail call noalias ptr @malloc(i64 noundef %70) #16
+  %74 = tail call noalias ptr @malloc(i64 noundef %70) #17
   br label %75
 
 75:                                               ; preds = %73, %71
@@ -3063,10 +3063,10 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #10
+declare void @exit(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 declare void @Gia_ObjAddFanout(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -3075,41 +3075,42 @@ declare void @Gia_ManBuiltInSimPerform(ptr noundef, i32 noundef) local_unnamed_a
 declare void @Gia_ManQuantSetSuppAnd(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #13
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #13
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #14
+declare i32 @llvm.smin.i32(i32, i32) #15
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nofree nounwind }
-attributes #14 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nounwind allocsize(1) }
-attributes #16 = { nounwind allocsize(0) }
-attributes #17 = { nounwind }
-attributes #18 = { nounwind willreturn memory(read) }
-attributes #19 = { nounwind allocsize(0,1) }
-attributes #20 = { cold noreturn nounwind }
+attributes #3 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nofree nounwind }
+attributes #15 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nounwind allocsize(1) }
+attributes #17 = { nounwind allocsize(0) }
+attributes #18 = { nounwind }
+attributes #19 = { nounwind willreturn memory(read) }
+attributes #20 = { nounwind allocsize(0,1) }
+attributes #21 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

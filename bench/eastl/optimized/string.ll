@@ -7,7 +7,7 @@ $_ZN5eastl10UTF8ToUCS4ERPKcS1_Rj = comdat any
 
 $_ZN5eastl10UCS4ToUTF8EjRPc = comdat any
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN5eastl10DecodePartERPKcS1_RPcS3_(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pSrc, ptr noundef %pSrcEnd, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pDest, ptr noundef %pDestEnd) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %pSrc, align 8
@@ -273,7 +273,7 @@ while.end:                                        ; preds = %land.lhs.true, %whi
   ret i1 %or.cond.not
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN5eastl10DecodePartERPKDsS1_RPDsS3_(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pSrc, ptr noundef %pSrcEnd, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pDest, ptr noundef %pDestEnd) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %pSrc, align 8
@@ -298,7 +298,7 @@ entry:
   ret i1 true
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN5eastl10DecodePartERPKDsS1_RPDiS3_(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pSrc, ptr noundef %pSrcEnd, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pDest, ptr noundef %pDestEnd) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %pSrc, align 8
@@ -544,7 +544,7 @@ return:                                           ; preds = %if.else70, %if.then
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN5eastl10DecodePartERPKDiS1_RPDsS3_(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pSrc, ptr noundef %pSrcEnd, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pDest, ptr noundef %pDestEnd) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %pSrc, align 8
@@ -581,7 +581,7 @@ while.end:                                        ; preds = %while.body, %entry
   ret i1 true
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN5eastl10DecodePartERPKDiS1_RPDiS3_(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pSrc, ptr noundef %pSrcEnd, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pDest, ptr noundef %pDestEnd) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %pSrc, align 8
@@ -631,7 +631,7 @@ while.end:                                        ; preds = %land.lhs.true, %whi
   ret i1 %or.cond.not
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN5eastl10DecodePartERPKiS1_RPDsS3_(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pSrc, ptr noundef %pSrcEnd, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pDest, ptr noundef %pDestEnd) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %pSrc, align 8
@@ -668,7 +668,7 @@ while.end:                                        ; preds = %while.body, %entry
   ret i1 true
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN5eastl10DecodePartERPKiS1_RPDiS3_(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pSrc, ptr noundef %pSrcEnd, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pDest, ptr noundef %pDestEnd) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %pSrc, align 8
@@ -711,10 +711,10 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 

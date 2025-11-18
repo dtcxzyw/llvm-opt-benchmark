@@ -14646,7 +14646,7 @@ define hidden void @_ZN9ty_server6server6client6Client3new17ha095b6ab46b90192E(p
   ret void
 }
 
-; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef nonnull ptr @_ZN9ty_server6server6client6Client8notifier17hbcff33da7f581e5bE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %0) unnamed_addr #13 {
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %2 = icmp eq ptr %.val, inttoptr (i64 -1 to ptr)
@@ -14666,7 +14666,7 @@ define hidden noundef nonnull ptr @_ZN9ty_server6server6client6Client8notifier17
   ret ptr %.val
 }
 
-; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: nounwind nonlazybind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef nonnull ptr @_ZN9ty_server6server6client6Client9responder17h0fadfbd77d5026d9E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %0) unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
@@ -16284,7 +16284,7 @@ attributes #9 = { alwaysinline mustprogress nofree norecurse nosync nounwind non
 attributes #10 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #12 = { nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #13 = { nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #13 = { nounwind nonlazybind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

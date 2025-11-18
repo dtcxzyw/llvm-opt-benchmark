@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @u_composition_table = internal unnamed_addr constant [931 x %struct.unicode_composition_table] [%struct.unicode_composition_table { i32 60, i32 824, i32 8814 }, %struct.unicode_composition_table { i32 61, i32 824, i32 8800 }, %struct.unicode_composition_table { i32 62, i32 824, i32 8815 }, %struct.unicode_composition_table { i32 65, i32 768, i32 192 }, %struct.unicode_composition_table { i32 65, i32 769, i32 193 }, %struct.unicode_composition_table { i32 65, i32 770, i32 194 }, %struct.unicode_composition_table { i32 65, i32 771, i32 195 }, %struct.unicode_composition_table { i32 65, i32 772, i32 256 }, %struct.unicode_composition_table { i32 65, i32 774, i32 258 }, %struct.unicode_composition_table { i32 65, i32 775, i32 550 }, %struct.unicode_composition_table { i32 65, i32 776, i32 196 }, %struct.unicode_composition_table { i32 65, i32 777, i32 7842 }, %struct.unicode_composition_table { i32 65, i32 778, i32 197 }, %struct.unicode_composition_table { i32 65, i32 780, i32 461 }, %struct.unicode_composition_table { i32 65, i32 783, i32 512 }, %struct.unicode_composition_table { i32 65, i32 785, i32 514 }, %struct.unicode_composition_table { i32 65, i32 803, i32 7840 }, %struct.unicode_composition_table { i32 65, i32 805, i32 7680 }, %struct.unicode_composition_table { i32 65, i32 808, i32 260 }, %struct.unicode_composition_table { i32 66, i32 775, i32 7682 }, %struct.unicode_composition_table { i32 66, i32 803, i32 7684 }, %struct.unicode_composition_table { i32 66, i32 817, i32 7686 }, %struct.unicode_composition_table { i32 67, i32 769, i32 262 }, %struct.unicode_composition_table { i32 67, i32 770, i32 264 }, %struct.unicode_composition_table { i32 67, i32 775, i32 266 }, %struct.unicode_composition_table { i32 67, i32 780, i32 268 }, %struct.unicode_composition_table { i32 67, i32 807, i32 199 }, %struct.unicode_composition_table { i32 68, i32 775, i32 7690 }, %struct.unicode_composition_table { i32 68, i32 780, i32 270 }, %struct.unicode_composition_table { i32 68, i32 803, i32 7692 }, %struct.unicode_composition_table { i32 68, i32 807, i32 7696 }, %struct.unicode_composition_table { i32 68, i32 813, i32 7698 }, %struct.unicode_composition_table { i32 68, i32 817, i32 7694 }, %struct.unicode_composition_table { i32 69, i32 768, i32 200 }, %struct.unicode_composition_table { i32 69, i32 769, i32 201 }, %struct.unicode_composition_table { i32 69, i32 770, i32 202 }, %struct.unicode_composition_table { i32 69, i32 771, i32 7868 }, %struct.unicode_composition_table { i32 69, i32 772, i32 274 }, %struct.unicode_composition_table { i32 69, i32 774, i32 276 }, %struct.unicode_composition_table { i32 69, i32 775, i32 278 }, %struct.unicode_composition_table { i32 69, i32 776, i32 203 }, %struct.unicode_composition_table { i32 69, i32 777, i32 7866 }, %struct.unicode_composition_table { i32 69, i32 780, i32 282 }, %struct.unicode_composition_table { i32 69, i32 783, i32 516 }, %struct.unicode_composition_table { i32 69, i32 785, i32 518 }, %struct.unicode_composition_table { i32 69, i32 803, i32 7864 }, %struct.unicode_composition_table { i32 69, i32 807, i32 552 }, %struct.unicode_composition_table { i32 69, i32 808, i32 280 }, %struct.unicode_composition_table { i32 69, i32 813, i32 7704 }, %struct.unicode_composition_table { i32 69, i32 816, i32 7706 }, %struct.unicode_composition_table { i32 70, i32 775, i32 7710 }, %struct.unicode_composition_table { i32 71, i32 769, i32 500 }, %struct.unicode_composition_table { i32 71, i32 770, i32 284 }, %struct.unicode_composition_table { i32 71, i32 772, i32 7712 }, %struct.unicode_composition_table { i32 71, i32 774, i32 286 }, %struct.unicode_composition_table { i32 71, i32 775, i32 288 }, %struct.unicode_composition_table { i32 71, i32 780, i32 486 }, %struct.unicode_composition_table { i32 71, i32 807, i32 290 }, %struct.unicode_composition_table { i32 72, i32 770, i32 292 }, %struct.unicode_composition_table { i32 72, i32 775, i32 7714 }, %struct.unicode_composition_table { i32 72, i32 776, i32 7718 }, %struct.unicode_composition_table { i32 72, i32 780, i32 542 }, %struct.unicode_composition_table { i32 72, i32 803, i32 7716 }, %struct.unicode_composition_table { i32 72, i32 807, i32 7720 }, %struct.unicode_composition_table { i32 72, i32 814, i32 7722 }, %struct.unicode_composition_table { i32 73, i32 768, i32 204 }, %struct.unicode_composition_table { i32 73, i32 769, i32 205 }, %struct.unicode_composition_table { i32 73, i32 770, i32 206 }, %struct.unicode_composition_table { i32 73, i32 771, i32 296 }, %struct.unicode_composition_table { i32 73, i32 772, i32 298 }, %struct.unicode_composition_table { i32 73, i32 774, i32 300 }, %struct.unicode_composition_table { i32 73, i32 775, i32 304 }, %struct.unicode_composition_table { i32 73, i32 776, i32 207 }, %struct.unicode_composition_table { i32 73, i32 777, i32 7880 }, %struct.unicode_composition_table { i32 73, i32 780, i32 463 }, %struct.unicode_composition_table { i32 73, i32 783, i32 520 }, %struct.unicode_composition_table { i32 73, i32 785, i32 522 }, %struct.unicode_composition_table { i32 73, i32 803, i32 7882 }, %struct.unicode_composition_table { i32 73, i32 808, i32 302 }, %struct.unicode_composition_table { i32 73, i32 816, i32 7724 }, %struct.unicode_composition_table { i32 74, i32 770, i32 308 }, %struct.unicode_composition_table { i32 75, i32 769, i32 7728 }, %struct.unicode_composition_table { i32 75, i32 780, i32 488 }, %struct.unicode_composition_table { i32 75, i32 803, i32 7730 }, %struct.unicode_composition_table { i32 75, i32 807, i32 310 }, %struct.unicode_composition_table { i32 75, i32 817, i32 7732 }, %struct.unicode_composition_table { i32 76, i32 769, i32 313 }, %struct.unicode_composition_table { i32 76, i32 780, i32 317 }, %struct.unicode_composition_table { i32 76, i32 803, i32 7734 }, %struct.unicode_composition_table { i32 76, i32 807, i32 315 }, %struct.unicode_composition_table { i32 76, i32 813, i32 7740 }, %struct.unicode_composition_table { i32 76, i32 817, i32 7738 }, %struct.unicode_composition_table { i32 77, i32 769, i32 7742 }, %struct.unicode_composition_table { i32 77, i32 775, i32 7744 }, %struct.unicode_composition_table { i32 77, i32 803, i32 7746 }, %struct.unicode_composition_table { i32 78, i32 768, i32 504 }, %struct.unicode_composition_table { i32 78, i32 769, i32 323 }, %struct.unicode_composition_table { i32 78, i32 771, i32 209 }, %struct.unicode_composition_table { i32 78, i32 775, i32 7748 }, %struct.unicode_composition_table { i32 78, i32 780, i32 327 }, %struct.unicode_composition_table { i32 78, i32 803, i32 7750 }, %struct.unicode_composition_table { i32 78, i32 807, i32 325 }, %struct.unicode_composition_table { i32 78, i32 813, i32 7754 }, %struct.unicode_composition_table { i32 78, i32 817, i32 7752 }, %struct.unicode_composition_table { i32 79, i32 768, i32 210 }, %struct.unicode_composition_table { i32 79, i32 769, i32 211 }, %struct.unicode_composition_table { i32 79, i32 770, i32 212 }, %struct.unicode_composition_table { i32 79, i32 771, i32 213 }, %struct.unicode_composition_table { i32 79, i32 772, i32 332 }, %struct.unicode_composition_table { i32 79, i32 774, i32 334 }, %struct.unicode_composition_table { i32 79, i32 775, i32 558 }, %struct.unicode_composition_table { i32 79, i32 776, i32 214 }, %struct.unicode_composition_table { i32 79, i32 777, i32 7886 }, %struct.unicode_composition_table { i32 79, i32 779, i32 336 }, %struct.unicode_composition_table { i32 79, i32 780, i32 465 }, %struct.unicode_composition_table { i32 79, i32 783, i32 524 }, %struct.unicode_composition_table { i32 79, i32 785, i32 526 }, %struct.unicode_composition_table { i32 79, i32 795, i32 416 }, %struct.unicode_composition_table { i32 79, i32 803, i32 7884 }, %struct.unicode_composition_table { i32 79, i32 808, i32 490 }, %struct.unicode_composition_table { i32 80, i32 769, i32 7764 }, %struct.unicode_composition_table { i32 80, i32 775, i32 7766 }, %struct.unicode_composition_table { i32 82, i32 769, i32 340 }, %struct.unicode_composition_table { i32 82, i32 775, i32 7768 }, %struct.unicode_composition_table { i32 82, i32 780, i32 344 }, %struct.unicode_composition_table { i32 82, i32 783, i32 528 }, %struct.unicode_composition_table { i32 82, i32 785, i32 530 }, %struct.unicode_composition_table { i32 82, i32 803, i32 7770 }, %struct.unicode_composition_table { i32 82, i32 807, i32 342 }, %struct.unicode_composition_table { i32 82, i32 817, i32 7774 }, %struct.unicode_composition_table { i32 83, i32 769, i32 346 }, %struct.unicode_composition_table { i32 83, i32 770, i32 348 }, %struct.unicode_composition_table { i32 83, i32 775, i32 7776 }, %struct.unicode_composition_table { i32 83, i32 780, i32 352 }, %struct.unicode_composition_table { i32 83, i32 803, i32 7778 }, %struct.unicode_composition_table { i32 83, i32 806, i32 536 }, %struct.unicode_composition_table { i32 83, i32 807, i32 350 }, %struct.unicode_composition_table { i32 84, i32 775, i32 7786 }, %struct.unicode_composition_table { i32 84, i32 780, i32 356 }, %struct.unicode_composition_table { i32 84, i32 803, i32 7788 }, %struct.unicode_composition_table { i32 84, i32 806, i32 538 }, %struct.unicode_composition_table { i32 84, i32 807, i32 354 }, %struct.unicode_composition_table { i32 84, i32 813, i32 7792 }, %struct.unicode_composition_table { i32 84, i32 817, i32 7790 }, %struct.unicode_composition_table { i32 85, i32 768, i32 217 }, %struct.unicode_composition_table { i32 85, i32 769, i32 218 }, %struct.unicode_composition_table { i32 85, i32 770, i32 219 }, %struct.unicode_composition_table { i32 85, i32 771, i32 360 }, %struct.unicode_composition_table { i32 85, i32 772, i32 362 }, %struct.unicode_composition_table { i32 85, i32 774, i32 364 }, %struct.unicode_composition_table { i32 85, i32 776, i32 220 }, %struct.unicode_composition_table { i32 85, i32 777, i32 7910 }, %struct.unicode_composition_table { i32 85, i32 778, i32 366 }, %struct.unicode_composition_table { i32 85, i32 779, i32 368 }, %struct.unicode_composition_table { i32 85, i32 780, i32 467 }, %struct.unicode_composition_table { i32 85, i32 783, i32 532 }, %struct.unicode_composition_table { i32 85, i32 785, i32 534 }, %struct.unicode_composition_table { i32 85, i32 795, i32 431 }, %struct.unicode_composition_table { i32 85, i32 803, i32 7908 }, %struct.unicode_composition_table { i32 85, i32 804, i32 7794 }, %struct.unicode_composition_table { i32 85, i32 808, i32 370 }, %struct.unicode_composition_table { i32 85, i32 813, i32 7798 }, %struct.unicode_composition_table { i32 85, i32 816, i32 7796 }, %struct.unicode_composition_table { i32 86, i32 771, i32 7804 }, %struct.unicode_composition_table { i32 86, i32 803, i32 7806 }, %struct.unicode_composition_table { i32 87, i32 768, i32 7808 }, %struct.unicode_composition_table { i32 87, i32 769, i32 7810 }, %struct.unicode_composition_table { i32 87, i32 770, i32 372 }, %struct.unicode_composition_table { i32 87, i32 775, i32 7814 }, %struct.unicode_composition_table { i32 87, i32 776, i32 7812 }, %struct.unicode_composition_table { i32 87, i32 803, i32 7816 }, %struct.unicode_composition_table { i32 88, i32 775, i32 7818 }, %struct.unicode_composition_table { i32 88, i32 776, i32 7820 }, %struct.unicode_composition_table { i32 89, i32 768, i32 7922 }, %struct.unicode_composition_table { i32 89, i32 769, i32 221 }, %struct.unicode_composition_table { i32 89, i32 770, i32 374 }, %struct.unicode_composition_table { i32 89, i32 771, i32 7928 }, %struct.unicode_composition_table { i32 89, i32 772, i32 562 }, %struct.unicode_composition_table { i32 89, i32 775, i32 7822 }, %struct.unicode_composition_table { i32 89, i32 776, i32 376 }, %struct.unicode_composition_table { i32 89, i32 777, i32 7926 }, %struct.unicode_composition_table { i32 89, i32 803, i32 7924 }, %struct.unicode_composition_table { i32 90, i32 769, i32 377 }, %struct.unicode_composition_table { i32 90, i32 770, i32 7824 }, %struct.unicode_composition_table { i32 90, i32 775, i32 379 }, %struct.unicode_composition_table { i32 90, i32 780, i32 381 }, %struct.unicode_composition_table { i32 90, i32 803, i32 7826 }, %struct.unicode_composition_table { i32 90, i32 817, i32 7828 }, %struct.unicode_composition_table { i32 97, i32 768, i32 224 }, %struct.unicode_composition_table { i32 97, i32 769, i32 225 }, %struct.unicode_composition_table { i32 97, i32 770, i32 226 }, %struct.unicode_composition_table { i32 97, i32 771, i32 227 }, %struct.unicode_composition_table { i32 97, i32 772, i32 257 }, %struct.unicode_composition_table { i32 97, i32 774, i32 259 }, %struct.unicode_composition_table { i32 97, i32 775, i32 551 }, %struct.unicode_composition_table { i32 97, i32 776, i32 228 }, %struct.unicode_composition_table { i32 97, i32 777, i32 7843 }, %struct.unicode_composition_table { i32 97, i32 778, i32 229 }, %struct.unicode_composition_table { i32 97, i32 780, i32 462 }, %struct.unicode_composition_table { i32 97, i32 783, i32 513 }, %struct.unicode_composition_table { i32 97, i32 785, i32 515 }, %struct.unicode_composition_table { i32 97, i32 803, i32 7841 }, %struct.unicode_composition_table { i32 97, i32 805, i32 7681 }, %struct.unicode_composition_table { i32 97, i32 808, i32 261 }, %struct.unicode_composition_table { i32 98, i32 775, i32 7683 }, %struct.unicode_composition_table { i32 98, i32 803, i32 7685 }, %struct.unicode_composition_table { i32 98, i32 817, i32 7687 }, %struct.unicode_composition_table { i32 99, i32 769, i32 263 }, %struct.unicode_composition_table { i32 99, i32 770, i32 265 }, %struct.unicode_composition_table { i32 99, i32 775, i32 267 }, %struct.unicode_composition_table { i32 99, i32 780, i32 269 }, %struct.unicode_composition_table { i32 99, i32 807, i32 231 }, %struct.unicode_composition_table { i32 100, i32 775, i32 7691 }, %struct.unicode_composition_table { i32 100, i32 780, i32 271 }, %struct.unicode_composition_table { i32 100, i32 803, i32 7693 }, %struct.unicode_composition_table { i32 100, i32 807, i32 7697 }, %struct.unicode_composition_table { i32 100, i32 813, i32 7699 }, %struct.unicode_composition_table { i32 100, i32 817, i32 7695 }, %struct.unicode_composition_table { i32 101, i32 768, i32 232 }, %struct.unicode_composition_table { i32 101, i32 769, i32 233 }, %struct.unicode_composition_table { i32 101, i32 770, i32 234 }, %struct.unicode_composition_table { i32 101, i32 771, i32 7869 }, %struct.unicode_composition_table { i32 101, i32 772, i32 275 }, %struct.unicode_composition_table { i32 101, i32 774, i32 277 }, %struct.unicode_composition_table { i32 101, i32 775, i32 279 }, %struct.unicode_composition_table { i32 101, i32 776, i32 235 }, %struct.unicode_composition_table { i32 101, i32 777, i32 7867 }, %struct.unicode_composition_table { i32 101, i32 780, i32 283 }, %struct.unicode_composition_table { i32 101, i32 783, i32 517 }, %struct.unicode_composition_table { i32 101, i32 785, i32 519 }, %struct.unicode_composition_table { i32 101, i32 803, i32 7865 }, %struct.unicode_composition_table { i32 101, i32 807, i32 553 }, %struct.unicode_composition_table { i32 101, i32 808, i32 281 }, %struct.unicode_composition_table { i32 101, i32 813, i32 7705 }, %struct.unicode_composition_table { i32 101, i32 816, i32 7707 }, %struct.unicode_composition_table { i32 102, i32 775, i32 7711 }, %struct.unicode_composition_table { i32 103, i32 769, i32 501 }, %struct.unicode_composition_table { i32 103, i32 770, i32 285 }, %struct.unicode_composition_table { i32 103, i32 772, i32 7713 }, %struct.unicode_composition_table { i32 103, i32 774, i32 287 }, %struct.unicode_composition_table { i32 103, i32 775, i32 289 }, %struct.unicode_composition_table { i32 103, i32 780, i32 487 }, %struct.unicode_composition_table { i32 103, i32 807, i32 291 }, %struct.unicode_composition_table { i32 104, i32 770, i32 293 }, %struct.unicode_composition_table { i32 104, i32 775, i32 7715 }, %struct.unicode_composition_table { i32 104, i32 776, i32 7719 }, %struct.unicode_composition_table { i32 104, i32 780, i32 543 }, %struct.unicode_composition_table { i32 104, i32 803, i32 7717 }, %struct.unicode_composition_table { i32 104, i32 807, i32 7721 }, %struct.unicode_composition_table { i32 104, i32 814, i32 7723 }, %struct.unicode_composition_table { i32 104, i32 817, i32 7830 }, %struct.unicode_composition_table { i32 105, i32 768, i32 236 }, %struct.unicode_composition_table { i32 105, i32 769, i32 237 }, %struct.unicode_composition_table { i32 105, i32 770, i32 238 }, %struct.unicode_composition_table { i32 105, i32 771, i32 297 }, %struct.unicode_composition_table { i32 105, i32 772, i32 299 }, %struct.unicode_composition_table { i32 105, i32 774, i32 301 }, %struct.unicode_composition_table { i32 105, i32 776, i32 239 }, %struct.unicode_composition_table { i32 105, i32 777, i32 7881 }, %struct.unicode_composition_table { i32 105, i32 780, i32 464 }, %struct.unicode_composition_table { i32 105, i32 783, i32 521 }, %struct.unicode_composition_table { i32 105, i32 785, i32 523 }, %struct.unicode_composition_table { i32 105, i32 803, i32 7883 }, %struct.unicode_composition_table { i32 105, i32 808, i32 303 }, %struct.unicode_composition_table { i32 105, i32 816, i32 7725 }, %struct.unicode_composition_table { i32 106, i32 770, i32 309 }, %struct.unicode_composition_table { i32 106, i32 780, i32 496 }, %struct.unicode_composition_table { i32 107, i32 769, i32 7729 }, %struct.unicode_composition_table { i32 107, i32 780, i32 489 }, %struct.unicode_composition_table { i32 107, i32 803, i32 7731 }, %struct.unicode_composition_table { i32 107, i32 807, i32 311 }, %struct.unicode_composition_table { i32 107, i32 817, i32 7733 }, %struct.unicode_composition_table { i32 108, i32 769, i32 314 }, %struct.unicode_composition_table { i32 108, i32 780, i32 318 }, %struct.unicode_composition_table { i32 108, i32 803, i32 7735 }, %struct.unicode_composition_table { i32 108, i32 807, i32 316 }, %struct.unicode_composition_table { i32 108, i32 813, i32 7741 }, %struct.unicode_composition_table { i32 108, i32 817, i32 7739 }, %struct.unicode_composition_table { i32 109, i32 769, i32 7743 }, %struct.unicode_composition_table { i32 109, i32 775, i32 7745 }, %struct.unicode_composition_table { i32 109, i32 803, i32 7747 }, %struct.unicode_composition_table { i32 110, i32 768, i32 505 }, %struct.unicode_composition_table { i32 110, i32 769, i32 324 }, %struct.unicode_composition_table { i32 110, i32 771, i32 241 }, %struct.unicode_composition_table { i32 110, i32 775, i32 7749 }, %struct.unicode_composition_table { i32 110, i32 780, i32 328 }, %struct.unicode_composition_table { i32 110, i32 803, i32 7751 }, %struct.unicode_composition_table { i32 110, i32 807, i32 326 }, %struct.unicode_composition_table { i32 110, i32 813, i32 7755 }, %struct.unicode_composition_table { i32 110, i32 817, i32 7753 }, %struct.unicode_composition_table { i32 111, i32 768, i32 242 }, %struct.unicode_composition_table { i32 111, i32 769, i32 243 }, %struct.unicode_composition_table { i32 111, i32 770, i32 244 }, %struct.unicode_composition_table { i32 111, i32 771, i32 245 }, %struct.unicode_composition_table { i32 111, i32 772, i32 333 }, %struct.unicode_composition_table { i32 111, i32 774, i32 335 }, %struct.unicode_composition_table { i32 111, i32 775, i32 559 }, %struct.unicode_composition_table { i32 111, i32 776, i32 246 }, %struct.unicode_composition_table { i32 111, i32 777, i32 7887 }, %struct.unicode_composition_table { i32 111, i32 779, i32 337 }, %struct.unicode_composition_table { i32 111, i32 780, i32 466 }, %struct.unicode_composition_table { i32 111, i32 783, i32 525 }, %struct.unicode_composition_table { i32 111, i32 785, i32 527 }, %struct.unicode_composition_table { i32 111, i32 795, i32 417 }, %struct.unicode_composition_table { i32 111, i32 803, i32 7885 }, %struct.unicode_composition_table { i32 111, i32 808, i32 491 }, %struct.unicode_composition_table { i32 112, i32 769, i32 7765 }, %struct.unicode_composition_table { i32 112, i32 775, i32 7767 }, %struct.unicode_composition_table { i32 114, i32 769, i32 341 }, %struct.unicode_composition_table { i32 114, i32 775, i32 7769 }, %struct.unicode_composition_table { i32 114, i32 780, i32 345 }, %struct.unicode_composition_table { i32 114, i32 783, i32 529 }, %struct.unicode_composition_table { i32 114, i32 785, i32 531 }, %struct.unicode_composition_table { i32 114, i32 803, i32 7771 }, %struct.unicode_composition_table { i32 114, i32 807, i32 343 }, %struct.unicode_composition_table { i32 114, i32 817, i32 7775 }, %struct.unicode_composition_table { i32 115, i32 769, i32 347 }, %struct.unicode_composition_table { i32 115, i32 770, i32 349 }, %struct.unicode_composition_table { i32 115, i32 775, i32 7777 }, %struct.unicode_composition_table { i32 115, i32 780, i32 353 }, %struct.unicode_composition_table { i32 115, i32 803, i32 7779 }, %struct.unicode_composition_table { i32 115, i32 806, i32 537 }, %struct.unicode_composition_table { i32 115, i32 807, i32 351 }, %struct.unicode_composition_table { i32 116, i32 775, i32 7787 }, %struct.unicode_composition_table { i32 116, i32 776, i32 7831 }, %struct.unicode_composition_table { i32 116, i32 780, i32 357 }, %struct.unicode_composition_table { i32 116, i32 803, i32 7789 }, %struct.unicode_composition_table { i32 116, i32 806, i32 539 }, %struct.unicode_composition_table { i32 116, i32 807, i32 355 }, %struct.unicode_composition_table { i32 116, i32 813, i32 7793 }, %struct.unicode_composition_table { i32 116, i32 817, i32 7791 }, %struct.unicode_composition_table { i32 117, i32 768, i32 249 }, %struct.unicode_composition_table { i32 117, i32 769, i32 250 }, %struct.unicode_composition_table { i32 117, i32 770, i32 251 }, %struct.unicode_composition_table { i32 117, i32 771, i32 361 }, %struct.unicode_composition_table { i32 117, i32 772, i32 363 }, %struct.unicode_composition_table { i32 117, i32 774, i32 365 }, %struct.unicode_composition_table { i32 117, i32 776, i32 252 }, %struct.unicode_composition_table { i32 117, i32 777, i32 7911 }, %struct.unicode_composition_table { i32 117, i32 778, i32 367 }, %struct.unicode_composition_table { i32 117, i32 779, i32 369 }, %struct.unicode_composition_table { i32 117, i32 780, i32 468 }, %struct.unicode_composition_table { i32 117, i32 783, i32 533 }, %struct.unicode_composition_table { i32 117, i32 785, i32 535 }, %struct.unicode_composition_table { i32 117, i32 795, i32 432 }, %struct.unicode_composition_table { i32 117, i32 803, i32 7909 }, %struct.unicode_composition_table { i32 117, i32 804, i32 7795 }, %struct.unicode_composition_table { i32 117, i32 808, i32 371 }, %struct.unicode_composition_table { i32 117, i32 813, i32 7799 }, %struct.unicode_composition_table { i32 117, i32 816, i32 7797 }, %struct.unicode_composition_table { i32 118, i32 771, i32 7805 }, %struct.unicode_composition_table { i32 118, i32 803, i32 7807 }, %struct.unicode_composition_table { i32 119, i32 768, i32 7809 }, %struct.unicode_composition_table { i32 119, i32 769, i32 7811 }, %struct.unicode_composition_table { i32 119, i32 770, i32 373 }, %struct.unicode_composition_table { i32 119, i32 775, i32 7815 }, %struct.unicode_composition_table { i32 119, i32 776, i32 7813 }, %struct.unicode_composition_table { i32 119, i32 778, i32 7832 }, %struct.unicode_composition_table { i32 119, i32 803, i32 7817 }, %struct.unicode_composition_table { i32 120, i32 775, i32 7819 }, %struct.unicode_composition_table { i32 120, i32 776, i32 7821 }, %struct.unicode_composition_table { i32 121, i32 768, i32 7923 }, %struct.unicode_composition_table { i32 121, i32 769, i32 253 }, %struct.unicode_composition_table { i32 121, i32 770, i32 375 }, %struct.unicode_composition_table { i32 121, i32 771, i32 7929 }, %struct.unicode_composition_table { i32 121, i32 772, i32 563 }, %struct.unicode_composition_table { i32 121, i32 775, i32 7823 }, %struct.unicode_composition_table { i32 121, i32 776, i32 255 }, %struct.unicode_composition_table { i32 121, i32 777, i32 7927 }, %struct.unicode_composition_table { i32 121, i32 778, i32 7833 }, %struct.unicode_composition_table { i32 121, i32 803, i32 7925 }, %struct.unicode_composition_table { i32 122, i32 769, i32 378 }, %struct.unicode_composition_table { i32 122, i32 770, i32 7825 }, %struct.unicode_composition_table { i32 122, i32 775, i32 380 }, %struct.unicode_composition_table { i32 122, i32 780, i32 382 }, %struct.unicode_composition_table { i32 122, i32 803, i32 7827 }, %struct.unicode_composition_table { i32 122, i32 817, i32 7829 }, %struct.unicode_composition_table { i32 168, i32 768, i32 8173 }, %struct.unicode_composition_table { i32 168, i32 769, i32 901 }, %struct.unicode_composition_table { i32 168, i32 834, i32 8129 }, %struct.unicode_composition_table { i32 194, i32 768, i32 7846 }, %struct.unicode_composition_table { i32 194, i32 769, i32 7844 }, %struct.unicode_composition_table { i32 194, i32 771, i32 7850 }, %struct.unicode_composition_table { i32 194, i32 777, i32 7848 }, %struct.unicode_composition_table { i32 196, i32 772, i32 478 }, %struct.unicode_composition_table { i32 197, i32 769, i32 506 }, %struct.unicode_composition_table { i32 198, i32 769, i32 508 }, %struct.unicode_composition_table { i32 198, i32 772, i32 482 }, %struct.unicode_composition_table { i32 199, i32 769, i32 7688 }, %struct.unicode_composition_table { i32 202, i32 768, i32 7872 }, %struct.unicode_composition_table { i32 202, i32 769, i32 7870 }, %struct.unicode_composition_table { i32 202, i32 771, i32 7876 }, %struct.unicode_composition_table { i32 202, i32 777, i32 7874 }, %struct.unicode_composition_table { i32 207, i32 769, i32 7726 }, %struct.unicode_composition_table { i32 212, i32 768, i32 7890 }, %struct.unicode_composition_table { i32 212, i32 769, i32 7888 }, %struct.unicode_composition_table { i32 212, i32 771, i32 7894 }, %struct.unicode_composition_table { i32 212, i32 777, i32 7892 }, %struct.unicode_composition_table { i32 213, i32 769, i32 7756 }, %struct.unicode_composition_table { i32 213, i32 772, i32 556 }, %struct.unicode_composition_table { i32 213, i32 776, i32 7758 }, %struct.unicode_composition_table { i32 214, i32 772, i32 554 }, %struct.unicode_composition_table { i32 216, i32 769, i32 510 }, %struct.unicode_composition_table { i32 220, i32 768, i32 475 }, %struct.unicode_composition_table { i32 220, i32 769, i32 471 }, %struct.unicode_composition_table { i32 220, i32 772, i32 469 }, %struct.unicode_composition_table { i32 220, i32 780, i32 473 }, %struct.unicode_composition_table { i32 226, i32 768, i32 7847 }, %struct.unicode_composition_table { i32 226, i32 769, i32 7845 }, %struct.unicode_composition_table { i32 226, i32 771, i32 7851 }, %struct.unicode_composition_table { i32 226, i32 777, i32 7849 }, %struct.unicode_composition_table { i32 228, i32 772, i32 479 }, %struct.unicode_composition_table { i32 229, i32 769, i32 507 }, %struct.unicode_composition_table { i32 230, i32 769, i32 509 }, %struct.unicode_composition_table { i32 230, i32 772, i32 483 }, %struct.unicode_composition_table { i32 231, i32 769, i32 7689 }, %struct.unicode_composition_table { i32 234, i32 768, i32 7873 }, %struct.unicode_composition_table { i32 234, i32 769, i32 7871 }, %struct.unicode_composition_table { i32 234, i32 771, i32 7877 }, %struct.unicode_composition_table { i32 234, i32 777, i32 7875 }, %struct.unicode_composition_table { i32 239, i32 769, i32 7727 }, %struct.unicode_composition_table { i32 244, i32 768, i32 7891 }, %struct.unicode_composition_table { i32 244, i32 769, i32 7889 }, %struct.unicode_composition_table { i32 244, i32 771, i32 7895 }, %struct.unicode_composition_table { i32 244, i32 777, i32 7893 }, %struct.unicode_composition_table { i32 245, i32 769, i32 7757 }, %struct.unicode_composition_table { i32 245, i32 772, i32 557 }, %struct.unicode_composition_table { i32 245, i32 776, i32 7759 }, %struct.unicode_composition_table { i32 246, i32 772, i32 555 }, %struct.unicode_composition_table { i32 248, i32 769, i32 511 }, %struct.unicode_composition_table { i32 252, i32 768, i32 476 }, %struct.unicode_composition_table { i32 252, i32 769, i32 472 }, %struct.unicode_composition_table { i32 252, i32 772, i32 470 }, %struct.unicode_composition_table { i32 252, i32 780, i32 474 }, %struct.unicode_composition_table { i32 258, i32 768, i32 7856 }, %struct.unicode_composition_table { i32 258, i32 769, i32 7854 }, %struct.unicode_composition_table { i32 258, i32 771, i32 7860 }, %struct.unicode_composition_table { i32 258, i32 777, i32 7858 }, %struct.unicode_composition_table { i32 259, i32 768, i32 7857 }, %struct.unicode_composition_table { i32 259, i32 769, i32 7855 }, %struct.unicode_composition_table { i32 259, i32 771, i32 7861 }, %struct.unicode_composition_table { i32 259, i32 777, i32 7859 }, %struct.unicode_composition_table { i32 274, i32 768, i32 7700 }, %struct.unicode_composition_table { i32 274, i32 769, i32 7702 }, %struct.unicode_composition_table { i32 275, i32 768, i32 7701 }, %struct.unicode_composition_table { i32 275, i32 769, i32 7703 }, %struct.unicode_composition_table { i32 332, i32 768, i32 7760 }, %struct.unicode_composition_table { i32 332, i32 769, i32 7762 }, %struct.unicode_composition_table { i32 333, i32 768, i32 7761 }, %struct.unicode_composition_table { i32 333, i32 769, i32 7763 }, %struct.unicode_composition_table { i32 346, i32 775, i32 7780 }, %struct.unicode_composition_table { i32 347, i32 775, i32 7781 }, %struct.unicode_composition_table { i32 352, i32 775, i32 7782 }, %struct.unicode_composition_table { i32 353, i32 775, i32 7783 }, %struct.unicode_composition_table { i32 360, i32 769, i32 7800 }, %struct.unicode_composition_table { i32 361, i32 769, i32 7801 }, %struct.unicode_composition_table { i32 362, i32 776, i32 7802 }, %struct.unicode_composition_table { i32 363, i32 776, i32 7803 }, %struct.unicode_composition_table { i32 383, i32 775, i32 7835 }, %struct.unicode_composition_table { i32 416, i32 768, i32 7900 }, %struct.unicode_composition_table { i32 416, i32 769, i32 7898 }, %struct.unicode_composition_table { i32 416, i32 771, i32 7904 }, %struct.unicode_composition_table { i32 416, i32 777, i32 7902 }, %struct.unicode_composition_table { i32 416, i32 803, i32 7906 }, %struct.unicode_composition_table { i32 417, i32 768, i32 7901 }, %struct.unicode_composition_table { i32 417, i32 769, i32 7899 }, %struct.unicode_composition_table { i32 417, i32 771, i32 7905 }, %struct.unicode_composition_table { i32 417, i32 777, i32 7903 }, %struct.unicode_composition_table { i32 417, i32 803, i32 7907 }, %struct.unicode_composition_table { i32 431, i32 768, i32 7914 }, %struct.unicode_composition_table { i32 431, i32 769, i32 7912 }, %struct.unicode_composition_table { i32 431, i32 771, i32 7918 }, %struct.unicode_composition_table { i32 431, i32 777, i32 7916 }, %struct.unicode_composition_table { i32 431, i32 803, i32 7920 }, %struct.unicode_composition_table { i32 432, i32 768, i32 7915 }, %struct.unicode_composition_table { i32 432, i32 769, i32 7913 }, %struct.unicode_composition_table { i32 432, i32 771, i32 7919 }, %struct.unicode_composition_table { i32 432, i32 777, i32 7917 }, %struct.unicode_composition_table { i32 432, i32 803, i32 7921 }, %struct.unicode_composition_table { i32 439, i32 780, i32 494 }, %struct.unicode_composition_table { i32 490, i32 772, i32 492 }, %struct.unicode_composition_table { i32 491, i32 772, i32 493 }, %struct.unicode_composition_table { i32 550, i32 772, i32 480 }, %struct.unicode_composition_table { i32 551, i32 772, i32 481 }, %struct.unicode_composition_table { i32 552, i32 774, i32 7708 }, %struct.unicode_composition_table { i32 553, i32 774, i32 7709 }, %struct.unicode_composition_table { i32 558, i32 772, i32 560 }, %struct.unicode_composition_table { i32 559, i32 772, i32 561 }, %struct.unicode_composition_table { i32 658, i32 780, i32 495 }, %struct.unicode_composition_table { i32 913, i32 768, i32 8122 }, %struct.unicode_composition_table { i32 913, i32 769, i32 902 }, %struct.unicode_composition_table { i32 913, i32 772, i32 8121 }, %struct.unicode_composition_table { i32 913, i32 774, i32 8120 }, %struct.unicode_composition_table { i32 913, i32 787, i32 7944 }, %struct.unicode_composition_table { i32 913, i32 788, i32 7945 }, %struct.unicode_composition_table { i32 913, i32 837, i32 8124 }, %struct.unicode_composition_table { i32 917, i32 768, i32 8136 }, %struct.unicode_composition_table { i32 917, i32 769, i32 904 }, %struct.unicode_composition_table { i32 917, i32 787, i32 7960 }, %struct.unicode_composition_table { i32 917, i32 788, i32 7961 }, %struct.unicode_composition_table { i32 919, i32 768, i32 8138 }, %struct.unicode_composition_table { i32 919, i32 769, i32 905 }, %struct.unicode_composition_table { i32 919, i32 787, i32 7976 }, %struct.unicode_composition_table { i32 919, i32 788, i32 7977 }, %struct.unicode_composition_table { i32 919, i32 837, i32 8140 }, %struct.unicode_composition_table { i32 921, i32 768, i32 8154 }, %struct.unicode_composition_table { i32 921, i32 769, i32 906 }, %struct.unicode_composition_table { i32 921, i32 772, i32 8153 }, %struct.unicode_composition_table { i32 921, i32 774, i32 8152 }, %struct.unicode_composition_table { i32 921, i32 776, i32 938 }, %struct.unicode_composition_table { i32 921, i32 787, i32 7992 }, %struct.unicode_composition_table { i32 921, i32 788, i32 7993 }, %struct.unicode_composition_table { i32 927, i32 768, i32 8184 }, %struct.unicode_composition_table { i32 927, i32 769, i32 908 }, %struct.unicode_composition_table { i32 927, i32 787, i32 8008 }, %struct.unicode_composition_table { i32 927, i32 788, i32 8009 }, %struct.unicode_composition_table { i32 929, i32 788, i32 8172 }, %struct.unicode_composition_table { i32 933, i32 768, i32 8170 }, %struct.unicode_composition_table { i32 933, i32 769, i32 910 }, %struct.unicode_composition_table { i32 933, i32 772, i32 8169 }, %struct.unicode_composition_table { i32 933, i32 774, i32 8168 }, %struct.unicode_composition_table { i32 933, i32 776, i32 939 }, %struct.unicode_composition_table { i32 933, i32 788, i32 8025 }, %struct.unicode_composition_table { i32 937, i32 768, i32 8186 }, %struct.unicode_composition_table { i32 937, i32 769, i32 911 }, %struct.unicode_composition_table { i32 937, i32 787, i32 8040 }, %struct.unicode_composition_table { i32 937, i32 788, i32 8041 }, %struct.unicode_composition_table { i32 937, i32 837, i32 8188 }, %struct.unicode_composition_table { i32 940, i32 837, i32 8116 }, %struct.unicode_composition_table { i32 942, i32 837, i32 8132 }, %struct.unicode_composition_table { i32 945, i32 768, i32 8048 }, %struct.unicode_composition_table { i32 945, i32 769, i32 940 }, %struct.unicode_composition_table { i32 945, i32 772, i32 8113 }, %struct.unicode_composition_table { i32 945, i32 774, i32 8112 }, %struct.unicode_composition_table { i32 945, i32 787, i32 7936 }, %struct.unicode_composition_table { i32 945, i32 788, i32 7937 }, %struct.unicode_composition_table { i32 945, i32 834, i32 8118 }, %struct.unicode_composition_table { i32 945, i32 837, i32 8115 }, %struct.unicode_composition_table { i32 949, i32 768, i32 8050 }, %struct.unicode_composition_table { i32 949, i32 769, i32 941 }, %struct.unicode_composition_table { i32 949, i32 787, i32 7952 }, %struct.unicode_composition_table { i32 949, i32 788, i32 7953 }, %struct.unicode_composition_table { i32 951, i32 768, i32 8052 }, %struct.unicode_composition_table { i32 951, i32 769, i32 942 }, %struct.unicode_composition_table { i32 951, i32 787, i32 7968 }, %struct.unicode_composition_table { i32 951, i32 788, i32 7969 }, %struct.unicode_composition_table { i32 951, i32 834, i32 8134 }, %struct.unicode_composition_table { i32 951, i32 837, i32 8131 }, %struct.unicode_composition_table { i32 953, i32 768, i32 8054 }, %struct.unicode_composition_table { i32 953, i32 769, i32 943 }, %struct.unicode_composition_table { i32 953, i32 772, i32 8145 }, %struct.unicode_composition_table { i32 953, i32 774, i32 8144 }, %struct.unicode_composition_table { i32 953, i32 776, i32 970 }, %struct.unicode_composition_table { i32 953, i32 787, i32 7984 }, %struct.unicode_composition_table { i32 953, i32 788, i32 7985 }, %struct.unicode_composition_table { i32 953, i32 834, i32 8150 }, %struct.unicode_composition_table { i32 959, i32 768, i32 8056 }, %struct.unicode_composition_table { i32 959, i32 769, i32 972 }, %struct.unicode_composition_table { i32 959, i32 787, i32 8000 }, %struct.unicode_composition_table { i32 959, i32 788, i32 8001 }, %struct.unicode_composition_table { i32 961, i32 787, i32 8164 }, %struct.unicode_composition_table { i32 961, i32 788, i32 8165 }, %struct.unicode_composition_table { i32 965, i32 768, i32 8058 }, %struct.unicode_composition_table { i32 965, i32 769, i32 973 }, %struct.unicode_composition_table { i32 965, i32 772, i32 8161 }, %struct.unicode_composition_table { i32 965, i32 774, i32 8160 }, %struct.unicode_composition_table { i32 965, i32 776, i32 971 }, %struct.unicode_composition_table { i32 965, i32 787, i32 8016 }, %struct.unicode_composition_table { i32 965, i32 788, i32 8017 }, %struct.unicode_composition_table { i32 965, i32 834, i32 8166 }, %struct.unicode_composition_table { i32 969, i32 768, i32 8060 }, %struct.unicode_composition_table { i32 969, i32 769, i32 974 }, %struct.unicode_composition_table { i32 969, i32 787, i32 8032 }, %struct.unicode_composition_table { i32 969, i32 788, i32 8033 }, %struct.unicode_composition_table { i32 969, i32 834, i32 8182 }, %struct.unicode_composition_table { i32 969, i32 837, i32 8179 }, %struct.unicode_composition_table { i32 970, i32 768, i32 8146 }, %struct.unicode_composition_table { i32 970, i32 769, i32 912 }, %struct.unicode_composition_table { i32 970, i32 834, i32 8151 }, %struct.unicode_composition_table { i32 971, i32 768, i32 8162 }, %struct.unicode_composition_table { i32 971, i32 769, i32 944 }, %struct.unicode_composition_table { i32 971, i32 834, i32 8167 }, %struct.unicode_composition_table { i32 974, i32 837, i32 8180 }, %struct.unicode_composition_table { i32 978, i32 769, i32 979 }, %struct.unicode_composition_table { i32 978, i32 776, i32 980 }, %struct.unicode_composition_table { i32 1030, i32 776, i32 1031 }, %struct.unicode_composition_table { i32 1040, i32 774, i32 1232 }, %struct.unicode_composition_table { i32 1040, i32 776, i32 1234 }, %struct.unicode_composition_table { i32 1043, i32 769, i32 1027 }, %struct.unicode_composition_table { i32 1045, i32 768, i32 1024 }, %struct.unicode_composition_table { i32 1045, i32 774, i32 1238 }, %struct.unicode_composition_table { i32 1045, i32 776, i32 1025 }, %struct.unicode_composition_table { i32 1046, i32 774, i32 1217 }, %struct.unicode_composition_table { i32 1046, i32 776, i32 1244 }, %struct.unicode_composition_table { i32 1047, i32 776, i32 1246 }, %struct.unicode_composition_table { i32 1048, i32 768, i32 1037 }, %struct.unicode_composition_table { i32 1048, i32 772, i32 1250 }, %struct.unicode_composition_table { i32 1048, i32 774, i32 1049 }, %struct.unicode_composition_table { i32 1048, i32 776, i32 1252 }, %struct.unicode_composition_table { i32 1050, i32 769, i32 1036 }, %struct.unicode_composition_table { i32 1054, i32 776, i32 1254 }, %struct.unicode_composition_table { i32 1059, i32 772, i32 1262 }, %struct.unicode_composition_table { i32 1059, i32 774, i32 1038 }, %struct.unicode_composition_table { i32 1059, i32 776, i32 1264 }, %struct.unicode_composition_table { i32 1059, i32 779, i32 1266 }, %struct.unicode_composition_table { i32 1063, i32 776, i32 1268 }, %struct.unicode_composition_table { i32 1067, i32 776, i32 1272 }, %struct.unicode_composition_table { i32 1069, i32 776, i32 1260 }, %struct.unicode_composition_table { i32 1072, i32 774, i32 1233 }, %struct.unicode_composition_table { i32 1072, i32 776, i32 1235 }, %struct.unicode_composition_table { i32 1075, i32 769, i32 1107 }, %struct.unicode_composition_table { i32 1077, i32 768, i32 1104 }, %struct.unicode_composition_table { i32 1077, i32 774, i32 1239 }, %struct.unicode_composition_table { i32 1077, i32 776, i32 1105 }, %struct.unicode_composition_table { i32 1078, i32 774, i32 1218 }, %struct.unicode_composition_table { i32 1078, i32 776, i32 1245 }, %struct.unicode_composition_table { i32 1079, i32 776, i32 1247 }, %struct.unicode_composition_table { i32 1080, i32 768, i32 1117 }, %struct.unicode_composition_table { i32 1080, i32 772, i32 1251 }, %struct.unicode_composition_table { i32 1080, i32 774, i32 1081 }, %struct.unicode_composition_table { i32 1080, i32 776, i32 1253 }, %struct.unicode_composition_table { i32 1082, i32 769, i32 1116 }, %struct.unicode_composition_table { i32 1086, i32 776, i32 1255 }, %struct.unicode_composition_table { i32 1091, i32 772, i32 1263 }, %struct.unicode_composition_table { i32 1091, i32 774, i32 1118 }, %struct.unicode_composition_table { i32 1091, i32 776, i32 1265 }, %struct.unicode_composition_table { i32 1091, i32 779, i32 1267 }, %struct.unicode_composition_table { i32 1095, i32 776, i32 1269 }, %struct.unicode_composition_table { i32 1099, i32 776, i32 1273 }, %struct.unicode_composition_table { i32 1101, i32 776, i32 1261 }, %struct.unicode_composition_table { i32 1110, i32 776, i32 1111 }, %struct.unicode_composition_table { i32 1140, i32 783, i32 1142 }, %struct.unicode_composition_table { i32 1141, i32 783, i32 1143 }, %struct.unicode_composition_table { i32 1240, i32 776, i32 1242 }, %struct.unicode_composition_table { i32 1241, i32 776, i32 1243 }, %struct.unicode_composition_table { i32 1256, i32 776, i32 1258 }, %struct.unicode_composition_table { i32 1257, i32 776, i32 1259 }, %struct.unicode_composition_table { i32 1575, i32 1619, i32 1570 }, %struct.unicode_composition_table { i32 1575, i32 1620, i32 1571 }, %struct.unicode_composition_table { i32 1575, i32 1621, i32 1573 }, %struct.unicode_composition_table { i32 1608, i32 1620, i32 1572 }, %struct.unicode_composition_table { i32 1610, i32 1620, i32 1574 }, %struct.unicode_composition_table { i32 1729, i32 1620, i32 1730 }, %struct.unicode_composition_table { i32 1746, i32 1620, i32 1747 }, %struct.unicode_composition_table { i32 1749, i32 1620, i32 1728 }, %struct.unicode_composition_table { i32 2344, i32 2364, i32 2345 }, %struct.unicode_composition_table { i32 2352, i32 2364, i32 2353 }, %struct.unicode_composition_table { i32 2355, i32 2364, i32 2356 }, %struct.unicode_composition_table { i32 2503, i32 2494, i32 2507 }, %struct.unicode_composition_table { i32 2503, i32 2519, i32 2508 }, %struct.unicode_composition_table { i32 2887, i32 2878, i32 2891 }, %struct.unicode_composition_table { i32 2887, i32 2902, i32 2888 }, %struct.unicode_composition_table { i32 2887, i32 2903, i32 2892 }, %struct.unicode_composition_table { i32 2962, i32 3031, i32 2964 }, %struct.unicode_composition_table { i32 3014, i32 3006, i32 3018 }, %struct.unicode_composition_table { i32 3014, i32 3031, i32 3020 }, %struct.unicode_composition_table { i32 3015, i32 3006, i32 3019 }, %struct.unicode_composition_table { i32 3142, i32 3158, i32 3144 }, %struct.unicode_composition_table { i32 3263, i32 3285, i32 3264 }, %struct.unicode_composition_table { i32 3270, i32 3266, i32 3274 }, %struct.unicode_composition_table { i32 3270, i32 3285, i32 3271 }, %struct.unicode_composition_table { i32 3270, i32 3286, i32 3272 }, %struct.unicode_composition_table { i32 3274, i32 3285, i32 3275 }, %struct.unicode_composition_table { i32 3398, i32 3390, i32 3402 }, %struct.unicode_composition_table { i32 3398, i32 3415, i32 3404 }, %struct.unicode_composition_table { i32 3399, i32 3390, i32 3403 }, %struct.unicode_composition_table { i32 3545, i32 3530, i32 3546 }, %struct.unicode_composition_table { i32 3545, i32 3535, i32 3548 }, %struct.unicode_composition_table { i32 3545, i32 3551, i32 3550 }, %struct.unicode_composition_table { i32 3548, i32 3530, i32 3549 }, %struct.unicode_composition_table { i32 4133, i32 4142, i32 4134 }, %struct.unicode_composition_table { i32 6917, i32 6965, i32 6918 }, %struct.unicode_composition_table { i32 6919, i32 6965, i32 6920 }, %struct.unicode_composition_table { i32 6921, i32 6965, i32 6922 }, %struct.unicode_composition_table { i32 6923, i32 6965, i32 6924 }, %struct.unicode_composition_table { i32 6925, i32 6965, i32 6926 }, %struct.unicode_composition_table { i32 6929, i32 6965, i32 6930 }, %struct.unicode_composition_table { i32 6970, i32 6965, i32 6971 }, %struct.unicode_composition_table { i32 6972, i32 6965, i32 6973 }, %struct.unicode_composition_table { i32 6974, i32 6965, i32 6976 }, %struct.unicode_composition_table { i32 6975, i32 6965, i32 6977 }, %struct.unicode_composition_table { i32 6978, i32 6965, i32 6979 }, %struct.unicode_composition_table { i32 7734, i32 772, i32 7736 }, %struct.unicode_composition_table { i32 7735, i32 772, i32 7737 }, %struct.unicode_composition_table { i32 7770, i32 772, i32 7772 }, %struct.unicode_composition_table { i32 7771, i32 772, i32 7773 }, %struct.unicode_composition_table { i32 7778, i32 775, i32 7784 }, %struct.unicode_composition_table { i32 7779, i32 775, i32 7785 }, %struct.unicode_composition_table { i32 7840, i32 770, i32 7852 }, %struct.unicode_composition_table { i32 7840, i32 774, i32 7862 }, %struct.unicode_composition_table { i32 7841, i32 770, i32 7853 }, %struct.unicode_composition_table { i32 7841, i32 774, i32 7863 }, %struct.unicode_composition_table { i32 7864, i32 770, i32 7878 }, %struct.unicode_composition_table { i32 7865, i32 770, i32 7879 }, %struct.unicode_composition_table { i32 7884, i32 770, i32 7896 }, %struct.unicode_composition_table { i32 7885, i32 770, i32 7897 }, %struct.unicode_composition_table { i32 7936, i32 768, i32 7938 }, %struct.unicode_composition_table { i32 7936, i32 769, i32 7940 }, %struct.unicode_composition_table { i32 7936, i32 834, i32 7942 }, %struct.unicode_composition_table { i32 7936, i32 837, i32 8064 }, %struct.unicode_composition_table { i32 7937, i32 768, i32 7939 }, %struct.unicode_composition_table { i32 7937, i32 769, i32 7941 }, %struct.unicode_composition_table { i32 7937, i32 834, i32 7943 }, %struct.unicode_composition_table { i32 7937, i32 837, i32 8065 }, %struct.unicode_composition_table { i32 7938, i32 837, i32 8066 }, %struct.unicode_composition_table { i32 7939, i32 837, i32 8067 }, %struct.unicode_composition_table { i32 7940, i32 837, i32 8068 }, %struct.unicode_composition_table { i32 7941, i32 837, i32 8069 }, %struct.unicode_composition_table { i32 7942, i32 837, i32 8070 }, %struct.unicode_composition_table { i32 7943, i32 837, i32 8071 }, %struct.unicode_composition_table { i32 7944, i32 768, i32 7946 }, %struct.unicode_composition_table { i32 7944, i32 769, i32 7948 }, %struct.unicode_composition_table { i32 7944, i32 834, i32 7950 }, %struct.unicode_composition_table { i32 7944, i32 837, i32 8072 }, %struct.unicode_composition_table { i32 7945, i32 768, i32 7947 }, %struct.unicode_composition_table { i32 7945, i32 769, i32 7949 }, %struct.unicode_composition_table { i32 7945, i32 834, i32 7951 }, %struct.unicode_composition_table { i32 7945, i32 837, i32 8073 }, %struct.unicode_composition_table { i32 7946, i32 837, i32 8074 }, %struct.unicode_composition_table { i32 7947, i32 837, i32 8075 }, %struct.unicode_composition_table { i32 7948, i32 837, i32 8076 }, %struct.unicode_composition_table { i32 7949, i32 837, i32 8077 }, %struct.unicode_composition_table { i32 7950, i32 837, i32 8078 }, %struct.unicode_composition_table { i32 7951, i32 837, i32 8079 }, %struct.unicode_composition_table { i32 7952, i32 768, i32 7954 }, %struct.unicode_composition_table { i32 7952, i32 769, i32 7956 }, %struct.unicode_composition_table { i32 7953, i32 768, i32 7955 }, %struct.unicode_composition_table { i32 7953, i32 769, i32 7957 }, %struct.unicode_composition_table { i32 7960, i32 768, i32 7962 }, %struct.unicode_composition_table { i32 7960, i32 769, i32 7964 }, %struct.unicode_composition_table { i32 7961, i32 768, i32 7963 }, %struct.unicode_composition_table { i32 7961, i32 769, i32 7965 }, %struct.unicode_composition_table { i32 7968, i32 768, i32 7970 }, %struct.unicode_composition_table { i32 7968, i32 769, i32 7972 }, %struct.unicode_composition_table { i32 7968, i32 834, i32 7974 }, %struct.unicode_composition_table { i32 7968, i32 837, i32 8080 }, %struct.unicode_composition_table { i32 7969, i32 768, i32 7971 }, %struct.unicode_composition_table { i32 7969, i32 769, i32 7973 }, %struct.unicode_composition_table { i32 7969, i32 834, i32 7975 }, %struct.unicode_composition_table { i32 7969, i32 837, i32 8081 }, %struct.unicode_composition_table { i32 7970, i32 837, i32 8082 }, %struct.unicode_composition_table { i32 7971, i32 837, i32 8083 }, %struct.unicode_composition_table { i32 7972, i32 837, i32 8084 }, %struct.unicode_composition_table { i32 7973, i32 837, i32 8085 }, %struct.unicode_composition_table { i32 7974, i32 837, i32 8086 }, %struct.unicode_composition_table { i32 7975, i32 837, i32 8087 }, %struct.unicode_composition_table { i32 7976, i32 768, i32 7978 }, %struct.unicode_composition_table { i32 7976, i32 769, i32 7980 }, %struct.unicode_composition_table { i32 7976, i32 834, i32 7982 }, %struct.unicode_composition_table { i32 7976, i32 837, i32 8088 }, %struct.unicode_composition_table { i32 7977, i32 768, i32 7979 }, %struct.unicode_composition_table { i32 7977, i32 769, i32 7981 }, %struct.unicode_composition_table { i32 7977, i32 834, i32 7983 }, %struct.unicode_composition_table { i32 7977, i32 837, i32 8089 }, %struct.unicode_composition_table { i32 7978, i32 837, i32 8090 }, %struct.unicode_composition_table { i32 7979, i32 837, i32 8091 }, %struct.unicode_composition_table { i32 7980, i32 837, i32 8092 }, %struct.unicode_composition_table { i32 7981, i32 837, i32 8093 }, %struct.unicode_composition_table { i32 7982, i32 837, i32 8094 }, %struct.unicode_composition_table { i32 7983, i32 837, i32 8095 }, %struct.unicode_composition_table { i32 7984, i32 768, i32 7986 }, %struct.unicode_composition_table { i32 7984, i32 769, i32 7988 }, %struct.unicode_composition_table { i32 7984, i32 834, i32 7990 }, %struct.unicode_composition_table { i32 7985, i32 768, i32 7987 }, %struct.unicode_composition_table { i32 7985, i32 769, i32 7989 }, %struct.unicode_composition_table { i32 7985, i32 834, i32 7991 }, %struct.unicode_composition_table { i32 7992, i32 768, i32 7994 }, %struct.unicode_composition_table { i32 7992, i32 769, i32 7996 }, %struct.unicode_composition_table { i32 7992, i32 834, i32 7998 }, %struct.unicode_composition_table { i32 7993, i32 768, i32 7995 }, %struct.unicode_composition_table { i32 7993, i32 769, i32 7997 }, %struct.unicode_composition_table { i32 7993, i32 834, i32 7999 }, %struct.unicode_composition_table { i32 8000, i32 768, i32 8002 }, %struct.unicode_composition_table { i32 8000, i32 769, i32 8004 }, %struct.unicode_composition_table { i32 8001, i32 768, i32 8003 }, %struct.unicode_composition_table { i32 8001, i32 769, i32 8005 }, %struct.unicode_composition_table { i32 8008, i32 768, i32 8010 }, %struct.unicode_composition_table { i32 8008, i32 769, i32 8012 }, %struct.unicode_composition_table { i32 8009, i32 768, i32 8011 }, %struct.unicode_composition_table { i32 8009, i32 769, i32 8013 }, %struct.unicode_composition_table { i32 8016, i32 768, i32 8018 }, %struct.unicode_composition_table { i32 8016, i32 769, i32 8020 }, %struct.unicode_composition_table { i32 8016, i32 834, i32 8022 }, %struct.unicode_composition_table { i32 8017, i32 768, i32 8019 }, %struct.unicode_composition_table { i32 8017, i32 769, i32 8021 }, %struct.unicode_composition_table { i32 8017, i32 834, i32 8023 }, %struct.unicode_composition_table { i32 8025, i32 768, i32 8027 }, %struct.unicode_composition_table { i32 8025, i32 769, i32 8029 }, %struct.unicode_composition_table { i32 8025, i32 834, i32 8031 }, %struct.unicode_composition_table { i32 8032, i32 768, i32 8034 }, %struct.unicode_composition_table { i32 8032, i32 769, i32 8036 }, %struct.unicode_composition_table { i32 8032, i32 834, i32 8038 }, %struct.unicode_composition_table { i32 8032, i32 837, i32 8096 }, %struct.unicode_composition_table { i32 8033, i32 768, i32 8035 }, %struct.unicode_composition_table { i32 8033, i32 769, i32 8037 }, %struct.unicode_composition_table { i32 8033, i32 834, i32 8039 }, %struct.unicode_composition_table { i32 8033, i32 837, i32 8097 }, %struct.unicode_composition_table { i32 8034, i32 837, i32 8098 }, %struct.unicode_composition_table { i32 8035, i32 837, i32 8099 }, %struct.unicode_composition_table { i32 8036, i32 837, i32 8100 }, %struct.unicode_composition_table { i32 8037, i32 837, i32 8101 }, %struct.unicode_composition_table { i32 8038, i32 837, i32 8102 }, %struct.unicode_composition_table { i32 8039, i32 837, i32 8103 }, %struct.unicode_composition_table { i32 8040, i32 768, i32 8042 }, %struct.unicode_composition_table { i32 8040, i32 769, i32 8044 }, %struct.unicode_composition_table { i32 8040, i32 834, i32 8046 }, %struct.unicode_composition_table { i32 8040, i32 837, i32 8104 }, %struct.unicode_composition_table { i32 8041, i32 768, i32 8043 }, %struct.unicode_composition_table { i32 8041, i32 769, i32 8045 }, %struct.unicode_composition_table { i32 8041, i32 834, i32 8047 }, %struct.unicode_composition_table { i32 8041, i32 837, i32 8105 }, %struct.unicode_composition_table { i32 8042, i32 837, i32 8106 }, %struct.unicode_composition_table { i32 8043, i32 837, i32 8107 }, %struct.unicode_composition_table { i32 8044, i32 837, i32 8108 }, %struct.unicode_composition_table { i32 8045, i32 837, i32 8109 }, %struct.unicode_composition_table { i32 8046, i32 837, i32 8110 }, %struct.unicode_composition_table { i32 8047, i32 837, i32 8111 }, %struct.unicode_composition_table { i32 8048, i32 837, i32 8114 }, %struct.unicode_composition_table { i32 8052, i32 837, i32 8130 }, %struct.unicode_composition_table { i32 8060, i32 837, i32 8178 }, %struct.unicode_composition_table { i32 8118, i32 837, i32 8119 }, %struct.unicode_composition_table { i32 8127, i32 768, i32 8141 }, %struct.unicode_composition_table { i32 8127, i32 769, i32 8142 }, %struct.unicode_composition_table { i32 8127, i32 834, i32 8143 }, %struct.unicode_composition_table { i32 8134, i32 837, i32 8135 }, %struct.unicode_composition_table { i32 8182, i32 837, i32 8183 }, %struct.unicode_composition_table { i32 8190, i32 768, i32 8157 }, %struct.unicode_composition_table { i32 8190, i32 769, i32 8158 }, %struct.unicode_composition_table { i32 8190, i32 834, i32 8159 }, %struct.unicode_composition_table { i32 8592, i32 824, i32 8602 }, %struct.unicode_composition_table { i32 8594, i32 824, i32 8603 }, %struct.unicode_composition_table { i32 8596, i32 824, i32 8622 }, %struct.unicode_composition_table { i32 8656, i32 824, i32 8653 }, %struct.unicode_composition_table { i32 8658, i32 824, i32 8655 }, %struct.unicode_composition_table { i32 8660, i32 824, i32 8654 }, %struct.unicode_composition_table { i32 8707, i32 824, i32 8708 }, %struct.unicode_composition_table { i32 8712, i32 824, i32 8713 }, %struct.unicode_composition_table { i32 8715, i32 824, i32 8716 }, %struct.unicode_composition_table { i32 8739, i32 824, i32 8740 }, %struct.unicode_composition_table { i32 8741, i32 824, i32 8742 }, %struct.unicode_composition_table { i32 8764, i32 824, i32 8769 }, %struct.unicode_composition_table { i32 8771, i32 824, i32 8772 }, %struct.unicode_composition_table { i32 8773, i32 824, i32 8775 }, %struct.unicode_composition_table { i32 8776, i32 824, i32 8777 }, %struct.unicode_composition_table { i32 8781, i32 824, i32 8813 }, %struct.unicode_composition_table { i32 8801, i32 824, i32 8802 }, %struct.unicode_composition_table { i32 8804, i32 824, i32 8816 }, %struct.unicode_composition_table { i32 8805, i32 824, i32 8817 }, %struct.unicode_composition_table { i32 8818, i32 824, i32 8820 }, %struct.unicode_composition_table { i32 8819, i32 824, i32 8821 }, %struct.unicode_composition_table { i32 8822, i32 824, i32 8824 }, %struct.unicode_composition_table { i32 8823, i32 824, i32 8825 }, %struct.unicode_composition_table { i32 8826, i32 824, i32 8832 }, %struct.unicode_composition_table { i32 8827, i32 824, i32 8833 }, %struct.unicode_composition_table { i32 8828, i32 824, i32 8928 }, %struct.unicode_composition_table { i32 8829, i32 824, i32 8929 }, %struct.unicode_composition_table { i32 8834, i32 824, i32 8836 }, %struct.unicode_composition_table { i32 8835, i32 824, i32 8837 }, %struct.unicode_composition_table { i32 8838, i32 824, i32 8840 }, %struct.unicode_composition_table { i32 8839, i32 824, i32 8841 }, %struct.unicode_composition_table { i32 8849, i32 824, i32 8930 }, %struct.unicode_composition_table { i32 8850, i32 824, i32 8931 }, %struct.unicode_composition_table { i32 8866, i32 824, i32 8876 }, %struct.unicode_composition_table { i32 8872, i32 824, i32 8877 }, %struct.unicode_composition_table { i32 8873, i32 824, i32 8878 }, %struct.unicode_composition_table { i32 8875, i32 824, i32 8879 }, %struct.unicode_composition_table { i32 8882, i32 824, i32 8938 }, %struct.unicode_composition_table { i32 8883, i32 824, i32 8939 }, %struct.unicode_composition_table { i32 8884, i32 824, i32 8940 }, %struct.unicode_composition_table { i32 8885, i32 824, i32 8941 }, %struct.unicode_composition_table { i32 12358, i32 12441, i32 12436 }, %struct.unicode_composition_table { i32 12363, i32 12441, i32 12364 }, %struct.unicode_composition_table { i32 12365, i32 12441, i32 12366 }, %struct.unicode_composition_table { i32 12367, i32 12441, i32 12368 }, %struct.unicode_composition_table { i32 12369, i32 12441, i32 12370 }, %struct.unicode_composition_table { i32 12371, i32 12441, i32 12372 }, %struct.unicode_composition_table { i32 12373, i32 12441, i32 12374 }, %struct.unicode_composition_table { i32 12375, i32 12441, i32 12376 }, %struct.unicode_composition_table { i32 12377, i32 12441, i32 12378 }, %struct.unicode_composition_table { i32 12379, i32 12441, i32 12380 }, %struct.unicode_composition_table { i32 12381, i32 12441, i32 12382 }, %struct.unicode_composition_table { i32 12383, i32 12441, i32 12384 }, %struct.unicode_composition_table { i32 12385, i32 12441, i32 12386 }, %struct.unicode_composition_table { i32 12388, i32 12441, i32 12389 }, %struct.unicode_composition_table { i32 12390, i32 12441, i32 12391 }, %struct.unicode_composition_table { i32 12392, i32 12441, i32 12393 }, %struct.unicode_composition_table { i32 12399, i32 12441, i32 12400 }, %struct.unicode_composition_table { i32 12399, i32 12442, i32 12401 }, %struct.unicode_composition_table { i32 12402, i32 12441, i32 12403 }, %struct.unicode_composition_table { i32 12402, i32 12442, i32 12404 }, %struct.unicode_composition_table { i32 12405, i32 12441, i32 12406 }, %struct.unicode_composition_table { i32 12405, i32 12442, i32 12407 }, %struct.unicode_composition_table { i32 12408, i32 12441, i32 12409 }, %struct.unicode_composition_table { i32 12408, i32 12442, i32 12410 }, %struct.unicode_composition_table { i32 12411, i32 12441, i32 12412 }, %struct.unicode_composition_table { i32 12411, i32 12442, i32 12413 }, %struct.unicode_composition_table { i32 12445, i32 12441, i32 12446 }, %struct.unicode_composition_table { i32 12454, i32 12441, i32 12532 }, %struct.unicode_composition_table { i32 12459, i32 12441, i32 12460 }, %struct.unicode_composition_table { i32 12461, i32 12441, i32 12462 }, %struct.unicode_composition_table { i32 12463, i32 12441, i32 12464 }, %struct.unicode_composition_table { i32 12465, i32 12441, i32 12466 }, %struct.unicode_composition_table { i32 12467, i32 12441, i32 12468 }, %struct.unicode_composition_table { i32 12469, i32 12441, i32 12470 }, %struct.unicode_composition_table { i32 12471, i32 12441, i32 12472 }, %struct.unicode_composition_table { i32 12473, i32 12441, i32 12474 }, %struct.unicode_composition_table { i32 12475, i32 12441, i32 12476 }, %struct.unicode_composition_table { i32 12477, i32 12441, i32 12478 }, %struct.unicode_composition_table { i32 12479, i32 12441, i32 12480 }, %struct.unicode_composition_table { i32 12481, i32 12441, i32 12482 }, %struct.unicode_composition_table { i32 12484, i32 12441, i32 12485 }, %struct.unicode_composition_table { i32 12486, i32 12441, i32 12487 }, %struct.unicode_composition_table { i32 12488, i32 12441, i32 12489 }, %struct.unicode_composition_table { i32 12495, i32 12441, i32 12496 }, %struct.unicode_composition_table { i32 12495, i32 12442, i32 12497 }, %struct.unicode_composition_table { i32 12498, i32 12441, i32 12499 }, %struct.unicode_composition_table { i32 12498, i32 12442, i32 12500 }, %struct.unicode_composition_table { i32 12501, i32 12441, i32 12502 }, %struct.unicode_composition_table { i32 12501, i32 12442, i32 12503 }, %struct.unicode_composition_table { i32 12504, i32 12441, i32 12505 }, %struct.unicode_composition_table { i32 12504, i32 12442, i32 12506 }, %struct.unicode_composition_table { i32 12507, i32 12441, i32 12508 }, %struct.unicode_composition_table { i32 12507, i32 12442, i32 12509 }, %struct.unicode_composition_table { i32 12527, i32 12441, i32 12535 }, %struct.unicode_composition_table { i32 12528, i32 12441, i32 12536 }, %struct.unicode_composition_table { i32 12529, i32 12441, i32 12537 }, %struct.unicode_composition_table { i32 12530, i32 12441, i32 12538 }, %struct.unicode_composition_table { i32 12541, i32 12441, i32 12542 }, %struct.unicode_composition_table { i32 69785, i32 69818, i32 69786 }, %struct.unicode_composition_table { i32 69787, i32 69818, i32 69788 }, %struct.unicode_composition_table { i32 69797, i32 69818, i32 69803 }], align 16
 @utf8_replacement_char = internal unnamed_addr constant [3 x i8] c"\EF\BF\BD", align 1
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef ptr @archive_array_append(ptr noundef captures(address, ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !4
@@ -86,7 +86,7 @@ define dso_local void @archive_string_concat(ptr noundef captures(address) %0, p
   br label %18
 
 17:                                               ; preds = %2
-  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #23
+  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #24
   unreachable
 
 18:                                               ; preds = %13, %12
@@ -124,11 +124,11 @@ define dso_local void @archive_wstring_concat(ptr noundef captures(address) %0, 
   %15 = load ptr, ptr %0, align 8, !tbaa !13
   %16 = load i64, ptr %6, align 8, !tbaa !16
   %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
-  %18 = tail call ptr @wmemmove(ptr noundef %17, ptr noundef %3, i64 noundef %5) #24
+  %18 = tail call ptr @wmemmove(ptr noundef %17, ptr noundef %3, i64 noundef %5) #25
   br label %20
 
 19:                                               ; preds = %2
-  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #23
+  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #24
   unreachable
 
 20:                                               ; preds = %14, %13
@@ -141,12 +141,12 @@ define dso_local void @archive_wstring_concat(ptr noundef captures(address) %0, 
   ret void
 }
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @archive_string_free(ptr noundef captures(none) initializes((8, 24)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = load ptr, ptr %0, align 8, !tbaa !11
-  tail call void @free(ptr noundef %3) #24
+  tail call void @free(ptr noundef %3) #25
   store ptr null, ptr %0, align 8, !tbaa !11
   ret void
 }
@@ -154,24 +154,24 @@ define dso_local void @archive_string_free(ptr noundef captures(none) initialize
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @archive_wstring_free(ptr noundef captures(none) initializes((8, 24)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = load ptr, ptr %0, align 8, !tbaa !13
-  tail call void @free(ptr noundef %3) #24
+  tail call void @free(ptr noundef %3) #25
   store ptr null, ptr %0, align 8, !tbaa !13
   ret void
 }
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef ptr @archive_wstring_ensure(ptr noundef captures(ret: address, provenance) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = shl i64 %1, 2
   %4 = tail call ptr @archive_string_ensure(ptr noundef %0, i64 noundef %3)
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef ptr @archive_string_ensure(ptr noundef captures(ret: address, provenance) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !11
   %.not = icmp eq ptr %3, null
@@ -203,16 +203,16 @@ define dso_local noundef ptr @archive_string_ensure(ptr noundef captures(ret: ad
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  tail call void @free(ptr noundef %3) #24
+  tail call void @free(ptr noundef %3) #25
   store ptr null, ptr %0, align 8, !tbaa !11
-  %16 = tail call ptr @__errno_location() #25
+  %16 = tail call ptr @__errno_location() #26
   store i32 12, ptr %16, align 4, !tbaa !17
   br label %25
 
 17:                                               ; preds = %._crit_edge, %8, %10
   %.0 = phi i64 [ %9, %8 ], [ %12, %10 ], [ 32, %._crit_edge ]
   %spec.select = tail call i64 @llvm.umax.i64(i64 %.0, i64 %1)
-  %18 = tail call ptr @realloc(ptr noundef %3, i64 noundef %spec.select) #26
+  %18 = tail call ptr @realloc(ptr noundef %3, i64 noundef %spec.select) #27
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %24
 
@@ -220,9 +220,9 @@ define dso_local noundef ptr @archive_string_ensure(ptr noundef captures(ret: ad
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   %22 = load ptr, ptr %0, align 8, !tbaa !11
-  tail call void @free(ptr noundef %22) #24
+  tail call void @free(ptr noundef %22) #25
   store ptr null, ptr %0, align 8, !tbaa !11
-  %23 = tail call ptr @__errno_location() #25
+  %23 = tail call ptr @__errno_location() #26
   store i32 12, ptr %23, align 4, !tbaa !17
   br label %25
 
@@ -282,7 +282,7 @@ define dso_local nonnull ptr @archive_strncat(ptr noundef returned captures(addr
   br label %20
 
 19:                                               ; preds = %.critedge
-  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #23
+  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #24
   unreachable
 
 20:                                               ; preds = %15, %14
@@ -332,11 +332,11 @@ define dso_local nonnull ptr @archive_wstrncat(ptr noundef returned captures(add
   %17 = load ptr, ptr %0, align 8, !tbaa !13
   %18 = load i64, ptr %8, align 8, !tbaa !16
   %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
-  %20 = tail call ptr @wmemmove(ptr noundef %19, ptr noundef %1, i64 noundef %.09.lcssa) #24
+  %20 = tail call ptr @wmemmove(ptr noundef %19, ptr noundef %1, i64 noundef %.09.lcssa) #25
   br label %22
 
 21:                                               ; preds = %.critedge
-  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #23
+  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #24
   unreachable
 
 22:                                               ; preds = %16, %15
@@ -388,7 +388,7 @@ define dso_local nonnull ptr @archive_strcat(ptr noundef returned captures(addre
   br label %archive_strncat.exit
 
 18:                                               ; preds = %.critedge.i
-  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #23
+  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #24
   unreachable
 
 archive_strncat.exit:                             ; preds = %13, %14
@@ -437,11 +437,11 @@ define dso_local nonnull ptr @archive_wstrcat(ptr noundef returned captures(addr
   %16 = load ptr, ptr %0, align 8, !tbaa !13
   %17 = load i64, ptr %7, align 8, !tbaa !16
   %18 = getelementptr inbounds nuw i32, ptr %16, i64 %17
-  %19 = tail call ptr @wmemmove(ptr noundef %18, ptr noundef %1, i64 noundef %.09.lcssa.i) #24
+  %19 = tail call ptr @wmemmove(ptr noundef %18, ptr noundef %1, i64 noundef %.09.lcssa.i) #25
   br label %archive_wstrncat.exit
 
 20:                                               ; preds = %.critedge.i
-  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #23
+  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #24
   unreachable
 
 archive_wstrncat.exit:                            ; preds = %14, %15
@@ -464,7 +464,7 @@ define dso_local nonnull ptr @archive_strappend_char(ptr noundef returned captur
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %2
-  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #23
+  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #24
   unreachable
 
 9:                                                ; preds = %2
@@ -494,14 +494,14 @@ define dso_local nonnull ptr @archive_wstrappend_wchar(ptr noundef returned capt
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #23
+  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #24
   unreachable
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %0, align 8, !tbaa !13
   %13 = load i64, ptr %4, align 8, !tbaa !16
   %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
-  %15 = call ptr @wmemmove(ptr noundef %14, ptr noundef nonnull %3, i64 noundef 1) #24
+  %15 = call ptr @wmemmove(ptr noundef %14, ptr noundef nonnull %3, i64 noundef 1) #25
   %16 = load i64, ptr %4, align 8, !tbaa !16
   %17 = add i64 %16, 1
   store i64 %17, ptr %4, align 8, !tbaa !16
@@ -539,7 +539,7 @@ define dso_local range(i32 -1, 1) i32 @archive_wstring_append_from_mbs(ptr nound
   %20 = phi i64 [ %27, %24 ], [ %2, %12 ]
   %.036 = phi ptr [ %25, %24 ], [ %15, %12 ]
   %.02935 = phi ptr [ %26, %24 ], [ %1, %12 ]
-  %21 = call i64 @mbrtowc(ptr noundef %.036, ptr noundef nonnull %.02935, i64 noundef %20, ptr noundef nonnull %4) #24
+  %21 = call i64 @mbrtowc(ptr noundef %.036, ptr noundef nonnull %.02935, i64 noundef %20, ptr noundef nonnull %4) #25
   %.fr = freeze i64 %21
   %or.cond = icmp ugt i64 %.fr, -3
   br i1 %or.cond, label %._crit_edge.loopexit, label %22
@@ -609,7 +609,7 @@ define dso_local range(i32 -1, 1) i32 @archive_string_append_from_wcs(ptr nounde
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8, !tbaa !19
-  %17 = tail call i64 @__ctype_get_mb_cur_max() #24
+  %17 = tail call i64 @__ctype_get_mb_cur_max() #25
   %18 = load i32, ptr %1, align 4, !tbaa !17
   %19 = icmp ne i32 %18, 0
   %20 = icmp ne i64 %2, 0
@@ -643,12 +643,12 @@ define dso_local range(i32 -1, 1) i32 @archive_string_append_from_wcs(ptr nounde
   store i8 0, ptr %32, align 1, !tbaa !12
   %33 = load i64, ptr %5, align 8, !tbaa !4
   %34 = shl i64 %.04348, 1
-  %35 = call i64 @__ctype_get_mb_cur_max() #24
+  %35 = call i64 @__ctype_get_mb_cur_max() #25
   %36 = icmp ugt i64 %34, %35
   br i1 %36, label %39, label %37
 
 37:                                               ; preds = %27
-  %38 = call i64 @__ctype_get_mb_cur_max() #24
+  %38 = call i64 @__ctype_get_mb_cur_max() #25
   br label %39
 
 39:                                               ; preds = %27, %37
@@ -665,7 +665,7 @@ define dso_local range(i32 -1, 1) i32 @archive_string_append_from_wcs(ptr nounde
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 %47
   %49 = load i64, ptr %15, align 8, !tbaa !19
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 %49
-  %51 = call i64 @__ctype_get_mb_cur_max() #24
+  %51 = call i64 @__ctype_get_mb_cur_max() #25
   %52 = sub i64 0, %51
   %53 = getelementptr inbounds i8, ptr %50, i64 %52
   %54 = getelementptr inbounds i8, ptr %53, i64 -1
@@ -677,13 +677,13 @@ define dso_local range(i32 -1, 1) i32 @archive_string_append_from_wcs(ptr nounde
   %.2 = phi ptr [ %48, %45 ], [ %.03750, %.lr.ph ]
   %.1 = phi ptr [ %54, %45 ], [ %.051, %.lr.ph ]
   %57 = getelementptr inbounds nuw i8, ptr %.04447, i64 4
-  %58 = call i64 @wcrtomb(ptr noundef %.2, i32 noundef %56, ptr noundef nonnull %4) #24
+  %58 = call i64 @wcrtomb(ptr noundef %.2, i32 noundef %56, ptr noundef nonnull %4) #25
   %59 = and i64 %58, 4294967295
   %60 = icmp eq i64 %59, 4294967295
   br i1 %60, label %61, label %67
 
 61:                                               ; preds = %55
-  %62 = tail call ptr @__errno_location() #25
+  %62 = tail call ptr @__errno_location() #26
   %63 = load i32, ptr %62, align 4, !tbaa !17
   %64 = icmp eq i32 %63, 84
   br i1 %64, label %65, label %._crit_edge
@@ -739,7 +739,7 @@ define dso_local ptr @archive_string_conversion_to_charset(ptr noundef %0, ptr n
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @nl_langinfo(i32 noundef 14) #24
+  %6 = tail call ptr @nl_langinfo(i32 noundef 14) #25
   br label %get_current_charset.exit
 
 7:                                                ; preds = %3
@@ -754,13 +754,13 @@ define dso_local ptr @archive_string_conversion_to_charset(ptr noundef %0, ptr n
   br i1 %.not5.i.i, label %default_iconv_charset.exit.i, label %get_current_charset.exit
 
 default_iconv_charset.exit.i:                     ; preds = %10, %7
-  %12 = tail call ptr @nl_langinfo(i32 noundef 14) #24
+  %12 = tail call ptr @nl_langinfo(i32 noundef 14) #25
   %.pr.i = load ptr, ptr %8, align 8, !tbaa !25
   %13 = icmp eq ptr %.pr.i, null
   br i1 %13, label %14, label %get_current_charset.exit
 
 14:                                               ; preds = %default_iconv_charset.exit.i
-  %15 = tail call noalias ptr @strdup(ptr noundef %12) #24
+  %15 = tail call noalias ptr @strdup(ptr noundef %12) #25
   store ptr %15, ptr %8, align 8, !tbaa !25
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 -1, ptr %16, align 8, !tbaa !29
@@ -791,14 +791,14 @@ define internal fastcc ptr @get_sconv_object(ptr noundef %0, ptr noundef readonl
   %.014.i = phi ptr [ %.0.i, %17 ], [ %.012.i, %6 ]
   %8 = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !32
-  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %1) #27
+  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %1) #28
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %.lr.ph.i
   %13 = getelementptr inbounds nuw i8, ptr %.014.i, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !34
-  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull readonly dereferenceable(1) %2) #27
+  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull readonly dereferenceable(1) %2) #28
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %find_sconv_object.exit, label %17
 
@@ -816,26 +816,26 @@ define internal fastcc ptr @get_sconv_object(ptr noundef %0, ptr noundef readonl
   %.0 = phi i32 [ %19, %.thread35 ], [ -1, %4 ]
   %20 = tail call fastcc ptr @canonical_charset_name(ptr noundef %1)
   %21 = tail call fastcc ptr @canonical_charset_name(ptr noundef %2)
-  %22 = tail call noalias dereferenceable_or_null(88) ptr @calloc(i64 noundef 1, i64 noundef 88) #28
+  %22 = tail call noalias dereferenceable_or_null(88) ptr @calloc(i64 noundef 1, i64 noundef 88) #29
   %23 = icmp eq ptr %22, null
   br i1 %23, label %77, label %24
 
 24:                                               ; preds = %.thread
-  %25 = tail call noalias ptr @strdup(ptr noundef readonly %20) #24
+  %25 = tail call noalias ptr @strdup(ptr noundef readonly %20) #25
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %25, ptr %26, align 8, !tbaa !32
   %27 = icmp eq ptr %25, null
   br i1 %27, label %.sink.split, label %28
 
 28:                                               ; preds = %24
-  %29 = tail call noalias ptr @strdup(ptr noundef readonly %21) #24
+  %29 = tail call noalias ptr @strdup(ptr noundef readonly %21) #25
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %29, ptr %30, align 8, !tbaa !34
   %31 = icmp eq ptr %29, null
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %28
-  tail call void @free(ptr noundef nonnull %25) #24
+  tail call void @free(ptr noundef nonnull %25) #25
   br label %.sink.split
 
 33:                                               ; preds = %28
@@ -865,7 +865,7 @@ define internal fastcc ptr @get_sconv_object(ptr noundef %0, ptr noundef readonl
 
 44:                                               ; preds = %41, %35
   %.not54.i = phi i1 [ false, %41 ], [ %38, %35 ]
-  %45 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) %21) #27
+  %45 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) %21) #28
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %.thread63.i, label %47
 
@@ -879,7 +879,7 @@ define internal fastcc ptr @get_sconv_object(ptr noundef %0, ptr noundef readonl
   %.sink.i = phi i32 [ 1, %39 ], [ 1, %44 ], [ %spec.select66.i, %47 ]
   %49 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store i32 %.sink.i, ptr %49, align 8, !tbaa !38
-  %50 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %21, ptr noundef nonnull dereferenceable(6) @.str.1) #27
+  %50 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %21, ptr noundef nonnull dereferenceable(6) @.str.1) #28
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %54
 
@@ -888,7 +888,7 @@ define internal fastcc ptr @get_sconv_object(ptr noundef %0, ptr noundef readonl
   br label %63
 
 54:                                               ; preds = %.thread63.i
-  %55 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %21, ptr noundef nonnull dereferenceable(9) @.str.4) #27
+  %55 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %21, ptr noundef nonnull dereferenceable(9) @.str.4) #28
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %59
 
@@ -897,7 +897,7 @@ define internal fastcc ptr @get_sconv_object(ptr noundef %0, ptr noundef readonl
   br label %63
 
 59:                                               ; preds = %54
-  %60 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %21, ptr noundef nonnull dereferenceable(9) @.str.5) #27
+  %60 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %21, ptr noundef nonnull dereferenceable(9) @.str.5) #28
   %61 = icmp eq i32 %60, 0
   %62 = or disjoint i32 %3, 4096
   %spec.select.i = select i1 %61, i32 %62, i32 %3
@@ -905,7 +905,7 @@ define internal fastcc ptr @get_sconv_object(ptr noundef %0, ptr noundef readonl
 
 63:                                               ; preds = %59, %57, %52
   %.050.i = phi i32 [ %53, %52 ], [ %58, %57 ], [ %spec.select.i, %59 ]
-  %64 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull dereferenceable(6) @.str.1) #27
+  %64 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull dereferenceable(6) @.str.1) #28
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %66, label %68
 
@@ -914,7 +914,7 @@ define internal fastcc ptr @get_sconv_object(ptr noundef %0, ptr noundef readonl
   br label %79
 
 68:                                               ; preds = %63
-  %69 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull dereferenceable(9) @.str.4) #27
+  %69 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull dereferenceable(9) @.str.4) #28
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %71, label %73
 
@@ -923,21 +923,21 @@ define internal fastcc ptr @get_sconv_object(ptr noundef %0, ptr noundef readonl
   br label %79
 
 73:                                               ; preds = %68
-  %74 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull dereferenceable(9) @.str.5) #27
+  %74 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull dereferenceable(9) @.str.5) #28
   %75 = icmp eq i32 %74, 0
   %76 = or disjoint i32 %.050.i, 8192
   %spec.select57.i = select i1 %75, i32 %76, i32 %.050.i
   br label %79
 
 .sink.split:                                      ; preds = %24, %32
-  tail call void @free(ptr noundef nonnull %22) #24
+  tail call void @free(ptr noundef nonnull %22) #25
   br label %77
 
 77:                                               ; preds = %.sink.split, %.thread
   br i1 %5, label %find_sconv_object.exit, label %78
 
 78:                                               ; preds = %77
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.2) #24
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.2) #25
   br label %find_sconv_object.exit
 
 79:                                               ; preds = %73, %71, %66
@@ -961,20 +961,20 @@ define internal fastcc ptr @get_sconv_object(ptr noundef %0, ptr noundef readonl
   br i1 %5, label %89, label %88
 
 88:                                               ; preds = %87
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.3) #24
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.3) #25
   br label %89
 
 89:                                               ; preds = %88, %87
   %90 = load ptr, ptr %26, align 8, !tbaa !32
-  tail call void @free(ptr noundef %90) #24
+  tail call void @free(ptr noundef %90) #25
   %91 = load ptr, ptr %30, align 8, !tbaa !34
-  tail call void @free(ptr noundef %91) #24
+  tail call void @free(ptr noundef %91) #25
   %92 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %93 = getelementptr inbounds nuw i8, ptr %22, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %93, i8 0, i64 16, i1 false)
   %94 = load ptr, ptr %92, align 8, !tbaa !11
-  tail call void @free(ptr noundef %94) #24
-  tail call void @free(ptr noundef nonnull %22) #24
+  tail call void @free(ptr noundef %94) #25
+  tail call void @free(ptr noundef nonnull %22) #25
   br label %find_sconv_object.exit
 
 95:                                               ; preds = %79
@@ -1005,7 +1005,7 @@ define dso_local ptr @archive_string_conversion_from_charset(ptr noundef %0, ptr
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @nl_langinfo(i32 noundef 14) #24
+  %6 = tail call ptr @nl_langinfo(i32 noundef 14) #25
   br label %get_current_charset.exit
 
 7:                                                ; preds = %3
@@ -1020,13 +1020,13 @@ define dso_local ptr @archive_string_conversion_from_charset(ptr noundef %0, ptr
   br i1 %.not5.i.i, label %default_iconv_charset.exit.i, label %get_current_charset.exit
 
 default_iconv_charset.exit.i:                     ; preds = %10, %7
-  %12 = tail call ptr @nl_langinfo(i32 noundef 14) #24
+  %12 = tail call ptr @nl_langinfo(i32 noundef 14) #25
   %.pr.i = load ptr, ptr %8, align 8, !tbaa !25
   %13 = icmp eq ptr %.pr.i, null
   br i1 %13, label %14, label %get_current_charset.exit
 
 14:                                               ; preds = %default_iconv_charset.exit.i
-  %15 = tail call noalias ptr @strdup(ptr noundef %12) #24
+  %15 = tail call noalias ptr @strdup(ptr noundef %12) #25
   store ptr %15, ptr %8, align 8, !tbaa !25
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 -1, ptr %16, align 8, !tbaa !29
@@ -1052,8 +1052,8 @@ define dso_local noalias noundef ptr @archive_string_default_conversion_for_writ
   ret ptr null
 }
 
-; Function Attrs: nounwind uwtable
-define dso_local void @archive_string_conversion_free(ptr noundef captures(none) %0) local_unnamed_addr #1 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define dso_local void @archive_string_conversion_free(ptr noundef captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8, !tbaa !42
   %.not8 = icmp eq ptr %3, null
@@ -1064,16 +1064,16 @@ define dso_local void @archive_string_conversion_free(ptr noundef captures(none)
   %4 = load ptr, ptr %.09, align 8, !tbaa !43
   %5 = getelementptr inbounds nuw i8, ptr %.09, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !32
-  tail call void @free(ptr noundef %6) #24
+  tail call void @free(ptr noundef %6) #25
   %7 = getelementptr inbounds nuw i8, ptr %.09, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !34
-  tail call void @free(ptr noundef %8) #24
+  tail call void @free(ptr noundef %8) #25
   %9 = getelementptr inbounds nuw i8, ptr %.09, i64 40
   %10 = getelementptr inbounds nuw i8, ptr %.09, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %11 = load ptr, ptr %9, align 8, !tbaa !11
-  tail call void @free(ptr noundef %11) #24
-  tail call void @free(ptr noundef nonnull %.09) #24
+  tail call void @free(ptr noundef %11) #25
+  tail call void @free(ptr noundef nonnull %.09) #25
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 
@@ -1081,13 +1081,13 @@ define dso_local void @archive_string_conversion_free(ptr noundef captures(none)
   store ptr null, ptr %2, align 8, !tbaa !42
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load ptr, ptr %12, align 8, !tbaa !25
-  tail call void @free(ptr noundef %13) #24
+  tail call void @free(ptr noundef %13) #25
   store ptr null, ptr %12, align 8, !tbaa !25
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @archive_string_conversion_charset_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
+define dso_local ptr @archive_string_conversion_charset_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4, !tbaa !39
   %4 = and i32 %3, 1
@@ -1099,7 +1099,7 @@ define dso_local ptr @archive_string_conversion_charset_name(ptr noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @archive_string_conversion_set_opt(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
+define dso_local void @archive_string_conversion_set_opt(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #11 {
   switch i32 %1, label %19 [
     i32 4, label %11
     i32 2, label %3
@@ -1140,7 +1140,7 @@ define dso_local void @archive_string_conversion_set_opt(ptr noundef captures(no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @setup_converter(ptr noundef captures(none) initializes((80, 84)) %0) unnamed_addr #10 {
+define internal fastcc void @setup_converter(ptr noundef captures(none) initializes((80, 84)) %0) unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %2, align 8, !tbaa !40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -1495,12 +1495,12 @@ archive_string_append.exit:                       ; preds = %45, %52
   store i64 0, ptr %66, align 8, !tbaa !49
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %68 = load ptr, ptr %67, align 8, !tbaa !46
-  %69 = tail call i32 %68(ptr noundef nonnull %65, ptr noundef nonnull %1, i64 noundef %.05278, ptr noundef nonnull %3) #24
+  %69 = tail call i32 %68(ptr noundef nonnull %65, ptr noundef nonnull %1, i64 noundef %.05278, ptr noundef nonnull %3) #25
   %.not66 = icmp eq i32 %69, 0
   br i1 %.not66, label %74, label %70
 
 70:                                               ; preds = %64
-  %71 = tail call ptr @__errno_location() #25
+  %71 = tail call ptr @__errno_location() #26
   %72 = load i32, ptr %71, align 4, !tbaa !17
   %73 = icmp eq i32 %72, 12
   br i1 %73, label %82, label %74
@@ -1519,7 +1519,7 @@ archive_string_append.exit:                       ; preds = %45, %52
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %.051
   %80 = load ptr, ptr %79, align 8, !tbaa !46
-  %81 = tail call i32 %80(ptr noundef %0, ptr noundef %.054, i64 noundef %.153, ptr noundef nonnull %3) #24
+  %81 = tail call i32 %80(ptr noundef %0, ptr noundef %.054, i64 noundef %.153, ptr noundef nonnull %3) #25
   %spec.select71 = tail call i32 @llvm.smin.i32(i32 %.050, i32 %81)
   br label %82
 
@@ -1528,30 +1528,30 @@ archive_string_append.exit:                       ; preds = %45, %52
   ret i32 %.156
 }
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @archive_mstring_clean(ptr noundef captures(none) initializes((8, 24), (32, 48), (56, 72), (80, 100)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %2, align 8, !tbaa !13
-  tail call void @free(ptr noundef %4) #24
+  tail call void @free(ptr noundef %4) #25
   store ptr null, ptr %2, align 8, !tbaa !13
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = load ptr, ptr %0, align 8, !tbaa !11
-  tail call void @free(ptr noundef %6) #24
+  tail call void @free(ptr noundef %6) #25
   store ptr null, ptr %0, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %9 = load ptr, ptr %7, align 8, !tbaa !11
-  tail call void @free(ptr noundef %9) #24
+  tail call void @free(ptr noundef %9) #25
   store ptr null, ptr %7, align 8, !tbaa !11
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %12 = load ptr, ptr %10, align 8, !tbaa !11
-  tail call void @free(ptr noundef %12) #24
+  tail call void @free(ptr noundef %12) #25
   store ptr null, ptr %10, align 8, !tbaa !11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 0, ptr %13, align 8, !tbaa !51
@@ -1586,7 +1586,7 @@ define dso_local void @archive_mstring_copy(ptr noundef captures(address) initia
   br label %archive_string_concat.exit
 
 18:                                               ; preds = %2
-  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #23
+  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #24
   unreachable
 
 archive_string_concat.exit:                       ; preds = %13, %14
@@ -1620,7 +1620,7 @@ archive_string_concat.exit:                       ; preds = %13, %14
   br label %archive_string_concat.exit12
 
 37:                                               ; preds = %archive_string_concat.exit
-  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #23
+  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #24
   unreachable
 
 archive_string_concat.exit12:                     ; preds = %32, %33
@@ -1651,11 +1651,11 @@ archive_string_concat.exit12:                     ; preds = %32, %33
   %54 = load ptr, ptr %42, align 8, !tbaa !13
   %55 = load i64, ptr %43, align 8, !tbaa !16
   %56 = getelementptr inbounds nuw i32, ptr %54, i64 %55
-  %57 = tail call ptr @wmemmove(ptr noundef %56, ptr noundef %45, i64 noundef %47) #24
+  %57 = tail call ptr @wmemmove(ptr noundef %56, ptr noundef %45, i64 noundef %47) #25
   br label %archive_wstring_concat.exit
 
 58:                                               ; preds = %archive_string_concat.exit12
-  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #23
+  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #24
   unreachable
 
 archive_wstring_concat.exit:                      ; preds = %52, %53
@@ -1701,7 +1701,7 @@ define dso_local range(i32 -1, 1) i32 @archive_mstring_get_utf8(ptr noundef %0, 
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %.thread
-  %18 = tail call ptr @nl_langinfo(i32 noundef 14) #24
+  %18 = tail call ptr @nl_langinfo(i32 noundef 14) #25
   br label %archive_string_conversion_to_charset.exit
 
 19:                                               ; preds = %.thread
@@ -1716,13 +1716,13 @@ define dso_local range(i32 -1, 1) i32 @archive_mstring_get_utf8(ptr noundef %0, 
   br i1 %.not5.i.i.i, label %default_iconv_charset.exit.i.i, label %archive_string_conversion_to_charset.exit
 
 default_iconv_charset.exit.i.i:                   ; preds = %22, %19
-  %24 = tail call ptr @nl_langinfo(i32 noundef 14) #24
+  %24 = tail call ptr @nl_langinfo(i32 noundef 14) #25
   %.pr.i.i = load ptr, ptr %20, align 8, !tbaa !25
   %25 = icmp eq ptr %.pr.i.i, null
   br i1 %25, label %26, label %archive_string_conversion_to_charset.exit
 
 26:                                               ; preds = %default_iconv_charset.exit.i.i
-  %27 = tail call noalias ptr @strdup(ptr noundef %24) #24
+  %27 = tail call noalias ptr @strdup(ptr noundef %24) #25
   store ptr %27, ptr %20, align 8, !tbaa !25
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 -1, ptr %28, align 8, !tbaa !29
@@ -1749,16 +1749,16 @@ archive_string_conversion_to_charset.exit:        ; preds = %17, %22, %default_i
 39:                                               ; preds = %32
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !32
-  tail call void @free(ptr noundef %41) #24
+  tail call void @free(ptr noundef %41) #25
   %42 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !34
-  tail call void @free(ptr noundef %43) #24
+  tail call void @free(ptr noundef %43) #25
   %44 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %45 = getelementptr inbounds nuw i8, ptr %30, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
   %46 = load ptr, ptr %44, align 8, !tbaa !11
-  tail call void @free(ptr noundef %46) #24
-  tail call void @free(ptr noundef nonnull %30) #24
+  tail call void @free(ptr noundef %46) #25
+  tail call void @free(ptr noundef nonnull %30) #25
   br label %47
 
 47:                                               ; preds = %39, %32
@@ -1834,7 +1834,7 @@ define dso_local range(i32 -1, 1) i32 @archive_mstring_get_mbs(ptr noundef %0, p
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %25
-  %29 = tail call ptr @nl_langinfo(i32 noundef 14) #24
+  %29 = tail call ptr @nl_langinfo(i32 noundef 14) #25
   br label %archive_string_conversion_from_charset.exit
 
 30:                                               ; preds = %25
@@ -1849,13 +1849,13 @@ define dso_local range(i32 -1, 1) i32 @archive_mstring_get_mbs(ptr noundef %0, p
   br i1 %.not5.i.i.i, label %default_iconv_charset.exit.i.i, label %archive_string_conversion_from_charset.exit
 
 default_iconv_charset.exit.i.i:                   ; preds = %33, %30
-  %35 = tail call ptr @nl_langinfo(i32 noundef 14) #24
+  %35 = tail call ptr @nl_langinfo(i32 noundef 14) #25
   %.pr.i.i = load ptr, ptr %31, align 8, !tbaa !25
   %36 = icmp eq ptr %.pr.i.i, null
   br i1 %36, label %37, label %archive_string_conversion_from_charset.exit
 
 37:                                               ; preds = %default_iconv_charset.exit.i.i
-  %38 = tail call noalias ptr @strdup(ptr noundef %35) #24
+  %38 = tail call noalias ptr @strdup(ptr noundef %35) #25
   store ptr %38, ptr %31, align 8, !tbaa !25
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 -1, ptr %39, align 8, !tbaa !29
@@ -1881,16 +1881,16 @@ archive_string_conversion_from_charset.exit:      ; preds = %28, %33, %default_i
 49:                                               ; preds = %43
   %50 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !32
-  tail call void @free(ptr noundef %51) #24
+  tail call void @free(ptr noundef %51) #25
   %52 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !34
-  tail call void @free(ptr noundef %53) #24
+  tail call void @free(ptr noundef %53) #25
   %54 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %55 = getelementptr inbounds nuw i8, ptr %41, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
   %56 = load ptr, ptr %54, align 8, !tbaa !11
-  tail call void @free(ptr noundef %56) #24
-  tail call void @free(ptr noundef nonnull %41) #24
+  tail call void @free(ptr noundef %56) #25
+  tail call void @free(ptr noundef nonnull %41) #25
   br label %57
 
 57:                                               ; preds = %49, %43
@@ -1978,7 +1978,7 @@ archive_wstring_append_from_mbs.exit.thread21:    ; preds = %27
   %35 = phi i64 [ %42, %39 ], [ %22, %27 ]
   %.036.i = phi ptr [ %40, %39 ], [ %30, %27 ]
   %.02935.i = phi ptr [ %41, %39 ], [ %20, %27 ]
-  %36 = call i64 @mbrtowc(ptr noundef %.036.i, ptr noundef nonnull %.02935.i, i64 noundef %35, ptr noundef nonnull %4) #24
+  %36 = call i64 @mbrtowc(ptr noundef %.036.i, ptr noundef nonnull %.02935.i, i64 noundef %35, ptr noundef nonnull %4) #25
   %.fr.i = freeze i64 %36
   %or.cond.i = icmp ugt i64 %.fr.i, -3
   br i1 %or.cond.i, label %archive_wstring_append_from_mbs.exit, label %37
@@ -2117,7 +2117,7 @@ define dso_local noundef i32 @archive_mstring_copy_mbs(ptr noundef captures(addr
   br label %29
 
 6:                                                ; preds = %2
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #27
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #28
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 1, ptr %8, align 8, !tbaa !51
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2157,7 +2157,7 @@ define dso_local noundef i32 @archive_mstring_copy_mbs(ptr noundef captures(addr
   br label %archive_mstring_copy_mbs_len.exit
 
 22:                                               ; preds = %.critedge.i.i
-  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #23
+  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #24
   unreachable
 
 archive_mstring_copy_mbs_len.exit:                ; preds = %17, %18
@@ -2226,7 +2226,7 @@ define dso_local noundef i32 @archive_mstring_copy_mbs_len(ptr noundef captures(
   br label %archive_strncat.exit
 
 21:                                               ; preds = %.critedge.i
-  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #23
+  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #24
   unreachable
 
 archive_strncat.exit:                             ; preds = %16, %17
@@ -2247,7 +2247,7 @@ archive_strncat.exit:                             ; preds = %16, %17
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @archive_mstring_copy_wcs(ptr noundef captures(address) initializes((96, 100)) %0, ptr noundef %1) local_unnamed_addr #1 {
@@ -2260,7 +2260,7 @@ define dso_local noundef i32 @archive_mstring_copy_wcs(ptr noundef captures(addr
   br label %31
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @wcslen(ptr noundef nonnull %1) #27
+  %6 = tail call i64 @wcslen(ptr noundef nonnull %1) #28
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 4, ptr %7, align 8, !tbaa !51
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2302,11 +2302,11 @@ define dso_local noundef i32 @archive_mstring_copy_wcs(ptr noundef captures(addr
   %22 = load ptr, ptr %10, align 8, !tbaa !13
   %23 = load i64, ptr %11, align 8, !tbaa !16
   %24 = getelementptr inbounds nuw i32, ptr %22, i64 %23
-  %25 = tail call ptr @wmemmove(ptr noundef %24, ptr noundef nonnull %1, i64 noundef %.09.lcssa.i.i) #24
+  %25 = tail call ptr @wmemmove(ptr noundef %24, ptr noundef nonnull %1, i64 noundef %.09.lcssa.i.i) #25
   br label %archive_mstring_copy_wcs_len.exit
 
 26:                                               ; preds = %.critedge.i.i
-  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #23
+  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #24
   unreachable
 
 archive_mstring_copy_wcs_len.exit:                ; preds = %20, %21
@@ -2373,11 +2373,11 @@ define dso_local noundef i32 @archive_mstring_copy_wcs_len(ptr noundef captures(
   %22 = load ptr, ptr %10, align 8, !tbaa !13
   %23 = load i64, ptr %11, align 8, !tbaa !16
   %24 = getelementptr inbounds nuw i32, ptr %22, i64 %23
-  %25 = tail call ptr @wmemmove(ptr noundef %24, ptr noundef nonnull %1, i64 noundef %.09.lcssa.i) #24
+  %25 = tail call ptr @wmemmove(ptr noundef %24, ptr noundef nonnull %1, i64 noundef %.09.lcssa.i) #25
   br label %archive_wstrncat.exit
 
 26:                                               ; preds = %.critedge.i
-  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #23
+  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #24
   unreachable
 
 archive_wstrncat.exit:                            ; preds = %20, %21
@@ -2394,7 +2394,7 @@ archive_wstrncat.exit:                            ; preds = %20, %21
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #11
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @archive_mstring_copy_utf8(ptr noundef captures(address) initializes((96, 100)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
@@ -2415,7 +2415,7 @@ define dso_local i32 @archive_mstring_copy_utf8(ptr noundef captures(address) in
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %10, align 8, !tbaa !54
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #27
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #28
   %.not17.i = icmp eq i64 %11, 0
   br i1 %.not17.i, label %.critedge.i, label %.lr.ph.i
 
@@ -2451,7 +2451,7 @@ define dso_local i32 @archive_mstring_copy_utf8(ptr noundef captures(address) in
   br label %archive_strncat.exit
 
 24:                                               ; preds = %.critedge.i
-  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #23
+  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #24
   unreachable
 
 archive_strncat.exit:                             ; preds = %19, %20
@@ -2461,7 +2461,7 @@ archive_strncat.exit:                             ; preds = %19, %20
   %27 = load ptr, ptr %9, align 8, !tbaa !11
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %26
   store i8 0, ptr %28, align 1, !tbaa !12
-  %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #27
+  %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #28
   %30 = trunc i64 %29 to i32
   br label %31
 
@@ -2520,7 +2520,7 @@ define dso_local range(i32 -1, 1) i32 @archive_mstring_update_utf8(ptr noundef %
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 0, ptr %10, align 8, !tbaa !54
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #28
   %.not17.i = icmp eq i64 %11, 0
   br i1 %.not17.i, label %.critedge.i, label %.lr.ph.i
 
@@ -2556,7 +2556,7 @@ define dso_local range(i32 -1, 1) i32 @archive_mstring_update_utf8(ptr noundef %
   br label %archive_strncat.exit
 
 24:                                               ; preds = %.critedge.i
-  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #23
+  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #24
   unreachable
 
 archive_strncat.exit:                             ; preds = %19, %20
@@ -2577,7 +2577,7 @@ archive_strncat.exit:                             ; preds = %19, %20
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %archive_strncat.exit
-  %35 = tail call ptr @nl_langinfo(i32 noundef 14) #24
+  %35 = tail call ptr @nl_langinfo(i32 noundef 14) #25
   br label %archive_string_conversion_from_charset.exit
 
 36:                                               ; preds = %archive_strncat.exit
@@ -2592,13 +2592,13 @@ archive_strncat.exit:                             ; preds = %19, %20
   br i1 %.not5.i.i.i, label %default_iconv_charset.exit.i.i, label %archive_string_conversion_from_charset.exit
 
 default_iconv_charset.exit.i.i:                   ; preds = %39, %36
-  %41 = tail call ptr @nl_langinfo(i32 noundef 14) #24
+  %41 = tail call ptr @nl_langinfo(i32 noundef 14) #25
   %.pr.i.i = load ptr, ptr %37, align 8, !tbaa !25
   %42 = icmp eq ptr %.pr.i.i, null
   br i1 %42, label %43, label %archive_string_conversion_from_charset.exit
 
 43:                                               ; preds = %default_iconv_charset.exit.i.i
-  %44 = tail call noalias ptr @strdup(ptr noundef %41) #24
+  %44 = tail call noalias ptr @strdup(ptr noundef %41) #25
   store ptr %44, ptr %37, align 8, !tbaa !25
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 -1, ptr %45, align 8, !tbaa !29
@@ -2613,7 +2613,7 @@ archive_string_conversion_from_charset.exit:      ; preds = %34, %39, %default_i
   br i1 %48, label %101, label %49
 
 49:                                               ; preds = %archive_string_conversion_from_charset.exit
-  %50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
+  %50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #28
   store i64 0, ptr %29, align 8, !tbaa !4
   %51 = tail call i32 @archive_strncat_l(ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef %50, ptr noundef nonnull %47)
   br i1 %33, label %52, label %60
@@ -2621,16 +2621,16 @@ archive_string_conversion_from_charset.exit:      ; preds = %34, %39, %default_i
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !32
-  tail call void @free(ptr noundef %54) #24
+  tail call void @free(ptr noundef %54) #25
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %56 = load ptr, ptr %55, align 8, !tbaa !34
-  tail call void @free(ptr noundef %56) #24
+  tail call void @free(ptr noundef %56) #25
   %57 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %58 = getelementptr inbounds nuw i8, ptr %47, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, i8 0, i64 16, i1 false)
   %59 = load ptr, ptr %57, align 8, !tbaa !11
-  tail call void @free(ptr noundef %59) #24
-  tail call void @free(ptr noundef nonnull %47) #24
+  tail call void @free(ptr noundef %59) #25
+  tail call void @free(ptr noundef nonnull %47) #25
   br label %60
 
 60:                                               ; preds = %52, %49
@@ -2673,7 +2673,7 @@ archive_wstring_append_from_mbs.exit.thread31:    ; preds = %70
   %78 = phi i64 [ %85, %82 ], [ %63, %70 ]
   %.036.i = phi ptr [ %83, %82 ], [ %73, %70 ]
   %.02935.i = phi ptr [ %84, %82 ], [ %62, %70 ]
-  %79 = call i64 @mbrtowc(ptr noundef %.036.i, ptr noundef nonnull %.02935.i, i64 noundef %78, ptr noundef nonnull %4) #24
+  %79 = call i64 @mbrtowc(ptr noundef %.036.i, ptr noundef nonnull %.02935.i, i64 noundef %78, ptr noundef nonnull %4) #25
   %.fr.i = freeze i64 %79
   %or.cond.i = icmp ugt i64 %.fr.i, -3
   br i1 %or.cond.i, label %archive_wstring_append_from_mbs.exit, label %80
@@ -2728,13 +2728,13 @@ archive_wstring_append_from_mbs.exit:             ; preds = %.lr.ph.i28
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: nounwind
 declare ptr @wmemmove(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: read) uwtable
-define internal fastcc ptr @canonical_charset_name(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) unnamed_addr #13 {
+define internal fastcc ptr @canonical_charset_name(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) unnamed_addr #14 {
   %2 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = icmp eq ptr %0, null
@@ -2746,7 +2746,7 @@ define internal fastcc ptr @canonical_charset_name(ptr noundef readonly captures
   br i1 %6, label %25, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #27
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #28
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %25, label %.preheader
 
@@ -2803,16 +2803,16 @@ define internal fastcc ptr @canonical_charset_name(ptr noundef readonly captures
   ret ptr %.018
 }
 
-declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #14
+declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #15
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #16
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: nounwind
 declare ptr @nl_langinfo(i32 noundef) local_unnamed_addr #7
@@ -2838,7 +2838,7 @@ define internal range(i32 -1, 1) i32 @strncat_from_utf8_libarchive2(ptr noundef 
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i64, ptr %17, align 8, !tbaa !19
-  %19 = tail call i64 @__ctype_get_mb_cur_max() #24
+  %19 = tail call i64 @__ctype_get_mb_cur_max() #25
   %20 = call fastcc i32 @_utf8_to_unicode(ptr noundef %5, ptr noundef %1, i64 noundef %2)
   %.not58 = icmp eq i32 %20, 0
   br i1 %.not58, label %._crit_edge, label %.lr.ph.preheader
@@ -2866,12 +2866,12 @@ define internal range(i32 -1, 1) i32 @strncat_from_utf8_libarchive2(ptr noundef 
   %30 = sub i64 %28, %29
   store i64 %30, ptr %7, align 8, !tbaa !4
   %31 = shl i64 %.05159, 1
-  %32 = call i64 @__ctype_get_mb_cur_max() #24
+  %32 = call i64 @__ctype_get_mb_cur_max() #25
   %33 = icmp ugt i64 %31, %32
   br i1 %33, label %36, label %34
 
 34:                                               ; preds = %26
-  %35 = call i64 @__ctype_get_mb_cur_max() #24
+  %35 = call i64 @__ctype_get_mb_cur_max() #25
   br label %36
 
 36:                                               ; preds = %26, %34
@@ -2888,7 +2888,7 @@ define internal range(i32 -1, 1) i32 @strncat_from_utf8_libarchive2(ptr noundef 
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 %44
   %46 = load i64, ptr %17, align 8, !tbaa !19
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 %46
-  %48 = call i64 @__ctype_get_mb_cur_max() #24
+  %48 = call i64 @__ctype_get_mb_cur_max() #25
   %49 = sub i64 0, %48
   %50 = getelementptr inbounds i8, ptr %47, i64 %49
   %51 = getelementptr inbounds i8, ptr %50, i64 -1
@@ -2900,7 +2900,7 @@ define internal range(i32 -1, 1) i32 @strncat_from_utf8_libarchive2(ptr noundef 
   %53 = icmp slt i32 %25, 0
   %54 = load i32, ptr %5, align 4
   %.0 = select i1 %53, i32 63, i32 %54
-  %55 = call i64 @wcrtomb(ptr noundef %.143, i32 noundef %.0, ptr noundef nonnull %6) #24
+  %55 = call i64 @wcrtomb(ptr noundef %.143, i32 noundef %.0, ptr noundef nonnull %6) #25
   %56 = and i64 %55, 4294967295
   %57 = icmp eq i64 %56, 4294967295
   br i1 %57, label %.critedge, label %58
@@ -2995,7 +2995,7 @@ define internal range(i32 -1, 1) i32 @archive_string_append_unicode(ptr noundef 
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load i64, ptr %34, align 8, !tbaa !19
-  %36 = call i32 %.056(ptr noundef nonnull %5, ptr noundef %1, i64 noundef %2) #24, !callees !65
+  %36 = call i32 %.056(ptr noundef nonnull %5, ptr noundef %1, i64 noundef %2) #25, !callees !65
   %.not7688 = icmp eq i32 %36, 0
   br i1 %.not7688, label %._crit_edge96, label %.lr.ph95.preheader
 
@@ -3022,7 +3022,7 @@ define internal range(i32 -1, 1) i32 @archive_string_append_unicode(ptr noundef 
   %45 = ptrtoint ptr %.06491 to i64
   %46 = sub i64 %44, %45
   %47 = load i32, ptr %5, align 4, !tbaa !17
-  %48 = call i64 %.0(ptr noundef %.06491, i64 noundef %46, i32 noundef %47) #24, !callees !66
+  %48 = call i64 %.0(ptr noundef %.06491, i64 noundef %46, i32 noundef %47) #25, !callees !66
   %49 = icmp eq i64 %48, 0
   br i1 %49, label %.lr.ph, label %._crit_edge
 
@@ -3052,7 +3052,7 @@ define internal range(i32 -1, 1) i32 @archive_string_append_unicode(ptr noundef 
   %67 = ptrtoint ptr %64 to i64
   %gepdiff = sub nsw i64 %66, %63
   %68 = load i32, ptr %5, align 4, !tbaa !17
-  %69 = call i64 %.0(ptr noundef %64, i64 noundef %gepdiff, i32 noundef %68) #24, !callees !66
+  %69 = call i64 %.0(ptr noundef %64, i64 noundef %gepdiff, i32 noundef %68) #25, !callees !66
   %70 = icmp eq i64 %69, 0
   br i1 %70, label %52, label %._crit_edge.loopexit, !llvm.loop !67
 
@@ -3065,7 +3065,7 @@ define internal range(i32 -1, 1) i32 @archive_string_append_unicode(ptr noundef 
   %.163.lcssa = phi ptr [ %.06292, %.lr.ph95 ], [ %71, %._crit_edge.loopexit ]
   %.lcssa = phi i64 [ %48, %.lr.ph95 ], [ %69, %._crit_edge.loopexit ]
   %72 = getelementptr inbounds nuw i8, ptr %.165.lcssa, i64 %.lcssa
-  %73 = call i32 %.056(ptr noundef nonnull %5, ptr noundef nonnull %42, i64 noundef %43) #24, !callees !65
+  %73 = call i32 %.056(ptr noundef nonnull %5, ptr noundef nonnull %42, i64 noundef %43) #25, !callees !65
   %.not76 = icmp eq i32 %73, 0
   br i1 %.not76, label %._crit_edge96, label %.lr.ph95, !llvm.loop !68
 
@@ -3095,8 +3095,8 @@ define internal range(i32 -1, 1) i32 @archive_string_append_unicode(ptr noundef 
   ret i32 %.061
 }
 
-; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @best_effort_strncat_to_utf16be(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr readnone captures(none) %3) #1 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal range(i32 -1, 1) i32 @best_effort_strncat_to_utf16be(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr readnone captures(none) %3) #9 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !4
   %7 = shl i64 %2, 1
@@ -3161,8 +3161,8 @@ best_effort_strncat_to_utf16.exit:                ; preds = %4, %._crit_edge.i
   ret i32 %.028.i
 }
 
-; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @best_effort_strncat_to_utf16le(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr readnone captures(none) %3) #1 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal range(i32 -1, 1) i32 @best_effort_strncat_to_utf16le(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr readnone captures(none) %3) #9 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !4
   %7 = shl i64 %2, 1
@@ -3309,7 +3309,7 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_D(ptr noundef cap
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load i64, ptr %44, align 8, !tbaa !19
   %46 = sub nsw i64 0, %.0458
-  %47 = call i32 %.0456(ptr noundef nonnull %5, ptr noundef %1, i64 noundef %2) #24, !callees !65
+  %47 = call i32 %.0456(ptr noundef nonnull %5, ptr noundef %1, i64 noundef %2) #25, !callees !65
   %.not491795 = icmp eq i32 %47, 0
   br i1 %.not491795, label %.loopexit, label %.lr.ph804
 
@@ -3341,7 +3341,7 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_D(ptr noundef cap
   %55 = ptrtoint ptr %.1410.lcssa to i64
   %56 = ptrtoint ptr %.2404.lcssa to i64
   %57 = sub i64 %55, %56
-  %58 = call i64 %.0455(ptr noundef %.2404.lcssa, i64 noundef %57, i32 noundef %54) #24, !callees !66
+  %58 = call i64 %.0455(ptr noundef %.2404.lcssa, i64 noundef %57, i32 noundef %54) #25, !callees !66
   %59 = icmp eq i64 %58, 0
   br i1 %59, label %.lr.ph790, label %._crit_edge791
 
@@ -3371,7 +3371,7 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_D(ptr noundef cap
   %77 = ptrtoint ptr %74 to i64
   %gepdiff815 = sub nsw i64 %76, %73
   %78 = load i32, ptr %5, align 4, !tbaa !17
-  %79 = call i64 %.0455(ptr noundef %74, i64 noundef %gepdiff815, i32 noundef %78) #24, !callees !66
+  %79 = call i64 %.0455(ptr noundef %74, i64 noundef %gepdiff815, i32 noundef %78) #25, !callees !66
   %80 = icmp eq i64 %79, 0
   br i1 %80, label %62, label %._crit_edge791.loopexit, !llvm.loop !70
 
@@ -3423,7 +3423,7 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_D(ptr noundef cap
   %101 = ptrtoint ptr %.1410754 to i64
   %102 = ptrtoint ptr %.2404755 to i64
   %103 = sub i64 %101, %102
-  %104 = call i64 %.0455(ptr noundef %.2404755, i64 noundef %103, i32 noundef %95) #24, !callees !66
+  %104 = call i64 %.0455(ptr noundef %.2404755, i64 noundef %103, i32 noundef %95) #25, !callees !66
   %105 = icmp eq i64 %104, 0
   br i1 %105, label %.lr.ph773, label %._crit_edge774
 
@@ -3453,7 +3453,7 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_D(ptr noundef cap
   %123 = ptrtoint ptr %120 to i64
   %gepdiff812 = sub nsw i64 %122, %119
   %124 = load i32, ptr %5, align 4, !tbaa !17
-  %125 = call i64 %.0455(ptr noundef %120, i64 noundef %gepdiff812, i32 noundef %124) #24, !callees !66
+  %125 = call i64 %.0455(ptr noundef %120, i64 noundef %gepdiff812, i32 noundef %124) #25, !callees !66
   %126 = icmp eq i64 %125, 0
   br i1 %126, label %108, label %._crit_edge774.loopexit, !llvm.loop !72
 
@@ -3471,7 +3471,7 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_D(ptr noundef cap
   store i32 %98, ptr %5, align 4, !tbaa !17
   %129 = ptrtoint ptr %128 to i64
   %130 = sub i64 %.pre-phi, %129
-  %131 = call i64 %.0455(ptr noundef nonnull %128, i64 noundef %130, i32 noundef %98) #24, !callees !66
+  %131 = call i64 %.0455(ptr noundef nonnull %128, i64 noundef %130, i32 noundef %98) #25, !callees !66
   %132 = icmp eq i64 %131, 0
   br i1 %132, label %.lr.ph779, label %._crit_edge780
 
@@ -3501,7 +3501,7 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_D(ptr noundef cap
   %150 = ptrtoint ptr %147 to i64
   %gepdiff813 = sub nsw i64 %149, %146
   %151 = load i32, ptr %5, align 4, !tbaa !17
-  %152 = call i64 %.0455(ptr noundef %147, i64 noundef %gepdiff813, i32 noundef %151) #24, !callees !66
+  %152 = call i64 %.0455(ptr noundef %147, i64 noundef %gepdiff813, i32 noundef %151) #25, !callees !66
   %153 = icmp eq i64 %152, 0
   br i1 %153, label %135, label %._crit_edge780.loopexit, !llvm.loop !73
 
@@ -3522,7 +3522,7 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_D(ptr noundef cap
   %157 = ptrtoint ptr %.9418.lcssa to i64
   %158 = ptrtoint ptr %155 to i64
   %159 = sub i64 %157, %158
-  %160 = call i64 %.0455(ptr noundef nonnull %155, i64 noundef %159, i32 noundef %100) #24, !callees !66
+  %160 = call i64 %.0455(ptr noundef nonnull %155, i64 noundef %159, i32 noundef %100) #25, !callees !66
   %161 = icmp eq i64 %160, 0
   br i1 %161, label %.lr.ph785, label %._crit_edge786
 
@@ -3552,7 +3552,7 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_D(ptr noundef cap
   %179 = ptrtoint ptr %176 to i64
   %gepdiff814 = sub nsw i64 %178, %175
   %180 = load i32, ptr %5, align 4, !tbaa !17
-  %181 = call i64 %.0455(ptr noundef %176, i64 noundef %gepdiff814, i32 noundef %180) #24, !callees !66
+  %181 = call i64 %.0455(ptr noundef %176, i64 noundef %gepdiff814, i32 noundef %180) #25, !callees !66
   %182 = icmp eq i64 %181, 0
   br i1 %182, label %164, label %._crit_edge786.loopexit, !llvm.loop !74
 
@@ -3608,7 +3608,7 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_D(ptr noundef cap
   %211 = ptrtoint ptr %.1410754 to i64
   %212 = ptrtoint ptr %.2404755 to i64
   %213 = sub i64 %211, %212
-  %214 = call i64 %.0455(ptr noundef %.2404755, i64 noundef %213, i32 noundef %.pr) #24, !callees !66
+  %214 = call i64 %.0455(ptr noundef %.2404755, i64 noundef %213, i32 noundef %.pr) #25, !callees !66
   %215 = icmp eq i64 %214, 0
   br i1 %215, label %.lr.ph767, label %._crit_edge768
 
@@ -3709,7 +3709,7 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_D(ptr noundef cap
   %270 = ptrtoint ptr %267 to i64
   %gepdiff = sub nsw i64 %269, %266
   %271 = load i32, ptr %5, align 4, !tbaa !17
-  %272 = call i64 %.0455(ptr noundef %267, i64 noundef %gepdiff, i32 noundef %271) #24, !callees !66
+  %272 = call i64 %.0455(ptr noundef %267, i64 noundef %gepdiff, i32 noundef %271) #25, !callees !66
   %273 = icmp eq i64 %272, 0
   br i1 %273, label %255, label %._crit_edge768.loopexit, !llvm.loop !75
 
@@ -3787,7 +3787,7 @@ get_nfd.exit:                                     ; preds = %288
   %indvars.iv1202 = phi i64 [ 0, %.critedge501 ], [ %indvars.iv1346, %292 ], [ %indvars.iv1346, %.lr.ph1349 ], [ %indvars.iv1346, %.lr.ph1349 ], [ %indvars.iv1346, %.lr.ph1349 ], [ %indvars.iv.next, %._crit_edge ], [ %indvars.iv1346, %get_nfd.exit ]
   %.134461200 = phi ptr [ %..1399, %.critedge501 ], [ %.134461347, %292 ], [ %.134461347, %.lr.ph1349 ], [ %.134461347, %.lr.ph1349 ], [ %.134461347, %.lr.ph1349 ], [ null, %._crit_edge ], [ %.134461347, %get_nfd.exit ]
   %indvars9771198 = phi i32 [ 0, %.critedge501 ], [ %indvars9771348, %292 ], [ %indvars9771348, %.lr.ph1349 ], [ %indvars9771348, %.lr.ph1349 ], [ %indvars9771348, %.lr.ph1349 ], [ %indvars977, %._crit_edge ], [ %indvars9771348, %get_nfd.exit ]
-  %298 = call i32 %.0456(ptr noundef nonnull %6, ptr noundef %89, i64 noundef %90) #24, !callees !65
+  %298 = call i32 %.0456(ptr noundef nonnull %6, ptr noundef %89, i64 noundef %90) #25, !callees !65
   %299 = icmp sgt i32 %298, 0
   br i1 %299, label %.lr.ph718, label %.critedge
 
@@ -3922,7 +3922,7 @@ get_nfd.exit:                                     ; preds = %288
 
 366:                                              ; preds = %.critedge503, %._crit_edge713
   %indvars.iv.next986 = add nuw nsw i64 %indvars.iv985, 1
-  %367 = call i32 %.0456(ptr noundef nonnull %6, ptr noundef nonnull %351, i64 noundef %352) #24, !callees !65
+  %367 = call i32 %.0456(ptr noundef nonnull %6, ptr noundef nonnull %351, i64 noundef %352) #25, !callees !65
   %368 = icmp sgt i32 %367, 0
   br i1 %368, label %.lr.ph718, label %.critedge.loopexit, !llvm.loop !88
 
@@ -3947,7 +3947,7 @@ get_nfd.exit:                                     ; preds = %288
   %370 = ptrtoint ptr %.2404755 to i64
   %371 = sub i64 %369, %370
   %372 = load i32, ptr %5, align 4, !tbaa !17
-  %373 = call i64 %.0455(ptr noundef %.2404755, i64 noundef %371, i32 noundef %372) #24, !callees !66
+  %373 = call i64 %.0455(ptr noundef %.2404755, i64 noundef %371, i32 noundef %372) #25, !callees !66
   %374 = icmp eq i64 %373, 0
   br i1 %374, label %.lr.ph732, label %._crit_edge733
 
@@ -4048,7 +4048,7 @@ get_nfd.exit:                                     ; preds = %288
   %429 = ptrtoint ptr %426 to i64
   %gepdiff808 = sub nsw i64 %428, %425
   %430 = load i32, ptr %5, align 4, !tbaa !17
-  %431 = call i64 %.0455(ptr noundef %426, i64 noundef %gepdiff808, i32 noundef %430) #24, !callees !66
+  %431 = call i64 %.0455(ptr noundef %426, i64 noundef %gepdiff808, i32 noundef %430) #25, !callees !66
   %432 = icmp eq i64 %431, 0
   br i1 %432, label %414, label %._crit_edge733.loopexit, !llvm.loop !89
 
@@ -4085,7 +4085,7 @@ get_nfd.exit:                                     ; preds = %288
   %441 = ptrtoint ptr %.20429743 to i64
   %442 = ptrtoint ptr %.41745 to i64
   %443 = sub i64 %441, %442
-  %444 = call i64 %.0455(ptr noundef %.41745, i64 noundef %443, i32 noundef %440) #24, !callees !66
+  %444 = call i64 %.0455(ptr noundef %.41745, i64 noundef %443, i32 noundef %440) #25, !callees !66
   %445 = icmp eq i64 %444, 0
   br i1 %445, label %.lr.ph738, label %._crit_edge739
 
@@ -4127,7 +4127,7 @@ get_nfd.exit:                                     ; preds = %288
 462:                                              ; preds = %457, %455, %._crit_edge.i
   %.0.i507 = phi i64 [ %456, %455 ], [ %459, %457 ], [ 32, %._crit_edge.i ]
   %spec.select.i = call i64 @llvm.umax.i64(i64 %.0.i507, i64 %451)
-  %463 = call ptr @realloc(ptr noundef %447, i64 noundef %spec.select.i) #26
+  %463 = call ptr @realloc(ptr noundef %447, i64 noundef %spec.select.i) #27
   %464 = icmp eq ptr %463, null
   br i1 %464, label %465, label %467
 
@@ -4151,7 +4151,7 @@ archive_string_ensure.exit:                       ; preds = %467, %.lr.ph738
   %473 = ptrtoint ptr %471 to i64
   %gepdiff810 = sub nsw i64 %472, %469
   %474 = load i32, ptr %5, align 4, !tbaa !17
-  %475 = call i64 %.0455(ptr noundef %471, i64 noundef %gepdiff810, i32 noundef %474) #24, !callees !66
+  %475 = call i64 %.0455(ptr noundef %471, i64 noundef %gepdiff810, i32 noundef %474) #25, !callees !66
   %476 = icmp eq i64 %475, 0
   br i1 %476, label %.lr.ph738, label %._crit_edge739.loopexit, !llvm.loop !90
 
@@ -4186,9 +4186,9 @@ archive_string_ensure.exit:                       ; preds = %467, %.lr.ph738
 
 .thread519.sink.split:                            ; preds = %461, %465
   %.sink = phi ptr [ %466, %465 ], [ %447, %461 ]
-  call void @free(ptr noundef %.sink) #24
+  call void @free(ptr noundef %.sink) #25
   store ptr null, ptr %0, align 8, !tbaa !11
-  %483 = tail call ptr @__errno_location() #25
+  %483 = tail call ptr @__errno_location() #26
   store i32 12, ptr %483, align 4, !tbaa !17
   br label %.thread519
 
@@ -4203,7 +4203,7 @@ archive_string_ensure.exit:                       ; preds = %467, %.lr.ph738
   %.2400 = phi ptr [ %85, %._crit_edge791 ], [ %89, %._crit_edge780 ], [ %89, %._crit_edge786 ], [ %89, %239 ], [ %89, %252 ], [ %89, %._crit_edge768 ]
   %.2396 = phi i64 [ %86, %._crit_edge791 ], [ %90, %._crit_edge780 ], [ %90, %._crit_edge786 ], [ %90, %239 ], [ %90, %252 ], [ %90, %._crit_edge768 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %485 = call i32 %.0456(ptr noundef nonnull %5, ptr noundef %.2400, i64 noundef %.2396) #24, !callees !65
+  %485 = call i32 %.0456(ptr noundef nonnull %5, ptr noundef %.2400, i64 noundef %.2396) #25, !callees !65
   %.not491 = icmp eq i32 %485, 0
   br i1 %.not491, label %.loopexit, label %51
 
@@ -4322,7 +4322,7 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_C(ptr noundef %0,
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %46 = load i64, ptr %45, align 8, !tbaa !19
   %47 = sub nsw i64 0, %.0697
-  %48 = call i32 %.0695(ptr noundef nonnull %5, ptr noundef %1, i64 noundef %2) #24, !callees !65
+  %48 = call i32 %.0695(ptr noundef nonnull %5, ptr noundef %1, i64 noundef %2) #25, !callees !65
   %.not8031221 = icmp eq i32 %48, 0
   br i1 %.not8031221, label %.thread869, label %.lr.ph1229.preheader
 
@@ -4347,7 +4347,7 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_C(ptr noundef %0,
   %55 = ptrtoint ptr %.06111225 to i64
   %56 = sub i64 %54, %55
   %57 = load i32, ptr %5, align 4, !tbaa !17
-  %58 = call i64 %.0694(ptr noundef %.06111225, i64 noundef %56, i32 noundef %57) #24, !callees !66
+  %58 = call i64 %.0694(ptr noundef %.06111225, i64 noundef %56, i32 noundef %57) #25, !callees !66
   %59 = icmp eq i64 %58, 0
   br i1 %59, label %.lr.ph1216, label %._crit_edge1217
 
@@ -4377,7 +4377,7 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_C(ptr noundef %0,
   %77 = ptrtoint ptr %74 to i64
   %gepdiff1245 = sub nsw i64 %76, %73
   %78 = load i32, ptr %5, align 4, !tbaa !17
-  %79 = call i64 %.0694(ptr noundef %74, i64 noundef %gepdiff1245, i32 noundef %78) #24, !callees !66
+  %79 = call i64 %.0694(ptr noundef %74, i64 noundef %gepdiff1245, i32 noundef %78) #25, !callees !66
   %80 = icmp eq i64 %79, 0
   br i1 %80, label %62, label %._crit_edge1217.loopexit, !llvm.loop !92
 
@@ -4403,7 +4403,7 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_C(ptr noundef %0,
   %89 = zext nneg i32 %52 to i64
   %90 = getelementptr inbounds nuw i8, ptr %.05991226, i64 %89
   %91 = sub i64 %.05911227, %89
-  %92 = call i32 %.0695(ptr noundef nonnull %6, ptr noundef nonnull %90, i64 noundef %91) #24, !callees !65
+  %92 = call i32 %.0695(ptr noundef nonnull %6, ptr noundef nonnull %90, i64 noundef %91) #25, !callees !65
   %93 = icmp sgt i32 %92, 0
   br i1 %93, label %.lr.ph1102, label %.loopexit
 
@@ -4444,7 +4444,7 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_C(ptr noundef %0,
   %108 = ptrtoint ptr %.46151098 to i64
   %109 = sub i64 %107, %108
   %110 = load i32, ptr %5, align 4, !tbaa !17
-  %111 = call i64 %.0694(ptr noundef %.46151098, i64 noundef %109, i32 noundef %110) #24, !callees !66
+  %111 = call i64 %.0694(ptr noundef %.46151098, i64 noundef %109, i32 noundef %110) #25, !callees !66
   %112 = icmp eq i64 %111, 0
   br i1 %112, label %.lr.ph1090, label %._crit_edge1091
 
@@ -4563,7 +4563,7 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_C(ptr noundef %0,
 170:                                              ; preds = %165, %163, %._crit_edge.i
   %.0.i = phi i64 [ %164, %163 ], [ %167, %165 ], [ 32, %._crit_edge.i ]
   %spec.select.i = call i64 @llvm.umax.i64(i64 %.0.i, i64 %159)
-  %171 = call ptr @realloc(ptr noundef %155, i64 noundef %spec.select.i) #26
+  %171 = call ptr @realloc(ptr noundef %155, i64 noundef %spec.select.i) #27
   %172 = icmp eq ptr %171, null
   br i1 %172, label %173, label %175
 
@@ -4587,7 +4587,7 @@ archive_string_ensure.exit:                       ; preds = %175, %153
   %181 = ptrtoint ptr %179 to i64
   %gepdiff1241 = sub nsw i64 %180, %177
   %182 = load i32, ptr %5, align 4, !tbaa !17
-  %183 = call i64 %.0694(ptr noundef %179, i64 noundef %gepdiff1241, i32 noundef %182) #24, !callees !66
+  %183 = call i64 %.0694(ptr noundef %179, i64 noundef %gepdiff1241, i32 noundef %182) #25, !callees !66
   %184 = icmp eq i64 %183, 0
   br i1 %184, label %153, label %._crit_edge1091.loopexit, !llvm.loop !94
 
@@ -4634,7 +4634,7 @@ archive_string_ensure.exit:                       ; preds = %175, %153
   %200 = ptrtoint ptr %.37131096 to i64
   %201 = ptrtoint ptr %.46151098 to i64
   %202 = sub i64 %200, %201
-  %203 = call i64 %.0694(ptr noundef %.46151098, i64 noundef %202, i32 noundef %190) #24, !callees !66
+  %203 = call i64 %.0694(ptr noundef %.46151098, i64 noundef %202, i32 noundef %190) #25, !callees !66
   %204 = icmp eq i64 %203, 0
   br i1 %204, label %.lr.ph1085, label %._crit_edge1086
 
@@ -4736,7 +4736,7 @@ archive_string_ensure.exit:                       ; preds = %175, %153
   %260 = ptrtoint ptr %257 to i64
   %gepdiff1240 = sub nsw i64 %259, %256
   %261 = load i32, ptr %5, align 4, !tbaa !17
-  %262 = call i64 %.0694(ptr noundef %257, i64 noundef %gepdiff1240, i32 noundef %261) #24, !callees !66
+  %262 = call i64 %.0694(ptr noundef %257, i64 noundef %gepdiff1240, i32 noundef %261) #25, !callees !66
   %263 = icmp eq i64 %262, 0
   br i1 %263, label %245, label %._crit_edge1086.loopexit, !llvm.loop !96
 
@@ -4783,7 +4783,7 @@ archive_string_ensure.exit:                       ; preds = %175, %153
   %278 = ptrtoint ptr %.37131096 to i64
   %279 = ptrtoint ptr %.46151098 to i64
   %280 = sub i64 %278, %279
-  %281 = call i64 %.0694(ptr noundef %.46151098, i64 noundef %280, i32 noundef %190) #24, !callees !66
+  %281 = call i64 %.0694(ptr noundef %.46151098, i64 noundef %280, i32 noundef %190) #25, !callees !66
   %282 = icmp eq i64 %281, 0
   br i1 %282, label %.lr.ph1080, label %._crit_edge1081
 
@@ -4885,7 +4885,7 @@ archive_string_ensure.exit:                       ; preds = %175, %153
   %338 = ptrtoint ptr %335 to i64
   %gepdiff1239 = sub nsw i64 %337, %334
   %339 = load i32, ptr %5, align 4, !tbaa !17
-  %340 = call i64 %.0694(ptr noundef %335, i64 noundef %gepdiff1239, i32 noundef %339) #24, !callees !66
+  %340 = call i64 %.0694(ptr noundef %335, i64 noundef %gepdiff1239, i32 noundef %339) #25, !callees !66
   %341 = icmp eq i64 %340, 0
   br i1 %341, label %323, label %._crit_edge1081.loopexit, !llvm.loop !97
 
@@ -4989,7 +4989,7 @@ get_nfc.exit.thread:                              ; preds = %368
   %389 = ptrtoint ptr %.37131096 to i64
   %390 = ptrtoint ptr %.46151098 to i64
   %391 = sub i64 %389, %390
-  %392 = call i64 %.0694(ptr noundef %.46151098, i64 noundef %391, i32 noundef %190) #24, !callees !66
+  %392 = call i64 %.0694(ptr noundef %.46151098, i64 noundef %391, i32 noundef %190) #25, !callees !66
   %393 = icmp eq i64 %392, 0
   br i1 %393, label %.lr.ph, label %._crit_edge
 
@@ -5091,7 +5091,7 @@ get_nfc.exit.thread:                              ; preds = %368
   %449 = ptrtoint ptr %446 to i64
   %gepdiff1238 = sub nsw i64 %448, %445
   %450 = load i32, ptr %5, align 4, !tbaa !17
-  %451 = call i64 %.0694(ptr noundef %446, i64 noundef %gepdiff1238, i32 noundef %450) #24, !callees !66
+  %451 = call i64 %.0694(ptr noundef %446, i64 noundef %gepdiff1238, i32 noundef %450) #25, !callees !66
   %452 = icmp eq i64 %451, 0
   br i1 %452, label %434, label %._crit_edge.loopexit, !llvm.loop !103
 
@@ -5116,13 +5116,13 @@ get_nfc.exit.thread:                              ; preds = %368
   %458 = zext i8 %387 to i32
   store i32 %99, ptr %7, align 16, !tbaa !17
   store i32 %458, ptr %8, align 16, !tbaa !17
-  %459 = call i32 %.0695(ptr noundef nonnull %51, ptr noundef nonnull %97, i64 noundef %98) #24, !callees !65
+  %459 = call i32 %.0695(ptr noundef nonnull %51, ptr noundef nonnull %97, i64 noundef %98) #25, !callees !65
   %460 = icmp slt i32 %459, 1
   br i1 %460, label %._crit_edge1874, label %.lr.ph1873
 
 461:                                              ; preds = %493
   %462 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.next
-  %463 = call i32 %.0695(ptr noundef nonnull %462, ptr noundef nonnull %495, i64 noundef %496) #24, !callees !65
+  %463 = call i32 %.0695(ptr noundef nonnull %462, ptr noundef nonnull %495, i64 noundef %496) #25, !callees !65
   %464 = icmp slt i32 %463, 1
   br i1 %464, label %._crit_edge1874, label %.lr.ph1873, !llvm.loop !104
 
@@ -5321,13 +5321,13 @@ get_nfc.exit828:                                  ; preds = %524
 
 .lr.ph1124.preheader:                             ; preds = %549
   %555 = getelementptr inbounds i32, ptr %7, i64 %502
-  %556 = call i32 %.0695(ptr noundef nonnull %555, ptr noundef %.66051153, i64 noundef %.65971154) #24, !callees !65
+  %556 = call i32 %.0695(ptr noundef nonnull %555, ptr noundef %.66051153, i64 noundef %.65971154) #25, !callees !65
   %557 = icmp slt i32 %556, 1
   br i1 %557, label %._crit_edge1125, label %.lr.ph1891
 
 .lr.ph1124:                                       ; preds = %589
   %558 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.next1385
-  %559 = call i32 %.0695(ptr noundef nonnull %558, ptr noundef nonnull %591, i64 noundef %592) #24, !callees !65
+  %559 = call i32 %.0695(ptr noundef nonnull %558, ptr noundef nonnull %591, i64 noundef %592) #25, !callees !65
   %560 = icmp slt i32 %559, 1
   br i1 %560, label %.lr.ph1124.._crit_edge1125.loopexit.split.loop.exit1682_crit_edge, label %.lr.ph1891, !llvm.loop !107
 
@@ -5432,7 +5432,7 @@ get_nfc.exit828:                                  ; preds = %524
   %600 = ptrtoint ptr %.46151098 to i64
   %601 = sub i64 %599, %600
   %602 = load i32, ptr %5, align 4, !tbaa !17
-  %603 = call i64 %.0694(ptr noundef %.46151098, i64 noundef %601, i32 noundef %602) #24, !callees !66
+  %603 = call i64 %.0694(ptr noundef %.46151098, i64 noundef %601, i32 noundef %602) #25, !callees !66
   %604 = icmp eq i64 %603, 0
   br i1 %604, label %.lr.ph1166, label %._crit_edge1167
 
@@ -5534,7 +5534,7 @@ get_nfc.exit828:                                  ; preds = %524
   %660 = ptrtoint ptr %657 to i64
   %gepdiff = sub nsw i64 %659, %656
   %661 = load i32, ptr %5, align 4, !tbaa !17
-  %662 = call i64 %.0694(ptr noundef %657, i64 noundef %gepdiff, i32 noundef %661) #24, !callees !66
+  %662 = call i64 %.0694(ptr noundef %657, i64 noundef %gepdiff, i32 noundef %661) #25, !callees !66
   %663 = icmp eq i64 %662, 0
   br i1 %663, label %645, label %._crit_edge1167.loopexit, !llvm.loop !108
 
@@ -5570,7 +5570,7 @@ get_nfc.exit828:                                  ; preds = %524
   %672 = ptrtoint ptr %.461178 to i64
   %673 = sub i64 %671, %672
   %674 = load i32, ptr %670, align 4, !tbaa !17
-  %675 = call i64 %.0694(ptr noundef %.461178, i64 noundef %673, i32 noundef %674) #24, !callees !66
+  %675 = call i64 %.0694(ptr noundef %.461178, i64 noundef %673, i32 noundef %674) #25, !callees !66
   %676 = icmp eq i64 %675, 0
   br i1 %676, label %.lr.ph1171, label %._crit_edge1172
 
@@ -5595,7 +5595,7 @@ get_nfc.exit828:                                  ; preds = %524
   %691 = ptrtoint ptr %688 to i64
   %gepdiff1236 = sub nsw i64 %690, %687
   %692 = load i32, ptr %670, align 4, !tbaa !17
-  %693 = call i64 %.0694(ptr noundef %688, i64 noundef %gepdiff1236, i32 noundef %692) #24, !callees !66
+  %693 = call i64 %.0694(ptr noundef %688, i64 noundef %gepdiff1236, i32 noundef %692) #25, !callees !66
   %694 = icmp eq i64 %693, 0
   br i1 %694, label %.lr.ph1171, label %._crit_edge1172.loopexit, !llvm.loop !109
 
@@ -5625,7 +5625,7 @@ get_nfc.exit828:                                  ; preds = %524
   br i1 %or.cond23, label %.preheader892, label %.loopexit.thread
 
 .preheader892:                                    ; preds = %698
-  %701 = call i32 %.0695(ptr noundef nonnull %7, ptr noundef %.6605.lcssa, i64 noundef %.6597.lcssa) #24, !callees !65
+  %701 = call i32 %.0695(ptr noundef nonnull %7, ptr noundef %.6605.lcssa, i64 noundef %.6597.lcssa) #25, !callees !65
   %702 = icmp sgt i32 %701, 0
   br i1 %702, label %.lr.ph1193, label %.loopexit.thread
 
@@ -5673,7 +5673,7 @@ get_nfc.exit828:                                  ; preds = %524
   %732 = ptrtoint ptr %.287381188 to i64
   %733 = ptrtoint ptr %.491190 to i64
   %734 = sub i64 %732, %733
-  %735 = call i64 %.0694(ptr noundef %.491190, i64 noundef %734, i32 noundef %704) #24, !callees !66
+  %735 = call i64 %.0694(ptr noundef %.491190, i64 noundef %734, i32 noundef %704) #25, !callees !66
   %736 = icmp eq i64 %735, 0
   br i1 %736, label %.lr.ph1183, label %._crit_edge1184
 
@@ -5703,7 +5703,7 @@ get_nfc.exit828:                                  ; preds = %524
   %754 = ptrtoint ptr %751 to i64
   %gepdiff1237 = sub nsw i64 %753, %750
   %755 = load i32, ptr %7, align 16, !tbaa !17
-  %756 = call i64 %.0694(ptr noundef %751, i64 noundef %gepdiff1237, i32 noundef %755) #24, !callees !66
+  %756 = call i64 %.0694(ptr noundef %751, i64 noundef %gepdiff1237, i32 noundef %755) #25, !callees !66
   %757 = icmp eq i64 %756, 0
   br i1 %757, label %739, label %._crit_edge1184.loopexit, !llvm.loop !111
 
@@ -5716,15 +5716,15 @@ get_nfc.exit828:                                  ; preds = %524
   %.50.lcssa = phi ptr [ %.491190, %728 ], [ %751, %._crit_edge1184.loopexit ]
   %.lcssa1011 = phi i64 [ %735, %728 ], [ %756, %._crit_edge1184.loopexit ]
   %759 = getelementptr inbounds nuw i8, ptr %.50.lcssa, i64 %.lcssa1011
-  %760 = call i32 %.0695(ptr noundef nonnull %7, ptr noundef nonnull %730, i64 noundef %731) #24, !callees !65
+  %760 = call i32 %.0695(ptr noundef nonnull %7, ptr noundef nonnull %730, i64 noundef %731) #25, !callees !65
   %761 = icmp sgt i32 %760, 0
   br i1 %761, label %.lr.ph1193, label %.loopexit.thread, !llvm.loop !112
 
 .thread833.sink.split:                            ; preds = %169, %173
   %.sink = phi ptr [ %174, %173 ], [ %155, %169 ]
-  call void @free(ptr noundef %.sink) #24
+  call void @free(ptr noundef %.sink) #25
   store ptr null, ptr %0, align 8, !tbaa !11
-  %762 = tail call ptr @__errno_location() #25
+  %762 = tail call ptr @__errno_location() #26
   store i32 12, ptr %762, align 4, !tbaa !17
   br label %.thread833
 
@@ -5742,7 +5742,7 @@ get_nfc.exit828:                                  ; preds = %524
   store i32 %storemerge.sink, ptr %5, align 4, !tbaa !17
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %764 = call i32 %.0695(ptr noundef nonnull %6, ptr noundef nonnull %97, i64 noundef %98) #24, !callees !65
+  %764 = call i32 %.0695(ptr noundef nonnull %6, ptr noundef nonnull %97, i64 noundef %98) #25, !callees !65
   %765 = icmp sgt i32 %764, 0
   br i1 %765, label %.lr.ph1102, label %.loopexit
 
@@ -5775,7 +5775,7 @@ get_nfc.exit828:                                  ; preds = %524
   %770 = ptrtoint ptr %.5616 to i64
   %771 = sub i64 %769, %770
   %772 = load i32, ptr %5, align 4, !tbaa !17
-  %773 = call i64 %.0694(ptr noundef %.5616, i64 noundef %771, i32 noundef %772) #24, !callees !66
+  %773 = call i64 %.0694(ptr noundef %.5616, i64 noundef %771, i32 noundef %772) #25, !callees !66
   %774 = icmp eq i64 %773, 0
   br i1 %774, label %.lr.ph1205, label %._crit_edge1206
 
@@ -5877,7 +5877,7 @@ get_nfc.exit828:                                  ; preds = %524
   %830 = ptrtoint ptr %827 to i64
   %gepdiff1243 = sub nsw i64 %829, %826
   %831 = load i32, ptr %5, align 4, !tbaa !17
-  %832 = call i64 %.0694(ptr noundef %827, i64 noundef %gepdiff1243, i32 noundef %831) #24, !callees !66
+  %832 = call i64 %.0694(ptr noundef %827, i64 noundef %gepdiff1243, i32 noundef %831) #25, !callees !66
   %833 = icmp eq i64 %832, 0
   br i1 %833, label %815, label %._crit_edge1206.loopexit, !llvm.loop !113
 
@@ -5899,7 +5899,7 @@ get_nfc.exit828:                                  ; preds = %524
   %838 = ptrtoint ptr %.57 to i64
   %839 = sub i64 %837, %838
   %840 = load i32, ptr %6, align 4, !tbaa !17
-  %841 = call i64 %.0694(ptr noundef %.57, i64 noundef %839, i32 noundef %840) #24, !callees !66
+  %841 = call i64 %.0694(ptr noundef %.57, i64 noundef %839, i32 noundef %840) #25, !callees !66
   %842 = icmp eq i64 %841, 0
   br i1 %842, label %.lr.ph1211, label %._crit_edge1212
 
@@ -5929,7 +5929,7 @@ get_nfc.exit828:                                  ; preds = %524
   %860 = ptrtoint ptr %857 to i64
   %gepdiff1244 = sub nsw i64 %859, %856
   %861 = load i32, ptr %6, align 4, !tbaa !17
-  %862 = call i64 %.0694(ptr noundef %857, i64 noundef %gepdiff1244, i32 noundef %861) #24, !callees !66
+  %862 = call i64 %.0694(ptr noundef %857, i64 noundef %gepdiff1244, i32 noundef %861) #25, !callees !66
   %863 = icmp eq i64 %862, 0
   br i1 %863, label %845, label %._crit_edge1212.loopexit, !llvm.loop !114
 
@@ -5956,7 +5956,7 @@ get_nfc.exit828:                                  ; preds = %524
   %872 = ptrtoint ptr %.5616 to i64
   %873 = sub i64 %871, %872
   %874 = load i32, ptr %5, align 4, !tbaa !17
-  %875 = call i64 %.0694(ptr noundef %.5616, i64 noundef %873, i32 noundef %874) #24, !callees !66
+  %875 = call i64 %.0694(ptr noundef %.5616, i64 noundef %873, i32 noundef %874) #25, !callees !66
   %876 = icmp eq i64 %875, 0
   br i1 %876, label %.lr.ph1232, label %._crit_edge1233
 
@@ -6054,7 +6054,7 @@ get_nfc.exit828:                                  ; preds = %524
   %929 = add i64 %.0697, %925
   %gepdiff1242 = sub i64 %927, %929
   %930 = load i32, ptr %5, align 4, !tbaa !17
-  %931 = call i64 %.0694(ptr noundef %926, i64 noundef %gepdiff1242, i32 noundef %930) #24, !callees !66
+  %931 = call i64 %.0694(ptr noundef %926, i64 noundef %gepdiff1242, i32 noundef %930) #25, !callees !66
   %932 = icmp eq i64 %931, 0
   br i1 %932, label %914, label %._crit_edge1233, !llvm.loop !115
 
@@ -6070,7 +6070,7 @@ get_nfc.exit828:                                  ; preds = %524
   %.3614 = phi ptr [ %82, %._crit_edge1217 ], [ %865, %._crit_edge1212 ], [ %.7618.ph846, %.loopexit.thread ]
   %.1600 = phi ptr [ %85, %._crit_edge1217 ], [ %868, %._crit_edge1212 ], [ %.4603.ph847, %.loopexit.thread ]
   %.1592 = phi i64 [ %86, %._crit_edge1217 ], [ %869, %._crit_edge1212 ], [ %.4595.ph848, %.loopexit.thread ]
-  %935 = call i32 %.0695(ptr noundef nonnull %5, ptr noundef %.1600, i64 noundef %.1592) #24, !callees !65
+  %935 = call i32 %.0695(ptr noundef nonnull %5, ptr noundef %.1600, i64 noundef %.1592) #25, !callees !65
   %.not803 = icmp eq i32 %935, 0
   br i1 %.not803, label %.thread869, label %.lr.ph1229
 
@@ -6101,8 +6101,8 @@ get_nfc.exit828:                                  ; preds = %524
   ret i32 %.0590
 }
 
-; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @best_effort_strncat_from_utf16be(ptr noundef captures(address) %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #1 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal range(i32 -1, 1) i32 @best_effort_strncat_from_utf16be(ptr noundef captures(address) %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #9 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !4
   %7 = add i64 %2, 1
@@ -6219,8 +6219,8 @@ best_effort_strncat_from_utf16.exit:              ; preds = %4, %utf16_to_unicod
   ret i32 %.027.i
 }
 
-; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @best_effort_strncat_from_utf16le(ptr noundef captures(address) %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #1 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal range(i32 -1, 1) i32 @best_effort_strncat_from_utf16le(ptr noundef captures(address) %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #9 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !4
   %7 = add i64 %2, 1
@@ -6325,8 +6325,8 @@ best_effort_strncat_from_utf16.exit:              ; preds = %4, %utf16_to_unicod
   ret i32 %.027.i
 }
 
-; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @strncat_from_utf8_to_utf8(ptr noundef captures(address) %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #1 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal range(i32 -1, 1) i32 @strncat_from_utf8_to_utf8(ptr noundef captures(address) %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #9 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca [4 x i8], align 1
@@ -6839,7 +6839,7 @@ define internal range(i32 -1, 1) i32 @best_effort_strncat_in_locale(ptr noundef 
   %.01410.i = phi ptr [ %37, %36 ], [ %1, %.lr.ph.i.preheader ]
   %.0169.i = phi i64 [ %38, %36 ], [ %2, %.lr.ph.i.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %33 = call i64 @mbrtowc(ptr noundef nonnull %6, ptr noundef %.01410.i, i64 noundef %.0169.i, ptr noundef nonnull %5) #24
+  %33 = call i64 @mbrtowc(ptr noundef nonnull %6, ptr noundef %.01410.i, i64 noundef %.0169.i, ptr noundef nonnull %5) #25
   %or.cond.i = icmp ugt i64 %33, -3
   br i1 %or.cond.i, label %.loopexit.sink.split.i, label %34
 
@@ -6892,7 +6892,7 @@ archive_string_append.exit25:                     ; preds = %46
   br label %71
 
 53:                                               ; preds = %46
-  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #23
+  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #24
   unreachable
 
 54:                                               ; preds = %42
@@ -6902,7 +6902,7 @@ archive_string_append.exit25:                     ; preds = %46
   br i1 %57, label %58, label %archive_strappend_char.exit
 
 58:                                               ; preds = %54
-  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #23
+  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #24
   unreachable
 
 archive_strappend_char.exit:                      ; preds = %54
@@ -6920,7 +6920,7 @@ archive_strappend_char.exit:                      ; preds = %54
   br i1 %66, label %67, label %archive_strappend_char.exit26
 
 67:                                               ; preds = %62
-  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #23
+  tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #24
   unreachable
 
 archive_strappend_char.exit26:                    ; preds = %62
@@ -6950,7 +6950,7 @@ archive_string_append.exit.thread:                ; preds = %71, %.preheader, %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -128, -2147483648) i32 @_utf8_to_unicode(ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #17 {
+define internal fastcc range(i32 -128, -2147483648) i32 @_utf8_to_unicode(ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #18 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %94, label %5
 
@@ -7151,7 +7151,7 @@ define internal fastcc range(i32 -128, -2147483648) i32 @_utf8_to_unicode(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal range(i64 0, 5) i64 @unicode_to_utf16be(ptr noundef writeonly captures(none) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #18 {
+define internal range(i64 0, 5) i64 @unicode_to_utf16be(ptr noundef writeonly captures(none) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #19 {
   %4 = icmp ugt i32 %2, 65535
   br i1 %4, label %5, label %21
 
@@ -7202,7 +7202,7 @@ define internal range(i64 0, 5) i64 @unicode_to_utf16be(ptr noundef writeonly ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal range(i64 0, 5) i64 @unicode_to_utf16le(ptr noundef writeonly captures(none) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #18 {
+define internal range(i64 0, 5) i64 @unicode_to_utf16le(ptr noundef writeonly captures(none) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #19 {
   %4 = icmp ugt i32 %2, 65535
   br i1 %4, label %5, label %17
 
@@ -7239,7 +7239,7 @@ define internal range(i64 0, 5) i64 @unicode_to_utf16le(ptr noundef writeonly ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal i64 @unicode_to_utf8(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #18 {
+define internal i64 @unicode_to_utf8(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #19 {
   %4 = icmp ugt i32 %2, 1114111
   %spec.store.select = select i1 %4, i32 65533, i32 %2
   %5 = icmp samesign ult i32 %spec.store.select, 128
@@ -7345,7 +7345,7 @@ define internal i64 @unicode_to_utf8(ptr noundef %0, i64 noundef %1, i32 noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @utf16be_to_unicode(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #10 {
+define internal i32 @utf16be_to_unicode(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #11 {
   switch i64 %2, label %5 [
     i64 0, label %utf16_to_unicode.exit
     i64 1, label %4
@@ -7424,7 +7424,7 @@ utf16_to_unicode.exit:                            ; preds = %3, %4, %.thread.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @utf16le_to_unicode(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #10 {
+define internal i32 @utf16le_to_unicode(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #11 {
   switch i64 %2, label %5 [
     i64 0, label %utf16_to_unicode.exit
     i64 1, label %4
@@ -7491,7 +7491,7 @@ utf16_to_unicode.exit:                            ; preds = %3, %4, %.thread.i, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal range(i32 -2147483647, -2147483648) i32 @cesu8_to_unicode(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #17 {
+define internal range(i32 -2147483647, -2147483648) i32 @cesu8_to_unicode(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #18 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -7563,27 +7563,27 @@ define internal range(i32 -2147483647, -2147483648) i32 @cesu8_to_unicode(ptr no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #21
+declare i64 @llvm.umax.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #21
+declare i32 @llvm.smin.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #22
+declare i32 @llvm.abs.i32(i32, i1 immarg) #23
 
-attributes #0 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -7592,26 +7592,27 @@ attributes #5 = { mustprogress nounwind willreturn allockind("realloc") allocsiz
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nofree norecurse nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #20 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #21 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #23 = { noreturn nounwind }
-attributes #24 = { nounwind }
-attributes #25 = { nounwind willreturn memory(none) }
-attributes #26 = { nounwind allocsize(1) }
-attributes #27 = { nounwind willreturn memory(read) }
-attributes #28 = { nounwind allocsize(0,1) }
+attributes #9 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nofree norecurse nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #21 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #22 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #24 = { noreturn nounwind }
+attributes #25 = { nounwind }
+attributes #26 = { nounwind willreturn memory(none) }
+attributes #27 = { nounwind allocsize(1) }
+attributes #28 = { nounwind willreturn memory(read) }
+attributes #29 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

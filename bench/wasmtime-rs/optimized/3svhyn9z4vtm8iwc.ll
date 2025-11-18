@@ -145,7 +145,7 @@ define void @"_ZN111_$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN112_$LT$alloc..vec..Vec$LT$T$C$A$GT$..retain_mut..BackshiftOnDrop$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h120dd1d566192a33E"(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !noundef !3
@@ -180,7 +180,7 @@ define void @"_ZN112_$LT$alloc..vec..Vec$LT$T$C$A$GT$..retain_mut..BackshiftOnDr
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN112_$LT$alloc..vec..Vec$LT$T$C$A$GT$..retain_mut..BackshiftOnDrop$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd860f484d1b9148cE"(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !noundef !3
@@ -215,7 +215,7 @@ define void @"_ZN112_$LT$alloc..vec..Vec$LT$T$C$A$GT$..retain_mut..BackshiftOnDr
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN112_$LT$alloc..vec..Vec$LT$T$C$A$GT$..retain_mut..BackshiftOnDrop$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfd5b73b1a4e5805cE"(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !noundef !3
@@ -250,7 +250,7 @@ define void @"_ZN112_$LT$alloc..vec..Vec$LT$T$C$A$GT$..retain_mut..BackshiftOnDr
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN125_$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2b70f1378bb6c114E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -260,7 +260,7 @@ define void @"_ZN125_$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN125_$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4b375cd44679b2b3E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -270,7 +270,7 @@ define void @"_ZN125_$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN125_$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5b275fd16ea8d642E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -280,7 +280,7 @@ define void @"_ZN125_$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN125_$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha88b8b6f83e84e41E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -290,7 +290,7 @@ define void @"_ZN125_$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN125_$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb42a0f557c87c7bbE"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -300,7 +300,7 @@ define void @"_ZN125_$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN125_$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfa3a3cb517d39724E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -310,7 +310,7 @@ define void @"_ZN125_$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN150_$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h09482b11b261f9c9E"(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -1533,7 +1533,7 @@ define void @"_ZN4core3ptr102drop_in_place$LT$core..array..iter..IntoIter$LT$cra
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr102drop_in_place$LT$core..slice..sort..InsertionHole$LT$cranelift_isle..serialize..EqualCandidate$GT$$GT$17h5b3826f283d34a7bE"(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1549,7 +1549,7 @@ define void @"_ZN4core3ptr102drop_in_place$LT$std..collections..hash..set..HashS
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr1035drop_in_place$LT$core..iter..adapters..map..map_fold$LT$u8$C$cranelift_isle..trie_again..TupleIndex$C$$LP$$RP$$C$cranelift_isle..trie_again..TupleIndex$C$core..iter..adapters..map..map_fold$LT$cranelift_isle..trie_again..TupleIndex$C$cranelift_isle..trie_again..BindingId$C$$LP$$RP$$C$$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cranelift_isle..sema..PatternVisitor$GT$..add_extract..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..trie_again..BindingId$C$alloc..vec..Vec$LT$cranelift_isle..trie_again..BindingId$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$core..ops..range..Range$LT$u8$GT$$C$cranelift_isle..trie_again..TupleIndex$GT$$C$$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cranelift_isle..sema..PatternVisitor$GT$..add_extract..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4a93cb09ec0f6a57E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -2433,7 +2433,7 @@ define void @"_ZN4core3ptr134drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$cr
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr135drop_in_place$LT$core..slice..sort..InsertionHole$LT$$LP$cranelift_isle..sema..TermId$C$cranelift_isle..trie_again..RuleSet$RP$$GT$$GT$17h82a4863f078cd092E"(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2586,7 +2586,7 @@ define void @"_ZN4core3ptr137drop_in_place$LT$hashbrown..raw..RawIntoIter$LT$$LP
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr138drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$..extend_trusted$LT$core..ops..range..Range$LT$usize$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1fe08aeecc30a21aE"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -2795,7 +2795,7 @@ define void @"_ZN4core3ptr145drop_in_place$LT$alloc..collections..btree..map..In
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr145drop_in_place$LT$alloc..vec..Vec$LT$T$C$A$GT$..retain_mut..BackshiftOnDrop$LT$cranelift_isle..serialize..Candidate$C$alloc..alloc..Global$GT$$GT$17hd837d5bbf9709fc3E"(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !noundef !3
@@ -2830,7 +2830,7 @@ define void @"_ZN4core3ptr145drop_in_place$LT$alloc..vec..Vec$LT$T$C$A$GT$..reta
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr146drop_in_place$LT$alloc..vec..Vec$LT$T$C$A$GT$..retain_mut..BackshiftOnDrop$LT$cranelift_isle..trie_again..BindingId$C$alloc..alloc..Global$GT$$GT$17h35681089b881ed16E"(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !noundef !3
@@ -2865,7 +2865,7 @@ define void @"_ZN4core3ptr146drop_in_place$LT$alloc..vec..Vec$LT$T$C$A$GT$..reta
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr147drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$cranelift_isle..ast..Expr$C$alloc..alloc..Global$GT$$GT$17hd8877b35b6aba6dcE"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2875,7 +2875,7 @@ define void @"_ZN4core3ptr147drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hac
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr149drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$alloc..sync..Arc$LT$str$GT$$C$alloc..alloc..Global$GT$$GT$17hb1f5d5f3a50bb8f7E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2885,7 +2885,7 @@ define void @"_ZN4core3ptr149drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hac
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr149drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$cranelift_isle..ast..LetDef$C$alloc..alloc..Global$GT$$GT$17hf6d695619ea5b1eeE"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2895,7 +2895,7 @@ define void @"_ZN4core3ptr149drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hac
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr150drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$cranelift_isle..ast..Pattern$C$alloc..alloc..Global$GT$$GT$17h8638882ccdf6a4a7E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2905,7 +2905,7 @@ define void @"_ZN4core3ptr150drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hac
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr150drop_in_place$LT$alloc..vec..Vec$LT$T$C$A$GT$..retain_mut..BackshiftOnDrop$LT$cranelift_isle..serialize..EqualCandidate$C$alloc..alloc..Global$GT$$GT$17h6a2e4fa20e2eee34E"(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !noundef !3
@@ -3070,7 +3070,7 @@ define void @"_ZN4core3ptr155drop_in_place$LT$std..collections..hash..map..HashM
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr158drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$cranelift_isle..serialize..Candidate$C$alloc..alloc..Global$GT$$GT$17hb35f008c3f2c6b60E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3108,7 +3108,7 @@ define void @"_ZN4core3ptr160drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$cr
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr163drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$cranelift_isle..serialize..EqualCandidate$C$alloc..alloc..Global$GT$$GT$17h838b45d136943361E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3650,7 +3650,7 @@ define void @"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIte
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr191drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$cranelift_isle..trie_again..UnreachableError$C$alloc..alloc..Global$GT$$GT$17h25a67201b431c395E"(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -4078,7 +4078,7 @@ define void @"_ZN4core3ptr212drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIte
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr214drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..serialize..Candidate$GT$..extend_trusted$LT$core..array..iter..IntoIter$LT$cranelift_isle..serialize..Candidate$C$2_usize$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb71d938fc3de3599E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -4087,7 +4087,7 @@ define void @"_ZN4core3ptr214drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle.
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr219drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..drain..Drain$LT$cranelift_isle..trie_again..UnreachableError$GT$$C$cranelift_isle..trie_again..RuleSetBuilder..add_rule..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4aae9c4e218b99c2E"(ptr align 8 captures(none) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4221,7 +4221,7 @@ define void @"_ZN4core3ptr232drop_in_place$LT$alloc..collections..btree..node..S
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr237drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$usize$C$alloc..vec..Vec$LT$usize$GT$..extend_trusted$LT$core..ops..range..Range$LT$usize$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h865fdc5b2451a968E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -4302,7 +4302,7 @@ define hidden void @"_ZN4core3ptr25drop_in_place$LT$i128$GT$17h5ee998448f7f96fbE
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr269drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..error..Span$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$cranelift_isle..lexer..Pos$GT$$C$cranelift_isle..error..Span..new_single$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ae64d682d3decf1E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -4363,7 +4363,7 @@ define hidden void @"_ZN4core3ptr285drop_in_place$LT$hashbrown..raw..RawTable$LT
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr288drop_in_place$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$usize$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$alloc..sync..Arc$LT$str$GT$$GT$$C$cranelift_isle..error..Errors..emit..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h241164a75939ce0cE"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -4382,7 +4382,7 @@ define hidden void @"_ZN4core3ptr28drop_in_place$LT$$RF$u16$GT$17h29503c497968df
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr291drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..sema..TermId$GT$$C$cranelift_isle..sema..TermEnv..collect_extractor_templates..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1017f5ce7ab4fb43E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -4396,7 +4396,7 @@ define hidden void @"_ZN4core3ptr293drop_in_place$LT$hashbrown..raw..RawTable$LT
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr299drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..sema..TypeId$GT$$C$cranelift_isle..codegen..Codegen..generate_trait_sig..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3af03b8630ec068cE"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -4410,7 +4410,7 @@ define hidden void @"_ZN4core3ptr29drop_in_place$LT$$RF$i128$GT$17h091c20099efbc
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr303drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..ast..Pattern$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..ast..Pattern$GT$$C$cranelift_isle..ast..Pattern..make_macro_template..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4a49db99d4c5387dE"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -4419,7 +4419,7 @@ define void @"_ZN4core3ptr303drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle.
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr303drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..ast..Pattern$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..ast..Pattern$GT$$C$cranelift_isle..ast..Pattern..make_macro_template..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h676a27cb9593ed89E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -4448,7 +4448,7 @@ define hidden void @"_ZN4core3ptr30drop_in_place$LT$$RF$usize$GT$17hb5ef7345d07e
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr310drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..sema..TypeId$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..sema..Field$GT$$C$cranelift_isle..sema..TermEnv..collect_enum_variant_terms..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h024456262f38a82aE"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -4577,7 +4577,7 @@ define void @"_ZN4core3ptr321drop_in_place$LT$core..iter..adapters..map..Map$LT$
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr323drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..error..Error$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..drain..Drain$LT$cranelift_isle..trie_again..UnreachableError$GT$$C$cranelift_isle..trie_again..RuleSetBuilder..add_rule..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5c98aeb80b7dc1d2E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -4601,7 +4601,7 @@ define hidden void @"_ZN4core3ptr335drop_in_place$LT$hashbrown..raw..RawTable$LT
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr336drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..trie_again..BindingId$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$cranelift_isle..trie_again..Binding$GT$$C$cranelift_isle..trie_again..RuleSetBuilder..set_constraint..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h72b10875aa0c614fE"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -4615,7 +4615,7 @@ define hidden void @"_ZN4core3ptr33drop_in_place$LT$$RF$$LP$$RP$$GT$17h0236e3fcd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr341drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..sema..TypeId$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..sema..Pattern$GT$$C$cranelift_isle..sema..Pattern..visit$LT$cranelift_isle..trie_again..RuleSetBuilder$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb92ec2f13f67f782E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -4624,7 +4624,7 @@ define void @"_ZN4core3ptr341drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle.
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr344drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..serialize..Candidate$C$alloc..vec..Vec$LT$cranelift_isle..serialize..Candidate$GT$..extend_trusted$LT$core..array..iter..IntoIter$LT$cranelift_isle..serialize..Candidate$C$2_usize$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h60bf0c62073210bcE"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -4669,7 +4669,7 @@ define void @"_ZN4core3ptr348drop_in_place$LT$core..iter..adapters..chain..Chain
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr354drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..error..diagnostic..Diagnostic$LT$usize$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..error..Error$GT$$C$$LT$cranelift_isle..error..Errors$u20$as$u20$core..fmt..Debug$GT$..fmt..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he7569f47d34cc546E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -4693,7 +4693,7 @@ define hidden void @"_ZN4core3ptr361drop_in_place$LT$hashbrown..raw..RawTable$LT
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr365drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$cranelift_isle..trie_again..BindingId$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$cranelift_isle..trie_again..Binding$GT$$C$cranelift_isle..serialize..Decomposition..make_control_flow..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha11492bdfe013fa3E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -4702,7 +4702,7 @@ define void @"_ZN4core3ptr365drop_in_place$LT$alloc..vec..Vec$LT$core..option..O
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr366drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..trie_again..Binding$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$core..ops..range..Range$LT$u8$GT$$C$cranelift_isle..trie_again..TupleIndex$GT$$C$cranelift_isle..trie_again..Constraint..bindings_for..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha14c29ad161e4ceeE"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -4726,7 +4726,7 @@ define hidden void @"_ZN4core3ptr367drop_in_place$LT$hashbrown..raw..RawTable$LT
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr377drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..error..diagnostic..Label$LT$usize$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..error..Span$GT$$C$$LT$cranelift_isle..error..Errors$u20$as$u20$core..fmt..Debug$GT$..fmt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h48e3ba485064daf1E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -4735,7 +4735,7 @@ define void @"_ZN4core3ptr377drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle.
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr377drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..error..diagnostic..Label$LT$usize$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..error..Span$GT$$C$$LT$cranelift_isle..error..Errors$u20$as$u20$core..fmt..Debug$GT$..fmt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb8de082a639b4cc3E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -4749,7 +4749,7 @@ define hidden void @"_ZN4core3ptr37drop_in_place$LT$core..fmt..Error$GT$17h37a67
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr390drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..error..Span$C$alloc..vec..Vec$LT$cranelift_isle..error..Span$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$cranelift_isle..lexer..Pos$GT$$C$cranelift_isle..error..Span..new_single$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h632fc9512a9c6010E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -4768,7 +4768,7 @@ define hidden void @"_ZN4core3ptr391drop_in_place$LT$hashbrown..raw..RawTable$LT
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr392drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$$RF$str$C$alloc..vec..Vec$LT$$RF$str$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..sema..TermId$GT$$C$cranelift_isle..sema..TermEnv..collect_extractor_templates..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he187c378aac203f2E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -4840,7 +4840,7 @@ define hidden void @"_ZN4core3ptr409drop_in_place$LT$hashbrown..raw..RawTable$LT
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr410drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..vec..Vec$LT$usize$GT$$C$alloc..vec..Vec$LT$alloc..vec..Vec$LT$usize$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$alloc..sync..Arc$LT$str$GT$$GT$$C$cranelift_isle..error..Errors..emit..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h39c4358c5c31f279E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -4849,7 +4849,7 @@ define void @"_ZN4core3ptr410drop_in_place$LT$core..iter..traits..iterator..Iter
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr414drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..sema..TypeId$GT$$C$cranelift_isle..codegen..Codegen..generate_trait_sig..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5a1d160333edd006E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -4858,7 +4858,7 @@ define void @"_ZN4core3ptr414drop_in_place$LT$core..iter..traits..iterator..Iter
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr425drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..ast..Pattern$C$alloc..vec..Vec$LT$cranelift_isle..ast..Pattern$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..ast..Pattern$GT$$C$cranelift_isle..ast..Pattern..make_macro_template..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0d383afba66dbfecE"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -4867,7 +4867,7 @@ define void @"_ZN4core3ptr425drop_in_place$LT$core..iter..traits..iterator..Iter
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr425drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..ast..Pattern$C$alloc..vec..Vec$LT$cranelift_isle..ast..Pattern$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..ast..Pattern$GT$$C$cranelift_isle..ast..Pattern..make_macro_template..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17heb61b584150f6f23E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -4876,7 +4876,7 @@ define void @"_ZN4core3ptr425drop_in_place$LT$core..iter..traits..iterator..Iter
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr427drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..trie_again..BindingId$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$core..ops..range..Range$LT$u8$GT$$C$cranelift_isle..trie_again..TupleIndex$GT$$C$$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cranelift_isle..sema..PatternVisitor$GT$..add_extract..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb90ccb66723c7ee5E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -4885,7 +4885,7 @@ define void @"_ZN4core3ptr427drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle.
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr429drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..trie_again..BindingId$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$cranelift_isle..trie_again..BindingId$C$cranelift_isle..sema..TypeId$RP$$GT$$C$$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cranelift_isle..sema..ExprVisitor$GT$..add_construct..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h168b0bc08b23ce28E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -4942,7 +4942,7 @@ define hidden void @"_ZN4core3ptr431drop_in_place$LT$hashbrown..raw..RawTable$LT
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr432drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..sema..TypeId$C$alloc..vec..Vec$LT$cranelift_isle..sema..TypeId$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..sema..Field$GT$$C$cranelift_isle..sema..TermEnv..collect_enum_variant_terms..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9c02f3715af1475cE"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -4951,7 +4951,7 @@ define void @"_ZN4core3ptr432drop_in_place$LT$core..iter..traits..iterator..Iter
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr434drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..trie_again..BindingId$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$cranelift_isle..trie_again..BindingId$C$cranelift_isle..sema..TypeId$RP$$GT$$C$$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cranelift_isle..sema..ExprVisitor$GT$..add_create_variant..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7890b73fd31191a8E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -5013,7 +5013,7 @@ define void @"_ZN4core3ptr43drop_in_place$LT$std..io..error..Custom$GT$17h2e4ae7
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr445drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$cranelift_isle..sema..TypeId$GT$$GT$$C$cranelift_isle..codegen..Codegen..generate_trait_sig..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$alloc..string..String$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h31b95e21204c5cd4E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -5022,7 +5022,7 @@ define void @"_ZN4core3ptr445drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr445drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..error..Error$C$alloc..vec..Vec$LT$cranelift_isle..error..Error$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..drain..Drain$LT$cranelift_isle..trie_again..UnreachableError$GT$$C$cranelift_isle..trie_again..RuleSetBuilder..add_rule..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h06e6340420235887E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -5167,7 +5167,7 @@ define hidden void @"_ZN4core3ptr462drop_in_place$LT$hashbrown..raw..RawTable$LT
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr463drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..sema..TypeId$C$alloc..vec..Vec$LT$cranelift_isle..sema..TypeId$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..sema..Pattern$GT$$C$cranelift_isle..sema..Pattern..visit$LT$cranelift_isle..trie_again..RuleSetBuilder$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h282cdfa8dec29395E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -5176,7 +5176,7 @@ define void @"_ZN4core3ptr463drop_in_place$LT$core..iter..traits..iterator..Iter
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr467drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..trie_again..BindingId$C$alloc..vec..Vec$LT$cranelift_isle..trie_again..BindingId$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$cranelift_isle..trie_again..Binding$GT$$C$cranelift_isle..trie_again..RuleSetBuilder..set_constraint..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h781f465cf0e140aaE"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -6394,7 +6394,7 @@ define void @"_ZN4core3ptr48drop_in_place$LT$cranelift_isle..sema..IfLet$GT$17h1
   resume { ptr, i32 } %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr495drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..trie_again..Binding$C$alloc..vec..Vec$LT$cranelift_isle..trie_again..Binding$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$core..ops..range..Range$LT$u8$GT$$C$cranelift_isle..trie_again..TupleIndex$GT$$C$cranelift_isle..trie_again..Constraint..bindings_for..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h458c1e7c5eda1a72E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -7178,7 +7178,7 @@ define void @"_ZN4core3ptr49drop_in_place$LT$std..sys..os_str..bytes..Buf$GT$17h
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr506drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..error..diagnostic..Diagnostic$LT$usize$GT$$C$alloc..vec..Vec$LT$cranelift_isle..error..diagnostic..Diagnostic$LT$usize$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..error..Error$GT$$C$$LT$cranelift_isle..error..Errors$u20$as$u20$core..fmt..Debug$GT$..fmt..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7dd36acbd20ec209E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -7879,7 +7879,7 @@ define hidden void @"_ZN4core3ptr522drop_in_place$LT$hashbrown..raw..RawTable$LT
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr524drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$core..option..Option$LT$cranelift_isle..trie_again..BindingId$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$cranelift_isle..trie_again..BindingId$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$cranelift_isle..trie_again..Binding$GT$$C$cranelift_isle..serialize..Decomposition..make_control_flow..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdd868f450a466b98E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -7888,7 +7888,7 @@ define void @"_ZN4core3ptr524drop_in_place$LT$core..iter..traits..iterator..Iter
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr524drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..error..diagnostic..Label$LT$usize$GT$$C$alloc..vec..Vec$LT$cranelift_isle..error..diagnostic..Label$LT$usize$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..error..Span$GT$$C$$LT$cranelift_isle..error..Errors$u20$as$u20$core..fmt..Debug$GT$..fmt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4e35143326cfe918E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -7897,7 +7897,7 @@ define void @"_ZN4core3ptr524drop_in_place$LT$core..iter..traits..iterator..Iter
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr524drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..error..diagnostic..Label$LT$usize$GT$$C$alloc..vec..Vec$LT$cranelift_isle..error..diagnostic..Label$LT$usize$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..error..Span$GT$$C$$LT$cranelift_isle..error..Errors$u20$as$u20$core..fmt..Debug$GT$..fmt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8385f9797a667963E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -7906,7 +7906,7 @@ define void @"_ZN4core3ptr524drop_in_place$LT$core..iter..traits..iterator..Iter
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr527drop_in_place$LT$alloc..vec..Vec$LT$$LP$cranelift_isle..trie_again..BindingId$C$cranelift_isle..sema..TypeId$RP$$GT$..extend_trusted$LT$core..iter..adapters..zip..Zip$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..sema..Expr$GT$$C$cranelift_isle..sema..Expr..visit$LT$cranelift_isle..trie_again..RuleSetBuilder$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$cranelift_isle..sema..TypeId$GT$$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h62208f8293a11769E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -8345,7 +8345,7 @@ define hidden void @"_ZN4core3ptr554drop_in_place$LT$hashbrown..raw..RawTable$LT
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr558drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..trie_again..BindingId$C$alloc..vec..Vec$LT$cranelift_isle..trie_again..BindingId$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$core..ops..range..Range$LT$u8$GT$$C$cranelift_isle..trie_again..TupleIndex$GT$$C$$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cranelift_isle..sema..PatternVisitor$GT$..add_extract..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17heef224aba29818b3E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -8403,7 +8403,7 @@ define void @"_ZN4core3ptr55drop_in_place$LT$$u5b$cranelift_isle..ast..Def$u5d$$
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr560drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$cranelift_isle..sema..TypeId$GT$$GT$$C$cranelift_isle..codegen..Codegen..generate_trait_sig..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$alloc..string..String$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h20e606a9afb62e18E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -8412,7 +8412,7 @@ define void @"_ZN4core3ptr560drop_in_place$LT$core..iter..traits..iterator..Iter
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr560drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..trie_again..BindingId$C$alloc..vec..Vec$LT$cranelift_isle..trie_again..BindingId$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$cranelift_isle..trie_again..BindingId$C$cranelift_isle..sema..TypeId$RP$$GT$$C$$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cranelift_isle..sema..ExprVisitor$GT$..add_construct..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfff014bb8b8eb9b6E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -8421,7 +8421,7 @@ define void @"_ZN4core3ptr560drop_in_place$LT$core..iter..traits..iterator..Iter
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr565drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..trie_again..BindingId$C$alloc..vec..Vec$LT$cranelift_isle..trie_again..BindingId$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$cranelift_isle..trie_again..BindingId$C$cranelift_isle..sema..TypeId$RP$$GT$$C$$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cranelift_isle..sema..ExprVisitor$GT$..add_create_variant..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h946fe9723b1ae9a3E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -8776,7 +8776,7 @@ define void @"_ZN4core3ptr56drop_in_place$LT$cranelift_isle..trie_again..RuleSet
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr574drop_in_place$LT$core..iter..adapters..map..map_fold$LT$cranelift_isle..lexer..Pos$C$cranelift_isle..error..Span$C$$LP$$RP$$C$cranelift_isle..error..Span..new_single$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..error..Span$C$alloc..vec..Vec$LT$cranelift_isle..error..Span$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$cranelift_isle..lexer..Pos$GT$$C$cranelift_isle..error..Span..new_single$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h88de41473a321b50E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -10009,7 +10009,7 @@ define void @"_ZN4core3ptr60drop_in_place$LT$$u5b$cranelift_isle..sema..Variant$
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr610drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_isle..sema..TermId$C$$RF$str$C$$LP$$RP$$C$cranelift_isle..sema..TermEnv..collect_extractor_templates..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$$RF$str$C$alloc..vec..Vec$LT$$RF$str$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..sema..TermId$GT$$C$cranelift_isle..sema..TermEnv..collect_extractor_templates..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hadc3d1c69ca94fc8E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -10078,7 +10078,7 @@ define void @"_ZN4core3ptr61drop_in_place$LT$cranelift_isle..serialize..Decompos
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr625drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$alloc..sync..Arc$LT$str$GT$$C$alloc..vec..Vec$LT$usize$GT$$C$$LP$$RP$$C$cranelift_isle..error..Errors..emit..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..vec..Vec$LT$usize$GT$$C$alloc..vec..Vec$LT$alloc..vec..Vec$LT$usize$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$alloc..sync..Arc$LT$str$GT$$GT$$C$cranelift_isle..error..Errors..emit..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2b87e8b7735a4a54E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -10092,7 +10092,7 @@ define hidden void @"_ZN4core3ptr62drop_in_place$LT$$RF$cranelift_isle..trie_aga
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$GT$17hb3974c8a4dc2b410E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -10247,7 +10247,7 @@ common.resume:                                    ; preds = %15, %26
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr640drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_isle..sema..TypeId$C$alloc..string..String$C$$LP$$RP$$C$cranelift_isle..codegen..Codegen..generate_trait_sig..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..sema..TypeId$GT$$C$cranelift_isle..codegen..Codegen..generate_trait_sig..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he46e52fc2225d084E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -10256,7 +10256,7 @@ define void @"_ZN4core3ptr640drop_in_place$LT$core..iter..adapters..map..map_fol
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr655drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_isle..ast..Pattern$C$cranelift_isle..ast..Pattern$C$$LP$$RP$$C$cranelift_isle..ast..Pattern..make_macro_template..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..ast..Pattern$C$alloc..vec..Vec$LT$cranelift_isle..ast..Pattern$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..ast..Pattern$GT$$C$cranelift_isle..ast..Pattern..make_macro_template..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h94d861c8b77c0ea0E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -10265,7 +10265,7 @@ define void @"_ZN4core3ptr655drop_in_place$LT$core..iter..adapters..map..map_fol
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr655drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_isle..ast..Pattern$C$cranelift_isle..ast..Pattern$C$$LP$$RP$$C$cranelift_isle..ast..Pattern..make_macro_template..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..ast..Pattern$C$alloc..vec..Vec$LT$cranelift_isle..ast..Pattern$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..ast..Pattern$GT$$C$cranelift_isle..ast..Pattern..make_macro_template..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf903aa9ed6d20bc7E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -10370,7 +10370,7 @@ define void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..S
   resume { ptr, i32 } %23
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr669drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_isle..sema..Field$C$cranelift_isle..sema..TypeId$C$$LP$$RP$$C$cranelift_isle..sema..TermEnv..collect_enum_variant_terms..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..sema..TypeId$C$alloc..vec..Vec$LT$cranelift_isle..sema..TypeId$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..sema..Field$GT$$C$cranelift_isle..sema..TermEnv..collect_enum_variant_terms..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd82a25e2ff4b9cb0E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -10583,7 +10583,7 @@ define void @"_ZN4core3ptr66drop_in_place$LT$$u5b$cranelift_isle..trie_again..Bi
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr66drop_in_place$LT$core..slice..sort..InsertionHole$LT$usize$GT$$GT$17h3aac8f41d13deccdE"(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10786,7 +10786,7 @@ define void @"_ZN4core3ptr68drop_in_place$LT$core..option..Item$LT$alloc..string
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr690drop_in_place$LT$core..iter..adapters..map..map_fold$LT$cranelift_isle..trie_again..UnreachableError$C$cranelift_isle..error..Error$C$$LP$$RP$$C$cranelift_isle..trie_again..RuleSetBuilder..add_rule..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..error..Error$C$alloc..vec..Vec$LT$cranelift_isle..error..Error$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..drain..Drain$LT$cranelift_isle..trie_again..UnreachableError$GT$$C$cranelift_isle..trie_again..RuleSetBuilder..add_rule..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdbd8fd6b49588059E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -10795,7 +10795,7 @@ define void @"_ZN4core3ptr690drop_in_place$LT$core..iter..adapters..map..map_fol
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr697drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$$LP$cranelift_isle..trie_again..BindingId$C$cranelift_isle..sema..TypeId$RP$$C$alloc..vec..Vec$LT$$LP$cranelift_isle..trie_again..BindingId$C$cranelift_isle..sema..TypeId$RP$$GT$..extend_trusted$LT$core..iter..adapters..zip..Zip$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..sema..Expr$GT$$C$cranelift_isle..sema..Expr..visit$LT$cranelift_isle..trie_again..RuleSetBuilder$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$cranelift_isle..sema..TypeId$GT$$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4749ad58eb7eba22E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -11482,7 +11482,7 @@ define void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..stri
   br label %5
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr718drop_in_place$LT$core..iter..adapters..map..map_fold$LT$cranelift_isle..trie_again..Binding$C$cranelift_isle..trie_again..BindingId$C$$LP$$RP$$C$cranelift_isle..trie_again..RuleSetBuilder..set_constraint..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..trie_again..BindingId$C$alloc..vec..Vec$LT$cranelift_isle..trie_again..BindingId$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$cranelift_isle..trie_again..Binding$GT$$C$cranelift_isle..trie_again..RuleSetBuilder..set_constraint..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h93441dae49f9cc11E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -12355,7 +12355,7 @@ define void @"_ZN4core3ptr72drop_in_place$LT$core..option..IntoIter$LT$alloc..st
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr731drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_isle..sema..Pattern$C$cranelift_isle..sema..TypeId$C$$LP$$RP$$C$cranelift_isle..sema..Pattern..visit$LT$cranelift_isle..trie_again..RuleSetBuilder$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..sema..TypeId$C$alloc..vec..Vec$LT$cranelift_isle..sema..TypeId$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..sema..Pattern$GT$$C$cranelift_isle..sema..Pattern..visit$LT$cranelift_isle..trie_again..RuleSetBuilder$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcafe90593ca14ef0E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -12557,7 +12557,7 @@ define void @"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..
   resume { ptr, i32 } %23
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr741drop_in_place$LT$core..iter..adapters..map..map_fold$LT$cranelift_isle..trie_again..TupleIndex$C$cranelift_isle..trie_again..Binding$C$$LP$$RP$$C$cranelift_isle..trie_again..Constraint..bindings_for..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..trie_again..Binding$C$alloc..vec..Vec$LT$cranelift_isle..trie_again..Binding$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$core..ops..range..Range$LT$u8$GT$$C$cranelift_isle..trie_again..TupleIndex$GT$$C$cranelift_isle..trie_again..Constraint..bindings_for..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha14bcf21e3d07cd2E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -13108,7 +13108,7 @@ define void @"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$cranelift_i
   br label %"_ZN4core3ptr49drop_in_place$LT$cranelift_isle..lexer..Token$GT$17he176f77217d7f15dE.exit"
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr787drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_isle..error..Error$C$cranelift_isle..error..diagnostic..Diagnostic$LT$usize$GT$$C$$LP$$RP$$C$$LT$cranelift_isle..error..Errors$u20$as$u20$core..fmt..Debug$GT$..fmt..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..error..diagnostic..Diagnostic$LT$usize$GT$$C$alloc..vec..Vec$LT$cranelift_isle..error..diagnostic..Diagnostic$LT$usize$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..error..Error$GT$$C$$LT$cranelift_isle..error..Errors$u20$as$u20$core..fmt..Debug$GT$..fmt..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hafdd61879bb9e5d6E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -13726,7 +13726,7 @@ define void @"_ZN4core3ptr79drop_in_place$LT$hashbrown..set..IntoIter$LT$craneli
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr804drop_in_place$LT$core..iter..adapters..map..map_fold$LT$cranelift_isle..trie_again..Binding$C$core..option..Option$LT$cranelift_isle..trie_again..BindingId$GT$$C$$LP$$RP$$C$cranelift_isle..serialize..Decomposition..make_control_flow..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$core..option..Option$LT$cranelift_isle..trie_again..BindingId$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$cranelift_isle..trie_again..BindingId$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$cranelift_isle..trie_again..Binding$GT$$C$cranelift_isle..serialize..Decomposition..make_control_flow..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he4dabbbc794c8443E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -13927,7 +13927,7 @@ define void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$
   br label %5
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr828drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_isle..error..Span$C$cranelift_isle..error..diagnostic..Label$LT$usize$GT$$C$$LP$$RP$$C$$LT$cranelift_isle..error..Errors$u20$as$u20$core..fmt..Debug$GT$..fmt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..error..diagnostic..Label$LT$usize$GT$$C$alloc..vec..Vec$LT$cranelift_isle..error..diagnostic..Label$LT$usize$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..error..Span$GT$$C$$LT$cranelift_isle..error..Errors$u20$as$u20$core..fmt..Debug$GT$..fmt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h24a9f2e063a4e269E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -13936,7 +13936,7 @@ define void @"_ZN4core3ptr828drop_in_place$LT$core..iter..adapters..map..map_fol
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr828drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_isle..error..Span$C$cranelift_isle..error..diagnostic..Label$LT$usize$GT$$C$$LP$$RP$$C$$LT$cranelift_isle..error..Errors$u20$as$u20$core..fmt..Debug$GT$..fmt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..error..diagnostic..Label$LT$usize$GT$$C$alloc..vec..Vec$LT$cranelift_isle..error..diagnostic..Label$LT$usize$GT$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..error..Span$GT$$C$$LT$cranelift_isle..error..Errors$u20$as$u20$core..fmt..Debug$GT$..fmt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2eddf05a210bb292E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -14081,7 +14081,7 @@ define void @"_ZN4core3ptr85drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr865drop_in_place$LT$core..iter..adapters..map..map_fold$LT$cranelift_isle..trie_again..TupleIndex$C$cranelift_isle..trie_again..BindingId$C$$LP$$RP$$C$$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cranelift_isle..sema..PatternVisitor$GT$..add_extract..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..trie_again..BindingId$C$alloc..vec..Vec$LT$cranelift_isle..trie_again..BindingId$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$core..ops..range..Range$LT$u8$GT$$C$cranelift_isle..trie_again..TupleIndex$GT$$C$$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cranelift_isle..sema..PatternVisitor$GT$..add_extract..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h96db47bea0bd5e38E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -14424,7 +14424,7 @@ define void @"_ZN4core3ptr89drop_in_place$LT$$u5b$cranelift_isle..error..diagnos
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr89drop_in_place$LT$core..slice..sort..InsertionHole$LT$cranelift_isle..error..Error$GT$$GT$17hb2dfd029be1742ceE"(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -14433,7 +14433,7 @@ define void @"_ZN4core3ptr89drop_in_place$LT$core..slice..sort..InsertionHole$LT
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr904drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$LP$cranelift_isle..trie_again..BindingId$C$cranelift_isle..sema..TypeId$RP$$C$cranelift_isle..trie_again..BindingId$C$$LP$$RP$$C$$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cranelift_isle..sema..ExprVisitor$GT$..add_construct..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..trie_again..BindingId$C$alloc..vec..Vec$LT$cranelift_isle..trie_again..BindingId$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$cranelift_isle..trie_again..BindingId$C$cranelift_isle..sema..TypeId$RP$$GT$$C$$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cranelift_isle..sema..ExprVisitor$GT$..add_construct..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6ed6d38bc14cecf3E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -14485,7 +14485,7 @@ define void @"_ZN4core3ptr90drop_in_place$LT$hashbrown..map..IntoIter$LT$craneli
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr911drop_in_place$LT$core..iter..adapters..map..map_fold$LT$u8$C$cranelift_isle..trie_again..TupleIndex$C$$LP$$RP$$C$cranelift_isle..trie_again..TupleIndex$C$core..iter..adapters..map..map_fold$LT$cranelift_isle..trie_again..TupleIndex$C$cranelift_isle..trie_again..Binding$C$$LP$$RP$$C$cranelift_isle..trie_again..Constraint..bindings_for..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..trie_again..Binding$C$alloc..vec..Vec$LT$cranelift_isle..trie_again..Binding$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$core..ops..range..Range$LT$u8$GT$$C$cranelift_isle..trie_again..TupleIndex$GT$$C$cranelift_isle..trie_again..Constraint..bindings_for..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf80825744fc88ec3E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -14494,7 +14494,7 @@ define void @"_ZN4core3ptr911drop_in_place$LT$core..iter..adapters..map..map_fol
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr914drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$LP$cranelift_isle..trie_again..BindingId$C$cranelift_isle..sema..TypeId$RP$$C$cranelift_isle..trie_again..BindingId$C$$LP$$RP$$C$$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cranelift_isle..sema..ExprVisitor$GT$..add_create_variant..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..trie_again..BindingId$C$alloc..vec..Vec$LT$cranelift_isle..trie_again..BindingId$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$cranelift_isle..trie_again..BindingId$C$cranelift_isle..sema..TypeId$RP$$GT$$C$$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cranelift_isle..sema..ExprVisitor$GT$..add_create_variant..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc27faa36511c5c9bE"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %.val.i.i.i = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %2 = getelementptr i8, ptr %0, i64 8
@@ -14597,7 +14597,7 @@ define void @"_ZN4core3ptr92drop_in_place$LT$alloc..raw_vec..RawVec$LT$cranelift
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr92drop_in_place$LT$core..slice..sort..merge..MergeHole$LT$cranelift_isle..error..Error$GT$$GT$17hc479985072aa9b77E"(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !3
@@ -14896,7 +14896,7 @@ define void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..drain..Drain$LT$cranelift_isle..trie_again..UnreachableError$GT$$GT$17h7077df0370e57a20E"(ptr align 8 captures(none) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15054,7 +15054,7 @@ define void @"_ZN4core3ptr97drop_in_place$LT$std..io..Write..write_fmt..Adapter$
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN4core3ptr98drop_in_place$LT$core..slice..sort..InsertionHole$LT$cranelift_isle..trie_again..BindingId$GT$$GT$17heb569ed8900b1995E"(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -17794,7 +17794,7 @@ define void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h98ec27597ee992f0E"(ptr align 8 captures(none) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18039,7 +18039,7 @@ define void @"_ZN82_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN83_$LT$core..slice..sort..InsertionHole$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3593b133950e8b7bE"(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18048,7 +18048,7 @@ define void @"_ZN83_$LT$core..slice..sort..InsertionHole$LT$T$GT$$u20$as$u20$cor
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN83_$LT$core..slice..sort..InsertionHole$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3d41467c56b2716dE"(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18057,7 +18057,7 @@ define void @"_ZN83_$LT$core..slice..sort..InsertionHole$LT$T$GT$$u20$as$u20$cor
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN83_$LT$core..slice..sort..InsertionHole$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc09bc91f19320a2eE"(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18067,7 +18067,7 @@ define void @"_ZN83_$LT$core..slice..sort..InsertionHole$LT$T$GT$$u20$as$u20$cor
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN83_$LT$core..slice..sort..InsertionHole$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hec82660123f61f83E"(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18077,7 +18077,7 @@ define void @"_ZN83_$LT$core..slice..sort..InsertionHole$LT$T$GT$$u20$as$u20$cor
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN83_$LT$core..slice..sort..InsertionHole$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hee4cd8dd846ac376E"(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18631,7 +18631,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
   resume { ptr, i32 } %eh.lpad-body
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @"_ZN86_$LT$core..slice..sort..merge..MergeHole$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h38f73e8173a64bc8E"(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !3
@@ -19336,9 +19336,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

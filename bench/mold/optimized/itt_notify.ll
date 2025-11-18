@@ -4233,7 +4233,7 @@ define internal noundef ptr @_ZL28__itt_domain_create_init_3_0PKc(ptr noundef %0
 
 21:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %22 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %2) #17
+  %22 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %2) #18
   %.not86 = icmp eq i32 %22, 0
   br i1 %.not86, label %24, label %23
 
@@ -4242,7 +4242,7 @@ define internal noundef ptr @_ZL28__itt_domain_create_init_3_0PKc(ptr noundef %0
   br label %24
 
 24:                                               ; preds = %23, %21
-  %25 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %2, i32 noundef 1) #17
+  %25 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %2, i32 noundef 1) #18
   %.not87 = icmp eq i32 %25, 0
   br i1 %.not87, label %27, label %26
 
@@ -4251,7 +4251,7 @@ define internal noundef ptr @_ZL28__itt_domain_create_init_3_0PKc(ptr noundef %0
   br label %27
 
 27:                                               ; preds = %26, %24
-  %28 = call i32 @pthread_mutex_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56), ptr noundef nonnull %2) #17
+  %28 = call i32 @pthread_mutex_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56), ptr noundef nonnull %2) #18
   %.not88 = icmp eq i32 %28, 0
   br i1 %.not88, label %30, label %29
 
@@ -4260,7 +4260,7 @@ define internal noundef ptr @_ZL28__itt_domain_create_init_3_0PKc(ptr noundef %0
   br label %30
 
 30:                                               ; preds = %29, %27
-  %31 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %2) #17
+  %31 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %2) #18
   %.not89 = icmp eq i32 %31, 0
   br i1 %.not89, label %33, label %32
 
@@ -4274,13 +4274,13 @@ define internal noundef ptr @_ZL28__itt_domain_create_init_3_0PKc(ptr noundef %0
   br label %.loopexit100
 
 .lr.ph:                                           ; preds = %.preheader99, %.lr.ph
-  %34 = tail call i32 @sched_yield() #17
+  %34 = tail call i32 @sched_yield() #18
   %35 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 40), align 8, !tbaa !22
   %.not85 = icmp eq i64 %35, 0
   br i1 %.not85, label %.lr.ph, label %.loopexit100, !llvm.loop !23
 
 .loopexit100:                                     ; preds = %.lr.ph, %.preheader99, %33, %14
-  %36 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %36 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   br label %37
 
 37:                                               ; preds = %.loopexit100, %5
@@ -4299,7 +4299,7 @@ define internal noundef ptr @_ZL28__itt_domain_create_init_3_0PKc(ptr noundef %0
   br i1 %or.cond6, label %44, label %46
 
 44:                                               ; preds = %43
-  %45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   %.pre = load ptr, ptr @__itt_domain_create_ptr__3_0, align 8, !tbaa !21
   br label %46
 
@@ -4312,7 +4312,7 @@ define internal noundef ptr @_ZL28__itt_domain_create_init_3_0PKc(ptr noundef %0
   br i1 %or.cond6, label %50, label %78
 
 50:                                               ; preds = %49
-  %51 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %51 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   br label %78
 
 52:                                               ; preds = %37
@@ -4333,7 +4333,7 @@ define internal noundef ptr @_ZL28__itt_domain_create_init_3_0PKc(ptr noundef %0
   br i1 %.not93, label %58, label %56
 
 56:                                               ; preds = %.lr.ph107
-  %57 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(1) %0) #18
+  %57 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(1) %0) #19
   %.not94 = icmp eq i32 %57, 0
   br i1 %.not94, label %.loopexit, label %58
 
@@ -4345,15 +4345,15 @@ define internal noundef ptr @_ZL28__itt_domain_create_init_3_0PKc(ptr noundef %0
 
 ._crit_edge:                                      ; preds = %58, %.preheader
   %.075.lcssa = phi ptr [ null, %.preheader ], [ %.1106, %58 ]
-  %60 = call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #19
+  %60 = call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #20
   %.not95 = icmp eq ptr %60, null
   br i1 %.not95, label %.loopexit, label %61
 
 61:                                               ; preds = %._crit_edge
   store volatile i32 1, ptr %60, align 8, !tbaa !30
-  %62 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
+  %62 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
   %63 = add i64 %62, 1
-  %64 = call noalias ptr @malloc(i64 noundef %63) #19
+  %64 = call noalias ptr @malloc(i64 noundef %63) #20
   %.not96 = icmp eq ptr %64, null
   %.not97 = icmp eq i64 %63, 0
   %or.cond98 = or i1 %.not96, %.not97
@@ -4396,7 +4396,7 @@ define internal noundef ptr @_ZL28__itt_domain_create_init_3_0PKc(ptr noundef %0
   br i1 %or.cond6, label %76, label %78
 
 76:                                               ; preds = %.loopexit
-  %77 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %77 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   br label %78
 
 78:                                               ; preds = %.loopexit, %76, %49, %50, %1, %46
@@ -4509,7 +4509,7 @@ define internal noundef ptr @_ZL35__itt_string_handle_create_init_3_0PKc(ptr nou
 
 21:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %22 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %2) #17
+  %22 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %2) #18
   %.not85 = icmp eq i32 %22, 0
   br i1 %.not85, label %24, label %23
 
@@ -4518,7 +4518,7 @@ define internal noundef ptr @_ZL35__itt_string_handle_create_init_3_0PKc(ptr nou
   br label %24
 
 24:                                               ; preds = %23, %21
-  %25 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %2, i32 noundef 1) #17
+  %25 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %2, i32 noundef 1) #18
   %.not86 = icmp eq i32 %25, 0
   br i1 %.not86, label %27, label %26
 
@@ -4527,7 +4527,7 @@ define internal noundef ptr @_ZL35__itt_string_handle_create_init_3_0PKc(ptr nou
   br label %27
 
 27:                                               ; preds = %26, %24
-  %28 = call i32 @pthread_mutex_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56), ptr noundef nonnull %2) #17
+  %28 = call i32 @pthread_mutex_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56), ptr noundef nonnull %2) #18
   %.not87 = icmp eq i32 %28, 0
   br i1 %.not87, label %30, label %29
 
@@ -4536,7 +4536,7 @@ define internal noundef ptr @_ZL35__itt_string_handle_create_init_3_0PKc(ptr nou
   br label %30
 
 30:                                               ; preds = %29, %27
-  %31 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %2) #17
+  %31 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %2) #18
   %.not88 = icmp eq i32 %31, 0
   br i1 %.not88, label %33, label %32
 
@@ -4550,13 +4550,13 @@ define internal noundef ptr @_ZL35__itt_string_handle_create_init_3_0PKc(ptr nou
   br label %.loopexit99
 
 .lr.ph:                                           ; preds = %.preheader98, %.lr.ph
-  %34 = tail call i32 @sched_yield() #17
+  %34 = tail call i32 @sched_yield() #18
   %35 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 40), align 8, !tbaa !22
   %.not84 = icmp eq i64 %35, 0
   br i1 %.not84, label %.lr.ph, label %.loopexit99, !llvm.loop !43
 
 .loopexit99:                                      ; preds = %.lr.ph, %.preheader98, %33, %14
-  %36 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %36 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   br label %37
 
 37:                                               ; preds = %.loopexit99, %5
@@ -4575,7 +4575,7 @@ define internal noundef ptr @_ZL35__itt_string_handle_create_init_3_0PKc(ptr nou
   br i1 %or.cond6, label %44, label %46
 
 44:                                               ; preds = %43
-  %45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   %.pre = load ptr, ptr @__itt_string_handle_create_ptr__3_0, align 8, !tbaa !21
   br label %46
 
@@ -4588,7 +4588,7 @@ define internal noundef ptr @_ZL35__itt_string_handle_create_init_3_0PKc(ptr nou
   br i1 %or.cond6, label %50, label %76
 
 50:                                               ; preds = %49
-  %51 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %51 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   br label %76
 
 52:                                               ; preds = %37
@@ -4608,7 +4608,7 @@ define internal noundef ptr @_ZL35__itt_string_handle_create_init_3_0PKc(ptr nou
   br i1 %.not92, label %57, label %55
 
 55:                                               ; preds = %.lr.ph106
-  %56 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(1) %0) #18
+  %56 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(1) %0) #19
   %.not93 = icmp eq i32 %56, 0
   br i1 %.not93, label %.loopexit, label %57
 
@@ -4620,14 +4620,14 @@ define internal noundef ptr @_ZL35__itt_string_handle_create_init_3_0PKc(ptr nou
 
 ._crit_edge:                                      ; preds = %57, %.preheader
   %.074.lcssa = phi ptr [ null, %.preheader ], [ %.1105, %57 ]
-  %59 = call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #19
+  %59 = call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
   %.not94 = icmp eq ptr %59, null
   br i1 %.not94, label %.loopexit, label %60
 
 60:                                               ; preds = %._crit_edge
-  %61 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
+  %61 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
   %62 = add i64 %61, 1
-  %63 = call noalias ptr @malloc(i64 noundef %62) #19
+  %63 = call noalias ptr @malloc(i64 noundef %62) #20
   %.not95 = icmp eq ptr %63, null
   %.not96 = icmp eq i64 %62, 0
   %or.cond97 = or i1 %.not95, %.not96
@@ -4669,7 +4669,7 @@ define internal noundef ptr @_ZL35__itt_string_handle_create_init_3_0PKc(ptr nou
   br i1 %or.cond6, label %74, label %76
 
 74:                                               ; preds = %.loopexit
-  %75 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %75 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   br label %76
 
 76:                                               ; preds = %.loopexit, %74, %49, %50, %1, %46
@@ -4721,7 +4721,7 @@ define internal noundef ptr @_ZL29__itt_counter_create_init_3_0PKcS0_(ptr nounde
 
 23:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %24 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %3) #17
+  %24 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %3) #18
   %.not121 = icmp eq i32 %24, 0
   br i1 %.not121, label %26, label %25
 
@@ -4730,7 +4730,7 @@ define internal noundef ptr @_ZL29__itt_counter_create_init_3_0PKcS0_(ptr nounde
   br label %26
 
 26:                                               ; preds = %25, %23
-  %27 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %3, i32 noundef 1) #17
+  %27 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %3, i32 noundef 1) #18
   %.not122 = icmp eq i32 %27, 0
   br i1 %.not122, label %29, label %28
 
@@ -4739,7 +4739,7 @@ define internal noundef ptr @_ZL29__itt_counter_create_init_3_0PKcS0_(ptr nounde
   br label %29
 
 29:                                               ; preds = %28, %26
-  %30 = call i32 @pthread_mutex_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56), ptr noundef nonnull %3) #17
+  %30 = call i32 @pthread_mutex_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56), ptr noundef nonnull %3) #18
   %.not123 = icmp eq i32 %30, 0
   br i1 %.not123, label %32, label %31
 
@@ -4748,7 +4748,7 @@ define internal noundef ptr @_ZL29__itt_counter_create_init_3_0PKcS0_(ptr nounde
   br label %32
 
 32:                                               ; preds = %31, %29
-  %33 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %3) #17
+  %33 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %3) #18
   %.not124 = icmp eq i32 %33, 0
   br i1 %.not124, label %35, label %34
 
@@ -4762,13 +4762,13 @@ define internal noundef ptr @_ZL29__itt_counter_create_init_3_0PKcS0_(ptr nounde
   br label %.loopexit140
 
 .lr.ph:                                           ; preds = %.preheader139, %.lr.ph
-  %36 = tail call i32 @sched_yield() #17
+  %36 = tail call i32 @sched_yield() #18
   %37 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 40), align 8, !tbaa !22
   %.not120 = icmp eq i64 %37, 0
   br i1 %.not120, label %.lr.ph, label %.loopexit140, !llvm.loop !52
 
 .loopexit140:                                     ; preds = %.lr.ph, %.preheader139, %35, %16
-  %38 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %38 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   br label %39
 
 39:                                               ; preds = %.loopexit140, %7
@@ -4787,7 +4787,7 @@ define internal noundef ptr @_ZL29__itt_counter_create_init_3_0PKcS0_(ptr nounde
   br i1 %or.cond6, label %46, label %48
 
 46:                                               ; preds = %45
-  %47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   %.pre = load ptr, ptr @__itt_counter_create_ptr__3_0, align 8, !tbaa !21
   br label %48
 
@@ -4800,7 +4800,7 @@ define internal noundef ptr @_ZL29__itt_counter_create_init_3_0PKcS0_(ptr nounde
   br i1 %or.cond6, label %52, label %110
 
 52:                                               ; preds = %51
-  %53 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %53 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   br label %110
 
 54:                                               ; preds = %39
@@ -4830,7 +4830,7 @@ define internal noundef ptr @_ZL29__itt_counter_create_init_3_0PKcS0_(ptr nounde
   br i1 %60, label %61, label %67
 
 61:                                               ; preds = %57
-  %62 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(1) %0) #18
+  %62 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(1) %0) #19
   %.not129.us = icmp eq i32 %62, 0
   br i1 %.not129.us, label %63, label %67
 
@@ -4859,7 +4859,7 @@ define internal noundef ptr @_ZL29__itt_counter_create_init_3_0PKcS0_(ptr nounde
   br i1 %73, label %74, label %81
 
 74:                                               ; preds = %70
-  %75 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %69, ptr noundef nonnull dereferenceable(1) %0) #18
+  %75 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %69, ptr noundef nonnull dereferenceable(1) %0) #19
   %.not129.us151 = icmp eq i32 %75, 0
   br i1 %.not129.us151, label %76, label %81
 
@@ -4870,7 +4870,7 @@ define internal noundef ptr @_ZL29__itt_counter_create_init_3_0PKcS0_(ptr nounde
   br i1 %.not161, label %81, label %79
 
 79:                                               ; preds = %76
-  %80 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull dereferenceable(1) %1) #18
+  %80 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull dereferenceable(1) %1) #19
   %.not130.us = icmp eq i32 %80, 0
   br i1 %.not130.us, label %.loopexit, label %81
 
@@ -4882,14 +4882,14 @@ define internal noundef ptr @_ZL29__itt_counter_create_init_3_0PKcS0_(ptr nounde
 
 ._crit_edge:                                      ; preds = %81, %67, %.preheader
   %.0104.lcssa = phi ptr [ null, %.preheader ], [ %.1146.us, %67 ], [ %.1146.us149, %81 ]
-  %83 = call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #19
+  %83 = call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #20
   %.not131 = icmp eq ptr %83, null
   br i1 %.not131, label %.loopexit, label %84
 
 84:                                               ; preds = %._crit_edge
-  %85 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
+  %85 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
   %86 = add i64 %85, 1
-  %87 = call noalias ptr @malloc(i64 noundef %86) #19
+  %87 = call noalias ptr @malloc(i64 noundef %86) #20
   %.not132 = icmp eq ptr %87, null
   %.not133 = icmp eq i64 %86, 0
   %or.cond137 = or i1 %.not132, %.not133
@@ -4914,9 +4914,9 @@ define internal noundef ptr @_ZL29__itt_counter_create_init_3_0PKcS0_(ptr nounde
   br i1 %.not134, label %98, label %92
 
 92:                                               ; preds = %90
-  %93 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
+  %93 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %94 = add i64 %93, 1
-  %95 = call noalias ptr @malloc(i64 noundef %94) #19
+  %95 = call noalias ptr @malloc(i64 noundef %94) #20
   %.not135 = icmp eq ptr %95, null
   %.not136 = icmp eq i64 %94, 0
   %or.cond138 = or i1 %.not135, %.not136
@@ -4962,7 +4962,7 @@ define internal noundef ptr @_ZL29__itt_counter_create_init_3_0PKcS0_(ptr nounde
   br i1 %or.cond6, label %108, label %110
 
 108:                                              ; preds = %.loopexit
-  %109 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %109 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   br label %110
 
 110:                                              ; preds = %.loopexit, %108, %51, %52, %2, %48
@@ -5014,7 +5014,7 @@ define internal noundef ptr @_ZL35__itt_counter_create_typed_init_3_0PKcS0_19__i
 
 24:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %25 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %4) #17
+  %25 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %4) #18
   %.not122 = icmp eq i32 %25, 0
   br i1 %.not122, label %27, label %26
 
@@ -5023,7 +5023,7 @@ define internal noundef ptr @_ZL35__itt_counter_create_typed_init_3_0PKcS0_19__i
   br label %27
 
 27:                                               ; preds = %26, %24
-  %28 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %4, i32 noundef 1) #17
+  %28 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %4, i32 noundef 1) #18
   %.not123 = icmp eq i32 %28, 0
   br i1 %.not123, label %30, label %29
 
@@ -5032,7 +5032,7 @@ define internal noundef ptr @_ZL35__itt_counter_create_typed_init_3_0PKcS0_19__i
   br label %30
 
 30:                                               ; preds = %29, %27
-  %31 = call i32 @pthread_mutex_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56), ptr noundef nonnull %4) #17
+  %31 = call i32 @pthread_mutex_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56), ptr noundef nonnull %4) #18
   %.not124 = icmp eq i32 %31, 0
   br i1 %.not124, label %33, label %32
 
@@ -5041,7 +5041,7 @@ define internal noundef ptr @_ZL35__itt_counter_create_typed_init_3_0PKcS0_19__i
   br label %33
 
 33:                                               ; preds = %32, %30
-  %34 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %4) #17
+  %34 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %4) #18
   %.not125 = icmp eq i32 %34, 0
   br i1 %.not125, label %36, label %35
 
@@ -5055,13 +5055,13 @@ define internal noundef ptr @_ZL35__itt_counter_create_typed_init_3_0PKcS0_19__i
   br label %.loopexit141
 
 .lr.ph:                                           ; preds = %.preheader140, %.lr.ph
-  %37 = tail call i32 @sched_yield() #17
+  %37 = tail call i32 @sched_yield() #18
   %38 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 40), align 8, !tbaa !22
   %.not121 = icmp eq i64 %38, 0
   br i1 %.not121, label %.lr.ph, label %.loopexit141, !llvm.loop !64
 
 .loopexit141:                                     ; preds = %.lr.ph, %.preheader140, %36, %17
-  %39 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %39 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   br label %40
 
 40:                                               ; preds = %.loopexit141, %8
@@ -5080,7 +5080,7 @@ define internal noundef ptr @_ZL35__itt_counter_create_typed_init_3_0PKcS0_19__i
   br i1 %or.cond6, label %47, label %49
 
 47:                                               ; preds = %46
-  %48 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %48 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   %.pre = load ptr, ptr @__itt_counter_create_typed_ptr__3_0, align 8, !tbaa !21
   br label %49
 
@@ -5093,7 +5093,7 @@ define internal noundef ptr @_ZL35__itt_counter_create_typed_init_3_0PKcS0_19__i
   br i1 %or.cond6, label %53, label %111
 
 53:                                               ; preds = %52
-  %54 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %54 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   br label %111
 
 55:                                               ; preds = %40
@@ -5123,7 +5123,7 @@ define internal noundef ptr @_ZL35__itt_counter_create_typed_init_3_0PKcS0_19__i
   br i1 %61, label %62, label %68
 
 62:                                               ; preds = %58
-  %63 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %57, ptr noundef nonnull dereferenceable(1) %0) #18
+  %63 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %57, ptr noundef nonnull dereferenceable(1) %0) #19
   %.not130.us = icmp eq i32 %63, 0
   br i1 %.not130.us, label %64, label %68
 
@@ -5152,7 +5152,7 @@ define internal noundef ptr @_ZL35__itt_counter_create_typed_init_3_0PKcS0_19__i
   br i1 %74, label %75, label %82
 
 75:                                               ; preds = %71
-  %76 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(1) %0) #18
+  %76 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(1) %0) #19
   %.not130.us152 = icmp eq i32 %76, 0
   br i1 %.not130.us152, label %77, label %82
 
@@ -5163,7 +5163,7 @@ define internal noundef ptr @_ZL35__itt_counter_create_typed_init_3_0PKcS0_19__i
   br i1 %.not162, label %82, label %80
 
 80:                                               ; preds = %77
-  %81 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %79, ptr noundef nonnull dereferenceable(1) %1) #18
+  %81 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %79, ptr noundef nonnull dereferenceable(1) %1) #19
   %.not131.us = icmp eq i32 %81, 0
   br i1 %.not131.us, label %.loopexit, label %82
 
@@ -5175,14 +5175,14 @@ define internal noundef ptr @_ZL35__itt_counter_create_typed_init_3_0PKcS0_19__i
 
 ._crit_edge:                                      ; preds = %82, %68, %.preheader
   %.0105.lcssa = phi ptr [ null, %.preheader ], [ %.1147.us, %68 ], [ %.1147.us150, %82 ]
-  %84 = call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #19
+  %84 = call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #20
   %.not132 = icmp eq ptr %84, null
   br i1 %.not132, label %.loopexit, label %85
 
 85:                                               ; preds = %._crit_edge
-  %86 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
+  %86 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
   %87 = add i64 %86, 1
-  %88 = call noalias ptr @malloc(i64 noundef %87) #19
+  %88 = call noalias ptr @malloc(i64 noundef %87) #20
   %.not133 = icmp eq ptr %88, null
   %.not134 = icmp eq i64 %87, 0
   %or.cond138 = or i1 %.not133, %.not134
@@ -5207,9 +5207,9 @@ define internal noundef ptr @_ZL35__itt_counter_create_typed_init_3_0PKcS0_19__i
   br i1 %.not135, label %99, label %93
 
 93:                                               ; preds = %91
-  %94 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
+  %94 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %95 = add i64 %94, 1
-  %96 = call noalias ptr @malloc(i64 noundef %95) #19
+  %96 = call noalias ptr @malloc(i64 noundef %95) #20
   %.not136 = icmp eq ptr %96, null
   %.not137 = icmp eq i64 %95, 0
   %or.cond139 = or i1 %.not136, %.not137
@@ -5255,7 +5255,7 @@ define internal noundef ptr @_ZL35__itt_counter_create_typed_init_3_0PKcS0_19__i
   br i1 %or.cond6, label %109, label %111
 
 109:                                              ; preds = %.loopexit
-  %110 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %110 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   br label %111
 
 111:                                              ; preds = %.loopexit, %109, %52, %53, %3, %49
@@ -5532,7 +5532,7 @@ define internal noundef ptr @_ZL31__itt_histogram_create_init_3_0PK13___itt_doma
 
 25:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %26 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %5) #17
+  %26 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %5) #18
   %.not102 = icmp eq i32 %26, 0
   br i1 %.not102, label %28, label %27
 
@@ -5541,7 +5541,7 @@ define internal noundef ptr @_ZL31__itt_histogram_create_init_3_0PK13___itt_doma
   br label %28
 
 28:                                               ; preds = %27, %25
-  %29 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %5, i32 noundef 1) #17
+  %29 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %5, i32 noundef 1) #18
   %.not103 = icmp eq i32 %29, 0
   br i1 %.not103, label %31, label %30
 
@@ -5550,7 +5550,7 @@ define internal noundef ptr @_ZL31__itt_histogram_create_init_3_0PK13___itt_doma
   br label %31
 
 31:                                               ; preds = %30, %28
-  %32 = call i32 @pthread_mutex_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56), ptr noundef nonnull %5) #17
+  %32 = call i32 @pthread_mutex_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56), ptr noundef nonnull %5) #18
   %.not104 = icmp eq i32 %32, 0
   br i1 %.not104, label %34, label %33
 
@@ -5559,7 +5559,7 @@ define internal noundef ptr @_ZL31__itt_histogram_create_init_3_0PK13___itt_doma
   br label %34
 
 34:                                               ; preds = %33, %31
-  %35 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %5) #17
+  %35 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %5) #18
   %.not105 = icmp eq i32 %35, 0
   br i1 %.not105, label %37, label %36
 
@@ -5573,13 +5573,13 @@ define internal noundef ptr @_ZL31__itt_histogram_create_init_3_0PK13___itt_doma
   br label %.loopexit117
 
 .lr.ph:                                           ; preds = %.preheader116, %.lr.ph
-  %38 = tail call i32 @sched_yield() #17
+  %38 = tail call i32 @sched_yield() #18
   %39 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 40), align 8, !tbaa !22
   %.not101 = icmp eq i64 %39, 0
   br i1 %.not101, label %.lr.ph, label %.loopexit117, !llvm.loop !66
 
 .loopexit117:                                     ; preds = %.lr.ph, %.preheader116, %37, %18
-  %40 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %40 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   br label %41
 
 41:                                               ; preds = %.loopexit117, %9
@@ -5598,7 +5598,7 @@ define internal noundef ptr @_ZL31__itt_histogram_create_init_3_0PK13___itt_doma
   br i1 %or.cond8, label %48, label %50
 
 48:                                               ; preds = %47
-  %49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   %.pre = load ptr, ptr @__itt_histogram_create_ptr__3_0, align 8, !tbaa !21
   br label %50
 
@@ -5611,7 +5611,7 @@ define internal noundef ptr @_ZL31__itt_histogram_create_init_3_0PK13___itt_doma
   br i1 %or.cond8, label %54, label %87
 
 54:                                               ; preds = %53
-  %55 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %55 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   br label %87
 
 56:                                               ; preds = %41
@@ -5637,7 +5637,7 @@ define internal noundef ptr @_ZL31__itt_histogram_create_init_3_0PK13___itt_doma
   br i1 %.not109, label %65, label %63
 
 63:                                               ; preds = %60
-  %64 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %62, ptr noundef nonnull dereferenceable(1) %1) #18
+  %64 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %62, ptr noundef nonnull dereferenceable(1) %1) #19
   %.not110 = icmp eq i32 %64, 0
   br i1 %.not110, label %.loopexit, label %65
 
@@ -5649,15 +5649,15 @@ define internal noundef ptr @_ZL31__itt_histogram_create_init_3_0PK13___itt_doma
 
 ._crit_edge:                                      ; preds = %65, %.preheader
   %.089.lcssa = phi ptr [ null, %.preheader ], [ %.1123, %65 ]
-  %67 = call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #19
+  %67 = call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #20
   %.not111 = icmp eq ptr %67, null
   br i1 %.not111, label %.loopexit, label %68
 
 68:                                               ; preds = %._crit_edge
   store ptr %0, ptr %67, align 8, !tbaa !68
-  %69 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
+  %69 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %70 = add i64 %69, 1
-  %71 = call noalias ptr @malloc(i64 noundef %70) #19
+  %71 = call noalias ptr @malloc(i64 noundef %70) #20
   %.not112 = icmp eq ptr %71, null
   %.not113 = icmp eq i64 %70, 0
   %or.cond115 = or i1 %.not112, %.not113
@@ -5704,7 +5704,7 @@ define internal noundef ptr @_ZL31__itt_histogram_create_init_3_0PK13___itt_doma
   br i1 %or.cond8, label %85, label %87
 
 85:                                               ; preds = %.loopexit
-  %86 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %86 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   br label %87
 
 87:                                               ; preds = %.loopexit, %85, %53, %54, %4, %50
@@ -5758,7 +5758,7 @@ define internal noundef ptr @_ZL32__itt_counter_create_v3_init_3_0PK13___itt_dom
 
 25:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %26 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %4) #17
+  %26 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %4) #18
   %.not122 = icmp eq i32 %26, 0
   br i1 %.not122, label %28, label %27
 
@@ -5767,7 +5767,7 @@ define internal noundef ptr @_ZL32__itt_counter_create_v3_init_3_0PK13___itt_dom
   br label %28
 
 28:                                               ; preds = %27, %25
-  %29 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %4, i32 noundef 1) #17
+  %29 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %4, i32 noundef 1) #18
   %.not123 = icmp eq i32 %29, 0
   br i1 %.not123, label %31, label %30
 
@@ -5776,7 +5776,7 @@ define internal noundef ptr @_ZL32__itt_counter_create_v3_init_3_0PK13___itt_dom
   br label %31
 
 31:                                               ; preds = %30, %28
-  %32 = call i32 @pthread_mutex_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56), ptr noundef nonnull %4) #17
+  %32 = call i32 @pthread_mutex_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56), ptr noundef nonnull %4) #18
   %.not124 = icmp eq i32 %32, 0
   br i1 %.not124, label %34, label %33
 
@@ -5785,7 +5785,7 @@ define internal noundef ptr @_ZL32__itt_counter_create_v3_init_3_0PK13___itt_dom
   br label %34
 
 34:                                               ; preds = %33, %31
-  %35 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %4) #17
+  %35 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %4) #18
   %.not125 = icmp eq i32 %35, 0
   br i1 %.not125, label %37, label %36
 
@@ -5799,13 +5799,13 @@ define internal noundef ptr @_ZL32__itt_counter_create_v3_init_3_0PK13___itt_dom
   br label %.loopexit143
 
 .lr.ph:                                           ; preds = %.preheader142, %.lr.ph
-  %38 = tail call i32 @sched_yield() #17
+  %38 = tail call i32 @sched_yield() #18
   %39 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 40), align 8, !tbaa !22
   %.not121 = icmp eq i64 %39, 0
   br i1 %.not121, label %.lr.ph, label %.loopexit143, !llvm.loop !79
 
 .loopexit143:                                     ; preds = %.lr.ph, %.preheader142, %37, %18
-  %40 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %40 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   br label %41
 
 41:                                               ; preds = %.loopexit143, %9
@@ -5824,7 +5824,7 @@ define internal noundef ptr @_ZL32__itt_counter_create_v3_init_3_0PK13___itt_dom
   br i1 %or.cond8, label %48, label %50
 
 48:                                               ; preds = %47
-  %49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   %.pre = load ptr, ptr @__itt_counter_create_v3_ptr__3_0, align 8, !tbaa !21
   br label %50
 
@@ -5837,7 +5837,7 @@ define internal noundef ptr @_ZL32__itt_counter_create_v3_init_3_0PK13___itt_dom
   br i1 %or.cond8, label %54, label %107
 
 54:                                               ; preds = %53
-  %55 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %55 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   br label %107
 
 56:                                               ; preds = %41
@@ -5867,7 +5867,7 @@ define internal noundef ptr @_ZL32__itt_counter_create_v3_init_3_0PK13___itt_dom
   br i1 %64, label %65, label %.thread
 
 65:                                               ; preds = %61
-  %66 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(1) %1) #18
+  %66 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(1) %1) #19
   %.not130 = icmp eq i32 %66, 0
   br i1 %.not130, label %67, label %.thread
 
@@ -5886,7 +5886,7 @@ define internal noundef ptr @_ZL32__itt_counter_create_v3_init_3_0PK13___itt_dom
   br i1 %72, label %.thread, label %75
 
 75:                                               ; preds = %74
-  %76 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %69, ptr noundef nonnull dereferenceable(1) %71) #18
+  %76 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %69, ptr noundef nonnull dereferenceable(1) %71) #19
   %.not133 = icmp eq i32 %76, 0
   br i1 %.not133, label %.loopexit, label %.thread
 
@@ -5898,14 +5898,14 @@ define internal noundef ptr @_ZL32__itt_counter_create_v3_init_3_0PK13___itt_dom
 
 ._crit_edge:                                      ; preds = %.thread, %.preheader
   %.0104.lcssa = phi ptr [ null, %.preheader ], [ %.1149, %.thread ]
-  %78 = call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #19
+  %78 = call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #20
   %.not134 = icmp eq ptr %78, null
   br i1 %.not134, label %.loopexit, label %79
 
 79:                                               ; preds = %._crit_edge
-  %80 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
+  %80 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %81 = add i64 %80, 1
-  %82 = call noalias ptr @malloc(i64 noundef %81) #19
+  %82 = call noalias ptr @malloc(i64 noundef %81) #20
   %.not135 = icmp eq ptr %82, null
   %.not136 = icmp eq i64 %81, 0
   %or.cond140 = or i1 %.not135, %.not136
@@ -5932,9 +5932,9 @@ define internal noundef ptr @_ZL32__itt_counter_create_v3_init_3_0PK13___itt_dom
   br i1 %.not137, label %95, label %89
 
 89:                                               ; preds = %85
-  %90 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %88) #18
+  %90 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %88) #19
   %91 = add i64 %90, 1
-  %92 = call noalias ptr @malloc(i64 noundef %91) #19
+  %92 = call noalias ptr @malloc(i64 noundef %91) #20
   %.not138 = icmp eq ptr %92, null
   %.not139 = icmp eq i64 %91, 0
   %or.cond141 = or i1 %.not138, %.not139
@@ -5980,7 +5980,7 @@ define internal noundef ptr @_ZL32__itt_counter_create_v3_init_3_0PK13___itt_dom
   br i1 %or.cond8, label %105, label %107
 
 105:                                              ; preds = %.loopexit
-  %106 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %106 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   br label %107
 
 107:                                              ; preds = %.loopexit, %105, %53, %54, %3, %50
@@ -6035,7 +6035,7 @@ define internal void @_ZL47__itt_bind_context_metadata_to_counter_init_3_0P14___
 
 25:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %26 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %4) #17
+  %26 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %4) #18
   %.not147 = icmp eq i32 %26, 0
   br i1 %.not147, label %28, label %27
 
@@ -6044,7 +6044,7 @@ define internal void @_ZL47__itt_bind_context_metadata_to_counter_init_3_0P14___
   br label %28
 
 28:                                               ; preds = %27, %25
-  %29 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %4, i32 noundef 1) #17
+  %29 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %4, i32 noundef 1) #18
   %.not148 = icmp eq i32 %29, 0
   br i1 %.not148, label %31, label %30
 
@@ -6053,7 +6053,7 @@ define internal void @_ZL47__itt_bind_context_metadata_to_counter_init_3_0P14___
   br label %31
 
 31:                                               ; preds = %30, %28
-  %32 = call i32 @pthread_mutex_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56), ptr noundef nonnull %4) #17
+  %32 = call i32 @pthread_mutex_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56), ptr noundef nonnull %4) #18
   %.not149 = icmp eq i32 %32, 0
   br i1 %.not149, label %34, label %33
 
@@ -6062,7 +6062,7 @@ define internal void @_ZL47__itt_bind_context_metadata_to_counter_init_3_0P14___
   br label %34
 
 34:                                               ; preds = %33, %31
-  %35 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %4) #17
+  %35 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %4) #18
   %.not150 = icmp eq i32 %35, 0
   br i1 %.not150, label %37, label %36
 
@@ -6076,13 +6076,13 @@ define internal void @_ZL47__itt_bind_context_metadata_to_counter_init_3_0P14___
   br label %.loopexit164
 
 .lr.ph:                                           ; preds = %.preheader163, %.lr.ph
-  %38 = tail call i32 @sched_yield() #17
+  %38 = tail call i32 @sched_yield() #18
   %39 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 40), align 8, !tbaa !22
   %.not146 = icmp eq i64 %39, 0
   br i1 %.not146, label %.lr.ph, label %.loopexit164, !llvm.loop !81
 
 .loopexit164:                                     ; preds = %.lr.ph, %.preheader163, %37, %18
-  %40 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %40 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   br label %41
 
 41:                                               ; preds = %.loopexit164, %9
@@ -6101,7 +6101,7 @@ define internal void @_ZL47__itt_bind_context_metadata_to_counter_init_3_0P14___
   br i1 %or.cond10, label %48, label %50
 
 48:                                               ; preds = %47
-  %49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   %.pre = load ptr, ptr @__itt_bind_context_metadata_to_counter_ptr__3_0, align 8, !tbaa !21
   br label %50
 
@@ -6157,7 +6157,7 @@ define internal void @_ZL47__itt_bind_context_metadata_to_counter_init_3_0P14___
 65:                                               ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge
   %66 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %67 = load ptr, ptr %66, align 8, !tbaa !91
-  %68 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #19
+  %68 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #20
   %.not156 = icmp eq ptr %68, null
   br i1 %.not156, label %.thread, label %69
 
@@ -6169,9 +6169,9 @@ define internal void @_ZL47__itt_bind_context_metadata_to_counter_init_3_0P14___
   br i1 %.not157, label %77, label %71
 
 71:                                               ; preds = %69
-  %72 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #18
+  %72 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #19
   %73 = add i64 %72, 1
-  %74 = call noalias ptr @malloc(i64 noundef %73) #19
+  %74 = call noalias ptr @malloc(i64 noundef %73) #20
   %.not158 = icmp eq ptr %74, null
   %.not159 = icmp eq i64 %73, 0
   %or.cond161 = or i1 %.not158, %.not159
@@ -6217,7 +6217,7 @@ define internal void @_ZL47__itt_bind_context_metadata_to_counter_init_3_0P14___
   %88 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %89 = load ptr, ptr %88, align 8, !tbaa !91
   %90 = load i64, ptr %89, align 8, !tbaa !95
-  %91 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #19
+  %91 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #20
   %.not155 = icmp eq ptr %91, null
   br i1 %.not155, label %.thread, label %92
 
@@ -6254,7 +6254,7 @@ define internal void @_ZL47__itt_bind_context_metadata_to_counter_init_3_0P14___
   br i1 %or.cond10, label %.sink.split, label %104
 
 .sink.split:                                      ; preds = %.loopexit, %52
-  %103 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %103 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   br label %104
 
 104:                                              ; preds = %.sink.split, %.loopexit, %52, %3
@@ -6309,7 +6309,7 @@ define void @__itt_fini_ittlib() local_unnamed_addr #0 {
 
 19:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %20 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %1) #17
+  %20 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %1) #18
   %.not36 = icmp eq i32 %20, 0
   br i1 %.not36, label %22, label %21
 
@@ -6318,7 +6318,7 @@ define void @__itt_fini_ittlib() local_unnamed_addr #0 {
   br label %22
 
 22:                                               ; preds = %21, %19
-  %23 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %1, i32 noundef 1) #17
+  %23 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %1, i32 noundef 1) #18
   %.not37 = icmp eq i32 %23, 0
   br i1 %.not37, label %25, label %24
 
@@ -6327,7 +6327,7 @@ define void @__itt_fini_ittlib() local_unnamed_addr #0 {
   br label %25
 
 25:                                               ; preds = %24, %22
-  %26 = call i32 @pthread_mutex_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56), ptr noundef nonnull %1) #17
+  %26 = call i32 @pthread_mutex_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56), ptr noundef nonnull %1) #18
   %.not38 = icmp eq i32 %26, 0
   br i1 %.not38, label %28, label %27
 
@@ -6336,7 +6336,7 @@ define void @__itt_fini_ittlib() local_unnamed_addr #0 {
   br label %28
 
 28:                                               ; preds = %27, %25
-  %29 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %1) #17
+  %29 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %1) #18
   %.not39 = icmp eq i32 %29, 0
   br i1 %.not39, label %31, label %30
 
@@ -6350,13 +6350,13 @@ define void @__itt_fini_ittlib() local_unnamed_addr #0 {
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %32 = tail call i32 @sched_yield() #17
+  %32 = tail call i32 @sched_yield() #18
   %33 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 40), align 8, !tbaa !22
   %.not35 = icmp eq i64 %33, 0
   br i1 %.not35, label %.lr.ph, label %.loopexit, !llvm.loop !99
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %31, %12
-  %34 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %34 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   br label %35
 
 35:                                               ; preds = %.loopexit, %3
@@ -6373,7 +6373,7 @@ define void @__itt_fini_ittlib() local_unnamed_addr #0 {
   br i1 %or.cond6, label %41, label %43
 
 41:                                               ; preds = %40
-  %42 = tail call i64 @pthread_self() #20
+  %42 = tail call i64 @pthread_self() #21
   store volatile i64 %42, ptr @_ZZ17__itt_fini_ittlibE14current_thread, align 8, !tbaa !31
   br label %43
 
@@ -6383,7 +6383,7 @@ define void @__itt_fini_ittlib() local_unnamed_addr #0 {
   br i1 %.not41, label %.thread, label %45
 
 45:                                               ; preds = %43
-  %46 = call ptr @dlsym(ptr noundef nonnull %44, ptr noundef nonnull @.str.4) #17
+  %46 = call ptr @dlsym(ptr noundef nonnull %44, ptr noundef nonnull @.str.4) #18
   %.not42 = icmp eq ptr %46, null
   br i1 %.not42, label %.thread, label %47
 
@@ -6421,7 +6421,7 @@ _ZL26__itt_nullify_all_pointersv.exit:            ; preds = %.lr.ph.i, %.thread
   br i1 %or.cond6, label %59, label %61
 
 59:                                               ; preds = %58
-  %60 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %60 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   br label %61
 
 61:                                               ; preds = %58, %59, %0
@@ -6524,7 +6524,7 @@ define range(i32 0, 2) i32 @__itt_init_ittlib(ptr noundef %0, i32 noundef %1) lo
 
 25:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %26 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %7) #17
+  %26 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %7) #18
   %.not75 = icmp eq i32 %26, 0
   br i1 %.not75, label %28, label %27
 
@@ -6533,7 +6533,7 @@ define range(i32 0, 2) i32 @__itt_init_ittlib(ptr noundef %0, i32 noundef %1) lo
   br label %28
 
 28:                                               ; preds = %27, %25
-  %29 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %7, i32 noundef 1) #17
+  %29 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %7, i32 noundef 1) #18
   %.not76 = icmp eq i32 %29, 0
   br i1 %.not76, label %31, label %30
 
@@ -6542,7 +6542,7 @@ define range(i32 0, 2) i32 @__itt_init_ittlib(ptr noundef %0, i32 noundef %1) lo
   br label %31
 
 31:                                               ; preds = %30, %28
-  %32 = call i32 @pthread_mutex_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56), ptr noundef nonnull %7) #17
+  %32 = call i32 @pthread_mutex_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56), ptr noundef nonnull %7) #18
   %.not77 = icmp eq i32 %32, 0
   br i1 %.not77, label %34, label %33
 
@@ -6551,7 +6551,7 @@ define range(i32 0, 2) i32 @__itt_init_ittlib(ptr noundef %0, i32 noundef %1) lo
   br label %34
 
 34:                                               ; preds = %33, %31
-  %35 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %7) #17
+  %35 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %7) #18
   %.not78 = icmp eq i32 %35, 0
   br i1 %.not78, label %37, label %36
 
@@ -6565,13 +6565,13 @@ define range(i32 0, 2) i32 @__itt_init_ittlib(ptr noundef %0, i32 noundef %1) lo
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %38 = tail call i32 @sched_yield() #17
+  %38 = tail call i32 @sched_yield() #18
   %39 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 40), align 8, !tbaa !22
   %.not74 = icmp eq i64 %39, 0
   br i1 %.not74, label %.lr.ph, label %.loopexit, !llvm.loop !109
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %37, %18
-  %40 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %40 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   br label %41
 
 41:                                               ; preds = %.loopexit, %9
@@ -6588,7 +6588,7 @@ define range(i32 0, 2) i32 @__itt_init_ittlib(ptr noundef %0, i32 noundef %1) lo
   br i1 %or.cond6, label %47, label %49
 
 47:                                               ; preds = %46
-  %48 = tail call i64 @pthread_self() #20
+  %48 = tail call i64 @pthread_self() #21
   store volatile i64 %48, ptr @_ZZ17__itt_init_ittlibE14current_thread, align 8, !tbaa !31
   br label %49
 
@@ -6602,7 +6602,7 @@ define range(i32 0, 2) i32 @__itt_init_ittlib(ptr noundef %0, i32 noundef %1) lo
 
 53:                                               ; preds = %51, %49
   %.063 = phi ptr [ %52, %51 ], [ %0, %49 ]
-  %54 = call ptr @getenv(ptr noundef nonnull @.str.157) #17
+  %54 = call ptr @getenv(ptr noundef nonnull @.str.157) #18
   %.not29.i.i = icmp eq ptr %54, null
   br i1 %.not29.i.i, label %_ZL17__itt_get_env_varPKc.exit.i.preheader, label %55
 
@@ -6610,7 +6610,7 @@ _ZL17__itt_get_env_varPKc.exit.i.preheader:       ; preds = %60, %53
   br label %_ZL17__itt_get_env_varPKc.exit.i
 
 55:                                               ; preds = %53
-  %56 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %54) #18
+  %56 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %54) #19
   %57 = load ptr, ptr @_ZZL17__itt_get_env_varPKcE9env_value, align 8, !tbaa !110
   %58 = ptrtoint ptr %57 to i64
   %59 = sub i64 add (i64 ptrtoint (ptr @_ZZL17__itt_get_env_varPKcE8env_buff to i64), i64 4086), %58
@@ -6749,7 +6749,7 @@ _ZL12__itt_fsplitPKcS0_PS0_Pi.exit.i:             ; preds = %103, %98, %.loopexi
   %109 = call i64 @llvm.umin.i64(i64 %108, i64 253)
   store volatile i64 %109, ptr %6, align 8, !tbaa !31
   %.0..0..0..0..0..0..i = load volatile i64, ptr %6, align 8, !tbaa !31
-  %110 = call ptr @__strncpy_chk(ptr noundef nonnull %5, ptr noundef nonnull %81, i64 noundef %.0..0..0..0..0..0..i, i64 noundef 255) #17
+  %110 = call ptr @__strncpy_chk(ptr noundef nonnull %5, ptr noundef nonnull %81, i64 noundef %.0..0..0..0..0..0..i, i64 noundef 255) #18
   %.0..0..0..0..0..0.1.i = load volatile i64, ptr %6, align 8, !tbaa !31
   %111 = getelementptr inbounds nuw i8, ptr %5, i64 %.0..0..0..0..0..0.1.i
   store i8 0, ptr %111, align 1, !tbaa !32
@@ -6768,7 +6768,7 @@ _ZL12__itt_fsplitPKcS0_PS0_Pi.exit.i:             ; preds = %103, %98, %.loopexi
   %115 = getelementptr inbounds nuw %struct.___itt_group_list, ptr @_ZL10group_list, i64 %indvars.iv.i
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load ptr, ptr %116, align 8, !tbaa !118
-  %118 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %117) #18
+  %118 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %117) #19
   %.not43.i = icmp eq i32 %118, 0
   br i1 %.not43.i, label %119, label %113
 
@@ -6822,12 +6822,12 @@ _ZL17__itt_get_env_varPKc.exit.i:                 ; preds = %_ZL17__itt_get_env_
   %indvars.iv95.i = phi i64 [ 2, %153 ], [ 1, %_ZL17__itt_get_env_varPKc.exit.i.preheader ]
   %133 = phi ptr [ %154, %153 ], [ @_ZL11group_alias, %_ZL17__itt_get_env_varPKc.exit.i.preheader ]
   %134 = load ptr, ptr %133, align 16, !tbaa !123
-  %135 = call ptr @getenv(ptr noundef nonnull %134) #17
+  %135 = call ptr @getenv(ptr noundef nonnull %134) #18
   %.not29.i45.i = icmp eq ptr %135, null
   br i1 %.not29.i45.i, label %153, label %136
 
 136:                                              ; preds = %_ZL17__itt_get_env_varPKc.exit.i
-  %137 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %135) #18
+  %137 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %135) #19
   %138 = load ptr, ptr @_ZZL17__itt_get_env_varPKcE9env_value, align 8, !tbaa !110
   %139 = ptrtoint ptr %138 to i64
   %140 = sub i64 add (i64 ptrtoint (ptr @_ZZL17__itt_get_env_varPKcE8env_buff to i64), i64 4086), %139
@@ -6881,7 +6881,7 @@ _ZL16__itt_get_groupsv.exit:                      ; preds = %153, %132, %143
 161:                                              ; preds = %158
   %162 = icmp eq ptr %.063, null
   %163 = select i1 %162, ptr @.str.177, ptr %.063
-  %164 = call ptr @dlopen(ptr noundef nonnull %163, i32 noundef 1) #17
+  %164 = call ptr @dlopen(ptr noundef nonnull %163, i32 noundef 1) #18
   store ptr %164, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 96), align 8, !tbaa !100
   %.not80 = icmp eq ptr %164, null
   br i1 %.not80, label %215, label %165
@@ -6921,7 +6921,7 @@ _ZL16__itt_get_groupsv.exit:                      ; preds = %153, %132, %143
 
 175:                                              ; preds = %.lr.ph119
   %176 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 96), align 8, !tbaa !100
-  %177 = call ptr @dlsym(ptr noundef %176, ptr noundef nonnull %171) #17
+  %177 = call ptr @dlsym(ptr noundef %176, ptr noundef nonnull %171) #18
   %178 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 120), align 8, !tbaa !101
   %179 = getelementptr inbounds nuw %struct.___itt_api_info, ptr %178, i64 %indvars.iv
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
@@ -6982,7 +6982,7 @@ _ZL16__itt_get_groupsv.exit:                      ; preds = %153, %132, %143
 
 211:                                              ; preds = %165
   %212 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 96), align 8, !tbaa !100
-  %213 = call ptr @dlsym(ptr noundef %212, ptr noundef nonnull @.str.5) #17
+  %213 = call ptr @dlsym(ptr noundef %212, ptr noundef nonnull @.str.5) #18
   %.not81 = icmp eq ptr %213, null
   br i1 %.not81, label %_ZL26__itt_nullify_all_pointersv.exit94, label %214
 
@@ -7017,7 +7017,7 @@ default.unreachable170:                           ; preds = %165
   br i1 %.not.i, label %_ZL26__itt_nullify_all_pointersv.exit, label %.lr.ph.i, !llvm.loop !107
 
 _ZL26__itt_nullify_all_pointersv.exit:            ; preds = %.lr.ph.i, %215
-  %226 = call ptr @dlerror() #17
+  %226 = call ptr @dlerror() #18
   call void (i32, ...) @_ZL18__itt_report_erroriz(i32 noundef 1, ptr noundef %.063, ptr noundef %226)
   br label %_ZL26__itt_nullify_all_pointersv.exit94
 
@@ -7053,7 +7053,7 @@ _ZL26__itt_nullify_all_pointersv.exit94:          ; preds = %.lr.ph.i90, %227, %
   br i1 %or.cond6, label %239, label %241
 
 239:                                              ; preds = %238
-  %240 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %240 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   br label %241
 
 241:                                              ; preds = %238, %239, %2
@@ -7095,12 +7095,12 @@ _ZL26__itt_nullify_all_pointersv.exit94:          ; preds = %.lr.ph.i90, %227, %
 ; Function Attrs: mustprogress sspstrong uwtable
 define internal fastcc noundef ptr @_ZL18__itt_get_lib_namev() unnamed_addr #0 {
   %1 = alloca i64, align 8
-  %2 = tail call ptr @getenv(ptr noundef nonnull @.str.156) #17
+  %2 = tail call ptr @getenv(ptr noundef nonnull @.str.156) #18
   %.not29.i = icmp eq ptr %2, null
   br i1 %.not29.i, label %_ZL17__itt_get_env_varPKc.exit, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #18
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #19
   %5 = load ptr, ptr @_ZZL17__itt_get_env_varPKcE9env_value, align 8, !tbaa !110
   %6 = ptrtoint ptr %5 to i64
   %7 = sub i64 add (i64 ptrtoint (ptr @_ZZL17__itt_get_env_varPKcE8env_buff to i64), i64 4086), %6
@@ -7147,12 +7147,12 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZL17__itt_lib_versionPv(ptr
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call ptr @dlsym(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #17
+  %4 = tail call ptr @dlsym(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #18
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @dlsym(ptr noundef nonnull %0, ptr noundef nonnull @.str.150) #17
+  %6 = tail call ptr @dlsym(ptr noundef nonnull %0, ptr noundef nonnull @.str.150) #18
   %.not4 = icmp ne ptr %6, null
   %. = zext i1 %.not4 to i32
   br label %7
@@ -7162,8 +7162,8 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZL17__itt_lib_versionPv(ptr
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nounwind sspstrong uwtable
-define internal fastcc void @_ZL30__itt_free_allocated_resourcesv() unnamed_addr #4 {
+; Function Attrs: mustprogress nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc void @_ZL30__itt_free_allocated_resourcesv() unnamed_addr #5 {
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 152), align 8, !tbaa !50
   %.not34 = icmp eq ptr %1, null
   br i1 %.not34, label %._crit_edge, label %.lr.ph
@@ -7173,8 +7173,8 @@ define internal fastcc void @_ZL30__itt_free_allocated_resourcesv() unnamed_addr
   %2 = getelementptr inbounds nuw i8, ptr %.035, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !51
   %4 = load ptr, ptr %.035, align 8, !tbaa !45
-  tail call void @free(ptr noundef %4) #17
-  tail call void @free(ptr noundef nonnull %.035) #17
+  tail call void @free(ptr noundef %4) #18
+  tail call void @free(ptr noundef nonnull %.035) #18
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !131
 
@@ -7190,8 +7190,8 @@ define internal fastcc void @_ZL30__itt_free_allocated_resourcesv() unnamed_addr
   %7 = load ptr, ptr %6, align 8, !tbaa !36
   %8 = getelementptr inbounds nuw i8, ptr %.02737, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !26
-  tail call void @free(ptr noundef %9) #17
-  tail call void @free(ptr noundef nonnull %.02737) #17
+  tail call void @free(ptr noundef %9) #18
+  tail call void @free(ptr noundef nonnull %.02737) #18
   %.not30 = icmp eq ptr %7, null
   br i1 %.not30, label %._crit_edge40, label %.lr.ph39, !llvm.loop !132
 
@@ -7206,11 +7206,11 @@ define internal fastcc void @_ZL30__itt_free_allocated_resourcesv() unnamed_addr
   %11 = getelementptr inbounds nuw i8, ptr %.02942, i64 64
   %12 = load ptr, ptr %11, align 8, !tbaa !62
   %13 = load ptr, ptr %.02942, align 8, !tbaa !54
-  tail call void @free(ptr noundef %13) #17
+  tail call void @free(ptr noundef %13) #18
   %14 = getelementptr inbounds nuw i8, ptr %.02942, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !57
-  tail call void @free(ptr noundef %15) #17
-  tail call void @free(ptr noundef nonnull %.02942) #17
+  tail call void @free(ptr noundef %15) #18
+  tail call void @free(ptr noundef nonnull %.02942) #18
   %.not31 = icmp eq ptr %12, null
   br i1 %.not31, label %._crit_edge45, label %.lr.ph44, !llvm.loop !133
 
@@ -7226,8 +7226,8 @@ define internal fastcc void @_ZL30__itt_free_allocated_resourcesv() unnamed_addr
   %18 = load ptr, ptr %17, align 8, !tbaa !78
   %19 = getelementptr inbounds nuw i8, ptr %.02847, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !71
-  tail call void @free(ptr noundef %20) #17
-  tail call void @free(ptr noundef nonnull %.02847) #17
+  tail call void @free(ptr noundef %20) #18
+  tail call void @free(ptr noundef nonnull %.02847) #18
   %.not32 = icmp eq ptr %18, null
   br i1 %.not32, label %._crit_edge50, label %.lr.ph49, !llvm.loop !134
 
@@ -7243,8 +7243,8 @@ define internal fastcc void @_ZL30__itt_free_allocated_resourcesv() unnamed_addr
   %23 = load ptr, ptr %22, align 8, !tbaa !94
   %24 = getelementptr inbounds nuw i8, ptr %.02652, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !92
-  tail call void @free(ptr noundef %25) #17
-  tail call void @free(ptr noundef nonnull %.02652) #17
+  tail call void @free(ptr noundef %25) #18
+  tail call void @free(ptr noundef nonnull %.02652) #18
   %.not33 = icmp eq ptr %23, null
   br i1 %.not33, label %._crit_edge55, label %.lr.ph54, !llvm.loop !135
 
@@ -7256,8 +7256,8 @@ define internal fastcc void @_ZL30__itt_free_allocated_resourcesv() unnamed_addr
 ; Function Attrs: nounwind
 declare extern_weak ptr @dlerror() local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define ptr @__itt_set_error_handler(ptr noundef %0) local_unnamed_addr #5 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define ptr @__itt_set_error_handler(ptr noundef %0) local_unnamed_addr #6 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 104), align 8, !tbaa !108
   store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 104), align 8, !tbaa !108
   ret ptr %2
@@ -7291,7 +7291,7 @@ define i32 @__itt_get_collection_state() local_unnamed_addr #0 {
   ret i32 %7
 }
 
-declare void @ITT_DoOneTimeInitialization() local_unnamed_addr #6
+declare void @ITT_DoOneTimeInitialization() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @__itt_release_resources() local_unnamed_addr #0 {
@@ -7331,7 +7331,7 @@ define void @__itt_release_resources() local_unnamed_addr #0 {
 
 17:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %18 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %1) #17
+  %18 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %1) #18
   %.not32 = icmp eq i32 %18, 0
   br i1 %.not32, label %20, label %19
 
@@ -7340,7 +7340,7 @@ define void @__itt_release_resources() local_unnamed_addr #0 {
   br label %20
 
 20:                                               ; preds = %19, %17
-  %21 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %1, i32 noundef 1) #17
+  %21 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %1, i32 noundef 1) #18
   %.not33 = icmp eq i32 %21, 0
   br i1 %.not33, label %23, label %22
 
@@ -7349,7 +7349,7 @@ define void @__itt_release_resources() local_unnamed_addr #0 {
   br label %23
 
 23:                                               ; preds = %22, %20
-  %24 = call i32 @pthread_mutex_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56), ptr noundef nonnull %1) #17
+  %24 = call i32 @pthread_mutex_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56), ptr noundef nonnull %1) #18
   %.not34 = icmp eq i32 %24, 0
   br i1 %.not34, label %26, label %25
 
@@ -7358,7 +7358,7 @@ define void @__itt_release_resources() local_unnamed_addr #0 {
   br label %26
 
 26:                                               ; preds = %25, %23
-  %27 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %1) #17
+  %27 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %1) #18
   %.not35 = icmp eq i32 %27, 0
   br i1 %.not35, label %29, label %28
 
@@ -7372,7 +7372,7 @@ define void @__itt_release_resources() local_unnamed_addr #0 {
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %30 = tail call i32 @sched_yield() #17
+  %30 = tail call i32 @sched_yield() #18
   %31 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 40), align 8, !tbaa !22
   %.not31 = icmp eq i64 %31, 0
   br i1 %.not31, label %.lr.ph, label %.loopexit, !llvm.loop !136
@@ -7382,9 +7382,9 @@ define void @__itt_release_resources() local_unnamed_addr #0 {
   br label %.critedge38
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %29, %10
-  %32 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %32 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   call fastcc void @_ZL30__itt_free_allocated_resourcesv()
-  %33 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %33 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   %34 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 40), align 8, !tbaa !22
   %.not36 = icmp eq i64 %34, 0
   br i1 %.not36, label %.critedge38, label %35
@@ -7396,7 +7396,7 @@ define void @__itt_release_resources() local_unnamed_addr #0 {
   br i1 %38, label %39, label %.critedge38
 
 39:                                               ; preds = %35
-  %40 = call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %40 = call i32 @pthread_mutex_destroy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   store volatile i64 0, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 40), align 8, !tbaa !22
   br label %.critedge38
 
@@ -7457,7 +7457,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL28__itt_is_collector_avai
 
 18:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %19 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %2) #17
+  %19 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %2) #18
   %.not19 = icmp eq i32 %19, 0
   br i1 %.not19, label %21, label %20
 
@@ -7466,7 +7466,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL28__itt_is_collector_avai
   br label %21
 
 21:                                               ; preds = %20, %18
-  %22 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %2, i32 noundef 1) #17
+  %22 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %2, i32 noundef 1) #18
   %.not20 = icmp eq i32 %22, 0
   br i1 %.not20, label %24, label %23
 
@@ -7475,7 +7475,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL28__itt_is_collector_avai
   br label %24
 
 24:                                               ; preds = %23, %21
-  %25 = call i32 @pthread_mutex_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56), ptr noundef nonnull %2) #17
+  %25 = call i32 @pthread_mutex_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56), ptr noundef nonnull %2) #18
   %.not21 = icmp eq i32 %25, 0
   br i1 %.not21, label %27, label %26
 
@@ -7484,7 +7484,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL28__itt_is_collector_avai
   br label %27
 
 27:                                               ; preds = %26, %24
-  %28 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %2) #17
+  %28 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %2) #18
   %.not22 = icmp eq i32 %28, 0
   br i1 %.not22, label %30, label %29
 
@@ -7498,13 +7498,13 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL28__itt_is_collector_avai
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %31 = tail call i32 @sched_yield() #17
+  %31 = tail call i32 @sched_yield() #18
   %32 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 40), align 8, !tbaa !22
   %.not18 = icmp eq i64 %32, 0
   br i1 %.not18, label %.lr.ph, label %.loopexit, !llvm.loop !137
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %30, %11
-  %33 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %33 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   br label %34
 
 34:                                               ; preds = %.loopexit, %0
@@ -7513,12 +7513,12 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL28__itt_is_collector_avai
   br i1 %36, label %37, label %54
 
 37:                                               ; preds = %34
-  %38 = call ptr @getenv(ptr noundef nonnull @.str.156) #17
+  %38 = call ptr @getenv(ptr noundef nonnull @.str.156) #18
   %.not29.i.i = icmp eq ptr %38, null
   br i1 %.not29.i.i, label %_ZL18__itt_get_lib_namev.exit, label %39
 
 39:                                               ; preds = %37
-  %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #18
+  %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #19
   %41 = load ptr, ptr @_ZZL17__itt_get_env_varPKcE9env_value, align 8, !tbaa !110
   %42 = ptrtoint ptr %41 to i64
   %43 = sub i64 add (i64 ptrtoint (ptr @_ZZL17__itt_get_env_varPKcE8env_buff to i64), i64 4086), %42
@@ -7558,73 +7558,74 @@ _ZL18__itt_get_lib_namev.exit:                    ; preds = %37, %44, %46
   %56 = add i32 %55, -3
   %57 = icmp ult i32 %56, 2
   %58 = zext i1 %57 to i32
-  %59 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #17
+  %59 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #18
   ret i32 %58
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare ptr @__strncpy_chk(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #9
+declare ptr @__strncpy_chk(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #10
+declare void @llvm.va_start.p0(ptr) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #10
+declare void @llvm.va_end.p0(ptr) #11
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #11
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #14
+declare i32 @llvm.smin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #14
+declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias returned writeonly, ptr noalias readonly captures(none), i64) #16
+declare ptr @strncpy(ptr noalias returned writeonly, ptr noalias readonly captures(none), i64) #17
 
 attributes #0 = { mustprogress sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #11 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nounwind }
-attributes #18 = { nounwind willreturn memory(read) }
-attributes #19 = { nounwind allocsize(0) }
-attributes #20 = { nounwind willreturn memory(none) }
+attributes #5 = { mustprogress nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #12 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nounwind }
+attributes #19 = { nounwind willreturn memory(read) }
+attributes #20 = { nounwind allocsize(0) }
+attributes #21 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

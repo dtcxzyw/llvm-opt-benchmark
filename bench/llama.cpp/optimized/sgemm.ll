@@ -20876,7 +20876,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18B
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE6mnpackEllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = sub nsw i64 %2, %1
   %7 = tail call i64 @llvm.smin.i64(i64 %6, i64 4)
@@ -20986,7 +20986,7 @@ tailrecurse:                                      ; preds = %28, %5
   ret void
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemm4xNILi4EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [4 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -21233,7 +21233,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br i1 %exitcond.not, label %147, label %149, !llvm.loop !390
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemm4xNILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [3 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -21480,7 +21480,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br i1 %exitcond.not, label %147, label %149, !llvm.loop !398
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemmMx4ILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [4 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -21727,7 +21727,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br i1 %exitcond.not, label %147, label %149, !llvm.loop !403
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi3ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [3 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -21933,7 +21933,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br i1 %exitcond.not, label %102, label %104, !llvm.loop !408
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemm4xNILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [2 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -22180,7 +22180,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br i1 %exitcond.not, label %145, label %146, !llvm.loop !414
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemmMx4ILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [4 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -22425,7 +22425,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br i1 %149, label %148, label %146, !llvm.loop !419
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi3ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [2 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -22631,7 +22631,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br i1 %exitcond.not, label %100, label %101, !llvm.loop !424
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi2ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [3 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -22834,7 +22834,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br i1 %105, label %104, label %102, !llvm.loop !430
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemm4xNILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [1 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -23041,7 +23041,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br i1 %exitcond.not, label %.loopexit, label %134, !llvm.loop !434
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi2ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [2 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -23244,7 +23244,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br i1 %102, label %101, label %100, !llvm.loop !439
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemmMx4ILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [4 x [1 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -23451,7 +23451,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br i1 %exitcond166.not, label %._crit_edge, label %.preheader143, !llvm.loop !443
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi3ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [1 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -23618,7 +23618,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br i1 %exitcond.not, label %.loopexit76, label %93, !llvm.loop !446
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi1ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [3 x [1 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -23788,7 +23788,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br i1 %exitcond85.not, label %._crit_edge, label %.preheader77, !llvm.loop !450
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi2ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %.sroa.0 = alloca <8 x float>, align 32
   %.sroa.9 = alloca <8 x float>, align 32
@@ -23959,7 +23959,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br i1 %91, label %90, label %.loopexit76, !llvm.loop !454
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi1ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %.sroa.0 = alloca <8 x float>, align 32
   %.sroa.9 = alloca <8 x float>, align 32
@@ -24133,7 +24133,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br i1 %exitcond.not, label %._crit_edge, label %.preheader77, !llvm.loop !458
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi1ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = sub nsw i64 %2, %1
   %7 = sub nsw i64 %4, %3
@@ -24252,7 +24252,7 @@ declare <8 x float> @llvm.fma.v8f32(<8 x float>, <8 x float>, <8 x float>) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8>, <32 x i8>) #9
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE6mnpackEllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = sub nsw i64 %2, %1
   %7 = tail call i64 @llvm.smin.i64(i64 %6, i64 4)
@@ -24362,7 +24362,7 @@ tailrecurse:                                      ; preds = %28, %5
   ret void
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemm4xNILi4EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [4 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -24641,7 +24641,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br i1 %exitcond.not, label %179, label %181, !llvm.loop !466
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemm4xNILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [3 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -24920,7 +24920,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br i1 %exitcond.not, label %179, label %181, !llvm.loop !473
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemmMx4ILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [4 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -25175,7 +25175,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br i1 %exitcond.not, label %155, label %157, !llvm.loop !478
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi3ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [3 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -25389,7 +25389,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br i1 %exitcond.not, label %110, label %112, !llvm.loop !483
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemm4xNILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [2 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -25668,7 +25668,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br i1 %exitcond.not, label %177, label %178, !llvm.loop !489
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemmMx4ILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [4 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -25921,7 +25921,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br i1 %157, label %156, label %154, !llvm.loop !494
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi3ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [2 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -26135,7 +26135,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br i1 %exitcond.not, label %108, label %109, !llvm.loop !499
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi2ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [3 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -26346,7 +26346,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br i1 %113, label %112, label %110, !llvm.loop !505
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemm4xNILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [1 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -26585,7 +26585,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br i1 %exitcond.not, label %.loopexit, label %166, !llvm.loop !509
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi2ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [2 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -26796,7 +26796,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br i1 %110, label %109, label %108, !llvm.loop !514
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemmMx4ILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [4 x [1 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -27011,7 +27011,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br i1 %exitcond165.not, label %._crit_edge, label %.preheader142, !llvm.loop !518
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi3ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [1 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -27186,7 +27186,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br i1 %exitcond.not, label %.loopexit75, label %101, !llvm.loop !521
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi1ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [3 x [1 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -27364,7 +27364,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br i1 %exitcond84.not, label %._crit_edge, label %.preheader76, !llvm.loop !525
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi2ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %.sroa.0 = alloca <8 x float>, align 32
   %.sroa.9 = alloca <8 x float>, align 32
@@ -27543,7 +27543,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br i1 %99, label %98, label %.loopexit75, !llvm.loop !529
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi1ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %.sroa.0 = alloca <8 x float>, align 32
   %.sroa.9 = alloca <8 x float>, align 32
@@ -27725,7 +27725,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br i1 %exitcond.not, label %._crit_edge, label %.preheader76, !llvm.loop !533
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi1ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = sub nsw i64 %2, %1
   %7 = sub nsw i64 %4, %3
@@ -27846,7 +27846,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br i1 %exitcond.not, label %._crit_edge, label %.preheader78, !llvm.loop !538
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE6mnpackEllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = sub nsw i64 %2, %1
   %7 = tail call i64 @llvm.smin.i64(i64 %6, i64 4)
@@ -27956,7 +27956,7 @@ tailrecurse:                                      ; preds = %28, %5
   ret void
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemm4xNILi4EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [4 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -28263,7 +28263,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br i1 %exitcond.not, label %195, label %197, !llvm.loop !541
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemm4xNILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [3 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -28570,7 +28570,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br i1 %exitcond.not, label %195, label %197, !llvm.loop !548
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemmMx4ILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [4 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -28832,7 +28832,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br i1 %exitcond.not, label %159, label %161, !llvm.loop !553
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi3ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [3 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -29053,7 +29053,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br i1 %exitcond.not, label %114, label %116, !llvm.loop !558
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemm4xNILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [2 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -29360,7 +29360,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br i1 %exitcond.not, label %193, label %194, !llvm.loop !564
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemmMx4ILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [4 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -29620,7 +29620,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br i1 %161, label %160, label %158, !llvm.loop !569
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi3ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [2 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -29841,7 +29841,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br i1 %exitcond.not, label %112, label %113, !llvm.loop !574
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi2ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [3 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -30059,7 +30059,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br i1 %117, label %116, label %114, !llvm.loop !580
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemm4xNILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [1 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -30326,7 +30326,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br i1 %exitcond.not, label %.loopexit, label %182, !llvm.loop !584
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi2ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [2 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -30544,7 +30544,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br i1 %114, label %113, label %112, !llvm.loop !589
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemmMx4ILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [4 x [1 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -30766,7 +30766,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br i1 %exitcond177.not, label %._crit_edge, label %.preheader154, !llvm.loop !593
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi3ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [1 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -30948,7 +30948,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br i1 %exitcond.not, label %.loopexit78, label %105, !llvm.loop !596
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi1ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [3 x [1 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -31133,7 +31133,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br i1 %exitcond87.not, label %._crit_edge, label %.preheader79, !llvm.loop !600
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi2ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %.sroa.0 = alloca <8 x float>, align 32
   %.sroa.9 = alloca <8 x float>, align 32
@@ -31319,7 +31319,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br i1 %103, label %102, label %.loopexit78, !llvm.loop !604
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi1ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %.sroa.0 = alloca <8 x float>, align 32
   %.sroa.9 = alloca <8 x float>, align 32
@@ -31508,7 +31508,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br i1 %exitcond.not, label %._crit_edge, label %.preheader79, !llvm.loop !608
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi1ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = sub nsw i64 %2, %1
   %7 = sub nsw i64 %4, %3
@@ -31636,7 +31636,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br i1 %exitcond.not, label %._crit_edge, label %.preheader81, !llvm.loop !613
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE6mnpackEllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = sub nsw i64 %2, %1
   %7 = tail call i64 @llvm.smin.i64(i64 %6, i64 4)
@@ -31746,7 +31746,7 @@ tailrecurse:                                      ; preds = %28, %5
   ret void
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemm4xNILi4EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [4 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -32031,7 +32031,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br i1 %exitcond.not, label %184, label %186, !llvm.loop !616
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemm4xNILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [3 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -32316,7 +32316,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br i1 %exitcond.not, label %184, label %186, !llvm.loop !623
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemmMx4ILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [4 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -32574,7 +32574,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br i1 %exitcond.not, label %157, label %159, !llvm.loop !628
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi3ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [3 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -32791,7 +32791,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br i1 %exitcond.not, label %112, label %114, !llvm.loop !633
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemm4xNILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [2 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -33076,7 +33076,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br i1 %exitcond.not, label %182, label %183, !llvm.loop !639
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemmMx4ILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [4 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -33332,7 +33332,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br i1 %159, label %158, label %156, !llvm.loop !644
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi3ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [2 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -33549,7 +33549,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br i1 %exitcond.not, label %110, label %111, !llvm.loop !649
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi2ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [3 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -33763,7 +33763,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br i1 %115, label %114, label %112, !llvm.loop !655
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemm4xNILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [1 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -34008,7 +34008,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br i1 %exitcond.not, label %.loopexit, label %171, !llvm.loop !659
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi2ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [2 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -34222,7 +34222,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br i1 %112, label %111, label %110, !llvm.loop !664
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemmMx4ILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [4 x [1 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -34440,7 +34440,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br i1 %exitcond178.not, label %._crit_edge, label %.preheader155, !llvm.loop !668
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi3ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [1 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -34618,7 +34618,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br i1 %exitcond.not, label %.loopexit79, label %103, !llvm.loop !671
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi1ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = alloca [3 x [1 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
@@ -34799,7 +34799,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br i1 %exitcond88.not, label %._crit_edge, label %.preheader80, !llvm.loop !675
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi2ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %.sroa.0 = alloca <8 x float>, align 32
   %.sroa.9 = alloca <8 x float>, align 32
@@ -34981,7 +34981,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br i1 %101, label %100, label %.loopexit79, !llvm.loop !679
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi1ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %.sroa.0 = alloca <8 x float>, align 32
   %.sroa.9 = alloca <8 x float>, align 32
@@ -35166,7 +35166,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br i1 %exitcond.not, label %._crit_edge, label %.preheader80, !llvm.loop !683
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi1ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   %6 = sub nsw i64 %2, %1
   %7 = sub nsw i64 %4, %3
@@ -35312,8 +35312,8 @@ attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #8 = { mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #7 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #8 = { mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }

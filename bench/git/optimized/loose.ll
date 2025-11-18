@@ -21,10 +21,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @loose_object_map_init(ptr noundef writeonly captures(none) initializes((0, 8)) %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @xmalloc(i64 noundef 16) #15
-  %3 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #15
+  %2 = tail call ptr @xmalloc(i64 noundef 16) #16
+  %3 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #16
   store ptr %3, ptr %2, align 8, !tbaa !4
-  %4 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #15
+  %4 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #16
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8, !tbaa !10
   store ptr %2, ptr %0, align 8, !tbaa !11
@@ -51,7 +51,7 @@ should_use_loose_object_map.exit:                 ; preds = %1
   br i1 %.not12, label %should_use_loose_object_map.exit.thread, label %10
 
 10:                                               ; preds = %should_use_loose_object_map.exit
-  tail call void @prepare_alt_odb(ptr noundef nonnull %0) #15
+  tail call void @prepare_alt_odb(ptr noundef nonnull %0) #16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !35
   %.013 = load ptr, ptr %12, align 8, !tbaa !36
@@ -77,10 +77,10 @@ should_use_loose_object_map.exit:                 ; preds = %1
   br i1 %.not.i9, label %20, label %25
 
 20:                                               ; preds = %17
-  %21 = call ptr @xmalloc(i64 noundef 16) #15
-  %22 = call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #15
+  %21 = call ptr @xmalloc(i64 noundef 16) #16
+  %22 = call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #16
   store ptr %22, ptr %21, align 8, !tbaa !4
-  %23 = call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #15
+  %23 = call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #16
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %23, ptr %24, align 8, !tbaa !10
   store ptr %21, ptr %18, align 8, !tbaa !11
@@ -94,9 +94,9 @@ should_use_loose_object_map.exit:                 ; preds = %1
   br i1 %.not24.i, label %29, label %31
 
 29:                                               ; preds = %25
-  %30 = call ptr @xmalloc(i64 noundef 32) #15
+  %30 = call ptr @xmalloc(i64 noundef 32) #16
   store ptr %30, ptr %27, align 8, !tbaa !41
-  call void @oidtree_init(ptr noundef %30) #15
+  call void @oidtree_init(ptr noundef %30) #16
   %.pre.i = load ptr, ptr %18, align 8, !tbaa !38
   br label %31
 
@@ -119,7 +119,7 @@ should_use_loose_object_map.exit:                 ; preds = %1
 
 45:                                               ; preds = %31
   %46 = load ptr, ptr %27, align 8, !tbaa !41
-  call void @oidtree_insert(ptr noundef %46, ptr noundef %38) #15
+  call void @oidtree_insert(ptr noundef %46, ptr noundef %38) #16
   br label %insert_loose_map.exit.i
 
 insert_loose_map.exit.i:                          ; preds = %45, %31
@@ -141,7 +141,7 @@ insert_loose_map.exit.i:                          ; preds = %45, %31
 
 60:                                               ; preds = %insert_loose_map.exit.i
   %61 = load ptr, ptr %27, align 8, !tbaa !41
-  call void @oidtree_insert(ptr noundef %61, ptr noundef %52) #15
+  call void @oidtree_insert(ptr noundef %61, ptr noundef %52) #16
   br label %insert_loose_map.exit36.i
 
 insert_loose_map.exit36.i:                        ; preds = %60, %insert_loose_map.exit.i
@@ -163,37 +163,37 @@ insert_loose_map.exit36.i:                        ; preds = %60, %insert_loose_m
 
 75:                                               ; preds = %insert_loose_map.exit36.i
   %76 = load ptr, ptr %27, align 8, !tbaa !41
-  call void @oidtree_insert(ptr noundef %76, ptr noundef %67) #15
+  call void @oidtree_insert(ptr noundef %76, ptr noundef %67) #16
   br label %insert_loose_map.exit38.i
 
 insert_loose_map.exit38.i:                        ; preds = %75, %insert_loose_map.exit36.i
-  call void (ptr, ptr, ptr, ...) @strbuf_git_common_path(ptr noundef nonnull %3, ptr noundef nonnull %0, ptr noundef nonnull @.str) #15
+  call void (ptr, ptr, ptr, ...) @strbuf_git_common_path(ptr noundef nonnull %3, ptr noundef nonnull %0, ptr noundef nonnull @.str) #16
   %77 = load ptr, ptr %14, align 8, !tbaa !48
-  %78 = call ptr @git_fopen(ptr noundef %77, ptr noundef nonnull @.str.4) #15
+  %78 = call ptr @git_fopen(ptr noundef %77, ptr noundef nonnull @.str.4) #16
   %.not25.i = icmp eq ptr %78, null
   br i1 %.not25.i, label %.critedge, label %79
 
 .critedge:                                        ; preds = %insert_loose_map.exit38.i
-  call void @strbuf_release(ptr noundef nonnull %3) #15
+  call void @strbuf_release(ptr noundef nonnull %3) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.backedge
 
 79:                                               ; preds = %insert_loose_map.exit38.i
-  %80 = tail call ptr @__errno_location() #16
+  %80 = tail call ptr @__errno_location() #17
   store i32 0, ptr %80, align 4, !tbaa !50
-  %81 = call i32 @strbuf_getwholeline(ptr noundef nonnull %2, ptr noundef nonnull %78, i32 noundef 10) #15
+  %81 = call i32 @strbuf_getwholeline(ptr noundef nonnull %2, ptr noundef nonnull %78, i32 noundef 10) #16
   %.not26.i = icmp eq i32 %81, 0
   br i1 %.not26.i, label %82, label %load_one_loose_object_map.exit.thread
 
 82:                                               ; preds = %79
   %83 = load ptr, ptr %15, align 8, !tbaa !48
-  %84 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %83, ptr noundef nonnull dereferenceable(20) @.str.6) #17
+  %84 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %83, ptr noundef nonnull dereferenceable(20) @.str.6) #18
   %.not27.i = icmp eq i32 %84, 0
   br i1 %.not27.i, label %.preheader.i, label %load_one_loose_object_map.exit.thread
 
 .preheader.i:                                     ; preds = %82
-  %85 = call i32 @strbuf_getline_lf(ptr noundef nonnull %2, ptr noundef nonnull %78) #15
+  %85 = call i32 @strbuf_getline_lf(ptr noundef nonnull %2, ptr noundef nonnull %78) #16
   %.not2842.i = icmp eq i32 %85, 0
   br i1 %.not2842.i, label %.lr.ph.i, label %._crit_edge.i
 
@@ -203,7 +203,7 @@ insert_loose_map.exit38.i:                        ; preds = %75, %insert_loose_m
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %86 = load ptr, ptr %15, align 8, !tbaa !48
   %87 = load ptr, ptr %13, align 8, !tbaa !42
-  %88 = call i32 @parse_oid_hex_algop(ptr noundef %86, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef %87) #15
+  %88 = call i32 @parse_oid_hex_algop(ptr noundef %86, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef %87) #16
   %.not30.i = icmp eq i32 %88, 0
   br i1 %.not30.i, label %89, label %insert_loose_map.exit40.thread.i
 
@@ -217,7 +217,7 @@ insert_loose_map.exit38.i:                        ; preds = %75, %insert_loose_m
 
 93:                                               ; preds = %89
   %94 = load ptr, ptr %7, align 8, !tbaa !13
-  %95 = call i32 @parse_oid_hex_algop(ptr noundef nonnull %91, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef %94) #15
+  %95 = call i32 @parse_oid_hex_algop(ptr noundef nonnull %91, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef %94) #16
   %.not32.i = icmp eq i32 %95, 0
   br i1 %.not32.i, label %96, label %insert_loose_map.exit40.thread.i
 
@@ -242,7 +242,7 @@ insert_loose_map.exit38.i:                        ; preds = %75, %insert_loose_m
 
 109:                                              ; preds = %101
   %110 = load ptr, ptr %27, align 8, !tbaa !41
-  call void @oidtree_insert(ptr noundef %110, ptr noundef nonnull %6) #15
+  call void @oidtree_insert(ptr noundef %110, ptr noundef nonnull %6) #16
   br label %insert_loose_map.exit40.i
 
 insert_loose_map.exit40.thread.i:                 ; preds = %96, %93, %89, %.lr.ph.i
@@ -255,13 +255,13 @@ insert_loose_map.exit40.i:                        ; preds = %109, %101
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %111 = call i32 @strbuf_getline_lf(ptr noundef nonnull %2, ptr noundef nonnull %78) #15
+  %111 = call i32 @strbuf_getline_lf(ptr noundef nonnull %2, ptr noundef nonnull %78) #16
   %.not28.i = icmp eq i32 %111, 0
   br i1 %.not28.i, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %insert_loose_map.exit40.i, %.preheader.i
-  call void @strbuf_release(ptr noundef nonnull %2) #15
-  call void @strbuf_release(ptr noundef nonnull %3) #15
+  call void @strbuf_release(ptr noundef nonnull %2) #16
+  call void @strbuf_release(ptr noundef nonnull %3) #16
   %112 = load i32, ptr %80, align 4, !tbaa !50
   %.not29.i.not = icmp eq i32 %112, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -274,8 +274,8 @@ insert_loose_map.exit40.i:                        ; preds = %109, %101
   br i1 %.not8, label %should_use_loose_object_map.exit.thread, label %17, !llvm.loop !54
 
 load_one_loose_object_map.exit.thread:            ; preds = %79, %82, %insert_loose_map.exit40.thread.i
-  call void @strbuf_release(ptr noundef nonnull %2) #15
-  call void @strbuf_release(ptr noundef nonnull %3) #15
+  call void @strbuf_release(ptr noundef nonnull %2) #16
+  call void @strbuf_release(ptr noundef nonnull %3) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %should_use_loose_object_map.exit.thread
@@ -314,11 +314,11 @@ should_use_loose_object_map.exit:                 ; preds = %1
   br i1 %.not33, label %should_use_loose_object_map.exit.thread, label %14
 
 14:                                               ; preds = %should_use_loose_object_map.exit
-  call void (ptr, ptr, ptr, ...) @strbuf_git_common_path(ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef nonnull @.str) #15
+  call void (ptr, ptr, ptr, ...) @strbuf_git_common_path(ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef nonnull @.str) #16
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !48
-  %17 = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull %2, ptr noundef %16, i32 noundef 1, i64 noundef -1, i32 noundef 438) #15
-  %18 = call i64 @write_in_full(i32 noundef %17, ptr noundef nonnull @.str.6, i64 noundef 19) #15
+  %17 = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull %2, ptr noundef %16, i32 noundef 1, i64 noundef -1, i32 noundef 438) #16
+  %18 = call i64 @write_in_full(i32 noundef %17, ptr noundef nonnull @.str.6, i64 noundef 19) #16
   %19 = icmp slt i64 %18, 0
   br i1 %19, label %.loopexit, label %.preheader
 
@@ -369,15 +369,15 @@ should_use_loose_object_map.exit:                 ; preds = %1
   br i1 %.not.i28.not, label %strbuf_setlen.exit, label %47
 
 47:                                               ; preds = %44
-  %48 = call ptr @oid_to_hex(ptr noundef nonnull %40) #15
+  %48 = call ptr @oid_to_hex(ptr noundef nonnull %40) #16
   %49 = load ptr, ptr %24, align 8, !tbaa !73
   %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %39
   %51 = load ptr, ptr %50, align 8, !tbaa !74
-  %52 = call ptr @oid_to_hex(ptr noundef %51) #15
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.1, ptr noundef %48, ptr noundef %52) #15
+  %52 = call ptr @oid_to_hex(ptr noundef %51) #16
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.1, ptr noundef %48, ptr noundef %52) #16
   %53 = load ptr, ptr %25, align 8, !tbaa !48
   %54 = load i64, ptr %26, align 8, !tbaa !53
-  %55 = call i64 @write_in_full(i32 noundef %17, ptr noundef %53, i64 noundef %54) #15
+  %55 = call i64 @write_in_full(i32 noundef %17, ptr noundef %53, i64 noundef %54) #16
   %56 = icmp slt i64 %55, 0
   br i1 %56, label %.loopexit, label %57
 
@@ -398,8 +398,8 @@ strbuf_setlen.exit:                               ; preds = %59, %57, %27, %37, 
   br i1 %.not22, label %._crit_edge, label %27, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %strbuf_setlen.exit, %.preheader
-  call void @strbuf_release(ptr noundef nonnull %3) #15
-  %62 = call i32 @commit_lock_file(ptr noundef nonnull %2) #15
+  call void @strbuf_release(ptr noundef nonnull %3) #16
+  %62 = call i32 @commit_lock_file(ptr noundef nonnull %2) #16
   %63 = icmp slt i32 %62, 0
   br i1 %63, label %64, label %should_use_loose_object_map.exit.thread.sink.split
 
@@ -409,26 +409,26 @@ strbuf_setlen.exit:                               ; preds = %59, %57, %27, %37, 
   br i1 %.not4.i, label %should_use_loose_object_map.exit.thread.sink.split.sink.split, label %should_use_loose_object_map.exit.thread.sink.split.sink.split.sink.split
 
 .loopexit:                                        ; preds = %47, %14
-  %66 = call i32 @delete_tempfile(ptr noundef nonnull %2) #15
-  call void @strbuf_release(ptr noundef nonnull %3) #15
+  %66 = call i32 @delete_tempfile(ptr noundef nonnull %2) #16
+  call void @strbuf_release(ptr noundef nonnull %3) #16
   %67 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !50
   %.not4.i29 = icmp eq i32 %67, 0
   br i1 %.not4.i29, label %should_use_loose_object_map.exit.thread.sink.split.sink.split, label %should_use_loose_object_map.exit.thread.sink.split.sink.split.sink.split
 
 should_use_loose_object_map.exit.thread.sink.split.sink.split.sink.split: ; preds = %.loopexit, %64
   %.str.3.sink = phi ptr [ @.str.2, %64 ], [ @.str.3, %.loopexit ]
-  %68 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.3.sink, i32 noundef 5) #15
+  %68 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.3.sink, i32 noundef 5) #16
   br label %should_use_loose_object_map.exit.thread.sink.split.sink.split
 
 should_use_loose_object_map.exit.thread.sink.split.sink.split: ; preds = %should_use_loose_object_map.exit.thread.sink.split.sink.split.sink.split, %.loopexit, %64
   %.0.i.sink = phi ptr [ @.str.2, %64 ], [ @.str.3, %.loopexit ], [ %68, %should_use_loose_object_map.exit.thread.sink.split.sink.split.sink.split ]
   %69 = load ptr, ptr %15, align 8, !tbaa !48
-  %70 = call i32 (ptr, ...) @error_errno(ptr noundef %.0.i.sink, ptr noundef %69) #15
+  %70 = call i32 (ptr, ...) @error_errno(ptr noundef %.0.i.sink, ptr noundef %69) #16
   br label %should_use_loose_object_map.exit.thread.sink.split
 
 should_use_loose_object_map.exit.thread.sink.split: ; preds = %should_use_loose_object_map.exit.thread.sink.split.sink.split, %._crit_edge
   %.021.ph = phi i32 [ 0, %._crit_edge ], [ -1, %should_use_loose_object_map.exit.thread.sink.split.sink.split ]
-  call void @strbuf_release(ptr noundef nonnull %4) #15
+  call void @strbuf_release(ptr noundef nonnull %4) #16
   br label %should_use_loose_object_map.exit.thread
 
 should_use_loose_object_map.exit.thread:          ; preds = %should_use_loose_object_map.exit.thread.sink.split, %1, %should_use_loose_object_map.exit
@@ -490,24 +490,24 @@ should_use_loose_object_map.exit:                 ; preds = %3
 23:                                               ; preds = %11
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %25 = load ptr, ptr %24, align 8, !tbaa !41
-  tail call void @oidtree_insert(ptr noundef %25, ptr noundef %2) #15
+  tail call void @oidtree_insert(ptr noundef %25, ptr noundef %2) #16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @__const.write_one_object.path, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @__const.write_one_object.path, i64 24, i1 false)
-  call void (ptr, ptr, ptr, ...) @strbuf_git_common_path(ptr noundef nonnull %7, ptr noundef nonnull %0, ptr noundef nonnull @.str) #15
+  call void (ptr, ptr, ptr, ...) @strbuf_git_common_path(ptr noundef nonnull %7, ptr noundef nonnull %0, ptr noundef nonnull @.str) #16
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !48
-  %28 = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull %4, ptr noundef %27, i32 noundef 1, i64 noundef -1, i32 noundef 438) #15
+  %28 = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull %4, ptr noundef %27, i32 noundef 1, i64 noundef -1, i32 noundef 438) #16
   %29 = load ptr, ptr %26, align 8, !tbaa !48
-  %30 = call i32 (ptr, i32, ...) @open64(ptr noundef %29, i32 noundef 1089, i32 noundef 438) #15
+  %30 = call i32 (ptr, i32, ...) @open64(ptr noundef %29, i32 noundef 1089, i32 noundef 438) #16
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %55, label %32
 
 32:                                               ; preds = %23
-  %33 = call i32 @fstat64(i32 noundef %30, ptr noundef nonnull %5) #15
+  %33 = call i32 @fstat64(i32 noundef %30, ptr noundef nonnull %5) #16
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %55, label %35
 
@@ -518,30 +518,30 @@ should_use_loose_object_map.exit:                 ; preds = %3
   br i1 %.not.i10, label %38, label %41
 
 38:                                               ; preds = %35
-  %39 = call i64 @write_in_full(i32 noundef %30, ptr noundef nonnull @.str.6, i64 noundef 19) #15
+  %39 = call i64 @write_in_full(i32 noundef %30, ptr noundef nonnull @.str.6, i64 noundef 19) #16
   %40 = icmp slt i64 %39, 0
   br i1 %40, label %55, label %41
 
 41:                                               ; preds = %38, %35
-  %42 = call ptr @oid_to_hex(ptr noundef %1) #15
-  %43 = call ptr @oid_to_hex(ptr noundef %2) #15
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %6, ptr noundef nonnull @.str.1, ptr noundef %42, ptr noundef %43) #15
+  %42 = call ptr @oid_to_hex(ptr noundef %1) #16
+  %43 = call ptr @oid_to_hex(ptr noundef %2) #16
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %6, ptr noundef nonnull @.str.1, ptr noundef %42, ptr noundef %43) #16
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !48
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %47 = load i64, ptr %46, align 8, !tbaa !53
-  %48 = call i64 @write_in_full(i32 noundef %30, ptr noundef %45, i64 noundef %47) #15
+  %48 = call i64 @write_in_full(i32 noundef %30, ptr noundef %45, i64 noundef %47) #16
   %49 = icmp slt i64 %48, 0
   br i1 %49, label %55, label %50
 
 50:                                               ; preds = %41
-  %51 = call i32 @close(i32 noundef %30) #15
+  %51 = call i32 @close(i32 noundef %30) #16
   %.not10.i = icmp eq i32 %51, 0
   br i1 %.not10.i, label %52, label %55
 
 52:                                               ; preds = %50
   %53 = load ptr, ptr %26, align 8, !tbaa !48
-  %54 = call i32 @adjust_shared_perm(ptr noundef %53) #15
+  %54 = call i32 @adjust_shared_perm(ptr noundef %53) #16
   br label %write_one_object.exit
 
 55:                                               ; preds = %50, %41, %38, %32, %23
@@ -550,21 +550,21 @@ should_use_loose_object_map.exit:                 ; preds = %3
   br i1 %.not4.i.i, label %_.exit.i, label %57
 
 57:                                               ; preds = %55
-  %58 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 5) #15
+  %58 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 5) #16
   br label %_.exit.i
 
 _.exit.i:                                         ; preds = %57, %55
   %.0.i.i = phi ptr [ %58, %57 ], [ @.str.3, %55 ]
   %59 = load ptr, ptr %26, align 8, !tbaa !48
-  %60 = call i32 (ptr, ...) @error_errno(ptr noundef %.0.i.i, ptr noundef %59) #15
-  %61 = call i32 @close(i32 noundef %30) #15
+  %60 = call i32 (ptr, ...) @error_errno(ptr noundef %.0.i.i, ptr noundef %59) #16
+  %61 = call i32 @close(i32 noundef %30) #16
   br label %write_one_object.exit
 
 write_one_object.exit:                            ; preds = %52, %_.exit.i
   %.0.i = phi i32 [ -1, %_.exit.i ], [ 0, %52 ]
-  %62 = call i32 @delete_tempfile(ptr noundef nonnull %4) #15
-  call void @strbuf_release(ptr noundef nonnull %6) #15
-  call void @strbuf_release(ptr noundef nonnull %7) #15
+  %62 = call i32 @delete_tempfile(ptr noundef nonnull %4) #16
+  call void @strbuf_release(ptr noundef nonnull %6) #16
+  call void @strbuf_release(ptr noundef nonnull %7) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -576,7 +576,7 @@ should_use_loose_object_map.exit.thread:          ; preds = %11, %3, %should_use
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local range(i32 -1, 1) i32 @repo_loose_object_map_oid(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #3 {
   %5 = alloca %struct.object_id, align 8
   %6 = alloca %struct.object_id, align 8
@@ -695,8 +695,8 @@ kh_get_oid_map.exit:                              ; preds = %13, %.critedge.i
   ret i32 %.2
 }
 
-; Function Attrs: nounwind uwtable
-define dso_local void @loose_object_map_clear(ptr noundef captures(none) %0) local_unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define dso_local void @loose_object_map_clear(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !tbaa !11
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %67, label %.preheader31
@@ -738,7 +738,7 @@ define dso_local void @loose_object_map_clear(ptr noundef captures(none) %0) loc
   %24 = zext i32 %.02333 to i64
   %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !74
-  tail call void @free(ptr noundef %26) #15
+  tail call void @free(ptr noundef %26) #16
   %.pre = load ptr, ptr %2, align 8, !tbaa !4
   %.pre37 = load i32, ptr %.pre, align 8, !tbaa !68
   br label %27
@@ -773,7 +773,7 @@ define dso_local void @loose_object_map_clear(ptr noundef captures(none) %0) loc
   %46 = zext i32 %.035 to i64
   %47 = getelementptr inbounds nuw ptr, ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !74
-  tail call void @free(ptr noundef %48) #15
+  tail call void @free(ptr noundef %48) #16
   %.pre38 = load ptr, ptr %6, align 8, !tbaa !10
   %.pre39 = load i32, ptr %.pre38, align 8, !tbaa !68
   br label %49
@@ -794,14 +794,14 @@ kh_destroy_oid_map.exit:                          ; preds = %.preheader, %._crit
   %53 = phi ptr [ %.pre40, %._crit_edge ], [ %5, %.preheader ]
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !71
-  tail call void @free(ptr noundef %55) #15
+  tail call void @free(ptr noundef %55) #16
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %57 = load ptr, ptr %56, align 8, !tbaa !72
-  tail call void @free(ptr noundef %57) #15
+  tail call void @free(ptr noundef %57) #16
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %59 = load ptr, ptr %58, align 8, !tbaa !73
-  tail call void @free(ptr noundef %59) #15
-  tail call void @free(ptr noundef nonnull %53) #15
+  tail call void @free(ptr noundef %59) #16
+  tail call void @free(ptr noundef nonnull %53) #16
   %.pre41 = load ptr, ptr %6, align 8, !tbaa !10
   %.not.i29 = icmp eq ptr %.pre41, null
   br i1 %.not.i29, label %kh_destroy_oid_map.exit30, label %kh_destroy_oid_map.exit.thread
@@ -810,18 +810,18 @@ kh_destroy_oid_map.exit.thread:                   ; preds = %._crit_edge, %kh_de
   %60 = phi ptr [ %.pre41, %kh_destroy_oid_map.exit ], [ %51, %._crit_edge ]
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load ptr, ptr %61, align 8, !tbaa !71
-  tail call void @free(ptr noundef %62) #15
+  tail call void @free(ptr noundef %62) #16
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %64 = load ptr, ptr %63, align 8, !tbaa !72
-  tail call void @free(ptr noundef %64) #15
+  tail call void @free(ptr noundef %64) #16
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %66 = load ptr, ptr %65, align 8, !tbaa !73
-  tail call void @free(ptr noundef %66) #15
-  tail call void @free(ptr noundef nonnull %60) #15
+  tail call void @free(ptr noundef %66) #16
+  tail call void @free(ptr noundef nonnull %60) #16
   br label %kh_destroy_oid_map.exit30
 
 kh_destroy_oid_map.exit30:                        ; preds = %kh_destroy_oid_map.exit, %kh_destroy_oid_map.exit.thread
-  tail call void @free(ptr noundef nonnull %2) #15
+  tail call void @free(ptr noundef nonnull %2) #16
   store ptr null, ptr %0, align 8, !tbaa !11
   br label %67
 
@@ -830,7 +830,7 @@ kh_destroy_oid_map.exit30:                        ; preds = %kh_destroy_oid_map.
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -839,12 +839,12 @@ declare void @oidtree_init(ptr noundef) local_unnamed_addr #1
 declare ptr @git_fopen(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #5
+declare ptr @__errno_location() local_unnamed_addr #6
 
 declare i32 @strbuf_getwholeline(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @strbuf_getline_lf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -853,7 +853,7 @@ declare i32 @parse_oid_hex_algop(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare i32 @hold_lock_file_for_update_timeout_mode(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
+declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
 declare i32 @delete_tempfile(ptr noundef) local_unnamed_addr #1
 
@@ -905,7 +905,7 @@ define internal fastcc range(i32 0, 2) i32 @insert_oid_pair(ptr noundef captures
   %33 = and i32 %32, 1073741820
   %34 = select i1 %31, i32 4, i32 %33
   %35 = zext nneg i32 %34 to i64
-  %36 = tail call ptr @xmalloc(i64 noundef %35) #15
+  %36 = tail call ptr @xmalloc(i64 noundef %35) #16
   tail call void @llvm.memset.p0.i64(ptr align 4 %36, i8 -86, i64 %35, i1 false)
   %37 = load i32, ptr %0, align 8, !tbaa !68
   %38 = icmp ult i32 %37, %spec.store.select.i
@@ -916,12 +916,12 @@ define internal fastcc range(i32 0, 2) i32 @insert_oid_pair(ptr noundef captures
   %41 = load ptr, ptr %40, align 8, !tbaa !72
   %42 = zext i32 %spec.store.select.i to i64
   %43 = mul nuw nsw i64 %42, 36
-  %44 = tail call ptr @xrealloc(ptr noundef %41, i64 noundef %43) #15
+  %44 = tail call ptr @xrealloc(ptr noundef %41, i64 noundef %43) #16
   store ptr %44, ptr %40, align 8, !tbaa !72
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %46 = load ptr, ptr %45, align 8, !tbaa !73
   %47 = shl nuw nsw i64 %42, 3
-  %48 = tail call ptr @xrealloc(ptr noundef %46, i64 noundef %47) #15
+  %48 = tail call ptr @xrealloc(ptr noundef %46, i64 noundef %47) #16
   store ptr %48, ptr %45, align 8, !tbaa !73
   %.pre.i9 = load i32, ptr %0, align 8, !tbaa !68
   %.not128.i = icmp eq i32 %.pre.i9, 0
@@ -1077,18 +1077,18 @@ split.i:                                          ; preds = %100, %._crit_edge._
   %127 = load ptr, ptr %51, align 8, !tbaa !72
   %128 = zext i32 %spec.store.select.i to i64
   %129 = mul nuw nsw i64 %128, 36
-  %130 = tail call ptr @xrealloc(ptr noundef %127, i64 noundef %129) #15
+  %130 = tail call ptr @xrealloc(ptr noundef %127, i64 noundef %129) #16
   store ptr %130, ptr %51, align 8, !tbaa !72
   %131 = load ptr, ptr %53, align 8, !tbaa !73
   %132 = shl nuw nsw i64 %128, 3
-  %133 = tail call ptr @xrealloc(ptr noundef %131, i64 noundef %132) #15
+  %133 = tail call ptr @xrealloc(ptr noundef %131, i64 noundef %132) #16
   store ptr %133, ptr %53, align 8, !tbaa !73
   br label %._crit_edge132.thread.i
 
 ._crit_edge132.thread.i:                          ; preds = %126, %._crit_edge132.i, %39
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %135 = load ptr, ptr %134, align 8, !tbaa !71
-  tail call void @free(ptr noundef %135) #15
+  tail call void @free(ptr noundef %135) #16
   store ptr %36, ptr %134, align 8, !tbaa !71
   store i32 %spec.store.select.i, ptr %0, align 8, !tbaa !68
   %136 = load i32, ptr %10, align 4, !tbaa !89
@@ -1245,7 +1245,7 @@ kh_put_oid_map.exit:                              ; preds = %199
 215:                                              ; preds = %201, %183
   %.pre-phi = phi i64 [ %204, %201 ], [ %186, %183 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %216 = tail call ptr @xmalloc(i64 noundef 36) #15
+  %216 = tail call ptr @xmalloc(i64 noundef 36) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %216, ptr noundef nonnull readonly align 4 dereferenceable(32) %2, i64 32, i1 false)
   %217 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %218 = load i32, ptr %217, align 4, !tbaa !82
@@ -1265,53 +1265,54 @@ kh_put_oid_map.exit:                              ; preds = %199
 declare void @oidtree_insert(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #8
+declare double @llvm.fmuladd.f64(double, double, double) #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #10
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #11
+declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 declare i32 @adjust_shared_perm(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #14
+declare i32 @llvm.umax.i32(i32, i32) #15
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #14 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nounwind }
-attributes #16 = { nounwind willreturn memory(none) }
-attributes #17 = { nounwind willreturn memory(read) }
+attributes #3 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #15 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nounwind }
+attributes #17 = { nounwind willreturn memory(none) }
+attributes #18 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

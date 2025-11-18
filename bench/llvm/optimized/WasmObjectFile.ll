@@ -13729,7 +13729,7 @@ _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev.exit: ; preds = %925, 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm6object14WasmObjectFile21isValidFunctionSymbolEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(684) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = zext i32 %1 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 536
@@ -17367,7 +17367,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm6object14WasmObjectFile18isValidTableSymbolEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(684) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = zext i32 %1 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 536
@@ -17393,7 +17393,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6object14WasmObjectFile18isValidTa
   ret i1 %19
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm6object14WasmObjectFile19isValidGlobalSymbolEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(684) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = zext i32 %1 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 536
@@ -17419,7 +17419,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6object14WasmObjectFile19isValidGl
   ret i1 %19
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm6object14WasmObjectFile17isValidDataSymbolEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(684) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = zext i32 %1 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 536
@@ -17445,7 +17445,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6object14WasmObjectFile17isValidDa
   ret i1 %19
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm6object14WasmObjectFile16isValidTagSymbolEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(684) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = zext i32 %1 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 536
@@ -17552,7 +17552,7 @@ _ZL10readLEB128RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %17
   ret i32 %35
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm6object14WasmObjectFile20isValidSectionSymbolEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(684) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = zext i32 %1 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 536
@@ -18894,7 +18894,7 @@ define dso_local void @_ZNK4llvm6object14WasmObjectFile14moveSymbolNextERNS0_11D
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZNK4llvm6object14WasmObjectFile14getSymbolFlagsENS0_11DataRefImplE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.186") align 8 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(684) %1, i64 %2) unnamed_addr #9 align 2 {
   %.sroa.1.0.extract.shift = lshr i64 %2, 32
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 536
@@ -18971,7 +18971,7 @@ define dso_local noundef nonnull align 8 dereferenceable(144) ptr @_ZNK4llvm6obj
   ret ptr %5
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZNK4llvm6object14WasmObjectFile13getSymbolNameENS0_11DataRefImplE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.190") align 8 captures(none) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(684) %1, i64 %2) unnamed_addr #10 align 2 {
   %.sroa.1.0.extract.shift = lshr i64 %2, 32
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 536
@@ -19148,7 +19148,7 @@ _ZN4llvm8ExpectedINS_6object16content_iteratorINS1_10SectionRefEEEED2Ev.exit: ; 
 
 declare void @_ZNK4llvm6object10ObjectFile14getSymbolValueENS0_11DataRefImplE(ptr dead_on_unwind writable sret(%"class.llvm::Expected.194") align 8, ptr noundef nonnull align 8 dereferenceable(48), i64) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef i64 @_ZNK4llvm6object14WasmObjectFile18getWasmSymbolValueERKNS0_10WasmSymbolE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(684) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %1) local_unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i8, ptr %3, align 8, !tbaa !16
@@ -19213,7 +19213,7 @@ define dso_local noundef i64 @_ZNK4llvm6object14WasmObjectFile18getWasmSymbolVal
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef i64 @_ZNK4llvm6object14WasmObjectFile18getSymbolValueImplENS0_11DataRefImplE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(684) %0, i64 %1) unnamed_addr #11 align 2 {
   %.sroa.1.0.extract.shift = lshr i64 %1, 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 536
@@ -19292,7 +19292,7 @@ define dso_local noundef i64 @_ZNK4llvm6object14WasmObjectFile23getCommonSymbolS
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZNK4llvm6object14WasmObjectFile13getSymbolTypeENS0_11DataRefImplE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.203") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(684) %1, i64 %2) unnamed_addr #9 align 2 {
 switch.lookup:
   %.sroa.1.0.extract.shift = lshr i64 %2, 32
@@ -19391,7 +19391,7 @@ _ZNK4llvm6object14WasmObjectFile22getSymbolSectionIdImplERKNS0_10WasmSymbolE.exi
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef i32 @_ZNK4llvm6object14WasmObjectFile22getSymbolSectionIdImplERKNS0_10WasmSymbolE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(684) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i8, ptr %3, align 8, !tbaa !16
@@ -19437,7 +19437,7 @@ define dso_local noundef i32 @_ZNK4llvm6object14WasmObjectFile22getSymbolSection
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef i32 @_ZNK4llvm6object14WasmObjectFile18getSymbolSectionIdENS0_9SymbolRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(684) %0, i64 %1, ptr readnone captures(none) %2) local_unnamed_addr #6 align 2 {
   %.sroa.3.0.extract.shift.i = lshr i64 %1, 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 536
@@ -19487,7 +19487,7 @@ _ZNK4llvm6object14WasmObjectFile22getSymbolSectionIdImplERKNS0_10WasmSymbolE.exi
   ret i32 %.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef i32 @_ZNK4llvm6object14WasmObjectFile13getSymbolSizeENS0_9SymbolRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(684) %0, i64 %1, ptr readnone captures(none) %2) local_unnamed_addr #6 align 2 {
   %.sroa.3.0.extract.shift.i = lshr i64 %1, 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 536
@@ -19672,7 +19672,7 @@ define dso_local noundef range(i64 0, 4294967296) i64 @_ZNK4llvm6object14WasmObj
   ret i64 %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef i64 @_ZNK4llvm6object14WasmObjectFile14getSectionSizeENS0_11DataRefImplE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(684) %0, i64 %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = and i64 %1, 4294967295
@@ -19683,7 +19683,7 @@ define dso_local noundef i64 @_ZNK4llvm6object14WasmObjectFile14getSectionSizeEN
   ret i64 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZNK4llvm6object14WasmObjectFile18getSectionContentsENS0_11DataRefImplE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.208") align 8 captures(none) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(684) %1, i64 %2) unnamed_addr #10 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %5 = and i64 %2, 4294967295
@@ -19708,7 +19708,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6object14WasmObjectFile19isSection
   ret i1 false
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm6object14WasmObjectFile13isSectionTextENS0_11DataRefImplE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(684) %0, i64 %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = and i64 %1, 4294967295
@@ -19728,7 +19728,7 @@ define dso_local noundef nonnull align 8 dereferenceable(74) ptr @_ZNK4llvm6obje
   ret ptr %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm6object14WasmObjectFile13isSectionDataENS0_11DataRefImplE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(684) %0, i64 %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = and i64 %1, 4294967295
@@ -19757,7 +19757,7 @@ define dso_local { i64, ptr } @_ZNK4llvm6object14WasmObjectFile17section_rel_beg
   ret { i64, ptr } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local { i64, ptr } @_ZNK4llvm6object14WasmObjectFile15section_rel_endENS0_11DataRefImplE(ptr noundef nonnull align 8 dereferenceable(684) %0, i64 %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = and i64 %1, 4294967295
@@ -19787,7 +19787,7 @@ define dso_local void @_ZNK4llvm6object14WasmObjectFile18moveRelocationNextERNS0
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef i64 @_ZNK4llvm6object14WasmObjectFile19getRelocationOffsetENS0_11DataRefImplE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(684) %0, i64 %1) unnamed_addr #6 align 2 {
   %.sroa.2.0.extract.shift.i = lshr i64 %1, 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -19802,7 +19802,7 @@ define dso_local noundef i64 @_ZNK4llvm6object14WasmObjectFile19getRelocationOff
   ret i64 %11
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4llvm6object14WasmObjectFile17getWasmRelocationENS0_11DataRefImplE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(684) %0, i64 %1) local_unnamed_addr #6 align 2 {
   %.sroa.2.0.extract.shift = lshr i64 %1, 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -19851,7 +19851,7 @@ define dso_local { i64, ptr } @_ZNK4llvm6object14WasmObjectFile19getRelocationSy
   ret { i64, ptr } %.fca.1.insert.merged
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef range(i64 0, 256) i64 @_ZNK4llvm6object14WasmObjectFile17getRelocationTypeENS0_11DataRefImplE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(684) %0, i64 %1) unnamed_addr #6 align 2 {
   %.sroa.2.0.extract.shift.i = lshr i64 %1, 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -20006,7 +20006,7 @@ define dso_local noundef nonnull align 8 dereferenceable(74) ptr @_ZNK4llvm6obje
   ret ptr %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4llvm6object14WasmObjectFile17getWasmRelocationERKNS0_13RelocationRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(684) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #6 align 2 {
   %.sroa.0.0.copyload.i = load i64, ptr %1, align 8, !tbaa !36
   %.sroa.2.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload.i, 32
@@ -24088,12 +24088,12 @@ attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

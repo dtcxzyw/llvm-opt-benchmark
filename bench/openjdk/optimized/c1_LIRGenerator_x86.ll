@@ -465,37 +465,37 @@ _ZNK7LIR_Opr11is_constantEv.exit.thread:          ; preds = %1, %_ZNK7LIR_Opr11i
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden i64 @_ZN12LIRGenerator15exceptionOopOprEv() local_unnamed_addr #2 align 2 {
   %.sroa.0.0.copyload = load i64, ptr @_ZN8FrameMap11rax_oop_oprE, align 8
   ret i64 %.sroa.0.0.copyload
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden i64 @_ZN12LIRGenerator14exceptionPcOprEv() local_unnamed_addr #2 align 2 {
   %.sroa.0.0.copyload = load i64, ptr @_ZN8FrameMap7rdx_oprE, align 8
   ret i64 %.sroa.0.0.copyload
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden i64 @_ZN12LIRGenerator8divInOprEv() local_unnamed_addr #2 align 2 {
   %.sroa.0.0.copyload = load i64, ptr @_ZN8FrameMap7rax_oprE, align 8
   ret i64 %.sroa.0.0.copyload
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden i64 @_ZN12LIRGenerator9divOutOprEv() local_unnamed_addr #2 align 2 {
   %.sroa.0.0.copyload = load i64, ptr @_ZN8FrameMap7rax_oprE, align 8
   ret i64 %.sroa.0.0.copyload
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden i64 @_ZN12LIRGenerator9remOutOprEv() local_unnamed_addr #2 align 2 {
   %.sroa.0.0.copyload = load i64, ptr @_ZN8FrameMap7rdx_oprE, align 8
   ret i64 %.sroa.0.0.copyload
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden i64 @_ZN12LIRGenerator13shiftCountOprEv() local_unnamed_addr #2 align 2 {
   %.sroa.0.0.copyload = load i64, ptr @_ZN8FrameMap7rcx_oprE, align 8
   ret i64 %.sroa.0.0.copyload
@@ -509,13 +509,13 @@ define hidden i64 @_ZN12LIRGenerator11syncLockOprEv(ptr noundef nonnull align 8 
 
 declare i64 @_ZN12LIRGenerator12new_registerE9BasicType(ptr noundef nonnull align 8 dereferenceable(232), i8 noundef zeroext) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden i64 @_ZN12LIRGenerator11syncTempOprEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(232) %0) local_unnamed_addr #2 align 2 {
   %.sroa.0.0.copyload = load i64, ptr @_ZN8FrameMap7rax_oprE, align 8
   ret i64 %.sroa.0.0.copyload
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden i64 @_ZN12LIRGenerator13getThreadTempEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(232) %0) local_unnamed_addr #2 align 2 {
   %.sroa.0.0.copyload = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
   ret i64 %.sroa.0.0.copyload
@@ -644,7 +644,7 @@ define hidden noundef zeroext i1 @_ZNK12LIRGenerator22can_inline_as_constantEP9L
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden i64 @_ZN12LIRGenerator23safepoint_poll_registerEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(232) %0) local_unnamed_addr #2 align 2 {
   %.sroa.0.0.copyload = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
   ret i64 %.sroa.0.0.copyload
@@ -12150,7 +12150,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %32, %37
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden range(i64 -2147483648, 2147483648) i64 @_ZN12LIRGenerator16getThreadPointerEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(232) %0) local_unnamed_addr #2 align 2 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 60), align 4
   %3 = shl i32 %2, 14
@@ -12801,7 +12801,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

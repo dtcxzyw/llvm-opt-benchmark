@@ -76,28 +76,28 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @archive_read_support_format_rar(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 14594245, i32 noundef 1, ptr noundef nonnull @.str) #19
+  %2 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 14594245, i32 noundef 1, ptr noundef nonnull @.str) #20
   %.not = icmp eq i32 %2, -30
   br i1 %.not, label %11, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call noalias dereferenceable_or_null(20312) ptr @calloc(i64 noundef 1, i64 noundef 20312) #20
+  %4 = tail call noalias dereferenceable_or_null(20312) ptr @calloc(i64 noundef 1, i64 noundef 20312) #21
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.1) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.1) #20
   br label %11
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 20304
   store i32 -1, ptr %8, align 8, !tbaa !4
-  %9 = tail call i32 @__archive_read_register_format(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull @.str.2, ptr noundef nonnull @archive_read_format_rar_bid, ptr noundef nonnull @archive_read_format_rar_options, ptr noundef nonnull @archive_read_format_rar_read_header, ptr noundef nonnull @archive_read_format_rar_read_data, ptr noundef nonnull @archive_read_format_rar_read_data_skip, ptr noundef nonnull @archive_read_format_rar_seek_data, ptr noundef nonnull @archive_read_format_rar_cleanup, ptr noundef nonnull @archive_read_support_format_rar_capabilities, ptr noundef nonnull @archive_read_format_rar_has_encrypted_entries) #19
+  %9 = tail call i32 @__archive_read_register_format(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull @.str.2, ptr noundef nonnull @archive_read_format_rar_bid, ptr noundef nonnull @archive_read_format_rar_options, ptr noundef nonnull @archive_read_format_rar_read_header, ptr noundef nonnull @archive_read_format_rar_read_data, ptr noundef nonnull @archive_read_format_rar_read_data_skip, ptr noundef nonnull @archive_read_format_rar_seek_data, ptr noundef nonnull @archive_read_format_rar_cleanup, ptr noundef nonnull @archive_read_support_format_rar_capabilities, ptr noundef nonnull @archive_read_format_rar_has_encrypted_entries) #20
   %.not14 = icmp eq i32 %9, 0
   br i1 %.not14, label %11, label %10
 
 10:                                               ; preds = %7
-  tail call void @free(ptr noundef nonnull %4) #19
+  tail call void @free(ptr noundef nonnull %4) #20
   br label %11
 
 11:                                               ; preds = %7, %10, %1, %6
@@ -121,7 +121,7 @@ define internal range(i32 -1, 31) i32 @archive_read_format_rar_bid(ptr noundef %
   br i1 %4, label %44, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 7, ptr noundef null) #19
+  %6 = tail call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 7, ptr noundef null) #20
   %7 = icmp eq ptr %6, null
   br i1 %7, label %44, label %8
 
@@ -154,7 +154,7 @@ define internal range(i32 -1, 31) i32 @archive_read_format_rar_bid(ptr noundef %
   %21 = phi i64 [ 69632, %19 ], [ %42, %41 ]
   %.02450 = phi i64 [ 4096, %19 ], [ %.125, %41 ]
   %.02649 = phi i64 [ 65536, %19 ], [ %.127, %41 ]
-  %22 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %21, ptr noundef nonnull %3) #19
+  %22 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %21, ptr noundef nonnull %3) #20
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %27
 
@@ -212,7 +212,7 @@ define internal range(i32 -30, 1) i32 @archive_read_format_rar_options(ptr nound
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   %5 = load ptr, ptr %4, align 8, !tbaa !35
   %6 = load ptr, ptr %5, align 8, !tbaa !49
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.5) #21
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.5) #22
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %18
 
@@ -226,11 +226,11 @@ define internal range(i32 -30, 1) i32 @archive_read_format_rar_options(ptr nound
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %11, %9
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.6) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.6) #20
   br label %18
 
 15:                                               ; preds = %11
-  %16 = tail call ptr @archive_string_conversion_from_charset(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 0) #19
+  %16 = tail call ptr @archive_string_conversion_from_charset(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 0) #20
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 20248
   store ptr %16, ptr %17, align 8, !tbaa !51
   %.not = icmp eq ptr %16, null
@@ -270,7 +270,7 @@ define internal range(i32 -30, 2) i32 @archive_read_format_rar_read_header(ptr n
   br label %17
 
 17:                                               ; preds = %16, %9
-  %18 = tail call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef 7, ptr noundef null) #19
+  %18 = tail call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef 7, ptr noundef null) #20
   %19 = icmp eq ptr %18, null
   br i1 %19, label %.thread135, label %20
 
@@ -312,7 +312,7 @@ define internal range(i32 -30, 2) i32 @archive_read_format_rar_read_header(ptr n
   br i1 %36, label %37, label %skip_sfx.exit.thread
 
 37:                                               ; preds = %34
-  %38 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef %.0.i, ptr noundef nonnull %3) #19
+  %38 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef %.0.i, ptr noundef nonnull %3) #20
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %43
 
@@ -346,12 +346,12 @@ define internal range(i32 -30, 2) i32 @archive_read_format_rar_read_header(ptr n
   %52 = ptrtoint ptr %49 to i64
   %53 = ptrtoint ptr %38 to i64
   %54 = sub i64 %52, %53
-  %55 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %54) #19
+  %55 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %54) #20
   %56 = add i64 %54, %.024.ph.i
   br label %.outer.i, !llvm.loop !55
 
 skip_sfx.exit.thread:                             ; preds = %43, %34, %40
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.14) #19
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.14) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread135
 
@@ -359,13 +359,13 @@ skip_sfx.exit:                                    ; preds = %.lr.ph.i
   %57 = ptrtoint ptr %.02634.i to i64
   %58 = ptrtoint ptr %38 to i64
   %59 = sub i64 %57, %58
-  %60 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %59) #19
+  %60 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %59) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %61
 
 61:                                               ; preds = %skip_sfx.exit, %31, %20
   store i32 1, ptr %21, align 8, !tbaa !54
-  %62 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef 7, ptr noundef null) #19
+  %62 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef 7, ptr noundef null) #20
   %63 = icmp eq ptr %62, null
   br i1 %63, label %.thread135, label %.lr.ph158
 
@@ -398,7 +398,7 @@ skip_sfx.exit:                                    ; preds = %.lr.ph.i
   br i1 %.not120, label %.sink.split, label %72
 
 72:                                               ; preds = %71
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.8) #19
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.8) #20
   br label %.thread135
 
 73:                                               ; preds = %67
@@ -419,11 +419,11 @@ skip_sfx.exit:                                    ; preds = %.lr.ph.i
   br i1 %83, label %84, label %85
 
 84:                                               ; preds = %73
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.9) #19
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.9) #20
   br label %.thread135
 
 85:                                               ; preds = %73
-  %86 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef %82, ptr noundef null) #19
+  %86 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef %82, ptr noundef null) #20
   %87 = icmp eq ptr %86, null
   br i1 %87, label %.thread135, label %88
 
@@ -444,7 +444,7 @@ skip_sfx.exit:                                    ; preds = %.lr.ph.i
   br i1 %96, label %97, label %98
 
 97:                                               ; preds = %95
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.9) #19
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.9) #20
   br label %.thread135
 
 98:                                               ; preds = %95
@@ -459,24 +459,24 @@ skip_sfx.exit:                                    ; preds = %.lr.ph.i
   br i1 %.not117, label %104, label %103
 
 103:                                              ; preds = %101
-  call void @archive_entry_set_is_metadata_encrypted(ptr noundef %1, i8 noundef signext 1) #19
-  call void @archive_entry_set_is_data_encrypted(ptr noundef %1, i8 noundef signext 1) #19
+  call void @archive_entry_set_is_metadata_encrypted(ptr noundef %1, i8 noundef signext 1) #20
+  call void @archive_entry_set_is_data_encrypted(ptr noundef %1, i8 noundef signext 1) #20
   store i32 1, ptr %13, align 8, !tbaa !4
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.10) #19
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.10) #20
   br label %.thread135
 
 104:                                              ; preds = %101
   %105 = getelementptr inbounds nuw i8, ptr %86, i64 2
   %106 = zext i16 %81 to i32
   %107 = add nsw i32 %106, -2
-  %108 = call i64 @cm_zlib_crc32(i64 noundef 0, ptr noundef nonnull %105, i32 noundef %107) #19
+  %108 = call i64 @cm_zlib_crc32(i64 noundef 0, ptr noundef nonnull %105, i32 noundef %107) #20
   %.val124 = load i16, ptr %86, align 1
   %109 = trunc i64 %108 to i16
   %.not118 = icmp eq i16 %.val124, %109
   br i1 %.not118, label %.sink.split, label %110
 
 110:                                              ; preds = %104
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.11) #19
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.11) #20
   br label %.thread135
 
 111:                                              ; preds = %67
@@ -497,7 +497,7 @@ skip_sfx.exit:                                    ; preds = %.lr.ph.i
   br i1 %121, label %122, label %123
 
 122:                                              ; preds = %113
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.12) #19
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.12) #20
   br label %.thread135
 
 123:                                              ; preds = %113
@@ -511,11 +511,11 @@ skip_sfx.exit:                                    ; preds = %.lr.ph.i
   br i1 %126, label %127, label %128
 
 127:                                              ; preds = %125
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.12) #19
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.12) #20
   br label %.thread135
 
 128:                                              ; preds = %125
-  %129 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef %120, ptr noundef null) #19
+  %129 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef %120, ptr noundef null) #20
   %130 = icmp eq ptr %129, null
   br i1 %130, label %.thread135, label %131
 
@@ -530,7 +530,7 @@ skip_sfx.exit:                                    ; preds = %.lr.ph.i
   %.0101 = phi i64 [ %135, %131 ], [ %120, %123 ]
   %.0100 = phi ptr [ %129, %131 ], [ %68, %123 ]
   %.0100.val = load i16, ptr %.0100, align 1
-  %136 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef 2) #19
+  %136 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef 2) #20
   %137 = add nsw i64 %.0101, -2
   br label %.lr.ph
 
@@ -538,18 +538,18 @@ skip_sfx.exit:                                    ; preds = %.lr.ph.i
   %.0156 = phi i64 [ %141, %139 ], [ 0, %.lr.ph.preheader ]
   %.1102155 = phi i64 [ %143, %139 ], [ %137, %.lr.ph.preheader ]
   %spec.store.select = call i64 @llvm.umin.i64(i64 %.1102155, i64 32768)
-  %138 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef %spec.store.select, ptr noundef null) #19
+  %138 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef %spec.store.select, ptr noundef null) #20
   %.not115 = icmp eq ptr %138, null
   br i1 %.not115, label %.thread, label %139
 
 .thread:                                          ; preds = %.lr.ph
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.13) #19
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.13) #20
   br label %.thread135
 
 139:                                              ; preds = %.lr.ph
   %140 = trunc nuw nsw i64 %spec.store.select to i32
-  %141 = call i64 @cm_zlib_crc32(i64 noundef %.0156, ptr noundef nonnull %138, i32 noundef %140) #19
-  %142 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %spec.store.select) #19
+  %141 = call i64 @cm_zlib_crc32(i64 noundef %.0156, ptr noundef nonnull %138, i32 noundef %140) #20
+  %142 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %spec.store.select) #20
   %143 = sub i64 %.1102155, %spec.store.select
   %.not113 = icmp eq i64 %143, 0
   br i1 %.not113, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !59
@@ -560,7 +560,7 @@ skip_sfx.exit:                                    ; preds = %.lr.ph.i
   br i1 %.not114, label %146, label %145
 
 145:                                              ; preds = %._crit_edge.loopexit
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.11) #19
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.11) #20
   br label %.thread135
 
 146:                                              ; preds = %._crit_edge.loopexit
@@ -573,16 +573,16 @@ skip_sfx.exit:                                    ; preds = %.lr.ph.i
   br i1 %150, label %.thread135, label %153
 
 151:                                              ; preds = %67
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.13) #19
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.13) #20
   br label %.thread135
 
 .sink.split:                                      ; preds = %104, %71
   %.sink = phi i64 [ 7, %71 ], [ %82, %104 ]
-  %152 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %.sink) #19
+  %152 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %.sink) #20
   br label %153
 
 153:                                              ; preds = %.sink.split, %146, %148
-  %154 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef 7, ptr noundef null) #19
+  %154 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef 7, ptr noundef null) #20
   %155 = icmp eq ptr %154, null
   br i1 %155, label %.thread135, label %67
 
@@ -613,7 +613,7 @@ define internal range(i32 -30, 2) i32 @archive_read_format_rar_read_data(ptr nou
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %13
-  %18 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %15) #19
+  %18 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %15) #20
   store i64 0, ptr %14, align 8, !tbaa !60
   br label %19
 
@@ -691,7 +691,7 @@ define internal range(i32 -30, 2) i32 @archive_read_format_rar_read_data(ptr nou
   br i1 %.not27.i, label %56, label %55
 
 55:                                               ; preds = %48
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.31) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.31) #20
   br label %read_data_stored.exit
 
 56:                                               ; preds = %48
@@ -707,7 +707,7 @@ define internal range(i32 -30, 2) i32 @archive_read_format_rar_read_data(ptr nou
   br i1 %61, label %62, label %63
 
 62:                                               ; preds = %58
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.32) #19
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.32) #20
   br label %read_data_stored.exit
 
 63:                                               ; preds = %58
@@ -729,7 +729,7 @@ define internal range(i32 -30, 2) i32 @archive_read_format_rar_read_data(ptr nou
   %73 = getelementptr inbounds nuw i8, ptr %37, i64 240
   %74 = load i64, ptr %73, align 8, !tbaa !70
   %75 = trunc i64 %60 to i32
-  %76 = call i64 @cm_zlib_crc32(i64 noundef %74, ptr noundef %59, i32 noundef %75) #19
+  %76 = call i64 @cm_zlib_crc32(i64 noundef %74, ptr noundef %59, i32 noundef %75) #20
   store i64 %76, ptr %73, align 8, !tbaa !70
   br label %read_data_stored.exit
 
@@ -748,7 +748,7 @@ read_data_stored.exit:                            ; preds = %55, %56, %62, %63
 79:                                               ; preds = %77
   %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd7_functions, i64 16), align 8, !tbaa !71
   %81 = getelementptr inbounds nuw i8, ptr %8, i64 984
-  tail call void %80(ptr noundef nonnull %81) #19
+  tail call void %80(ptr noundef nonnull %81) #20
   %82 = getelementptr inbounds nuw i8, ptr %8, i64 904
   store i8 1, ptr %82, align 8, !tbaa !73
   %83 = getelementptr inbounds nuw i8, ptr %8, i64 976
@@ -756,7 +756,7 @@ read_data_stored.exit:                            ; preds = %55, %56, %62, %63
   br label %85
 
 84:                                               ; preds = %32
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.30) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.30) #20
   br label %85
 
 85:                                               ; preds = %read_data_stored.exit, %84, %79, %77, %77, %27
@@ -779,7 +779,7 @@ tailrecurse:                                      ; preds = %32, %1
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %tailrecurse
-  %10 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %7) #19
+  %10 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %7) #20
   store i64 0, ptr %6, align 8, !tbaa !60
   br label %11
 
@@ -790,7 +790,7 @@ tailrecurse:                                      ; preds = %32, %1
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %11
-  %16 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %13) #19
+  %16 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %13) #20
   %17 = icmp slt i64 %16, 0
   br i1 %17, label %33, label %18
 
@@ -942,7 +942,7 @@ define internal i64 @archive_read_format_rar_seek_data(ptr noundef %0, i64 nound
   br i1 %55, label %56, label %57
 
 56:                                               ; preds = %54
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.50) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.50) #20
   br label %.loopexit143
 
 57:                                               ; preds = %54
@@ -962,7 +962,7 @@ define internal i64 @archive_read_format_rar_seek_data(ptr noundef %0, i64 nound
 67:                                               ; preds = %57
   %68 = load i64, ptr %60, align 8, !tbaa !82
   %69 = sub nsw i64 %65, %68
-  %70 = tail call i64 @__archive_read_seek(ptr noundef %0, i64 noundef %69, i32 noundef 0) #19
+  %70 = tail call i64 @__archive_read_seek(ptr noundef %0, i64 noundef %69, i32 noundef 0) #20
   %71 = icmp slt i64 %70, 0
   br i1 %71, label %.loopexit143, label %72
 
@@ -973,7 +973,7 @@ define internal i64 @archive_read_format_rar_seek_data(ptr noundef %0, i64 nound
   br i1 %.not136, label %76, label %75
 
 75:                                               ; preds = %72
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.51) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.51) #20
   br label %.loopexit143
 
 76:                                               ; preds = %72
@@ -1023,7 +1023,7 @@ define internal i64 @archive_read_format_rar_seek_data(ptr noundef %0, i64 nound
 
 101:                                              ; preds = %90, %86
   store i32 %45, ptr %29, align 8, !tbaa !79
-  %102 = tail call i64 @__archive_read_seek(ptr noundef %0, i64 noundef %81, i32 noundef 0) #19
+  %102 = tail call i64 @__archive_read_seek(ptr noundef %0, i64 noundef %81, i32 noundef 0) #20
   %103 = icmp slt i64 %102, 0
   br i1 %103, label %.loopexit143, label %104
 
@@ -1045,7 +1045,7 @@ define internal i64 @archive_read_format_rar_seek_data(ptr noundef %0, i64 nound
   br i1 %.not135, label %113, label %112
 
 112:                                              ; preds = %111
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.51) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.51) #20
   br label %.loopexit143
 
 113:                                              ; preds = %111
@@ -1066,7 +1066,7 @@ define internal i64 @archive_read_format_rar_seek_data(ptr noundef %0, i64 nound
 
 .loopexit:                                        ; preds = %79, %83, %76, %._crit_edge
   %.3 = phi i64 [ %63, %76 ], [ %.2.lcssa, %._crit_edge ], [ %.4, %83 ], [ %.4, %79 ]
-  %127 = tail call i64 @__archive_read_seek(ptr noundef %0, i64 noundef %.3, i32 noundef 0) #19
+  %127 = tail call i64 @__archive_read_seek(ptr noundef %0, i64 noundef %.3, i32 noundef 0) #20
   %128 = icmp slt i64 %127, 0
   br i1 %128, label %.loopexit143, label %129
 
@@ -1103,7 +1103,7 @@ define internal i64 @archive_read_format_rar_seek_data(ptr noundef %0, i64 nound
   %146 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %147 = load i64, ptr %146, align 8, !tbaa !77
   %148 = sub nsw i64 %.1117.lcssa, %147
-  tail call void @__archive_reset_read_data(ptr noundef %0) #19
+  tail call void @__archive_reset_read_data(ptr noundef %0) #20
   %149 = getelementptr inbounds nuw i8, ptr %6, i64 160
   store i64 0, ptr %149, align 8, !tbaa !60
   %150 = getelementptr inbounds nuw i8, ptr %6, i64 184
@@ -1124,7 +1124,7 @@ define internal i64 @archive_read_format_rar_seek_data(ptr noundef %0, i64 nound
   br label %.loopexit143
 
 159:                                              ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.52) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.52) #20
   br label %.loopexit143
 
 .loopexit143:                                     ; preds = %101, %153, %.loopexit, %67, %14, %159, %157, %112, %75, %56
@@ -1139,28 +1139,28 @@ define internal noundef i32 @archive_read_format_rar_cleanup(ptr noundef readonl
   %4 = load ptr, ptr %3, align 8, !tbaa !49
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 280
   %6 = load ptr, ptr %5, align 8, !tbaa !86
-  tail call void @free(ptr noundef %6) #19
+  tail call void @free(ptr noundef %6) #20
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 320
   %8 = load ptr, ptr %7, align 8, !tbaa !87
-  tail call void @free(ptr noundef %8) #19
+  tail call void @free(ptr noundef %8) #20
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 360
   %10 = load ptr, ptr %9, align 8, !tbaa !88
-  tail call void @free(ptr noundef %10) #19
+  tail call void @free(ptr noundef %10) #20
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 400
   %12 = load ptr, ptr %11, align 8, !tbaa !89
-  tail call void @free(ptr noundef %12) #19
+  tail call void @free(ptr noundef %12) #20
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 312
   %14 = load ptr, ptr %13, align 8, !tbaa !90
-  tail call void @free(ptr noundef %14) #19
+  tail call void @free(ptr noundef %14) #20
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 352
   %16 = load ptr, ptr %15, align 8, !tbaa !91
-  tail call void @free(ptr noundef %16) #19
+  tail call void @free(ptr noundef %16) #20
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 392
   %18 = load ptr, ptr %17, align 8, !tbaa !92
-  tail call void @free(ptr noundef %18) #19
+  tail call void @free(ptr noundef %18) #20
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 432
   %20 = load ptr, ptr %19, align 8, !tbaa !93
-  tail call void @free(ptr noundef %20) #19
+  tail call void @free(ptr noundef %20) #20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %5, i8 0, i64 160, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 928
   %22 = load ptr, ptr %21, align 8, !tbaa !94
@@ -1173,8 +1173,8 @@ define internal noundef i32 @archive_read_format_rar_cleanup(ptr noundef readonl
   %24 = load ptr, ptr %23, align 8, !tbaa !95
   %25 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !97
-  tail call void @free(ptr noundef %26) #19
-  tail call void @free(ptr noundef nonnull %.06.i.i) #19
+  tail call void @free(ptr noundef %26) #20
+  tail call void @free(ptr noundef nonnull %.06.i.i) #20
   %.not.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i, label %delete_filter.exit.i, label %.lr.ph.i.i, !llvm.loop !98
 
@@ -1189,37 +1189,37 @@ delete_filter.exit.i:                             ; preds = %.lr.ph.i.i, %1
   %29 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 48
   %30 = load ptr, ptr %29, align 8, !tbaa !100
   %31 = load ptr, ptr %.07.i.i, align 8, !tbaa !102
-  tail call void @free(ptr noundef %31) #19
+  tail call void @free(ptr noundef %31) #20
   %32 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !103
-  tail call void @free(ptr noundef %33) #19
-  tail call void @free(ptr noundef nonnull %.07.i.i) #19
+  tail call void @free(ptr noundef %33) #20
+  tail call void @free(ptr noundef nonnull %.07.i.i) #20
   %.not.i4.i = icmp eq ptr %30, null
   br i1 %.not.i4.i, label %clear_filters.exit, label %.lr.ph.i3.i, !llvm.loop !104
 
 clear_filters.exit:                               ; preds = %.lr.ph.i3.i, %delete_filter.exit.i
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 912
   %35 = load ptr, ptr %34, align 8, !tbaa !105
-  tail call void @free(ptr noundef %35) #19
+  tail call void @free(ptr noundef %35) #20
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %37 = load ptr, ptr %36, align 8, !tbaa !106
-  tail call void @free(ptr noundef %37) #19
+  tail call void @free(ptr noundef %37) #20
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %39 = load ptr, ptr %38, align 8, !tbaa !107
-  tail call void @free(ptr noundef %39) #19
+  tail call void @free(ptr noundef %39) #20
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 256
   %41 = load ptr, ptr %40, align 8, !tbaa !76
-  tail call void @free(ptr noundef %41) #19
+  tail call void @free(ptr noundef %41) #20
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 224
   %43 = load ptr, ptr %42, align 8, !tbaa !108
-  tail call void @free(ptr noundef %43) #19
+  tail call void @free(ptr noundef %43) #20
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 848
   %45 = load ptr, ptr %44, align 8, !tbaa !109
-  tail call void @free(ptr noundef %45) #19
+  tail call void @free(ptr noundef %45) #20
   %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd7_functions, i64 16), align 8, !tbaa !71
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 984
-  tail call void %46(ptr noundef nonnull %47) #19
-  tail call void @free(ptr noundef nonnull %4) #19
+  tail call void %46(ptr noundef nonnull %47) #20
+  tail call void @free(ptr noundef nonnull %4) #20
   %48 = load ptr, ptr %2, align 8, !tbaa !35
   store ptr null, ptr %48, align 8, !tbaa !49
   ret i32 0
@@ -1230,7 +1230,7 @@ define internal noundef i32 @archive_read_support_format_rar_capabilities(ptr re
   ret i32 3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal i32 @archive_read_format_rar_has_encrypted_entries(ptr noundef readonly captures(address_is_null) %0) #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %2
@@ -1300,7 +1300,7 @@ define internal fastcc range(i32 -30, 1) i32 @read_header(ptr noundef %0, ptr no
   br label %17
 
 14:                                               ; preds = %11
-  %15 = tail call ptr @archive_string_default_conversion_for_read(ptr noundef nonnull %0) #19
+  %15 = tail call ptr @archive_string_default_conversion_for_read(ptr noundef nonnull %0) #20
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 20240
   store ptr %15, ptr %16, align 8, !tbaa !111
   store i32 1, ptr %12, align 8, !tbaa !110
@@ -1308,7 +1308,7 @@ define internal fastcc range(i32 -30, 1) i32 @read_header(ptr noundef %0, ptr no
 
 17:                                               ; preds = %14, %._crit_edge, %3
   %.0397 = phi ptr [ %9, %3 ], [ %.pre, %._crit_edge ], [ %15, %14 ]
-  %18 = tail call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef 7, ptr noundef null) #19
+  %18 = tail call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef 7, ptr noundef null) #20
   %19 = icmp eq ptr %18, null
   br i1 %19, label %.thread491, label %20
 
@@ -1332,13 +1332,13 @@ define internal fastcc range(i32 -30, 1) i32 @read_header(ptr noundef %0, ptr no
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %20
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.9) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.9) #20
   br label %.thread491
 
 30:                                               ; preds = %20
   %.sroa.5475.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 2
-  %31 = tail call i64 @cm_zlib_crc32(i64 noundef 0, ptr noundef nonnull %.sroa.5475.0..sroa_idx, i32 noundef 5) #19
-  %32 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef 7) #19
+  %31 = tail call i64 @cm_zlib_crc32(i64 noundef 0, ptr noundef nonnull %.sroa.5475.0..sroa_idx, i32 noundef 5) #20
+  %32 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef 7) #20
   %33 = load i32, ptr %22, align 8, !tbaa !68
   %34 = and i32 %33, 16
   %.not423 = icmp eq i32 %34, 0
@@ -1360,24 +1360,24 @@ define internal fastcc range(i32 -30, 1) i32 @read_header(ptr noundef %0, ptr no
   %47 = add nsw i64 %27, -7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %37, i8 0, i64 36, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %43, i8 0, i64 56, i1 false)
-  %48 = tail call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef %47, ptr noundef null) #19
+  %48 = tail call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef %47, ptr noundef null) #20
   %49 = icmp eq ptr %48, null
   br i1 %49, label %.thread491, label %51
 
 50:                                               ; preds = %30
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.15) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.15) #20
   br label %.thread491
 
 51:                                               ; preds = %35
   %52 = and i64 %31, 4294967295
   %53 = trunc nuw nsw i64 %47 to i32
-  %54 = tail call i64 @cm_zlib_crc32(i64 noundef %52, ptr noundef nonnull %48, i32 noundef %53) #19
+  %54 = tail call i64 @cm_zlib_crc32(i64 noundef %52, ptr noundef nonnull %48, i32 noundef %53) #20
   %55 = trunc i64 %54 to i16
   %.not424 = icmp eq i16 %.sroa.0473.0.copyload, %55
   br i1 %.not424, label %57, label %56
 
 56:                                               ; preds = %51
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.11) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.11) #20
   br label %.thread491
 
 57:                                               ; preds = %51
@@ -1428,7 +1428,7 @@ define internal fastcc range(i32 -30, 1) i32 @read_header(ptr noundef %0, ptr no
   store i32 %76, ptr %77, align 4, !tbaa !118
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 -1, ptr %78, align 8, !tbaa !119
-  %79 = call noundef i64 @mktime(ptr noundef nonnull %4) #19
+  %79 = call noundef i64 @mktime(ptr noundef nonnull %4) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i64 %79, ptr %39, align 8, !tbaa !120
   %80 = zext i32 %.sroa.8.0.copyload to i64
@@ -1440,10 +1440,10 @@ define internal fastcc range(i32 -30, 1) i32 @read_header(ptr noundef %0, ptr no
   br i1 %.not425, label %86, label %84
 
 84:                                               ; preds = %57
-  tail call void @archive_entry_set_is_data_encrypted(ptr noundef %1, i8 noundef signext 1) #19
+  tail call void @archive_entry_set_is_data_encrypted(ptr noundef %1, i8 noundef signext 1) #20
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 20304
   store i32 1, ptr %85, align 8, !tbaa !4
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.10) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.10) #20
   %.pre614 = load i32, ptr %22, align 8, !tbaa !68
   br label %86
 
@@ -1458,7 +1458,7 @@ define internal fastcc range(i32 -30, 1) i32 @read_header(ptr noundef %0, ptr no
   br i1 %90, label %91, label %94
 
 91:                                               ; preds = %89
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.9) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.9) #20
   br label %.thread491
 
 .thread483:                                       ; preds = %86
@@ -1489,7 +1489,7 @@ define internal fastcc range(i32 -30, 1) i32 @read_header(ptr noundef %0, ptr no
   br i1 %or.cond, label %109, label %110
 
 109:                                              ; preds = %94
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.16) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.16) #20
   br label %.thread491
 
 110:                                              ; preds = %94, %.thread483
@@ -1503,7 +1503,7 @@ define internal fastcc range(i32 -30, 1) i32 @read_header(ptr noundef %0, ptr no
 114:                                              ; preds = %110
   %115 = add nuw nsw i64 %111, %27
   %116 = add nsw i64 %115, -7
-  %117 = tail call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef %116, ptr noundef null) #19
+  %117 = tail call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef %116, ptr noundef null) #20
   %.not427 = icmp eq ptr %117, null
   %118 = ptrtoint ptr %.0369482486 to i64
   %119 = ptrtoint ptr %48 to i64
@@ -1530,7 +1530,7 @@ define internal fastcc range(i32 -30, 1) i32 @read_header(ptr noundef %0, ptr no
   br i1 %131, label %132, label %133
 
 132:                                              ; preds = %123
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.17) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.17) #20
   br label %.thread491
 
 133:                                              ; preds = %123
@@ -1545,12 +1545,12 @@ define internal fastcc range(i32 -30, 1) i32 @read_header(ptr noundef %0, ptr no
   br i1 %139, label %142, label %._crit_edge615
 
 142:                                              ; preds = %133
-  %143 = tail call ptr @realloc(ptr noundef %141, i64 noundef %138) #22
+  %143 = tail call ptr @realloc(ptr noundef %141, i64 noundef %138) #23
   %144 = icmp eq ptr %143, null
   br i1 %144, label %145, label %146
 
 145:                                              ; preds = %142
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.18) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.18) #20
   br label %.thread491
 
 146:                                              ; preds = %142
@@ -1570,12 +1570,12 @@ define internal fastcc range(i32 -30, 1) i32 @read_header(ptr noundef %0, ptr no
   br i1 %.not428, label %.preheader, label %153
 
 .preheader:                                       ; preds = %._crit_edge615
-  %152 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %147, i32 noundef 92) #21
+  %152 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %147, i32 noundef 92) #22
   %.not429583 = icmp eq ptr %152, null
   br i1 %.not429583, label %.loopexit, label %.lr.ph584
 
 153:                                              ; preds = %._crit_edge615
-  %154 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %147) #21
+  %154 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %147) #22
   %.not430 = icmp eq i64 %154, %129
   br i1 %.not430, label %289, label %155
 
@@ -1856,7 +1856,7 @@ default.unreachable:                              ; preds = %194
   br i1 %268, label %269, label %.outer._crit_edge.thread
 
 269:                                              ; preds = %.outer._crit_edge
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.19) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.19) #20
   br label %.thread491
 
 .outer._crit_edge.thread:                         ; preds = %163, %.outer._crit_edge
@@ -1875,7 +1875,7 @@ default.unreachable:                              ; preds = %194
   br i1 %277, label %278, label %281
 
 278:                                              ; preds = %.outer._crit_edge.thread
-  %279 = tail call ptr @archive_string_conversion_from_charset(ptr noundef %0, ptr noundef nonnull @.str.20, i32 noundef 1) #19
+  %279 = tail call ptr @archive_string_conversion_from_charset(ptr noundef %0, ptr noundef nonnull @.str.20, i32 noundef 1) #20
   store ptr %279, ptr %275, align 8, !tbaa !125
   %280 = icmp eq ptr %279, null
   br i1 %280, label %.thread491, label %281
@@ -1915,28 +1915,28 @@ default.unreachable:                              ; preds = %194
   br i1 %292, label %293, label %296
 
 293:                                              ; preds = %289
-  %294 = tail call ptr @archive_string_conversion_from_charset(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef 1) #19
+  %294 = tail call ptr @archive_string_conversion_from_charset(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef 1) #20
   store ptr %294, ptr %290, align 8, !tbaa !127
   %295 = icmp eq ptr %294, null
   br i1 %295, label %.thread491, label %296
 
 296:                                              ; preds = %293, %289
   %297 = phi ptr [ %294, %293 ], [ %291, %289 ]
-  %298 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %147, i32 noundef 92) #21
+  %298 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %147, i32 noundef 92) #22
   %.not431580 = icmp eq ptr %298, null
   br i1 %.not431580, label %.loopexit, label %.lr.ph582
 
 .lr.ph582:                                        ; preds = %296, %.lr.ph582
   %299 = phi ptr [ %300, %.lr.ph582 ], [ %298, %296 ]
   store i8 47, ptr %299, align 1, !tbaa !31
-  %300 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %147, i32 noundef 92) #21
+  %300 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %147, i32 noundef 92) #22
   %.not431 = icmp eq ptr %300, null
   br i1 %.not431, label %.loopexit, label %.lr.ph582, !llvm.loop !128
 
 .lr.ph584:                                        ; preds = %.preheader, %.lr.ph584
   %301 = phi ptr [ %302, %.lr.ph584 ], [ %152, %.preheader ]
   store i8 47, ptr %301, align 1, !tbaa !31
-  %302 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %147, i32 noundef 92) #21
+  %302 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %147, i32 noundef 92) #22
   %.not429 = icmp eq ptr %302, null
   br i1 %.not429, label %.loopexit, label %.lr.ph584, !llvm.loop !129
 
@@ -1966,7 +1966,7 @@ default.unreachable:                              ; preds = %194
 
 314:                                              ; preds = %310
   %315 = add nsw i64 %.0381, -7
-  %316 = tail call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %315) #19
+  %316 = tail call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %315) #20
   %317 = getelementptr inbounds nuw i8, ptr %7, i64 264
   %318 = load i32, ptr %317, align 8, !tbaa !79
   %319 = add i32 %318, 1
@@ -1982,12 +1982,12 @@ default.unreachable:                              ; preds = %194
   %325 = mul nuw nsw i64 %324, 24
   %326 = getelementptr inbounds nuw i8, ptr %7, i64 256
   %327 = load ptr, ptr %326, align 8, !tbaa !76
-  %328 = tail call ptr @realloc(ptr noundef %327, i64 noundef %325) #22
+  %328 = tail call ptr @realloc(ptr noundef %327, i64 noundef %325) #23
   %.not440 = icmp eq ptr %328, null
   br i1 %.not440, label %.thread496, label %.thread
 
 .thread496:                                       ; preds = %322
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.18) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.18) #20
   br label %.thread491
 
 .thread:                                          ; preds = %322
@@ -2035,18 +2035,18 @@ default.unreachable:                              ; preds = %194
   br i1 %.not441, label %351, label %350
 
 350:                                              ; preds = %347
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.24) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.24) #20
   br label %.thread491
 
 351:                                              ; preds = %347
   %352 = add nuw nsw i32 %.5391, 1
   %353 = zext nneg i32 %352 to i64
-  %354 = tail call ptr @realloc(ptr noundef %304, i64 noundef %353) #22
+  %354 = tail call ptr @realloc(ptr noundef %304, i64 noundef %353) #23
   %355 = icmp eq ptr %354, null
   br i1 %355, label %356, label %357
 
 356:                                              ; preds = %351
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.18) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.18) #20
   br label %.thread491
 
 357:                                              ; preds = %351
@@ -2058,14 +2058,14 @@ default.unreachable:                              ; preds = %194
   store i64 %359, ptr %360, align 8, !tbaa !130
   %361 = getelementptr inbounds nuw i8, ptr %7, i64 256
   %362 = load ptr, ptr %361, align 8, !tbaa !76
-  tail call void @free(ptr noundef %362) #19
-  %363 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #20
+  tail call void @free(ptr noundef %362) #20
+  %363 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #21
   store ptr %363, ptr %361, align 8, !tbaa !76
   %364 = icmp eq ptr %363, null
   br i1 %364, label %365, label %366
 
 365:                                              ; preds = %357
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.18) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.18) #20
   br label %.thread491
 
 366:                                              ; preds = %357
@@ -2087,7 +2087,7 @@ default.unreachable:                              ; preds = %194
   br i1 %374, label %375, label %376
 
 375:                                              ; preds = %372
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.9) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.9) #20
   br label %.thread491
 
 376:                                              ; preds = %372
@@ -2107,12 +2107,12 @@ default.unreachable:                              ; preds = %194
   br i1 %382, label %383, label %384
 
 383:                                              ; preds = %380
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.9) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.9) #20
   br label %.thread491
 
 384:                                              ; preds = %380, %378
   %385 = add nsw i64 %.0381, -7
-  %386 = tail call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %385) #19
+  %386 = tail call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %385) #20
   %387 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %388 = load ptr, ptr %387, align 8, !tbaa !131
   %389 = load i64, ptr %388, align 8, !tbaa !132
@@ -2139,7 +2139,7 @@ default.unreachable:                              ; preds = %194
   br label %399
 
 398:                                              ; preds = %384
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.25) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.25) #20
   br label %.thread491
 
 399:                                              ; preds = %384, %384, %384, %395
@@ -2169,7 +2169,7 @@ default.unreachable:                              ; preds = %194
   store i8 1, ptr %410, align 8, !tbaa !73
   %411 = getelementptr inbounds nuw i8, ptr %7, i64 224
   %412 = load ptr, ptr %411, align 8, !tbaa !108
-  tail call void @free(ptr noundef %412) #19
+  tail call void @free(ptr noundef %412) #20
   store ptr null, ptr %411, align 8, !tbaa !108
   %413 = getelementptr inbounds nuw i8, ptr %7, i64 212
   store i32 0, ptr %413, align 4, !tbaa !144
@@ -2179,7 +2179,7 @@ default.unreachable:                              ; preds = %194
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(404) %415, i8 0, i64 404, i1 false)
   %416 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd7_functions, i64 16), align 8, !tbaa !71
   %417 = getelementptr inbounds nuw i8, ptr %7, i64 984
-  tail call void %416(ptr noundef nonnull %417) #19
+  tail call void %416(ptr noundef nonnull %417) #20
   %418 = getelementptr inbounds nuw i8, ptr %7, i64 977
   store i8 0, ptr %418, align 1, !tbaa !146
   %419 = getelementptr inbounds nuw i8, ptr %7, i64 976
@@ -2191,34 +2191,34 @@ default.unreachable:                              ; preds = %194
 421:                                              ; preds = %399
   %422 = load i64, ptr %39, align 8, !tbaa !120
   %423 = load i64, ptr %46, align 8, !tbaa !148
-  tail call void @archive_entry_set_mtime(ptr noundef %1, i64 noundef %422, i64 noundef %423) #19
+  tail call void @archive_entry_set_mtime(ptr noundef %1, i64 noundef %422, i64 noundef %423) #20
   %424 = load i64, ptr %40, align 8, !tbaa !149
   %425 = load i64, ptr %45, align 8, !tbaa !150
-  tail call void @archive_entry_set_ctime(ptr noundef %1, i64 noundef %424, i64 noundef %425) #19
+  tail call void @archive_entry_set_ctime(ptr noundef %1, i64 noundef %424, i64 noundef %425) #20
   %426 = load i64, ptr %41, align 8, !tbaa !151
   %427 = load i64, ptr %44, align 8, !tbaa !152
-  tail call void @archive_entry_set_atime(ptr noundef %1, i64 noundef %426, i64 noundef %427) #19
+  tail call void @archive_entry_set_atime(ptr noundef %1, i64 noundef %426, i64 noundef %427) #20
   %428 = load i64, ptr %38, align 8, !tbaa !64
-  tail call void @archive_entry_set_size(ptr noundef %1, i64 noundef %428) #19
+  tail call void @archive_entry_set_size(ptr noundef %1, i64 noundef %428) #20
   %429 = load i32, ptr %42, align 8, !tbaa !137
-  tail call void @archive_entry_set_mode(ptr noundef %1, i32 noundef %429) #19
-  %430 = tail call i32 @_archive_entry_copy_pathname_l(ptr noundef %1, ptr noundef %147, i64 noundef %359, ptr noundef %.1396) #19
+  tail call void @archive_entry_set_mode(ptr noundef %1, i32 noundef %429) #20
+  %430 = tail call i32 @_archive_entry_copy_pathname_l(ptr noundef %1, ptr noundef %147, i64 noundef %359, ptr noundef %.1396) #20
   %.not447 = icmp eq i32 %430, 0
   br i1 %.not447, label %438, label %431
 
 431:                                              ; preds = %421
-  %432 = tail call ptr @__errno_location() #23
+  %432 = tail call ptr @__errno_location() #24
   %433 = load i32, ptr %432, align 4, !tbaa !153
   %434 = icmp eq i32 %433, 12
   br i1 %434, label %435, label %436
 
 435:                                              ; preds = %431
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.26) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.26) #20
   br label %.thread491
 
 436:                                              ; preds = %431
-  %437 = tail call ptr @archive_string_conversion_charset_name(ptr noundef %.1396) #19
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.27, ptr noundef %437) #19
+  %437 = tail call ptr @archive_string_conversion_charset_name(ptr noundef %.1396) #20
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.27, ptr noundef %437) #20
   br label %438
 
 438:                                              ; preds = %436, %421
@@ -2230,7 +2230,7 @@ default.unreachable:                              ; preds = %194
 
 442:                                              ; preds = %438
   store i64 0, ptr %112, align 8, !tbaa !67
-  tail call void @archive_entry_set_size(ptr noundef %1, i64 noundef 0) #19
+  tail call void @archive_entry_set_size(ptr noundef %1, i64 noundef 0) #20
   %443 = tail call fastcc i32 @read_symlink_stored(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.0397)
   %444 = icmp slt i32 %443, -20
   br i1 %444, label %.thread491, label %445
@@ -2352,7 +2352,7 @@ define internal fastcc range(i32 -1, 1) i32 @read_exttime(ptr noundef nonnull re
   %52 = add nuw nsw i32 %51, 80
   store i32 %52, ptr %16, align 4, !tbaa !118
   store i32 -1, ptr %17, align 8, !tbaa !119
-  %53 = call noundef i64 @mktime(ptr noundef nonnull %4) #19
+  %53 = call noundef i64 @mktime(ptr noundef nonnull %4) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i64 %53, ptr %5, align 8, !tbaa !32
   br label %54
@@ -2394,7 +2394,7 @@ define internal fastcc range(i32 -1, 1) i32 @read_exttime(ptr noundef nonnull re
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %.048.lcssa = phi i32 [ 0, %.preheader ], [ %69, %._crit_edge.loopexit ]
   %.2.lcssa = phi ptr [ %.1, %.preheader ], [ %68, %._crit_edge.loopexit ]
-  %70 = call ptr @localtime_r(ptr noundef nonnull %5, ptr noundef nonnull %6) #19
+  %70 = call ptr @localtime_r(ptr noundef nonnull %5, ptr noundef nonnull %6) #20
   %71 = load i32, ptr %70, align 8, !tbaa !112
   %72 = add i32 %71, %.048.lcssa
   %73 = zext i32 %72 to i64
@@ -2405,7 +2405,7 @@ define internal fastcc range(i32 -1, 1) i32 @read_exttime(ptr noundef nonnull re
 75:                                               ; preds = %._crit_edge
   %76 = add nsw i32 %71, 1
   store i32 %76, ptr %70, align 8, !tbaa !112
-  %77 = call i64 @mktime(ptr noundef nonnull %70) #19
+  %77 = call i64 @mktime(ptr noundef nonnull %70) #20
   store i64 %77, ptr %5, align 8, !tbaa !32
   br label %78
 
@@ -2476,35 +2476,35 @@ define internal fastcc range(i32 -30, 1) i32 @read_symlink_stored(ptr noundef %0
   %6 = load ptr, ptr %5, align 8, !tbaa !49
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load i64, ptr %7, align 8, !tbaa !121
-  %9 = tail call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %8, ptr noundef null) #19
+  %9 = tail call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %8, ptr noundef null) #20
   %10 = icmp eq ptr %9, null
   br i1 %10, label %24, label %11
 
 11:                                               ; preds = %3
   %12 = load i64, ptr %7, align 8, !tbaa !121
-  %13 = tail call i32 @_archive_entry_copy_symlink_l(ptr noundef %1, ptr noundef nonnull %9, i64 noundef %12, ptr noundef %2) #19
+  %13 = tail call i32 @_archive_entry_copy_symlink_l(ptr noundef %1, ptr noundef nonnull %9, i64 noundef %12, ptr noundef %2) #20
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %21, label %14
 
 14:                                               ; preds = %11
-  %15 = tail call ptr @__errno_location() #23
+  %15 = tail call ptr @__errno_location() #24
   %16 = load i32, ptr %15, align 4, !tbaa !153
   %17 = icmp eq i32 %16, 12
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %14
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.28) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.28) #20
   br label %24
 
 19:                                               ; preds = %14
-  %20 = tail call ptr @archive_string_conversion_charset_name(ptr noundef %2) #19
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.29, ptr noundef %20) #19
+  %20 = tail call ptr @archive_string_conversion_charset_name(ptr noundef %2) #20
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.29, ptr noundef %20) #20
   br label %21
 
 21:                                               ; preds = %19, %11
   %.0 = phi i32 [ -20, %19 ], [ 0, %11 ]
   %22 = load i64, ptr %7, align 8, !tbaa !121
-  %23 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %22) #19
+  %23 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %22) #20
   br label %24
 
 24:                                               ; preds = %3, %21, %18
@@ -2528,13 +2528,13 @@ define internal fastcc ptr @rar_read_ahead(ptr noundef %0, i64 noundef %1, ptr n
   br i1 %.not, label %tailrecurse.us, label %tailrecurse
 
 tailrecurse.us:                                   ; preds = %3
-  %8 = tail call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %1, ptr noundef null) #19
+  %8 = tail call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %1, ptr noundef null) #20
   br label %.split44
 
 tailrecurse:                                      ; preds = %3, %44
   %9 = load ptr, ptr %4, align 8, !tbaa !35
   %10 = load ptr, ptr %9, align 8, !tbaa !49
-  %11 = tail call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2) #19
+  %11 = tail call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2) #20
   %12 = load i8, ptr %5, align 8, !tbaa !158
   %.not37 = icmp eq i8 %12, 0
   %.pre = load i64, ptr %2, align 8, !tbaa !32
@@ -2738,7 +2738,7 @@ define internal fastcc range(i32 -30, 2) i32 @read_data_compressed(ptr noundef %
   %82 = load i64, ptr %81, align 8, !tbaa !70
   %83 = load i64, ptr %2, align 8, !tbaa !32
   %84 = trunc i64 %83 to i32
-  %85 = tail call i64 @cm_zlib_crc32(i64 noundef %82, ptr noundef %75, i32 noundef %84) #19
+  %85 = tail call i64 @cm_zlib_crc32(i64 noundef %82, ptr noundef %75, i32 noundef %84) #20
   store i64 %85, ptr %81, align 8, !tbaa !70
   store i32 0, ptr %23, align 4, !tbaa !144
   br label %.loopexit
@@ -2756,7 +2756,7 @@ define internal fastcc range(i32 -30, 2) i32 @read_data_compressed(ptr noundef %
   br i1 %.not230, label %93, label %92
 
 92:                                               ; preds = %86
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.31) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.31) #20
   br label %.loopexit
 
 93:                                               ; preds = %86
@@ -2810,7 +2810,7 @@ define internal fastcc range(i32 -30, 2) i32 @read_data_compressed(ptr noundef %
   %119 = load i64, ptr %118, align 8, !tbaa !70
   %120 = load i64, ptr %2, align 8, !tbaa !32
   %121 = trunc i64 %120 to i32
-  %122 = tail call i64 @cm_zlib_crc32(i64 noundef %119, ptr noundef nonnull %110, i32 noundef %121) #19
+  %122 = tail call i64 @cm_zlib_crc32(i64 noundef %119, ptr noundef nonnull %110, i32 noundef %121) #20
   store i64 %122, ptr %118, align 8, !tbaa !70
   br label %.loopexit
 
@@ -2877,7 +2877,7 @@ define internal fastcc range(i32 -30, 2) i32 @read_data_compressed(ptr noundef %
   br i1 %.not86.i, label %154, label %156
 
 154:                                              ; preds = %152
-  %155 = tail call noalias dereferenceable_or_null(262180) ptr @calloc(i64 noundef 1, i64 noundef 262180) #20
+  %155 = tail call noalias dereferenceable_or_null(262180) ptr @calloc(i64 noundef 1, i64 noundef 262180) #21
   store ptr %155, ptr %130, align 8, !tbaa !105
   %.not87.i = icmp eq ptr %155, null
   br i1 %.not87.i, label %run_filters.exit.thread, label %156
@@ -2888,7 +2888,7 @@ define internal fastcc range(i32 -30, 2) i32 @read_data_compressed(ptr noundef %
   br i1 %158, label %159, label %160
 
 159:                                              ; preds = %156
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.37) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.37) #20
   br label %run_filters.exit.thread
 
 160:                                              ; preds = %156
@@ -3020,7 +3020,7 @@ run_filters.exit:                                 ; preds = %194, %168, %204
   br label %rar_br_preparation.exit.thread
 
 rar_br_preparation.exit:                          ; preds = %221
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.32) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.32) #20
   br label %.loopexit
 
 rar_br_preparation.exit.thread:                   ; preds = %215, %227, %224, %213
@@ -3041,12 +3041,12 @@ rar_br_preparation.exit.thread:                   ; preds = %215, %227, %224, %2
   br i1 %.not223, label %338, label %235
 
 235:                                              ; preds = %233
-  %236 = tail call i32 %31(ptr noundef nonnull %32, ptr noundef nonnull %33) #19
+  %236 = tail call i32 %31(ptr noundef nonnull %32, ptr noundef nonnull %33) #20
   %237 = icmp slt i32 %236, 0
   br i1 %237, label %238, label %239
 
 238:                                              ; preds = %235
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.33) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.33) #20
   br label %.loopexit
 
 239:                                              ; preds = %235
@@ -3069,12 +3069,12 @@ rar_br_preparation.exit.thread:                   ; preds = %215, %227, %224, %2
   br label %.sink.split
 
 250:                                              ; preds = %239
-  %251 = tail call i32 %31(ptr noundef nonnull %32, ptr noundef nonnull %33) #19
+  %251 = tail call i32 %31(ptr noundef nonnull %32, ptr noundef nonnull %33) #20
   %252 = icmp slt i32 %251, 0
   br i1 %252, label %253, label %254
 
 253:                                              ; preds = %250
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.33) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.33) #20
   br label %.loopexit
 
 254:                                              ; preds = %250
@@ -3096,18 +3096,18 @@ rar_br_preparation.exit.thread:                   ; preds = %215, %227, %224, %2
   br label %thread-pre-split
 
 258:                                              ; preds = %254
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.34) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.34) #20
   br label %.loopexit
 
 .preheader:                                       ; preds = %254, %262
   %.0340 = phi i32 [ %266, %262 ], [ 2, %254 ]
   %.0188339 = phi i32 [ %265, %262 ], [ 0, %254 ]
-  %259 = tail call i32 %31(ptr noundef nonnull %32, ptr noundef nonnull %33) #19
+  %259 = tail call i32 %31(ptr noundef nonnull %32, ptr noundef nonnull %33) #20
   %260 = icmp slt i32 %259, 0
   br i1 %260, label %261, label %262
 
 261:                                              ; preds = %.preheader
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.33) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.33) #20
   br label %.loopexit
 
 262:                                              ; preds = %.preheader
@@ -3119,12 +3119,12 @@ rar_br_preparation.exit.thread:                   ; preds = %215, %227, %224, %2
   br i1 %.not412, label %267, label %.preheader, !llvm.loop !183
 
 267:                                              ; preds = %262
-  %268 = tail call i32 %31(ptr noundef nonnull %32, ptr noundef nonnull %33) #19
+  %268 = tail call i32 %31(ptr noundef nonnull %32, ptr noundef nonnull %33) #20
   %269 = icmp slt i32 %268, 0
   br i1 %269, label %270, label %.lr.ph66.preheader.i
 
 270:                                              ; preds = %267
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.33) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.33) #20
   br label %.loopexit
 
 .lr.ph66.preheader.i:                             ; preds = %267
@@ -3197,12 +3197,12 @@ rar_br_preparation.exit.thread:                   ; preds = %215, %227, %224, %2
   br label %.sink.split
 
 298:                                              ; preds = %254
-  %299 = tail call i32 %31(ptr noundef nonnull %32, ptr noundef nonnull %33) #19
+  %299 = tail call i32 %31(ptr noundef nonnull %32, ptr noundef nonnull %33) #20
   %300 = icmp slt i32 %299, 0
   br i1 %300, label %301, label %.lr.ph66.preheader.i236
 
 301:                                              ; preds = %298
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.33) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.33) #20
   br label %.loopexit
 
 .lr.ph66.preheader.i236:                          ; preds = %298
@@ -3314,7 +3314,7 @@ rar_br_preparation.exit.thread:                   ; preds = %215, %227, %224, %2
   br i1 %or.cond, label %352, label %355
 
 352:                                              ; preds = %347
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.35) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.35) #20
   br label %.loopexit
 
 .sink.split:                                      ; preds = %._crit_edge.loopexit.i, %._crit_edge.loopexit.i250, %329, %241
@@ -3379,7 +3379,7 @@ thread-pre-split:                                 ; preds = %257, %363, %run_fil
   %380 = load i64, ptr %379, align 8, !tbaa !70
   %381 = load i64, ptr %2, align 8, !tbaa !32
   %382 = trunc i64 %381 to i32
-  %383 = tail call i64 @cm_zlib_crc32(i64 noundef %380, ptr noundef %378, i32 noundef %382) #19
+  %383 = tail call i64 @cm_zlib_crc32(i64 noundef %380, ptr noundef %378, i32 noundef %382) #20
   store i64 %383, ptr %379, align 8, !tbaa !70
   br label %.loopexit
 
@@ -3411,13 +3411,13 @@ define internal fastcc range(i32 -30, 1) i32 @copy_from_lzss_window_to_unp(ptr n
   br i1 %.not, label %15, label %19
 
 15:                                               ; preds = %12
-  %16 = tail call noalias ptr @malloc(i64 noundef %10) #24
+  %16 = tail call noalias ptr @malloc(i64 noundef %10) #25
   store ptr %16, ptr %13, align 8, !tbaa !108
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %15
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.36) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.36) #20
   br label %69
 
 19:                                               ; preds = %15, %12
@@ -3454,7 +3454,7 @@ define internal fastcc range(i32 -30, 1) i32 @copy_from_lzss_window_to_unp(ptr n
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %37
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.37) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.37) #20
   br label %69
 
 41:                                               ; preds = %37
@@ -3504,7 +3504,7 @@ define internal fastcc range(i32 -30, 1) i32 @copy_from_lzss_window_to_unp(ptr n
   br label %69
 
 68:                                               ; preds = %36, %4
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.37) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.37) #20
   br label %69
 
 69:                                               ; preds = %68, %67, %40, %18
@@ -3524,28 +3524,28 @@ define internal fastcc range(i32 -30, 1) i32 @parse_codes(ptr noundef %0) unname
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 20272
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 280
   %9 = load ptr, ptr %8, align 8, !tbaa !86
-  tail call void @free(ptr noundef %9) #19
+  tail call void @free(ptr noundef %9) #20
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 320
   %11 = load ptr, ptr %10, align 8, !tbaa !87
-  tail call void @free(ptr noundef %11) #19
+  tail call void @free(ptr noundef %11) #20
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 360
   %13 = load ptr, ptr %12, align 8, !tbaa !88
-  tail call void @free(ptr noundef %13) #19
+  tail call void @free(ptr noundef %13) #20
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 400
   %15 = load ptr, ptr %14, align 8, !tbaa !89
-  tail call void @free(ptr noundef %15) #19
+  tail call void @free(ptr noundef %15) #20
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 312
   %17 = load ptr, ptr %16, align 8, !tbaa !90
-  tail call void @free(ptr noundef %17) #19
+  tail call void @free(ptr noundef %17) #20
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 352
   %19 = load ptr, ptr %18, align 8, !tbaa !91
-  tail call void @free(ptr noundef %19) #19
+  tail call void @free(ptr noundef %19) #20
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 392
   %21 = load ptr, ptr %20, align 8, !tbaa !92
-  tail call void @free(ptr noundef %21) #19
+  tail call void @free(ptr noundef %21) #20
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 432
   %23 = load ptr, ptr %22, align 8, !tbaa !93
-  tail call void @free(ptr noundef %23) #19
+  tail call void @free(ptr noundef %23) #20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %8, i8 0, i64 160, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 20280
   %25 = load i32, ptr %24, align 8, !tbaa !178
@@ -3679,56 +3679,56 @@ thread-pre-split250:                              ; preds = %42, %40
   br i1 %96, label %97, label %98
 
 97:                                               ; preds = %90
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.32) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.32) #20
   br label %.critedge
 
 98:                                               ; preds = %90
   %99 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd7_functions, i64 16), align 8, !tbaa !71
   %100 = getelementptr inbounds nuw i8, ptr %6, i64 984
-  tail call void %99(ptr noundef nonnull %100) #19
+  tail call void %99(ptr noundef nonnull %100) #20
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 20216
   store ptr %0, ptr %101, align 8, !tbaa !189
   %102 = getelementptr inbounds nuw i8, ptr %6, i64 20224
   store ptr @ppmd_read, ptr %102, align 8, !tbaa !190
   %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd7_functions, i64 40), align 8, !tbaa !191
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 20168
-  tail call void %103(ptr noundef nonnull %104) #19
+  tail call void %103(ptr noundef nonnull %104) #20
   %105 = getelementptr inbounds nuw i8, ptr %6, i64 20208
   store ptr %101, ptr %105, align 8, !tbaa !192
   %106 = load ptr, ptr @__archive_ppmd7_functions, align 8, !tbaa !193
-  tail call void %106(ptr noundef nonnull %100) #19
+  tail call void %106(ptr noundef nonnull %100) #20
   %107 = getelementptr inbounds nuw i8, ptr %6, i64 232
   %108 = load i32, ptr %107, align 8, !tbaa !139
   %109 = icmp eq i32 %108, 0
   br i1 %109, label %110, label %111
 
 110:                                              ; preds = %98
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.39) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.39) #20
   br label %.critedge
 
 111:                                              ; preds = %98
   %112 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd7_functions, i64 8), align 8, !tbaa !194
-  %113 = tail call i32 %112(ptr noundef nonnull %100, i32 noundef %108) #19
+  %113 = tail call i32 %112(ptr noundef nonnull %100, i32 noundef %108) #20
   %.not246 = icmp eq i32 %113, 0
   br i1 %.not246, label %114, label %115
 
 114:                                              ; preds = %111
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.40) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.40) #20
   br label %.critedge
 
 115:                                              ; preds = %111
   %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd7_functions, i64 56), align 8, !tbaa !195
-  %117 = tail call i32 %116(ptr noundef nonnull %104) #19
+  %117 = tail call i32 %116(ptr noundef nonnull %104) #20
   %.not247 = icmp eq i32 %117, 0
   br i1 %.not247, label %118, label %119
 
 118:                                              ; preds = %115
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.41) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.41) #20
   br label %.critedge
 
 119:                                              ; preds = %115
   %120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd7_functions, i64 24), align 8, !tbaa !196
-  tail call void %120(ptr noundef nonnull %100, i32 noundef %.0209) #19
+  tail call void %120(ptr noundef nonnull %100, i32 noundef %.0209) #20
   %121 = getelementptr inbounds nuw i8, ptr %6, i64 976
   store i8 1, ptr %121, align 8, !tbaa !74
   br label %305
@@ -3740,18 +3740,18 @@ thread-pre-split250:                              ; preds = %42, %40
   br i1 %.not244, label %125, label %126
 
 125:                                              ; preds = %122
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.42) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.42) #20
   br label %.critedge
 
 126:                                              ; preds = %122
   %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd7_functions, i64 56), align 8, !tbaa !195
   %128 = getelementptr inbounds nuw i8, ptr %6, i64 20168
-  %129 = tail call i32 %127(ptr noundef nonnull %128) #19
+  %129 = tail call i32 %127(ptr noundef nonnull %128) #20
   %.not245 = icmp eq i32 %129, 0
   br i1 %.not245, label %130, label %305
 
 130:                                              ; preds = %126
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.41) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.41) #20
   br label %.critedge
 
 131:                                              ; preds = %thread-pre-split
@@ -3885,10 +3885,10 @@ thread-pre-split252:                              ; preds = %149, %146
 
 193:                                              ; preds = %190
   %194 = load ptr, ptr %3, align 8, !tbaa !199
-  tail call void @free(ptr noundef %194) #19
+  tail call void @free(ptr noundef %194) #20
   %195 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %196 = load ptr, ptr %195, align 8, !tbaa !200
-  tail call void @free(ptr noundef %196) #19
+  tail call void @free(ptr noundef %196) #20
   br label %.critedge
 
 197:                                              ; preds = %.preheader, %.loopexit
@@ -3899,10 +3899,10 @@ thread-pre-split252:                              ; preds = %149, %146
 
 200:                                              ; preds = %197
   %201 = load ptr, ptr %3, align 8, !tbaa !199
-  tail call void @free(ptr noundef %201) #19
+  tail call void @free(ptr noundef %201) #20
   %202 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %203 = load ptr, ptr %202, align 8, !tbaa !200
-  tail call void @free(ptr noundef %203) #19
+  tail call void @free(ptr noundef %203) #20
   br label %.critedge
 
 204:                                              ; preds = %197
@@ -3930,11 +3930,11 @@ thread-pre-split252:                              ; preds = %149, %146
 
 218:                                              ; preds = %216
   %219 = load ptr, ptr %3, align 8, !tbaa !199
-  tail call void @free(ptr noundef %219) #19
+  tail call void @free(ptr noundef %219) #20
   %220 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %221 = load ptr, ptr %220, align 8, !tbaa !200
-  tail call void @free(ptr noundef %221) #19
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.43) #19
+  tail call void @free(ptr noundef %221) #20
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.43) #20
   br label %.critedge
 
 222:                                              ; preds = %216
@@ -4097,10 +4097,10 @@ thread-pre-split252:                              ; preds = %149, %146
 
 .loopexit.thread:                                 ; preds = %273, %241, %.loopexit
   %292 = load ptr, ptr %3, align 8, !tbaa !199
-  tail call void @free(ptr noundef %292) #19
+  tail call void @free(ptr noundef %292) #20
   %293 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %294 = load ptr, ptr %293, align 8, !tbaa !200
-  tail call void @free(ptr noundef %294) #19
+  tail call void @free(ptr noundef %294) #20
   %295 = tail call fastcc i32 @create_code(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %192, i32 noundef 299)
   %.not227 = icmp eq i32 %295, 0
   br i1 %.not227, label %296, label %.critedge
@@ -4160,7 +4160,7 @@ thread-pre-split252:                              ; preds = %149, %146
   br i1 %330, label %331, label %.thread
 
 331:                                              ; preds = %315
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.44) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.44) #20
   br label %.critedge
 
 .thread:                                          ; preds = %311, %315
@@ -4168,12 +4168,12 @@ thread-pre-split252:                              ; preds = %149, %146
   %332 = getelementptr inbounds nuw i8, ptr %6, i64 848
   %333 = load ptr, ptr %332, align 8, !tbaa !109
   %334 = zext i32 %.0255 to i64
-  %335 = tail call ptr @realloc(ptr noundef %333, i64 noundef %334) #22
+  %335 = tail call ptr @realloc(ptr noundef %333, i64 noundef %334) #23
   %336 = icmp eq ptr %335, null
   br i1 %336, label %337, label %338
 
 337:                                              ; preds = %.thread
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.36) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.36) #20
   br label %.critedge
 
 338:                                              ; preds = %.thread
@@ -4192,14 +4192,14 @@ thread-pre-split252:                              ; preds = %149, %146
 
 .loopexit259.sink.split:                          ; preds = %267, %259, %235, %227
   %343 = load ptr, ptr %3, align 8, !tbaa !199
-  tail call void @free(ptr noundef %343) #19
+  tail call void @free(ptr noundef %343) #20
   %344 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %345 = load ptr, ptr %344, align 8, !tbaa !200
-  tail call void @free(ptr noundef %345) #19
+  tail call void @free(ptr noundef %345) #20
   br label %.loopexit259
 
 .loopexit259:                                     ; preds = %149, %166, %42, %28, %.loopexit259.sink.split, %133, %74, %55
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.32) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.32) #20
   %346 = getelementptr inbounds nuw i8, ptr %6, i64 208
   store i8 0, ptr %346, align 8, !tbaa !142
   br label %.critedge
@@ -4500,7 +4500,7 @@ define internal fastcc range(i32 -30, 1) i32 @expand(ptr noundef %0, ptr noundef
 168:                                              ; preds = %158, %130, %121
   %.026.i = phi i16 [ %129, %121 ], [ %167, %158 ], [ %131, %130 ]
   %169 = zext i16 %.026.i to i64
-  %170 = tail call noalias ptr @malloc(i64 noundef %169) #24
+  %170 = tail call noalias ptr @malloc(i64 noundef %169) #25
   %.not34.i = icmp eq ptr %170, null
   br i1 %.not34.i, label %read_filter.exit.thread, label %.preheader.i
 
@@ -4528,7 +4528,7 @@ define internal fastcc range(i32 -30, 1) i32 @expand(ptr noundef %0, ptr noundef
   br i1 %or.cond.i54.i, label %182, label %181
 
 181:                                              ; preds = %178
-  tail call void @free(ptr noundef nonnull %170) #19
+  tail call void @free(ptr noundef nonnull %170) #20
   br label %read_filter.exit.thread
 
 182:                                              ; preds = %178, %.lr.ph.i
@@ -4592,8 +4592,8 @@ define internal fastcc range(i32 -30, 1) i32 @expand(ptr noundef %0, ptr noundef
   %202 = load ptr, ptr %201, align 8, !tbaa !95
   %203 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 40
   %204 = load ptr, ptr %203, align 8, !tbaa !97
-  tail call void @free(ptr noundef %204) #19
-  tail call void @free(ptr noundef nonnull %.06.i.i.i) #19
+  tail call void @free(ptr noundef %204) #20
+  tail call void @free(ptr noundef nonnull %.06.i.i.i) #20
   %.not.i.i.i = icmp eq ptr %202, null
   br i1 %.not.i.i.i, label %delete_filter.exit.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !98
 
@@ -4612,11 +4612,11 @@ delete_filter.exit.i.i:                           ; preds = %delete_filter.exit.
   %206 = getelementptr inbounds nuw i8, ptr %.07.i.i.i, i64 48
   %207 = load ptr, ptr %206, align 8, !tbaa !100
   %208 = load ptr, ptr %.07.i.i.i, align 8, !tbaa !102
-  tail call void @free(ptr noundef %208) #19
+  tail call void @free(ptr noundef %208) #20
   %209 = getelementptr inbounds nuw i8, ptr %.07.i.i.i, i64 16
   %210 = load ptr, ptr %209, align 8, !tbaa !103
-  tail call void @free(ptr noundef %210) #19
-  tail call void @free(ptr noundef nonnull %.07.i.i.i) #19
+  tail call void @free(ptr noundef %210) #20
+  tail call void @free(ptr noundef nonnull %.07.i.i.i) #20
   %.not.i143.i.i = icmp eq ptr %207, null
   br i1 %.not.i143.i.i, label %.thread.i.i, label %.lr.ph.i142.i.i, !llvm.loop !104
 
@@ -4821,7 +4821,7 @@ membr_bits.exit.i.i:                              ; preds = %membr_fill.exit.i.i
 
 284:                                              ; preds = %281
   %285 = zext nneg i32 %282 to i64
-  %286 = tail call noalias ptr @malloc(i64 noundef %285) #24
+  %286 = tail call noalias ptr @malloc(i64 noundef %285) #25
   %.not132.i.i = icmp eq ptr %286, null
   br i1 %.not132.i.i, label %.loopexit, label %.lr.ph75.i.i
 
@@ -4923,12 +4923,12 @@ membr_bits.exit154.i.i:                           ; preds = %295, %membr_fill.ex
 320:                                              ; preds = %._crit_edge.thread.i.i.i
   store ptr %286, ptr %3, align 8, !tbaa !207
   store i64 %285, ptr %32, align 8, !tbaa !209
-  %321 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #20
+  %321 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #21
   %.not32.i.i.i = icmp eq ptr %321, null
   br i1 %.not32.i.i.i, label %compile_program.exit.thread.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %320
-  %322 = tail call i64 @cm_zlib_crc32(i64 noundef 0, ptr noundef nonnull %286, i32 noundef %282) #19
+  %322 = tail call i64 @cm_zlib_crc32(i64 noundef 0, ptr noundef nonnull %286, i32 noundef %282) #20
   %323 = shl nuw nsw i64 %285, 32
   %324 = or i64 %322, %323
   %325 = getelementptr inbounds nuw i8, ptr %321, i64 32
@@ -4951,7 +4951,7 @@ membr_bits.exit.i.i.i:                            ; preds = %.lr.ph.i.i.i.i.i
   %332 = getelementptr inbounds nuw i8, ptr %321, i64 8
   store i32 %331, ptr %332, align 8, !tbaa !225
   %333 = zext i32 %331 to i64
-  %334 = tail call noalias ptr @malloc(i64 noundef %333) #24
+  %334 = tail call noalias ptr @malloc(i64 noundef %333) #25
   store ptr %334, ptr %321, align 8, !tbaa !102
   %.not34.i.i.i = icmp eq ptr %334, null
   br i1 %.not34.i.i.i, label %.lr.ph.i.i156.i.i, label %.preheader.i.i.i
@@ -4974,11 +4974,11 @@ membr_bits.exit.i.i.i:                            ; preds = %.lr.ph.i.i.i.i.i
   %337 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i, i64 48
   %338 = load ptr, ptr %337, align 8, !tbaa !100
   %339 = load ptr, ptr %.07.i.i.i.i, align 8, !tbaa !102
-  tail call void @free(ptr noundef %339) #19
+  tail call void @free(ptr noundef %339) #20
   %340 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i, i64 16
   %341 = load ptr, ptr %340, align 8, !tbaa !103
-  tail call void @free(ptr noundef %341) #19
-  tail call void @free(ptr noundef nonnull %.07.i.i.i.i) #19
+  tail call void @free(ptr noundef %341) #20
+  tail call void @free(ptr noundef nonnull %.07.i.i.i.i) #20
   %.not.i35.i.i.i = icmp eq ptr %338, null
   br i1 %.not.i35.i.i.i, label %compile_program.exit.thread.i.i, label %.lr.ph.i.i156.i.i, !llvm.loop !104
 
@@ -5048,7 +5048,7 @@ compile_program.exit.thread.i.i:                  ; preds = %320, %._crit_edge.t
 
 compile_program.exit.thread12.i.i:                ; preds = %membr_bits.exit45.i.i.i, %.preheader.i.i.i, %membr_bits.exit.i.i.i, %.lr.ph.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  tail call void @free(ptr noundef %286) #19
+  tail call void @free(ptr noundef %286) #20
   br label %367
 
 367:                                              ; preds = %367, %compile_program.exit.thread12.i.i
@@ -5082,7 +5082,7 @@ compile_program.exit.thread12.i.i:                ; preds = %membr_bits.exit45.i
 377:                                              ; preds = %374
   %378 = add nuw nsw i32 %375, 64
   %379 = zext nneg i32 %378 to i64
-  %380 = tail call noalias ptr @malloc(i64 noundef %379) #24
+  %380 = tail call noalias ptr @malloc(i64 noundef %379) #25
   %.not136.i.i = icmp eq ptr %380, null
   br i1 %.not136.i.i, label %.loopexit, label %.preheader.i.i
 
@@ -5173,7 +5173,7 @@ membr_bits.exit167.i.i:                           ; preds = %389, %membr_fill.ex
   br i1 %.not137.i.i, label %409, label %.sink.split.i
 
 409:                                              ; preds = %.loopexit.i.i
-  %410 = tail call noalias dereferenceable_or_null(88) ptr @calloc(i64 noundef 1, i64 noundef 88) #20
+  %410 = tail call noalias dereferenceable_or_null(88) ptr @calloc(i64 noundef 1, i64 noundef 88) #21
   %.not.i168.i.i = icmp eq ptr %410, null
   br i1 %.not.i168.i.i, label %.sink.split.i, label %411
 
@@ -5183,14 +5183,14 @@ membr_bits.exit167.i.i:                           ; preds = %389, %membr_fill.ex
   %413 = getelementptr inbounds nuw i8, ptr %410, i64 48
   store i32 %412, ptr %413, align 8, !tbaa !230
   %414 = zext nneg i32 %412 to i64
-  %415 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %414) #20
+  %415 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %414) #21
   %416 = getelementptr inbounds nuw i8, ptr %410, i64 40
   store ptr %415, ptr %416, align 8, !tbaa !97
   %.not26.i.i.i = icmp eq ptr %415, null
   br i1 %.not26.i.i.i, label %417, label %418
 
 417:                                              ; preds = %411
-  tail call void @free(ptr noundef nonnull %410) #19
+  tail call void @free(ptr noundef nonnull %410) #20
   br label %.sink.split.i
 
 418:                                              ; preds = %411
@@ -5209,7 +5209,7 @@ create_filter.exit.i.i:                           ; preds = %419, %418
   store i64 %spec.select.i.i, ptr %422, align 8, !tbaa !171
   %423 = getelementptr inbounds nuw i8, ptr %410, i64 64
   store i32 %.01135.i.i, ptr %423, align 8, !tbaa !166
-  tail call void @free(ptr noundef %.0111.i.i) #19
+  tail call void @free(ptr noundef %.0111.i.i) #20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %415, ptr noundef nonnull align 16 dereferenceable(28) %5, i64 28, i1 false)
   %424 = getelementptr inbounds nuw i8, ptr %415, i64 28
   store i32 %.01135.i.i, ptr %424, align 1
@@ -5244,19 +5244,19 @@ create_filter.exit.i.i:                           ; preds = %419, %418
 
 .sink.split.i:                                    ; preds = %409, %.loopexit.i.i, %417, %compile_program.exit.thread.i.i
   %.0111.i.sink.i = phi ptr [ %286, %compile_program.exit.thread.i.i ], [ %.0111.i.i, %417 ], [ %.0111.i.i, %.loopexit.i.i ], [ %.0111.i.i, %409 ]
-  tail call void @free(ptr noundef %.0111.i.sink.i) #19
+  tail call void @free(ptr noundef %.0111.i.sink.i) #20
   br label %.loopexit
 
 .loopexit:                                        ; preds = %377, %374, %284, %281, %211, %.sink.split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  tail call void @free(ptr noundef %170) #19
+  tail call void @free(ptr noundef %170) #20
   br label %read_filter.exit.thread
 
 439:                                              ; preds = %437, %433
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  tail call void @free(ptr noundef %170) #19
+  tail call void @free(ptr noundef %170) #20
   %440 = getelementptr inbounds nuw i8, ptr %94, i64 936
   %441 = load i64, ptr %440, align 8, !tbaa !147
   %442 = load i64, ptr %1, align 8, !tbaa !32
@@ -5653,13 +5653,13 @@ lzss_emit_match.exit:                             ; preds = %613, %._crit_edge.l
   br label %.backedge
 
 .loopexit255:                                     ; preds = %65, %469, %502, %529, %561, %594, %78
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.32) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.32) #20
   %642 = getelementptr inbounds nuw i8, ptr %8, i64 208
   store i8 0, ptr %642, align 8, !tbaa !142
   br label %read_filter.exit.thread
 
 643:                                              ; preds = %543, %515, %452
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.37) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.37) #20
   br label %read_filter.exit.thread
 
 read_filter.exit.thread:                          ; preds = %.backedge, %.lr.ph587, %90, %582, %168, %99, %118, %140, %155, %15, %.loopexit, %181, %643, %.loopexit255, %81, %._crit_edge588
@@ -5686,7 +5686,7 @@ define internal fastcc range(i32 -30, 1) i32 @copy_from_lzss_window(ptr noundef 
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %4
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.37) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.37) #20
   br label %28
 
 16:                                               ; preds = %4
@@ -6278,7 +6278,7 @@ define internal fastcc range(i32 0, 2) i32 @execute_filter(ptr noundef %0, ptr n
   br label %execute_filter_delta.exit
 
 288:                                              ; preds = %4
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.38) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.38) #20
   br label %execute_filter_delta.exit
 
 execute_filter_delta.exit:                        ; preds = %.lr.ph.i27, %.lr.ph.i, %._crit_edge72.i, %284, %150, %._crit_edge.i33, %101, %93, %.split.us.i23, %61, %.split.us.i, %29, %._crit_edge.i, %9, %288
@@ -6286,8 +6286,8 @@ execute_filter_delta.exit:                        ; preds = %.lr.ph.i27, %.lr.ph
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc void @delete_filter(ptr noundef captures(address_is_null) %0) unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc void @delete_filter(ptr noundef captures(address_is_null) %0) unnamed_addr #14 {
   %.not5 = icmp eq ptr %0, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
@@ -6297,8 +6297,8 @@ define internal fastcc void @delete_filter(ptr noundef captures(address_is_null)
   %3 = load ptr, ptr %2, align 8, !tbaa !95
   %4 = getelementptr inbounds nuw i8, ptr %.06, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !97
-  tail call void @free(ptr noundef %5) #19
-  tail call void @free(ptr noundef nonnull %.06) #19
+  tail call void @free(ptr noundef %5) #20
+  tail call void @free(ptr noundef nonnull %.06) #20
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !98
 
@@ -6310,7 +6310,7 @@ define internal fastcc void @delete_filter(ptr noundef captures(address_is_null)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #14
+declare i32 @llvm.abs.i32(i32, i1 immarg) #15
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @rar_br_fillup(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
@@ -6497,7 +6497,7 @@ define internal fastcc range(i32 0, 2) i32 @rar_br_fillup(ptr noundef %0, ptr no
   br i1 %144, label %145, label %147
 
 145:                                              ; preds = %142
-  %146 = tail call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %143) #19
+  %146 = tail call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %143) #20
   store i64 0, ptr %10, align 8, !tbaa !60
   br label %147
 
@@ -6583,7 +6583,7 @@ define internal zeroext i8 @ppmd_read(ptr noundef readonly captures(none) %0) #0
   br i1 %or.cond, label %15, label %13
 
 13:                                               ; preds = %10
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %2, i32 noundef 84, ptr noundef nonnull @.str.32) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %2, i32 noundef 84, ptr noundef nonnull @.str.32) #20
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 208
   store i8 0, ptr %14, align 8, !tbaa !142
   br label %22
@@ -6610,12 +6610,12 @@ define internal fastcc range(i32 -30, 1) i32 @create_code(ptr noundef %0, ptr no
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 0, ptr %6, align 4, !tbaa !254
   %.pre.i = load ptr, ptr %1, align 8, !tbaa !199
-  %7 = tail call dereferenceable_or_null(2048) ptr @realloc(ptr noundef %.pre.i, i64 noundef 2048) #22
+  %7 = tail call dereferenceable_or_null(2048) ptr @realloc(ptr noundef %.pre.i, i64 noundef 2048) #23
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %8, label %9
 
 8:                                                ; preds = %4
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.45) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.45) #20
   br label %add_value.exit.thread
 
 9:                                                ; preds = %4
@@ -6654,7 +6654,7 @@ define internal fastcc range(i32 -30, 1) i32 @create_code(ptr noundef %0, ptr no
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %15, align 8, !tbaa !200
-  tail call void @free(ptr noundef %21) #19
+  tail call void @free(ptr noundef %21) #20
   store ptr null, ptr %15, align 8, !tbaa !200
   %22 = load i32, ptr %14, align 4, !tbaa !256
   %23 = icmp sgt i32 %.03155, %22
@@ -6691,7 +6691,7 @@ define internal fastcc range(i32 -30, 1) i32 @create_code(ptr noundef %0, ptr no
   br i1 %37, label %38, label %39
 
 38:                                               ; preds = %30
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.46) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.46) #20
   br label %add_value.exit.thread
 
 39:                                               ; preds = %30
@@ -6715,7 +6715,7 @@ define internal fastcc range(i32 -30, 1) i32 @create_code(ptr noundef %0, ptr no
   %spec.select.i.i = select i1 %51, i32 %52, i32 256
   %53 = zext nneg i32 %spec.select.i.i to i64
   %54 = shl nuw nsw i64 %53, 3
-  %55 = tail call ptr @realloc(ptr noundef nonnull %31, i64 noundef %54) #22
+  %55 = tail call ptr @realloc(ptr noundef nonnull %31, i64 noundef %54) #23
   %.not.i.i = icmp eq ptr %55, null
   br i1 %.not.i.i, label %57, label %56
 
@@ -6726,7 +6726,7 @@ define internal fastcc range(i32 -30, 1) i32 @create_code(ptr noundef %0, ptr no
   br label %58
 
 57:                                               ; preds = %50
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.45) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.45) #20
   br label %add_value.exit.thread
 
 58:                                               ; preds = %56, %46
@@ -6768,7 +6768,7 @@ define internal fastcc range(i32 -30, 1) i32 @create_code(ptr noundef %0, ptr no
   br i1 %82, label %84, label %83
 
 83:                                               ; preds = %79, %._crit_edge.loopexit.i
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.46) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.46) #20
   br label %add_value.exit.thread
 
 84:                                               ; preds = %79
@@ -6821,7 +6821,7 @@ define internal fastcc i32 @read_next_symbol(ptr noundef %0, ptr noundef capture
   store i32 %spec.select.i, ptr %12, align 8, !tbaa !260
   %13 = shl nuw nsw i32 1, %spec.select.i
   %14 = zext nneg i32 %13 to i64
-  %15 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef 8) #20
+  %15 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef 8) #21
   store ptr %15, ptr %3, align 8, !tbaa !200
   %16 = tail call fastcc i32 @make_table_recurse(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0, ptr noundef %15, i32 noundef 0, i32 noundef %spec.select.i)
   %.not57 = icmp eq i32 %16, 0
@@ -6849,7 +6849,7 @@ define internal fastcc i32 @read_next_symbol(ptr noundef %0, ptr noundef capture
   br i1 %or.cond, label %28, label %30
 
 28:                                               ; preds = %26
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.32) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.32) #20
   %29 = getelementptr inbounds nuw i8, ptr %20, i64 208
   store i8 0, ptr %29, align 8, !tbaa !142
   br label %.loopexit
@@ -6876,7 +6876,7 @@ define internal fastcc i32 @read_next_symbol(ptr noundef %0, ptr noundef capture
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %30
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.47) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.47) #20
   br label %.loopexit
 
 50:                                               ; preds = %30
@@ -6918,7 +6918,7 @@ define internal fastcc i32 @read_next_symbol(ptr noundef %0, ptr noundef capture
   br i1 %or.cond79, label %69, label %67
 
 67:                                               ; preds = %64
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.32) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.32) #20
   %68 = getelementptr inbounds nuw i8, ptr %20, i64 208
   store i8 0, ptr %68, align 8, !tbaa !142
   br label %.loopexit
@@ -6939,7 +6939,7 @@ define internal fastcc i32 @read_next_symbol(ptr noundef %0, ptr noundef capture
   br i1 %80, label %81, label %54, !llvm.loop !264
 
 81:                                               ; preds = %69
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.47) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.47) #20
   br label %.loopexit
 
 .loopexit:                                        ; preds = %54, %5, %81, %67, %51, %49, %28
@@ -6959,7 +6959,7 @@ define internal fastcc i32 @make_table_recurse(ptr noundef %0, ptr noundef reado
   br i1 %9, label %._crit_edge, label %.lr.ph141
 
 tailrecurse._crit_edge:                           ; preds = %6
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.48) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.48) #20
   br label %.loopexit
 
 .lr.ph141:                                        ; preds = %.lr.ph, %tailrecurse
@@ -6979,7 +6979,7 @@ tailrecurse._crit_edge:                           ; preds = %6
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph
   %accumulator.tr76.lcssa = phi i32 [ -30, %.lr.ph ], [ %12, %._crit_edge.loopexit ]
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.49) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.49) #20
   br label %.loopexit
 
 13:                                               ; preds = %.lr.ph141
@@ -7043,8 +7043,8 @@ tailrecurse:                                      ; preds = %25
   ret i32 %.047
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @membr_next_rarvm_number(ptr noundef nonnull captures(none) %0) unnamed_addr #15 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc i32 @membr_next_rarvm_number(ptr noundef nonnull captures(none) %0) unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8, !tbaa !216
   %4 = icmp slt i32 %3, 2
@@ -7418,40 +7418,40 @@ declare i64 @__archive_read_seek(ptr noundef, i64 noundef, i32 noundef) local_un
 declare void @__archive_reset_read_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #18
+declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #18
+declare i32 @llvm.umax.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #18
+declare i32 @llvm.smin.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #18
+declare i32 @llvm.smax.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #18
+declare i32 @llvm.umin.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #18
+declare i64 @llvm.smin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #18
+declare i64 @llvm.smax.i64(i64, i64) #19
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -7461,17 +7461,18 @@ attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "
 attributes #11 = { mustprogress nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #18 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { nounwind }
-attributes #20 = { nounwind allocsize(0,1) }
-attributes #21 = { nounwind willreturn memory(read) }
-attributes #22 = { nounwind allocsize(1) }
-attributes #23 = { nounwind willreturn memory(none) }
-attributes #24 = { nounwind allocsize(0) }
+attributes #14 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #19 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { nounwind }
+attributes #21 = { nounwind allocsize(0,1) }
+attributes #22 = { nounwind willreturn memory(read) }
+attributes #23 = { nounwind allocsize(1) }
+attributes #24 = { nounwind willreturn memory(none) }
+attributes #25 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

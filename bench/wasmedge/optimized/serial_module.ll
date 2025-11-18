@@ -29564,7 +29564,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeES1O_S1P_"(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1) #13 align 2 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
@@ -29572,7 +29572,7 @@ define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12
   ret i64 %.val.val
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES1O_S1P_"(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1) #13 align 2 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
@@ -29580,7 +29580,7 @@ define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12
   ret i64 %.val.val
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeES1O_S1P_"(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1) #13 align 2 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
@@ -29588,7 +29588,7 @@ define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12
   ret i64 %.val.val
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm3EEEE14__visit_invokeES1O_S1P_"(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1) #13 align 2 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
@@ -29596,7 +29596,7 @@ define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12
   ret i64 %.val.val
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm4EEEE14__visit_invokeES1O_S1P_"(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1) #13 align 2 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
@@ -29604,7 +29604,7 @@ define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12
   ret i64 %.val.val
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm5EEEE14__visit_invokeES1O_S1P_"(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1) #13 align 2 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
@@ -29612,7 +29612,7 @@ define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12
   ret i64 %.val.val
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm6EEEE14__visit_invokeES1O_S1P_"(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1) #13 align 2 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
@@ -29620,7 +29620,7 @@ define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12
   ret i64 %.val.val
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm7EEEE14__visit_invokeES1O_S1P_"(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1) #13 align 2 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
@@ -29628,7 +29628,7 @@ define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12
   ret i64 %.val.val
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm8EEEE14__visit_invokeES1O_S1P_"(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1) #13 align 2 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
@@ -29636,7 +29636,7 @@ define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12
   ret i64 %.val.val
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm9EEEE14__visit_invokeES1O_S1P_"(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1) #13 align 2 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
@@ -29644,7 +29644,7 @@ define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12
   ret i64 %.val.val
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm10EEEE14__visit_invokeES1O_S1P_"(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1) #13 align 2 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
@@ -29652,7 +29652,7 @@ define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12
   ret i64 %.val.val
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm11EEEE14__visit_invokeES1O_S1P_"(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1) #13 align 2 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
@@ -29660,7 +29660,7 @@ define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12
   ret i64 %.val.val
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm12EEEE14__visit_invokeES1O_S1P_"(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1) #13 align 2 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
@@ -30087,7 +30087,7 @@ attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

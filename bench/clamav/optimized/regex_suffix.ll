@@ -40,46 +40,46 @@ define i32 @cli_regex2suffix(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %4
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str) #9
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str) #10
   br label %.thread
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %12, align 8, !tbaa !7
-  %13 = tail call i32 @cli_regcomp(ptr noundef %1, ptr noundef nonnull %0, i32 noundef 1) #9
+  %13 = tail call i32 @cli_regcomp(ptr noundef %1, ptr noundef nonnull %0, i32 noundef 1) #10
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %20, label %14
 
 14:                                               ; preds = %11
-  %15 = tail call i64 @cli_regerror(i32 noundef %13, ptr noundef %1, ptr noundef null, i64 noundef 0) #9
-  %16 = tail call ptr @cli_max_malloc(i64 noundef %15) #9
+  %15 = tail call i64 @cli_regerror(i32 noundef %13, ptr noundef %1, ptr noundef null, i64 noundef 0) #10
+  %16 = tail call ptr @cli_max_malloc(i64 noundef %15) #10
   %.not34 = icmp eq ptr %16, null
   br i1 %.not34, label %19, label %17
 
 17:                                               ; preds = %14
-  %18 = tail call i64 @cli_regerror(i32 noundef %13, ptr noundef %1, ptr noundef nonnull %16, i64 noundef %15) #9
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, ptr noundef nonnull %0, ptr noundef nonnull %16) #9
-  tail call void @free(ptr noundef nonnull %16) #9
+  %18 = tail call i64 @cli_regerror(i32 noundef %13, ptr noundef %1, ptr noundef nonnull %16, i64 noundef %15) #10
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, ptr noundef nonnull %0, ptr noundef nonnull %16) #10
+  tail call void @free(ptr noundef nonnull %16) #10
   br label %35
 
 19:                                               ; preds = %14
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %0) #9
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %0) #10
   br label %35
 
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %21, align 8, !tbaa !12
-  %22 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %0) #9
+  %22 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %0) #10
   store ptr %22, ptr %5, align 8, !tbaa !13
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %20
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.3) #9
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.3) #10
   br label %.thread
 
 25:                                               ; preds = %20
-  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
+  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #11
   %27 = call fastcc ptr @parse_regex(ptr noundef %0, i64 noundef %26, ptr noundef %8)
   %.not33 = icmp eq ptr %27, null
   br i1 %.not33, label %.thread49, label %28
@@ -97,7 +97,7 @@ define i32 @cli_regex2suffix(ptr noundef %0, ptr noundef %1, ptr noundef readonl
 .thread49:                                        ; preds = %25, %28
   %.02653 = phi i32 [ %30, %28 ], [ 12, %25 ]
   %31 = phi ptr [ %.pre, %28 ], [ %22, %25 ]
-  call void @free(ptr noundef nonnull %31) #9
+  call void @free(ptr noundef nonnull %31) #10
   store ptr null, ptr %5, align 8, !tbaa !13
   br label %.thread
 
@@ -109,7 +109,7 @@ define i32 @cli_regex2suffix(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   br i1 %.not36, label %34, label %33
 
 33:                                               ; preds = %.thread
-  call void @free(ptr noundef nonnull %32) #9
+  call void @free(ptr noundef nonnull %32) #10
   br label %34
 
 34:                                               ; preds = %33, %.thread
@@ -168,7 +168,7 @@ make_node.exit106:                                ; preds = %make_node.exit106.b
   %8 = add i64 %4, 1
   store i64 %8, ptr %2, align 8, !tbaa !3
   %9 = tail call fastcc ptr @parse_regex(ptr noundef %0, i64 noundef %1, ptr noundef %2)
-  %10 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #11
+  %10 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #12
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %20, label %11
 
@@ -202,12 +202,12 @@ make_node.exit106.backedge:                       ; preds = %17, %18, %64, %63, 
   br label %make_node.exit106.backedge
 
 20:                                               ; preds = %7
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.4) #9
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.4) #10
   tail call fastcc void @destroy_tree(ptr noundef %9)
   br label %.critedge
 
 21:                                               ; preds = %make_node.exit106, %make_node.exit106
-  %22 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #11
+  %22 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #12
   %.not.i89 = icmp eq ptr %22, null
   br i1 %.not.i89, label %make_node.exit92, label %23
 
@@ -228,7 +228,7 @@ make_node.exit106.backedge:                       ; preds = %17, %18, %64, %63, 
   br label %29
 
 make_node.exit92:                                 ; preds = %21
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.4) #9
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.4) #10
   br label %.critedge
 
 29:                                               ; preds = %27, %23
@@ -237,7 +237,7 @@ make_node.exit92:                                 ; preds = %21
   br label %make_node.exit106.backedge
 
 31:                                               ; preds = %make_node.exit106
-  %32 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #11
+  %32 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #12
   %.not.i93 = icmp eq ptr %32, null
   br i1 %.not.i93, label %39, label %33
 
@@ -258,7 +258,7 @@ make_node.exit92:                                 ; preds = %21
   br label %40
 
 39:                                               ; preds = %31
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.4) #9
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.4) #10
   tail call fastcc void @destroy_tree(ptr noundef %.064)
   br label %.critedge
 
@@ -272,12 +272,12 @@ make_node.exit92:                                 ; preds = %21
   br label %.critedge
 
 43:                                               ; preds = %40
-  %44 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #11
+  %44 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #12
   %.not.i97 = icmp eq ptr %44, null
   br i1 %.not.i97, label %45, label %46
 
 45:                                               ; preds = %43
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.4) #9
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.4) #10
   tail call fastcc void @destroy_tree(ptr noundef nonnull %41)
   br label %.critedge
 
@@ -316,12 +316,12 @@ make_node.exit92:                                 ; preds = %21
   br i1 %60, label %make_node.exit106.backedge, label %61
 
 61:                                               ; preds = %57
-  %62 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #11
+  %62 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #12
   %.not.i102 = icmp eq ptr %62, null
   br i1 %.not.i102, label %63, label %64
 
 63:                                               ; preds = %61
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.4) #9
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.4) #10
   br label %make_node.exit106.backedge
 
 64:                                               ; preds = %61
@@ -339,12 +339,12 @@ make_node.exit92:                                 ; preds = %21
   br label %make_node.exit106.backedge
 
 70:                                               ; preds = %make_node.exit106
-  %71 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #11
+  %71 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #12
   %.not.i107 = icmp eq ptr %71, null
   br i1 %.not.i107, label %72, label %73
 
 72:                                               ; preds = %70
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.7) #9
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.7) #10
   tail call fastcc void @destroy_tree(ptr noundef %.064)
   br label %.critedge
 
@@ -358,7 +358,7 @@ make_node.exit92:                                 ; preds = %21
   br i1 %76, label %84, label %77
 
 77:                                               ; preds = %73
-  %78 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #11
+  %78 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #12
   %.not.i109 = icmp eq ptr %78, null
   br i1 %.not.i109, label %make_node.exit113, label %79
 
@@ -376,7 +376,7 @@ make_node.exit92:                                 ; preds = %21
   br label %84
 
 make_node.exit113:                                ; preds = %77
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.4) #9
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.4) #10
   br label %.critedge
 
 84:                                               ; preds = %73, %79
@@ -388,12 +388,12 @@ make_node.exit113:                                ; preds = %77
 86:                                               ; preds = %make_node.exit106
   %87 = add i64 %4, 1
   store i64 %87, ptr %2, align 8, !tbaa !3
-  %88 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #11
+  %88 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #12
   %89 = icmp eq ptr %88, null
   br i1 %89, label %90, label %91
 
 90:                                               ; preds = %86
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.8) #9
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.8) #10
   br label %parse_char_class.exit.thread
 
 91:                                               ; preds = %86
@@ -409,8 +409,8 @@ make_node.exit113:                                ; preds = %77
   br i1 %.not.i114, label %98, label %97
 
 97:                                               ; preds = %95
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.9) #9
-  tail call void @free(ptr noundef nonnull %88) #9
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.9) #10
+  tail call void @free(ptr noundef nonnull %88) #10
   br label %parse_char_class.exit.thread
 
 98:                                               ; preds = %95
@@ -445,8 +445,8 @@ make_node.exit113:                                ; preds = %77
   br i1 %108, label %109, label %110
 
 109:                                              ; preds = %106
-  tail call void @free(ptr noundef nonnull %88) #9
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.10) #9
+  tail call void @free(ptr noundef nonnull %88) #10
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.10) #10
   br label %parse_char_class.exit.thread
 
 110:                                              ; preds = %106
@@ -455,8 +455,8 @@ make_node.exit113:                                ; preds = %77
   br i1 %.not127.i, label %113, label %112
 
 112:                                              ; preds = %110
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.9) #9
-  tail call void @free(ptr noundef nonnull %88) #9
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.9) #10
+  tail call void @free(ptr noundef nonnull %88) #10
   br label %parse_char_class.exit.thread
 
 113:                                              ; preds = %110
@@ -473,7 +473,7 @@ make_node.exit113:                                ; preds = %77
   br i1 %120, label %.lr.ph152.preheader.i, label %134
 
 .lr.ph152.preheader.i:                            ; preds = %117
-  tail call void @free(ptr noundef nonnull %88) #9
+  tail call void @free(ptr noundef nonnull %88) #10
   br label %.lr.ph152.i
 
 .lr.ph152.i:                                      ; preds = %124, %.lr.ph152.preheader.i
@@ -483,7 +483,7 @@ make_node.exit113:                                ; preds = %77
   br i1 %.not134.i, label %124, label %123
 
 123:                                              ; preds = %.lr.ph152.i
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.9) #9
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.9) #10
   br label %parse_char_class.exit.thread
 
 124:                                              ; preds = %.lr.ph152.i
@@ -499,7 +499,7 @@ make_node.exit113:                                ; preds = %77
   br i1 %.not131.i, label %.preheader.i, label %128
 
 128:                                              ; preds = %._crit_edge.i
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.9) #9
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.9) #10
   br label %parse_char_class.exit.thread
 
 .preheader.i:                                     ; preds = %._crit_edge.i, %131
@@ -516,7 +516,7 @@ make_node.exit113:                                ; preds = %77
   br i1 %exitcond156.not.i, label %133, label %.preheader.i
 
 133:                                              ; preds = %131
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.9) #9
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.9) #10
   br label %parse_char_class.exit.thread
 
 134:                                              ; preds = %117, %113
@@ -553,8 +553,8 @@ make_node.exit113:                                ; preds = %77
   br i1 %.not125.i, label %154, label %153
 
 153:                                              ; preds = %144
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.9) #9
-  tail call void @free(ptr noundef nonnull %88) #9
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.9) #10
+  tail call void @free(ptr noundef nonnull %88) #10
   br label %parse_char_class.exit.thread
 
 154:                                              ; preds = %144
@@ -574,12 +574,12 @@ make_node.exit113:                                ; preds = %77
 parse_char_class.exit.thread145:                  ; preds = %.loopexit.i, %.preheader.i
   %157 = phi i64 [ %storemerge.i, %.preheader.i ], [ %156, %.loopexit.i ]
   %.2109.i147 = phi ptr [ @dot_bitmap, %.preheader.i ], [ %88, %.loopexit.i ]
-  %158 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #11
+  %158 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #12
   %.not.i115 = icmp eq ptr %158, null
   br i1 %.not.i115, label %159, label %160
 
 159:                                              ; preds = %parse_char_class.exit.thread145
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.7) #9
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.7) #10
   br label %parse_char_class.exit.thread
 
 parse_char_class.exit.thread:                     ; preds = %112, %133, %128, %123, %109, %153, %97, %90, %159
@@ -596,7 +596,7 @@ parse_char_class.exit.thread:                     ; preds = %112, %133, %128, %1
   br i1 %163, label %172, label %164
 
 164:                                              ; preds = %160
-  %165 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #11
+  %165 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #12
   %.not.i118 = icmp eq ptr %165, null
   br i1 %.not.i118, label %171, label %166
 
@@ -614,7 +614,7 @@ parse_char_class.exit.thread:                     ; preds = %112, %133, %128, %1
   br label %172
 
 171:                                              ; preds = %164
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.4) #9
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.4) #10
   tail call fastcc void @destroy_tree(ptr noundef nonnull %158)
   br label %.critedge
 
@@ -634,7 +634,7 @@ parse_char_class.exit.thread:                     ; preds = %112, %133, %128, %1
 176:                                              ; preds = %make_node.exit106, %174
   %177 = phi i8 [ %6, %make_node.exit106 ], [ %.pre, %174 ]
   %178 = phi i64 [ %4, %make_node.exit106 ], [ %175, %174 ]
-  %179 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #11
+  %179 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #12
   %.not.i123 = icmp eq ptr %179, null
   br i1 %.not.i123, label %make_leaf.exit, label %make_leaf.exit.thread
 
@@ -652,12 +652,12 @@ make_leaf.exit.thread:                            ; preds = %176
   br i1 %183, label %make_node.exit128.thread, label %184
 
 184:                                              ; preds = %make_leaf.exit.thread
-  %185 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #11
+  %185 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #12
   %.not.i124 = icmp eq ptr %185, null
   br i1 %.not.i124, label %make_node.exit128.thread156, label %186
 
 make_node.exit128.thread156:                      ; preds = %184
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.4) #9
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.4) #10
   br label %.loopexit
 
 186:                                              ; preds = %184
@@ -748,7 +748,7 @@ define internal fastcc range(i32 0, 21) i32 @build_suffixtree_descend(ptr nounde
   %29 = add i64 %26, 4096
   %..i.i = tail call i64 @llvm.umax.i64(i64 %24, i64 %29)
   %30 = and i64 %..i.i, 4294967295
-  %31 = tail call ptr @cli_max_realloc(ptr noundef %.pre.i, i64 noundef %30) #9
+  %31 = tail call ptr @cli_max_realloc(ptr noundef %.pre.i, i64 noundef %30) #10
   %.not.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i, label %textbuffer_putc.exit, label %.thread.i.i
 
@@ -772,7 +772,7 @@ textbuffer_putc.exit:                             ; preds = %28, %32
   %36 = load ptr, ptr %1, align 8, !tbaa !18
   %37 = load i64, ptr %22, align 8, !tbaa !22
   %38 = add i64 %37, -1
-  %39 = tail call i32 %2(ptr noundef %3, ptr noundef %36, i64 noundef %38, ptr noundef nonnull %4) #9
+  %39 = tail call i32 %2(ptr noundef %3, ptr noundef %36, i64 noundef %38, ptr noundef nonnull %4) #10
   %.not33 = icmp eq i32 %39, 0
   %. = select i1 %.not33, i32 0, i32 20
   br label %.critedge36
@@ -788,8 +788,8 @@ textbuffer_putc.exit:                             ; preds = %28, %32
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc void @destroy_tree(ptr noundef captures(address_is_null) %0) unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc void @destroy_tree(ptr noundef captures(address_is_null) %0) unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %2
 
@@ -820,11 +820,11 @@ define internal fastcc void @destroy_tree(ptr noundef captures(address_is_null) 
   br i1 %or.cond, label %13, label %12
 
 12:                                               ; preds = %9
-  tail call void @free(ptr noundef %11) #9
+  tail call void @free(ptr noundef %11) #10
   br label %13
 
 13:                                               ; preds = %9, %12, %4, %2
-  tail call void @free(ptr noundef nonnull %0) #9
+  tail call void @free(ptr noundef nonnull %0) #10
   br label %14
 
 14:                                               ; preds = %13, %1
@@ -837,12 +837,12 @@ define internal fastcc noundef ptr @dup_node(ptr noundef readonly captures(addre
   br i1 %.not, label %33, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #11
+  %3 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #12
   %.not32 = icmp eq ptr %3, null
   br i1 %.not32, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.5) #9
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.5) #10
   br label %33
 
 5:                                                ; preds = %2
@@ -863,15 +863,15 @@ define internal fastcc noundef ptr @dup_node(ptr noundef readonly captures(addre
   br label %33
 
 12:                                               ; preds = %5
-  %13 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #11
+  %13 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #12
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %13, ptr %14, align 8, !tbaa !20
   %.not33 = icmp eq ptr %13, null
   br i1 %.not33, label %15, label %16
 
 15:                                               ; preds = %12
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.6) #9
-  tail call void @free(ptr noundef nonnull %3) #9
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.6) #10
+  tail call void @free(ptr noundef nonnull %3) #10
   br label %33
 
 16:                                               ; preds = %12
@@ -914,10 +914,10 @@ define internal fastcc noundef ptr @dup_node(ptr noundef readonly captures(addre
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #2
 
@@ -961,7 +961,7 @@ define internal fastcc range(i32 0, 21) i32 @build_suffixtree_ascend(ptr noundef
   %19 = add i64 %16, 4096
   %..i.i = tail call i64 @llvm.umax.i64(i64 %15, i64 %19)
   %20 = and i64 %..i.i, 4294967295
-  %21 = tail call ptr @cli_max_realloc(ptr noundef %.pre.i, i64 noundef %20) #9
+  %21 = tail call ptr @cli_max_realloc(ptr noundef %.pre.i, i64 noundef %20) #10
   %.not.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i, label %textbuffer_putc.exit, label %.thread.i.i
 
@@ -985,7 +985,7 @@ textbuffer_putc.exit:                             ; preds = %18, %22
   %26 = load ptr, ptr %1, align 8, !tbaa !18
   %27 = load i64, ptr %7, align 8, !tbaa !22
   %28 = add i64 %27, -1
-  %29 = tail call i32 %3(ptr noundef %4, ptr noundef %26, i64 noundef %28, ptr noundef nonnull %5) #9
+  %29 = tail call i32 %3(ptr noundef %4, ptr noundef %26, i64 noundef %28, ptr noundef nonnull %5) #10
   %.not79 = icmp eq i32 %29, 0
   %. = select i1 %.not79, i32 0, i32 20
   br label %.thread120
@@ -1004,7 +1004,7 @@ textbuffer_putc.exit:                             ; preds = %18, %22
   %38 = add i64 %35, 4096
   %..i.i86 = tail call i64 @llvm.umax.i64(i64 %34, i64 %38)
   %39 = and i64 %..i.i86, 4294967295
-  %40 = tail call ptr @cli_max_realloc(ptr noundef %.pre.i83, i64 noundef %39) #9
+  %40 = tail call ptr @cli_max_realloc(ptr noundef %.pre.i83, i64 noundef %39) #10
   %.not.i.i87 = icmp eq ptr %40, null
   br i1 %.not.i.i87, label %.sink.split, label %.thread.i.i88
 
@@ -1061,7 +1061,7 @@ textbuffer_putc.exit:                             ; preds = %18, %22
   %65 = add i64 %62, 4096
   %..i.i95 = tail call i64 @llvm.umax.i64(i64 %61, i64 %65)
   %66 = and i64 %..i.i95, 4294967295
-  %67 = tail call ptr @cli_max_realloc(ptr noundef %.pre.i92, i64 noundef %66) #9
+  %67 = tail call ptr @cli_max_realloc(ptr noundef %.pre.i92, i64 noundef %66) #10
   %.not.i.i96 = icmp eq ptr %67, null
   br i1 %.not.i.i96, label %textbuffer_putc.exit100, label %.thread.i.i97
 
@@ -1085,7 +1085,7 @@ textbuffer_putc.exit100:                          ; preds = %64, %68
   %72 = load ptr, ptr %1, align 8, !tbaa !18
   %73 = load i64, ptr %7, align 8, !tbaa !22
   %74 = add i64 %73, -1
-  %75 = tail call i32 %3(ptr noundef %4, ptr noundef %72, i64 noundef %74, ptr noundef nonnull %5) #9
+  %75 = tail call i32 %3(ptr noundef %4, ptr noundef %72, i64 noundef %74, ptr noundef nonnull %5) #10
   %.not77 = icmp eq i32 %75, 0
   %.80 = select i1 %.not77, i32 0, i32 20
   br label %.thread120
@@ -1117,7 +1117,7 @@ textbuffer_putc.exit100:                          ; preds = %64, %68
   %93 = add i64 %90, 4096
   %..i.i104 = tail call i64 @llvm.umax.i64(i64 %89, i64 %93)
   %94 = and i64 %..i.i104, 4294967295
-  %95 = tail call ptr @cli_max_realloc(ptr noundef %.pre.i101, i64 noundef %94) #9
+  %95 = tail call ptr @cli_max_realloc(ptr noundef %.pre.i101, i64 noundef %94) #10
   %.not.i.i105 = icmp eq ptr %95, null
   br i1 %.not.i.i105, label %textbuffer_putc.exit109, label %.thread.i.i106
 
@@ -1176,7 +1176,7 @@ textbuffer_putc.exit109:                          ; preds = %92, %96
   %115 = add i64 %112, 4096
   %..i.i113 = tail call i64 @llvm.umax.i64(i64 %111, i64 %115)
   %116 = and i64 %..i.i113, 4294967295
-  %117 = tail call ptr @cli_max_realloc(ptr noundef %.pre.i110, i64 noundef %116) #9
+  %117 = tail call ptr @cli_max_realloc(ptr noundef %.pre.i110, i64 noundef %116) #10
   %.not.i.i114 = icmp eq ptr %117, null
   br i1 %.not.i.i114, label %textbuffer_putc.exit118, label %.thread.i.i115
 
@@ -1200,7 +1200,7 @@ textbuffer_putc.exit118:                          ; preds = %114, %118
   %122 = load ptr, ptr %1, align 8, !tbaa !18
   %123 = load i64, ptr %7, align 8, !tbaa !22
   %124 = add i64 %123, -1
-  %125 = tail call i32 %3(ptr noundef %4, ptr noundef %122, i64 noundef %124, ptr noundef nonnull %5) #9
+  %125 = tail call i32 %3(ptr noundef %4, ptr noundef %122, i64 noundef %124, ptr noundef nonnull %5) #10
   %.not72 = icmp eq i32 %125, 0
   %.82 = select i1 %.not72, i32 0, i32 20
   br label %.thread120
@@ -1223,26 +1223,27 @@ textbuffer_putc.exit118:                          ; preds = %114, %118
 declare ptr @cli_max_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #8
+declare i64 @llvm.umax.i64(i64, i64) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
-attributes #11 = { nounwind allocsize(0) }
+attributes #5 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

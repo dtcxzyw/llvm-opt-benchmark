@@ -126,7 +126,7 @@ define internal fastcc noundef ptr @img_alloc_helper(ptr noundef captures(addres
   br i1 %.not111, label %52, label %56
 
 52:                                               ; preds = %28
-  %53 = tail call noalias dereferenceable_or_null(168) ptr @calloc(i64 noundef 1, i64 noundef 168) #14
+  %53 = tail call noalias dereferenceable_or_null(168) ptr @calloc(i64 noundef 1, i64 noundef 168) #15
   %.not112 = icmp eq ptr %53, null
   br i1 %.not112, label %146, label %54
 
@@ -173,7 +173,7 @@ define internal fastcc noundef ptr @img_alloc_helper(ptr noundef captures(addres
 74:                                               ; preds = %71
   %75 = add nsw i64 %73, -1
   %76 = add nuw nsw i64 %75, %72
-  %77 = tail call ptr %9(ptr noundef %10, i64 noundef %76) #15
+  %77 = tail call ptr %9(ptr noundef %10, i64 noundef %76) #16
   %.not115 = icmp eq ptr %77, null
   %78 = ptrtoint ptr %77 to i64
   %79 = zext i32 %12 to i64
@@ -184,7 +184,7 @@ define internal fastcc noundef ptr @img_alloc_helper(ptr noundef captures(addres
   br i1 %.not115, label %.thread148, label %88
 
 84:                                               ; preds = %71
-  %85 = tail call ptr @aom_memalign(i64 noundef %73, i64 noundef %72) #15
+  %85 = tail call ptr @aom_memalign(i64 noundef %73, i64 noundef %72) #16
   br label %88
 
 .thread148:                                       ; preds = %74
@@ -535,11 +535,11 @@ define hidden void @aom_img_free(ptr noundef captures(address_is_null) %0) local
   br i1 %.not5.i.i.i, label %17, label %16
 
 16:                                               ; preds = %13
-  tail call void @free(ptr noundef nonnull %15) #15
+  tail call void @free(ptr noundef nonnull %15) #16
   br label %17
 
 17:                                               ; preds = %16, %13
-  tail call void @free(ptr noundef nonnull %12) #15
+  tail call void @free(ptr noundef nonnull %12) #16
   %.pre.i.i = load i64, ptr %4, align 8
   br label %aom_img_metadata_free.exit.i.i
 
@@ -555,11 +555,11 @@ aom_img_metadata_free.exit.i.i:                   ; preds = %17, %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %.preheader.i.i
   %21 = phi ptr [ %.pre12.i.i, %._crit_edge.loopexit.i.i ], [ %7, %.preheader.i.i ]
-  tail call void @free(ptr noundef %21) #15
+  tail call void @free(ptr noundef %21) #16
   br label %aom_img_metadata_array_free.exit.i
 
 aom_img_metadata_array_free.exit.i:               ; preds = %._crit_edge.i.i, %5
-  tail call void @free(ptr noundef nonnull %4) #15
+  tail call void @free(ptr noundef nonnull %4) #16
   store ptr null, ptr %3, align 8
   br label %aom_img_remove_metadata.exit
 
@@ -576,7 +576,7 @@ aom_img_remove_metadata.exit:                     ; preds = %2, %aom_img_metadat
   br i1 %.not9, label %28, label %27
 
 27:                                               ; preds = %24
-  tail call void @aom_free(ptr noundef nonnull %23) #15
+  tail call void @aom_free(ptr noundef nonnull %23) #16
   br label %28
 
 28:                                               ; preds = %27, %24, %aom_img_remove_metadata.exit
@@ -586,15 +586,15 @@ aom_img_remove_metadata.exit:                     ; preds = %2, %aom_img_metadat
   br i1 %.not10, label %32, label %31
 
 31:                                               ; preds = %28
-  tail call void @free(ptr noundef nonnull %0) #15
+  tail call void @free(ptr noundef nonnull %0) #16
   br label %32
 
 32:                                               ; preds = %28, %31, %1
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @aom_img_remove_metadata(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define hidden void @aom_img_remove_metadata(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %22, label %2
 
@@ -631,11 +631,11 @@ define hidden void @aom_img_remove_metadata(ptr noundef captures(address_is_null
   br i1 %.not5.i.i, label %17, label %16
 
 16:                                               ; preds = %13
-  tail call void @free(ptr noundef nonnull %15) #15
+  tail call void @free(ptr noundef nonnull %15) #16
   br label %17
 
 17:                                               ; preds = %16, %13
-  tail call void @free(ptr noundef nonnull %12) #15
+  tail call void @free(ptr noundef nonnull %12) #16
   %.pre.i = load i64, ptr %4, align 8
   br label %aom_img_metadata_free.exit.i
 
@@ -651,11 +651,11 @@ aom_img_metadata_free.exit.i:                     ; preds = %17, %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
   %21 = phi ptr [ %.pre12.i, %._crit_edge.loopexit.i ], [ %7, %.preheader.i ]
-  tail call void @free(ptr noundef %21) #15
+  tail call void @free(ptr noundef %21) #16
   br label %aom_img_metadata_array_free.exit
 
 aom_img_metadata_array_free.exit:                 ; preds = %5, %._crit_edge.i
-  tail call void @free(ptr noundef nonnull %4) #15
+  tail call void @free(ptr noundef nonnull %4) #16
   store ptr null, ptr %3, align 8
   br label %22
 
@@ -663,13 +663,13 @@ aom_img_metadata_array_free.exit:                 ; preds = %5, %._crit_edge.i
   ret void
 }
 
-declare void @aom_free(ptr noundef) local_unnamed_addr #2
+declare void @aom_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @aom_img_plane_width(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
+define hidden i32 @aom_img_plane_width(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %4, label %12
 
@@ -697,7 +697,7 @@ define hidden i32 @aom_img_plane_width(ptr noundef readonly captures(none) %0, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @aom_img_plane_height(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
+define hidden i32 @aom_img_plane_height(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %4, label %12
 
@@ -724,28 +724,28 @@ define hidden i32 @aom_img_plane_height(ptr noundef readonly captures(none) %0, 
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden noalias noundef ptr @aom_img_metadata_alloc(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define hidden noalias noundef ptr @aom_img_metadata_alloc(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp eq ptr %1, null
   %6 = icmp eq i64 %2, 0
   %or.cond = or i1 %5, %6
   br i1 %or.cond, label %16, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #16
+  %8 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #17
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %16, label %9
 
 9:                                                ; preds = %7
   store i32 %0, ptr %8, align 8
-  %10 = tail call noalias ptr @malloc(i64 noundef %2) #16
+  %10 = tail call noalias ptr @malloc(i64 noundef %2) #17
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %11, align 8
   %.not22 = icmp eq ptr %10, null
   br i1 %.not22, label %12, label %13
 
 12:                                               ; preds = %9
-  tail call void @free(ptr noundef nonnull %8) #15
+  tail call void @free(ptr noundef nonnull %8) #16
   br label %16
 
 13:                                               ; preds = %9
@@ -762,13 +762,13 @@ define hidden noalias noundef ptr @aom_img_metadata_alloc(i32 noundef %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @aom_img_metadata_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #5 {
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define hidden void @aom_img_metadata_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -779,20 +779,20 @@ define hidden void @aom_img_metadata_free(ptr noundef captures(address_is_null) 
   br i1 %.not5, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void @free(ptr noundef nonnull %4) #15
+  tail call void @free(ptr noundef nonnull %4) #16
   br label %6
 
 6:                                                ; preds = %5, %2
-  tail call void @free(ptr noundef nonnull %0) #15
+  tail call void @free(ptr noundef nonnull %0) #16
   br label %7
 
 7:                                                ; preds = %6, %1
   ret void
 }
 
-; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
-define hidden noalias noundef ptr @aom_img_metadata_array_alloc(i64 noundef %0) local_unnamed_addr #8 {
-  %2 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #14
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none, target_mem0: none, target_mem1: none) uwtable
+define hidden noalias noundef ptr @aom_img_metadata_array_alloc(i64 noundef %0) local_unnamed_addr #9 {
+  %2 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #15
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %8, label %3
 
@@ -801,14 +801,14 @@ define hidden noalias noundef ptr @aom_img_metadata_array_alloc(i64 noundef %0) 
   br i1 %.not11, label %8, label %4
 
 4:                                                ; preds = %3
-  %5 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef 8) #14
+  %5 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef 8) #15
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %5, ptr %6, align 8
   %.not12 = icmp eq ptr %5, null
   br i1 %.not12, label %aom_img_metadata_array_free.exit, label %7
 
 aom_img_metadata_array_free.exit:                 ; preds = %4
-  tail call void @free(ptr noundef nonnull %2) #15
+  tail call void @free(ptr noundef nonnull %2) #16
   br label %8
 
 7:                                                ; preds = %4
@@ -821,10 +821,10 @@ aom_img_metadata_array_free.exit:                 ; preds = %4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #10
 
-; Function Attrs: nounwind uwtable
-define hidden void @aom_img_metadata_array_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define hidden void @aom_img_metadata_array_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %20, label %2
 
@@ -855,11 +855,11 @@ define hidden void @aom_img_metadata_array_free(ptr noundef captures(address_is_
   br i1 %.not5.i, label %14, label %13
 
 13:                                               ; preds = %10
-  tail call void @free(ptr noundef nonnull %12) #15
+  tail call void @free(ptr noundef nonnull %12) #16
   br label %14
 
 14:                                               ; preds = %13, %10
-  tail call void @free(ptr noundef nonnull %9) #15
+  tail call void @free(ptr noundef nonnull %9) #16
   %.pre = load i64, ptr %0, align 8
   br label %aom_img_metadata_free.exit
 
@@ -875,19 +875,19 @@ aom_img_metadata_free.exit:                       ; preds = %.lr.ph, %14
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %18 = phi ptr [ %.pre12, %._crit_edge.loopexit ], [ %4, %.preheader ]
-  tail call void @free(ptr noundef %18) #15
+  tail call void @free(ptr noundef %18) #16
   br label %19
 
 19:                                               ; preds = %._crit_edge, %2
-  tail call void @free(ptr noundef nonnull %0) #15
+  tail call void @free(ptr noundef nonnull %0) #16
   br label %20
 
 20:                                               ; preds = %19, %1
   ret void
 }
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden range(i32 -1, 1) i32 @aom_img_add_metadata(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #5 {
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define hidden range(i32 -1, 1) i32 @aom_img_add_metadata(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %aom_img_metadata_alloc.exit.thread, label %6
 
@@ -898,7 +898,7 @@ define hidden range(i32 -1, 1) i32 @aom_img_add_metadata(ptr noundef captures(ad
   br i1 %.not22, label %9, label %11
 
 9:                                                ; preds = %6
-  %10 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #14
+  %10 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #15
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %aom_img_metadata_array_alloc.exit.thread, label %aom_img_metadata_array_alloc.exit
 
@@ -918,20 +918,20 @@ aom_img_metadata_array_alloc.exit:                ; preds = %9
   br i1 %or.cond.i, label %aom_img_metadata_alloc.exit.thread, label %15
 
 15:                                               ; preds = %11
-  %16 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #16
+  %16 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #17
   %.not.i26 = icmp eq ptr %16, null
   br i1 %.not.i26, label %aom_img_metadata_alloc.exit.thread, label %17
 
 17:                                               ; preds = %15
   store i32 %1, ptr %16, align 8
-  %18 = tail call noalias ptr @malloc(i64 noundef %3) #16
+  %18 = tail call noalias ptr @malloc(i64 noundef %3) #17
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %18, ptr %19, align 8
   %.not22.i = icmp eq ptr %18, null
   br i1 %.not22.i, label %20, label %21
 
 20:                                               ; preds = %17
-  tail call void @free(ptr noundef nonnull %16) #15
+  tail call void @free(ptr noundef nonnull %16) #16
   br label %aom_img_metadata_alloc.exit.thread
 
 21:                                               ; preds = %17
@@ -945,13 +945,13 @@ aom_img_metadata_array_alloc.exit:                ; preds = %9
   %26 = load i64, ptr %12, align 8
   %27 = shl i64 %26, 3
   %28 = add i64 %27, 8
-  %29 = tail call ptr @realloc(ptr noundef %25, i64 noundef %28) #17
+  %29 = tail call ptr @realloc(ptr noundef %25, i64 noundef %28) #18
   %.not25 = icmp eq ptr %29, null
   br i1 %.not25, label %aom_img_metadata_free.exit, label %30
 
 aom_img_metadata_free.exit:                       ; preds = %21
-  tail call void @free(ptr noundef nonnull %18) #15
-  tail call void @free(ptr noundef nonnull %16) #15
+  tail call void @free(ptr noundef nonnull %18) #16
+  tail call void @free(ptr noundef nonnull %16) #16
   br label %aom_img_metadata_alloc.exit.thread
 
 30:                                               ; preds = %21
@@ -976,10 +976,10 @@ aom_img_metadata_alloc.exit.thread:               ; preds = %15, %11, %20, %aom_
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #10
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @aom_img_get_metadata(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #11 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define hidden ptr @aom_img_get_metadata(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %3
 
@@ -1006,8 +1006,8 @@ define hidden ptr @aom_img_get_metadata(ptr noundef readonly captures(address_is
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @aom_img_num_metadata(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #11 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define hidden i64 @aom_img_num_metadata(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -1027,37 +1027,38 @@ define hidden i64 @aom_img_num_metadata(ptr noundef readonly captures(address_is
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
-declare ptr @aom_memalign(i64 noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #13
+declare ptr @aom_memalign(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #13
+declare i32 @llvm.umax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #13
+declare i32 @llvm.ctpop.i32(i32) #14
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nounwind allocsize(0,1) }
-attributes #15 = { nounwind }
-attributes #16 = { nounwind allocsize(0) }
-attributes #17 = { nounwind allocsize(1) }
+attributes #2 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { mustprogress nounwind willreturn memory(readwrite, argmem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nounwind allocsize(0,1) }
+attributes #16 = { nounwind }
+attributes #17 = { nounwind allocsize(0) }
+attributes #18 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

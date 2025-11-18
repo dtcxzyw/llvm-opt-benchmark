@@ -2549,7 +2549,7 @@ define noalias noundef nonnull align 8 ptr @_ZN13pingora_cache4meta9CacheMeta3ne
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i64, i32 } @_ZN13pingora_cache4meta9CacheMeta7created17h6994d720584f63e0E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !15, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 248
@@ -2561,7 +2561,7 @@ define { i64, i32 } @_ZN13pingora_cache4meta9CacheMeta7created17h6994d720584f63e
   ret { i64, i32 } %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i64, i32 } @_ZN13pingora_cache4meta9CacheMeta7updated17h6d22ed61d7f3f297E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !15, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 264
@@ -2573,7 +2573,7 @@ define { i64, i32 } @_ZN13pingora_cache4meta9CacheMeta7updated17h6d22ed61d7f3f29
   ret { i64, i32 } %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZN13pingora_cache4meta9CacheMeta8is_fresh17hd79e7be56d842760E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, i64 noundef %1, i32 noundef range(i32 0, 1000000000) %2) unnamed_addr #7 {
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !15, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 232
@@ -2613,7 +2613,7 @@ define noundef i64 @_ZN13pingora_cache4meta9CacheMeta9fresh_sec17hd77f7568933f82
   ret i64 %.sroa.0.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i64, i32 } @_ZN13pingora_cache4meta9CacheMeta11fresh_until17h25dd2fda87052af3E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !15, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 232
@@ -2659,7 +2659,7 @@ define { i64, i32 } @_ZN13pingora_cache4meta9CacheMeta3age17had7897d63e5829a5E(p
   ret { i64, i32 } %20
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZN13pingora_cache4meta9CacheMeta26stale_while_revalidate_sec17h0210d56a36749006E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !15, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 280
@@ -2667,7 +2667,7 @@ define noundef i32 @_ZN13pingora_cache4meta9CacheMeta26stale_while_revalidate_se
   ret i32 %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZN13pingora_cache4meta9CacheMeta18stale_if_error_sec17h246c67aa8458cb8aE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !15, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 284
@@ -2729,7 +2729,7 @@ _ZN13pingora_cache4meta9CacheMeta15can_serve_stale17hc8eec45d17c6b661E.exit: ; p
   ret i1 %.sroa.0.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN13pingora_cache4meta9CacheMeta19disable_serve_stale17h7054e2244a02927dE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #8 {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !15, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 284
@@ -2739,7 +2739,7 @@ define void @_ZN13pingora_cache4meta9CacheMeta19disable_serve_stale17h7054e2244a
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN13pingora_cache4meta9CacheMeta8variance17h6b1ff9b3f008c37bE(ptr dead_on_unwind noalias noundef writable writeonly sret([17 x i8]) align 1 captures(none) dereferenceable(17) initializes((0, 17)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #9 {
   %3 = load ptr, ptr %1, align 8, !nonnull !3, !align !15, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 288
@@ -2747,7 +2747,7 @@ define void @_ZN13pingora_cache4meta9CacheMeta8variance17h6b1ff9b3f008c37bE(ptr 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN13pingora_cache4meta9CacheMeta16set_variance_key17hffaa7bbcbc9d750bE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %1) unnamed_addr #9 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !15, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 288
@@ -2757,7 +2757,7 @@ define void @_ZN13pingora_cache4meta9CacheMeta16set_variance_key17hffaa7bbcbc9d7
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN13pingora_cache4meta9CacheMeta12set_variance17haf0d30a19a7b3bffE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %1) unnamed_addr #9 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !15, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 288
@@ -2767,7 +2767,7 @@ define void @_ZN13pingora_cache4meta9CacheMeta12set_variance17haf0d30a19a7b3bffE
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN13pingora_cache4meta9CacheMeta15remove_variance17h959f8c09eb6651daE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #8 {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !15, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 288
@@ -8212,9 +8212,9 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind will
 attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #12 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

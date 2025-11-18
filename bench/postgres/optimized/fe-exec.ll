@@ -92,7 +92,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @PQmakeEmptyPGresult(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call noalias dereferenceable_or_null(216) ptr @malloc(i64 noundef 216) #26
+  %3 = tail call noalias dereferenceable_or_null(216) ptr @malloc(i64 noundef 216) #27
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %40, label %4
 
@@ -197,7 +197,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @pqSetResultError(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %4
@@ -233,15 +233,15 @@ define void @pqSetResultError(ptr noundef %0, ptr noundef readonly captures(addr
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @dupEvents(ptr noundef readonly captures(address_is_null) %0, i32 noundef range(i32 1, -2147483648) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc noalias noundef ptr @dupEvents(ptr noundef readonly captures(address_is_null) %0, i32 noundef range(i32 1, -2147483648) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %32, label %5
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %1 to i64
   %7 = mul nuw nsw i64 %6, 40
-  %8 = tail call noalias ptr @malloc(i64 noundef %7) #26
+  %8 = tail call noalias ptr @malloc(i64 noundef %7) #27
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %32, label %.preheader44
 
@@ -263,7 +263,7 @@ define internal fastcc noalias noundef ptr @dupEvents(ptr noundef readonly captu
   store i8 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call noalias ptr @strdup(ptr noundef %18) #27
+  %19 = tail call noalias ptr @strdup(ptr noundef %18) #28
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %19, ptr %20, align 8
   %.not43 = icmp eq ptr %19, null
@@ -282,17 +282,17 @@ define internal fastcc noalias noundef ptr @dupEvents(ptr noundef readonly captu
   %22 = getelementptr inbounds nuw %struct.PGEvent, ptr %8, i64 %indvars.iv55
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  tail call void @free(ptr noundef %24) #27
+  tail call void @free(ptr noundef %24) #28
   %indvars.iv.next56 = add nsw i64 %indvars.iv55, -1
   %.not61 = icmp eq i64 %indvars.iv55, 0
   br i1 %.not61, label %._crit_edge, label %.lr.ph, !llvm.loop !3
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  tail call void @free(ptr noundef nonnull %8) #27
+  tail call void @free(ptr noundef nonnull %8) #28
   br label %32
 
 25:                                               ; preds = %.preheader44
-  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #28
+  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #29
   %27 = add i64 %.03747, 1
   %28 = add i64 %27, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -344,7 +344,7 @@ define void @PQclear(ptr noundef %0) local_unnamed_addr #0 {
   %15 = load ptr, ptr %10, align 8
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = call i32 %15(i32 noundef 5, ptr noundef nonnull %2, ptr noundef %17) #27
+  %18 = call i32 %15(i32 noundef 5, ptr noundef nonnull %2, ptr noundef %17) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre = load ptr, ptr %7, align 8
   br label %19
@@ -354,7 +354,7 @@ define void @PQclear(ptr noundef %0) local_unnamed_addr #0 {
   %21 = getelementptr inbounds nuw %struct.PGEvent, ptr %20, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
-  call void @free(ptr noundef %23) #27
+  call void @free(ptr noundef %23) #28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i32, ptr %4, align 8
   %25 = sext i32 %24 to i64
@@ -364,7 +364,7 @@ define void @PQclear(ptr noundef %0) local_unnamed_addr #0 {
 ._crit_edge:                                      ; preds = %19, %.preheader
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %28 = load ptr, ptr %27, align 8
-  call void @free(ptr noundef %28) #27
+  call void @free(ptr noundef %28) #28
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %30 = load ptr, ptr %29, align 8
   %.not2830 = icmp eq ptr %30, null
@@ -374,7 +374,7 @@ define void @PQclear(ptr noundef %0) local_unnamed_addr #0 {
   %31 = phi ptr [ %33, %.lr.ph32 ], [ %30, %._crit_edge ]
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %29, align 8
-  call void @free(ptr noundef nonnull %31) #27
+  call void @free(ptr noundef nonnull %31) #28
   %33 = load ptr, ptr %29, align 8
   %.not28 = icmp eq ptr %33, null
   br i1 %.not28, label %._crit_edge33, label %.lr.ph32, !llvm.loop !9
@@ -382,16 +382,16 @@ define void @PQclear(ptr noundef %0) local_unnamed_addr #0 {
 ._crit_edge33:                                    ; preds = %.lr.ph32, %._crit_edge
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void @free(ptr noundef %35) #27
-  call void @free(ptr noundef nonnull %0) #27
+  call void @free(ptr noundef %35) #28
+  call void @free(ptr noundef nonnull %0) #28
   br label %36
 
 36:                                               ; preds = %1, %._crit_edge33
   ret void
 }
 
-; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 2) i32 @PQsetResultAttrs(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #4 {
+; Function Attrs: nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define range(i32 0, 2) i32 @PQsetResultAttrs(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #5 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %0, @OOM_result
   %or.cond = or i1 %4, %5
@@ -480,7 +480,7 @@ PQresultAlloc.exit:                               ; preds = %10
   ret i32 %.036
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define ptr @PQresultAlloc(ptr noundef captures(address, ret: address, provenance) %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %0, @OOM_result
@@ -496,9 +496,9 @@ define ptr @PQresultAlloc(ptr noundef captures(address, ret: address, provenance
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @pqResultStrdup(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #28
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #29
   %4 = add i64 %3, 1
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %pqResultAlloc.exit.thread11, label %5
@@ -524,7 +524,7 @@ define noundef ptr @pqResultStrdup(ptr noundef %0, ptr noundef readonly captures
 
 15:                                               ; preds = %13
   %16 = add i64 %3, 9
-  %17 = tail call noalias ptr @malloc(i64 noundef %16) #26
+  %17 = tail call noalias ptr @malloc(i64 noundef %16) #27
   %.not63.i = icmp eq ptr %17, null
   br i1 %.not63.i, label %pqResultAlloc.exit.thread11, label %18
 
@@ -552,7 +552,7 @@ define noundef ptr @pqResultStrdup(ptr noundef %0, ptr noundef readonly captures
   br label %pqResultAlloc.exit.thread
 
 28:                                               ; preds = %13
-  %29 = tail call noalias dereferenceable_or_null(2048) ptr @malloc(i64 noundef 2048) #26
+  %29 = tail call noalias dereferenceable_or_null(2048) ptr @malloc(i64 noundef 2048) #27
   %.not62.i = icmp eq ptr %29, null
   br i1 %.not62.i, label %pqResultAlloc.exit.thread11, label %30
 
@@ -591,7 +591,7 @@ pqResultAlloc.exit:                               ; preds = %9
 
 pqResultAlloc.exit.thread:                        ; preds = %25, %27, %30, %7, %pqResultAlloc.exit
   %.0.i8 = phi ptr [ %46, %pqResultAlloc.exit ], [ %22, %25 ], [ %22, %27 ], [ %37, %30 ], [ %8, %7 ]
-  %50 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0.i8, ptr noundef nonnull dereferenceable(1) %1) #27
+  %50 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0.i8, ptr noundef nonnull dereferenceable(1) %1) #28
   br label %pqResultAlloc.exit.thread11
 
 pqResultAlloc.exit.thread11:                      ; preds = %28, %15, %2, %pqResultAlloc.exit.thread, %pqResultAlloc.exit
@@ -606,7 +606,7 @@ define noundef ptr @PQcopyResult(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br i1 %.not, label %PQmakeEmptyPGresult.exit.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call noalias dereferenceable_or_null(216) ptr @malloc(i64 noundef 216) #26
+  %5 = tail call noalias dereferenceable_or_null(216) ptr @malloc(i64 noundef 216) #27
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %PQmakeEmptyPGresult.exit.thread, label %6
 
@@ -635,7 +635,7 @@ define noundef ptr @PQcopyResult(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %18 = load i32, ptr %17, align 4
   store i32 %18, ptr %16, align 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %20 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %19) #27
+  %20 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %19) #28
   %21 = and i32 %1, 3
   %.not64 = icmp eq i32 %21, 0
   br i1 %.not64, label %PQsetResultAttrs.exit, label %22
@@ -844,7 +844,7 @@ thread-pre-split:                                 ; preds = %90, %92
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %119 = load ptr, ptr %118, align 8
-  %120 = call i32 %117(i32 noundef 4, ptr noundef nonnull %3, ptr noundef %119) #27
+  %120 = call i32 %117(i32 noundef 4, ptr noundef nonnull %3, ptr noundef %119) #28
   %.not72 = icmp eq i32 %120, 0
   br i1 %.not72, label %125, label %121
 
@@ -877,7 +877,7 @@ PQmakeEmptyPGresult.exit.thread:                  ; preds = %126, %PQmakeEmptyPG
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #5
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @PQsetvalue(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -980,11 +980,11 @@ check_field_number.exit:                          ; preds = %8
   br i1 %43, label %46, label %48
 
 46:                                               ; preds = %40
-  %47 = tail call noalias ptr @malloc(i64 noundef %45) #26
+  %47 = tail call noalias ptr @malloc(i64 noundef %45) #27
   br label %50
 
 48:                                               ; preds = %40
-  %49 = tail call ptr @realloc(ptr noundef nonnull %42, i64 noundef %45) #29
+  %49 = tail call ptr @realloc(ptr noundef nonnull %42, i64 noundef %45) #30
   br label %50
 
 50:                                               ; preds = %48, %46
@@ -1089,11 +1089,11 @@ define void @pqInternalNotice(ptr noundef readonly captures(none) %0, ptr nounde
 
 7:                                                ; preds = %2
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %8 = call i32 @pg_vsnprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef %1, ptr noundef nonnull %4) #27
+  %8 = call i32 @pg_vsnprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef %1, ptr noundef nonnull %4) #28
   call void @llvm.va_end.p0(ptr nonnull %4)
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1023
   store i8 0, ptr %9, align 1
-  %10 = call noalias dereferenceable_or_null(216) ptr @malloc(i64 noundef 216) #26
+  %10 = call noalias dereferenceable_or_null(216) ptr @malloc(i64 noundef 216) #27
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %PQmakeEmptyPGresult.exit.thread, label %11
 
@@ -1119,7 +1119,7 @@ define void @pqInternalNotice(ptr noundef readonly captures(none) %0, ptr nounde
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 156
   store i32 0, ptr %21, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
-  %22 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #28
+  %22 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #29
   %23 = add i64 %22, 10
   %24 = call ptr @pqResultAlloc(ptr noundef nonnull %10, i64 noundef %23, i1 noundef zeroext true)
   %.not.i19 = icmp eq ptr %24, null
@@ -1129,7 +1129,7 @@ define void @pqInternalNotice(ptr noundef readonly captures(none) %0, ptr nounde
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i8 77, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 9
-  %28 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull readonly dereferenceable(1) %3) #27
+  %28 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull readonly dereferenceable(1) %3) #28
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %24, align 8
@@ -1145,7 +1145,7 @@ pqSaveMessageField.exit:                          ; preds = %11, %25
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i8 83, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %34, ptr noundef nonnull align 1 dereferenceable(7) @.str.18, i64 7, i1 false) #27
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %34, ptr noundef nonnull align 1 dereferenceable(7) @.str.18, i64 7, i1 false) #28
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %36 = load ptr, ptr %35, align 8
   store ptr %36, ptr %31, align 8
@@ -1161,7 +1161,7 @@ pqSaveMessageField.exit21:                        ; preds = %pqSaveMessageField.
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i8 86, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %40, ptr noundef nonnull align 1 dereferenceable(7) @.str.18, i64 7, i1 false) #27
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %40, ptr noundef nonnull align 1 dereferenceable(7) @.str.18, i64 7, i1 false) #28
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %42 = load ptr, ptr %41, align 8
   store ptr %42, ptr %37, align 8
@@ -1169,7 +1169,7 @@ pqSaveMessageField.exit21:                        ; preds = %pqSaveMessageField.
   br label %43
 
 43:                                               ; preds = %38, %pqSaveMessageField.exit21
-  %44 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #28
+  %44 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #29
   %45 = add i64 %44, 2
   %46 = icmp eq i64 %45, 0
   br i1 %46, label %47, label %49
@@ -1191,7 +1191,7 @@ pqSaveMessageField.exit21:                        ; preds = %pqSaveMessageField.
 
 55:                                               ; preds = %53
   %56 = add i64 %44, 10
-  %57 = call noalias ptr @malloc(i64 noundef %56) #26
+  %57 = call noalias ptr @malloc(i64 noundef %56) #27
   %.not63.i = icmp eq ptr %57, null
   br i1 %.not63.i, label %pqResultAlloc.exit.thread32, label %58
 
@@ -1217,7 +1217,7 @@ pqSaveMessageField.exit21:                        ; preds = %pqSaveMessageField.
   br label %pqResultAlloc.exit.thread
 
 66:                                               ; preds = %53
-  %67 = call noalias dereferenceable_or_null(2048) ptr @malloc(i64 noundef 2048) #26
+  %67 = call noalias dereferenceable_or_null(2048) ptr @malloc(i64 noundef 2048) #27
   %.not62.i = icmp eq ptr %67, null
   br i1 %.not62.i, label %pqResultAlloc.exit.thread32, label %68
 
@@ -1259,7 +1259,7 @@ pqResultAlloc.exit:                               ; preds = %49
 
 85:                                               ; preds = %pqResultAlloc.exit.thread, %pqResultAlloc.exit
   %.0.i2530 = phi ptr [ %.0.i25.ph, %pqResultAlloc.exit.thread ], [ %81, %pqResultAlloc.exit ]
-  %86 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.0.i2530, ptr noundef nonnull @.str.19, ptr noundef nonnull %3) #27
+  %86 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.0.i2530, ptr noundef nonnull @.str.19, ptr noundef nonnull %3) #28
   br label %87
 
 pqResultAlloc.exit.thread32:                      ; preds = %66, %55, %pqResultAlloc.exit
@@ -1270,7 +1270,7 @@ pqResultAlloc.exit.thread32:                      ; preds = %66, %55, %pqResultA
   %88 = load ptr, ptr %20, align 8
   %89 = getelementptr inbounds nuw i8, ptr %10, i64 120
   %90 = load ptr, ptr %89, align 8
-  call void %88(ptr noundef %90, ptr noundef nonnull %10) #27
+  call void %88(ptr noundef %90, ptr noundef nonnull %10) #28
   call void @PQclear(ptr noundef nonnull %10)
   br label %PQmakeEmptyPGresult.exit.thread
 
@@ -1280,7 +1280,7 @@ PQmakeEmptyPGresult.exit.thread:                  ; preds = %7, %2, %87
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define ptr @pqResultAlloc(ptr noundef captures(address_is_null, ret: address, provenance) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %61, label %4
@@ -1340,7 +1340,7 @@ define ptr @pqResultAlloc(ptr noundef captures(address_is_null, ret: address, pr
 
 35:                                               ; preds = %33
   %36 = add i64 %1, 8
-  %37 = tail call noalias ptr @malloc(i64 noundef %36) #26
+  %37 = tail call noalias ptr @malloc(i64 noundef %36) #27
   %.not63 = icmp eq ptr %37, null
   br i1 %.not63, label %61, label %38
 
@@ -1368,7 +1368,7 @@ define ptr @pqResultAlloc(ptr noundef captures(address_is_null, ret: address, pr
   br label %61
 
 48:                                               ; preds = %33
-  %49 = tail call noalias dereferenceable_or_null(2048) ptr @malloc(i64 noundef 2048) #26
+  %49 = tail call noalias dereferenceable_or_null(2048) ptr @malloc(i64 noundef 2048) #27
   %.not62 = icmp eq ptr %49, null
   br i1 %.not62, label %61, label %50
 
@@ -1396,7 +1396,7 @@ define ptr @pqResultAlloc(ptr noundef captures(address_is_null, ret: address, pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @PQresultMemorySize(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define i64 @PQresultMemorySize(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1411,10 +1411,10 @@ define i64 @PQresultMemorySize(ptr noundef readonly captures(address_is_null) %0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define void @pqClearAsyncResult(ptr noundef captures(none) initializes((1072, 1073)) %0) local_unnamed_addr #0 {
@@ -1475,7 +1475,7 @@ define ptr @pqPrepareAsyncResult(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %13
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.17) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.17) #28
   br label %18
 
 18:                                               ; preds = %17, %13
@@ -1496,7 +1496,7 @@ define ptr @pqPrepareAsyncResult(ptr noundef %0) local_unnamed_addr #0 {
   br label %27
 
 27:                                               ; preds = %26, %22
-  %28 = tail call noalias dereferenceable_or_null(216) ptr @malloc(i64 noundef 216) #26
+  %28 = tail call noalias dereferenceable_or_null(216) ptr @malloc(i64 noundef 216) #27
   %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %PQmakeEmptyPGresult.exit.thread, label %29
 
@@ -1584,19 +1584,19 @@ PQmakeEmptyPGresult.exit.thread:                  ; preds = %27, %49, %pqSetResu
   ret ptr %.0
 }
 
-declare void @libpq_append_conn_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #9
+declare void @libpq_append_conn_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #10
+declare void @llvm.va_start.p0(ptr) #11
 
-declare i32 @pg_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
+declare i32 @pg_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #10
+declare void @llvm.va_end.p0(ptr) #11
 
-; Function Attrs: mustprogress nofree nounwind willreturn uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @pqSaveMessageField(ptr noundef %0, i8 noundef signext %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #28
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #29
   %5 = add i64 %4, 10
   %6 = tail call ptr @pqResultAlloc(ptr noundef %0, i64 noundef %5, i1 noundef zeroext true)
   %.not = icmp eq ptr %6, null
@@ -1606,7 +1606,7 @@ define void @pqSaveMessageField(ptr noundef %0, i8 noundef signext %1, ptr nound
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 9
-  %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %2) #27
+  %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %2) #28
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %6, align 8
@@ -1617,7 +1617,7 @@ define void @pqSaveMessageField(ptr noundef %0, i8 noundef signext %1, ptr nound
   ret void
 }
 
-declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #9
+declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define void @pqSaveParameterStatus(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1637,7 +1637,7 @@ define void @pqSaveParameterStatus(ptr noundef captures(none) %0, ptr noundef re
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %1) #28
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %1) #29
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %8, !llvm.loop !16
 
@@ -1655,15 +1655,15 @@ define void @pqSaveParameterStatus(ptr noundef captures(none) %0, ptr noundef re
   br label %18
 
 18:                                               ; preds = %17, %16
-  tail call void @free(ptr noundef nonnull %.0) #27
+  tail call void @free(ptr noundef nonnull %.0) #28
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %18
-  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #28
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #28
+  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #29
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #29
   %21 = add i64 %19, 26
   %22 = add i64 %21, %20
-  %23 = tail call noalias ptr @malloc(i64 noundef %22) #26
+  %23 = tail call noalias ptr @malloc(i64 noundef %22) #27
   %.not63 = icmp eq ptr %23, null
   br i1 %.not63, label %33, label %24
 
@@ -1671,24 +1671,24 @@ define void @pqSaveParameterStatus(ptr noundef captures(none) %0, ptr noundef re
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %25, ptr %26, align 8
-  %27 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) %1) #27
+  %27 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) %1) #28
   %28 = getelementptr i8, ptr %25, i64 %19
   %29 = getelementptr i8, ptr %28, i64 1
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %29, ptr %30, align 8
-  %31 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) %2) #27
+  %31 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) %2) #28
   %32 = load ptr, ptr %7, align 8
   store ptr %32, ptr %23, align 8
   store ptr %23, ptr %7, align 8
   br label %33
 
 33:                                               ; preds = %24, %.loopexit
-  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(16) @.str.20) #28
+  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(16) @.str.20) #29
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %33
-  %37 = tail call i32 @pg_char_to_encoding(ptr noundef nonnull %2) #27
+  %37 = tail call i32 @pg_char_to_encoding(ptr noundef nonnull %2) #28
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %spec.select = tail call i32 @llvm.smax.i32(i32 %37, i32 0)
   store i32 %spec.select, ptr %38, align 8
@@ -1696,7 +1696,7 @@ define void @pqSaveParameterStatus(ptr noundef captures(none) %0, ptr noundef re
   br label %111
 
 39:                                               ; preds = %33
-  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(28) @.str.21) #28
+  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(28) @.str.21) #29
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %sub_0, label %51
 
@@ -1726,7 +1726,7 @@ sub_2:                                            ; preds = %sub_1
   br label %111
 
 51:                                               ; preds = %39
-  %52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.23) #28
+  %52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.23) #29
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %80
 
@@ -1734,7 +1734,7 @@ sub_2:                                            ; preds = %sub_1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %55 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %2, ptr noundef nonnull @.str.24, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #27
+  %55 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %2, ptr noundef nonnull @.str.24, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #28
   switch i32 %55, label %78 [
     i32 3, label %56
     i32 2, label %64
@@ -1783,7 +1783,7 @@ sub_2:                                            ; preds = %sub_1
   br label %111
 
 80:                                               ; preds = %51
-  %81 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(30) @.str.25) #28
+  %81 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(30) @.str.25) #29
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %sub_065, label %92
 
@@ -1812,7 +1812,7 @@ sub_267:                                          ; preds = %sub_166
   br label %111
 
 92:                                               ; preds = %80
-  %93 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.26) #28
+  %93 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.26) #29
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %sub_070, label %104
 
@@ -1841,12 +1841,12 @@ sub_272:                                          ; preds = %sub_171
   br label %111
 
 104:                                              ; preds = %92
-  %105 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(17) @.str.27) #28
+  %105 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(17) @.str.27) #29
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %107, label %111
 
 107:                                              ; preds = %104
-  %108 = tail call i64 @strtol(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 10) #27
+  %108 = tail call i64 @strtol(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 10) #28
   %109 = trunc i64 %108 to i32
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   store i32 %109, ptr %110, align 8
@@ -1857,12 +1857,12 @@ sub_272:                                          ; preds = %sub_171
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
-declare i32 @pg_char_to_encoding(ptr noundef) local_unnamed_addr #9
+declare i32 @pg_char_to_encoding(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #11
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @pqRowProcessor(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
@@ -1997,11 +1997,11 @@ define range(i32 0, 2) i32 @pqRowProcessor(ptr noundef captures(none) %0, ptr no
   br i1 %66, label %69, label %71
 
 69:                                               ; preds = %63
-  %70 = tail call noalias ptr @malloc(i64 noundef %68) #26
+  %70 = tail call noalias ptr @malloc(i64 noundef %68) #27
   br label %73
 
 71:                                               ; preds = %63
-  %72 = tail call ptr @realloc(ptr noundef nonnull %65, i64 noundef %68) #29
+  %72 = tail call ptr @realloc(ptr noundef nonnull %65, i64 noundef %68) #30
   br label %73
 
 73:                                               ; preds = %71, %69
@@ -2068,7 +2068,7 @@ define internal fastcc range(i32 0, 2) i32 @PQsendQueryInternal(ptr noundef %0, 
   br i1 %.not, label %6, label %7
 
 6:                                                ; preds = %5
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.28) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.28) #28
   br label %46
 
 7:                                                ; preds = %5
@@ -2078,7 +2078,7 @@ define internal fastcc range(i32 0, 2) i32 @PQsendQueryInternal(ptr noundef %0, 
   br i1 %.not24, label %11, label %10
 
 10:                                               ; preds = %7
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.57) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.57) #28
   br label %46
 
 11:                                               ; preds = %7
@@ -2088,12 +2088,12 @@ define internal fastcc range(i32 0, 2) i32 @PQsendQueryInternal(ptr noundef %0, 
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %11
-  %16 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #26
+  %16 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #27
   %17 = icmp eq ptr %16, null
   br i1 %17, label %pqAllocCmdQueueEntry.exit.thread, label %21
 
 pqAllocCmdQueueEntry.exit.thread:                 ; preds = %15
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #28
   br label %46
 
 18:                                               ; preds = %11
@@ -2106,17 +2106,17 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %15
   %.0.i = phi ptr [ %16, %15 ], [ %13, %18 ]
   %22 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
-  %23 = tail call i32 @pqPutMsgStart(i8 noundef signext 81, ptr noundef nonnull %0) #27
+  %23 = tail call i32 @pqPutMsgStart(i8 noundef signext 81, ptr noundef nonnull %0) #28
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %31, label %25
 
 25:                                               ; preds = %21
-  %26 = tail call i32 @pqPuts(ptr noundef nonnull %1, ptr noundef nonnull %0) #27
+  %26 = tail call i32 @pqPuts(ptr noundef nonnull %1, ptr noundef nonnull %0) #28
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %31, label %28
 
 28:                                               ; preds = %25
-  %29 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #27
+  %29 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #28
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %31, label %36
 
@@ -2126,7 +2126,7 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %15
   br i1 %.not.i, label %pqRecycleCmdQueueEntry.exit, label %33
 
 33:                                               ; preds = %31
-  tail call void @free(ptr noundef nonnull %32) #27
+  tail call void @free(ptr noundef nonnull %32) #28
   store ptr null, ptr %22, align 8
   br label %pqRecycleCmdQueueEntry.exit
 
@@ -2139,9 +2139,9 @@ pqRecycleCmdQueueEntry.exit:                      ; preds = %31, %33
 
 36:                                               ; preds = %28
   store i32 0, ptr %.0.i, align 8
-  %37 = tail call noalias ptr @strdup(ptr noundef nonnull %1) #27
+  %37 = tail call noalias ptr @strdup(ptr noundef nonnull %1) #28
   store ptr %37, ptr %22, align 8
-  %38 = tail call i32 @pqFlush(ptr noundef nonnull %0) #27
+  %38 = tail call i32 @pqFlush(ptr noundef nonnull %0) #28
   %39 = icmp slt i32 %38, 0
   br i1 %39, label %41, label %40
 
@@ -2155,7 +2155,7 @@ pqRecycleCmdQueueEntry.exit:                      ; preds = %31, %33
   br i1 %.not.i25, label %pqRecycleCmdQueueEntry.exit26, label %43
 
 43:                                               ; preds = %41
-  tail call void @free(ptr noundef nonnull %42) #27
+  tail call void @free(ptr noundef nonnull %42) #28
   store ptr null, ptr %22, align 8
   br label %pqRecycleCmdQueueEntry.exit26
 
@@ -2187,7 +2187,7 @@ define range(i32 0, 2) i32 @PQsendQueryParams(ptr noundef %0, ptr noundef %1, i3
   br i1 %.not, label %11, label %12
 
 11:                                               ; preds = %10
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.28) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.28) #28
   br label %16
 
 12:                                               ; preds = %10
@@ -2195,7 +2195,7 @@ define range(i32 0, 2) i32 @PQsendQueryParams(ptr noundef %0, ptr noundef %1, i3
   br i1 %or.cond, label %13, label %14
 
 13:                                               ; preds = %12
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.29, i32 noundef 65535) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.29, i32 noundef 65535) #28
   br label %16
 
 14:                                               ; preds = %12
@@ -2223,7 +2223,7 @@ define internal fastcc noundef zeroext i1 @PQsendQueryStart(ptr noundef %0, i1 n
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  tail call void @resetPQExpBuffer(ptr noundef nonnull %9) #27
+  tail call void @resetPQExpBuffer(ptr noundef nonnull %9) #28
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   store i32 0, ptr %10, align 8
   br label %11
@@ -2235,7 +2235,7 @@ define internal fastcc noundef zeroext i1 @PQsendQueryStart(ptr noundef %0, i1 n
   br i1 %.not18, label %15, label %14
 
 14:                                               ; preds = %11
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.41) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.41) #28
   br label %.thread24
 
 15:                                               ; preds = %11
@@ -2251,7 +2251,7 @@ define internal fastcc noundef zeroext i1 @PQsendQueryStart(ptr noundef %0, i1 n
   br i1 %18, label %20, label %22
 
 20:                                               ; preds = %19
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.42) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.42) #28
   br label %.thread24
 
 21:                                               ; preds = %15
@@ -2263,7 +2263,7 @@ define internal fastcc noundef zeroext i1 @PQsendQueryStart(ptr noundef %0, i1 n
   br i1 %switch, label %23, label %.thread24
 
 23:                                               ; preds = %22
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.58) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.58) #28
   br label %.thread24
 
 24:                                               ; preds = %21
@@ -2298,12 +2298,12 @@ define internal fastcc range(i32 0, 2) i32 @PQsendQueryGuts(ptr noundef %0, ptr 
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %9
-  %14 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #26
+  %14 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #27
   %15 = icmp eq ptr %14, null
   br i1 %15, label %pqAllocCmdQueueEntry.exit.thread, label %19
 
 pqAllocCmdQueueEntry.exit.thread:                 ; preds = %13
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #28
   br label %157
 
 16:                                               ; preds = %9
@@ -2320,17 +2320,17 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %13
   br i1 %.not, label %46, label %21
 
 21:                                               ; preds = %19
-  %22 = tail call i32 @pqPutMsgStart(i8 noundef signext 80, ptr noundef nonnull %0) #27
+  %22 = tail call i32 @pqPutMsgStart(i8 noundef signext 80, ptr noundef nonnull %0) #28
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %21
-  %25 = tail call i32 @pqPuts(ptr noundef %2, ptr noundef nonnull %0) #27
+  %25 = tail call i32 @pqPuts(ptr noundef %2, ptr noundef nonnull %0) #28
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %.thread, label %27
 
 27:                                               ; preds = %24
-  %28 = tail call i32 @pqPuts(ptr noundef nonnull %1, ptr noundef nonnull %0) #27
+  %28 = tail call i32 @pqPuts(ptr noundef nonnull %1, ptr noundef nonnull %0) #28
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %.thread, label %30
 
@@ -2341,7 +2341,7 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %13
   br i1 %or.cond, label %33, label %41
 
 33:                                               ; preds = %30
-  %34 = tail call i32 @pqPutInt(i32 noundef %3, i64 noundef 2, ptr noundef nonnull %0) #27
+  %34 = tail call i32 @pqPutInt(i32 noundef %3, i64 noundef 2, ptr noundef nonnull %0) #28
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %.thread, label %.preheader113.preheader
 
@@ -2358,32 +2358,32 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %13
   %indvars.iv = phi i64 [ 0, %.preheader113.preheader ], [ %indvars.iv.next, %36 ]
   %37 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4
-  %39 = tail call i32 @pqPutInt(i32 noundef %38, i64 noundef 4, ptr noundef nonnull %0) #27
+  %39 = tail call i32 @pqPutInt(i32 noundef %38, i64 noundef 4, ptr noundef nonnull %0) #28
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %.thread, label %36
 
 41:                                               ; preds = %30
-  %42 = tail call i32 @pqPutInt(i32 noundef 0, i64 noundef 2, ptr noundef nonnull %0) #27
+  %42 = tail call i32 @pqPutInt(i32 noundef 0, i64 noundef 2, ptr noundef nonnull %0) #28
   %43 = icmp slt i32 %42, 0
   br i1 %43, label %.thread, label %.loopexit114
 
 .loopexit114:                                     ; preds = %36, %41
-  %44 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #27
+  %44 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #28
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %.thread, label %46
 
 46:                                               ; preds = %.loopexit114, %19
-  %47 = tail call i32 @pqPutMsgStart(i8 noundef signext 66, ptr noundef nonnull %0) #27
+  %47 = tail call i32 @pqPutMsgStart(i8 noundef signext 66, ptr noundef nonnull %0) #28
   %48 = icmp slt i32 %47, 0
   br i1 %48, label %.thread, label %49
 
 49:                                               ; preds = %46
-  %50 = tail call i32 @pqPuts(ptr noundef nonnull @.str.30, ptr noundef nonnull %0) #27
+  %50 = tail call i32 @pqPuts(ptr noundef nonnull @.str.30, ptr noundef nonnull %0) #28
   %51 = icmp slt i32 %50, 0
   br i1 %51, label %.thread, label %52
 
 52:                                               ; preds = %49
-  %53 = tail call i32 @pqPuts(ptr noundef %2, ptr noundef nonnull %0) #27
+  %53 = tail call i32 @pqPuts(ptr noundef %2, ptr noundef nonnull %0) #28
   %54 = icmp slt i32 %53, 0
   br i1 %54, label %.thread, label %55
 
@@ -2394,7 +2394,7 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %13
   br i1 %or.cond3, label %58, label %66
 
 58:                                               ; preds = %55
-  %59 = tail call i32 @pqPutInt(i32 noundef %3, i64 noundef 2, ptr noundef nonnull %0) #27
+  %59 = tail call i32 @pqPutInt(i32 noundef %3, i64 noundef 2, ptr noundef nonnull %0) #28
   %60 = icmp slt i32 %59, 0
   br i1 %60, label %.thread, label %.preheader111.preheader
 
@@ -2411,17 +2411,17 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %13
   %indvars.iv126 = phi i64 [ 0, %.preheader111.preheader ], [ %indvars.iv.next127, %61 ]
   %62 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv126
   %63 = load i32, ptr %62, align 4
-  %64 = tail call i32 @pqPutInt(i32 noundef %63, i64 noundef 2, ptr noundef nonnull %0) #27
+  %64 = tail call i32 @pqPutInt(i32 noundef %63, i64 noundef 2, ptr noundef nonnull %0) #28
   %65 = icmp slt i32 %64, 0
   br i1 %65, label %.thread, label %61
 
 66:                                               ; preds = %55
-  %67 = tail call i32 @pqPutInt(i32 noundef 0, i64 noundef 2, ptr noundef nonnull %0) #27
+  %67 = tail call i32 @pqPutInt(i32 noundef 0, i64 noundef 2, ptr noundef nonnull %0) #28
   %68 = icmp slt i32 %67, 0
   br i1 %68, label %.thread, label %.loopexit
 
 .loopexit:                                        ; preds = %61, %66
-  %69 = tail call i32 @pqPutInt(i32 noundef %3, i64 noundef 2, ptr noundef nonnull %0) #27
+  %69 = tail call i32 @pqPutInt(i32 noundef %3, i64 noundef 2, ptr noundef nonnull %0) #28
   %70 = icmp slt i32 %69, 0
   br i1 %70, label %.thread, label %.preheader
 
@@ -2440,7 +2440,7 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %13
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %73
   %.2118.us = phi i32 [ %74, %73 ], [ 0, %.lr.ph ]
-  %71 = tail call i32 @pqPutInt(i32 noundef -1, i64 noundef 4, ptr noundef nonnull %0) #27
+  %71 = tail call i32 @pqPutInt(i32 noundef -1, i64 noundef 4, ptr noundef nonnull %0) #28
   %72 = icmp slt i32 %71, 0
   br i1 %72, label %.thread, label %73
 
@@ -2474,29 +2474,29 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %13
   br label %89
 
 85:                                               ; preds = %81
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.59) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.59) #28
   br label %.thread
 
 86:                                               ; preds = %78, %77
-  %87 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %76) #28
+  %87 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %76) #29
   %88 = trunc i64 %87 to i32
   br label %89
 
 89:                                               ; preds = %86, %82
   %.0 = phi i32 [ %84, %82 ], [ %88, %86 ]
-  %90 = tail call i32 @pqPutInt(i32 noundef %.0, i64 noundef 4, ptr noundef nonnull %0) #27
+  %90 = tail call i32 @pqPutInt(i32 noundef %.0, i64 noundef 4, ptr noundef nonnull %0) #28
   %91 = icmp slt i32 %90, 0
   br i1 %91, label %.thread, label %92
 
 92:                                               ; preds = %89
   %93 = load ptr, ptr %75, align 8
   %94 = sext i32 %.0 to i64
-  %95 = tail call i32 @pqPutnchar(ptr noundef %93, i64 noundef %94, ptr noundef nonnull %0) #27
+  %95 = tail call i32 @pqPutnchar(ptr noundef %93, i64 noundef %94, ptr noundef nonnull %0) #28
   %96 = icmp slt i32 %95, 0
   br i1 %96, label %.thread, label %100
 
 97:                                               ; preds = %.lr.ph.split
-  %98 = tail call i32 @pqPutInt(i32 noundef -1, i64 noundef 4, ptr noundef nonnull %0) #27
+  %98 = tail call i32 @pqPutInt(i32 noundef -1, i64 noundef 4, ptr noundef nonnull %0) #28
   %99 = icmp slt i32 %98, 0
   br i1 %99, label %.thread, label %100
 
@@ -2506,57 +2506,57 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %13
   br i1 %exitcond135.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %100, %73, %.preheader
-  %101 = tail call i32 @pqPutInt(i32 noundef 1, i64 noundef 2, ptr noundef nonnull %0) #27
+  %101 = tail call i32 @pqPutInt(i32 noundef 1, i64 noundef 2, ptr noundef nonnull %0) #28
   %102 = icmp slt i32 %101, 0
   br i1 %102, label %.thread, label %103
 
 103:                                              ; preds = %._crit_edge
-  %104 = tail call i32 @pqPutInt(i32 noundef %8, i64 noundef 2, ptr noundef nonnull %0) #27
+  %104 = tail call i32 @pqPutInt(i32 noundef %8, i64 noundef 2, ptr noundef nonnull %0) #28
   %.not100 = icmp eq i32 %104, 0
   br i1 %.not100, label %105, label %.thread
 
 105:                                              ; preds = %103
-  %106 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #27
+  %106 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #28
   %107 = icmp slt i32 %106, 0
   br i1 %107, label %.thread, label %108
 
 108:                                              ; preds = %105
-  %109 = tail call i32 @pqPutMsgStart(i8 noundef signext 68, ptr noundef nonnull %0) #27
+  %109 = tail call i32 @pqPutMsgStart(i8 noundef signext 68, ptr noundef nonnull %0) #28
   %110 = icmp slt i32 %109, 0
   br i1 %110, label %.thread, label %111
 
 111:                                              ; preds = %108
-  %112 = tail call i32 @pqPutc(i8 noundef signext 80, ptr noundef nonnull %0) #27
+  %112 = tail call i32 @pqPutc(i8 noundef signext 80, ptr noundef nonnull %0) #28
   %113 = icmp slt i32 %112, 0
   br i1 %113, label %.thread, label %114
 
 114:                                              ; preds = %111
-  %115 = tail call i32 @pqPuts(ptr noundef nonnull @.str.30, ptr noundef nonnull %0) #27
+  %115 = tail call i32 @pqPuts(ptr noundef nonnull @.str.30, ptr noundef nonnull %0) #28
   %116 = icmp slt i32 %115, 0
   br i1 %116, label %.thread, label %117
 
 117:                                              ; preds = %114
-  %118 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #27
+  %118 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #28
   %119 = icmp slt i32 %118, 0
   br i1 %119, label %.thread, label %120
 
 120:                                              ; preds = %117
-  %121 = tail call i32 @pqPutMsgStart(i8 noundef signext 69, ptr noundef nonnull %0) #27
+  %121 = tail call i32 @pqPutMsgStart(i8 noundef signext 69, ptr noundef nonnull %0) #28
   %122 = icmp slt i32 %121, 0
   br i1 %122, label %.thread, label %123
 
 123:                                              ; preds = %120
-  %124 = tail call i32 @pqPuts(ptr noundef nonnull @.str.30, ptr noundef nonnull %0) #27
+  %124 = tail call i32 @pqPuts(ptr noundef nonnull @.str.30, ptr noundef nonnull %0) #28
   %125 = icmp slt i32 %124, 0
   br i1 %125, label %.thread, label %126
 
 126:                                              ; preds = %123
-  %127 = tail call i32 @pqPutInt(i32 noundef 0, i64 noundef 4, ptr noundef nonnull %0) #27
+  %127 = tail call i32 @pqPutInt(i32 noundef 0, i64 noundef 4, ptr noundef nonnull %0) #28
   %128 = icmp slt i32 %127, 0
   br i1 %128, label %.thread, label %129
 
 129:                                              ; preds = %126
-  %130 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #27
+  %130 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #28
   %131 = icmp slt i32 %130, 0
   br i1 %131, label %.thread, label %132
 
@@ -2567,12 +2567,12 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %13
   br i1 %135, label %136, label %142
 
 136:                                              ; preds = %132
-  %137 = tail call i32 @pqPutMsgStart(i8 noundef signext 83, ptr noundef nonnull %0) #27
+  %137 = tail call i32 @pqPutMsgStart(i8 noundef signext 83, ptr noundef nonnull %0) #28
   %138 = icmp slt i32 %137, 0
   br i1 %138, label %.thread, label %139
 
 139:                                              ; preds = %136
-  %140 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #27
+  %140 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #28
   %141 = icmp slt i32 %140, 0
   br i1 %141, label %.thread, label %142
 
@@ -2581,7 +2581,7 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %13
   br i1 %.not, label %145, label %143
 
 143:                                              ; preds = %142
-  %144 = tail call noalias ptr @strdup(ptr noundef nonnull %1) #27
+  %144 = tail call noalias ptr @strdup(ptr noundef nonnull %1) #28
   store ptr %144, ptr %20, align 8
   br label %145
 
@@ -2597,7 +2597,7 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %13
   br i1 %150, label %pqPipelineFlush.exit, label %pqPipelineFlush.exit.thread
 
 pqPipelineFlush.exit:                             ; preds = %145, %147
-  %151 = tail call i32 @pqFlush(ptr noundef nonnull %0) #27
+  %151 = tail call i32 @pqFlush(ptr noundef nonnull %0) #28
   %152 = icmp slt i32 %151, 0
   br i1 %152, label %.thread, label %pqPipelineFlush.exit.thread
 
@@ -2611,7 +2611,7 @@ pqPipelineFlush.exit.thread:                      ; preds = %147, %pqPipelineFlu
   br i1 %.not.i107, label %pqRecycleCmdQueueEntry.exit, label %154
 
 154:                                              ; preds = %.thread
-  tail call void @free(ptr noundef nonnull %153) #27
+  tail call void @free(ptr noundef nonnull %153) #28
   store ptr null, ptr %20, align 8
   br label %pqRecycleCmdQueueEntry.exit
 
@@ -2637,7 +2637,7 @@ define range(i32 0, 2) i32 @PQsendPrepare(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %7
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.31) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.31) #28
   br label %72
 
 9:                                                ; preds = %7
@@ -2645,7 +2645,7 @@ define range(i32 0, 2) i32 @PQsendPrepare(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not49, label %10, label %11
 
 10:                                               ; preds = %9
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.28) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.28) #28
   br label %72
 
 11:                                               ; preds = %9
@@ -2653,7 +2653,7 @@ define range(i32 0, 2) i32 @PQsendPrepare(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %or.cond, label %12, label %13
 
 12:                                               ; preds = %11
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.29, i32 noundef 65535) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.29, i32 noundef 65535) #28
   br label %72
 
 13:                                               ; preds = %11
@@ -2663,12 +2663,12 @@ define range(i32 0, 2) i32 @PQsendPrepare(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %13
-  %18 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #26
+  %18 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #27
   %19 = icmp eq ptr %18, null
   br i1 %19, label %pqAllocCmdQueueEntry.exit.thread, label %23
 
 pqAllocCmdQueueEntry.exit.thread:                 ; preds = %17
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #28
   br label %72
 
 20:                                               ; preds = %13
@@ -2681,17 +2681,17 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %17
   %.0.i = phi ptr [ %18, %17 ], [ %15, %20 ]
   %24 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
-  %25 = tail call i32 @pqPutMsgStart(i8 noundef signext 80, ptr noundef nonnull %0) #27
+  %25 = tail call i32 @pqPutMsgStart(i8 noundef signext 80, ptr noundef nonnull %0) #28
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %.thread, label %27
 
 27:                                               ; preds = %23
-  %28 = tail call i32 @pqPuts(ptr noundef nonnull %1, ptr noundef nonnull %0) #27
+  %28 = tail call i32 @pqPuts(ptr noundef nonnull %1, ptr noundef nonnull %0) #28
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %.thread, label %30
 
 30:                                               ; preds = %27
-  %31 = tail call i32 @pqPuts(ptr noundef nonnull %2, ptr noundef nonnull %0) #27
+  %31 = tail call i32 @pqPuts(ptr noundef nonnull %2, ptr noundef nonnull %0) #28
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %.thread, label %33
 
@@ -2702,7 +2702,7 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %17
   br i1 %or.cond3, label %36, label %44
 
 36:                                               ; preds = %33
-  %37 = tail call i32 @pqPutInt(i32 noundef %3, i64 noundef 2, ptr noundef nonnull %0) #27
+  %37 = tail call i32 @pqPutInt(i32 noundef %3, i64 noundef 2, ptr noundef nonnull %0) #28
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %.thread, label %.lr.ph.preheader
 
@@ -2719,17 +2719,17 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %17
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %39 ]
   %40 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4
-  %42 = tail call i32 @pqPutInt(i32 noundef %41, i64 noundef 4, ptr noundef nonnull %0) #27
+  %42 = tail call i32 @pqPutInt(i32 noundef %41, i64 noundef 4, ptr noundef nonnull %0) #28
   %43 = icmp slt i32 %42, 0
   br i1 %43, label %.thread, label %39
 
 44:                                               ; preds = %33
-  %45 = tail call i32 @pqPutInt(i32 noundef 0, i64 noundef 2, ptr noundef nonnull %0) #27
+  %45 = tail call i32 @pqPutInt(i32 noundef 0, i64 noundef 2, ptr noundef nonnull %0) #28
   %46 = icmp slt i32 %45, 0
   br i1 %46, label %.thread, label %.loopexit
 
 .loopexit:                                        ; preds = %39, %44
-  %47 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #27
+  %47 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #28
   %48 = icmp slt i32 %47, 0
   br i1 %48, label %.thread, label %49
 
@@ -2740,18 +2740,18 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %17
   br i1 %52, label %53, label %59
 
 53:                                               ; preds = %49
-  %54 = tail call i32 @pqPutMsgStart(i8 noundef signext 83, ptr noundef nonnull %0) #27
+  %54 = tail call i32 @pqPutMsgStart(i8 noundef signext 83, ptr noundef nonnull %0) #28
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %.thread, label %56
 
 56:                                               ; preds = %53
-  %57 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #27
+  %57 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #28
   %58 = icmp slt i32 %57, 0
   br i1 %58, label %.thread, label %59
 
 59:                                               ; preds = %56, %49
   store i32 2, ptr %.0.i, align 8
-  %60 = tail call noalias ptr @strdup(ptr noundef nonnull %2) #27
+  %60 = tail call noalias ptr @strdup(ptr noundef nonnull %2) #28
   store ptr %60, ptr %24, align 8
   %61 = load i32, ptr %50, align 4
   %.not.i = icmp eq i32 %61, 1
@@ -2764,7 +2764,7 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %17
   br i1 %65, label %pqPipelineFlush.exit, label %pqPipelineFlush.exit.thread
 
 pqPipelineFlush.exit:                             ; preds = %59, %62
-  %66 = tail call i32 @pqFlush(ptr noundef nonnull %0) #27
+  %66 = tail call i32 @pqFlush(ptr noundef nonnull %0) #28
   %67 = icmp slt i32 %66, 0
   br i1 %67, label %.thread, label %pqPipelineFlush.exit.thread
 
@@ -2778,7 +2778,7 @@ pqPipelineFlush.exit.thread:                      ; preds = %62, %pqPipelineFlus
   br i1 %.not.i52, label %pqRecycleCmdQueueEntry.exit, label %69
 
 69:                                               ; preds = %.thread
-  tail call void @free(ptr noundef nonnull %68) #27
+  tail call void @free(ptr noundef nonnull %68) #28
   store ptr null, ptr %24, align 8
   br label %pqRecycleCmdQueueEntry.exit
 
@@ -2794,16 +2794,16 @@ pqRecycleCmdQueueEntry.exit:                      ; preds = %.thread, %69
   ret i32 %.043
 }
 
-declare i32 @pqPutMsgStart(i8 noundef signext, ptr noundef) local_unnamed_addr #9
+declare i32 @pqPutMsgStart(i8 noundef signext, ptr noundef) local_unnamed_addr #10
 
-declare i32 @pqPuts(ptr noundef, ptr noundef) local_unnamed_addr #9
+declare i32 @pqPuts(ptr noundef, ptr noundef) local_unnamed_addr #10
 
-declare i32 @pqPutInt(i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #9
+declare i32 @pqPutInt(i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #10
 
-declare i32 @pqPutMsgEnd(ptr noundef) local_unnamed_addr #9
+declare i32 @pqPutMsgEnd(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #12
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @pqAppendCmdQueueEntry(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
@@ -2870,7 +2870,7 @@ define range(i32 0, 2) i32 @PQsendQueryPrepared(ptr noundef %0, ptr noundef %1, 
   br i1 %.not, label %10, label %11
 
 10:                                               ; preds = %9
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.31) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.31) #28
   br label %15
 
 11:                                               ; preds = %9
@@ -2878,7 +2878,7 @@ define range(i32 0, 2) i32 @PQsendQueryPrepared(ptr noundef %0, ptr noundef %1, 
   br i1 %or.cond, label %12, label %13
 
 12:                                               ; preds = %11
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.29, i32 noundef 65535) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.29, i32 noundef 65535) #28
   br label %15
 
 13:                                               ; preds = %11
@@ -2890,8 +2890,8 @@ define range(i32 0, 2) i32 @PQsendQueryPrepared(ptr noundef %0, ptr noundef %1, 
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @PQsetSingleRowMode(ptr noundef captures(address_is_null) %0) local_unnamed_addr #13 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define range(i32 0, 2) i32 @PQsetSingleRowMode(ptr noundef captures(address_is_null) %0) local_unnamed_addr #14 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %canChangeResultMode.exit.thread, label %2
 
@@ -2938,8 +2938,8 @@ canChangeResultMode.exit.thread:                  ; preds = %10, %5, %8, %2, %1,
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @PQsetChunkedRowsMode(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #13 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define range(i32 0, 2) i32 @PQsetChunkedRowsMode(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #14 {
   %3 = icmp slt i32 %1, 1
   %.not.i = icmp eq ptr %0, null
   %or.cond = or i1 %.not.i, %3
@@ -3000,12 +3000,12 @@ define range(i32 0, 2) i32 @PQconsumeInput(ptr noundef %0) local_unnamed_addr #0
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
-  %7 = tail call i32 @pqFlush(ptr noundef nonnull %0) #27
+  %7 = tail call i32 @pqFlush(ptr noundef nonnull %0) #28
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %6, %2
-  %10 = tail call i32 @pqReadData(ptr noundef nonnull %0) #27
+  %10 = tail call i32 @pqReadData(ptr noundef nonnull %0) #28
   %11 = icmp sgt i32 %10, -1
   %. = zext i1 %11 to i32
   br label %12
@@ -3015,9 +3015,9 @@ define range(i32 0, 2) i32 @PQconsumeInput(ptr noundef %0) local_unnamed_addr #0
   ret i32 %.0
 }
 
-declare i32 @pqFlush(ptr noundef) local_unnamed_addr #9
+declare i32 @pqFlush(ptr noundef) local_unnamed_addr #10
 
-declare i32 @pqReadData(ptr noundef) local_unnamed_addr #9
+declare i32 @pqReadData(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @PQisBusy(ptr noundef %0) local_unnamed_addr #0 {
@@ -3025,7 +3025,7 @@ define range(i32 0, 2) i32 @PQisBusy(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %11, label %2
 
 2:                                                ; preds = %1
-  tail call void @pqParseInput3(ptr noundef nonnull %0) #27
+  tail call void @pqParseInput3(ptr noundef nonnull %0) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 420
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 1
@@ -3049,7 +3049,7 @@ define ptr @PQgetResult(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.thread67, label %2
 
 2:                                                ; preds = %1
-  tail call void @pqParseInput3(ptr noundef nonnull %0) #27
+  tail call void @pqParseInput3(ptr noundef nonnull %0) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 420
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 813
   br label %5
@@ -3068,12 +3068,12 @@ define ptr @PQgetResult(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 .preheader:                                       ; preds = %5, %9
-  %7 = tail call i32 @pqFlush(ptr noundef nonnull %0) #27
+  %7 = tail call i32 @pqFlush(ptr noundef nonnull %0) #28
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %.preheader
-  %10 = tail call i32 @pqWait(i32 noundef 0, i32 noundef 1, ptr noundef nonnull %0) #27
+  %10 = tail call i32 @pqWait(i32 noundef 0, i32 noundef 1, ptr noundef nonnull %0) #28
   %.not53 = icmp eq i32 %10, 0
   br i1 %.not53, label %.preheader, label %.thread, !llvm.loop !22
 
@@ -3082,12 +3082,12 @@ define ptr @PQgetResult(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not54, label %12, label %.thread
 
 12:                                               ; preds = %11
-  %13 = tail call i32 @pqWait(i32 noundef 1, i32 noundef 0, ptr noundef nonnull %0) #27
+  %13 = tail call i32 @pqWait(i32 noundef 1, i32 noundef 0, ptr noundef nonnull %0) #28
   %.not55 = icmp eq i32 %13, 0
   br i1 %.not55, label %14, label %.thread
 
 14:                                               ; preds = %12
-  %15 = tail call i32 @pqReadData(ptr noundef nonnull %0) #27
+  %15 = tail call i32 @pqReadData(ptr noundef nonnull %0) #28
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %.thread, label %23
 
@@ -3108,7 +3108,7 @@ define ptr @PQgetResult(ptr noundef %0) local_unnamed_addr #0 {
   br label %.thread67
 
 23:                                               ; preds = %14
-  tail call void @pqParseInput3(ptr noundef nonnull %0) #27
+  tail call void @pqParseInput3(ptr noundef nonnull %0) #28
   %24 = load i8, ptr %4, align 1, !range !6, !noundef !7
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %26, label %.backedge
@@ -3129,13 +3129,13 @@ define ptr @PQgetResult(ptr noundef %0) local_unnamed_addr #0 {
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  tail call void @appendPQExpBufferStr(ptr noundef nonnull %33, ptr noundef nonnull %31) #27
+  tail call void @appendPQExpBufferStr(ptr noundef nonnull %33, ptr noundef nonnull %31) #28
   %34 = load ptr, ptr %30, align 8
   store i8 0, ptr %34, align 1
   br label %pqSaveWriteError.exit
 
 35:                                               ; preds = %29
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.60) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.60) #28
   br label %pqSaveWriteError.exit
 
 pqSaveWriteError.exit:                            ; preds = %32, %35
@@ -3202,7 +3202,7 @@ pqSaveWriteError.exit:                            ; preds = %32, %35
   br i1 %.not.i.i, label %pqRecycleCmdQueueEntry.exit.i, label %67
 
 67:                                               ; preds = %64
-  tail call void @free(ptr noundef nonnull %66) #27
+  tail call void @free(ptr noundef nonnull %66) #28
   store ptr null, ptr %65, align 8
   br label %pqRecycleCmdQueueEntry.exit.i
 
@@ -3359,7 +3359,7 @@ pqCommandQueueAdvance.exit:                       ; preds = %47, %52, %pqRecycle
   br label %getCopyResult.exit
 
 136:                                              ; preds = %5
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.32, i32 noundef %6) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.32, i32 noundef %6) #28
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %138 = load ptr, ptr %137, align 8
   tail call void @PQclear(ptr noundef %138)
@@ -3388,7 +3388,7 @@ getCopyResult.exit.thread:                        ; preds = %76, %72, %75, %getC
   br i1 %145, label %146, label %.thread67
 
 146:                                              ; preds = %getCopyResult.exit.thread
-  %147 = tail call i32 @PQfireResultCreateEvents(ptr noundef nonnull %0, ptr noundef nonnull %.04572) #27
+  %147 = tail call i32 @PQfireResultCreateEvents(ptr noundef nonnull %0, ptr noundef nonnull %.04572) #28
   br label %.thread67
 
 .thread67:                                        ; preds = %5, %42, %pqSaveWriteError.exit, %.thread, %getCopyResult.exit, %getCopyResult.exit.thread, %146, %1
@@ -3396,7 +3396,7 @@ getCopyResult.exit.thread:                        ; preds = %76, %72, %75, %getC
   ret ptr %.046
 }
 
-declare i32 @pqWait(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
+declare i32 @pqWait(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @pqPipelineProcessQueue(ptr noundef %0) unnamed_addr #0 {
@@ -3446,7 +3446,7 @@ define internal fastcc void @pqPipelineProcessQueue(ptr noundef %0) unnamed_addr
 
 16:                                               ; preds = %.thread, %10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  tail call void @resetPQExpBuffer(ptr noundef nonnull %17) #27
+  tail call void @resetPQExpBuffer(ptr noundef nonnull %17) #28
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   store i32 0, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1064
@@ -3478,7 +3478,7 @@ define internal fastcc void @pqPipelineProcessQueue(ptr noundef %0) unnamed_addr
   br i1 %.not21, label %33, label %34
 
 33:                                               ; preds = %31
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #28
   tail call void @pqSaveErrorResult(ptr noundef nonnull %0)
   br label %36
 
@@ -3494,8 +3494,8 @@ define internal fastcc void @pqPipelineProcessQueue(ptr noundef %0) unnamed_addr
   ret void
 }
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @pqCommandQueueAdvance(ptr noundef captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #14 {
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define void @pqCommandQueueAdvance(ptr noundef captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #15 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -3530,7 +3530,7 @@ define void @pqCommandQueueAdvance(ptr noundef captures(none) %0, i1 noundef zer
   br i1 %.not.i, label %pqRecycleCmdQueueEntry.exit, label %20
 
 20:                                               ; preds = %17
-  tail call void @free(ptr noundef nonnull %19) #27
+  tail call void @free(ptr noundef nonnull %19) #28
   store ptr null, ptr %18, align 8
   br label %pqRecycleCmdQueueEntry.exit
 
@@ -3545,7 +3545,7 @@ pqRecycleCmdQueueEntry.exit:                      ; preds = %17, %20
   ret void
 }
 
-declare i32 @PQfireResultCreateEvents(ptr noundef, ptr noundef) local_unnamed_addr #9
+declare i32 @PQfireResultCreateEvents(ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define ptr @PQexec(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3600,7 +3600,7 @@ define internal fastcc noundef zeroext i1 @PQexecStart(ptr noundef %0) unnamed_a
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  tail call void @resetPQExpBuffer(ptr noundef nonnull %7) #27
+  tail call void @resetPQExpBuffer(ptr noundef nonnull %7) #28
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   store i32 0, ptr %8, align 8
   br label %9
@@ -3647,7 +3647,7 @@ define internal fastcc noundef zeroext i1 @PQexecStart(ptr noundef %0) unnamed_a
 
 .critedge.sink.split:                             ; preds = %16, %9
   %.str.63.sink = phi ptr [ @.str.61, %9 ], [ @.str.63, %16 ]
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull %.str.63.sink) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull %.str.63.sink) #28
   br label %.critedge
 
 .critedge:                                        ; preds = %19, %14, %23, %.critedge.sink.split, %1
@@ -3669,7 +3669,7 @@ define ptr @PQexecParams(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   br i1 %.not.i, label %13, label %14
 
 13:                                               ; preds = %12
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.28) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.28) #28
   br label %PQexecFinish.exit
 
 14:                                               ; preds = %12
@@ -3677,7 +3677,7 @@ define ptr @PQexecParams(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   br i1 %or.cond.i, label %15, label %PQsendQueryParams.exit
 
 15:                                               ; preds = %14
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.29, i32 noundef 65535) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.29, i32 noundef 65535) #28
   br label %PQexecFinish.exit
 
 PQsendQueryParams.exit:                           ; preds = %14
@@ -3769,7 +3769,7 @@ define ptr @PQexecPrepared(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr n
   br i1 %.not.i, label %12, label %13
 
 12:                                               ; preds = %11
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.31) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.31) #28
   br label %PQexecFinish.exit
 
 13:                                               ; preds = %11
@@ -3777,7 +3777,7 @@ define ptr @PQexecPrepared(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr n
   br i1 %or.cond.i, label %14, label %PQsendQueryPrepared.exit
 
 14:                                               ; preds = %13
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.29, i32 noundef 65535) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.29, i32 noundef 65535) #28
   br label %PQexecFinish.exit
 
 PQsendQueryPrepared.exit:                         ; preds = %13
@@ -3869,12 +3869,12 @@ define internal fastcc range(i32 0, 2) i32 @PQsendTypedCommand(ptr noundef %0, i
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %6
-  %11 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #26
+  %11 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #27
   %12 = icmp eq ptr %11, null
   br i1 %12, label %pqAllocCmdQueueEntry.exit.thread, label %16
 
 pqAllocCmdQueueEntry.exit.thread:                 ; preds = %10
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #28
   br label %pqAppendCmdQueueEntry.exit
 
 13:                                               ; preds = %6
@@ -3887,22 +3887,22 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %10
   %.0.i = phi ptr [ %11, %10 ], [ %8, %13 ]
   %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  %18 = tail call i32 @pqPutMsgStart(i8 noundef signext %1, ptr noundef nonnull %0) #27
+  %18 = tail call i32 @pqPutMsgStart(i8 noundef signext %1, ptr noundef nonnull %0) #28
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %68, label %20
 
 20:                                               ; preds = %16
-  %21 = tail call i32 @pqPutc(i8 noundef signext %2, ptr noundef nonnull %0) #27
+  %21 = tail call i32 @pqPutc(i8 noundef signext %2, ptr noundef nonnull %0) #28
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %68, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call i32 @pqPuts(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %0) #27
+  %24 = tail call i32 @pqPuts(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %0) #28
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %68, label %26
 
 26:                                               ; preds = %23
-  %27 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #27
+  %27 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #28
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %68, label %29
 
@@ -3913,12 +3913,12 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %10
   br i1 %32, label %33, label %39
 
 33:                                               ; preds = %29
-  %34 = tail call i32 @pqPutMsgStart(i8 noundef signext 83, ptr noundef nonnull %0) #27
+  %34 = tail call i32 @pqPutMsgStart(i8 noundef signext 83, ptr noundef nonnull %0) #28
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %68, label %36
 
 36:                                               ; preds = %33
-  %37 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #27
+  %37 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #28
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %68, label %39
 
@@ -3937,7 +3937,7 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %10
   br i1 %45, label %pqPipelineFlush.exit, label %pqPipelineFlush.exit.thread
 
 pqPipelineFlush.exit:                             ; preds = %39, %42
-  %46 = tail call i32 @pqFlush(ptr noundef nonnull %0) #27
+  %46 = tail call i32 @pqFlush(ptr noundef nonnull %0) #28
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %68, label %pqPipelineFlush.exit.thread
 
@@ -3996,7 +3996,7 @@ pqPipelineFlush.exit.thread:                      ; preds = %42, %pqPipelineFlus
   br i1 %.not.i28, label %pqRecycleCmdQueueEntry.exit, label %70
 
 70:                                               ; preds = %68
-  tail call void @free(ptr noundef nonnull %69) #27
+  tail call void @free(ptr noundef nonnull %69) #28
   store ptr null, ptr %17, align 8
   br label %pqRecycleCmdQueueEntry.exit
 
@@ -4162,7 +4162,7 @@ define ptr @PQnotifies(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %11, label %2
 
 2:                                                ; preds = %1
-  tail call void @pqParseInput3(ptr noundef nonnull %0) #27
+  tail call void @pqParseInput3(ptr noundef nonnull %0) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %4 = load ptr, ptr %3, align 8
   %.not13 = icmp eq ptr %4, null
@@ -4203,11 +4203,11 @@ define range(i32 -1, 2) i32 @PQputCopyData(ptr noundef %0, ptr noundef %1, i32 n
   ]
 
 7:                                                ; preds = %4
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.33) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.33) #28
   br label %45
 
 8:                                                ; preds = %4, %4
-  tail call void @pqParseInput3(ptr noundef nonnull %0) #27
+  tail call void @pqParseInput3(ptr noundef nonnull %0) #28
   %9 = icmp sgt i32 %2, 0
   br i1 %9, label %10, label %44
 
@@ -4222,7 +4222,7 @@ define range(i32 -1, 2) i32 @PQputCopyData(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %17, label %18, label %34
 
 18:                                               ; preds = %10
-  %19 = tail call i32 @pqFlush(ptr noundef nonnull %0) #27
+  %19 = tail call i32 @pqFlush(ptr noundef nonnull %0) #28
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %45, label %21
 
@@ -4232,7 +4232,7 @@ define range(i32 -1, 2) i32 @PQputCopyData(ptr noundef %0, ptr noundef %1, i32 n
   %24 = sext i32 %23 to i64
   %25 = zext nneg i32 %2 to i64
   %26 = add nsw i64 %24, %25
-  %27 = tail call i32 @pqCheckOutBufferSpace(i64 noundef %26, ptr noundef nonnull %0) #27
+  %27 = tail call i32 @pqCheckOutBufferSpace(i64 noundef %26, ptr noundef nonnull %0) #28
   %.not24 = icmp eq i32 %27, 0
   br i1 %.not24, label %34, label %28
 
@@ -4245,18 +4245,18 @@ define range(i32 -1, 2) i32 @PQputCopyData(ptr noundef %0, ptr noundef %1, i32 n
   br label %45
 
 34:                                               ; preds = %21, %10
-  %35 = tail call i32 @pqPutMsgStart(i8 noundef signext 100, ptr noundef nonnull %0) #27
+  %35 = tail call i32 @pqPutMsgStart(i8 noundef signext 100, ptr noundef nonnull %0) #28
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %45, label %37
 
 37:                                               ; preds = %34
   %38 = zext nneg i32 %2 to i64
-  %39 = tail call i32 @pqPutnchar(ptr noundef %1, i64 noundef %38, ptr noundef nonnull %0) #27
+  %39 = tail call i32 @pqPutnchar(ptr noundef %1, i64 noundef %38, ptr noundef nonnull %0) #28
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %45, label %41
 
 41:                                               ; preds = %37
-  %42 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #27
+  %42 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #28
   %43 = icmp slt i32 %42, 0
   br i1 %43, label %45, label %44
 
@@ -4268,9 +4268,9 @@ define range(i32 -1, 2) i32 @PQputCopyData(ptr noundef %0, ptr noundef %1, i32 n
   ret i32 %.0
 }
 
-declare i32 @pqCheckOutBufferSpace(i64 noundef, ptr noundef) local_unnamed_addr #9
+declare i32 @pqCheckOutBufferSpace(i64 noundef, ptr noundef) local_unnamed_addr #10
 
-declare i32 @pqPutnchar(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #9
+declare i32 @pqPutnchar(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 2) i32 @PQputCopyEnd(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -4286,7 +4286,7 @@ define range(i32 -1, 2) i32 @PQputCopyEnd(ptr noundef %0, ptr noundef %1) local_
   ]
 
 6:                                                ; preds = %3
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.33) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.33) #28
   br label %38
 
 7:                                                ; preds = %3, %3
@@ -4294,27 +4294,27 @@ define range(i32 -1, 2) i32 @PQputCopyEnd(ptr noundef %0, ptr noundef %1) local_
   br i1 %.not25, label %17, label %8
 
 8:                                                ; preds = %7
-  %9 = tail call i32 @pqPutMsgStart(i8 noundef signext 102, ptr noundef nonnull %0) #27
+  %9 = tail call i32 @pqPutMsgStart(i8 noundef signext 102, ptr noundef nonnull %0) #28
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %38, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call i32 @pqPuts(ptr noundef nonnull %1, ptr noundef nonnull %0) #27
+  %12 = tail call i32 @pqPuts(ptr noundef nonnull %1, ptr noundef nonnull %0) #28
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %38, label %14
 
 14:                                               ; preds = %11
-  %15 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #27
+  %15 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #28
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %38, label %23
 
 17:                                               ; preds = %7
-  %18 = tail call i32 @pqPutMsgStart(i8 noundef signext 99, ptr noundef nonnull %0) #27
+  %18 = tail call i32 @pqPutMsgStart(i8 noundef signext 99, ptr noundef nonnull %0) #28
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %38, label %20
 
 20:                                               ; preds = %17
-  %21 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #27
+  %21 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #28
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %38, label %23
 
@@ -4330,12 +4330,12 @@ define range(i32 -1, 2) i32 @PQputCopyEnd(ptr noundef %0, ptr noundef %1) local_
   br i1 %.not27, label %34, label %28
 
 28:                                               ; preds = %26
-  %29 = tail call i32 @pqPutMsgStart(i8 noundef signext 83, ptr noundef nonnull %0) #27
+  %29 = tail call i32 @pqPutMsgStart(i8 noundef signext 83, ptr noundef nonnull %0) #28
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %38, label %31
 
 31:                                               ; preds = %28
-  %32 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #27
+  %32 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #28
   %33 = icmp slt i32 %32, 0
   br i1 %33, label %38, label %34
 
@@ -4344,7 +4344,7 @@ define range(i32 -1, 2) i32 @PQputCopyEnd(ptr noundef %0, ptr noundef %1) local_
   %36 = icmp eq i32 %35, 6
   %. = select i1 %36, i32 5, i32 1
   store i32 %., ptr %4, align 4
-  %37 = tail call i32 @pqFlush(ptr noundef nonnull %0) #27
+  %37 = tail call i32 @pqFlush(ptr noundef nonnull %0) #28
   %.inv = icmp sgt i32 %37, -1
   %spec.select = select i1 %.inv, i32 1, i32 -1
   br label %38
@@ -4368,11 +4368,11 @@ define i32 @PQgetCopyData(ptr noundef %0, ptr noundef initializes((0, 8)) %1, i3
   br i1 %switch, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.33) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.33) #28
   br label %10
 
 8:                                                ; preds = %4
-  %9 = tail call i32 @pqGetCopyData3(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2) #27
+  %9 = tail call i32 @pqGetCopyData3(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2) #28
   br label %10
 
 10:                                               ; preds = %3, %8, %7
@@ -4380,7 +4380,7 @@ define i32 @PQgetCopyData(ptr noundef %0, ptr noundef initializes((0, 8)) %1, i3
   ret i32 %.0
 }
 
-declare i32 @pqGetCopyData3(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
+declare i32 @pqGetCopyData3(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define i32 @PQgetline(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -4397,7 +4397,7 @@ define i32 @PQgetline(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unna
   br i1 %or.cond12, label %10, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call i32 @pqGetline3(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2) #27
+  %9 = tail call i32 @pqGetline3(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2) #28
   br label %10
 
 10:                                               ; preds = %6, %3, %8
@@ -4405,7 +4405,7 @@ define i32 @PQgetline(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unna
   ret i32 %.0
 }
 
-declare i32 @pqGetline3(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
+declare i32 @pqGetline3(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define i32 @PQgetlineAsync(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -4413,7 +4413,7 @@ define i32 @PQgetlineAsync(ptr noundef %0, ptr noundef %1, i32 noundef %2) local
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %3
-  %5 = tail call i32 @pqGetlineAsync3(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) #27
+  %5 = tail call i32 @pqGetlineAsync3(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) #28
   br label %6
 
 6:                                                ; preds = %3, %4
@@ -4421,11 +4421,11 @@ define i32 @PQgetlineAsync(ptr noundef %0, ptr noundef %1, i32 noundef %2) local
   ret i32 %.0
 }
 
-declare i32 @pqGetlineAsync3(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
+declare i32 @pqGetlineAsync3(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @PQputline(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #28
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #29
   %4 = trunc i64 %3 to i32
   %5 = tail call i32 @PQputCopyData(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %4)
   %6 = icmp slt i32 %5, 1
@@ -4447,7 +4447,7 @@ define i32 @PQendcopy(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @pqEndcopy3(ptr noundef nonnull %0) #27
+  %3 = tail call i32 @pqEndcopy3(ptr noundef nonnull %0) #28
   br label %4
 
 4:                                                ; preds = %1, %2
@@ -4455,7 +4455,7 @@ define i32 @PQendcopy(ptr noundef %0) local_unnamed_addr #0 {
   ret i32 %.0
 }
 
-declare i32 @pqEndcopy3(ptr noundef) local_unnamed_addr #9
+declare i32 @pqEndcopy3(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define ptr @PQfn(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef initializes((0, 4)) %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
@@ -4471,7 +4471,7 @@ define ptr @PQfn(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef ini
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  tail call void @resetPQExpBuffer(ptr noundef nonnull %13) #27
+  tail call void @resetPQExpBuffer(ptr noundef nonnull %13) #28
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   store i32 0, ptr %14, align 8
   br label %15
@@ -4483,7 +4483,7 @@ define ptr @PQfn(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef ini
   br i1 %.not20, label %19, label %18
 
 18:                                               ; preds = %15
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35) #28
   br label %36
 
 19:                                               ; preds = %15
@@ -4511,11 +4511,11 @@ define ptr @PQfn(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef ini
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %29, %26, %23, %19
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.36) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.36) #28
   br label %36
 
 34:                                               ; preds = %29
-  %35 = tail call ptr @pqFunctionCall3(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) #27
+  %35 = tail call ptr @pqFunctionCall3(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) #28
   br label %36
 
 36:                                               ; preds = %7, %34, %33, %18
@@ -4523,9 +4523,9 @@ define ptr @PQfn(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef ini
   ret ptr %.0
 }
 
-declare void @resetPQExpBuffer(ptr noundef) local_unnamed_addr #9
+declare void @resetPQExpBuffer(ptr noundef) local_unnamed_addr #10
 
-declare ptr @pqFunctionCall3(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
+declare ptr @pqFunctionCall3(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @PQenterPipelineMode(ptr noundef %0) local_unnamed_addr #0 {
@@ -4545,7 +4545,7 @@ define range(i32 0, 2) i32 @PQenterPipelineMode(ptr noundef %0) local_unnamed_ad
   br i1 %.not7, label %9, label %8
 
 8:                                                ; preds = %5
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.37) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.37) #28
   br label %10
 
 9:                                                ; preds = %5
@@ -4594,15 +4594,15 @@ define range(i32 0, 2) i32 @PQexitPipelineMode(ptr noundef %0) local_unnamed_add
   ]
 
 14:                                               ; preds = %._crit_edge, %._crit_edge
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.38) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.38) #28
   br label %24
 
 15:                                               ; preds = %._crit_edge
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.39) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.39) #28
   br label %24
 
 16:                                               ; preds = %._crit_edge, %._crit_edge, %._crit_edge
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.40) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.40) #28
   br label %17
 
 17:                                               ; preds = %16, %._crit_edge
@@ -4612,13 +4612,13 @@ define range(i32 0, 2) i32 @PQexitPipelineMode(ptr noundef %0) local_unnamed_add
   br i1 %.not16, label %21, label %20
 
 20:                                               ; preds = %17
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.38) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.38) #28
   br label %24
 
 21:                                               ; preds = %17
   store i32 0, ptr %3, align 4
   store i32 0, ptr %13, align 4
-  %22 = tail call i32 @pqFlush(ptr noundef nonnull %0) #27
+  %22 = tail call i32 @pqFlush(ptr noundef nonnull %0) #28
   %23 = icmp sgt i32 %22, -1
   %. = zext i1 %23 to i32
   br label %24
@@ -4646,7 +4646,7 @@ define internal fastcc range(i32 0, 2) i32 @pqPipelineSyncInternal(ptr noundef %
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %3
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.65) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.65) #28
   br label %pqAppendCmdQueueEntry.exit
 
 8:                                                ; preds = %3
@@ -4658,7 +4658,7 @@ define internal fastcc range(i32 0, 2) i32 @pqPipelineSyncInternal(ptr noundef %
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  tail call void @appendPQExpBufferStr(ptr noundef nonnull %12, ptr noundef nonnull @.str.66) #27
+  tail call void @appendPQExpBufferStr(ptr noundef nonnull %12, ptr noundef nonnull @.str.66) #28
   br label %pqAppendCmdQueueEntry.exit
 
 13:                                               ; preds = %8
@@ -4668,12 +4668,12 @@ define internal fastcc range(i32 0, 2) i32 @pqPipelineSyncInternal(ptr noundef %
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %13
-  %18 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #26
+  %18 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #27
   %19 = icmp eq ptr %18, null
   br i1 %19, label %pqAllocCmdQueueEntry.exit.thread, label %23
 
 pqAllocCmdQueueEntry.exit.thread:                 ; preds = %17
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #28
   br label %pqAppendCmdQueueEntry.exit
 
 20:                                               ; preds = %13
@@ -4689,12 +4689,12 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %17
   store i64 0, ptr %25, align 8
   store i32 4, ptr %.0.i, align 8
   store ptr null, ptr %24, align 8
-  %26 = tail call i32 @pqPutMsgStart(i8 noundef signext 83, ptr noundef nonnull %0) #27
+  %26 = tail call i32 @pqPutMsgStart(i8 noundef signext 83, ptr noundef nonnull %0) #28
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %61, label %28
 
 28:                                               ; preds = %23
-  %29 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #27
+  %29 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #28
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %61, label %31
 
@@ -4702,7 +4702,7 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %17
   br i1 %1, label %32, label %35
 
 32:                                               ; preds = %31
-  %33 = tail call i32 @pqFlush(ptr noundef nonnull %0) #27
+  %33 = tail call i32 @pqFlush(ptr noundef nonnull %0) #28
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %61, label %pqPipelineFlush.exit.thread
 
@@ -4718,7 +4718,7 @@ pqAllocCmdQueueEntry.exit.thread:                 ; preds = %17
   br i1 %40, label %pqPipelineFlush.exit, label %pqPipelineFlush.exit.thread
 
 pqPipelineFlush.exit:                             ; preds = %35, %37
-  %41 = tail call i32 @pqFlush(ptr noundef nonnull %0) #27
+  %41 = tail call i32 @pqFlush(ptr noundef nonnull %0) #28
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %61, label %pqPipelineFlush.exit.thread
 
@@ -4775,7 +4775,7 @@ pqPipelineFlush.exit.thread:                      ; preds = %37, %pqPipelineFlus
   br i1 %.not.i21, label %pqRecycleCmdQueueEntry.exit, label %63
 
 63:                                               ; preds = %61
-  tail call void @free(ptr noundef nonnull %62) #27
+  tail call void @free(ptr noundef nonnull %62) #28
   store ptr null, ptr %24, align 8
   br label %pqRecycleCmdQueueEntry.exit
 
@@ -4809,7 +4809,7 @@ define range(i32 0, 2) i32 @PQsendFlushRequest(ptr noundef %0) local_unnamed_add
   br i1 %.not10, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.41) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.41) #28
   br label %pqPipelineFlush.exit.thread
 
 6:                                                ; preds = %2
@@ -4825,16 +4825,16 @@ define range(i32 0, 2) i32 @PQsendFlushRequest(ptr noundef %0) local_unnamed_add
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %9
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.42) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.42) #28
   br label %pqPipelineFlush.exit.thread
 
 14:                                               ; preds = %9, %6
-  %15 = tail call i32 @pqPutMsgStart(i8 noundef signext 72, ptr noundef nonnull %0) #27
+  %15 = tail call i32 @pqPutMsgStart(i8 noundef signext 72, ptr noundef nonnull %0) #28
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %pqPipelineFlush.exit.thread, label %17
 
 17:                                               ; preds = %14
-  %18 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #27
+  %18 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #28
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %pqPipelineFlush.exit.thread, label %20
 
@@ -4851,7 +4851,7 @@ define range(i32 0, 2) i32 @PQsendFlushRequest(ptr noundef %0) local_unnamed_add
   br i1 %26, label %pqPipelineFlush.exit, label %pqPipelineFlush.exit.thread
 
 pqPipelineFlush.exit:                             ; preds = %20, %23
-  %27 = tail call i32 @pqFlush(ptr noundef nonnull %0) #27
+  %27 = tail call i32 @pqFlush(ptr noundef nonnull %0) #28
   %.fr = freeze i32 %27
   %28 = icmp sgt i32 %.fr, -1
   %spec.select = zext i1 %28 to i32
@@ -4863,7 +4863,7 @@ pqPipelineFlush.exit.thread:                      ; preds = %pqPipelineFlush.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @PQresultStatus(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define i32 @PQresultStatus(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -4878,7 +4878,7 @@ define i32 @PQresultStatus(ptr noundef readonly captures(address_is_null) %0) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @PQresStatus(i32 noundef %0) local_unnamed_addr #15 {
+define ptr @PQresStatus(i32 noundef %0) local_unnamed_addr #16 {
   %2 = icmp ugt i32 %0, 12
   br i1 %2, label %7, label %3
 
@@ -4894,7 +4894,7 @@ define ptr @PQresStatus(i32 noundef %0) local_unnamed_addr #15 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define nonnull ptr @PQresultErrorMessage(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define nonnull ptr @PQresultErrorMessage(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -4925,20 +4925,20 @@ define ptr @PQresultVerboseErrorMessage(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %switch, label %11, label %9
 
 9:                                                ; preds = %5, %3
-  %10 = tail call noalias dereferenceable_or_null(33) ptr @strdup(ptr noundef nonnull @.str.44) #27
+  %10 = tail call noalias dereferenceable_or_null(33) ptr @strdup(ptr noundef nonnull @.str.44) #28
   br label %19
 
 11:                                               ; preds = %5
-  call void @initPQExpBuffer(ptr noundef nonnull %4) #27
-  call void @pqBuildErrorMessage3(ptr noundef nonnull %4, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2) #27
+  call void @initPQExpBuffer(ptr noundef nonnull %4) #28
+  call void @pqBuildErrorMessage3(ptr noundef nonnull %4, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2) #28
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %11
-  call void @termPQExpBuffer(ptr noundef nonnull %4) #27
-  %16 = call noalias dereferenceable_or_null(15) ptr @strdup(ptr noundef nonnull @.str.16) #27
+  call void @termPQExpBuffer(ptr noundef nonnull %4) #28
+  %16 = call noalias dereferenceable_or_null(15) ptr @strdup(ptr noundef nonnull @.str.16) #28
   br label %19
 
 17:                                               ; preds = %11
@@ -4951,14 +4951,14 @@ define ptr @PQresultVerboseErrorMessage(ptr noundef %0, i32 noundef %1, i32 noun
   ret ptr %.0
 }
 
-declare void @initPQExpBuffer(ptr noundef) local_unnamed_addr #9
+declare void @initPQExpBuffer(ptr noundef) local_unnamed_addr #10
 
-declare void @pqBuildErrorMessage3(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #9
+declare void @pqBuildErrorMessage3(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #10
 
-declare void @termPQExpBuffer(ptr noundef) local_unnamed_addr #9
+declare void @termPQExpBuffer(ptr noundef) local_unnamed_addr #10
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @PQresultErrorField(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #16 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define ptr @PQresultErrorField(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #17 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -4989,7 +4989,7 @@ define ptr @PQresultErrorField(ptr noundef readonly captures(address_is_null) %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @PQntuples(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define i32 @PQntuples(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -5003,7 +5003,7 @@ define i32 @PQntuples(ptr noundef readonly captures(address_is_null) %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @PQnfields(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define i32 @PQnfields(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -5018,7 +5018,7 @@ define i32 @PQnfields(ptr noundef readonly captures(address_is_null) %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @PQbinaryTuples(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define i32 @PQbinaryTuples(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -5107,7 +5107,7 @@ define range(i32 -2147483648, 2147483647) i32 @PQfnumber(ptr noundef readonly ca
 
 16:                                               ; preds = %.preheader73
   %17 = sext i8 %11 to i32
-  %18 = tail call zeroext i8 @pg_tolower(i8 noundef zeroext %11) #27
+  %18 = tail call zeroext i8 @pg_tolower(i8 noundef zeroext %11) #28
   %19 = zext i8 %18 to i32
   %.not66 = icmp eq i32 %17, %19
   %20 = getelementptr inbounds nuw i8, ptr %.052, i64 1
@@ -5117,7 +5117,7 @@ define range(i32 -2147483648, 2147483647) i32 @PQfnumber(ptr noundef readonly ca
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
   %22 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %15, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %23) #28
+  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %23) #29
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %.loopexit.loopexit, label %.critedge
 
@@ -5127,7 +5127,7 @@ define range(i32 -2147483648, 2147483647) i32 @PQfnumber(ptr noundef readonly ca
   br i1 %exitcond.not, label %.thread71, label %21, !llvm.loop !28
 
 .thread71:                                        ; preds = %16, %.preheader73, %.critedge, %.critedge.preheader
-  %26 = tail call noalias ptr @strdup(ptr noundef nonnull %1) #27
+  %26 = tail call noalias ptr @strdup(ptr noundef nonnull %1) #28
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.loopexit, label %.preheader
 
@@ -5157,7 +5157,7 @@ define range(i32 -2147483648, 2147483647) i32 @PQfnumber(ptr noundef readonly ca
   br i1 %30, label %40, label %37
 
 37:                                               ; preds = %36
-  %38 = tail call zeroext i8 @pg_tolower(i8 noundef zeroext %29) #27
+  %38 = tail call zeroext i8 @pg_tolower(i8 noundef zeroext %29) #28
   br label %.sink.split
 
 .sink.split:                                      ; preds = %31, %32, %37
@@ -5193,13 +5193,13 @@ define range(i32 -2147483648, 2147483647) i32 @PQfnumber(ptr noundef readonly ca
   %indvars.iv91 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next92, %54 ]
   %48 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %46, i64 %indvars.iv91
   %49 = load ptr, ptr %48, align 8
-  %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %49) #28
+  %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %49) #29
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %47
   %53 = trunc nuw nsw i64 %indvars.iv91 to i32
-  tail call void @free(ptr noundef nonnull %26) #27
+  tail call void @free(ptr noundef nonnull %26) #28
   br label %.loopexit
 
 54:                                               ; preds = %47
@@ -5208,7 +5208,7 @@ define range(i32 -2147483648, 2147483647) i32 @PQfnumber(ptr noundef readonly ca
   br i1 %exitcond95.not, label %._crit_edge86, label %47, !llvm.loop !30
 
 ._crit_edge86:                                    ; preds = %54, %._crit_edge
-  tail call void @free(ptr noundef %26) #27
+  tail call void @free(ptr noundef %26) #28
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %21
@@ -5220,7 +5220,7 @@ define range(i32 -2147483648, 2147483647) i32 @PQfnumber(ptr noundef readonly ca
   ret i32 %.0
 }
 
-declare zeroext i8 @pg_tolower(i8 noundef zeroext) local_unnamed_addr #9
+declare zeroext i8 @pg_tolower(i8 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define i32 @PQftable(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -5445,27 +5445,27 @@ check_field_number.exit.thread:                   ; preds = %2, %._crit_edge.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @PQcmdStatus(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #15 {
+define ptr @PQcmdStatus(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #16 {
   %.not = icmp eq ptr %0, null
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %.0 = select i1 %.not, ptr null, ptr %2
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @PQoidStatus(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #17 {
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define noundef nonnull ptr @PQoidStatus(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #18 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %4 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(8) @.str.45, i64 noundef 7) #28
+  %4 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(8) @.str.45, i64 noundef 7) #29
   %.not8 = icmp eq i32 %4, 0
   br i1 %.not8, label %5, label %9
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 51
-  %7 = tail call i64 @strspn(ptr noundef nonnull %6, ptr noundef nonnull @.str.46) #28
+  %7 = tail call i64 @strspn(ptr noundef nonnull %6, ptr noundef nonnull @.str.46) #29
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %7, i64 23)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 @PQoidStatus.buf, ptr nonnull align 1 %6, i64 %spec.store.select, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr @PQoidStatus.buf, i64 %spec.store.select
@@ -5478,13 +5478,13 @@ define noundef nonnull ptr @PQoidStatus(ptr noundef readonly captures(address_is
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define i32 @PQoidValue(ptr noundef %0) local_unnamed_addr #18 {
+define i32 @PQoidValue(ptr noundef %0) local_unnamed_addr #19 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
@@ -5493,7 +5493,7 @@ define i32 @PQoidValue(ptr noundef %0) local_unnamed_addr #18 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(8) @.str.45, i64 noundef 7) #28
+  %5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(8) @.str.45, i64 noundef 7) #29
   %.not10 = icmp eq i32 %5, 0
   br i1 %.not10, label %6, label %17
 
@@ -5505,7 +5505,7 @@ define i32 @PQoidValue(ptr noundef %0) local_unnamed_addr #18 {
   br i1 %or.cond, label %17, label %10
 
 10:                                               ; preds = %6
-  %11 = call i64 @strtoul(ptr noundef nonnull %7, ptr noundef nonnull %2, i32 noundef 10) #27
+  %11 = call i64 @strtoul(ptr noundef nonnull %7, ptr noundef nonnull %2, i32 noundef 10) #28
   %12 = load ptr, ptr %2, align 8
   %.not11 = icmp eq ptr %12, null
   br i1 %.not11, label %17, label %13
@@ -5528,7 +5528,7 @@ define i32 @PQoidValue(ptr noundef %0) local_unnamed_addr #18 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #19
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nounwind uwtable
 define noundef nonnull ptr @PQcmdTuples(ptr noundef %0) local_unnamed_addr #0 {
@@ -5537,7 +5537,7 @@ define noundef nonnull ptr @PQcmdTuples(ptr noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %4 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(8) @.str.45, i64 noundef 7) #28
+  %4 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(8) @.str.45, i64 noundef 7) #29
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %14
 
@@ -5562,17 +5562,17 @@ define noundef nonnull ptr @PQcmdTuples(ptr noundef %0) local_unnamed_addr #0 {
   br label %41
 
 14:                                               ; preds = %2
-  %15 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(8) @.str.47, i64 noundef 7) #28
+  %15 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(8) @.str.47, i64 noundef 7) #29
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %23, label %17
 
 17:                                               ; preds = %14
-  %18 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(8) @.str.48, i64 noundef 7) #28
+  %18 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(8) @.str.48, i64 noundef 7) #29
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %23, label %20
 
 20:                                               ; preds = %17
-  %21 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(8) @.str.49, i64 noundef 7) #28
+  %21 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(8) @.str.49, i64 noundef 7) #29
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %25
 
@@ -5581,12 +5581,12 @@ define noundef nonnull ptr @PQcmdTuples(ptr noundef %0) local_unnamed_addr #0 {
   br label %41
 
 25:                                               ; preds = %20
-  %26 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(7) @.str.50, i64 noundef 6) #28
+  %26 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(7) @.str.50, i64 noundef 6) #29
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %31, label %28
 
 28:                                               ; preds = %25
-  %29 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(7) @.str.51, i64 noundef 6) #28
+  %29 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(7) @.str.51, i64 noundef 6) #29
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %33
 
@@ -5595,12 +5595,12 @@ define noundef nonnull ptr @PQcmdTuples(ptr noundef %0) local_unnamed_addr #0 {
   br label %41
 
 33:                                               ; preds = %28
-  %34 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(6) @.str.52, i64 noundef 5) #28
+  %34 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(6) @.str.52, i64 noundef 5) #29
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %39, label %36
 
 36:                                               ; preds = %33
-  %37 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(6) @.str.53, i64 noundef 5) #28
+  %37 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(6) @.str.53, i64 noundef 5) #29
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %._crit_edge
 
@@ -5615,7 +5615,7 @@ define noundef nonnull ptr @PQcmdTuples(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not3540, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
-  %43 = tail call ptr @__ctype_b_loc() #30
+  %43 = tail call ptr @__ctype_b_loc() #31
   %44 = load ptr, ptr %43, align 8
   br label %45
 
@@ -5646,7 +5646,7 @@ define noundef nonnull ptr @PQcmdTuples(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #20
+declare ptr @__ctype_b_loc() local_unnamed_addr #21
 
 ; Function Attrs: nounwind uwtable
 define ptr @PQgetvalue(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -5798,7 +5798,7 @@ check_tuple_field_number.exit.thread:             ; preds = %3, %._crit_edge.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @PQnparams(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define i32 @PQnparams(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -5875,13 +5875,13 @@ define range(i32 -1, 1) i32 @PQsetnonblocking(ptr noundef %0, i32 noundef %1) lo
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  tail call void @resetPQExpBuffer(ptr noundef nonnull %18) #27
+  tail call void @resetPQExpBuffer(ptr noundef nonnull %18) #28
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   store i32 0, ptr %19, align 8
   br label %20
 
 20:                                               ; preds = %17, %13
-  %21 = tail call i32 @pqFlush(ptr noundef nonnull %0) #27
+  %21 = tail call i32 @pqFlush(ptr noundef nonnull %0) #28
   %.not12 = icmp eq i32 %21, 0
   br i1 %.not12, label %22, label %23
 
@@ -5895,7 +5895,7 @@ define range(i32 -1, 1) i32 @PQsetnonblocking(ptr noundef %0, i32 noundef %1) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @PQisnonblocking(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @PQisnonblocking(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -5917,7 +5917,7 @@ define range(i32 0, 2) i32 @PQisnonblocking(ptr noundef readonly captures(addres
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @PQisthreadsafe() local_unnamed_addr #15 {
+define noundef i32 @PQisthreadsafe() local_unnamed_addr #16 {
   ret i32 1
 }
 
@@ -5933,7 +5933,7 @@ define i32 @PQflush(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call i32 @pqFlush(ptr noundef nonnull %0) #27
+  %7 = tail call i32 @pqFlush(ptr noundef nonnull %0) #28
   br label %8
 
 8:                                                ; preds = %1, %2, %6
@@ -5942,14 +5942,14 @@ define i32 @PQflush(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @PQfreemem(ptr noundef captures(none) %0) local_unnamed_addr #21 {
-  tail call void @free(ptr noundef %0) #27
+define void @PQfreemem(ptr noundef captures(none) %0) local_unnamed_addr #22 {
+  tail call void @free(ptr noundef %0) #28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @PQfreeNotify(ptr noundef captures(none) %0) local_unnamed_addr #21 {
-  tail call void @free(ptr noundef %0) #27
+define void @PQfreeNotify(ptr noundef captures(none) %0) local_unnamed_addr #22 {
+  tail call void @free(ptr noundef %0) #28
   ret void
 }
 
@@ -5975,7 +5975,7 @@ define noundef i64 @PQescapeStringConn(ptr noundef %0, ptr noundef %1, ptr nound
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  tail call void @resetPQExpBuffer(ptr noundef nonnull %13) #27
+  tail call void @resetPQExpBuffer(ptr noundef nonnull %13) #28
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   store i32 0, ptr %14, align 8
   br label %15
@@ -5996,7 +5996,7 @@ define noundef i64 @PQescapeStringConn(ptr noundef %0, ptr noundef %1, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i64 @PQescapeStringInternal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
-  %8 = tail call i64 @strnlen(ptr noundef %2, i64 noundef %3) #28
+  %8 = tail call i64 @strnlen(ptr noundef %2, i64 noundef %3) #29
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %9
 
@@ -6024,13 +6024,13 @@ define internal fastcc noundef i64 @PQescapeStringInternal(ptr noundef %0, ptr n
   br i1 %.not67.us.us, label %29, label %13
 
 13:                                               ; preds = %.lr.ph80.split.us.split.us
-  %14 = tail call i32 @pg_encoding_mblen(i32 noundef %5, ptr noundef nonnull %.04979.us.us) #27
+  %14 = tail call i32 @pg_encoding_mblen(i32 noundef %5, ptr noundef nonnull %.04979.us.us) #28
   %15 = sext i32 %14 to i64
   %16 = icmp ult i64 %.05876.us.us, %15
   br i1 %16, label %25, label %17
 
 17:                                               ; preds = %13
-  %18 = tail call i32 @pg_encoding_verifymbchar(i32 noundef %5, ptr noundef nonnull %.04979.us.us, i32 noundef %14) #27
+  %18 = tail call i32 @pg_encoding_verifymbchar(i32 noundef %5, ptr noundef nonnull %.04979.us.us, i32 noundef %14) #28
   %19 = icmp eq i32 %18, -1
   br i1 %19, label %25, label %.preheader.us.us
 
@@ -6049,7 +6049,7 @@ define internal fastcc noundef i64 @PQescapeStringInternal(ptr noundef %0, ptr n
   br i1 %exitcond94.not, label %.loopexit.us.us, label %.lr.ph.us.us, !llvm.loop !33
 
 25:                                               ; preds = %17, %13
-  tail call void @pg_encoding_set_invalid(i32 noundef %5, ptr noundef %.05078.us.us) #27
+  tail call void @pg_encoding_set_invalid(i32 noundef %5, ptr noundef %.05078.us.us) #28
   %26 = getelementptr inbounds nuw i8, ptr %.05078.us.us, i64 2
   %27 = getelementptr inbounds nuw i8, ptr %.04979.us.us, i64 1
   %28 = add i64 %.05876.us.us, -1
@@ -6095,13 +6095,13 @@ define internal fastcc noundef i64 @PQescapeStringInternal(ptr noundef %0, ptr n
   br i1 %.not67.us, label %56, label %40
 
 40:                                               ; preds = %.lr.ph80.split.us.split
-  %41 = tail call i32 @pg_encoding_mblen(i32 noundef %5, ptr noundef nonnull %.04979.us) #27
+  %41 = tail call i32 @pg_encoding_mblen(i32 noundef %5, ptr noundef nonnull %.04979.us) #28
   %42 = sext i32 %41 to i64
   %43 = icmp ult i64 %.05876.us, %42
   br i1 %43, label %52, label %44
 
 44:                                               ; preds = %40
-  %45 = tail call i32 @pg_encoding_verifymbchar(i32 noundef %5, ptr noundef nonnull %.04979.us, i32 noundef %41) #27
+  %45 = tail call i32 @pg_encoding_verifymbchar(i32 noundef %5, ptr noundef nonnull %.04979.us, i32 noundef %41) #28
   %46 = icmp eq i32 %45, -1
   br i1 %46, label %52, label %.preheader.us
 
@@ -6121,7 +6121,7 @@ define internal fastcc noundef i64 @PQescapeStringInternal(ptr noundef %0, ptr n
 
 52:                                               ; preds = %44, %40
   store i32 1, ptr %4, align 4
-  tail call void @pg_encoding_set_invalid(i32 noundef %5, ptr noundef %.05078.us) #27
+  tail call void @pg_encoding_set_invalid(i32 noundef %5, ptr noundef %.05078.us) #28
   %53 = getelementptr inbounds nuw i8, ptr %.05078.us, i64 2
   %54 = getelementptr inbounds nuw i8, ptr %.04979.us, i64 1
   %55 = add i64 %.05876.us, -1
@@ -6188,13 +6188,13 @@ define internal fastcc noundef i64 @PQescapeStringInternal(ptr noundef %0, ptr n
   br label %.loopexit, !llvm.loop !34
 
 76:                                               ; preds = %.lr.ph80.split
-  %77 = tail call i32 @pg_encoding_mblen(i32 noundef %5, ptr noundef nonnull %.04979) #27
+  %77 = tail call i32 @pg_encoding_mblen(i32 noundef %5, ptr noundef nonnull %.04979) #28
   %78 = sext i32 %77 to i64
   %79 = icmp ult i64 %.05876, %78
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %76
-  %81 = tail call i32 @pg_encoding_verifymbchar(i32 noundef %5, ptr noundef nonnull %.04979, i32 noundef %77) #27
+  %81 = tail call i32 @pg_encoding_verifymbchar(i32 noundef %5, ptr noundef nonnull %.04979, i32 noundef %77) #28
   %82 = icmp eq i32 %81, -1
   br i1 %82, label %84, label %.preheader
 
@@ -6214,11 +6214,11 @@ define internal fastcc noundef i64 @PQescapeStringInternal(ptr noundef %0, ptr n
 
 .sink.split:                                      ; preds = %86
   %.str.69..str.70 = select i1 %79, ptr @.str.69, ptr @.str.70
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull %.str.69..str.70) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull %.str.69..str.70) #28
   br label %87
 
 87:                                               ; preds = %.sink.split, %86
-  tail call void @pg_encoding_set_invalid(i32 noundef %5, ptr noundef %.05078) #27
+  tail call void @pg_encoding_set_invalid(i32 noundef %5, ptr noundef %.05078) #28
   %88 = getelementptr inbounds nuw i8, ptr %.05078, i64 2
   %89 = getelementptr inbounds nuw i8, ptr %.04979, i64 1
   %90 = add i64 %.05876, -1
@@ -6272,7 +6272,7 @@ define noalias noundef ptr @PQescapeLiteral(ptr noundef %0, ptr noundef %1, i64 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noalias noundef ptr @PQescapeInternal(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
-  %5 = tail call i64 @strnlen(ptr noundef %1, i64 noundef %2) #28
+  %5 = tail call i64 @strnlen(ptr noundef %1, i64 noundef %2) #29
   %6 = select i1 %3, i8 34, i8 39
   %.not125 = icmp eq ptr %0, null
   br i1 %.not125, label %.critedge, label %7
@@ -6285,7 +6285,7 @@ define internal fastcc noalias noundef ptr @PQescapeInternal(ptr noundef %0, ptr
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  tail call void @resetPQExpBuffer(ptr noundef nonnull %12) #27
+  tail call void @resetPQExpBuffer(ptr noundef nonnull %12) #28
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   store i32 0, ptr %13, align 8
   br label %14
@@ -6326,13 +6326,13 @@ define internal fastcc noalias noundef ptr @PQescapeInternal(ptr noundef %0, ptr
 
 26:                                               ; preds = %25
   %27 = load i32, ptr %15, align 8
-  %28 = tail call i32 @pg_encoding_mblen(i32 noundef %27, ptr noundef nonnull %.0105144) #27
+  %28 = tail call i32 @pg_encoding_mblen(i32 noundef %27, ptr noundef nonnull %.0105144) #28
   %29 = sext i32 %28 to i64
   %30 = icmp ult i64 %.096146, %29
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %26
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.69) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.69) #28
   br label %.critedge
 
 32:                                               ; preds = %26
@@ -6341,13 +6341,13 @@ define internal fastcc noalias noundef ptr @PQescapeInternal(ptr noundef %0, ptr
 33:                                               ; preds = %32
   %34 = load i32, ptr %15, align 8
   %35 = trunc i64 %.096146 to i32
-  %36 = tail call i32 @pg_encoding_verifymbstr(i32 noundef %34, ptr noundef nonnull %.0105144, i32 noundef %35) #27
+  %36 = tail call i32 @pg_encoding_verifymbstr(i32 noundef %34, ptr noundef nonnull %.0105144, i32 noundef %35) #28
   %37 = sext i32 %36 to i64
   %.not128 = icmp eq i64 %.096146, %37
   br i1 %.not128, label %39, label %38
 
 38:                                               ; preds = %33
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.70) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.70) #28
   br label %.critedge
 
 39:                                               ; preds = %33, %32
@@ -6380,12 +6380,12 @@ define internal fastcc noalias noundef ptr @PQescapeInternal(ptr noundef %0, ptr
   %52 = add i64 %5, 3
   %53 = add i64 %52, %47
   %.0110 = add i64 %53, %51
-  %54 = tail call noalias ptr @malloc(i64 noundef %.0110) #26
+  %54 = tail call noalias ptr @malloc(i64 noundef %.0110) #27
   %55 = icmp eq ptr %54, null
   br i1 %55, label %56, label %57
 
 56:                                               ; preds = %.critedge131
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #28
   br label %.critedge
 
 57:                                               ; preds = %.critedge131
@@ -6450,7 +6450,7 @@ define internal fastcc noalias noundef ptr @PQescapeInternal(ptr noundef %0, ptr
 
 79:                                               ; preds = %76
   %80 = load i32, ptr %65, align 8
-  %81 = tail call i32 @pg_encoding_mblen(i32 noundef %80, ptr noundef nonnull %.3108156) #27
+  %81 = tail call i32 @pg_encoding_mblen(i32 noundef %80, ptr noundef nonnull %.3108156) #28
   %82 = load i8, ptr %.3108156, align 1
   %83 = getelementptr inbounds nuw i8, ptr %.2113155, i64 1
   store i8 %82, ptr %.2113155, align 1
@@ -6512,7 +6512,7 @@ define noalias ptr @PQescapeByteaConn(ptr noundef %0, ptr noundef readonly captu
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  tail call void @resetPQExpBuffer(ptr noundef nonnull %10) #27
+  tail call void @resetPQExpBuffer(ptr noundef nonnull %10) #28
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   store i32 0, ptr %11, align 8
   br label %12
@@ -6578,7 +6578,7 @@ define internal fastcc noalias ptr @PQescapeByteaInternal(ptr noundef %0, ptr no
 ._crit_edge:                                      ; preds = %16, %.preheader
   %.171.lcssa = phi i64 [ 1, %.preheader ], [ %.2, %16 ]
   store i64 %.171.lcssa, ptr %3, align 8
-  %19 = tail call noalias ptr @malloc(i64 noundef %.171.lcssa) #26
+  %19 = tail call noalias ptr @malloc(i64 noundef %.171.lcssa) #27
   %20 = icmp eq ptr %19, null
   br i1 %20, label %26, label %30
 
@@ -6587,7 +6587,7 @@ define internal fastcc noalias ptr @PQescapeByteaInternal(ptr noundef %0, ptr no
   %22 = add i64 %21, 2
   %23 = add i64 %22, %7
   store i64 %23, ptr %3, align 8
-  %24 = tail call noalias ptr @malloc(i64 noundef %23) #26
+  %24 = tail call noalias ptr @malloc(i64 noundef %23) #27
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %.thread85
 
@@ -6596,7 +6596,7 @@ define internal fastcc noalias ptr @PQescapeByteaInternal(ptr noundef %0, ptr no
   br i1 %.not82, label %97, label %27
 
 27:                                               ; preds = %26
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #27
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #28
   br label %97
 
 .thread85:                                        ; preds = %.thread
@@ -6780,13 +6780,13 @@ define noalias ptr @PQescapeBytea(ptr noundef readonly captures(none) %0, i64 no
   ret ptr %6
 }
 
-; Function Attrs: nounwind uwtable
-define noalias noundef ptr @PQunescapeBytea(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define noalias noundef ptr @PQunescapeBytea(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.critedge, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #28
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #29
   %6 = load i8, ptr %0, align 1
   %7 = icmp eq i8 %6, 92
   br i1 %7, label %8, label %41
@@ -6801,7 +6801,7 @@ define noalias noundef ptr @PQunescapeBytea(ptr noundef readonly captures(addres
   %13 = add i64 %5, -2
   %14 = lshr i64 %13, 1
   %15 = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
-  %16 = tail call noalias ptr @malloc(i64 noundef %15) #26
+  %16 = tail call noalias ptr @malloc(i64 noundef %15) #27
   %.not97 = icmp eq ptr %16, null
   br i1 %.not97, label %.critedge, label %17
 
@@ -6870,7 +6870,7 @@ get_hex.exit.thread:                              ; preds = %get_hex.exit.thread
 
 41:                                               ; preds = %8, %4
   %42 = add i64 %5, 1
-  %43 = tail call noalias ptr @malloc(i64 noundef %42) #26
+  %43 = tail call noalias ptr @malloc(i64 noundef %42) #27
   %44 = icmp eq ptr %43, null
   br i1 %44, label %.critedge, label %.preheader
 
@@ -6943,12 +6943,12 @@ get_hex.exit.thread:                              ; preds = %get_hex.exit.thread
   %.075 = phi ptr [ %16, %._crit_edge ], [ %43, %.preheader ], [ %43, %73 ]
   %.174 = phi i64 [ %40, %._crit_edge ], [ 0, %.preheader ], [ %.182, %73 ]
   %75 = add i64 %.174, 1
-  %76 = tail call ptr @realloc(ptr noundef nonnull %.075, i64 noundef %75) #29
+  %76 = tail call ptr @realloc(ptr noundef nonnull %.075, i64 noundef %75) #30
   %.not98 = icmp eq ptr %76, null
   br i1 %.not98, label %77, label %78
 
 77:                                               ; preds = %.loopexit
-  tail call void @free(ptr noundef nonnull %.075) #27
+  tail call void @free(ptr noundef nonnull %.075) #28
   br label %.critedge
 
 78:                                               ; preds = %.loopexit
@@ -6961,77 +6961,78 @@ get_hex.exit.thread:                              ; preds = %get_hex.exit.thread
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #22
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #19
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #20
 
-declare i32 @pqPutc(i8 noundef signext, ptr noundef) local_unnamed_addr #9
+declare i32 @pqPutc(i8 noundef signext, ptr noundef) local_unnamed_addr #10
 
-declare void @pqParseInput3(ptr noundef) local_unnamed_addr #9
+declare void @pqParseInput3(ptr noundef) local_unnamed_addr #10
 
-declare void @appendPQExpBufferStr(ptr noundef, ptr noundef) local_unnamed_addr #9
+declare void @appendPQExpBufferStr(ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
+declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
-declare i32 @pg_encoding_mblen(i32 noundef, ptr noundef) local_unnamed_addr #9
+declare i32 @pg_encoding_mblen(i32 noundef, ptr noundef) local_unnamed_addr #10
 
-declare i32 @pg_encoding_verifymbchar(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
+declare i32 @pg_encoding_verifymbchar(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #10
 
-declare void @pg_encoding_set_invalid(i32 noundef, ptr noundef) local_unnamed_addr #9
+declare void @pg_encoding_set_invalid(i32 noundef, ptr noundef) local_unnamed_addr #10
 
-declare i32 @pg_encoding_verifymbstr(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #23
+declare i32 @pg_encoding_verifymbstr(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #23
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #24
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #24
+declare i64 @llvm.umin.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #24
+declare i64 @llvm.umax.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #25
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #26
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #24
+declare i32 @llvm.smax.i32(i32, i32) #25
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #11 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #24 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #25 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #26 = { nounwind allocsize(0) }
-attributes #27 = { nounwind }
-attributes #28 = { nounwind willreturn memory(read) }
-attributes #29 = { nounwind allocsize(1) }
-attributes #30 = { nounwind willreturn memory(none) }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #12 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #25 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #26 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #27 = { nounwind allocsize(0) }
+attributes #28 = { nounwind }
+attributes #29 = { nounwind willreturn memory(read) }
+attributes #30 = { nounwind allocsize(1) }
+attributes #31 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

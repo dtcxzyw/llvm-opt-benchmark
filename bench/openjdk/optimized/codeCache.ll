@@ -770,7 +770,7 @@ define hidden noundef i64 @_ZN9CodeCache9page_sizeEbm(i1 noundef zeroext %0, i64
   ret i64 %9
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZN9CodeCache14heap_availableE12CodeBlobType(i32 noundef %0) local_unnamed_addr #3 align 2 {
   %2 = load i8, ptr @SegmentedCodeCache, align 1
   %3 = trunc i8 %2 to i1
@@ -1063,7 +1063,7 @@ switch.lookup:                                    ; preds = %1
 ; Function Attrs: noreturn
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN9CodeCache17code_heap_compareERKP8CodeHeapS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 312
@@ -1259,7 +1259,7 @@ declare noundef zeroext i1 @_ZN8CodeHeap7reserveE13ReservedSpacemm(ptr noundef n
 
 declare void @_ZN13MemoryService25add_code_heap_memory_poolEP8CodeHeapPKc(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef ptr @_ZN9CodeCache24get_code_heap_containingEPv(ptr noundef readnone captures(address) %0) local_unnamed_addr #5 align 2 {
   %2 = load ptr, ptr @_ZN9CodeCache6_heapsE, align 8
   %3 = load i32, ptr %2, align 4
@@ -1336,7 +1336,7 @@ define hidden noundef ptr @_ZN9CodeCache13get_code_heapEPKv(ptr noundef readnone
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef ptr @_ZN9CodeCache13get_code_heapE12CodeBlobType(i32 noundef %0) local_unnamed_addr #5 align 2 {
   %2 = load ptr, ptr @_ZN9CodeCache6_heapsE, align 8
   %3 = load i32, ptr %2, align 4
@@ -1864,7 +1864,7 @@ thread-pre-split:                                 ; preds = %27, %21
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZN9CodeCache8containsEPv(ptr noundef readnone captures(address) %0) local_unnamed_addr #5 align 2 {
   %2 = load ptr, ptr @_ZN9CodeCache6_heapsE, align 8
   %3 = load i32, ptr %2, align 4
@@ -1898,7 +1898,7 @@ define hidden noundef zeroext i1 @_ZN9CodeCache8containsEPv(ptr noundef readnone
   ret i1 %.lcssa
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZN9CodeCache8containsEP7nmethod(ptr noundef readnone captures(address) %0) local_unnamed_addr #5 align 2 {
   %2 = load ptr, ptr @_ZN9CodeCache6_heapsE, align 8
   %3 = load i32, ptr %2, align 4
@@ -2548,7 +2548,7 @@ declare void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceabl
 
 declare noundef double @_ZNK6AbsSeq3avgEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN9CodeCache13cold_gc_countEv() local_unnamed_addr #3 align 2 {
   %1 = load i64, ptr @_ZN9CodeCache14_cold_gc_countE, align 8
   ret i64 %1
@@ -2699,13 +2699,13 @@ declare void @_ZN12TruncatedSeqD1Ev(ptr noundef nonnull align 8 dereferenceable(
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #7
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN9CodeCache8gc_epochEv() local_unnamed_addr #3 align 2 {
   %1 = load i64, ptr @_ZN9CodeCache9_gc_epochE, align 8
   ret i64 %1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZN9CodeCache26is_gc_marking_cycle_activeEv() local_unnamed_addr #3 align 2 {
   %1 = load i64, ptr @_ZN9CodeCache9_gc_epochE, align 8
   %2 = and i64 %1, 1
@@ -2713,7 +2713,7 @@ define hidden noundef zeroext i1 @_ZN9CodeCache26is_gc_marking_cycle_activeEv() 
   ret i1 %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN9CodeCache35previous_completed_gc_marking_cycleEv() local_unnamed_addr #3 align 2 {
   %1 = load i64, ptr @_ZN9CodeCache9_gc_epochE, align 8
   %2 = and i64 %1, 1
@@ -2722,7 +2722,7 @@ define hidden noundef i64 @_ZN9CodeCache35previous_completed_gc_marking_cycleEv(
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9CodeCache25on_gc_marking_cycle_startEv() local_unnamed_addr #8 align 2 {
   %1 = load i64, ptr @_ZN9CodeCache9_gc_epochE, align 8
   %2 = add i64 %1, 1
@@ -3055,7 +3055,7 @@ _ZN8JfrEventI15EventJITRestartE11write_eventEv.exit: ; preds = %9, %39, %37, %_Z
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9CodeCache25increment_unloading_cycleEv() local_unnamed_addr #8 align 2 {
   %1 = load i8, ptr @_ZN9CodeCache16_unloading_cycleE, align 1
   %2 = add i8 %1, 1
@@ -3210,7 +3210,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN16CodeBlobIterat
 
 declare void @_ZN7nmethod22verify_oop_relocationsEv(ptr noundef nonnull align 8 dereferenceable(214)) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN9CodeCache10blob_countE12CodeBlobType(i32 noundef %0) local_unnamed_addr #5 align 2 {
   %2 = load ptr, ptr @_ZN9CodeCache6_heapsE, align 8
   %3 = load i32, ptr %2, align 4
@@ -3249,7 +3249,7 @@ _ZN9CodeCache13get_code_heapE12CodeBlobType.exit.thread: ; preds = %7, %1, %_ZN9
   ret i32 %17
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN9CodeCache10blob_countEv() local_unnamed_addr #5 align 2 {
   %1 = load ptr, ptr @_ZN9CodeCache6_heapsE, align 8
   %2 = load i32, ptr %1, align 4
@@ -3279,7 +3279,7 @@ define hidden noundef i32 @_ZN9CodeCache10blob_countEv() local_unnamed_addr #5 a
   ret i32 %.0.lcssa
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN9CodeCache13nmethod_countE12CodeBlobType(i32 noundef %0) local_unnamed_addr #5 align 2 {
   %2 = load ptr, ptr @_ZN9CodeCache6_heapsE, align 8
   %3 = load i32, ptr %2, align 4
@@ -3318,7 +3318,7 @@ _ZN9CodeCache13get_code_heapE12CodeBlobType.exit.thread: ; preds = %7, %1, %_ZN9
   ret i32 %17
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN9CodeCache13nmethod_countEv() local_unnamed_addr #5 align 2 {
   %1 = load ptr, ptr @_ZN9CodeCache14_nmethod_heapsE, align 8
   %2 = load i32, ptr %1, align 4
@@ -3348,7 +3348,7 @@ define hidden noundef i32 @_ZN9CodeCache13nmethod_countEv() local_unnamed_addr #
   ret i32 %.0.lcssa
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN9CodeCache13adapter_countE12CodeBlobType(i32 noundef %0) local_unnamed_addr #5 align 2 {
   %2 = load ptr, ptr @_ZN9CodeCache6_heapsE, align 8
   %3 = load i32, ptr %2, align 4
@@ -3387,7 +3387,7 @@ _ZN9CodeCache13get_code_heapE12CodeBlobType.exit.thread: ; preds = %7, %1, %_ZN9
   ret i32 %17
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN9CodeCache13adapter_countEv() local_unnamed_addr #5 align 2 {
   %1 = load ptr, ptr @_ZN9CodeCache6_heapsE, align 8
   %2 = load i32, ptr %1, align 4
@@ -3417,7 +3417,7 @@ define hidden noundef i32 @_ZN9CodeCache13adapter_countEv() local_unnamed_addr #
   ret i32 %.0.lcssa
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef ptr @_ZN9CodeCache9low_boundE12CodeBlobType(i32 noundef %0) local_unnamed_addr #5 align 2 {
   %2 = load ptr, ptr @_ZN9CodeCache6_heapsE, align 8
   %3 = load i32, ptr %2, align 4
@@ -3455,7 +3455,7 @@ _ZN9CodeCache13get_code_heapE12CodeBlobType.exit.thread: ; preds = %7, %1, %_ZN9
   ret ptr %16
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef ptr @_ZN9CodeCache10high_boundE12CodeBlobType(i32 noundef %0) local_unnamed_addr #5 align 2 {
   %2 = load ptr, ptr @_ZN9CodeCache6_heapsE, align 8
   %3 = load i32, ptr %2, align 4
@@ -3569,7 +3569,7 @@ _ZN9CodeCache13get_code_heapE12CodeBlobType.exit.thread: ; preds = %7, %1, %_ZN9
 
 declare noundef i64 @_ZNK8CodeHeap12max_capacityEv(ptr noundef nonnull align 8 dereferenceable(336)) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZN9CodeCache14is_non_nmethodEPh(ptr noundef readnone captures(address) %0) local_unnamed_addr #10 align 2 {
 .lr.ph.i:
   %1 = load ptr, ptr @_ZN9CodeCache6_heapsE, align 8
@@ -3609,7 +3609,7 @@ _ZN9CodeCache13get_code_heapE12CodeBlobType.exit: ; preds = %.lr.ph, %.lr.ph.i
   ret i1 %22
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN9CodeCache27max_distance_to_non_nmethodEv() local_unnamed_addr #10 align 2 {
   %1 = load i8, ptr @SegmentedCodeCache, align 1
   %2 = trunc i8 %1 to i1
@@ -3732,7 +3732,7 @@ _ZN9CodeCache12max_capacityEv.exit:               ; preds = %0, %_ZN9CodeCache12
   ret double %30
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN9CodeCache28bytes_allocated_in_freelistsEv() local_unnamed_addr #5 align 2 {
   %1 = load ptr, ptr @_ZN9CodeCache16_allocable_heapsE, align 8
   %2 = load i32, ptr %1, align 4
@@ -3797,7 +3797,7 @@ define hidden noundef i32 @_ZN9CodeCache18allocated_segmentsEv() local_unnamed_a
 
 declare noundef i32 @_ZNK8CodeHeap18allocated_segmentsEv(ptr noundef nonnull align 8 dereferenceable(336)) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN9CodeCache16freelists_lengthEv() local_unnamed_addr #5 align 2 {
   %1 = load ptr, ptr @_ZN9CodeCache16_allocable_heapsE, align 8
   %2 = load i32, ptr %1, align 4
@@ -4141,7 +4141,7 @@ declare noundef zeroext i1 @_ZN9DepChange13ContextStream4nextEv(ptr noundef nonn
 
 declare void @_ZN13InstanceKlass23mark_dependent_nmethodsEP19DeoptimizationScopeR14KlassDepChange(ptr noundef nonnull align 8 dereferenceable(464), ptr noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9CodeCache22unregister_old_nmethodEP7nmethod(ptr noundef readnone captures(address) %0) local_unnamed_addr #11 align 2 {
   %2 = load ptr, ptr @_ZL17old_nmethod_table, align 8
   %.not = icmp eq ptr %2, null
@@ -8870,15 +8870,15 @@ declare void @llvm.assume(i1 noundef) #20
 attributes #0 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }

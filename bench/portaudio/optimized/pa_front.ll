@@ -68,7 +68,7 @@ define noundef nonnull ptr @Pa_GetVersionInfo() local_unnamed_addr #0 {
   ret ptr @versionInfo_
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @PaUtil_SetLastHostErrorInfo(i32 noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   store i32 %0, ptr @lastHostErrorInfo_, align 8, !tbaa !3
   store i64 %1, ptr getelementptr inbounds nuw (i8, ptr @lastHostErrorInfo_, i64 8), align 8, !tbaa !11
@@ -539,7 +539,7 @@ define noundef nonnull ptr @Pa_GetErrorText(i32 noundef %0) local_unnamed_addr #
   ret ptr %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 -2147483648, 2147483647) i32 @Pa_HostApiTypeIdToHostApiIndex(i32 noundef %0) local_unnamed_addr #5 {
   %2 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not = icmp eq i32 %2, 0
@@ -578,7 +578,7 @@ define range(i32 -2147483648, 2147483647) i32 @Pa_HostApiTypeIdToHostApiIndex(i3
   ret i32 %.06
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 -10000, 1) i32 @PaUtil_GetHostApiRepresentation(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not = icmp eq i32 %3, 0
@@ -640,7 +640,7 @@ define range(i32 -9996, 1) i32 @PaUtil_DeviceIndexToHostApiDeviceIndex(ptr nound
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 -2147483647, -2147483648) i32 @Pa_GetHostApiCount() local_unnamed_addr #8 {
   %1 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not = icmp eq i32 %1, 0
@@ -649,7 +649,7 @@ define range(i32 -2147483647, -2147483648) i32 @Pa_GetHostApiCount() local_unnam
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 -10000, 2147483647) i32 @Pa_GetDefaultHostApi() local_unnamed_addr #8 {
   %1 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not = icmp eq i32 %1, 0
@@ -669,7 +669,7 @@ define range(i32 -10000, 2147483647) i32 @Pa_GetDefaultHostApi() local_unnamed_a
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @Pa_GetHostApiInfo(i32 noundef %0) local_unnamed_addr #9 {
   %2 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not = icmp eq i32 %2, 0
@@ -695,7 +695,7 @@ define ptr @Pa_GetHostApiInfo(i32 noundef %0) local_unnamed_addr #9 {
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @Pa_HostApiDeviceIndexToDeviceIndex(i32 noundef %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not = icmp eq i32 %3, 0
@@ -733,7 +733,7 @@ define i32 @Pa_HostApiDeviceIndexToDeviceIndex(i32 noundef %0, i32 noundef %1) l
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @Pa_GetDeviceCount() local_unnamed_addr #8 {
   %1 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not = icmp eq i32 %1, 0
@@ -742,7 +742,7 @@ define i32 @Pa_GetDeviceCount() local_unnamed_addr #8 {
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @Pa_GetDefaultInputDevice() local_unnamed_addr #9 {
   %1 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not.i = icmp eq i32 %1, 0
@@ -770,7 +770,7 @@ Pa_GetDefaultHostApi.exit.thread:                 ; preds = %2, %0, %Pa_GetDefau
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @Pa_GetDefaultOutputDevice() local_unnamed_addr #9 {
   %1 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not.i = icmp eq i32 %1, 0
@@ -798,7 +798,7 @@ Pa_GetDefaultHostApi.exit.thread:                 ; preds = %2, %0, %Pa_GetDefau
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @Pa_GetDeviceInfo(i32 noundef %0) local_unnamed_addr #5 {
   %2 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not.i = icmp eq i32 %2, 0
@@ -941,7 +941,7 @@ define i32 @Pa_IsFormatSupported(ptr noundef readonly captures(address_is_null) 
   ret i32 %.021
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 -9998, 1) i32 @ValidateOpenStreamParameters(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, double noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef readnone captures(address_is_null) %5, ptr noundef nonnull writeonly captures(none) %6, ptr noundef nonnull writeonly captures(none) %7, ptr noundef nonnull writeonly captures(none) %8) unnamed_addr #6 {
   %10 = icmp eq ptr %0, null
   %11 = icmp eq ptr %1, null
@@ -1575,7 +1575,7 @@ Pa_GetDefaultInputDevice.exit.thread:             ; preds = %54, %52, %14, %12, 
   ret i32 %.015
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 -10000, 1) i32 @PaUtil_ValidateStreamPointer(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
   %2 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not = icmp eq i32 %2, 0
@@ -1893,7 +1893,7 @@ PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %5, %3, %1, %PaUtil_
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @Pa_GetStreamInfo(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #9 {
   %2 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not.i = icmp eq i32 %2, 0
@@ -2160,15 +2160,15 @@ declare i32 @llvm.smax.i32(i32, i32) #11
 declare void @llvm.assume(i1 noundef) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

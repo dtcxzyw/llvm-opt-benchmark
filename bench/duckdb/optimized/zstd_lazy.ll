@@ -3,7 +3,7 @@ source_filename = "bench/duckdb/original/zstd_lazy.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN11duckdb_zstd44ZSTD_dedicatedDictSearch_lazy_loadDictionaryEPNS_17ZSTD_matchState_tEPKh(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
@@ -329,7 +329,7 @@ _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit141:    ; preds = %137, %141, %144, %1
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZN11duckdb_zstd28ZSTD_insertAndFindFirstIndexEPNS_17ZSTD_matchState_tEPKh(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %4 = load i32, ptr %3, align 8, !tbaa !25
@@ -530,7 +530,7 @@ _ZN11duckdb_zstdL37ZSTD_insertAndFindFirstIndex_internalEPNS_17ZSTD_matchState_t
   ret i32 %105
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN11duckdb_zstd15ZSTD_row_updateEPNS_17ZSTD_matchState_tEPKh(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %4 = load i32, ptr %3, align 4, !tbaa !23
@@ -28580,7 +28580,7 @@ declare i64 @llvm.cttz.i64(i64, i1 immarg) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #4
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL29ZSTD_HcFindBestMatch_noDict_4EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -28987,7 +28987,7 @@ _ZN11duckdb_zstdL20ZSTD_HcFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15ZS
   ret i64 %.1147.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL29ZSTD_HcFindBestMatch_noDict_5EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -29392,7 +29392,7 @@ _ZN11duckdb_zstdL20ZSTD_HcFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15ZS
   ret i64 %.1147.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL29ZSTD_HcFindBestMatch_noDict_6EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -29797,7 +29797,7 @@ _ZN11duckdb_zstdL20ZSTD_HcFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15ZS
   ret i64 %.1147.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN11duckdb_zstdL29ZSTD_BtFindBestMatch_noDict_4EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !3
@@ -29864,7 +29864,7 @@ _ZN11duckdb_zstdL20ZSTD_BtFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15ZS
   ret i64 %.0.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN11duckdb_zstdL29ZSTD_BtFindBestMatch_noDict_5EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !3
@@ -29931,7 +29931,7 @@ _ZN11duckdb_zstdL20ZSTD_BtFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15ZS
   ret i64 %.0.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN11duckdb_zstdL29ZSTD_BtFindBestMatch_noDict_6EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !3
@@ -29998,7 +29998,7 @@ _ZN11duckdb_zstdL20ZSTD_BtFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15ZS
   ret i64 %.0.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL32ZSTD_RowFindBestMatch_noDict_4_4EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -30490,7 +30490,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.1240.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL32ZSTD_RowFindBestMatch_noDict_4_5EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -30997,7 +30997,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.1240.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL32ZSTD_RowFindBestMatch_noDict_4_6EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [64 x i32], align 16
@@ -31539,7 +31539,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.1240.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL32ZSTD_RowFindBestMatch_noDict_5_4EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -32032,7 +32032,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.1240.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL32ZSTD_RowFindBestMatch_noDict_5_5EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -32540,7 +32540,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.1240.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL32ZSTD_RowFindBestMatch_noDict_5_6EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [64 x i32], align 16
@@ -33083,7 +33083,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.1240.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL32ZSTD_RowFindBestMatch_noDict_6_4EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -33576,7 +33576,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.1240.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL32ZSTD_RowFindBestMatch_noDict_6_5EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -34084,7 +34084,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.1240.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL32ZSTD_RowFindBestMatch_noDict_6_6EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [64 x i32], align 16
@@ -34627,7 +34627,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.1240.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL30ZSTD_HcFindBestMatch_extDict_4EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -34904,7 +34904,7 @@ _ZN11duckdb_zstdL20ZSTD_HcFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15ZS
   ret i64 %.1147.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL30ZSTD_HcFindBestMatch_extDict_5EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -35180,7 +35180,7 @@ _ZN11duckdb_zstdL20ZSTD_HcFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15ZS
   ret i64 %.1147.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL30ZSTD_HcFindBestMatch_extDict_6EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -35456,7 +35456,7 @@ _ZN11duckdb_zstdL20ZSTD_HcFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15ZS
   ret i64 %.1147.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN11duckdb_zstdL30ZSTD_BtFindBestMatch_extDict_4EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !3
@@ -35523,7 +35523,7 @@ _ZN11duckdb_zstdL20ZSTD_BtFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15ZS
   ret i64 %.0.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN11duckdb_zstdL30ZSTD_BtFindBestMatch_extDict_5EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !3
@@ -35590,7 +35590,7 @@ _ZN11duckdb_zstdL20ZSTD_BtFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15ZS
   ret i64 %.0.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN11duckdb_zstdL30ZSTD_BtFindBestMatch_extDict_6EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !3
@@ -35657,7 +35657,7 @@ _ZN11duckdb_zstdL20ZSTD_BtFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15ZS
   ret i64 %.0.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL33ZSTD_RowFindBestMatch_extDict_4_4EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -36176,7 +36176,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.1240.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL33ZSTD_RowFindBestMatch_extDict_4_5EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -36710,7 +36710,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.1240.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL33ZSTD_RowFindBestMatch_extDict_4_6EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [64 x i32], align 16
@@ -37279,7 +37279,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.1240.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL33ZSTD_RowFindBestMatch_extDict_5_4EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -37799,7 +37799,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.1240.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL33ZSTD_RowFindBestMatch_extDict_5_5EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -38334,7 +38334,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.1240.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL33ZSTD_RowFindBestMatch_extDict_5_6EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [64 x i32], align 16
@@ -38904,7 +38904,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.1240.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL33ZSTD_RowFindBestMatch_extDict_6_4EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -39424,7 +39424,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.1240.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL33ZSTD_RowFindBestMatch_extDict_6_5EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -39959,7 +39959,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.1240.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL33ZSTD_RowFindBestMatch_extDict_6_6EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [64 x i32], align 16
@@ -40529,7 +40529,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.1240.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN11duckdb_zstdL37ZSTD_HcFindBestMatch_dictMatchState_4EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -40955,7 +40955,7 @@ _ZN11duckdb_zstdL20ZSTD_HcFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15ZS
   ret i64 %.4.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN11duckdb_zstdL37ZSTD_HcFindBestMatch_dictMatchState_5EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -41383,7 +41383,7 @@ _ZN11duckdb_zstdL20ZSTD_HcFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15ZS
   ret i64 %.4.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN11duckdb_zstdL37ZSTD_HcFindBestMatch_dictMatchState_6EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -41811,7 +41811,7 @@ _ZN11duckdb_zstdL20ZSTD_HcFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15ZS
   ret i64 %.4.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN11duckdb_zstdL37ZSTD_BtFindBestMatch_dictMatchState_4EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !3
@@ -41878,7 +41878,7 @@ _ZN11duckdb_zstdL20ZSTD_BtFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15ZS
   ret i64 %.0.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN11duckdb_zstdL37ZSTD_BtFindBestMatch_dictMatchState_5EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !3
@@ -41945,7 +41945,7 @@ _ZN11duckdb_zstdL20ZSTD_BtFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15ZS
   ret i64 %.0.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN11duckdb_zstdL37ZSTD_BtFindBestMatch_dictMatchState_6EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !3
@@ -42012,7 +42012,7 @@ _ZN11duckdb_zstdL20ZSTD_BtFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15ZS
   ret i64 %.0.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL40ZSTD_RowFindBestMatch_dictMatchState_4_4EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [64 x i32], align 16
   %6 = alloca [64 x i32], align 16
@@ -42642,7 +42642,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.6.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL40ZSTD_RowFindBestMatch_dictMatchState_4_5EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [64 x i32], align 16
   %6 = alloca [64 x i32], align 16
@@ -43296,7 +43296,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.6.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL40ZSTD_RowFindBestMatch_dictMatchState_4_6EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [4 x i32], align 16
@@ -44017,7 +44017,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.6.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL40ZSTD_RowFindBestMatch_dictMatchState_5_4EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [64 x i32], align 16
   %6 = alloca [64 x i32], align 16
@@ -44648,7 +44648,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.6.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL40ZSTD_RowFindBestMatch_dictMatchState_5_5EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [64 x i32], align 16
   %6 = alloca [64 x i32], align 16
@@ -45303,7 +45303,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.6.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL40ZSTD_RowFindBestMatch_dictMatchState_5_6EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [4 x i32], align 16
@@ -46025,7 +46025,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.6.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL40ZSTD_RowFindBestMatch_dictMatchState_6_4EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [64 x i32], align 16
   %6 = alloca [64 x i32], align 16
@@ -46656,7 +46656,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.6.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL40ZSTD_RowFindBestMatch_dictMatchState_6_5EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [64 x i32], align 16
   %6 = alloca [64 x i32], align 16
@@ -47311,7 +47311,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.6.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef range(i64 3, 0) i64 @_ZN11duckdb_zstdL40ZSTD_RowFindBestMatch_dictMatchState_6_6EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [4 x i32], align 16
@@ -48033,7 +48033,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.6.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN11duckdb_zstdL42ZSTD_HcFindBestMatch_dedicatedDictSearch_4EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #7 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -48451,7 +48451,7 @@ _ZN11duckdb_zstdL36ZSTD_dedicatedDictSearch_lazy_searchEPmmjPKNS_17ZSTD_matchSta
   ret i64 %.2.i6
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN11duckdb_zstdL42ZSTD_HcFindBestMatch_dedicatedDictSearch_5EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #7 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -48867,7 +48867,7 @@ _ZN11duckdb_zstdL36ZSTD_dedicatedDictSearch_lazy_searchEPmmjPKNS_17ZSTD_matchSta
   ret i64 %.2.i6
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN11duckdb_zstdL42ZSTD_HcFindBestMatch_dedicatedDictSearch_6EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #7 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -49283,7 +49283,7 @@ _ZN11duckdb_zstdL36ZSTD_dedicatedDictSearch_lazy_searchEPmmjPKNS_17ZSTD_matchSta
   ret i64 %.2.i6
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN11duckdb_zstdL45ZSTD_RowFindBestMatch_dedicatedDictSearch_4_4EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -49947,7 +49947,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.2.i.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN11duckdb_zstdL45ZSTD_RowFindBestMatch_dedicatedDictSearch_4_5EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -50626,7 +50626,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.2.i.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN11duckdb_zstdL45ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [64 x i32], align 16
@@ -51340,7 +51340,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.2.i.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN11duckdb_zstdL45ZSTD_RowFindBestMatch_dedicatedDictSearch_5_4EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -52005,7 +52005,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.2.i.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN11duckdb_zstdL45ZSTD_RowFindBestMatch_dedicatedDictSearch_5_5EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -52685,7 +52685,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.2.i.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN11duckdb_zstdL45ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [64 x i32], align 16
@@ -53400,7 +53400,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.2.i.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN11duckdb_zstdL45ZSTD_RowFindBestMatch_dedicatedDictSearch_6_4EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -54065,7 +54065,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.2.i.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN11duckdb_zstdL45ZSTD_RowFindBestMatch_dedicatedDictSearch_6_5EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -54745,7 +54745,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.2.i.i
 }
 
-; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN11duckdb_zstdL45ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6EPNS_17ZSTD_matchState_tEPKhS3_Pm(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [64 x i32], align 16
@@ -55460,7 +55460,7 @@ _ZN11duckdb_zstdL21ZSTD_RowFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15Z
   ret i64 %.2.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef i64 @_ZN11duckdb_zstdL23ZSTD_DUBT_findBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15ZSTD_dictMode_eE(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull captures(none) %3, i32 noundef range(i32 4, 7) %4, i32 noundef range(i32 0, 4) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -56277,14 +56277,14 @@ declare i64 @llvm.fshr.i64(i64, i64, i64) #10
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
 attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree noinline norecurse nosync nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree noinline norecurse nosync nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }

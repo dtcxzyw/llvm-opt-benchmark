@@ -65735,7 +65735,7 @@ _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %30, %31
   ret i1 %32
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand11isGPR32as64Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !121
@@ -66062,7 +66062,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand7isGPR64ILj59EEEbv.exit.thread: ; preds = %6, 
   ret i32 %.sroa.0.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand11isGPR64as32Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !121
@@ -66428,7 +66428,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %16, %8, %1
   ret i1 %26
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand9isGPR64x8Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !121
@@ -72469,7 +72469,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand17i
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand19isNeonVectorReg0to7Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !121
@@ -72506,7 +72506,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %14, %8, %1
   ret i1 %24
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand17isNeonVectorRegLoEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !121
@@ -72561,7 +72561,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit3: ; preds = %24, %_ZNK
   ret i1 %34
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand10isWSeqPairEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !121
@@ -72598,7 +72598,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %14, %8, %1
   ret i1 %24
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand10isXSeqPairEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !121
@@ -76041,7 +76041,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand17i
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE4ELj2ELj0ELj8ELj15EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !121
@@ -76094,7 +76094,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand17isTypedVectorListILNS_7RegKindE4ELj2ELj0ELj8
   ret i32 %.sroa.03.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE4ELj2ELj0ELj16ELj15EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !121
@@ -76147,7 +76147,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand17isTypedVectorListILNS_7RegKindE4ELj2ELj0ELj1
   ret i32 %.sroa.03.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE4ELj2ELj0ELj32ELj15EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !121
@@ -76200,7 +76200,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand17isTypedVectorListILNS_7RegKindE4ELj2ELj0ELj3
   ret i32 %.sroa.03.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE4ELj2ELj0ELj64ELj15EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !121
@@ -77174,7 +77174,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand17i
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE2ELj2ELj0ELj0ELj96EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !121
@@ -77227,7 +77227,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand17isTypedVectorListILNS_7RegKindE2ELj2ELj0ELj0
   ret i32 %.sroa.03.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE2ELj2ELj0ELj8ELj96EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !121
@@ -77280,7 +77280,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand17isTypedVectorListILNS_7RegKindE2ELj2ELj0ELj8
   ret i32 %.sroa.03.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE2ELj2ELj0ELj16ELj96EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !121
@@ -77333,7 +77333,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand17isTypedVectorListILNS_7RegKindE2ELj2ELj0ELj1
   ret i32 %.sroa.03.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE2ELj2ELj0ELj32ELj96EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !121
@@ -77386,7 +77386,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand17isTypedVectorListILNS_7RegKindE2ELj2ELj0ELj3
   ret i32 %.sroa.03.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE2ELj2ELj0ELj64ELj96EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !121
@@ -77439,7 +77439,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand17isTypedVectorListILNS_7RegKindE2ELj2ELj0ELj6
   ret i32 %.sroa.03.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE2ELj2ELj0ELj128ELj96EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !121
@@ -77492,7 +77492,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand17isTypedVectorListILNS_7RegKindE2ELj2ELj0ELj1
   ret i32 %.sroa.03.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE2ELj4ELj0ELj8ELj101EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !121
@@ -77545,7 +77545,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand17isTypedVectorListILNS_7RegKindE2ELj4ELj0ELj8
   ret i32 %.sroa.03.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE2ELj4ELj0ELj16ELj101EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !121
@@ -77598,7 +77598,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand17isTypedVectorListILNS_7RegKindE2ELj4ELj0ELj1
   ret i32 %.sroa.03.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE2ELj4ELj0ELj32ELj101EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !121
@@ -77651,7 +77651,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand17isTypedVectorListILNS_7RegKindE2ELj4ELj0ELj3
   ret i32 %.sroa.03.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE2ELj4ELj0ELj64ELj101EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !121
@@ -77704,7 +77704,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand17isTypedVectorListILNS_7RegKindE2ELj4ELj0ELj6
   ret i32 %.sroa.03.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE2ELj4ELj0ELj128ELj101EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !121
@@ -77757,7 +77757,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand17isTypedVectorListILNS_7RegKindE2ELj4ELj0ELj1
   ret i32 %.sroa.03.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE2ELj2ELj0ELj8ELj100EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !121
@@ -77810,7 +77810,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand17isTypedVectorListILNS_7RegKindE2ELj2ELj0ELj8
   ret i32 %.sroa.03.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE2ELj2ELj0ELj16ELj100EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !121
@@ -77863,7 +77863,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand17isTypedVectorListILNS_7RegKindE2ELj2ELj0ELj1
   ret i32 %.sroa.03.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE2ELj2ELj0ELj32ELj100EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !121
@@ -77916,7 +77916,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand17isTypedVectorListILNS_7RegKindE2ELj2ELj0ELj3
   ret i32 %.sroa.03.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE2ELj2ELj0ELj64ELj100EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !121
@@ -77969,7 +77969,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand17isTypedVectorListILNS_7RegKindE2ELj2ELj0ELj6
   ret i32 %.sroa.03.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE2ELj2ELj0ELj8ELj99EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !121
@@ -78022,7 +78022,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand17isTypedVectorListILNS_7RegKindE2ELj2ELj0ELj8
   ret i32 %.sroa.03.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE2ELj2ELj0ELj16ELj99EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !121
@@ -78075,7 +78075,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand17isTypedVectorListILNS_7RegKindE2ELj2ELj0ELj1
   ret i32 %.sroa.03.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE2ELj2ELj0ELj32ELj99EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !121
@@ -78128,7 +78128,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand17isTypedVectorListILNS_7RegKindE2ELj2ELj0ELj3
   ret i32 %.sroa.03.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25isTypedVectorListMultipleILNS_7RegKindE2ELj2ELj0ELj64ELj99EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !121
@@ -78533,7 +78533,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand17isTypedVectorListILNS_7RegKindE2ELj4ELj0ELj6
   ret i32 %.sroa.0.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE1ELj16ELj528EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val2 = load i32, ptr %2, align 8, !tbaa !121
@@ -78577,7 +78577,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread: ; preds = %_ZN
   ret i32 %.sroa.05.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE1ELj32ELj508EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val2 = load i32, ptr %2, align 8, !tbaa !121
@@ -78621,7 +78621,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread: ; preds = %_ZN
   ret i32 %.sroa.05.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE1ELj64ELj205EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val2 = load i32, ptr %2, align 8, !tbaa !121
@@ -78665,7 +78665,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread: ; preds = %_ZN
   ret i32 %.sroa.05.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE2ELj8ELj530EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val2 = load i32, ptr %2, align 8, !tbaa !121
@@ -78709,7 +78709,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread: ; preds = %_ZN
   ret i32 %.sroa.05.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE2ELj16ELj528EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val2 = load i32, ptr %2, align 8, !tbaa !121
@@ -78753,7 +78753,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread: ; preds = %_ZN
   ret i32 %.sroa.05.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE2ELj32ELj508EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val2 = load i32, ptr %2, align 8, !tbaa !121
@@ -78797,7 +78797,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread: ; preds = %_ZN
   ret i32 %.sroa.05.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE2ELj64ELj205EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val2 = load i32, ptr %2, align 8, !tbaa !121
@@ -78841,7 +78841,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread: ; preds = %_ZN
   ret i32 %.sroa.05.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE2ELj128ELj95EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val2 = load i32, ptr %2, align 8, !tbaa !121
@@ -78885,7 +78885,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread: ; preds = %_ZN
   ret i32 %.sroa.05.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE3ELj8ELj530EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val2 = load i32, ptr %2, align 8, !tbaa !121
@@ -78929,7 +78929,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread: ; preds = %_ZN
   ret i32 %.sroa.05.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE3ELj16ELj528EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val2 = load i32, ptr %2, align 8, !tbaa !121
@@ -78973,7 +78973,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread: ; preds = %_ZN
   ret i32 %.sroa.05.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE3ELj32ELj508EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val2 = load i32, ptr %2, align 8, !tbaa !121
@@ -79017,7 +79017,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread: ; preds = %_ZN
   ret i32 %.sroa.05.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE3ELj64ELj205EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val2 = load i32, ptr %2, align 8, !tbaa !121
@@ -79061,7 +79061,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread: ; preds = %_ZN
   ret i32 %.sroa.05.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE3ELj128ELj95EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val2 = load i32, ptr %2, align 8, !tbaa !121
@@ -79105,7 +79105,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread: ; preds = %_ZN
   ret i32 %.sroa.05.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE0ELj0ELj529EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val2 = load i32, ptr %2, align 8, !tbaa !121
@@ -79149,7 +79149,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread: ; preds = %_ZN
   ret i32 %.sroa.05.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE0ELj8ELj529EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val2 = load i32, ptr %2, align 8, !tbaa !121
@@ -79193,7 +79193,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread: ; preds = %_ZN
   ret i32 %.sroa.05.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE0ELj16ELj529EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val2 = load i32, ptr %2, align 8, !tbaa !121
@@ -79237,7 +79237,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread: ; preds = %_ZN
   ret i32 %.sroa.05.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE0ELj32ELj529EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val2 = load i32, ptr %2, align 8, !tbaa !121
@@ -79281,7 +79281,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread: ; preds = %_ZN
   ret i32 %.sroa.05.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18isMatrixRegOperandILNS_10MatrixKindE0ELj64ELj529EEEN4llvm19DiagnosticPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val2 = load i32, ptr %2, align 8, !tbaa !121
@@ -82027,7 +82027,7 @@ attributes #16 = { nofree nounwind }
 attributes #17 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

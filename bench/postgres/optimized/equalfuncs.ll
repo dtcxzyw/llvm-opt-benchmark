@@ -4314,7 +4314,7 @@ define internal fastcc zeroext i1 @_equalCoerceToDomain(ptr noundef nonnull read
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc zeroext i1 @_equalCurrentOfExpr(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -5182,7 +5182,7 @@ define internal fastcc zeroext i1 @_equalCollateClause(ptr noundef nonnull reado
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_equalRoleSpec(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -7505,7 +7505,7 @@ define internal fastcc zeroext i1 @_equalMergeWhenClause(ptr noundef nonnull rea
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_equalReturningOption(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -7565,7 +7565,7 @@ define internal fastcc zeroext i1 @_equalReturningClause(ptr noundef nonnull rea
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_equalTriggerTransition(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -8866,7 +8866,7 @@ define internal fastcc noundef zeroext i1 @_equalAlterTableStmt(ptr noundef nonn
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_equalReplicaIdentityStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
@@ -9423,7 +9423,7 @@ define internal fastcc noundef zeroext i1 @_equalVariableSetStmt(ptr noundef non
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_equalVariableShowStmt(ptr readonly captures(address) %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9994,7 +9994,7 @@ define internal fastcc zeroext i1 @_equalCreateTableSpaceStmt(ptr noundef nonnul
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_equalDropTableSpaceStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -11317,7 +11317,7 @@ define internal fastcc zeroext i1 @_equalCreateEventTrigStmt(ptr noundef nonnull
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc zeroext i1 @_equalAlterEventTrigStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -12161,7 +12161,7 @@ define internal fastcc zeroext i1 @_equalDeclareCursorStmt(ptr noundef nonnull r
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_equalClosePortalStmt(ptr readonly captures(address) %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12189,7 +12189,7 @@ define internal fastcc noundef zeroext i1 @_equalClosePortalStmt(ptr readonly ca
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_equalFetchStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -13169,7 +13169,7 @@ define internal fastcc noundef zeroext i1 @_equalRuleStmt(ptr noundef nonnull re
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_equalNotifyStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -13220,7 +13220,7 @@ define internal fastcc noundef zeroext i1 @_equalNotifyStmt(ptr noundef nonnull 
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_equalListenStmt(ptr readonly captures(address) %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13248,7 +13248,7 @@ define internal fastcc noundef zeroext i1 @_equalListenStmt(ptr readonly capture
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_equalUnlistenStmt(ptr readonly captures(address) %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13561,7 +13561,7 @@ define internal fastcc zeroext i1 @_equalViewStmt(ptr noundef nonnull readonly c
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_equalLoadStmt(ptr readonly captures(address) %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13659,7 +13659,7 @@ define internal fastcc zeroext i1 @_equalAlterDatabaseStmt(ptr noundef nonnull r
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_equalAlterDatabaseRefreshCollStmt(ptr readonly captures(address) %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -14302,7 +14302,7 @@ define internal fastcc zeroext i1 @_equalExecuteStmt(ptr noundef nonnull readonl
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_equalDeallocateStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -14762,7 +14762,7 @@ define internal fastcc zeroext i1 @_equalAlterSubscriptionStmt(ptr noundef nonnu
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc zeroext i1 @_equalDropSubscriptionStmt(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -15222,7 +15222,7 @@ define internal fastcc zeroext i1 @_equalExtensibleNode(ptr noundef nonnull %0, 
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_equalFloat(ptr readonly captures(address) %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15250,7 +15250,7 @@ define internal fastcc noundef zeroext i1 @_equalFloat(ptr readonly captures(add
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_equalString(ptr readonly captures(address) %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15278,7 +15278,7 @@ define internal fastcc noundef zeroext i1 @_equalString(ptr readonly captures(ad
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef zeroext i1 @_equalBitString(ptr readonly captures(address) %.8.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15519,7 +15519,7 @@ declare i32 @llvm.smax.i32(i32, i32) #7
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: read) }

@@ -52,7 +52,7 @@ for.body7.i:                                      ; preds = %for.body.i, %for.bo
   %vtable.i = load ptr, ptr %acceptor, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 48
   %6 = load ptr, ptr %vfn.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %acceptor, ptr noundef nonnull align 8 dereferenceable(8) %first.09.i) #3
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %acceptor, ptr noundef nonnull align 8 dereferenceable(8) %first.09.i) #4
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %first.09.i, i64 8
   %cmp6.not.i = icmp eq ptr %incdec.ptr.i, %last.0.i
   br i1 %cmp6.not.i, label %for.inc8.i, label %for.body7.i, !llvm.loop !4
@@ -102,7 +102,7 @@ for.body7:                                        ; preds = %for.body, %for.body
   %vtable = load ptr, ptr %acceptor, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %6 = load ptr, ptr %vfn, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %acceptor, ptr noundef nonnull align 8 dereferenceable(8) %first.09) #3
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %acceptor, ptr noundef nonnull align 8 dereferenceable(8) %first.09) #4
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %first.09, i64 8
   %cmp6.not = icmp eq ptr %incdec.ptr, %last.0
   br i1 %cmp6.not, label %for.inc8, label %for.body7, !llvm.loop !4
@@ -116,8 +116,8 @@ for.end10:                                        ; preds = %for.inc8
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm7GCScopeD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(212) %this) unnamed_addr #0 align 2 {
+; Function Attrs: mustprogress nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define hidden void @_ZN6hermes2vm7GCScopeD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(212) %this) unnamed_addr #1 align 2 {
 entry:
   %prevScope_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %prevScope_, align 8
@@ -141,7 +141,7 @@ for.body.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %it.06 = phi ptr [ %it.0, %for.body ], [ %it.04, %for.body.preheader ]
   %4 = load ptr, ptr %it.06, align 8
-  tail call void @free(ptr noundef %4) #3
+  tail call void @free(ptr noundef %4) #4
   %it.0 = getelementptr inbounds nuw i8, ptr %it.06, i64 8
   %cmp.not = icmp eq ptr %it.0, %add.ptr.i
   br i1 %cmp.not, label %for.end.loopexit, label %for.body, !llvm.loop !8
@@ -157,7 +157,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorIPN6hermes2vm17PinnedHermesValueELj4EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.end
-  tail call void @free(ptr noundef %5) #3
+  tail call void @free(ptr noundef %5) #4
   br label %_ZN4llvh11SmallVectorIPN6hermes2vm17PinnedHermesValueELj4EED2Ev.exit
 
 _ZN4llvh11SmallVectorIPN6hermes2vm17PinnedHermesValueELj4EED2Ev.exit: ; preds = %for.end, %if.then.i.i
@@ -165,7 +165,7 @@ _ZN4llvh11SmallVectorIPN6hermes2vm17PinnedHermesValueELj4EED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %this, i64 %value.coerce) local_unnamed_addr #0 align 2 {
@@ -181,7 +181,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call noalias noundef nonnull ptr @_ZN6hermes13checkedMallocEm(i64 noundef 128) #3
+  %call.i = tail call noalias noundef nonnull ptr @_ZN6hermes13checkedMallocEm(i64 noundef 128) #4
   %2 = load i32, ptr %Size.i, align 8
   %Capacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 156
   %3 = load i32, ptr %Capacity.i.i, align 4
@@ -190,7 +190,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %chunks_, ptr noundef nonnull %add.ptr.i.i.i.i, i64 noundef 0, i64 noundef 8) #3
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %chunks_, ptr noundef nonnull %add.ptr.i.i.i.i, i64 noundef 0, i64 noundef 8) #4
   %.pre.i = load i32, ptr %Size.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes2vm17PinnedHermesValueELb1EE9push_backERKS4_.exit
 
@@ -229,14 +229,15 @@ if.end:                                           ; preds = %if.else, %_ZN4llvh2
   ret ptr %10
 }
 
-declare noalias noundef nonnull ptr @_ZN6hermes13checkedMallocEm(i64 noundef) local_unnamed_addr #2
+declare noalias noundef nonnull ptr @_ZN6hermes13checkedMallocEm(i64 noundef) local_unnamed_addr #3
 
-declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
+attributes #1 = { mustprogress nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

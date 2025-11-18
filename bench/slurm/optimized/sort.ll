@@ -337,7 +337,7 @@ declare i32 @get_log_level() local_unnamed_addr #2
 
 declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 -1, 2) i32 @_sort_job_by_num_cpus(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
@@ -356,7 +356,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_num_cpus(ptr noundef readonly
   ret i32 %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 -1, 2) i32 @_sort_job_by_min_tmp_disk(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
@@ -375,7 +375,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_min_tmp_disk(ptr noundef read
   ret i32 %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 -1, 2) i32 @_sort_job_by_num_nodes(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
@@ -394,7 +394,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_num_nodes(ptr noundef readonl
   ret i32 %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 -1, 2) i32 @_sort_job_by_time_end(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
@@ -444,7 +444,7 @@ define internal i32 @_sort_job_by_group_name(ptr noundef readonly captures(none)
   ret i32 %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 -1, 2) i32 @_sort_job_by_group_id(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
@@ -463,7 +463,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_group_id(ptr noundef readonly
   ret i32 %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 -1, 2) i32 @_sort_job_by_sockets(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
@@ -484,7 +484,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_sockets(ptr noundef readonly 
   ret i32 %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 -1, 2) i32 @_sort_job_by_id(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
@@ -558,7 +558,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_id(ptr noundef readonly captu
   ret i32 %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 -1, 2) i32 @_sort_job_by_cores(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
@@ -602,7 +602,7 @@ define internal i32 @_sort_job_by_name(ptr noundef readonly captures(none) %0, p
   ret i32 %.06
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 -1, 2) i32 @_sort_job_by_threads(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
@@ -623,7 +623,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_threads(ptr noundef readonly 
   ret i32 %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 -1, 2) i32 @_sort_job_by_time_limit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
@@ -685,7 +685,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_time_left(ptr noundef readonl
   ret i32 %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 -1, 2) i32 @_sort_job_by_min_memory(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
@@ -751,7 +751,7 @@ define internal i32 @_sort_job_by_node_list(ptr noundef readonly captures(none) 
   ret i32 %spec.select.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 -1, 2) i32 @_sort_job_by_priority(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val7 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val7, i64 24
@@ -798,7 +798,7 @@ define internal i32 @_sort_job_by_partition(ptr noundef readonly captures(none) 
   ret i32 %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 -1, 2) i32 @_sort_job_by_time_start(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
@@ -903,7 +903,7 @@ define internal i32 @_sort_job_by_user_name(ptr noundef readonly captures(none) 
   ret i32 %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 -1, 2) i32 @_sort_job_by_user_id(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
@@ -945,7 +945,7 @@ define internal i32 @_sort_job_by_reservation(ptr noundef readonly captures(none
   ret i32 %.06
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 -1, 2) i32 @_sort_job_by_time_submit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
@@ -964,7 +964,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_time_submit(ptr noundef reado
   ret i32 %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 -1, 2) i32 @_sort_job_by_num_sct(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
@@ -1187,7 +1187,7 @@ define internal i32 @_sort_step_by_cluster_name(ptr noundef readonly captures(no
   ret i32 %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 -1, 2) i32 @_sort_step_by_id(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
@@ -1255,7 +1255,7 @@ define internal i32 @_sort_step_by_partition(ptr noundef readonly captures(none)
   ret i32 %.06
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 -1, 2) i32 @_sort_step_by_time_limit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
@@ -1270,7 +1270,7 @@ define internal range(i32 -1, 2) i32 @_sort_step_by_time_limit(ptr noundef reado
   ret i32 %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 -1, 2) i32 @_sort_step_by_time_start(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
@@ -1285,7 +1285,7 @@ define internal range(i32 -1, 2) i32 @_sort_step_by_time_start(ptr noundef reado
   ret i32 %spec.select
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 -1, 2) i32 @_sort_step_by_time_used(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
@@ -1322,7 +1322,7 @@ define internal i32 @_sort_step_by_user_name(ptr noundef readonly captures(none)
   ret i32 %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 -1, 2) i32 @_sort_step_by_user_id(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
@@ -1384,10 +1384,10 @@ attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }

@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [31 x i8] c"Selected the following subset:\00", align 1
 @str.2 = private unnamed_addr constant [27 x i8] c"Could not select a subset.\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define i32 @Lpk_ComputeSets_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i32], align 16
   %5 = ashr i32 %1, 1
@@ -159,11 +159,11 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %3, %Kit_DsdNtkObj.e
   br i1 %.not9.i.i, label %57, label %55
 
 55:                                               ; preds = %53
-  %56 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %54, i64 noundef 64) #12
+  %56 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %54, i64 noundef 64) #13
   br label %Vec_IntGrow.exit.i
 
 57:                                               ; preds = %53
-  %58 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #13
+  %58 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #14
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %57, %55
@@ -181,11 +181,11 @@ Vec_IntGrow.exit.i:                               ; preds = %57, %55
   br i1 %.not9.i9.i, label %67, label %65
 
 65:                                               ; preds = %60
-  %66 = tail call ptr @realloc(ptr noundef nonnull %62, i64 noundef %64) #12
+  %66 = tail call ptr @realloc(ptr noundef nonnull %62, i64 noundef %64) #13
   br label %69
 
 67:                                               ; preds = %60
-  %68 = tail call noalias ptr @malloc(i64 noundef %64) #13
+  %68 = tail call noalias ptr @malloc(i64 noundef %64) #14
   br label %69
 
 69:                                               ; preds = %67, %65
@@ -238,11 +238,11 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %.not9.i.i59, label %93, label %91
 
 91:                                               ; preds = %89
-  %92 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %90, i64 noundef 64) #12
+  %92 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %90, i64 noundef 64) #13
   br label %Vec_IntGrow.exit.i60
 
 93:                                               ; preds = %89
-  %94 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #13
+  %94 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #14
   br label %Vec_IntGrow.exit.i60
 
 Vec_IntGrow.exit.i60:                             ; preds = %93, %91
@@ -260,11 +260,11 @@ Vec_IntGrow.exit.i60:                             ; preds = %93, %91
   br i1 %.not9.i9.i58, label %103, label %101
 
 101:                                              ; preds = %96
-  %102 = tail call ptr @realloc(ptr noundef nonnull %98, i64 noundef %100) #12
+  %102 = tail call ptr @realloc(ptr noundef nonnull %98, i64 noundef %100) #13
   br label %105
 
 103:                                              ; preds = %96
-  %104 = tail call noalias ptr @malloc(i64 noundef %100) #13
+  %104 = tail call noalias ptr @malloc(i64 noundef %100) #14
   br label %105
 
 105:                                              ; preds = %103, %101
@@ -293,7 +293,7 @@ Vec_IntPush.exit61:                               ; preds = %.Vec_IntGrow.exit10
   ret i32 %.046
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define i32 @Lpk_ComputeSets(ptr noundef %0, ptr noundef initializes((4, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %3, align 4, !tbaa !20
@@ -308,12 +308,12 @@ define i32 @Lpk_ComputeSets(ptr noundef %0, ptr noundef initializes((4, 8)) %1) 
   br i1 %.not9.i.i, label %11, label %9
 
 9:                                                ; preds = %8
-  %10 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %7, i64 noundef 64) #12
+  %10 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %7, i64 noundef 64) #13
   %.pre.pre = load i32, ptr %3, align 4, !tbaa !20
   br label %Vec_IntGrow.exit.i
 
 11:                                               ; preds = %8
-  %12 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #13
+  %12 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #14
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %11, %9
@@ -367,7 +367,7 @@ Kit_DsdNtkRoot.exit31:                            ; preds = %Vec_IntPush.exit
 
 Vec_IntGrow.exit.i37:                             ; preds = %39
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %42 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %15, i64 noundef 64) #12
+  %42 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %15, i64 noundef 64) #13
   store ptr %42, ptr %41, align 8, !tbaa !23
   br label %Vec_IntPush.exit38.sink.split
 
@@ -376,7 +376,7 @@ Vec_IntGrow.exit.i37:                             ; preds = %39
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %46 = zext nneg i32 %44 to i64
   %47 = shl nuw nsw i64 %46, 2
-  %48 = tail call ptr @realloc(ptr noundef nonnull %15, i64 noundef %47) #12
+  %48 = tail call ptr @realloc(ptr noundef nonnull %15, i64 noundef %47) #13
   store ptr %48, ptr %45, align 8, !tbaa !23
   br label %Vec_IntPush.exit38.sink.split
 
@@ -420,11 +420,11 @@ Vec_IntPush.exit38:                               ; preds = %Vec_IntPush.exit38.
   br i1 %.not9.i.i43, label %67, label %65
 
 65:                                               ; preds = %62
-  %66 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %64, i64 noundef 64) #12
+  %66 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %64, i64 noundef 64) #13
   br label %Vec_IntGrow.exit.i44
 
 67:                                               ; preds = %62
-  %68 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #13
+  %68 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #14
   br label %Vec_IntGrow.exit.i44
 
 Vec_IntGrow.exit.i44:                             ; preds = %67, %65
@@ -443,11 +443,11 @@ Vec_IntGrow.exit.i44:                             ; preds = %67, %65
   br i1 %.not9.i9.i42, label %78, label %76
 
 76:                                               ; preds = %70
-  %77 = tail call ptr @realloc(ptr noundef nonnull %73, i64 noundef %75) #12
+  %77 = tail call ptr @realloc(ptr noundef nonnull %73, i64 noundef %75) #13
   br label %80
 
 78:                                               ; preds = %70
-  %79 = tail call noalias ptr @malloc(i64 noundef %75) #13
+  %79 = tail call noalias ptr @malloc(i64 noundef %75) #14
   br label %80
 
 80:                                               ; preds = %78, %76
@@ -488,7 +488,7 @@ Vec_IntPush.exit45:                               ; preds = %.Vec_IntGrow.exit10
   ret i32 %.025
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @Lpk_ComposeSets(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef captures(none) %5, i32 noundef %6) local_unnamed_addr #1 {
   %8 = load i32, ptr @Lpk_ComposeSets.nTravId, align 4, !tbaa !15
   %9 = icmp eq i32 %8, 1073741824
@@ -857,7 +857,7 @@ Lpk_PrintSetOne.exit13:                           ; preds = %39
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @Lpk_MapSuppRedDecSelect(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
+define i32 @Lpk_MapSuppRedDecSelect(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #5 {
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8241712
   %8 = load ptr, ptr %7, align 8, !tbaa !41
@@ -879,7 +879,7 @@ define i32 @Lpk_MapSuppRedDecSelect(ptr noundef readonly captures(none) %0, ptr 
 
 20:                                               ; preds = %5
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  tail call void @Kit_DsdPrintFromTruth(ptr noundef %1, i32 noundef %2) #14
+  tail call void @Kit_DsdPrintFromTruth(ptr noundef %1, i32 noundef %2) #15
   br label %21
 
 21:                                               ; preds = %20, %5
@@ -904,21 +904,21 @@ define i32 @Lpk_MapSuppRedDecSelect(ptr noundef readonly captures(none) %0, ptr 
   br label %31
 
 31:                                               ; preds = %28, %27
-  tail call void @Kit_TruthCofactor0New(ptr noundef %14, ptr noundef %1, i32 noundef %2, i32 noundef %.06598) #14
-  tail call void @Kit_TruthCofactor1New(ptr noundef %16, ptr noundef %1, i32 noundef %2, i32 noundef %.06598) #14
-  %32 = tail call ptr @Kit_DsdDecompose(ptr noundef %14, i32 noundef %2) #14
-  %33 = tail call ptr @Kit_DsdDecompose(ptr noundef %16, i32 noundef %2) #14
-  %34 = tail call ptr @Kit_DsdExpand(ptr noundef %32) #14
-  tail call void @Kit_DsdNtkFree(ptr noundef %32) #14
-  %35 = tail call ptr @Kit_DsdExpand(ptr noundef %33) #14
-  tail call void @Kit_DsdNtkFree(ptr noundef %33) #14
+  tail call void @Kit_TruthCofactor0New(ptr noundef %14, ptr noundef %1, i32 noundef %2, i32 noundef %.06598) #15
+  tail call void @Kit_TruthCofactor1New(ptr noundef %16, ptr noundef %1, i32 noundef %2, i32 noundef %.06598) #15
+  %32 = tail call ptr @Kit_DsdDecompose(ptr noundef %14, i32 noundef %2) #15
+  %33 = tail call ptr @Kit_DsdDecompose(ptr noundef %16, i32 noundef %2) #15
+  %34 = tail call ptr @Kit_DsdExpand(ptr noundef %32) #15
+  tail call void @Kit_DsdNtkFree(ptr noundef %32) #15
+  %35 = tail call ptr @Kit_DsdExpand(ptr noundef %33) #15
+  tail call void @Kit_DsdNtkFree(ptr noundef %33) #15
   br i1 %.not, label %.thread, label %.critedge
 
 .critedge:                                        ; preds = %31
   %36 = load ptr, ptr @stdout, align 8, !tbaa !59
-  tail call void @Kit_DsdPrint(ptr noundef %36, ptr noundef %34) #14
+  tail call void @Kit_DsdPrint(ptr noundef %36, ptr noundef %34) #15
   %37 = load ptr, ptr @stdout, align 8, !tbaa !59
-  tail call void @Kit_DsdPrint(ptr noundef %37, ptr noundef %35) #14
+  tail call void @Kit_DsdPrint(ptr noundef %37, ptr noundef %35) #15
   %38 = tail call i32 @Lpk_ComputeSets(ptr noundef %34, ptr noundef %8)
   %39 = tail call i32 @Lpk_ComputeSets(ptr noundef %35, ptr noundef %10)
   %.val7.i = load i32, ptr %23, align 4, !tbaa !20
@@ -1009,8 +1009,8 @@ Lpk_PrintSets.exit95:                             ; preds = %Lpk_PrintSetOne.exi
   br label %.critedge75
 
 .critedge75:                                      ; preds = %.thread, %Lpk_PrintSets.exit95
-  tail call void @Kit_DsdNtkFree(ptr noundef %34) #14
-  tail call void @Kit_DsdNtkFree(ptr noundef %35) #14
+  tail call void @Kit_DsdNtkFree(ptr noundef %34) #15
+  tail call void @Kit_DsdNtkFree(ptr noundef %35) #15
   call void @Lpk_ComposeSets(ptr noundef %8, ptr noundef %10, i32 noundef %2, i32 noundef %.06598, ptr noundef nonnull @Lpk_MapSuppRedDecSelect.pStore, ptr noundef nonnull %6, i32 noundef 256)
   %68 = add nuw nsw i32 %.06598, 1
   %exitcond.not = icmp eq i32 %68, %2
@@ -1156,62 +1156,63 @@ Kit_WordFindFirstBit.exit:                        ; preds = %111, %114
   ret i32 %.0
 }
 
-declare void @Kit_DsdPrintFromTruth(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @Kit_DsdPrintFromTruth(ptr noundef, i32 noundef) local_unnamed_addr #6
 
-declare void @Kit_TruthCofactor0New(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare void @Kit_TruthCofactor0New(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
-declare void @Kit_TruthCofactor1New(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare void @Kit_TruthCofactor1New(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
-declare ptr @Kit_DsdDecompose(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @Kit_DsdDecompose(ptr noundef, i32 noundef) local_unnamed_addr #6
 
-declare ptr @Kit_DsdExpand(ptr noundef) local_unnamed_addr #5
+declare ptr @Kit_DsdExpand(ptr noundef) local_unnamed_addr #6
 
-declare void @Kit_DsdNtkFree(ptr noundef) local_unnamed_addr #5
+declare void @Kit_DsdNtkFree(ptr noundef) local_unnamed_addr #6
 
-declare void @Kit_DsdPrint(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @Kit_DsdPrint(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #9
+declare i32 @llvm.ctpop.i32(i32) #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #10
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #10
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
+declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #9
+declare i32 @llvm.smin.i32(i32, i32) #10
 
-attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nofree nounwind }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { nounwind allocsize(1) }
-attributes #13 = { nounwind allocsize(0) }
-attributes #14 = { nounwind }
+attributes #5 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nofree nounwind }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { nounwind allocsize(1) }
+attributes #14 = { nounwind allocsize(0) }
+attributes #15 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

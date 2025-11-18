@@ -400,7 +400,7 @@ $_ZTVN4llvm13format_objectIJjjEEE = comdat any
 @_ZN5clang9api_notes14APINotesReaderC1EPN4llvm12MemoryBufferENS2_12VersionTupleERb = unnamed_addr alias void (ptr, ptr, i64, i64, ptr), ptr @_ZN5clang9api_notes14APINotesReaderC2EPN4llvm12MemoryBufferENS2_12VersionTupleERb
 @_ZN5clang9api_notes14APINotesReaderD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang9api_notes14APINotesReaderD2Ev
 
-; Function Attrs: mustprogress nofree norecurse nounwind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define dso_local { i64, i8 } @_ZN5clang9api_notes14APINotesReader14Implementation13getIdentifierEN4llvm9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val = load ptr, ptr %4, align 8, !tbaa !3
@@ -7758,7 +7758,7 @@ _ZNSt10unique_ptrIN5clang9api_notes14APINotesReaderESt14default_deleteIS2_EED2Ev
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define dso_local range(i64 0, 8589934592) i64 @_ZN5clang9api_notes14APINotesReader17lookupObjCClassIDEN4llvm9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 align 2 {
   %.sroa.0.i.i.i.i.i.i.i = alloca [9 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !475
@@ -8652,7 +8652,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit2.thread:     ; preds = %.loopexit, %.loopex
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define dso_local range(i64 0, 8589934592) i64 @_ZN5clang9api_notes14APINotesReader20lookupObjCProtocolIDEN4llvm9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 align 2 {
   %.sroa.0.i.i.i.i.i.i.i = alloca [9 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !475
@@ -13716,7 +13716,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit2.thread:     ; preds = %.loopexit, %.loopex
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define dso_local range(i64 0, 8589934592) i64 @_ZN5clang9api_notes14APINotesReader11lookupTagIDEN4llvm9StringRefESt8optionalINS0_7ContextEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr readonly captures(address) %1, i64 %2, i64 %3, i8 %4) local_unnamed_addr #0 align 2 {
   %.sroa.0.i.i.i.i.i.i.i = alloca [9 x i8], align 8
   %6 = load ptr, ptr %0, align 8, !tbaa !475
@@ -15962,7 +15962,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit2.thread:     ; preds = %.loopexit, %.loopex
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define dso_local range(i64 0, 8589934592) i64 @_ZN5clang9api_notes14APINotesReader17lookupNamespaceIDEN4llvm9StringRefESt8optionalINS0_9ContextIDEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr readonly captures(address) %1, i64 %2, i64 %3) local_unnamed_addr #0 align 2 {
   %.sroa.0.i.i.i.i.i.i.i = alloca [9 x i8], align 8
   %5 = load ptr, ptr %0, align 8, !tbaa !475
@@ -29336,7 +29336,7 @@ declare i64 @llvm.umax.i64(i64, i64) #18
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #18
 
-attributes #0 = { mustprogress nofree norecurse nounwind memory(read, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nounwind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -42,7 +42,7 @@ target triple = "x86_64-pc-linux-gnu"
 @H5E_CANTEXPUNGE_g = external local_unnamed_addr global i64, align 8
 @.str.13 = private unnamed_addr constant [20 x i8] c"can't expunge entry\00", align 1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @H5C_ignore_tags(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @H5C_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %3 = trunc nuw i8 %2 to i1
@@ -69,7 +69,7 @@ define noundef i32 @H5C_ignore_tags(ptr noundef writeonly captures(none) %0) loc
   ret i32 0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @H5C_get_ignore_tags(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = load i8, ptr @H5C_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %3 = trunc nuw i8 %2 to i1
@@ -89,7 +89,7 @@ define zeroext i1 @H5C_get_ignore_tags(ptr noundef readonly captures(none) %0) l
   ret i1 %11
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @H5C_get_num_objs_corked(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = load i8, ptr @H5C_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %3 = trunc nuw i8 %2 to i1
@@ -121,7 +121,7 @@ define range(i32 -1, 1) i32 @H5C__tag_entry(ptr noundef captures(none) %0, ptr n
   br i1 %9, label %10, label %379, !prof !9
 
 10:                                               ; preds = %2
-  %11 = tail call i64 @H5CX_get_tag() #11
+  %11 = tail call i64 @H5CX_get_tag() #12
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 524736
   %13 = load i8, ptr %12, align 8, !tbaa !11, !range !7, !noundef !8
   %14 = trunc nuw i8 %13 to i1
@@ -266,14 +266,14 @@ define range(i32 -1, 1) i32 @H5C__tag_entry(ptr noundef captures(none) %0, ptr n
   br label %111, !llvm.loop !43
 
 .loopexit:                                        ; preds = %123, %33, %10
-  %130 = tail call noalias ptr @H5FL_reg_calloc(ptr noundef nonnull @H5_H5C_tag_info_t_reg_free_list) #11
+  %130 = tail call noalias ptr @H5FL_reg_calloc(ptr noundef nonnull @H5_H5C_tag_info_t_reg_free_list) #12
   %131 = icmp eq ptr %130, null
   br i1 %131, label %132, label %136
 
 132:                                              ; preds = %.loopexit
   %133 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !45
   %134 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !45
-  %135 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__tag_entry, i32 noundef 226, i64 noundef %133, i64 noundef %134, ptr noundef nonnull @.str.1) #11
+  %135 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__tag_entry, i32 noundef 226, i64 noundef %133, i64 noundef %134, ptr noundef nonnull @.str.1) #12
   br label %379
 
 136:                                              ; preds = %.loopexit
@@ -368,7 +368,7 @@ define range(i32 -1, 1) i32 @H5C__tag_entry(ptr noundef captures(none) %0, ptr n
   br i1 %.not580, label %204, label %.critedge
 
 204:                                              ; preds = %198
-  tail call void @free(ptr noundef nonnull %calloc684) #11
+  tail call void @free(ptr noundef nonnull %calloc684) #12
   br label %368
 
 .critedge:                                        ; preds = %198
@@ -534,7 +534,7 @@ define range(i32 -1, 1) i32 @H5C__tag_entry(ptr noundef captures(none) %0, ptr n
   br i1 %exitcond.not, label %._crit_edge647, label %.lr.ph646, !llvm.loop !64
 
 ._crit_edge647:                                   ; preds = %._crit_edge, %249
-  tail call void @free(ptr noundef %219) #11
+  tail call void @free(ptr noundef %219) #12
   %292 = load ptr, ptr %191, align 8, !tbaa !27
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 8
   %294 = load i32, ptr %293, align 8, !tbaa !32
@@ -605,11 +605,11 @@ define range(i32 -1, 1) i32 @H5C__tag_entry(ptr noundef captures(none) %0, ptr n
   br i1 %325, label %326, label %337
 
 326:                                              ; preds = %322
-  tail call void @free(ptr noundef nonnull %219) #11
+  tail call void @free(ptr noundef nonnull %219) #12
   %327 = load ptr, ptr %16, align 8, !tbaa !26
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 32
   %329 = load ptr, ptr %328, align 8, !tbaa !27
-  tail call void @free(ptr noundef %329) #11
+  tail call void @free(ptr noundef %329) #12
   store ptr null, ptr %16, align 8, !tbaa !26
   br label %367
 
@@ -810,11 +810,11 @@ define noundef i32 @H5C__untag_entry(ptr noundef captures(none) %0, ptr noundef 
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %46 = load ptr, ptr %45, align 8, !tbaa !27
   %47 = load ptr, ptr %46, align 8, !tbaa !35
-  tail call void @free(ptr noundef %47) #11
+  tail call void @free(ptr noundef %47) #12
   %48 = load ptr, ptr %43, align 8, !tbaa !26
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %50 = load ptr, ptr %49, align 8, !tbaa !27
-  tail call void @free(ptr noundef %50) #11
+  tail call void @free(ptr noundef %50) #12
   store ptr null, ptr %43, align 8, !tbaa !26
   br label %107
 
@@ -921,7 +921,7 @@ define noundef i32 @H5C__untag_entry(ptr noundef captures(none) %0, ptr noundef 
   br label %107
 
 107:                                              ; preds = %103, %42
-  %108 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5C_tag_info_t_reg_free_list, ptr noundef nonnull %11) #11
+  %108 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5C_tag_info_t_reg_free_list, ptr noundef nonnull %11) #12
   br label %109
 
 109:                                              ; preds = %9, %25, %107, %2
@@ -962,7 +962,7 @@ define range(i32 -1, 1) i32 @H5C__iter_tagged_entries(ptr noundef readonly captu
   %.sink = phi i32 [ 382, %12 ], [ 388, %16 ], [ 392, %19 ]
   %22 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !45
   %23 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !45
-  %24 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__iter_tagged_entries, i32 noundef %.sink, i64 noundef %22, i64 noundef %23, ptr noundef nonnull @.str.2) #11
+  %24 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__iter_tagged_entries, i32 noundef %.sink, i64 noundef %22, i64 noundef %23, ptr noundef nonnull @.str.2) #12
   br label %25
 
 25:                                               ; preds = %.sink.split, %19, %15, %5
@@ -1117,14 +1117,14 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__iter_tagged_entries_real(ptr n
 110:                                              ; preds = %109
   %111 = getelementptr inbounds nuw i8, ptr %.0179, i64 224
   %112 = load ptr, ptr %111, align 8, !tbaa !68
-  %113 = tail call i32 %2(ptr noundef nonnull %.0179, ptr noundef %3) #11
+  %113 = tail call i32 %2(ptr noundef nonnull %.0179, ptr noundef %3) #12
   %.not213 = icmp eq i32 %113, 0
   br i1 %.not213, label %109, label %114, !llvm.loop !79
 
 114:                                              ; preds = %110
   %115 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !45
   %116 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !45
-  %117 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__iter_tagged_entries_real, i32 noundef 349, i64 noundef %115, i64 noundef %116, ptr noundef nonnull @.str.8) #11
+  %117 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__iter_tagged_entries_real, i32 noundef 349, i64 noundef %115, i64 noundef %116, ptr noundef nonnull @.str.8) #12
   br label %.thread
 
 .thread:                                          ; preds = %99, %109, %22, %19, %4, %114
@@ -1219,10 +1219,10 @@ define range(i32 -1, 1) i32 @H5C_evict_tagged_entries(ptr noundef %0, i64 nounde
   %.us-phi = phi i32 [ 382, %27 ], [ 388, %30 ], [ 392, %33 ], [ 382, %44 ]
   %47 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !45
   %48 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !45
-  %49 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__iter_tagged_entries, i32 noundef %.us-phi, i64 noundef %47, i64 noundef %48, ptr noundef nonnull @.str.2) #11
+  %49 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__iter_tagged_entries, i32 noundef %.us-phi, i64 noundef %47, i64 noundef %48, ptr noundef nonnull @.str.2) #12
   %50 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !45
   %51 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !45
-  %52 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C_evict_tagged_entries, i32 noundef 483, i64 noundef %50, i64 noundef %51, ptr noundef nonnull @.str.3) #11
+  %52 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C_evict_tagged_entries, i32 noundef 483, i64 noundef %50, i64 noundef %51, ptr noundef nonnull @.str.3) #12
   br label %63
 
 53:                                               ; preds = %44
@@ -1244,7 +1244,7 @@ define range(i32 -1, 1) i32 @H5C_evict_tagged_entries(ptr noundef %0, i64 nounde
 59:                                               ; preds = %.split16.us
   %60 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !45
   %61 = load i64, ptr @H5E_CANTFLUSH_g, align 8, !tbaa !45
-  %62 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C_evict_tagged_entries, i32 noundef 514, i64 noundef %60, i64 noundef %61, ptr noundef nonnull @.str.4) #11
+  %62 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C_evict_tagged_entries, i32 noundef 514, i64 noundef %60, i64 noundef %61, ptr noundef nonnull @.str.4) #12
   br label %63
 
 63:                                               ; preds = %.split14.us, %59, %.split16.us, %10
@@ -1272,7 +1272,7 @@ define internal range(i32 -1, 1) i32 @H5C__evict_tagged_entries_cb(ptr noundef %
 13:                                               ; preds = %9
   %14 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !45
   %15 = load i64, ptr @H5E_CANTFLUSH_g, align 8, !tbaa !45
-  %16 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__evict_tagged_entries_cb, i32 noundef 423, i64 noundef %14, i64 noundef %15, ptr noundef nonnull @.str.9) #11
+  %16 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__evict_tagged_entries_cb, i32 noundef 423, i64 noundef %14, i64 noundef %15, ptr noundef nonnull @.str.9) #12
   br label %47
 
 17:                                               ; preds = %9
@@ -1284,7 +1284,7 @@ define internal range(i32 -1, 1) i32 @H5C__evict_tagged_entries_cb(ptr noundef %
 21:                                               ; preds = %17
   %22 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !45
   %23 = load i64, ptr @H5E_CANTFLUSH_g, align 8, !tbaa !45
-  %24 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__evict_tagged_entries_cb, i32 noundef 425, i64 noundef %22, i64 noundef %23, ptr noundef nonnull @.str.10) #11
+  %24 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__evict_tagged_entries_cb, i32 noundef 425, i64 noundef %22, i64 noundef %23, ptr noundef nonnull @.str.10) #12
   br label %47
 
 25:                                               ; preds = %17
@@ -1306,14 +1306,14 @@ define internal range(i32 -1, 1) i32 @H5C__evict_tagged_entries_cb(ptr noundef %
 
 35:                                               ; preds = %31
   %36 = load ptr, ptr %1, align 8, !tbaa !105
-  %37 = tail call i32 @H5C__flush_single_entry(ptr noundef %36, ptr noundef nonnull %0, i32 noundef 8240) #11
+  %37 = tail call i32 @H5C__flush_single_entry(ptr noundef %36, ptr noundef nonnull %0, i32 noundef 8240) #12
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %35
   %40 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !45
   %41 = load i64, ptr @H5E_CANTFLUSH_g, align 8, !tbaa !45
-  %42 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__evict_tagged_entries_cb, i32 noundef 436, i64 noundef %40, i64 noundef %41, ptr noundef nonnull @.str.11) #11
+  %42 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__evict_tagged_entries_cb, i32 noundef 436, i64 noundef %40, i64 noundef %41, ptr noundef nonnull @.str.11) #12
   br label %47
 
 43:                                               ; preds = %35
@@ -1354,14 +1354,14 @@ define range(i32 -1, 1) i32 @H5C_flush_tagged_entries(ptr noundef %0, i64 nounde
   %13 = load ptr, ptr %12, align 8, !tbaa !81
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %15 = load ptr, ptr %14, align 8, !tbaa !87
-  %16 = tail call i32 @H5C_set_slist_enabled(ptr noundef %15, i1 noundef zeroext true, i1 noundef zeroext false) #11
+  %16 = tail call i32 @H5C_set_slist_enabled(ptr noundef %15, i1 noundef zeroext true, i1 noundef zeroext false) #12
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %11
   %19 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !45
   %20 = load i64, ptr @H5E_SYSTEM_g, align 8, !tbaa !45
-  %21 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C_flush_tagged_entries, i32 noundef 646, i64 noundef %19, i64 noundef %20, ptr noundef nonnull @.str.5) #11
+  %21 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C_flush_tagged_entries, i32 noundef 646, i64 noundef %19, i64 noundef %20, ptr noundef nonnull @.str.5) #12
   br label %62
 
 22:                                               ; preds = %11
@@ -1392,35 +1392,35 @@ define range(i32 -1, 1) i32 @H5C_flush_tagged_entries(ptr noundef %0, i64 nounde
   %.sink.i = phi i32 [ 382, %29 ], [ 388, %32 ], [ 392, %35 ]
   %39 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !45
   %40 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !45
-  %41 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__iter_tagged_entries, i32 noundef %.sink.i, i64 noundef %39, i64 noundef %40, ptr noundef nonnull @.str.2) #11
+  %41 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__iter_tagged_entries, i32 noundef %.sink.i, i64 noundef %39, i64 noundef %40, ptr noundef nonnull @.str.2) #12
   %42 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !45
   %43 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !45
-  %44 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C_flush_tagged_entries, i32 noundef 651, i64 noundef %42, i64 noundef %43, ptr noundef nonnull @.str.3) #11
+  %44 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C_flush_tagged_entries, i32 noundef 651, i64 noundef %42, i64 noundef %43, ptr noundef nonnull @.str.3) #12
   br label %62
 
 45:                                               ; preds = %35, %22
-  %46 = tail call i32 @H5C_flush_cache(ptr noundef nonnull %0, i32 noundef 64) #11
+  %46 = tail call i32 @H5C_flush_cache(ptr noundef nonnull %0, i32 noundef 64) #12
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %48, label %52
 
 48:                                               ; preds = %45
   %49 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !45
   %50 = load i64, ptr @H5E_CANTFLUSH_g, align 8, !tbaa !45
-  %51 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C_flush_tagged_entries, i32 noundef 655, i64 noundef %49, i64 noundef %50, ptr noundef nonnull @.str.6) #11
+  %51 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C_flush_tagged_entries, i32 noundef 655, i64 noundef %49, i64 noundef %50, ptr noundef nonnull @.str.6) #12
   br label %62
 
 52:                                               ; preds = %45
   %53 = load ptr, ptr %12, align 8, !tbaa !81
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 112
   %55 = load ptr, ptr %54, align 8, !tbaa !87
-  %56 = tail call i32 @H5C_set_slist_enabled(ptr noundef %55, i1 noundef zeroext false, i1 noundef zeroext false) #11
+  %56 = tail call i32 @H5C_set_slist_enabled(ptr noundef %55, i1 noundef zeroext false, i1 noundef zeroext false) #12
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %58, label %62
 
 58:                                               ; preds = %52
   %59 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !45
   %60 = load i64, ptr @H5E_SYSTEM_g, align 8, !tbaa !45
-  %61 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C_flush_tagged_entries, i32 noundef 659, i64 noundef %59, i64 noundef %60, ptr noundef nonnull @.str.7) #11
+  %61 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C_flush_tagged_entries, i32 noundef 659, i64 noundef %59, i64 noundef %60, ptr noundef nonnull @.str.7) #12
   br label %62
 
 62:                                               ; preds = %18, %38, %48, %58, %52, %8
@@ -1456,14 +1456,14 @@ define internal range(i32 -1, 1) i32 @H5C__flush_tagged_entries_cb(ptr noundef %
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 524712
   %19 = load ptr, ptr %18, align 8, !tbaa !116
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = tail call i32 @H5SL_insert(ptr noundef %19, ptr noundef nonnull %0, ptr noundef nonnull %20) #11
+  %21 = tail call i32 @H5SL_insert(ptr noundef %19, ptr noundef nonnull %0, ptr noundef nonnull %20) #12
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %17
   %24 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !45
   %25 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !45
-  %26 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__flush_tagged_entries_cb, i32 noundef 613, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.12) #11
+  %26 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__flush_tagged_entries_cb, i32 noundef 613, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.12) #12
   br label %51
 
 27:                                               ; preds = %17
@@ -1505,8 +1505,8 @@ define internal range(i32 -1, 1) i32 @H5C__flush_tagged_entries_cb(ptr noundef %
 
 declare i32 @H5C_flush_cache(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: nounwind uwtable
-define noundef i32 @H5C_retag_entries(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define noundef i32 @H5C_retag_entries(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #7 {
   %4 = alloca i64, align 8
   store i64 %1, ptr %4, align 8, !tbaa !45
   %5 = load i8, ptr @H5C_init_g, align 1, !tbaa !3, !range !7, !noundef !8
@@ -1664,11 +1664,11 @@ define noundef i32 @H5C_retag_entries(ptr noundef captures(none) %0, i64 noundef
   br i1 %118, label %119, label %123
 
 119:                                              ; preds = %115
-  tail call void @free(ptr noundef %79) #11
+  tail call void @free(ptr noundef %79) #12
   %120 = load ptr, ptr %21, align 8, !tbaa !26
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 32
   %122 = load ptr, ptr %121, align 8, !tbaa !27
-  tail call void @free(ptr noundef %122) #11
+  tail call void @free(ptr noundef %122) #12
   store ptr null, ptr %21, align 8, !tbaa !26
   br label %171
 
@@ -1838,7 +1838,7 @@ define noundef i32 @H5C_retag_entries(ptr noundef captures(none) %0, i64 noundef
   br i1 %.not607, label %229, label %240
 
 229:                                              ; preds = %171
-  %230 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #12
+  %230 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %112, i8 0, i64 16, i1 false)
   store ptr %230, ptr %111, align 8, !tbaa !27
   %.not608 = icmp eq ptr %230, null
@@ -1855,7 +1855,7 @@ define noundef i32 @H5C_retag_entries(ptr noundef captures(none) %0, i64 noundef
   store i32 5, ptr %235, align 4, !tbaa !48
   %236 = getelementptr inbounds nuw i8, ptr %232, i64 32
   store i64 32, ptr %236, align 8, !tbaa !38
-  %237 = tail call noalias dereferenceable_or_null(512) ptr @malloc(i64 noundef 512) #12
+  %237 = tail call noalias dereferenceable_or_null(512) ptr @malloc(i64 noundef 512) #13
   store ptr %237, ptr %232, align 8, !tbaa !35
   %238 = getelementptr inbounds nuw i8, ptr %232, i64 56
   store i32 -1609490463, ptr %238, align 8, !tbaa !49
@@ -1863,7 +1863,7 @@ define noundef i32 @H5C_retag_entries(ptr noundef captures(none) %0, i64 noundef
   br i1 %.not609, label %239, label %.critedge
 
 239:                                              ; preds = %231
-  tail call void @free(ptr noundef nonnull %232) #11
+  tail call void @free(ptr noundef nonnull %232) #12
   br label %419
 
 .critedge:                                        ; preds = %231
@@ -2036,7 +2036,7 @@ define noundef i32 @H5C_retag_entries(ptr noundef captures(none) %0, i64 noundef
   br i1 %exitcond.not, label %._crit_edge677, label %299, !llvm.loop !126
 
 ._crit_edge677:                                   ; preds = %._crit_edge, %282
-  tail call void @free(ptr noundef %.pre686) #11
+  tail call void @free(ptr noundef %.pre686) #12
   %331 = load ptr, ptr %111, align 8, !tbaa !27
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 8
   %333 = load i32, ptr %332, align 8, !tbaa !32
@@ -2116,11 +2116,11 @@ define noundef i32 @H5C_retag_entries(ptr noundef captures(none) %0, i64 noundef
   br i1 %372, label %373, label %377
 
 373:                                              ; preds = %369
-  tail call void @free(ptr noundef nonnull %260) #11
+  tail call void @free(ptr noundef nonnull %260) #12
   %374 = load ptr, ptr %21, align 8, !tbaa !26
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 32
   %376 = load ptr, ptr %375, align 8, !tbaa !27
-  tail call void @free(ptr noundef %376) #11
+  tail call void @free(ptr noundef %376) #12
   store ptr null, ptr %21, align 8, !tbaa !26
   br label %418
 
@@ -2245,10 +2245,10 @@ define range(i32 -1, 1) i32 @H5C_expunge_tag_type_metadata(ptr noundef %0, i64 n
 23:                                               ; preds = %14
   %24 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !45
   %25 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !45
-  %26 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__iter_tagged_entries, i32 noundef 382, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.2) #11
+  %26 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__iter_tagged_entries, i32 noundef 382, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.2) #12
   %27 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !45
   %28 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !45
-  %29 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C_expunge_tag_type_metadata, i32 noundef 768, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.3) #11
+  %29 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C_expunge_tag_type_metadata, i32 noundef 768, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.3) #12
   br label %H5C__iter_tagged_entries.exit
 
 H5C__iter_tagged_entries.exit:                    ; preds = %14, %23, %11
@@ -2282,14 +2282,14 @@ define internal range(i32 -1, 1) i32 @H5C__expunge_tag_type_metadata_cb(ptr noun
   %19 = load i64, ptr %18, align 8, !tbaa !134
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %21 = load i32, ptr %20, align 4, !tbaa !130
-  %22 = tail call i32 @H5C_expunge_entry(ptr noundef %17, ptr noundef nonnull %11, i64 noundef %19, i32 noundef %21) #11
+  %22 = tail call i32 @H5C_expunge_entry(ptr noundef %17, ptr noundef nonnull %11, i64 noundef %19, i32 noundef %21) #12
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %16
   %25 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !45
   %26 = load i64, ptr @H5E_CANTEXPUNGE_g, align 8, !tbaa !45
-  %27 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__expunge_tag_type_metadata_cb, i32 noundef 729, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.13) #11
+  %27 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__expunge_tag_type_metadata_cb, i32 noundef 729, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.13) #12
   br label %28
 
 28:                                               ; preds = %24, %16, %9, %2
@@ -2297,8 +2297,8 @@ define internal range(i32 -1, 1) i32 @H5C__expunge_tag_type_metadata_cb(ptr noun
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5C_get_tag(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #7 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define noundef i32 @H5C_get_tag(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #8 {
   %3 = load i8, ptr @H5C_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   %5 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -2333,30 +2333,31 @@ declare i32 @H5SL_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 declare i32 @H5C_expunge_entry(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #10
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #11
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #10 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind allocsize(0) }
+attributes #7 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #11 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

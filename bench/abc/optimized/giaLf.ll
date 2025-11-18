@@ -81,7 +81,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [16 x i8] c"Cutset is not 0\00", align 1
 @str.1 = private unnamed_addr constant [65 x i8] c"Hard limit on the number of nodes (2^29) is reached. Quitting...\00", align 1
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @Lf_ObjArrival_rec(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.val23 = load i64, ptr %1, align 4
   %3 = trunc i64 %.val23 to i32
@@ -166,7 +166,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @Lf_ObjCoArrival2_rec(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.val27 = load i64, ptr %1, align 4
   %3 = trunc i64 %.val27 to i32
@@ -478,7 +478,7 @@ define range(i32 0, 2) i32 @Lf_ManTtIsMux(i64 noundef %0) local_unnamed_addr #3 
   ret i32 %.05
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @Lf_ManAnalyzeCoDrivers(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #4 {
   %4 = getelementptr i8, ptr %0, i64 24
   %.val29 = load i32, ptr %4, align 8, !tbaa !41
@@ -491,7 +491,7 @@ define void @Lf_ManAnalyzeCoDrivers(ptr noundef readonly captures(none) %0, ptr 
 Vec_IntAlloc.exit.i:                              ; preds = %3
   %6 = sext i32 %spec.store.select.i.i to i64
   %7 = shl nsw i64 %6, 2
-  %8 = tail call noalias ptr @malloc(i64 noundef %7) #33
+  %8 = tail call noalias ptr @malloc(i64 noundef %7) #35
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %Vec_IntStart.exit, label %9
 
@@ -576,7 +576,7 @@ Vec_IntStart.exit:                                ; preds = %3, %Vec_IntAlloc.ex
 .critedge2.thread:                                ; preds = %36, %.critedge2
   %.025.lcssa58 = phi i32 [ 0, %.critedge2 ], [ %44, %36 ]
   %.026.lcssa56 = phi i32 [ 0, %.critedge2 ], [ %41, %36 ]
-  tail call void @free(ptr noundef nonnull %12) #34
+  tail call void @free(ptr noundef nonnull %12) #36
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %.critedge2, %.critedge2.thread
@@ -588,23 +588,23 @@ Vec_IntFree.exit:                                 ; preds = %.critedge2, %.crite
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Lf_ManComputeSwitching(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) local_unnamed_addr #4 {
-  %3 = tail call ptr @Gia_ManComputeSwitchProbs(ptr noundef %0, i32 noundef 48, i32 noundef 16, i32 noundef 0) #34
+define void @Lf_ManComputeSwitching(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) local_unnamed_addr #5 {
+  %3 = tail call ptr @Gia_ManComputeSwitchProbs(ptr noundef %0, i32 noundef 48, i32 noundef 16, i32 noundef 0) #36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !53
-  tail call void @free(ptr noundef %3) #34
+  tail call void @free(ptr noundef %3) #36
   ret void
 }
 
-declare ptr @Gia_ManComputeSwitchProbs(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @Gia_ManComputeSwitchProbs(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define float @Lf_CutRef_rec(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
+; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define float @Lf_CutRef_rec(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
   %3 = alloca [10 x i64], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %3, i8 0, i64 80, i1 false)
@@ -761,10 +761,10 @@ Lf_CutArea.exit:                                  ; preds = %2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef nonnull ptr @Lf_ObjCutBestNew(ptr noundef readonly captures(none) %0, i32 noundef range(i32 1, 0) %1, ptr noundef nonnull returned captures(ret: address, provenance) initializes((8, 16)) %2) unnamed_addr #10 {
+; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc noundef nonnull ptr @Lf_ObjCutBestNew(ptr noundef readonly captures(none) %0, i32 noundef range(i32 1, 0) %1, ptr noundef nonnull returned captures(ret: address, provenance) initializes((8, 16)) %2) unnamed_addr #11 {
   %4 = getelementptr i8, ptr %0, i64 24
   %.val = load ptr, ptr %4, align 8, !tbaa !38
   %5 = getelementptr i8, ptr %0, i64 176
@@ -985,8 +985,8 @@ Lf_MemLoadCut.exit:                               ; preds = %Lf_MemLoadCut.exit.
   ret ptr %2
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define float @Lf_CutDeref_rec(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
+; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define float @Lf_CutDeref_rec(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
   %3 = alloca [10 x i64], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %3, i8 0, i64 80, i1 false)
@@ -1142,7 +1142,7 @@ Lf_CutArea.exit:                                  ; preds = %2
   ret float %.0.lcssa
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @Lf_ObjMergeOrder(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = alloca i64, align 8
   %4 = alloca [128 x i64], align 16
@@ -3822,8 +3822,8 @@ Gia_ObjIsMuxId.exit581.thread:                    ; preds = %1288, %Lf_ObjCutMux
   ret void
 }
 
-; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc noundef ptr @Lf_MemLoadCut(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2, ptr noundef returned captures(ret: address, provenance) %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #11 {
+; Function Attrs: inlinehint nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc noundef ptr @Lf_MemLoadCut(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2, ptr noundef returned captures(ret: address, provenance) %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #12 {
   %7 = load i32, ptr %0, align 8, !tbaa !72
   %8 = lshr i32 %1, %7
   %9 = getelementptr i8, ptr %0, i64 24
@@ -4011,11 +4011,11 @@ Gia_AigerReadUnsigned.exit59:                     ; preds = %63, %._crit_edge.lo
   br i1 %.not9.i.i, label %102, label %100
 
 100:                                              ; preds = %97
-  %101 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %99, i64 noundef 128) #35
+  %101 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %99, i64 noundef 128) #37
   br label %Vec_PtrGrow.exit.i
 
 102:                                              ; preds = %97
-  %103 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #33
+  %103 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #35
   br label %Vec_PtrGrow.exit.i
 
 Vec_PtrGrow.exit.i:                               ; preds = %102, %100
@@ -4034,11 +4034,11 @@ Vec_PtrGrow.exit.i:                               ; preds = %102, %100
   br i1 %.not9.i10.i, label %113, label %111
 
 111:                                              ; preds = %105
-  %112 = tail call ptr @realloc(ptr noundef nonnull %108, i64 noundef %110) #35
+  %112 = tail call ptr @realloc(ptr noundef nonnull %108, i64 noundef %110) #37
   br label %115
 
 113:                                              ; preds = %105
-  %114 = tail call noalias ptr @malloc(i64 noundef %110) #33
+  %114 = tail call noalias ptr @malloc(i64 noundef %110) #35
   br label %115
 
 115:                                              ; preds = %113, %111
@@ -4101,8 +4101,8 @@ Lf_CutGetSign.exit:                               ; preds = %128, %.Lf_CutGetSig
   ret ptr %3
 }
 
-; Function Attrs: inlinehint nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Lf_CutParams(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((8, 16)) %1, i32 noundef %2, float noundef %3) unnamed_addr #12 {
+; Function Attrs: inlinehint nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc void @Lf_CutParams(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((8, 16)) %1, i32 noundef %2, float noundef %3) unnamed_addr #13 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, -4194305
@@ -4413,8 +4413,8 @@ Lf_CutArea.exit:                                  ; preds = %114, %Lf_CutSwitche
   ret void
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @Lf_SetAddCut(ptr noundef nonnull captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #13 {
+; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc i32 @Lf_SetAddCut(ptr noundef nonnull captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #14 {
   %4 = icmp eq i32 %1, 0
   br i1 %4, label %Lf_SetCutIsContainedOrder.exit, label %5
 
@@ -4747,8 +4747,8 @@ Lf_SetCutIsContainedOrder.exit:                   ; preds = %127, %114, %3, %Lf_
   ret i32 %.0
 }
 
-; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Lf_CutComputeTruthMux(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 2) %5, i32 noundef range(i32 0, 2) %6, ptr noundef captures(address_is_null) %7) unnamed_addr #11 {
+; Function Attrs: inlinehint nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @Lf_CutComputeTruthMux(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 2) %5, i32 noundef range(i32 0, 2) %6, ptr noundef captures(address_is_null) %7) unnamed_addr #12 {
   %9 = alloca i64, align 8
   %10 = alloca [128 x i64], align 16
   %11 = alloca [128 x i64], align 16
@@ -5485,7 +5485,7 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i122, %Abc_T
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc range(i32 -2147483648, 255) i32 @Lf_ManFindCofVar(ptr noundef readonly captures(address) %0, i32 noundef %1, i32 noundef range(i32 0, 256) %2) unnamed_addr #14 {
+define internal fastcc range(i32 -2147483648, 255) i32 @Lf_ManFindCofVar(ptr noundef readonly captures(address) %0, i32 noundef %1, i32 noundef range(i32 0, 256) %2) unnamed_addr #15 {
   %4 = alloca [128 x i64], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq i32 %2, 0
@@ -5926,8 +5926,8 @@ Abc_TtSupportSize.exit.thread:                    ; preds = %.lr.ph.split.i37, %
   ret i32 %.012
 }
 
-; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc i32 @Lf_MemSaveCut(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #11 {
+; Function Attrs: inlinehint nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc i32 @Lf_MemSaveCut(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #12 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4, !tbaa !151
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5962,7 +5962,7 @@ define internal fastcc i32 @Lf_MemSaveCut(ptr noundef captures(none) %0, ptr nou
   %24 = load i32, ptr %23, align 4, !tbaa !75
   %25 = add nsw i32 %24, 1
   %26 = sext i32 %25 to i64
-  %27 = tail call noalias ptr @malloc(i64 noundef %26) #33
+  %27 = tail call noalias ptr @malloc(i64 noundef %26) #35
   br label %28
 
 28:                                               ; preds = %22, %15
@@ -5988,11 +5988,11 @@ define internal fastcc i32 @Lf_MemSaveCut(ptr noundef captures(none) %0, ptr nou
   br i1 %.not9.i.i, label %40, label %38
 
 38:                                               ; preds = %35
-  %39 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %37, i64 noundef 128) #35
+  %39 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %37, i64 noundef 128) #37
   br label %Vec_PtrGrow.exit.i
 
 40:                                               ; preds = %35
-  %41 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #33
+  %41 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #35
   br label %Vec_PtrGrow.exit.i
 
 Vec_PtrGrow.exit.i:                               ; preds = %40, %38
@@ -6011,11 +6011,11 @@ Vec_PtrGrow.exit.i:                               ; preds = %40, %38
   br i1 %.not9.i10.i, label %51, label %49
 
 49:                                               ; preds = %43
-  %50 = tail call ptr @realloc(ptr noundef nonnull %46, i64 noundef %48) #35
+  %50 = tail call ptr @realloc(ptr noundef nonnull %46, i64 noundef %48) #37
   br label %53
 
 51:                                               ; preds = %43
-  %52 = tail call noalias ptr @malloc(i64 noundef %48) #33
+  %52 = tail call noalias ptr @malloc(i64 noundef %48) #35
   br label %53
 
 53:                                               ; preds = %51, %49
@@ -6191,8 +6191,8 @@ Gia_AigerWriteUnsignedBuffer.exit68:              ; preds = %99, %._crit_edge.lo
   ret i32 %5
 }
 
-; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @Lf_ManFetchSet(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #11 {
+; Function Attrs: inlinehint nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc ptr @Lf_ManFetchSet(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #12 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr i8, ptr %0, i64 176
   %.val37 = load ptr, ptr %4, align 8, !tbaa !39
@@ -6223,7 +6223,7 @@ define internal fastcc ptr @Lf_ManFetchSet(ptr noundef captures(none) %0, i32 no
   %18 = load i32, ptr %17, align 4, !tbaa !154
   %19 = shl nsw i32 %18, 12
   %20 = sext i32 %19 to i64
-  %21 = tail call noalias ptr @calloc(i64 noundef %20, i64 noundef 8) #36
+  %21 = tail call noalias ptr @calloc(i64 noundef %20, i64 noundef 8) #38
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = getelementptr i8, ptr %0, i64 36
   %.val41 = load i32, ptr %23, align 4, !tbaa !132
@@ -6248,11 +6248,11 @@ define internal fastcc ptr @Lf_ManFetchSet(ptr noundef captures(none) %0, i32 no
   br i1 %.not9.i.i, label %34, label %32
 
 32:                                               ; preds = %29
-  %33 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %31, i64 noundef 128) #35
+  %33 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %31, i64 noundef 128) #37
   br label %Vec_PtrGrow.exit.i
 
 34:                                               ; preds = %29
-  %35 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #33
+  %35 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #35
   br label %Vec_PtrGrow.exit.i
 
 Vec_PtrGrow.exit.i:                               ; preds = %34, %32
@@ -6271,11 +6271,11 @@ Vec_PtrGrow.exit.i:                               ; preds = %34, %32
   br i1 %.not9.i10.i, label %45, label %43
 
 43:                                               ; preds = %37
-  %44 = tail call ptr @realloc(ptr noundef nonnull %40, i64 noundef %42) #35
+  %44 = tail call ptr @realloc(ptr noundef nonnull %40, i64 noundef %42) #37
   br label %47
 
 45:                                               ; preds = %37
-  %46 = tail call noalias ptr @malloc(i64 noundef %42) #33
+  %46 = tail call noalias ptr @malloc(i64 noundef %42) #35
   br label %47
 
 47:                                               ; preds = %45, %43
@@ -6318,11 +6318,11 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not9.i.i46, label %66, label %64
 
 64:                                               ; preds = %62
-  %65 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %63, i64 noundef 64) #35
+  %65 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %63, i64 noundef 64) #37
   br label %Vec_IntGrow.exit.i
 
 66:                                               ; preds = %62
-  %67 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #33
+  %67 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #35
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %66, %64
@@ -6340,11 +6340,11 @@ Vec_IntGrow.exit.i:                               ; preds = %66, %64
   br i1 %.not9.i9.i, label %76, label %74
 
 74:                                               ; preds = %69
-  %75 = tail call ptr @realloc(ptr noundef nonnull %71, i64 noundef %73) #35
+  %75 = tail call ptr @realloc(ptr noundef nonnull %71, i64 noundef %73) #37
   br label %78
 
 76:                                               ; preds = %69
-  %77 = tail call noalias ptr @malloc(i64 noundef %73) #33
+  %77 = tail call noalias ptr @malloc(i64 noundef %73) #35
   br label %78
 
 78:                                               ; preds = %76, %74
@@ -6429,11 +6429,11 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %.not9.i.i51, label %121, label %119
 
 119:                                              ; preds = %116
-  %120 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %118, i64 noundef 64) #35
+  %120 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %118, i64 noundef 64) #37
   br label %Vec_IntGrow.exit.i52
 
 121:                                              ; preds = %116
-  %122 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #33
+  %122 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #35
   br label %Vec_IntGrow.exit.i52
 
 Vec_IntGrow.exit.i52:                             ; preds = %121, %119
@@ -6452,11 +6452,11 @@ Vec_IntGrow.exit.i52:                             ; preds = %121, %119
   br i1 %.not9.i9.i50, label %132, label %130
 
 130:                                              ; preds = %124
-  %131 = tail call ptr @realloc(ptr noundef nonnull %127, i64 noundef %129) #35
+  %131 = tail call ptr @realloc(ptr noundef nonnull %127, i64 noundef %129) #37
   br label %134
 
 132:                                              ; preds = %124
-  %133 = tail call noalias ptr @malloc(i64 noundef %129) #33
+  %133 = tail call noalias ptr @malloc(i64 noundef %129) #35
   br label %134
 
 134:                                              ; preds = %132, %130
@@ -6496,7 +6496,7 @@ Vec_IntPush.exit53:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Lf_ManSetFlowRefs(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((4, 8)) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
+define void @Lf_ManSetFlowRefs(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((4, 8)) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #5 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -6530,11 +6530,11 @@ define void @Lf_ManSetFlowRefs(ptr noundef readonly captures(none) %0, ptr nound
   br i1 %.not9.i.i, label %27, label %25
 
 25:                                               ; preds = %20
-  %26 = tail call ptr @realloc(ptr noundef nonnull %22, i64 noundef %24) #35
+  %26 = tail call ptr @realloc(ptr noundef nonnull %22, i64 noundef %24) #37
   br label %29
 
 27:                                               ; preds = %20
-  %28 = tail call noalias ptr @malloc(i64 noundef %24) #33
+  %28 = tail call noalias ptr @malloc(i64 noundef %24) #35
   br label %29
 
 29:                                               ; preds = %27, %25
@@ -6712,12 +6712,12 @@ Gia_ObjFaninId2.exit:                             ; preds = %Gia_ObjIsAndNotBuf.
   br label %Gia_ObjIsAndNotBuf.exit113.thread.sink.split
 
 111:                                              ; preds = %Gia_ObjIsAndNotBuf.exit107.thread
-  %112 = call i32 @Gia_ObjIsMuxType(ptr noundef nonnull %44) #34
+  %112 = call i32 @Gia_ObjIsMuxType(ptr noundef nonnull %44) #36
   %.not64 = icmp eq i32 %112, 0
   br i1 %.not64, label %Gia_ObjIsAndNotBuf.exit113.thread, label %113
 
 113:                                              ; preds = %111
-  %114 = call ptr @Gia_ObjRecognizeMux(ptr noundef nonnull %44, ptr noundef nonnull %5, ptr noundef nonnull %4) #34
+  %114 = call ptr @Gia_ObjRecognizeMux(ptr noundef nonnull %44, ptr noundef nonnull %5, ptr noundef nonnull %4) #36
   %115 = ptrtoint ptr %114 to i64
   %116 = and i64 %115, -2
   %117 = inttoptr i64 %116 to ptr
@@ -6907,9 +6907,9 @@ Vec_FltUpdateEntry.exit:                          ; preds = %195, %199
   ret void
 }
 
-declare i32 @Gia_ObjIsMuxType(ptr noundef) local_unnamed_addr #5
+declare i32 @Gia_ObjIsMuxType(ptr noundef) local_unnamed_addr #6
 
-declare ptr @Gia_ObjRecognizeMux(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @Gia_ObjRecognizeMux(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Lf_ManSetCutRefs(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
@@ -7103,8 +7103,8 @@ Gia_ObjSibl.exit.thread:                          ; preds = %Gia_ObjSiblObj.exit
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Lf_ManSetMapRefsOne(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #15 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define void @Lf_ManSetMapRefsOne(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #16 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.val = load ptr, ptr %3, align 8, !tbaa !38
   %4 = getelementptr i8, ptr %0, i64 176
@@ -7365,8 +7365,8 @@ Lf_CutSwitches.exit:                              ; preds = %Lf_CutSwitches.exit
   ret void
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define internal fastcc noundef nonnull ptr @Lf_ObjCutBest(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #16 {
+; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc noundef nonnull ptr @Lf_ObjCutBest(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #17 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.val = load ptr, ptr %3, align 8, !tbaa !38
   %4 = getelementptr i8, ptr %0, i64 176
@@ -7616,7 +7616,7 @@ Lf_MemLoadCut.exit:                               ; preds = %._crit_edge.i, %Gia
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Lf_ManSetMapRefs(ptr noundef captures(none) %0) local_unnamed_addr #4 {
+define i32 @Lf_ManSetMapRefs(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %3 = load i32, ptr %2, align 8, !tbaa !88
   %4 = add nsw i32 %3, 1
@@ -7825,11 +7825,11 @@ thread-pre-split.thread:                          ; preds = %70, %.thread, %89, 
   br i1 %.not9.i.i, label %116, label %114
 
 114:                                              ; preds = %109
-  %115 = tail call ptr @realloc(ptr noundef nonnull %111, i64 noundef %113) #35
+  %115 = tail call ptr @realloc(ptr noundef nonnull %111, i64 noundef %113) #37
   br label %118
 
 116:                                              ; preds = %109
-  %117 = tail call noalias ptr @malloc(i64 noundef %113) #33
+  %117 = tail call noalias ptr @malloc(i64 noundef %113) #35
   br label %118
 
 118:                                              ; preds = %116, %114
@@ -7870,11 +7870,11 @@ Vec_IntFill.exit:                                 ; preds = %.lr.ph.i, %Vec_IntG
   br i1 %.not9.i.i227, label %136, label %134
 
 134:                                              ; preds = %129
-  %135 = tail call ptr @realloc(ptr noundef nonnull %131, i64 noundef %133) #35
+  %135 = tail call ptr @realloc(ptr noundef nonnull %131, i64 noundef %133) #37
   br label %138
 
 136:                                              ; preds = %129
-  %137 = tail call noalias ptr @malloc(i64 noundef %133) #33
+  %137 = tail call noalias ptr @malloc(i64 noundef %133) #35
   br label %138
 
 138:                                              ; preds = %136, %134
@@ -7912,7 +7912,7 @@ Vec_IntFill.exit228:                              ; preds = %143, %Vec_IntGrow.e
   br i1 %.not152, label %.critedge, label %149
 
 149:                                              ; preds = %Vec_IntFill.exit228
-  tail call void @Gia_ManCleanMark0(ptr noundef %.pre383) #34
+  tail call void @Gia_ManCleanMark0(ptr noundef %.pre383) #36
   %150 = load ptr, ptr %0, align 8, !tbaa !3
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 64
   %152 = load ptr, ptr %151, align 8, !tbaa !158
@@ -7987,7 +7987,7 @@ Vec_IntFill.exit228:                              ; preds = %143, %Vec_IntGrow.e
   br label %348
 
 190:                                              ; preds = %.critedge
-  tail call void @Tim_ManIncrementTravId(ptr noundef nonnull %174) #34
+  tail call void @Tim_ManIncrementTravId(ptr noundef nonnull %174) #36
   %191 = load ptr, ptr %65, align 8, !tbaa !55
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 120
   %193 = load i32, ptr %192, align 8, !tbaa !177
@@ -8112,7 +8112,7 @@ Lf_ObjCoArrival.exit257:                          ; preds = %234, %245, %247
   %259 = fptosi double %258 to i32
   %260 = sitofp i32 %259 to float
   %261 = trunc nuw nsw i64 %indvars.iv362 to i32
-  tail call void @Tim_ManSetCoRequired(ptr noundef %204, i32 noundef %261, float noundef %260) #34
+  tail call void @Tim_ManSetCoRequired(ptr noundef %204, i32 noundef %261, float noundef %260) #36
   %indvars.iv.next363 = add nuw nsw i64 %indvars.iv362, 1
   %262 = load ptr, ptr %0, align 8, !tbaa !3
   %263 = getelementptr i8, ptr %262, i64 72
@@ -8127,7 +8127,7 @@ Lf_ObjCoArrival.exit257:                          ; preds = %234, %245, %247
   %268 = getelementptr inbounds nuw i8, ptr %194, i64 736
   %269 = load ptr, ptr %268, align 8, !tbaa !176
   %270 = sitofp i32 %.1143 to float
-  tail call void @Tim_ManInitPoRequiredAll(ptr noundef %269, float noundef %270) #34
+  tail call void @Tim_ManInitPoRequiredAll(ptr noundef %269, float noundef %270) #36
   %.pre384 = load ptr, ptr %0, align 8, !tbaa !3
   br label %.loopexit
 
@@ -8218,7 +8218,7 @@ Lf_ObjCoArrival.exit257:                          ; preds = %234, %245, %247
   %315 = getelementptr inbounds nuw i32, ptr %.val198, i64 %indvars.iv.next366
   %316 = load i32, ptr %315, align 4, !tbaa !40
   %317 = sitofp i32 %316 to float
-  tail call void @Tim_ManSetCiRequired(ptr noundef %314, i32 noundef %288, float noundef %317) #34
+  tail call void @Tim_ManSetCiRequired(ptr noundef %314, i32 noundef %288, float noundef %317) #36
   br label %Lf_ObjSetRequired.exit
 
 318:                                              ; preds = %310
@@ -8231,7 +8231,7 @@ Lf_ObjCoArrival.exit257:                          ; preds = %234, %245, %247
   %321 = sub nsw i64 %indvars.iv.next366, %320
   %322 = getelementptr inbounds nuw i8, ptr %280, i64 736
   %323 = load ptr, ptr %322, align 8, !tbaa !176
-  %324 = tail call float @Tim_ManGetCoRequired(ptr noundef %323, i32 noundef %288) #34
+  %324 = tail call float @Tim_ManGetCoRequired(ptr noundef %323, i32 noundef %288) #36
   %325 = fptosi float %324 to i32
   %.val209 = load ptr, ptr %275, align 8, !tbaa !39
   %326 = getelementptr inbounds i32, ptr %.val209, i64 %321
@@ -8554,7 +8554,7 @@ Gia_ObjIsAndNotBuf.exit307.thread:                ; preds = %Lf_ObjSetRequired.e
 
 490:                                              ; preds = %.critedge2
   %491 = load ptr, ptr %0, align 8, !tbaa !3
-  tail call void @Gia_ManCleanMark0(ptr noundef %491) #34
+  tail call void @Gia_ManCleanMark0(ptr noundef %491) #36
   br label %492
 
 492:                                              ; preds = %490, %.critedge2
@@ -8600,7 +8600,7 @@ Gia_ObjIsAndNotBuf.exit307.thread:                ; preds = %Lf_ObjSetRequired.e
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @Abc_Print(i32 noundef range(i32 0, 2) %0, ptr noundef %1, ...) unnamed_addr #11 {
+define internal void @Abc_Print(i32 noundef range(i32 0, 2) %0, ptr noundef %1, ...) unnamed_addr #18 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !40
@@ -8608,7 +8608,7 @@ define internal void @Abc_Print(i32 noundef range(i32 0, 2) %0, ptr noundef %1, 
   br i1 %.not, label %27, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #34
+  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #36
   %.not8 = icmp eq i32 %6, 0
   %7 = icmp eq i32 %0, 0
   br i1 %.not8, label %8, label %11
@@ -8625,27 +8625,27 @@ define internal void @Abc_Print(i32 noundef range(i32 0, 2) %0, ptr noundef %1, 
 
 12:                                               ; preds = %11
   %13 = load ptr, ptr @stdout, align 8, !tbaa !184
-  %14 = tail call i32 @Gia_ManToBridgeText(ptr noundef %13, i32 noundef 9, ptr noundef nonnull @.str.49) #34
+  %14 = tail call i32 @Gia_ManToBridgeText(ptr noundef %13, i32 noundef 9, ptr noundef nonnull @.str.49) #36
   br label %15
 
 15:                                               ; preds = %12, %11, %9, %8
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %16 = call i32 (...) @Abc_FrameIsBridgeMode() #34
+  %16 = call i32 (...) @Abc_FrameIsBridgeMode() #36
   %.not9 = icmp eq i32 %16, 0
   br i1 %.not9, label %23, label %17
 
 17:                                               ; preds = %15
-  %18 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #34
+  %18 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #36
   %19 = load ptr, ptr @stdout, align 8, !tbaa !184
-  %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #37
+  %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #39
   %21 = trunc i64 %20 to i32
-  %22 = call i32 @Gia_ManToBridgeText(ptr noundef %19, i32 noundef %21, ptr noundef nonnull %18) #34
-  call void @free(ptr noundef %18) #34
+  %22 = call i32 @Gia_ManToBridgeText(ptr noundef %19, i32 noundef %21, ptr noundef nonnull %18) #36
+  call void @free(ptr noundef %18) #36
   br label %26
 
 23:                                               ; preds = %15
   %24 = load ptr, ptr @stdout, align 8, !tbaa !184, !noalias !186
-  %25 = call i32 @vfprintf(ptr noundef %24, ptr noundef %1, ptr noundef nonnull %3) #34
+  %25 = call i32 @vfprintf(ptr noundef %24, ptr noundef %1, ptr noundef nonnull %3) #36
   br label %26
 
 26:                                               ; preds = %23, %17
@@ -8657,23 +8657,23 @@ define internal void @Abc_Print(i32 noundef range(i32 0, 2) %0, ptr noundef %1, 
   ret void
 }
 
-declare void @Gia_ManCleanMark0(ptr noundef) local_unnamed_addr #5
+declare void @Gia_ManCleanMark0(ptr noundef) local_unnamed_addr #6
 
-declare void @Tim_ManIncrementTravId(ptr noundef) local_unnamed_addr #5
+declare void @Tim_ManIncrementTravId(ptr noundef) local_unnamed_addr #6
 
-declare void @Tim_ManSetCoRequired(ptr noundef, i32 noundef, float noundef) local_unnamed_addr #5
+declare void @Tim_ManSetCoRequired(ptr noundef, i32 noundef, float noundef) local_unnamed_addr #6
 
-declare void @Tim_ManInitPoRequiredAll(ptr noundef, float noundef) local_unnamed_addr #5
+declare void @Tim_ManInitPoRequiredAll(ptr noundef, float noundef) local_unnamed_addr #6
 
-declare void @Tim_ManSetCiRequired(ptr noundef, i32 noundef, float noundef) local_unnamed_addr #5
+declare void @Tim_ManSetCiRequired(ptr noundef, i32 noundef, float noundef) local_unnamed_addr #6
 
-declare float @Tim_ManGetCoRequired(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare float @Tim_ManGetCoRequired(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #17
+declare double @llvm.fmuladd.f64(double, double, double) #19
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Lf_ManCountMapRefsOne(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #15 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define void @Lf_ManCountMapRefsOne(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #16 {
   %3 = sext i32 %1 to i64
   %4 = tail call fastcc ptr @Lf_ObjCutBest(ptr noundef %0, i32 noundef %1)
   %5 = getelementptr i8, ptr %0, i64 192
@@ -8781,7 +8781,7 @@ Lf_CutSwitches.exit:                              ; preds = %._crit_edge.thread,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Lf_ManCountMapRefs(ptr noundef captures(none) %0) local_unnamed_addr #4 {
+define void @Lf_ManCountMapRefs(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = load ptr, ptr %0, align 8, !tbaa !3
   %3 = getelementptr i8, ptr %2, i64 72
   %.val154 = load ptr, ptr %3, align 8, !tbaa !49
@@ -8984,11 +8984,11 @@ thread-pre-split.thread:                          ; preds = %71, %.thread, %90, 
   br i1 %.not9.i.i, label %108, label %106
 
 106:                                              ; preds = %101
-  %107 = tail call ptr @realloc(ptr noundef nonnull %103, i64 noundef %105) #35
+  %107 = tail call ptr @realloc(ptr noundef nonnull %103, i64 noundef %105) #37
   br label %110
 
 108:                                              ; preds = %101
-  %109 = tail call noalias ptr @malloc(i64 noundef %105) #33
+  %109 = tail call noalias ptr @malloc(i64 noundef %105) #35
   br label %110
 
 110:                                              ; preds = %108, %106
@@ -9026,7 +9026,7 @@ Vec_IntFill.exit:                                 ; preds = %115, %Vec_IntGrow.e
   br i1 %.not111, label %122, label %121
 
 121:                                              ; preds = %Vec_IntFill.exit
-  tail call void @Gia_ManCleanMark0(ptr noundef %.pre314) #34
+  tail call void @Gia_ManCleanMark0(ptr noundef %.pre314) #36
   %.pre313 = load ptr, ptr %0, align 8, !tbaa !3
   br label %122
 
@@ -9062,7 +9062,7 @@ Vec_IntFill.exit:                                 ; preds = %115, %Vec_IntGrow.e
   br label %323
 
 140:                                              ; preds = %122
-  tail call void @Tim_ManIncrementTravId(ptr noundef nonnull %125) #34
+  tail call void @Tim_ManIncrementTravId(ptr noundef nonnull %125) #36
   %141 = load ptr, ptr %66, align 8, !tbaa !55
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 120
   %143 = load i32, ptr %142, align 8, !tbaa !177
@@ -9187,7 +9187,7 @@ Lf_ObjCoArrival.exit:                             ; preds = %184, %195, %197
   %209 = fptosi double %208 to i32
   %210 = sitofp i32 %209 to float
   %211 = trunc nuw nsw i64 %indvars.iv300 to i32
-  tail call void @Tim_ManSetCoRequired(ptr noundef %154, i32 noundef %211, float noundef %210) #34
+  tail call void @Tim_ManSetCoRequired(ptr noundef %154, i32 noundef %211, float noundef %210) #36
   %indvars.iv.next301 = add nuw nsw i64 %indvars.iv300, 1
   %212 = load ptr, ptr %0, align 8, !tbaa !3
   %213 = getelementptr i8, ptr %212, i64 72
@@ -9202,7 +9202,7 @@ Lf_ObjCoArrival.exit:                             ; preds = %184, %195, %197
   %218 = getelementptr inbounds nuw i8, ptr %144, i64 736
   %219 = load ptr, ptr %218, align 8, !tbaa !176
   %220 = sitofp i32 %.1 to float
-  tail call void @Tim_ManInitPoRequiredAll(ptr noundef %219, float noundef %220) #34
+  tail call void @Tim_ManInitPoRequiredAll(ptr noundef %219, float noundef %220) #36
   %.pre315 = load ptr, ptr %0, align 8, !tbaa !3
   br label %.loopexit
 
@@ -9388,7 +9388,7 @@ Lf_ManCountMapRefsOne.exit:                       ; preds = %._crit_edge.i, %._c
   %307 = getelementptr inbounds nuw i32, ptr %.val143, i64 %indvars.iv.next304
   %308 = load i32, ptr %307, align 4, !tbaa !40
   %309 = sitofp i32 %308 to float
-  tail call void @Tim_ManSetCiRequired(ptr noundef %306, i32 noundef %240, float noundef %309) #34
+  tail call void @Tim_ManSetCiRequired(ptr noundef %306, i32 noundef %240, float noundef %309) #36
   br label %Lf_ObjSetRequired.exit
 
 310:                                              ; preds = %302
@@ -9399,7 +9399,7 @@ Lf_ManCountMapRefsOne.exit:                       ; preds = %._crit_edge.i, %._c
 311:                                              ; preds = %310
   %312 = getelementptr inbounds nuw i8, ptr %232, i64 736
   %313 = load ptr, ptr %312, align 8, !tbaa !176
-  %314 = tail call float @Tim_ManGetCoRequired(ptr noundef %313, i32 noundef %240) #34
+  %314 = tail call float @Tim_ManGetCoRequired(ptr noundef %313, i32 noundef %240) #36
   %315 = fptosi float %314 to i32
   %.val139 = load i64, ptr %234, align 4
   %316 = and i64 %.val139, 536870911
@@ -9721,14 +9721,14 @@ Lf_ObjSetRequired.exit221:                        ; preds = %419, %411, %399, %4
 
 472:                                              ; preds = %.critedge
   %473 = load ptr, ptr %0, align 8, !tbaa !3
-  tail call void @Gia_ManCleanMark0(ptr noundef %473) #34
+  tail call void @Gia_ManCleanMark0(ptr noundef %473) #36
   br label %474
 
 474:                                              ; preds = %472, %.critedge
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define ptr @Lf_ManDeriveMapping(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !tbaa !3
   %3 = getelementptr i8, ptr %2, i64 24
@@ -9744,7 +9744,7 @@ define ptr @Lf_ManDeriveMapping(ptr noundef readonly captures(none) %0) local_un
   %12 = trunc i64 %11 to i32
   %13 = shl nsw i32 %12, 1
   %14 = add nsw i32 %9, %13
-  %15 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #33
+  %15 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #35
   %16 = add i32 %14, -1
   %or.cond.i = icmp ult i32 %16, 15
   %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %14
@@ -9756,7 +9756,7 @@ define ptr @Lf_ManDeriveMapping(ptr noundef readonly captures(none) %0) local_un
 Vec_IntAlloc.exit:                                ; preds = %1
   %18 = sext i32 %spec.store.select.i to i64
   %19 = shl nsw i64 %18, 2
-  %20 = tail call noalias ptr @malloc(i64 noundef %19) #33
+  %20 = tail call noalias ptr @malloc(i64 noundef %19) #35
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %20, ptr %21, align 8, !tbaa !39
   %.not.i.i = icmp slt i32 %spec.store.select.i, %.val33
@@ -9780,13 +9780,13 @@ Vec_IntAlloc.exit.thread:                         ; preds = %1
   br i1 %.not9.i.i, label %30, label %28
 
 28:                                               ; preds = %25
-  %29 = tail call ptr @realloc(ptr noundef nonnull %20, i64 noundef %27) #35
+  %29 = tail call ptr @realloc(ptr noundef nonnull %20, i64 noundef %27) #37
   br label %34
 
 30:                                               ; preds = %.thread, %25
   %31 = phi i64 [ %24, %.thread ], [ %27, %25 ]
   %32 = phi ptr [ %22, %.thread ], [ %21, %25 ]
-  %33 = tail call noalias ptr @malloc(i64 noundef %31) #33
+  %33 = tail call noalias ptr @malloc(i64 noundef %31) #35
   br label %34
 
 34:                                               ; preds = %30, %28
@@ -9866,7 +9866,7 @@ Vec_IntPush.exit.sink.split:                      ; preds = %57
   %69 = shl nuw nsw i64 %68, 2
   %.sink82 = select i1 %66, i64 64, i64 %69
   %.sink = select i1 %66, i32 16, i32 %67
-  %70 = tail call ptr @realloc(ptr noundef nonnull %.val35, i64 noundef %.sink82) #35
+  %70 = tail call ptr @realloc(ptr noundef nonnull %.val35, i64 noundef %.sink82) #37
   store ptr %70, ptr %38, align 8, !tbaa !39
   store i32 %.sink, ptr %15, align 8, !tbaa !155
   br label %Vec_IntPush.exit
@@ -9904,7 +9904,7 @@ Vec_IntPush.exit47.sink.split:                    ; preds = %78
   %88 = shl nuw nsw i64 %87, 2
   %.sink85 = select i1 %85, i64 64, i64 %88
   %.sink83 = select i1 %85, i32 16, i32 %86
-  %89 = tail call ptr @realloc(ptr noundef nonnull %79, i64 noundef %.sink85) #35
+  %89 = tail call ptr @realloc(ptr noundef nonnull %79, i64 noundef %.sink85) #37
   store ptr %89, ptr %38, align 8, !tbaa !39
   store i32 %.sink83, ptr %15, align 8, !tbaa !155
   br label %Vec_IntPush.exit47
@@ -9943,7 +9943,7 @@ Vec_IntPush.exit54.sink.split:                    ; preds = %._crit_edge
   %105 = shl nuw nsw i64 %104, 2
   %.sink89 = select i1 %102, i64 64, i64 %105
   %.sink87 = select i1 %102, i32 16, i32 %103
-  %106 = tail call ptr @realloc(ptr noundef nonnull %98, i64 noundef %.sink89) #35
+  %106 = tail call ptr @realloc(ptr noundef nonnull %98, i64 noundef %.sink89) #37
   store ptr %106, ptr %38, align 8, !tbaa !39
   store i32 %.sink87, ptr %15, align 8, !tbaa !155
   br label %Vec_IntPush.exit54
@@ -9976,20 +9976,20 @@ Vec_IntPush.exit54:                               ; preds = %Vec_IntPush.exit54.
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Lf_ManDeriveMappingCoarse(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define ptr @Lf_ManDeriveMappingCoarse(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = load ptr, ptr %0, align 8, !tbaa !3
   %3 = getelementptr i8, ptr %2, i64 24
   %.val87 = load i32, ptr %3, align 8, !tbaa !41
-  %4 = tail call ptr @Gia_ManStart(i32 noundef %.val87) #34
+  %4 = tail call ptr @Gia_ManStart(i32 noundef %.val87) #36
   %5 = load ptr, ptr %2, align 8, !tbaa !199
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #37
+  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #39
   %8 = add i64 %7, 1
-  %9 = tail call noalias ptr @malloc(i64 noundef %8) #33
-  %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %5) #34
+  %9 = tail call noalias ptr @malloc(i64 noundef %8) #35
+  %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %5) #36
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %1, %6
@@ -10001,10 +10001,10 @@ Abc_UtilStrsav.exit:                              ; preds = %1, %6
   br i1 %.not.i101, label %Abc_UtilStrsav.exit102, label %14
 
 14:                                               ; preds = %Abc_UtilStrsav.exit
-  %15 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %13) #37
+  %15 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %13) #39
   %16 = add i64 %15, 1
-  %17 = tail call noalias ptr @malloc(i64 noundef %16) #33
-  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %13) #34
+  %17 = tail call noalias ptr @malloc(i64 noundef %16) #35
+  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %13) #36
   br label %Abc_UtilStrsav.exit102
 
 Abc_UtilStrsav.exit102:                           ; preds = %Abc_UtilStrsav.exit, %14
@@ -10035,7 +10035,7 @@ Abc_UtilStrsav.exit102:                           ; preds = %Abc_UtilStrsav.exit
   %39 = trunc i64 %38 to i32
   %40 = shl nsw i32 %39, 2
   %41 = add nsw i32 %36, %40
-  %42 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #33
+  %42 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #35
   %43 = add i32 %41, -1
   %or.cond.i = icmp ult i32 %43, 15
   %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %41
@@ -10047,7 +10047,7 @@ Abc_UtilStrsav.exit102:                           ; preds = %Abc_UtilStrsav.exit
 Vec_IntAlloc.exit:                                ; preds = %Abc_UtilStrsav.exit102
   %45 = sext i32 %spec.store.select.i to i64
   %46 = shl nsw i64 %45, 2
-  %47 = tail call noalias ptr @malloc(i64 noundef %46) #33
+  %47 = tail call noalias ptr @malloc(i64 noundef %46) #35
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %47, ptr %48, align 8, !tbaa !39
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 264
@@ -10075,14 +10075,14 @@ Vec_IntAlloc.exit.thread:                         ; preds = %Abc_UtilStrsav.exit
   br i1 %.not9.i.i, label %59, label %57
 
 57:                                               ; preds = %54
-  %58 = tail call ptr @realloc(ptr noundef nonnull %47, i64 noundef %56) #35
+  %58 = tail call ptr @realloc(ptr noundef nonnull %47, i64 noundef %56) #37
   br label %64
 
 59:                                               ; preds = %.thread, %54
   %60 = phi i64 [ %53, %.thread ], [ %56, %54 ]
   %61 = phi ptr [ %50, %.thread ], [ %48, %54 ]
   %62 = phi ptr [ %51, %.thread ], [ %49, %54 ]
-  %63 = tail call noalias ptr @malloc(i64 noundef %60) #33
+  %63 = tail call noalias ptr @malloc(i64 noundef %60) #35
   br label %64
 
 64:                                               ; preds = %59, %57
@@ -10345,7 +10345,7 @@ Vec_IntPush.exit.sink.split:                      ; preds = %216
   %235 = shl nuw nsw i64 %234, 2
   %.sink158 = select i1 %232, i64 64, i64 %235
   %.sink156 = select i1 %232, i32 16, i32 %233
-  %236 = tail call ptr @realloc(ptr noundef nonnull %.val89, i64 noundef %.sink158) #35
+  %236 = tail call ptr @realloc(ptr noundef nonnull %.val89, i64 noundef %.sink158) #37
   store ptr %236, ptr %224, align 8, !tbaa !39
   store i32 %.sink156, ptr %219, align 8, !tbaa !155
   br label %Vec_IntPush.exit
@@ -10399,11 +10399,11 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br i1 %.not9.i.i117, label %264, label %262
 
 262:                                              ; preds = %259
-  %263 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %261, i64 noundef 64) #35
+  %263 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %261, i64 noundef 64) #37
   br label %Vec_IntGrow.exit.i118
 
 264:                                              ; preds = %259
-  %265 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #33
+  %265 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #35
   br label %Vec_IntGrow.exit.i118
 
 Vec_IntGrow.exit.i118:                            ; preds = %264, %262
@@ -10422,11 +10422,11 @@ Vec_IntGrow.exit.i118:                            ; preds = %264, %262
   br i1 %.not9.i9.i116, label %275, label %273
 
 273:                                              ; preds = %267
-  %274 = tail call ptr @realloc(ptr noundef nonnull %270, i64 noundef %272) #35
+  %274 = tail call ptr @realloc(ptr noundef nonnull %270, i64 noundef %272) #37
   br label %277
 
 275:                                              ; preds = %267
-  %276 = tail call noalias ptr @malloc(i64 noundef %272) #33
+  %276 = tail call noalias ptr @malloc(i64 noundef %272) #35
   br label %277
 
 277:                                              ; preds = %275, %273
@@ -10481,11 +10481,11 @@ Vec_IntPush.exit119:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %.not9.i.i124, label %305, label %303
 
 303:                                              ; preds = %300
-  %304 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %302, i64 noundef 64) #35
+  %304 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %302, i64 noundef 64) #37
   br label %Vec_IntGrow.exit.i125
 
 305:                                              ; preds = %300
-  %306 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #33
+  %306 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #35
   br label %Vec_IntGrow.exit.i125
 
 Vec_IntGrow.exit.i125:                            ; preds = %305, %303
@@ -10504,11 +10504,11 @@ Vec_IntGrow.exit.i125:                            ; preds = %305, %303
   br i1 %.not9.i9.i123, label %316, label %314
 
 314:                                              ; preds = %308
-  %315 = tail call ptr @realloc(ptr noundef nonnull %311, i64 noundef %313) #35
+  %315 = tail call ptr @realloc(ptr noundef nonnull %311, i64 noundef %313) #37
   br label %318
 
 316:                                              ; preds = %308
-  %317 = tail call noalias ptr @malloc(i64 noundef %313) #33
+  %317 = tail call noalias ptr @malloc(i64 noundef %313) #35
   br label %318
 
 318:                                              ; preds = %316, %314
@@ -10537,14 +10537,14 @@ Vec_IntPush.exit126:                              ; preds = %.Vec_IntGrow.exit10
 .critedge:                                        ; preds = %325, %Vec_IntFill.exit
   %329 = getelementptr i8, ptr %2, i64 16
   %.val100 = load i32, ptr %329, align 8, !tbaa !205
-  tail call void @Gia_ManSetRegNum(ptr noundef nonnull %4, i32 noundef %.val100) #34
+  tail call void @Gia_ManSetRegNum(ptr noundef nonnull %4, i32 noundef %.val100) #36
   ret ptr %4
 }
 
-declare ptr @Gia_ManStart(i32 noundef) local_unnamed_addr #5
+declare ptr @Gia_ManStart(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendCi(ptr noundef captures(none) %0) unnamed_addr #11 {
+define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendCi(ptr noundef captures(none) %0) unnamed_addr #18 {
   %2 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %3 = load i64, ptr %2, align 4
   %4 = or i64 %3, 2684354559
@@ -10584,11 +10584,11 @@ define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendCi(ptr noundef capture
   br i1 %.not9.i.i, label %26, label %24
 
 24:                                               ; preds = %21
-  %25 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %23, i64 noundef 64) #35
+  %25 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %23, i64 noundef 64) #37
   br label %Vec_IntGrow.exit.i
 
 26:                                               ; preds = %21
-  %27 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #33
+  %27 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #35
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %26, %24
@@ -10607,11 +10607,11 @@ Vec_IntGrow.exit.i:                               ; preds = %26, %24
   br i1 %.not9.i9.i, label %37, label %35
 
 35:                                               ; preds = %29
-  %36 = tail call ptr @realloc(ptr noundef nonnull %32, i64 noundef %34) #35
+  %36 = tail call ptr @realloc(ptr noundef nonnull %32, i64 noundef %34) #37
   br label %39
 
 37:                                               ; preds = %29
-  %38 = tail call noalias ptr @malloc(i64 noundef %34) #33
+  %38 = tail call noalias ptr @malloc(i64 noundef %34) #35
   br label %39
 
 39:                                               ; preds = %37, %35
@@ -10643,7 +10643,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #11 {
+define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #18 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648
@@ -10704,11 +10704,11 @@ define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendCo(ptr noundef %0, i32
   br i1 %.not9.i.i, label %46, label %44
 
 44:                                               ; preds = %41
-  %45 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %43, i64 noundef 64) #35
+  %45 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %43, i64 noundef 64) #37
   br label %Vec_IntGrow.exit.i
 
 46:                                               ; preds = %41
-  %47 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #33
+  %47 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #35
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %46, %44
@@ -10727,11 +10727,11 @@ Vec_IntGrow.exit.i:                               ; preds = %46, %44
   br i1 %.not9.i9.i, label %57, label %55
 
 55:                                               ; preds = %49
-  %56 = tail call ptr @realloc(ptr noundef nonnull %52, i64 noundef %54) #35
+  %56 = tail call ptr @realloc(ptr noundef nonnull %52, i64 noundef %54) #37
   br label %59
 
 57:                                               ; preds = %49
-  %58 = tail call noalias ptr @malloc(i64 noundef %54) #33
+  %58 = tail call noalias ptr @malloc(i64 noundef %54) #35
   br label %59
 
 59:                                               ; preds = %57, %55
@@ -10758,7 +10758,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %70 = and i64 %69, 536870911
   %71 = sub nsw i64 0, %70
   %72 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %3, i64 %71
-  tail call void @Gia_ObjAddFanout(ptr noundef nonnull %0, ptr noundef nonnull %72, ptr noundef nonnull %3) #34
+  tail call void @Gia_ObjAddFanout(ptr noundef nonnull %0, ptr noundef nonnull %72, ptr noundef nonnull %3) #36
   br label %73
 
 73:                                               ; preds = %68, %Vec_IntPush.exit
@@ -10772,7 +10772,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #11 {
+define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #18 {
   %4 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %5 = icmp slt i32 %1, %2
   %6 = getelementptr i8, ptr %0, i64 32
@@ -10853,13 +10853,13 @@ define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendAnd(ptr noundef %0, i3
   %65 = and i64 %storemerge, 536870911
   %66 = sub nsw i64 0, %65
   %67 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %4, i64 %66
-  tail call void @Gia_ObjAddFanout(ptr noundef nonnull %0, ptr noundef nonnull %67, ptr noundef nonnull %4) #34
+  tail call void @Gia_ObjAddFanout(ptr noundef nonnull %0, ptr noundef nonnull %67, ptr noundef nonnull %4) #36
   %68 = load i64, ptr %4, align 4
   %69 = lshr i64 %68, 32
   %70 = and i64 %69, 536870911
   %71 = sub nsw i64 0, %70
   %72 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %4, i64 %71
-  tail call void @Gia_ObjAddFanout(ptr noundef nonnull %0, ptr noundef nonnull %72, ptr noundef nonnull %4) #34
+  tail call void @Gia_ObjAddFanout(ptr noundef nonnull %0, ptr noundef nonnull %72, ptr noundef nonnull %4) #36
   br label %73
 
 73:                                               ; preds = %64, %61
@@ -10941,7 +10941,7 @@ define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendAnd(ptr noundef %0, i3
   %126 = sub i64 %124, %125
   %127 = sdiv exact i64 %126, 12
   %128 = trunc i64 %127 to i32
-  tail call void @Gia_ManBuiltInSimPerform(ptr noundef nonnull %0, i32 noundef %128) #34
+  tail call void @Gia_ManBuiltInSimPerform(ptr noundef nonnull %0, i32 noundef %128) #36
   br label %129
 
 129:                                              ; preds = %103, %100
@@ -10951,7 +10951,7 @@ define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendAnd(ptr noundef %0, i3
   br i1 %.not71, label %133, label %132
 
 132:                                              ; preds = %129
-  tail call void @Gia_ManQuantSetSuppAnd(ptr noundef nonnull %0, ptr noundef nonnull %4) #34
+  tail call void @Gia_ManQuantSetSuppAnd(ptr noundef nonnull %0, ptr noundef nonnull %4) #36
   br label %133
 
 133:                                              ; preds = %132, %129
@@ -10966,10 +10966,10 @@ define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendAnd(ptr noundef %0, i3
   ret i32 %140
 }
 
-declare void @Gia_ManSetRegNum(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @Gia_ManSetRegNum(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define ptr @Lf_ManDeriveMappingGia(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define ptr @Lf_ManDeriveMappingGia(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = alloca [128 x i64], align 16
   %3 = alloca [13 x i32], align 16
   %.sroa.0 = alloca i32, align 4
@@ -10977,7 +10977,7 @@ define ptr @Lf_ManDeriveMappingGia(ptr noundef readonly captures(none) %0) local
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = getelementptr i8, ptr %4, i64 24
   %.val112 = load i32, ptr %5, align 8, !tbaa !41
-  %6 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #33
+  %6 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #35
   %7 = add i32 %.val112, -1
   %or.cond.i.i = icmp ult i32 %7, 15
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 16, i32 %.val112
@@ -10995,7 +10995,7 @@ Vec_IntAlloc.exit.thread.i:                       ; preds = %1
 Vec_IntAlloc.exit.i:                              ; preds = %1
   %10 = sext i32 %spec.store.select.i.i to i64
   %11 = shl nsw i64 %10, 2
-  %12 = tail call noalias ptr @malloc(i64 noundef %11) #33
+  %12 = tail call noalias ptr @malloc(i64 noundef %11) #35
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %12, ptr %13, align 8, !tbaa !39
   store i32 %.val112, ptr %8, align 4, !tbaa !50
@@ -11026,7 +11026,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %30 = trunc i64 %29 to i32
   %31 = shl nsw i32 %30, 2
   %32 = add nsw i32 %27, %31
-  %33 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #33
+  %33 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #35
   %34 = add i32 %32, -1
   %or.cond.i.i130 = icmp ult i32 %34, 15
   %spec.store.select.i.i131 = select i1 %or.cond.i.i130, i32 16, i32 %32
@@ -11044,7 +11044,7 @@ Vec_IntAlloc.exit.thread.i135:                    ; preds = %Vec_IntStartFull.ex
 Vec_IntAlloc.exit.i133:                           ; preds = %Vec_IntStartFull.exit
   %37 = sext i32 %spec.store.select.i.i131 to i64
   %38 = shl nsw i64 %37, 2
-  %39 = tail call noalias ptr @malloc(i64 noundef %38) #33
+  %39 = tail call noalias ptr @malloc(i64 noundef %38) #35
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %39, ptr %40, align 8, !tbaa !39
   store i32 %32, ptr %35, align 4, !tbaa !50
@@ -11067,7 +11067,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %44 = shl nsw i32 %.pre-phi234, 1
   %45 = add nsw i32 %44, %.pre-phi
   %46 = add nsw i32 %45, 1000
-  %47 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #33
+  %47 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #35
   %48 = add nsw i32 %45, 999
   %or.cond.i.i136 = icmp ult i32 %48, 15
   %spec.store.select.i.i137 = select i1 %or.cond.i.i136, i32 16, i32 %46
@@ -11085,7 +11085,7 @@ Vec_IntAlloc.exit.thread.i141:                    ; preds = %Vec_IntStart.exit
 Vec_IntAlloc.exit.i139:                           ; preds = %Vec_IntStart.exit
   %51 = sext i32 %spec.store.select.i.i137 to i64
   %52 = shl nsw i64 %51, 2
-  %53 = tail call noalias ptr @malloc(i64 noundef %52) #33
+  %53 = tail call noalias ptr @malloc(i64 noundef %52) #35
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %53, ptr %54, align 8, !tbaa !39
   store i32 %46, ptr %49, align 4, !tbaa !50
@@ -11100,31 +11100,31 @@ Vec_IntAlloc.exit.i139:                           ; preds = %Vec_IntStart.exit
 
 Vec_IntStart.exit142:                             ; preds = %Vec_IntAlloc.exit.thread.i141, %Vec_IntAlloc.exit.i139, %55
   %.pre.i177.i221 = phi ptr [ null, %Vec_IntAlloc.exit.thread.i141 ], [ null, %Vec_IntAlloc.exit.i139 ], [ %53, %55 ]
-  %58 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #33
+  %58 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #35
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   store i32 0, ptr %59, align 4, !tbaa !50
   store i32 65536, ptr %58, align 8, !tbaa !155
-  %60 = tail call noalias dereferenceable_or_null(262144) ptr @malloc(i64 noundef 262144) #33
+  %60 = tail call noalias dereferenceable_or_null(262144) ptr @malloc(i64 noundef 262144) #35
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr %60, ptr %61, align 8, !tbaa !39
-  %62 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #33
+  %62 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #35
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   store i32 0, ptr %63, align 4, !tbaa !50
   store i32 16, ptr %62, align 8, !tbaa !155
-  %64 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #33
+  %64 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #35
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %64, ptr %65, align 8, !tbaa !39
-  %66 = tail call ptr @Gia_ManStart(i32 noundef %.val112) #34
+  %66 = tail call ptr @Gia_ManStart(i32 noundef %.val112) #36
   %67 = load ptr, ptr %0, align 8, !tbaa !3
   %68 = load ptr, ptr %67, align 8, !tbaa !199
   %.not.i143 = icmp eq ptr %68, null
   br i1 %.not.i143, label %Abc_UtilStrsav.exit, label %69
 
 69:                                               ; preds = %Vec_IntStart.exit142
-  %70 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %68) #37
+  %70 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %68) #39
   %71 = add i64 %70, 1
-  %72 = tail call noalias ptr @malloc(i64 noundef %71) #33
-  %73 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull readonly dereferenceable(1) %68) #34
+  %72 = tail call noalias ptr @malloc(i64 noundef %71) #35
+  %73 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull readonly dereferenceable(1) %68) #36
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %Vec_IntStart.exit142, %69
@@ -11136,10 +11136,10 @@ Abc_UtilStrsav.exit:                              ; preds = %Vec_IntStart.exit14
   br i1 %.not.i144, label %Abc_UtilStrsav.exit145, label %77
 
 77:                                               ; preds = %Abc_UtilStrsav.exit
-  %78 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %76) #37
+  %78 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %76) #39
   %79 = add i64 %78, 1
-  %80 = tail call noalias ptr @malloc(i64 noundef %79) #33
-  %81 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %80, ptr noundef nonnull readonly dereferenceable(1) %76) #34
+  %80 = tail call noalias ptr @malloc(i64 noundef %79) #35
+  %81 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %80, ptr noundef nonnull readonly dereferenceable(1) %76) #36
   br label %Abc_UtilStrsav.exit145
 
 Abc_UtilStrsav.exit145:                           ; preds = %Abc_UtilStrsav.exit, %77
@@ -11565,11 +11565,11 @@ Abc_TtCofactor1p.exit.i:                          ; preds = %._crit_edge.us.i.i,
   br i1 %.not9.i.i.i, label %310, label %308
 
 308:                                              ; preds = %306
-  %309 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %307, i64 noundef 64) #35
+  %309 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %307, i64 noundef 64) #37
   br label %Vec_IntGrow.exit.i.i
 
 310:                                              ; preds = %306
-  %311 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #33
+  %311 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #35
   br label %Vec_IntGrow.exit.i.i
 
 Vec_IntGrow.exit.i.i:                             ; preds = %310, %308
@@ -11587,11 +11587,11 @@ Vec_IntGrow.exit.i.i:                             ; preds = %310, %308
   br i1 %.not9.i9.i.i, label %320, label %318
 
 318:                                              ; preds = %313
-  %319 = call ptr @realloc(ptr noundef nonnull %315, i64 noundef %317) #35
+  %319 = call ptr @realloc(ptr noundef nonnull %315, i64 noundef %317) #37
   br label %322
 
 320:                                              ; preds = %313
-  %321 = call noalias ptr @malloc(i64 noundef %317) #33
+  %321 = call noalias ptr @malloc(i64 noundef %317) #35
   br label %322
 
 322:                                              ; preds = %320, %318
@@ -11613,7 +11613,7 @@ Vec_IntPush.exit.i:                               ; preds = %322, %Vec_IntGrow.e
   br i1 %exitcond352.not.i, label %._crit_edge326.i, label %.lr.ph325.i, !llvm.loop !211
 
 ._crit_edge326.i:                                 ; preds = %Vec_IntPush.exit.i, %Abc_TtCofactor1p.exit.i
-  %329 = call i32 @Kit_TruthToGia(ptr noundef nonnull %66, ptr noundef nonnull %2, i32 noundef %291, ptr noundef nonnull %58, ptr noundef nonnull %62, i32 noundef 0) #34
+  %329 = call i32 @Kit_TruthToGia(ptr noundef nonnull %66, ptr noundef nonnull %2, i32 noundef %291, ptr noundef nonnull %58, ptr noundef nonnull %62, i32 noundef 0) #36
   store i32 %329, ptr %indvars.iv356.i.sroa.phi, align 4, !tbaa !40
   %330 = ashr i32 %329, 1
   %.val154.i = load i32, ptr %49, align 4, !tbaa !50
@@ -11640,11 +11640,11 @@ Vec_IntPush.exit.i:                               ; preds = %322, %Vec_IntGrow.e
   br i1 %.not9.i.i.i.i, label %343, label %341
 
 341:                                              ; preds = %337
-  %342 = call ptr @realloc(ptr noundef nonnull %338, i64 noundef %340) #35
+  %342 = call ptr @realloc(ptr noundef nonnull %338, i64 noundef %340) #37
   br label %Vec_IntGrow.exit.sink.split.i.i.i
 
 343:                                              ; preds = %337
-  %344 = call noalias ptr @malloc(i64 noundef %340) #33
+  %344 = call noalias ptr @malloc(i64 noundef %340) #35
   br label %Vec_IntGrow.exit.sink.split.i.i.i
 
 345:                                              ; preds = %333
@@ -11658,11 +11658,11 @@ Vec_IntPush.exit.i:                               ; preds = %322, %Vec_IntGrow.e
   br i1 %.not9.i21.i.i.i, label %352, label %350
 
 350:                                              ; preds = %346
-  %351 = call ptr @realloc(ptr noundef nonnull %347, i64 noundef %349) #35
+  %351 = call ptr @realloc(ptr noundef nonnull %347, i64 noundef %349) #37
   br label %Vec_IntGrow.exit.sink.split.i.i.i
 
 352:                                              ; preds = %346
-  %353 = call noalias ptr @malloc(i64 noundef %349) #33
+  %353 = call noalias ptr @malloc(i64 noundef %349) #35
   br label %Vec_IntGrow.exit.sink.split.i.i.i
 
 Vec_IntGrow.exit.sink.split.i.i.i:                ; preds = %352, %350, %343, %341
@@ -11704,11 +11704,11 @@ Vec_IntSetEntry.exit.i:                           ; preds = %._crit_edge.i.i.i, 
   br i1 %.not9.i.i179.i, label %370, label %368
 
 368:                                              ; preds = %367
-  %369 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %234, i64 noundef 64) #35
+  %369 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %234, i64 noundef 64) #37
   br label %Vec_IntPush.exit181.i.sink.split
 
 370:                                              ; preds = %367
-  %371 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #33
+  %371 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #35
   br label %Vec_IntPush.exit181.i.sink.split
 
 372:                                              ; preds = %365
@@ -11719,11 +11719,11 @@ Vec_IntSetEntry.exit.i:                           ; preds = %._crit_edge.i.i.i, 
   br i1 %.not9.i9.i178.i, label %378, label %376
 
 376:                                              ; preds = %372
-  %377 = call ptr @realloc(ptr noundef nonnull %234, i64 noundef %375) #35
+  %377 = call ptr @realloc(ptr noundef nonnull %234, i64 noundef %375) #37
   br label %Vec_IntPush.exit181.i.sink.split
 
 378:                                              ; preds = %372
-  %379 = call noalias ptr @malloc(i64 noundef %375) #33
+  %379 = call noalias ptr @malloc(i64 noundef %375) #35
   br label %Vec_IntPush.exit181.i.sink.split
 
 Vec_IntPush.exit181.i.sink.split:                 ; preds = %376, %378, %368, %370
@@ -11764,7 +11764,7 @@ Vec_IntPush.exit188.sink.split.i:                 ; preds = %.lr.ph329.i
   %394 = shl nuw nsw i64 %393, 2
   %.sink457.i = select i1 %391, i64 64, i64 %394
   %.sink455.i = select i1 %391, i32 16, i32 %392
-  %395 = call ptr @realloc(ptr noundef nonnull %384, i64 noundef %.sink457.i) #35
+  %395 = call ptr @realloc(ptr noundef nonnull %384, i64 noundef %.sink457.i) #37
   store ptr %395, ptr %.phi.trans.insert.i299.i, align 8, !tbaa !39
   store i32 %.sink455.i, ptr %47, align 8, !tbaa !155
   %.pre222 = load i32, ptr %49, align 4, !tbaa !50
@@ -11802,7 +11802,7 @@ Vec_IntPush.exit195.sink.split.i:                 ; preds = %.critedge.i
   %411 = shl nuw nsw i64 %410, 2
   %.sink460.i = select i1 %408, i64 64, i64 %411
   %.sink458.i = select i1 %408, i32 16, i32 %409
-  %412 = call ptr @realloc(ptr noundef nonnull %402, i64 noundef %.sink460.i) #35
+  %412 = call ptr @realloc(ptr noundef nonnull %402, i64 noundef %.sink460.i) #37
   store ptr %412, ptr %.phi.trans.insert.i299.i, align 8, !tbaa !39
   store i32 %.sink458.i, ptr %47, align 8, !tbaa !155
   %.pre223 = load i32, ptr %49, align 4, !tbaa !50
@@ -11833,12 +11833,12 @@ Vec_IntPush.exit195.i:                            ; preds = %Vec_IntPush.exit195
   br i1 %.not9.i.i200.i, label %425, label %423
 
 423:                                              ; preds = %422
-  %424 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %421, i64 noundef 64) #35
+  %424 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %421, i64 noundef 64) #37
   %.pre.pre.i = load i32, ptr %63, align 4, !tbaa !50
   br label %Vec_IntGrow.exit.i201.i
 
 425:                                              ; preds = %422
-  %426 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #33
+  %426 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #35
   br label %Vec_IntGrow.exit.i201.i
 
 Vec_IntGrow.exit.i201.i:                          ; preds = %425, %423
@@ -11869,7 +11869,7 @@ Vec_IntPush.exit209.sink.split.i:                 ; preds = %Vec_IntPush.exit202
   %439 = shl nuw nsw i64 %438, 2
   %.sink463.i = select i1 %436, i64 64, i64 %439
   %.sink461.i = select i1 %436, i32 16, i32 %437
-  %440 = call ptr @realloc(ptr noundef nonnull %429, i64 noundef %.sink463.i) #35
+  %440 = call ptr @realloc(ptr noundef nonnull %429, i64 noundef %.sink463.i) #37
   store ptr %440, ptr %65, align 8, !tbaa !39
   store i32 %.sink461.i, ptr %62, align 8, !tbaa !155
   %.pre224 = load i32, ptr %63, align 4, !tbaa !50
@@ -11901,7 +11901,7 @@ Vec_IntPush.exit216.sink.split.i:                 ; preds = %Vec_IntPush.exit209
   %457 = shl nuw nsw i64 %456, 2
   %.sink466.i = select i1 %454, i64 64, i64 %457
   %.sink464.i = select i1 %454, i32 16, i32 %455
-  %458 = call ptr @realloc(ptr noundef nonnull %442, i64 noundef %.sink466.i) #35
+  %458 = call ptr @realloc(ptr noundef nonnull %442, i64 noundef %.sink466.i) #37
   store ptr %458, ptr %65, align 8, !tbaa !39
   store i32 %.sink464.i, ptr %62, align 8, !tbaa !155
   %.pre225 = load i32, ptr %63, align 4, !tbaa !50
@@ -11916,7 +11916,7 @@ Vec_IntPush.exit216.i:                            ; preds = %Vec_IntPush.exit216
   %463 = getelementptr inbounds i32, ptr %460, i64 %462
   store i32 %450, ptr %463, align 4, !tbaa !40
   %.val151.i = load i32, ptr %63, align 4, !tbaa !50
-  %464 = call i32 @Kit_TruthToGia(ptr noundef nonnull %66, ptr noundef nonnull %2, i32 noundef %.val151.i, ptr noundef nonnull %58, ptr noundef nonnull %62, i32 noundef 0) #34
+  %464 = call i32 @Kit_TruthToGia(ptr noundef nonnull %66, ptr noundef nonnull %2, i32 noundef %.val151.i, ptr noundef nonnull %58, ptr noundef nonnull %62, i32 noundef 0) #36
   %465 = ashr i32 %464, 1
   %.val150.i = load i32, ptr %49, align 4, !tbaa !50
   %466 = add nsw i32 %465, 1
@@ -11942,11 +11942,11 @@ Vec_IntPush.exit216.i:                            ; preds = %Vec_IntPush.exit216
   br i1 %.not9.i.i.i220.i, label %478, label %476
 
 476:                                              ; preds = %472
-  %477 = call ptr @realloc(ptr noundef nonnull %473, i64 noundef %475) #35
+  %477 = call ptr @realloc(ptr noundef nonnull %473, i64 noundef %475) #37
   br label %Vec_IntGrow.exit.sink.split.i.i221.i
 
 478:                                              ; preds = %472
-  %479 = call noalias ptr @malloc(i64 noundef %475) #33
+  %479 = call noalias ptr @malloc(i64 noundef %475) #35
   br label %Vec_IntGrow.exit.sink.split.i.i221.i
 
 480:                                              ; preds = %468
@@ -11960,11 +11960,11 @@ Vec_IntPush.exit216.i:                            ; preds = %Vec_IntPush.exit216
   br i1 %.not9.i21.i.i230.i, label %487, label %485
 
 485:                                              ; preds = %481
-  %486 = call ptr @realloc(ptr noundef nonnull %482, i64 noundef %484) #35
+  %486 = call ptr @realloc(ptr noundef nonnull %482, i64 noundef %484) #37
   br label %Vec_IntGrow.exit.sink.split.i.i221.i
 
 487:                                              ; preds = %481
-  %488 = call noalias ptr @malloc(i64 noundef %484) #33
+  %488 = call noalias ptr @malloc(i64 noundef %484) #35
   br label %Vec_IntGrow.exit.sink.split.i.i221.i
 
 Vec_IntGrow.exit.sink.split.i.i221.i:             ; preds = %487, %485, %478, %476
@@ -12011,11 +12011,11 @@ Vec_IntSetEntry.exit231.i:                        ; preds = %._crit_edge.i.i228.
   br i1 %.not9.i.i236.i, label %506, label %504
 
 504:                                              ; preds = %502
-  %505 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %503, i64 noundef 64) #35
+  %505 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %503, i64 noundef 64) #37
   br label %Vec_IntGrow.exit.i237.i
 
 506:                                              ; preds = %502
-  %507 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #33
+  %507 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #35
   br label %Vec_IntGrow.exit.i237.i
 
 Vec_IntGrow.exit.i237.i:                          ; preds = %506, %504
@@ -12033,11 +12033,11 @@ Vec_IntGrow.exit.i237.i:                          ; preds = %506, %504
   br i1 %.not9.i9.i235.i, label %516, label %514
 
 514:                                              ; preds = %509
-  %515 = call ptr @realloc(ptr noundef nonnull %511, i64 noundef %513) #35
+  %515 = call ptr @realloc(ptr noundef nonnull %511, i64 noundef %513) #37
   br label %518
 
 516:                                              ; preds = %509
-  %517 = call noalias ptr @malloc(i64 noundef %513) #33
+  %517 = call noalias ptr @malloc(i64 noundef %513) #35
   br label %518
 
 518:                                              ; preds = %516, %514
@@ -12076,7 +12076,7 @@ Vec_IntPush.exit245.sink.split.i:                 ; preds = %.lr.ph333.i
   %535 = shl nuw nsw i64 %534, 2
   %.sink469.i = select i1 %532, i64 64, i64 %535
   %.sink467.i = select i1 %532, i32 16, i32 %533
-  %536 = call ptr @realloc(ptr noundef nonnull %525, i64 noundef %.sink469.i) #35
+  %536 = call ptr @realloc(ptr noundef nonnull %525, i64 noundef %.sink469.i) #37
   store ptr %536, ptr %.phi.trans.insert.i299.i, align 8, !tbaa !39
   store i32 %.sink467.i, ptr %47, align 8, !tbaa !155
   %.pre226 = load i32, ptr %49, align 4, !tbaa !50
@@ -12111,7 +12111,7 @@ Vec_IntPush.exit252.sink.split.i:                 ; preds = %.critedge2.i
   %550 = shl nuw nsw i64 %549, 2
   %.sink472.i = select i1 %547, i64 64, i64 %550
   %.sink470.i = select i1 %547, i32 16, i32 %548
-  %551 = call ptr @realloc(ptr noundef nonnull %.pre.i177.i220, i64 noundef %.sink472.i) #35
+  %551 = call ptr @realloc(ptr noundef nonnull %.pre.i177.i220, i64 noundef %.sink472.i) #37
   store ptr %551, ptr %.phi.trans.insert.i299.i, align 8, !tbaa !39
   store i32 %.sink470.i, ptr %47, align 8, !tbaa !155
   %.pre227 = load i32, ptr %49, align 4, !tbaa !50
@@ -12167,12 +12167,12 @@ Vec_IntPush.exit252.i:                            ; preds = %Vec_IntPush.exit252
   br i1 %.not9.i.i257.i, label %576, label %574
 
 574:                                              ; preds = %573
-  %575 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %572, i64 noundef 64) #35
+  %575 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %572, i64 noundef 64) #37
   %.pre374.pre.i = load i32, ptr %63, align 4, !tbaa !50
   br label %Vec_IntGrow.exit.i258.i
 
 576:                                              ; preds = %573
-  %577 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #33
+  %577 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #35
   br label %Vec_IntGrow.exit.i258.i
 
 Vec_IntGrow.exit.i258.i:                          ; preds = %576, %574
@@ -12212,7 +12212,7 @@ Vec_IntPush.exit266.sink.split.i:                 ; preds = %Vec_IntPush.exit259
   %599 = shl nuw nsw i64 %598, 2
   %.sink313 = select i1 %596, i64 64, i64 %599
   %.sink473.i = select i1 %596, i32 16, i32 %597
-  %600 = call ptr @realloc(ptr noundef nonnull %580, i64 noundef %.sink313) #35
+  %600 = call ptr @realloc(ptr noundef nonnull %580, i64 noundef %.sink313) #37
   store ptr %600, ptr %65, align 8, !tbaa !39
   store i32 %.sink473.i, ptr %62, align 8, !tbaa !155
   %.pre205 = load i32, ptr %63, align 4, !tbaa !50
@@ -12268,7 +12268,7 @@ Vec_IntPush.exit275.sink.split.i:                 ; preds = %Gia_ObjFaninC2.exit
   %632 = shl nuw nsw i64 %631, 2
   %.sink314 = select i1 %629, i64 64, i64 %632
   %.sink475.i = select i1 %629, i32 16, i32 %630
-  %633 = call ptr @realloc(ptr noundef nonnull %602, i64 noundef %.sink314) #35
+  %633 = call ptr @realloc(ptr noundef nonnull %602, i64 noundef %.sink314) #37
   store ptr %633, ptr %65, align 8, !tbaa !39
   store i32 %.sink475.i, ptr %62, align 8, !tbaa !155
   %.pre207 = load i32, ptr %63, align 4, !tbaa !50
@@ -12310,11 +12310,11 @@ Vec_IntPush.exit275.i:                            ; preds = %Vec_IntPush.exit275
   br i1 %.not9.i.i280.i, label %654, label %652
 
 652:                                              ; preds = %650
-  %653 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %651, i64 noundef 64) #35
+  %653 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %651, i64 noundef 64) #37
   br label %Vec_IntGrow.exit.i281.i
 
 654:                                              ; preds = %650
-  %655 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #33
+  %655 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #35
   br label %Vec_IntGrow.exit.i281.i
 
 Vec_IntGrow.exit.i281.i:                          ; preds = %654, %652
@@ -12332,11 +12332,11 @@ Vec_IntGrow.exit.i281.i:                          ; preds = %654, %652
   br i1 %.not9.i9.i279.i, label %664, label %662
 
 662:                                              ; preds = %657
-  %663 = call ptr @realloc(ptr noundef nonnull %659, i64 noundef %661) #35
+  %663 = call ptr @realloc(ptr noundef nonnull %659, i64 noundef %661) #37
   br label %666
 
 664:                                              ; preds = %657
-  %665 = call noalias ptr @malloc(i64 noundef %661) #33
+  %665 = call noalias ptr @malloc(i64 noundef %661) #35
   br label %666
 
 666:                                              ; preds = %664, %662
@@ -12381,7 +12381,7 @@ Vec_IntPush.exit282.i:                            ; preds = %666, %Vec_IntGrow.e
   %692 = sext i32 %691 to i64
   %693 = getelementptr inbounds i64, ptr %686, i64 %692
   %.val147.i = load i32, ptr %63, align 4, !tbaa !50
-  %694 = call i32 @Kit_TruthToGia(ptr noundef nonnull %66, ptr noundef %693, i32 noundef %.val147.i, ptr noundef nonnull %58, ptr noundef nonnull %62, i32 noundef 0) #34
+  %694 = call i32 @Kit_TruthToGia(ptr noundef nonnull %66, ptr noundef %693, i32 noundef %.val147.i, ptr noundef nonnull %58, ptr noundef nonnull %62, i32 noundef 0) #36
   %695 = ashr i32 %694, 1
   %.val146.i = load i32, ptr %49, align 4, !tbaa !50
   %696 = add nsw i32 %695, 1
@@ -12407,11 +12407,11 @@ Vec_IntPush.exit282.i:                            ; preds = %666, %Vec_IntGrow.e
   br i1 %.not9.i.i.i286.i, label %708, label %706
 
 706:                                              ; preds = %702
-  %707 = call ptr @realloc(ptr noundef nonnull %703, i64 noundef %705) #35
+  %707 = call ptr @realloc(ptr noundef nonnull %703, i64 noundef %705) #37
   br label %Vec_IntGrow.exit.sink.split.i.i287.i
 
 708:                                              ; preds = %702
-  %709 = call noalias ptr @malloc(i64 noundef %705) #33
+  %709 = call noalias ptr @malloc(i64 noundef %705) #35
   br label %Vec_IntGrow.exit.sink.split.i.i287.i
 
 710:                                              ; preds = %698
@@ -12425,11 +12425,11 @@ Vec_IntPush.exit282.i:                            ; preds = %666, %Vec_IntGrow.e
   br i1 %.not9.i21.i.i296.i, label %717, label %715
 
 715:                                              ; preds = %711
-  %716 = call ptr @realloc(ptr noundef nonnull %712, i64 noundef %714) #35
+  %716 = call ptr @realloc(ptr noundef nonnull %712, i64 noundef %714) #37
   br label %Vec_IntGrow.exit.sink.split.i.i287.i
 
 717:                                              ; preds = %711
-  %718 = call noalias ptr @malloc(i64 noundef %714) #33
+  %718 = call noalias ptr @malloc(i64 noundef %714) #35
   br label %Vec_IntGrow.exit.sink.split.i.i287.i
 
 Vec_IntGrow.exit.sink.split.i.i287.i:             ; preds = %715, %717, %706, %708
@@ -12476,11 +12476,11 @@ Vec_IntSetEntry.exit297.i:                        ; preds = %._crit_edge.i.i294.
   br i1 %.not9.i.i302.i, label %736, label %734
 
 734:                                              ; preds = %732
-  %735 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %733, i64 noundef 64) #35
+  %735 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %733, i64 noundef 64) #37
   br label %Vec_IntGrow.exit.i303.i
 
 736:                                              ; preds = %732
-  %737 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #33
+  %737 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #35
   br label %Vec_IntGrow.exit.i303.i
 
 Vec_IntGrow.exit.i303.i:                          ; preds = %736, %734
@@ -12498,11 +12498,11 @@ Vec_IntGrow.exit.i303.i:                          ; preds = %736, %734
   br i1 %.not9.i9.i301.i, label %746, label %744
 
 744:                                              ; preds = %739
-  %745 = call ptr @realloc(ptr noundef nonnull %741, i64 noundef %743) #35
+  %745 = call ptr @realloc(ptr noundef nonnull %741, i64 noundef %743) #37
   br label %748
 
 746:                                              ; preds = %739
-  %747 = call noalias ptr @malloc(i64 noundef %743) #33
+  %747 = call noalias ptr @malloc(i64 noundef %743) #35
   br label %748
 
 748:                                              ; preds = %746, %744
@@ -12541,7 +12541,7 @@ Vec_IntPush.exit311.sink.split.i:                 ; preds = %.lr.ph338.i
   %765 = shl nuw nsw i64 %764, 2
   %.sink478.i = select i1 %762, i64 64, i64 %765
   %.sink476.i = select i1 %762, i32 16, i32 %763
-  %766 = call ptr @realloc(ptr noundef nonnull %755, i64 noundef %.sink478.i) #35
+  %766 = call ptr @realloc(ptr noundef nonnull %755, i64 noundef %.sink478.i) #37
   store ptr %766, ptr %.phi.trans.insert.i299.i, align 8, !tbaa !39
   store i32 %.sink476.i, ptr %47, align 8, !tbaa !155
   %.pre208 = load i32, ptr %49, align 4, !tbaa !50
@@ -12580,7 +12580,7 @@ Vec_IntPush.exit318.sink.split.i:                 ; preds = %.critedge4.i
   %783 = shl nuw nsw i64 %782, 2
   %.sink315 = select i1 %780, i64 64, i64 %783
   %.sink480.i = select i1 %780, i32 16, i32 %781
-  %784 = call ptr @realloc(ptr noundef nonnull %773, i64 noundef %.sink315) #35
+  %784 = call ptr @realloc(ptr noundef nonnull %773, i64 noundef %.sink315) #37
   store ptr %784, ptr %.phi.trans.insert.i299.i, align 8, !tbaa !39
   store i32 %.sink480.i, ptr %47, align 8, !tbaa !155
   %.pre209 = load i32, ptr %49, align 4, !tbaa !50
@@ -12629,31 +12629,31 @@ Lf_ManDerivePart.exit:                            ; preds = %Vec_IntPush.exit252
 
 .critedge.thread:                                 ; preds = %Abc_UtilStrsav.exit145, %.critedge
   %801 = phi ptr [ %.val123229, %.critedge ], [ %.val124, %Abc_UtilStrsav.exit145 ]
-  call void @free(ptr noundef nonnull %801) #34
+  call void @free(ptr noundef nonnull %801) #36
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %.critedge, %.critedge.thread
-  call void @free(ptr noundef nonnull %6) #34
+  call void @free(ptr noundef nonnull %6) #36
   %802 = load ptr, ptr %61, align 8, !tbaa !39
   %.not.i155 = icmp eq ptr %802, null
   br i1 %.not.i155, label %Vec_IntFree.exit156, label %803
 
 803:                                              ; preds = %Vec_IntFree.exit
-  call void @free(ptr noundef nonnull %802) #34
+  call void @free(ptr noundef nonnull %802) #36
   br label %Vec_IntFree.exit156
 
 Vec_IntFree.exit156:                              ; preds = %Vec_IntFree.exit, %803
-  call void @free(ptr noundef nonnull %58) #34
+  call void @free(ptr noundef nonnull %58) #36
   %804 = load ptr, ptr %65, align 8, !tbaa !39
   %.not.i157 = icmp eq ptr %804, null
   br i1 %.not.i157, label %Vec_IntFree.exit158, label %805
 
 805:                                              ; preds = %Vec_IntFree.exit156
-  call void @free(ptr noundef nonnull %804) #34
+  call void @free(ptr noundef nonnull %804) #36
   br label %Vec_IntFree.exit158
 
 Vec_IntFree.exit158:                              ; preds = %Vec_IntFree.exit156, %805
-  call void @free(ptr noundef nonnull %62) #34
+  call void @free(ptr noundef nonnull %62) #36
   %.val114 = load i32, ptr %35, align 4, !tbaa !50
   %806 = getelementptr i8, ptr %66, i64 24
   %.val109 = load i32, ptr %806, align 8, !tbaa !41
@@ -12683,11 +12683,11 @@ Vec_IntFree.exit158:                              ; preds = %Vec_IntFree.exit156
   br i1 %.not9.i.i, label %821, label %819
 
 819:                                              ; preds = %814
-  %820 = call ptr @realloc(ptr noundef nonnull %816, i64 noundef %818) #35
+  %820 = call ptr @realloc(ptr noundef nonnull %816, i64 noundef %818) #37
   br label %823
 
 821:                                              ; preds = %814
-  %822 = call noalias ptr @malloc(i64 noundef %818) #33
+  %822 = call noalias ptr @malloc(i64 noundef %818) #35
   br label %823
 
 823:                                              ; preds = %821, %819
@@ -12707,11 +12707,11 @@ Vec_IntFree.exit158:                              ; preds = %Vec_IntFree.exit156
   br i1 %.not9.i21.i, label %833, label %831
 
 831:                                              ; preds = %826
-  %832 = call ptr @realloc(ptr noundef nonnull %828, i64 noundef %830) #35
+  %832 = call ptr @realloc(ptr noundef nonnull %828, i64 noundef %830) #37
   br label %835
 
 833:                                              ; preds = %826
-  %834 = call noalias ptr @malloc(i64 noundef %830) #33
+  %834 = call noalias ptr @malloc(i64 noundef %830) #35
   br label %835
 
 835:                                              ; preds = %833, %831
@@ -12805,11 +12805,11 @@ Vec_IntFillExtra.exit:                            ; preds = %Vec_IntFillExtra.ex
   br i1 %.not9.i.i.i174, label %871, label %869
 
 869:                                              ; preds = %867
-  %870 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %868, i64 noundef 64) #35
+  %870 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %868, i64 noundef 64) #37
   br label %Vec_IntGrow.exit.i.i175
 
 871:                                              ; preds = %867
-  %872 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #33
+  %872 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #35
   br label %Vec_IntGrow.exit.i.i175
 
 Vec_IntGrow.exit.i.i175:                          ; preds = %871, %869
@@ -12827,11 +12827,11 @@ Vec_IntGrow.exit.i.i175:                          ; preds = %871, %869
   br i1 %.not9.i9.i.i173, label %881, label %879
 
 879:                                              ; preds = %874
-  %880 = call ptr @realloc(ptr noundef nonnull %876, i64 noundef %878) #35
+  %880 = call ptr @realloc(ptr noundef nonnull %876, i64 noundef %878) #37
   br label %883
 
 881:                                              ; preds = %874
-  %882 = call noalias ptr @malloc(i64 noundef %878) #33
+  %882 = call noalias ptr @malloc(i64 noundef %878) #35
   br label %883
 
 883:                                              ; preds = %881, %879
@@ -12860,22 +12860,22 @@ Vec_IntAppend.exit:                               ; preds = %.critedge2
 
 Vec_IntAppend.exit.thread:                        ; preds = %Vec_IntPush.exit.i171, %Vec_IntAppend.exit
   %891 = phi ptr [ %.pre231, %Vec_IntAppend.exit ], [ %.val.i168, %Vec_IntPush.exit.i171 ]
-  call void @free(ptr noundef nonnull %891) #34
+  call void @free(ptr noundef nonnull %891) #36
   br label %Vec_IntFree.exit177
 
 Vec_IntFree.exit177:                              ; preds = %Vec_IntAppend.exit, %Vec_IntAppend.exit.thread
-  call void @free(ptr noundef nonnull %47) #34
+  call void @free(ptr noundef nonnull %47) #36
   %892 = getelementptr inbounds nuw i8, ptr %66, i64 264
   store ptr %33, ptr %892, align 8, !tbaa !198
   %893 = load ptr, ptr %0, align 8, !tbaa !3
   %894 = getelementptr i8, ptr %893, i64 16
   %.val128 = load i32, ptr %894, align 8, !tbaa !205
-  call void @Gia_ManSetRegNum(ptr noundef nonnull %66, i32 noundef %.val128) #34
+  call void @Gia_ManSetRegNum(ptr noundef nonnull %66, i32 noundef %.val128) #36
   ret ptr %66
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Lf_ManAlloc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @Lf_ManAlloc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = alloca %struct.timespec, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 8, !tbaa !220
@@ -12883,7 +12883,7 @@ define noundef ptr @Lf_ManAlloc(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %2
-  tail call void @free(ptr noundef nonnull %5) #34
+  tail call void @free(ptr noundef nonnull %5) #36
   store ptr null, ptr %4, align 8, !tbaa !220
   br label %7
 
@@ -12900,7 +12900,7 @@ define noundef ptr @Lf_ManAlloc(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br i1 %.not.i, label %16, label %.thread.i
 
 .thread.i:                                        ; preds = %11
-  tail call void @free(ptr noundef nonnull %13) #34
+  tail call void @free(ptr noundef nonnull %13) #36
   %14 = load ptr, ptr %8, align 8, !tbaa !221
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr null, ptr %15, align 8, !tbaa !39
@@ -12908,23 +12908,23 @@ define noundef ptr @Lf_ManAlloc(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 16:                                               ; preds = %.thread.i, %11
   %17 = phi ptr [ %14, %.thread.i ], [ %9, %11 ]
-  tail call void @free(ptr noundef nonnull %17) #34
+  tail call void @free(ptr noundef nonnull %17) #36
   store ptr null, ptr %8, align 8, !tbaa !221
   br label %Vec_IntFreeP.exit
 
 Vec_IntFreeP.exit:                                ; preds = %7, %16
-  tail call void @Gia_ManCleanValue(ptr noundef nonnull %0) #34
+  tail call void @Gia_ManCleanValue(ptr noundef nonnull %0) #36
   %18 = getelementptr i8, ptr %0, i64 208
   %.val91 = load ptr, ptr %18, align 8, !tbaa !84
   %.not150 = icmp eq ptr %.val91, null
   br i1 %.not150, label %20, label %19
 
 19:                                               ; preds = %Vec_IntFreeP.exit
-  tail call void @Gia_ManSetPhase(ptr noundef nonnull %0) #34
+  tail call void @Gia_ManSetPhase(ptr noundef nonnull %0) #36
   br label %20
 
 20:                                               ; preds = %19, %Vec_IntFreeP.exit
-  %21 = tail call noalias dereferenceable_or_null(416) ptr @calloc(i64 noundef 1, i64 noundef 416) #36
+  %21 = tail call noalias dereferenceable_or_null(416) ptr @calloc(i64 noundef 1, i64 noundef 416) #38
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 332
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 336
   tail call void @Lf_ManAnalyzeCoDrivers(ptr noundef nonnull %0, ptr noundef nonnull %22, ptr noundef nonnull %23)
@@ -12935,14 +12935,14 @@ Vec_IntFreeP.exit:                                ; preds = %7, %16
 
 26:                                               ; preds = %20
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 248
-  %28 = tail call ptr @Gia_ManComputeSwitchProbs(ptr noundef nonnull %0, i32 noundef 48, i32 noundef 16, i32 noundef 0) #34
+  %28 = tail call ptr @Gia_ManComputeSwitchProbs(ptr noundef nonnull %0, i32 noundef 48, i32 noundef 16, i32 noundef 0) #36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false), !tbaa.struct !53
-  tail call void @free(ptr noundef %28) #34
+  tail call void @free(ptr noundef %28) #36
   br label %29
 
 29:                                               ; preds = %26, %20
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %30 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #34
+  %30 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #36
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %Abc_Clock.exit, label %32
 
@@ -12992,8 +12992,8 @@ Abc_Clock.exit:                                   ; preds = %29, %32
   %58 = select i1 %55, i32 1, i32 %57
   %59 = sext i32 %58 to i64
   %60 = shl nsw i64 %59, 3
-  %61 = call noalias ptr @malloc(i64 noundef %60) #33
-  %62 = call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #36
+  %61 = call noalias ptr @malloc(i64 noundef %60) #35
+  %62 = call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #38
   store i32 %58, ptr %62, align 8, !tbaa !108
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i32 12, ptr %63, align 8, !tbaa !105
@@ -13030,14 +13030,14 @@ Abc_Clock.exit:                                   ; preds = %29, %32
   br i1 %72, label %.loopexit.i.i.i.backedge, label %68, !llvm.loop !227
 
 Abc_PrimeCudd.exit.i.i:                           ; preds = %.preheader.i.i.i, %68
-  %73 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #33
+  %73 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #35
   %or.cond.i.i.i.i = icmp ult i32 %.012.i.i.i, 15
   %spec.store.select.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 16, i32 %66
   store i32 %spec.store.select.i.i.i.i, ptr %73, align 8, !tbaa !155
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %75 = sext i32 %spec.store.select.i.i.i.i to i64
   %76 = shl nsw i64 %75, 2
-  %77 = call noalias ptr @malloc(i64 noundef %76) #33
+  %77 = call noalias ptr @malloc(i64 noundef %76) #35
   %78 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store ptr %77, ptr %78, align 8, !tbaa !39
   store i32 %66, ptr %74, align 4, !tbaa !50
@@ -13053,11 +13053,11 @@ Abc_PrimeCudd.exit.i.i:                           ; preds = %.preheader.i.i.i, %
 82:                                               ; preds = %79, %Abc_PrimeCudd.exit.i.i
   %83 = getelementptr inbounds nuw i8, ptr %62, i64 32
   store ptr %73, ptr %83, align 8, !tbaa !229
-  %84 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #33
+  %84 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #35
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
   store i32 0, ptr %85, align 4, !tbaa !50
   store i32 10000, ptr %84, align 8, !tbaa !155
-  %86 = call noalias dereferenceable_or_null(40000) ptr @malloc(i64 noundef 40000) #33
+  %86 = call noalias dereferenceable_or_null(40000) ptr @malloc(i64 noundef 40000) #35
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store ptr %86, ptr %87, align 8, !tbaa !39
   %88 = getelementptr inbounds nuw i8, ptr %62, i64 40
@@ -13066,7 +13066,7 @@ Abc_PrimeCudd.exit.i.i:                           ; preds = %.preheader.i.i.i, %
   %89 = call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %62, ptr noundef nonnull %61)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %61, i8 -86, i64 %60, i1 false)
   %90 = call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %62, ptr noundef nonnull %61)
-  call void @free(ptr noundef %61) #34
+  call void @free(ptr noundef %61) #36
   %.pr = load i32, ptr %51, align 8, !tbaa !70
   %91 = getelementptr inbounds nuw i8, ptr %21, i64 64
   store ptr %62, ptr %91, align 8, !tbaa !101
@@ -13087,10 +13087,10 @@ Abc_PrimeCudd.exit.i.i:                           ; preds = %.preheader.i.i.i, %
   %100 = select i1 %97, i32 1, i32 %99
   %101 = sext i32 %100 to i64
   %102 = shl nsw i64 %101, 3
-  %103 = call noalias ptr @malloc(i64 noundef %102) #33
+  %103 = call noalias ptr @malloc(i64 noundef %102) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %103, i8 -54, i64 %102, i1 false)
   %104 = call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %62, ptr noundef nonnull %103)
-  call void @free(ptr noundef %103) #34
+  call void @free(ptr noundef %103) #36
   br label %105
 
 105:                                              ; preds = %.thread, %95, %92, %82
@@ -13111,7 +13111,7 @@ Abc_PrimeCudd.exit.i.i:                           ; preds = %.preheader.i.i.i, %
   %.val.i = load i32, ptr %117, align 8, !tbaa !159
   %118 = sub i32 %116, %.val.i
   %119 = sext i32 %118 to i64
-  %120 = call noalias ptr @calloc(i64 noundef %119, i64 noundef 32) #36
+  %120 = call noalias ptr @calloc(i64 noundef %119, i64 noundef 32) #38
   %121 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr %120, ptr %121, align 8, !tbaa !38
   %122 = getelementptr inbounds nuw i8, ptr %21, i64 48
@@ -13126,11 +13126,11 @@ Abc_PrimeCudd.exit.i.i:                           ; preds = %.preheader.i.i.i, %
   br i1 %.not9.i, label %129, label %127
 
 127:                                              ; preds = %124
-  %128 = call dereferenceable_or_null(65536) ptr @realloc(ptr noundef nonnull %126, i64 noundef 65536) #35
+  %128 = call dereferenceable_or_null(65536) ptr @realloc(ptr noundef nonnull %126, i64 noundef 65536) #37
   br label %131
 
 129:                                              ; preds = %124
-  %130 = call noalias dereferenceable_or_null(65536) ptr @malloc(i64 noundef 65536) #33
+  %130 = call noalias dereferenceable_or_null(65536) ptr @malloc(i64 noundef 65536) #35
   br label %131
 
 131:                                              ; preds = %129, %127
@@ -13152,11 +13152,11 @@ Vec_IntGrow.exit:                                 ; preds = %105, %131
   br i1 %.not9.i97, label %140, label %138
 
 138:                                              ; preds = %135
-  %139 = call dereferenceable_or_null(2048) ptr @realloc(ptr noundef nonnull %137, i64 noundef 2048) #35
+  %139 = call dereferenceable_or_null(2048) ptr @realloc(ptr noundef nonnull %137, i64 noundef 2048) #37
   br label %142
 
 140:                                              ; preds = %135
-  %141 = call noalias dereferenceable_or_null(2048) ptr @malloc(i64 noundef 2048) #33
+  %141 = call noalias dereferenceable_or_null(2048) ptr @malloc(i64 noundef 2048) #35
   br label %142
 
 142:                                              ; preds = %140, %138
@@ -13200,11 +13200,11 @@ Vec_PtrGrow.exit:                                 ; preds = %Vec_IntGrow.exit, %
   br i1 %.not9.i.i, label %162, label %160
 
 160:                                              ; preds = %155
-  %161 = call ptr @realloc(ptr noundef nonnull %157, i64 noundef %159) #35
+  %161 = call ptr @realloc(ptr noundef nonnull %157, i64 noundef %159) #37
   br label %164
 
 162:                                              ; preds = %155
-  %163 = call noalias ptr @malloc(i64 noundef %159) #33
+  %163 = call noalias ptr @malloc(i64 noundef %159) #35
   br label %164
 
 164:                                              ; preds = %162, %160
@@ -13243,11 +13243,11 @@ Vec_IntFill.exit:                                 ; preds = %.lr.ph.i, %Vec_IntG
   br i1 %.not9.i.i105, label %180, label %178
 
 178:                                              ; preds = %173
-  %179 = call ptr @realloc(ptr noundef nonnull %175, i64 noundef %177) #35
+  %179 = call ptr @realloc(ptr noundef nonnull %175, i64 noundef %177) #37
   br label %182
 
 180:                                              ; preds = %173
-  %181 = call noalias ptr @malloc(i64 noundef %177) #33
+  %181 = call noalias ptr @malloc(i64 noundef %177) #35
   br label %182
 
 182:                                              ; preds = %180, %178
@@ -13303,11 +13303,11 @@ Vec_IntFill.exit106:                              ; preds = %187, %Vec_IntGrow.e
   br i1 %.not9.i.i117, label %208, label %206
 
 206:                                              ; preds = %201
-  %207 = call ptr @realloc(ptr noundef nonnull %203, i64 noundef %205) #35
+  %207 = call ptr @realloc(ptr noundef nonnull %203, i64 noundef %205) #37
   br label %210
 
 208:                                              ; preds = %201
-  %209 = call noalias ptr @malloc(i64 noundef %205) #33
+  %209 = call noalias ptr @malloc(i64 noundef %205) #35
   br label %210
 
 210:                                              ; preds = %208, %206
@@ -13357,11 +13357,11 @@ Vec_IntFill.exit118:                              ; preds = %.lr.ph.i112, %Vec_I
   br i1 %.not9.i.i124, label %235, label %233
 
 233:                                              ; preds = %228
-  %234 = call ptr @realloc(ptr noundef nonnull %230, i64 noundef %232) #35
+  %234 = call ptr @realloc(ptr noundef nonnull %230, i64 noundef %232) #37
   br label %237
 
 235:                                              ; preds = %228
-  %236 = call noalias ptr @malloc(i64 noundef %232) #33
+  %236 = call noalias ptr @malloc(i64 noundef %232) #35
   br label %237
 
 237:                                              ; preds = %235, %233
@@ -13411,11 +13411,11 @@ Vec_FltFill.exit:                                 ; preds = %Vec_FltGrow.exit.i,
   br i1 %.not9.i.i135, label %263, label %261
 
 261:                                              ; preds = %256
-  %262 = call ptr @realloc(ptr noundef nonnull %258, i64 noundef %260) #35
+  %262 = call ptr @realloc(ptr noundef nonnull %258, i64 noundef %260) #37
   br label %265
 
 263:                                              ; preds = %256
-  %264 = call noalias ptr @malloc(i64 noundef %260) #33
+  %264 = call noalias ptr @malloc(i64 noundef %260) #35
   br label %265
 
 265:                                              ; preds = %263, %261
@@ -13456,11 +13456,11 @@ Vec_IntFill.exit136:                              ; preds = %.lr.ph.i130, %Vec_I
   br i1 %.not9.i.i144, label %282, label %280
 
 280:                                              ; preds = %275
-  %281 = call ptr @realloc(ptr noundef nonnull %277, i64 noundef %279) #35
+  %281 = call ptr @realloc(ptr noundef nonnull %277, i64 noundef %279) #37
   br label %284
 
 282:                                              ; preds = %275
-  %283 = call noalias ptr @malloc(i64 noundef %279) #33
+  %283 = call noalias ptr @malloc(i64 noundef %279) #35
   br label %284
 
 284:                                              ; preds = %282, %280
@@ -13574,14 +13574,14 @@ Vec_IntFill.exit145:                              ; preds = %.lr.ph.i139, %Vec_I
   ret ptr %21
 }
 
-declare void @Gia_ManCleanValue(ptr noundef) local_unnamed_addr #5
+declare void @Gia_ManCleanValue(ptr noundef) local_unnamed_addr #6
 
-declare void @Gia_ManSetPhase(ptr noundef) local_unnamed_addr #5
+declare void @Gia_ManSetPhase(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #18
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #20
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @Lf_ManFree(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !55
@@ -13591,7 +13591,7 @@ define void @Lf_ManFree(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %5) #34
+  tail call void @free(ptr noundef nonnull %5) #36
   %7 = load ptr, ptr %2, align 8, !tbaa !55
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 248
   store ptr null, ptr %8, align 8, !tbaa !233
@@ -13605,7 +13605,7 @@ define void @Lf_ManFree(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   br i1 %.not74, label %16, label %13
 
 13:                                               ; preds = %9
-  tail call void @free(ptr noundef nonnull %12) #34
+  tail call void @free(ptr noundef nonnull %12) #36
   %14 = load ptr, ptr %2, align 8, !tbaa !55
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 256
   store ptr null, ptr %15, align 8, !tbaa !235
@@ -13637,7 +13637,7 @@ define void @Lf_ManFree(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   br i1 %.not.i.i, label %33, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %28
-  tail call void @free(ptr noundef nonnull %30) #34
+  tail call void @free(ptr noundef nonnull %30) #36
   %31 = load ptr, ptr %25, align 8, !tbaa !221
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr null, ptr %32, align 8, !tbaa !39
@@ -13645,7 +13645,7 @@ define void @Lf_ManFree(ptr noundef captures(none) %0) local_unnamed_addr #4 {
 
 33:                                               ; preds = %.thread.i.i, %28
   %34 = phi ptr [ %31, %.thread.i.i ], [ %26, %28 ]
-  tail call void @free(ptr noundef nonnull %34) #34
+  tail call void @free(ptr noundef nonnull %34) #36
   store ptr null, ptr %25, align 8, !tbaa !221
   br label %Vec_IntFreeP.exit.i
 
@@ -13662,7 +13662,7 @@ Vec_IntFreeP.exit.i:                              ; preds = %33, %24
   br i1 %.not.i3.i, label %43, label %.thread.i4.i
 
 .thread.i4.i:                                     ; preds = %38
-  tail call void @free(ptr noundef nonnull %40) #34
+  tail call void @free(ptr noundef nonnull %40) #36
   %41 = load ptr, ptr %35, align 8, !tbaa !221
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr null, ptr %42, align 8, !tbaa !39
@@ -13670,7 +13670,7 @@ Vec_IntFreeP.exit.i:                              ; preds = %33, %24
 
 43:                                               ; preds = %.thread.i4.i, %38
   %44 = phi ptr [ %41, %.thread.i4.i ], [ %36, %38 ]
-  tail call void @free(ptr noundef nonnull %44) #34
+  tail call void @free(ptr noundef nonnull %44) #36
   store ptr null, ptr %35, align 8, !tbaa !221
   br label %Vec_MemHashFree.exit
 
@@ -13701,7 +13701,7 @@ Vec_MemHashFree.exit:                             ; preds = %43, %Vec_IntFreeP.e
   br i1 %.not18.i, label %60, label %57
 
 57:                                               ; preds = %.lr.ph.i
-  tail call void @free(ptr noundef nonnull %56) #34
+  tail call void @free(ptr noundef nonnull %56) #36
   %58 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !102
   %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv.i
   store ptr null, ptr %59, align 8, !tbaa !106
@@ -13722,11 +13722,11 @@ Vec_MemHashFree.exit:                             ; preds = %43, %Vec_IntFreeP.e
 
 ._crit_edge.thread.i:                             ; preds = %60, %._crit_edge.i
   %64 = phi ptr [ %.pre23.i, %._crit_edge.i ], [ %62, %60 ]
-  tail call void @free(ptr noundef nonnull %64) #34
+  tail call void @free(ptr noundef nonnull %64) #36
   br label %Vec_MemFree.exit
 
 Vec_MemFree.exit:                                 ; preds = %._crit_edge.i, %._crit_edge.thread.i
-  tail call void @free(ptr noundef nonnull %50) #34
+  tail call void @free(ptr noundef nonnull %50) #36
   br label %65
 
 65:                                               ; preds = %Vec_MemFree.exit, %Vec_MemHashFree.exit
@@ -13749,7 +13749,7 @@ Vec_MemFree.exit:                                 ; preds = %._crit_edge.i, %._c
   br i1 %72, label %74, label %73
 
 73:                                               ; preds = %69
-  tail call void @free(ptr noundef %71) #34
+  tail call void @free(ptr noundef %71) #36
   %.val14.pre.i = load i32, ptr %66, align 4, !tbaa !132
   br label %74
 
@@ -13780,7 +13780,7 @@ Vec_PtrFreeData.exit:                             ; preds = %74, %65
   br i1 %83, label %85, label %84
 
 84:                                               ; preds = %80
-  tail call void @free(ptr noundef %82) #34
+  tail call void @free(ptr noundef %82) #36
   %.val14.pre.i100 = load i32, ptr %77, align 4, !tbaa !132
   br label %85
 
@@ -13811,7 +13811,7 @@ Vec_PtrFreeData.exit103:                          ; preds = %85, %Vec_PtrFreeDat
   br i1 %94, label %96, label %95
 
 95:                                               ; preds = %91
-  tail call void @free(ptr noundef %93) #34
+  tail call void @free(ptr noundef %93) #36
   %.val14.pre.i109 = load i32, ptr %88, align 4, !tbaa !132
   br label %96
 
@@ -13842,7 +13842,7 @@ Vec_PtrFreeData.exit112:                          ; preds = %96, %Vec_PtrFreeDat
   br i1 %105, label %107, label %106
 
 106:                                              ; preds = %102
-  tail call void @free(ptr noundef %104) #34
+  tail call void @free(ptr noundef %104) #36
   %.val14.pre.i118 = load i32, ptr %99, align 4, !tbaa !132
   br label %107
 
@@ -13860,7 +13860,7 @@ Vec_PtrFreeData.exit121:                          ; preds = %107, %Vec_PtrFreeDa
   br i1 %.not77, label %113, label %112
 
 112:                                              ; preds = %Vec_PtrFreeData.exit121
-  tail call void @free(ptr noundef nonnull %111) #34
+  tail call void @free(ptr noundef nonnull %111) #36
   store ptr null, ptr %110, align 8, !tbaa !238
   br label %113
 
@@ -13871,7 +13871,7 @@ Vec_PtrFreeData.exit121:                          ; preds = %107, %Vec_PtrFreeDa
   br i1 %.not78, label %117, label %116
 
 116:                                              ; preds = %113
-  tail call void @free(ptr noundef nonnull %115) #34
+  tail call void @free(ptr noundef nonnull %115) #36
   store ptr null, ptr %114, align 8, !tbaa !239
   br label %117
 
@@ -13882,7 +13882,7 @@ Vec_PtrFreeData.exit121:                          ; preds = %107, %Vec_PtrFreeDa
   br i1 %.not79, label %121, label %120
 
 120:                                              ; preds = %117
-  tail call void @free(ptr noundef nonnull %119) #34
+  tail call void @free(ptr noundef nonnull %119) #36
   store ptr null, ptr %118, align 8, !tbaa !240
   br label %121
 
@@ -13893,7 +13893,7 @@ Vec_PtrFreeData.exit121:                          ; preds = %107, %Vec_PtrFreeDa
   br i1 %.not80, label %125, label %124
 
 124:                                              ; preds = %121
-  tail call void @free(ptr noundef nonnull %123) #34
+  tail call void @free(ptr noundef nonnull %123) #36
   store ptr null, ptr %122, align 8, !tbaa !241
   br label %125
 
@@ -13903,7 +13903,7 @@ Vec_PtrFreeData.exit121:                          ; preds = %107, %Vec_PtrFreeDa
   br i1 %.not81, label %128, label %127
 
 127:                                              ; preds = %125
-  tail call void @free(ptr noundef nonnull %126) #34
+  tail call void @free(ptr noundef nonnull %126) #36
   store ptr null, ptr %114, align 8, !tbaa !239
   br label %128
 
@@ -13914,7 +13914,7 @@ Vec_PtrFreeData.exit121:                          ; preds = %107, %Vec_PtrFreeDa
   br i1 %.not82, label %132, label %131
 
 131:                                              ; preds = %128
-  tail call void @free(ptr noundef nonnull %130) #34
+  tail call void @free(ptr noundef nonnull %130) #36
   store ptr null, ptr %129, align 8, !tbaa !242
   br label %132
 
@@ -13925,7 +13925,7 @@ Vec_PtrFreeData.exit121:                          ; preds = %107, %Vec_PtrFreeDa
   br i1 %.not83, label %136, label %135
 
 135:                                              ; preds = %132
-  tail call void @free(ptr noundef nonnull %134) #34
+  tail call void @free(ptr noundef nonnull %134) #36
   store ptr null, ptr %133, align 8, !tbaa !243
   br label %136
 
@@ -13936,7 +13936,7 @@ Vec_PtrFreeData.exit121:                          ; preds = %107, %Vec_PtrFreeDa
   br i1 %.not84, label %140, label %139
 
 139:                                              ; preds = %136
-  tail call void @free(ptr noundef nonnull %138) #34
+  tail call void @free(ptr noundef nonnull %138) #36
   store ptr null, ptr %137, align 8, !tbaa !244
   br label %140
 
@@ -13947,7 +13947,7 @@ Vec_PtrFreeData.exit121:                          ; preds = %107, %Vec_PtrFreeDa
   br i1 %.not85, label %144, label %143
 
 143:                                              ; preds = %140
-  tail call void @free(ptr noundef nonnull %142) #34
+  tail call void @free(ptr noundef nonnull %142) #36
   store ptr null, ptr %141, align 8, !tbaa !245
   br label %144
 
@@ -13958,7 +13958,7 @@ Vec_PtrFreeData.exit121:                          ; preds = %107, %Vec_PtrFreeDa
   br i1 %.not86, label %148, label %147
 
 147:                                              ; preds = %144
-  tail call void @free(ptr noundef nonnull %146) #34
+  tail call void @free(ptr noundef nonnull %146) #36
   store ptr null, ptr %145, align 8, !tbaa !246
   br label %148
 
@@ -13969,7 +13969,7 @@ Vec_PtrFreeData.exit121:                          ; preds = %107, %Vec_PtrFreeDa
   br i1 %.not87, label %152, label %151
 
 151:                                              ; preds = %148
-  tail call void @free(ptr noundef nonnull %150) #34
+  tail call void @free(ptr noundef nonnull %150) #36
   store ptr null, ptr %149, align 8, !tbaa !247
   br label %152
 
@@ -13980,7 +13980,7 @@ Vec_PtrFreeData.exit121:                          ; preds = %107, %Vec_PtrFreeDa
   br i1 %.not88, label %156, label %155
 
 155:                                              ; preds = %152
-  tail call void @free(ptr noundef nonnull %154) #34
+  tail call void @free(ptr noundef nonnull %154) #36
   store ptr null, ptr %153, align 8, !tbaa !248
   br label %156
 
@@ -13991,7 +13991,7 @@ Vec_PtrFreeData.exit121:                          ; preds = %107, %Vec_PtrFreeDa
   br i1 %.not89, label %160, label %159
 
 159:                                              ; preds = %156
-  tail call void @free(ptr noundef nonnull %158) #34
+  tail call void @free(ptr noundef nonnull %158) #36
   store ptr null, ptr %157, align 8, !tbaa !249
   br label %160
 
@@ -14002,16 +14002,16 @@ Vec_PtrFreeData.exit121:                          ; preds = %107, %Vec_PtrFreeDa
   br i1 %.not90, label %164, label %163
 
 163:                                              ; preds = %160
-  tail call void @free(ptr noundef nonnull %162) #34
+  tail call void @free(ptr noundef nonnull %162) #36
   br label %164
 
 164:                                              ; preds = %160, %163
-  tail call void @free(ptr noundef nonnull %0) #34
+  tail call void @free(ptr noundef nonnull %0) #36
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Lf_ManSetDefaultPars(ptr noundef writeonly captures(none) initializes((0, 264)) %0) local_unnamed_addr #19 {
+define void @Lf_ManSetDefaultPars(ptr noundef writeonly captures(none) initializes((0, 264)) %0) local_unnamed_addr #21 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %2, i8 0, i64 232, i1 false)
   store i32 6, ptr %0, align 8, !tbaa !64
@@ -14055,7 +14055,7 @@ define void @Lf_ManSetDefaultPars(ptr noundef writeonly captures(none) initializ
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Lf_ManPrintStats(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define void @Lf_ManPrintStats(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = alloca %struct.timespec, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !55
@@ -14112,7 +14112,7 @@ define void @Lf_ManPrintStats(ptr noundef readonly captures(none) %0, ptr nounde
 
 43:                                               ; preds = %39, %35
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %44 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #34
+  %44 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #36
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %Abc_Clock.exit, label %46
 
@@ -14223,10 +14223,10 @@ define void @Lf_ManPrintInit(ptr noundef readonly captures(none) %0) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Lf_ManPrintQuit(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
+define void @Lf_ManPrintQuit(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = alloca %struct.timespec, align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !3
-  %5 = tail call double @Gia_ManMemory(ptr noundef %4) #34
+  %5 = tail call double @Gia_ManMemory(ptr noundef %4) #36
   %6 = fmul double %5, 0x3EB0000000000000
   %7 = fptrunc double %6 to float
   %8 = load ptr, ptr %0, align 8, !tbaa !3
@@ -14584,7 +14584,7 @@ Vec_IntMemory.exit:                               ; preds = %76, %80
   %261 = load i32, ptr %260, align 4, !tbaa !91
   %262 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef %261)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %263 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #34
+  %263 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #36
   %264 = icmp slt i32 %263, 0
   br i1 %264, label %Abc_Clock.exit, label %265
 
@@ -14615,10 +14615,10 @@ Abc_Clock.exit:                                   ; preds = %220, %265
   ret void
 }
 
-declare double @Gia_ManMemory(ptr noundef) local_unnamed_addr #5
+declare double @Gia_ManMemory(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @Lf_ManComputeMapping(ptr noundef %0) local_unnamed_addr #4 {
+define void @Lf_ManComputeMapping(ptr noundef %0) local_unnamed_addr #5 {
   %2 = alloca %struct.Lf_Mem_t_, align 8
   tail call void @Lf_ManSetCutRefs(ptr noundef %0)
   %3 = load ptr, ptr %0, align 8, !tbaa !3
@@ -14634,7 +14634,7 @@ define void @Lf_ManComputeMapping(ptr noundef %0) local_unnamed_addr #4 {
   br i1 %8, label %.lr.ph88, label %.critedge
 
 9:                                                ; preds = %1
-  tail call void @Tim_ManIncrementTravId(ptr noundef nonnull %5) #34
+  tail call void @Tim_ManIncrementTravId(ptr noundef nonnull %5) #36
   %10 = load ptr, ptr %0, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load i32, ptr %11, align 8, !tbaa !41
@@ -14686,7 +14686,7 @@ define void @Lf_ManComputeMapping(ptr noundef %0) local_unnamed_addr #4 {
 35:                                               ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %18, i64 736
   %37 = load ptr, ptr %36, align 8, !tbaa !176
-  %38 = tail call float @Tim_ManGetCiArrival(ptr noundef %37, i32 noundef %25) #34
+  %38 = tail call float @Tim_ManGetCiArrival(ptr noundef %37, i32 noundef %25) #36
   %39 = fptosi float %38 to i32
   %.val65 = load i64, ptr %20, align 4
   %40 = lshr i64 %.val65, 32
@@ -14792,7 +14792,7 @@ Lf_ObjCoArrival.exit:                             ; preds = %75, %86, %88
   %92 = getelementptr inbounds nuw i8, ptr %18, i64 736
   %93 = load ptr, ptr %92, align 8, !tbaa !176
   %94 = sitofp i32 %.0.i.i to float
-  tail call void @Tim_ManSetCoArrival(ptr noundef %93, i32 noundef %25, float noundef %94) #34
+  tail call void @Tim_ManSetCoArrival(ptr noundef %93, i32 noundef %25, float noundef %94) #36
   br label %95
 
 95:                                               ; preds = %31, %Lf_ObjCoArrival.exit, %43, %35, %17
@@ -14893,11 +14893,11 @@ Lf_ObjCoArrival.exit:                             ; preds = %75, %86, %88
   br i1 %.not9.i.i.i, label %144, label %142
 
 142:                                              ; preds = %139
-  %143 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %141, i64 noundef 128) #35
+  %143 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %141, i64 noundef 128) #37
   br label %Vec_PtrGrow.exit.i.i
 
 144:                                              ; preds = %139
-  %145 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #33
+  %145 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #35
   br label %Vec_PtrGrow.exit.i.i
 
 Vec_PtrGrow.exit.i.i:                             ; preds = %144, %142
@@ -14916,11 +14916,11 @@ Vec_PtrGrow.exit.i.i:                             ; preds = %144, %142
   br i1 %.not9.i10.i.i, label %155, label %153
 
 153:                                              ; preds = %147
-  %154 = tail call ptr @realloc(ptr noundef nonnull %150, i64 noundef %152) #35
+  %154 = tail call ptr @realloc(ptr noundef nonnull %150, i64 noundef %152) #37
   br label %157
 
 155:                                              ; preds = %147
-  %156 = tail call noalias ptr @malloc(i64 noundef %152) #33
+  %156 = tail call noalias ptr @malloc(i64 noundef %152) #35
   br label %157
 
 157:                                              ; preds = %155, %153
@@ -14988,12 +14988,12 @@ Lf_MemRecycle.exit:                               ; preds = %164, %.critedge
   ret void
 }
 
-declare float @Tim_ManGetCiArrival(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare float @Tim_ManGetCiArrival(ptr noundef, i32 noundef) local_unnamed_addr #6
 
-declare void @Tim_ManSetCoArrival(ptr noundef, i32 noundef, float noundef) local_unnamed_addr #5
+declare void @Tim_ManSetCoArrival(ptr noundef, i32 noundef, float noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Lf_ManPerformMappingInt(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @Lf_ManPerformMappingInt(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = alloca [1000 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %5 = load i32, ptr %4, align 4, !tbaa !129
@@ -15033,7 +15033,7 @@ define noundef ptr @Lf_ManPerformMappingInt(ptr noundef %0, ptr noundef %1) loca
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !253
-  %22 = tail call ptr @Gia_ManDupMuxes(ptr noundef nonnull %0, i32 noundef %21) #34
+  %22 = tail call ptr @Gia_ManDupMuxes(ptr noundef nonnull %0, i32 noundef %21) #36
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %24 = load ptr, ptr %23, align 8, !tbaa !176
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 736
@@ -15056,10 +15056,10 @@ define noundef ptr @Lf_ManPerformMappingInt(ptr noundef %0, ptr noundef %1) loca
 
 32:                                               ; preds = %30
   %33 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46)
-  tail call void @Gia_ManPrintMuxStats(ptr noundef nonnull %0) #34
+  tail call void @Gia_ManPrintMuxStats(ptr noundef nonnull %0) #36
   %putchar = tail call i32 @putchar(i32 10)
   %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.47)
-  tail call void @Gia_ManPrintMuxStats(ptr noundef nonnull %.0) #34
+  tail call void @Gia_ManPrintMuxStats(ptr noundef nonnull %.0) #36
   %putchar69 = tail call i32 @putchar(i32 10)
   br label %35
 
@@ -15129,7 +15129,7 @@ define noundef ptr @Lf_ManPerformMappingInt(ptr noundef %0, ptr noundef %1) loca
   %72 = load i32, ptr %1, align 8, !tbaa !64
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not.i = icmp eq ptr %.val75, null
-  %73 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.54, ptr noundef %.val75, i32 noundef %72) #34
+  %73 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.54, ptr noundef %.val75, i32 noundef %72) #36
   br i1 %.not.i, label %.thread.i, label %75
 
 .thread.i:                                        ; preds = %68
@@ -15217,7 +15217,7 @@ define noundef ptr @Lf_ManPerformMappingInt(ptr noundef %0, ptr noundef %1) loca
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %111
-  %119 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %83, ptr noundef nonnull @.str.59, i32 noundef range(i32 0, 16) %116) #34
+  %119 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %83, ptr noundef nonnull @.str.59, i32 noundef range(i32 0, 16) %116) #36
   br label %Vec_MemDumpDigit.exit.i.i
 
 120:                                              ; preds = %111
@@ -15289,7 +15289,7 @@ Vec_MemDumpTruthTables.exit:                      ; preds = %Vec_MemDump.exit.i,
 
 145:                                              ; preds = %141, %143, %137
   %.062 = phi ptr [ %138, %137 ], [ %142, %141 ], [ %144, %143 ]
-  call void @Gia_ManMappingVerify(ptr noundef %.062) #34
+  call void @Gia_ManMappingVerify(ptr noundef %.062) #36
   call void @Lf_ManPrintQuit(ptr noundef %27, ptr noundef %.062)
   call void @Lf_ManFree(ptr noundef %27)
   %.not74 = icmp eq ptr %.0, %0
@@ -15301,71 +15301,71 @@ Vec_MemDumpTruthTables.exit:                      ; preds = %Vec_MemDump.exit.i,
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 736
   store ptr %148, ptr %149, align 8, !tbaa !176
   store ptr null, ptr %147, align 8, !tbaa !176
-  call void @Gia_ManStop(ptr noundef nonnull %.0) #34
+  call void @Gia_ManStop(ptr noundef nonnull %.0) #36
   br label %150
 
 150:                                              ; preds = %146, %145
   ret ptr %.062
 }
 
-declare ptr @Gia_ManDupMuxes(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @Gia_ManDupMuxes(ptr noundef, i32 noundef) local_unnamed_addr #6
 
-declare void @Gia_ManPrintMuxStats(ptr noundef) local_unnamed_addr #5
+declare void @Gia_ManPrintMuxStats(ptr noundef) local_unnamed_addr #6
 
-declare void @Gia_ManMappingVerify(ptr noundef) local_unnamed_addr #5
+declare void @Gia_ManMappingVerify(ptr noundef) local_unnamed_addr #6
 
-declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #5
+declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Lf_ManPerformMapping(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @Lf_ManPerformMapping(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %4 = load ptr, ptr %3, align 8, !tbaa !176
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %20, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @Tim_ManBoxNum(ptr noundef nonnull %4) #34
+  %6 = tail call i32 @Tim_ManBoxNum(ptr noundef nonnull %4) #36
   %.not40 = icmp eq i32 %6, 0
   br i1 %.not40, label %20, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i32 @Gia_ManIsNormalized(ptr noundef nonnull %0) #34
+  %8 = tail call i32 @Gia_ManIsNormalized(ptr noundef nonnull %0) #36
   %.not41 = icmp eq i32 %8, 0
   br i1 %.not41, label %20, label %9
 
 9:                                                ; preds = %7
   %10 = load ptr, ptr %3, align 8, !tbaa !176
-  %11 = tail call ptr @Tim_ManDup(ptr noundef %10, i32 noundef 1) #34
+  %11 = tail call ptr @Tim_ManDup(ptr noundef %10, i32 noundef 1) #36
   store ptr %11, ptr %3, align 8, !tbaa !176
-  %12 = tail call ptr @Gia_ManDupUnnormalize(ptr noundef nonnull %0) #34
+  %12 = tail call ptr @Gia_ManDupUnnormalize(ptr noundef nonnull %0) #36
   %.not43 = icmp eq ptr %12, null
   br i1 %.not43, label %.critedge, label %13
 
 13:                                               ; preds = %9
-  tail call void @Gia_ManTransferTiming(ptr noundef nonnull %12, ptr noundef nonnull %0) #34
+  tail call void @Gia_ManTransferTiming(ptr noundef nonnull %12, ptr noundef nonnull %0) #36
   %14 = tail call ptr @Lf_ManPerformMappingInt(ptr noundef nonnull %12, ptr noundef %1)
   %.not42 = icmp eq ptr %14, %12
   br i1 %.not42, label %16, label %15
 
 15:                                               ; preds = %13
-  tail call void @Gia_ManTransferTiming(ptr noundef %14, ptr noundef nonnull %12) #34
-  tail call void @Gia_ManStop(ptr noundef nonnull %12) #34
+  tail call void @Gia_ManTransferTiming(ptr noundef %14, ptr noundef nonnull %12) #36
+  tail call void @Gia_ManStop(ptr noundef nonnull %12) #36
   br label %16
 
 16:                                               ; preds = %15, %13
-  %17 = tail call ptr @Gia_ManDupNormalize(ptr noundef %14, i32 noundef 0) #34
-  tail call void @Gia_ManTransferMapping(ptr noundef %17, ptr noundef %14) #34
-  tail call void @Gia_ManTransferTiming(ptr noundef %17, ptr noundef %14) #34
-  tail call void @Gia_ManStop(ptr noundef %14) #34
+  %17 = tail call ptr @Gia_ManDupNormalize(ptr noundef %14, i32 noundef 0) #36
+  tail call void @Gia_ManTransferMapping(ptr noundef %17, ptr noundef %14) #36
+  tail call void @Gia_ManTransferTiming(ptr noundef %17, ptr noundef %14) #36
+  tail call void @Gia_ManStop(ptr noundef %14) #36
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 736
   %19 = load ptr, ptr %18, align 8, !tbaa !176
-  tail call void @Tim_ManStop(ptr noundef %19) #34
+  tail call void @Tim_ManStop(ptr noundef %19) #36
   store ptr %10, ptr %18, align 8, !tbaa !176
   br label %.critedge
 
 20:                                               ; preds = %7, %5, %2
   %21 = tail call ptr @Lf_ManPerformMappingInt(ptr noundef nonnull %0, ptr noundef %1)
-  tail call void @Gia_ManTransferTiming(ptr noundef %21, ptr noundef nonnull %0) #34
+  tail call void @Gia_ManTransferTiming(ptr noundef %21, ptr noundef nonnull %0) #36
   br label %.critedge
 
 .critedge:                                        ; preds = %16, %9, %20
@@ -15373,24 +15373,24 @@ define noundef ptr @Lf_ManPerformMapping(ptr noundef %0, ptr noundef %1) local_u
   ret ptr %.1
 }
 
-declare i32 @Tim_ManBoxNum(ptr noundef) local_unnamed_addr #5
+declare i32 @Tim_ManBoxNum(ptr noundef) local_unnamed_addr #6
 
-declare i32 @Gia_ManIsNormalized(ptr noundef) local_unnamed_addr #5
+declare i32 @Gia_ManIsNormalized(ptr noundef) local_unnamed_addr #6
 
-declare ptr @Tim_ManDup(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @Tim_ManDup(ptr noundef, i32 noundef) local_unnamed_addr #6
 
-declare ptr @Gia_ManDupUnnormalize(ptr noundef) local_unnamed_addr #5
+declare ptr @Gia_ManDupUnnormalize(ptr noundef) local_unnamed_addr #6
 
-declare void @Gia_ManTransferTiming(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @Gia_ManTransferTiming(ptr noundef, ptr noundef) local_unnamed_addr #6
 
-declare ptr @Gia_ManDupNormalize(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @Gia_ManDupNormalize(ptr noundef, i32 noundef) local_unnamed_addr #6
 
-declare void @Gia_ManTransferMapping(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @Gia_ManTransferMapping(ptr noundef, ptr noundef) local_unnamed_addr #6
 
-declare void @Tim_ManStop(ptr noundef) local_unnamed_addr #5
+declare void @Tim_ManStop(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Gia_ManPerformLfMapping(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define noundef ptr @Gia_ManPerformLfMapping(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %5 = load ptr, ptr %4, align 8, !tbaa !176
   %.not = icmp eq ptr %5, null
@@ -15401,29 +15401,29 @@ define noundef ptr @Gia_ManPerformLfMapping(ptr noundef %0, ptr noundef %1, i32 
   br i1 %.not44, label %18, label %7
 
 7:                                                ; preds = %6
-  %8 = tail call ptr @Gia_ManDupUnnormalize(ptr noundef nonnull %0) #34
+  %8 = tail call ptr @Gia_ManDupUnnormalize(ptr noundef nonnull %0) #36
   %9 = icmp eq ptr %8, null
   br i1 %9, label %50, label %10
 
 10:                                               ; preds = %7
-  tail call void @Gia_ManTransferTiming(ptr noundef nonnull %8, ptr noundef nonnull %0) #34
+  tail call void @Gia_ManTransferTiming(ptr noundef nonnull %8, ptr noundef nonnull %0) #36
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 736
   %12 = load ptr, ptr %11, align 8, !tbaa !176
-  %13 = tail call ptr @Tim_ManGetArrTimes(ptr noundef %12) #34
+  %13 = tail call ptr @Tim_ManGetArrTimes(ptr noundef %12) #36
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr %13, ptr %14, align 8, !tbaa !233
   %15 = load ptr, ptr %11, align 8, !tbaa !176
-  %16 = tail call ptr @Tim_ManGetReqTimes(ptr noundef %15) #34
+  %16 = tail call ptr @Tim_ManGetReqTimes(ptr noundef %15) #36
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 256
   store ptr %16, ptr %17, align 8, !tbaa !235
   br label %22
 
 18:                                               ; preds = %6
-  %19 = tail call ptr @Gia_ManDup(ptr noundef nonnull %0) #34
+  %19 = tail call ptr @Gia_ManDup(ptr noundef nonnull %0) #36
   br label %22
 
 20:                                               ; preds = %3
-  %21 = tail call ptr @Gia_ManDup(ptr noundef nonnull %0) #34
+  %21 = tail call ptr @Gia_ManDup(ptr noundef nonnull %0) #36
   br label %22
 
 22:                                               ; preds = %10, %18, %20
@@ -15438,7 +15438,7 @@ define noundef ptr @Gia_ManPerformLfMapping(ptr noundef %0, ptr noundef %1, i32 
   br i1 %.not46, label %27, label %26
 
 26:                                               ; preds = %24
-  tail call void @free(ptr noundef nonnull %25) #34
+  tail call void @free(ptr noundef nonnull %25) #36
   store ptr null, ptr %23, align 8, !tbaa !199
   br label %27
 
@@ -15449,7 +15449,7 @@ define noundef ptr @Gia_ManPerformLfMapping(ptr noundef %0, ptr noundef %1, i32 
   br i1 %.not47, label %31, label %30
 
 30:                                               ; preds = %27
-  tail call void @free(ptr noundef nonnull %29) #34
+  tail call void @free(ptr noundef nonnull %29) #36
   store ptr null, ptr %28, align 8, !tbaa !200
   br label %31
 
@@ -15459,10 +15459,10 @@ define noundef ptr @Gia_ManPerformLfMapping(ptr noundef %0, ptr noundef %1, i32 
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %32) #37
+  %34 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %32) #39
   %35 = add i64 %34, 1
-  %36 = tail call noalias ptr @malloc(i64 noundef %35) #33
-  %37 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull readonly dereferenceable(1) %32) #34
+  %36 = tail call noalias ptr @malloc(i64 noundef %35) #35
+  %37 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull readonly dereferenceable(1) %32) #36
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %31, %33
@@ -15474,10 +15474,10 @@ Abc_UtilStrsav.exit:                              ; preds = %31, %33
   br i1 %.not.i48, label %Abc_UtilStrsav.exit49, label %41
 
 41:                                               ; preds = %Abc_UtilStrsav.exit
-  %42 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %40) #37
+  %42 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %40) #39
   %43 = add i64 %42, 1
-  %44 = tail call noalias ptr @malloc(i64 noundef %43) #33
-  %45 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull readonly dereferenceable(1) %40) #34
+  %44 = tail call noalias ptr @malloc(i64 noundef %43) #35
+  %45 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull readonly dereferenceable(1) %40) #36
   br label %Abc_UtilStrsav.exit49
 
 Abc_UtilStrsav.exit49:                            ; preds = %Abc_UtilStrsav.exit, %41
@@ -15485,16 +15485,16 @@ Abc_UtilStrsav.exit49:                            ; preds = %Abc_UtilStrsav.exit
   store ptr %46, ptr %28, align 8, !tbaa !200
   %47 = getelementptr i8, ptr %.039, i64 16
   %.039.val = load i32, ptr %47, align 8, !tbaa !205
-  tail call void @Gia_ManSetRegNum(ptr noundef nonnull %23, i32 noundef %.039.val) #34
-  tail call void @Gia_ManTransferTiming(ptr noundef nonnull %23, ptr noundef nonnull %.039) #34
-  tail call void @Gia_ManStop(ptr noundef nonnull %.039) #34
+  tail call void @Gia_ManSetRegNum(ptr noundef nonnull %23, i32 noundef %.039.val) #36
+  tail call void @Gia_ManTransferTiming(ptr noundef nonnull %23, ptr noundef nonnull %.039) #36
+  tail call void @Gia_ManStop(ptr noundef nonnull %.039) #36
   br label %48
 
 48:                                               ; preds = %Abc_UtilStrsav.exit49, %22
-  %49 = tail call ptr @Gia_ManDupNormalize(ptr noundef %23, i32 noundef 0) #34
-  tail call void @Gia_ManTransferMapping(ptr noundef %49, ptr noundef %23) #34
-  tail call void @Gia_ManTransferTiming(ptr noundef %49, ptr noundef %23) #34
-  tail call void @Gia_ManStop(ptr noundef %23) #34
+  %49 = tail call ptr @Gia_ManDupNormalize(ptr noundef %23, i32 noundef 0) #36
+  tail call void @Gia_ManTransferMapping(ptr noundef %49, ptr noundef %23) #36
+  tail call void @Gia_ManTransferTiming(ptr noundef %49, ptr noundef %23) #36
+  tail call void @Gia_ManStop(ptr noundef %23) #36
   br label %50
 
 50:                                               ; preds = %7, %48
@@ -15502,14 +15502,14 @@ Abc_UtilStrsav.exit49:                            ; preds = %Abc_UtilStrsav.exit
   ret ptr %.0
 }
 
-declare ptr @Tim_ManGetArrTimes(ptr noundef) local_unnamed_addr #5
+declare ptr @Tim_ManGetArrTimes(ptr noundef) local_unnamed_addr #6
 
-declare ptr @Tim_ManGetReqTimes(ptr noundef) local_unnamed_addr #5
+declare ptr @Tim_ManGetReqTimes(ptr noundef) local_unnamed_addr #6
 
-declare ptr @Gia_ManDup(ptr noundef) local_unnamed_addr #5
+declare ptr @Gia_ManDup(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @Abc_TtMinBase(ptr noundef nonnull captures(address) %0, ptr noundef captures(address_is_null) %1, i32 noundef range(i32 0, 256) %2, i32 noundef %3) unnamed_addr #20 {
+define internal fastcc i32 @Abc_TtMinBase(ptr noundef nonnull captures(address) %0, ptr noundef captures(address_is_null) %1, i32 noundef range(i32 0, 256) %2, i32 noundef %3) unnamed_addr #22 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -15712,7 +15712,7 @@ Abc_TtHasVar.exit.thread:                         ; preds = %._crit_edge.us.i, %
   ret i32 %.0.lcssa
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc i32 @Vec_MemHashInsert(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !268
@@ -15768,11 +15768,11 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %14
   br i1 %.not9.i.i.i, label %27, label %25
 
 25:                                               ; preds = %20
-  %26 = tail call ptr @realloc(ptr noundef nonnull %22, i64 noundef %24) #35
+  %26 = tail call ptr @realloc(ptr noundef nonnull %22, i64 noundef %24) #37
   br label %29
 
 27:                                               ; preds = %20
-  %28 = tail call noalias ptr @malloc(i64 noundef %24) #33
+  %28 = tail call noalias ptr @malloc(i64 noundef %24) #35
   br label %29
 
 29:                                               ; preds = %27, %25
@@ -15944,11 +15944,11 @@ Vec_MemHashLookup.exit.i:                         ; preds = %Vec_MemHashLookup.e
   br i1 %.not9.i.i19.i, label %110, label %108
 
 108:                                              ; preds = %105
-  %109 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %107, i64 noundef 64) #35
+  %109 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %107, i64 noundef 64) #37
   br label %Vec_IntGrow.exit.i20.i
 
 110:                                              ; preds = %105
-  %111 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #33
+  %111 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #35
   br label %Vec_IntGrow.exit.i20.i
 
 Vec_IntGrow.exit.i20.i:                           ; preds = %110, %108
@@ -15967,11 +15967,11 @@ Vec_IntGrow.exit.i20.i:                           ; preds = %110, %108
   br i1 %.not9.i9.i.i, label %121, label %119
 
 119:                                              ; preds = %113
-  %120 = tail call ptr @realloc(ptr noundef nonnull %116, i64 noundef %118) #35
+  %120 = tail call ptr @realloc(ptr noundef nonnull %116, i64 noundef %118) #37
   br label %123
 
 121:                                              ; preds = %113
-  %122 = tail call noalias ptr @malloc(i64 noundef %118) #33
+  %122 = tail call noalias ptr @malloc(i64 noundef %118) #35
   br label %123
 
 123:                                              ; preds = %121, %119
@@ -16112,11 +16112,11 @@ Vec_MemHashLookup.exit.thread:                    ; preds = %Vec_MemHashLookup.e
   br i1 %.not9.i.i, label %195, label %193
 
 193:                                              ; preds = %190
-  %194 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %192, i64 noundef 64) #35
+  %194 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %192, i64 noundef 64) #37
   br label %Vec_IntGrow.exit.i
 
 195:                                              ; preds = %190
-  %196 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #33
+  %196 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #35
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %195, %193
@@ -16135,11 +16135,11 @@ Vec_IntGrow.exit.i:                               ; preds = %195, %193
   br i1 %.not9.i9.i, label %206, label %204
 
 204:                                              ; preds = %198
-  %205 = tail call ptr @realloc(ptr noundef nonnull %201, i64 noundef %203) #35
+  %205 = tail call ptr @realloc(ptr noundef nonnull %201, i64 noundef %203) #37
   br label %208
 
 206:                                              ; preds = %198
-  %207 = tail call noalias ptr @malloc(i64 noundef %203) #33
+  %207 = tail call noalias ptr @malloc(i64 noundef %203) #35
   br label %208
 
 208:                                              ; preds = %206, %204
@@ -16185,13 +16185,13 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %.not37.i.i, label %235, label %233
 
 233:                                              ; preds = %225
-  %234 = tail call ptr @realloc(ptr noundef nonnull %227, i64 noundef %232) #35
+  %234 = tail call ptr @realloc(ptr noundef nonnull %227, i64 noundef %232) #37
   %.pre.pre.i.i = load i32, ptr %219, align 4, !tbaa !226
   %.pre.pre.pre.pre.i = load i32, ptr %216, align 8, !tbaa !105
   br label %237
 
 235:                                              ; preds = %225
-  %236 = tail call noalias ptr @malloc(i64 noundef %232) #33
+  %236 = tail call noalias ptr @malloc(i64 noundef %232) #35
   br label %237
 
 237:                                              ; preds = %235, %233
@@ -16221,7 +16221,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 248:                                              ; preds = %248, %.lr.ph.i.i27
   %indvars.iv.i.i29 = phi i64 [ %247, %.lr.ph.i.i27 ], [ %indvars.iv.next.i.i30, %248 ]
   %indvars.iv.next.i.i30 = add nsw i64 %indvars.iv.i.i29, 1
-  %249 = tail call noalias ptr @malloc(i64 noundef %244) #33
+  %249 = tail call noalias ptr @malloc(i64 noundef %244) #35
   %250 = getelementptr inbounds ptr, ptr %246, i64 %indvars.iv.next.i.i30
   store ptr %249, ptr %250, align 8, !tbaa !106
   %exitcond.not.i.i31 = icmp eq i64 %indvars.iv.next.i.i30, %wide.trip.count.i.i28
@@ -16263,7 +16263,7 @@ Vec_MemHashLookup.exit:                           ; preds = %168, %.lr.ph.i18, %
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @Abc_TtSwapVars(ptr noundef nonnull captures(address) %0, i32 noundef %1, i32 noundef range(i32 -2147483648, 254) %2, i32 noundef range(i32 -2147483648, 255) %3) unnamed_addr #20 {
+define internal fastcc void @Abc_TtSwapVars(ptr noundef nonnull captures(address) %0, i32 noundef %1, i32 noundef range(i32 -2147483648, 254) %2, i32 noundef range(i32 -2147483648, 255) %3) unnamed_addr #22 {
   %5 = icmp eq i32 %2, %3
   br i1 %5, label %.loopexit, label %6
 
@@ -16469,37 +16469,37 @@ define internal fastcc void @Abc_TtSwapVars(ptr noundef nonnull captures(address
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #21
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #22
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #24
 
-declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #5
+declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #6
 
-declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #23
+declare void @llvm.va_start.p0(ptr) #25
 
-declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #24
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #26
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #23
+declare void @llvm.va_end.p0(ptr) #25
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #25
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #27
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unnamed_addr #11 {
+define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unnamed_addr #18 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8, !tbaa !41
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -16515,7 +16515,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
 
 11:                                               ; preds = %7
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  tail call void @exit(i32 noundef 1) #38
+  tail call void @exit(i32 noundef 1) #40
   unreachable
 
 12:                                               ; preds = %7
@@ -16537,11 +16537,11 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
   br i1 %.not33, label %24, label %22
 
 22:                                               ; preds = %17
-  %23 = tail call ptr @realloc(ptr noundef nonnull %19, i64 noundef %21) #35
+  %23 = tail call ptr @realloc(ptr noundef nonnull %19, i64 noundef %21) #37
   br label %26
 
 24:                                               ; preds = %17
-  %25 = tail call noalias ptr @malloc(i64 noundef %21) #33
+  %25 = tail call noalias ptr @malloc(i64 noundef %21) #35
   br label %26
 
 26:                                               ; preds = %24, %22
@@ -16562,7 +16562,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
 36:                                               ; preds = %26
   %37 = sext i32 %9 to i64
   %38 = shl nsw i64 %37, 2
-  %39 = tail call ptr @realloc(ptr noundef nonnull %35, i64 noundef %38) #35
+  %39 = tail call ptr @realloc(ptr noundef nonnull %35, i64 noundef %38) #37
   store ptr %39, ptr %34, align 8, !tbaa !69
   %40 = load i32, ptr %4, align 4, !tbaa !292
   %41 = sext i32 %40 to i64
@@ -16607,11 +16607,11 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
   br i1 %.not9.i.i, label %62, label %60
 
 60:                                               ; preds = %57
-  %61 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %59, i64 noundef 64) #35
+  %61 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %59, i64 noundef 64) #37
   br label %Vec_IntGrow.exit.i
 
 62:                                               ; preds = %57
-  %63 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #33
+  %63 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #35
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %62, %60
@@ -16630,11 +16630,11 @@ Vec_IntGrow.exit.i:                               ; preds = %62, %60
   br i1 %.not9.i9.i, label %73, label %71
 
 71:                                               ; preds = %65
-  %72 = tail call ptr @realloc(ptr noundef nonnull %68, i64 noundef %70) #35
+  %72 = tail call ptr @realloc(ptr noundef nonnull %68, i64 noundef %70) #37
   br label %75
 
 73:                                               ; preds = %65
-  %74 = tail call noalias ptr @malloc(i64 noundef %70) #33
+  %74 = tail call noalias ptr @malloc(i64 noundef %70) #35
   br label %75
 
 75:                                               ; preds = %73, %71
@@ -16665,18 +16665,18 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #26
+declare void @exit(i32 noundef) local_unnamed_addr #28
 
-declare void @Gia_ObjAddFanout(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @Gia_ObjAddFanout(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
-declare void @Gia_ManBuiltInSimPerform(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @Gia_ManBuiltInSimPerform(ptr noundef, i32 noundef) local_unnamed_addr #6
 
-declare void @Gia_ManQuantSetSuppAnd(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @Gia_ManQuantSetSuppAnd(ptr noundef, ptr noundef) local_unnamed_addr #6
 
-declare i32 @Kit_TruthToGia(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @Kit_TruthToGia(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #27
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #29
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
@@ -16691,74 +16691,76 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #28
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #30
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #28
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #30
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #29
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #31
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #30
+declare i32 @llvm.smax.i32(i32, i32) #32
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #29
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #31
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #30
+declare i32 @llvm.smin.i32(i32, i32) #32
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #31
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #33
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #29
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #31
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #30
+declare i64 @llvm.ctpop.i64(i64) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #32
+declare void @llvm.assume(i1 noundef) #34
 
-attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { inlinehint nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { inlinehint nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { inlinehint nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { inlinehint nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { inlinehint nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #24 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #29 = { nofree nounwind }
-attributes #30 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #31 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #32 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #33 = { nounwind allocsize(0) }
-attributes #34 = { nounwind }
-attributes #35 = { nounwind allocsize(1) }
-attributes #36 = { nounwind allocsize(0,1) }
-attributes #37 = { nounwind willreturn memory(read) }
-attributes #38 = { cold noreturn nounwind }
+attributes #4 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { inlinehint nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { inlinehint nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { inlinehint nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { inlinehint nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { inlinehint nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { inlinehint nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #26 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #30 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #31 = { nofree nounwind }
+attributes #32 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #33 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #34 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #35 = { nounwind allocsize(0) }
+attributes #36 = { nounwind }
+attributes #37 = { nounwind allocsize(1) }
+attributes #38 = { nounwind allocsize(0,1) }
+attributes #39 = { nounwind willreturn memory(read) }
+attributes #40 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

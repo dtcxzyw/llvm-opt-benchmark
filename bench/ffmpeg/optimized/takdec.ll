@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @predictor_sizes = internal unnamed_addr constant [16 x i16] [i16 4, i16 8, i16 12, i16 16, i16 24, i16 32, i16 48, i16 64, i16 80, i16 96, i16 128, i16 160, i16 192, i16 224, i16 256, i16 0], align 16
 @xcodes = internal unnamed_addr constant [50 x %struct.CParam] [%struct.CParam { i32 1, i32 1, i32 1, i32 3, i32 8 }, %struct.CParam { i32 2, i32 3, i32 1, i32 7, i32 6 }, %struct.CParam { i32 3, i32 5, i32 2, i32 14, i32 13 }, %struct.CParam { i32 3, i32 3, i32 3, i32 13, i32 24 }, %struct.CParam { i32 4, i32 11, i32 4, i32 28, i32 25 }, %struct.CParam { i32 4, i32 6, i32 6, i32 26, i32 48 }, %struct.CParam { i32 5, i32 22, i32 8, i32 56, i32 50 }, %struct.CParam { i32 5, i32 12, i32 12, i32 52, i32 96 }, %struct.CParam { i32 6, i32 44, i32 16, i32 112, i32 100 }, %struct.CParam { i32 6, i32 24, i32 24, i32 104, i32 192 }, %struct.CParam { i32 7, i32 88, i32 32, i32 224, i32 200 }, %struct.CParam { i32 7, i32 48, i32 48, i32 208, i32 384 }, %struct.CParam { i32 8, i32 176, i32 64, i32 448, i32 400 }, %struct.CParam { i32 8, i32 96, i32 96, i32 416, i32 768 }, %struct.CParam { i32 9, i32 352, i32 128, i32 896, i32 800 }, %struct.CParam { i32 9, i32 192, i32 192, i32 832, i32 1536 }, %struct.CParam { i32 10, i32 704, i32 256, i32 1792, i32 1600 }, %struct.CParam { i32 10, i32 384, i32 384, i32 1664, i32 3072 }, %struct.CParam { i32 11, i32 1408, i32 512, i32 3584, i32 3200 }, %struct.CParam { i32 11, i32 768, i32 768, i32 3328, i32 6144 }, %struct.CParam { i32 12, i32 2816, i32 1024, i32 7168, i32 6400 }, %struct.CParam { i32 12, i32 1536, i32 1536, i32 6656, i32 12288 }, %struct.CParam { i32 13, i32 5632, i32 2048, i32 14336, i32 12800 }, %struct.CParam { i32 13, i32 3072, i32 3072, i32 13312, i32 24576 }, %struct.CParam { i32 14, i32 11264, i32 4096, i32 28672, i32 25600 }, %struct.CParam { i32 14, i32 6144, i32 6144, i32 26624, i32 49152 }, %struct.CParam { i32 15, i32 22528, i32 8192, i32 57344, i32 51200 }, %struct.CParam { i32 15, i32 12288, i32 12288, i32 53248, i32 98304 }, %struct.CParam { i32 16, i32 45056, i32 16384, i32 114688, i32 102400 }, %struct.CParam { i32 16, i32 24576, i32 24576, i32 106496, i32 196608 }, %struct.CParam { i32 17, i32 90112, i32 32768, i32 229376, i32 204800 }, %struct.CParam { i32 17, i32 49152, i32 49152, i32 212992, i32 393216 }, %struct.CParam { i32 18, i32 180224, i32 65536, i32 458752, i32 409600 }, %struct.CParam { i32 18, i32 98304, i32 98304, i32 425984, i32 786432 }, %struct.CParam { i32 19, i32 360448, i32 131072, i32 917504, i32 819200 }, %struct.CParam { i32 19, i32 196608, i32 196608, i32 851968, i32 1572864 }, %struct.CParam { i32 20, i32 720896, i32 262144, i32 1835008, i32 1638400 }, %struct.CParam { i32 20, i32 393216, i32 393216, i32 1703936, i32 3145728 }, %struct.CParam { i32 21, i32 1441792, i32 524288, i32 3670016, i32 3276800 }, %struct.CParam { i32 21, i32 786432, i32 786432, i32 3407872, i32 6291456 }, %struct.CParam { i32 22, i32 2883584, i32 1048576, i32 7340032, i32 6553600 }, %struct.CParam { i32 22, i32 1572864, i32 1572864, i32 6815744, i32 12582912 }, %struct.CParam { i32 23, i32 5767168, i32 2097152, i32 14680064, i32 13107200 }, %struct.CParam { i32 23, i32 3145728, i32 3145728, i32 13631488, i32 25165824 }, %struct.CParam { i32 24, i32 11534336, i32 4194304, i32 29360128, i32 26214400 }, %struct.CParam { i32 24, i32 6291456, i32 6291456, i32 27262976, i32 50331648 }, %struct.CParam { i32 25, i32 23068672, i32 8388608, i32 58720256, i32 52428800 }, %struct.CParam { i32 25, i32 12582912, i32 12582912, i32 54525952, i32 100663296 }, %struct.CParam { i32 26, i32 46137344, i32 16777216, i32 117440512, i32 104857600 }, %struct.CParam { i32 26, i32 25165824, i32 25165824, i32 109051904, i32 201326592 }], align 16
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @update_thread_context(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) #0 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %11, label %4
@@ -2485,7 +2485,7 @@ decode_subframe.exit:                             ; preds = %194, %bits_read_bit
   ret i32 %.0
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc i32 @bits_read_nz_le(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8, !tbaa !44
@@ -3394,7 +3394,7 @@ define internal fastcc void @decode_lpc(ptr noundef captures(none) %0, i32 nound
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @bits_align_le(ptr noundef captures(none) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !43
@@ -3440,7 +3440,7 @@ bits_skip_le.exit:                                ; preds = %bits_skip_le.exit.s
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @bits_skip_le(ptr noundef captures(none) %0, i32 noundef range(i32 1, 0) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8, !tbaa !44
@@ -3516,7 +3516,7 @@ bits_priv_refill_64_le.exit:                      ; preds = %21, %25
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 -1094995529, 1) i32 @decode_residues(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef range(i32 -98303, 65535) %2) unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 164
@@ -3867,7 +3867,7 @@ bits_read_nz_le.exit105:                          ; preds = %bits_read_bit_le.ex
   ret i32 %.067
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc range(i32 -1094995529, 1) i32 @decode_segment(ptr noundef captures(none) %0, i8 noundef signext %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) unnamed_addr #8 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %.not = icmp eq i8 %1, 0
@@ -4213,15 +4213,15 @@ declare i32 @llvm.umax.i32(i32, i32) #11
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #11
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }

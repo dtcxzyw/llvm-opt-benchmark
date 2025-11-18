@@ -20032,7 +20032,7 @@ declare void @__kmpc_for_static_fini(ptr, i32) local_unnamed_addr #22
 ; Function Attrs: convergent nounwind
 declare void @__kmpc_barrier(ptr, i32) local_unnamed_addr #23
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_123search_knn_hamming_heapEPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.omp_outlined.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #24 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -20516,7 +20516,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %_ZN5faiss1
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_124search_knn_hamming_countINS_16HammingComputer4ELb1EEEvPKNS_14IndexBinaryIVFEmPKhPKliPiPlPKNS_19SearchParametersIVFE.omp_outlined.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #24 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -20973,7 +20973,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %_ZN5faiss1
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_124search_knn_hamming_countINS_16HammingComputer8ELb1EEEvPKNS_14IndexBinaryIVFEmPKhPKliPiPlPKNS_19SearchParametersIVFE.omp_outlined.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #24 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -21440,7 +21440,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %_ZN5faiss1
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_124search_knn_hamming_countINS_17HammingComputer16ELb1EEEvPKNS_14IndexBinaryIVFEmPKhPKliPiPlPKNS_19SearchParametersIVFE.omp_outlined.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #24 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -21914,7 +21914,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %_ZN5faiss1
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_124search_knn_hamming_countINS_17HammingComputer20ELb1EEEvPKNS_14IndexBinaryIVFEmPKhPKliPiPlPKNS_19SearchParametersIVFE.omp_outlined.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #24 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -22397,7 +22397,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %_ZN5faiss1
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_124search_knn_hamming_countINS_17HammingComputer32ELb1EEEvPKNS_14IndexBinaryIVFEmPKhPKliPiPlPKNS_19SearchParametersIVFE.omp_outlined.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #24 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -22912,7 +22912,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %_ZN5faiss1
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_124search_knn_hamming_countINS_17HammingComputer64ELb1EEEvPKNS_14IndexBinaryIVFEmPKhPKliPiPlPKNS_19SearchParametersIVFE.omp_outlined.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #24 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -23367,7 +23367,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %_ZN5faiss1
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_124search_knn_hamming_countINS_22HammingComputerDefaultELb1EEEvPKNS_14IndexBinaryIVFEmPKhPKliPiPlPKNS_19SearchParametersIVFE.omp_outlined.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #24 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -23849,7 +23849,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %_ZN5faiss1
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_124search_knn_hamming_countINS_16HammingComputer4ELb0EEEvPKNS_14IndexBinaryIVFEmPKhPKliPiPlPKNS_19SearchParametersIVFE.omp_outlined.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #24 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -24330,7 +24330,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %_ZN5faiss1
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_124search_knn_hamming_countINS_16HammingComputer8ELb0EEEvPKNS_14IndexBinaryIVFEmPKhPKliPiPlPKNS_19SearchParametersIVFE.omp_outlined.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #24 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -24821,7 +24821,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %_ZN5faiss1
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_124search_knn_hamming_countINS_17HammingComputer16ELb0EEEvPKNS_14IndexBinaryIVFEmPKhPKliPiPlPKNS_19SearchParametersIVFE.omp_outlined.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #24 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -25319,7 +25319,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %_ZN5faiss1
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_124search_knn_hamming_countINS_17HammingComputer20ELb0EEEvPKNS_14IndexBinaryIVFEmPKhPKliPiPlPKNS_19SearchParametersIVFE.omp_outlined.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #24 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -25826,7 +25826,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %_ZN5faiss1
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_124search_knn_hamming_countINS_17HammingComputer32ELb0EEEvPKNS_14IndexBinaryIVFEmPKhPKliPiPlPKNS_19SearchParametersIVFE.omp_outlined.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #24 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -26365,7 +26365,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %_ZN5faiss1
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_124search_knn_hamming_countINS_17HammingComputer64ELb0EEEvPKNS_14IndexBinaryIVFEmPKhPKliPiPlPKNS_19SearchParametersIVFE.omp_outlined.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #24 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -26841,7 +26841,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %_ZN5faiss1
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_124search_knn_hamming_countINS_22HammingComputerDefaultELb0EEEvPKNS_14IndexBinaryIVFEmPKhPKliPiPlPKNS_19SearchParametersIVFE.omp_outlined.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #24 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -27399,7 +27399,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN5faiss24RangeSearchP
 
 declare void @_ZN5faiss24RangeSearchPartialResult8finalizeEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZNK5faiss14IndexBinaryIVF24range_search_preassignedElPKhiPKlPKiPNS_17RangeSearchResultE.omp_outlined.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #24 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -27564,7 +27564,7 @@ attributes #20 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-si
 attributes #21 = { noinline norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { nounwind }
 attributes #23 = { convergent nounwind }
-attributes #24 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #25 = { alwaysinline norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #26 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #27 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

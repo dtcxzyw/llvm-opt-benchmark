@@ -1331,7 +1331,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @copy_from(ptr noundef read
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @ipvideo_format_10_firstpass(ptr noundef captures(none) %0, ptr readnone captures(none) %1, i16 noundef signext %2) #5 {
   %.not = icmp eq i16 %2, 0
   br i1 %.not, label %.preheader, label %.loopexit
@@ -2811,7 +2811,7 @@ bytestream2_get_le64.exit54:                      ; preds = %132, %131, %116
   ret i32 %.039
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @ipvideo_decode_block_opcode_0xB(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 536
@@ -2848,7 +2848,7 @@ define internal noundef i32 @ipvideo_decode_block_opcode_0xB(ptr noundef capture
   ret i32 0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @ipvideo_decode_block_opcode_0xC(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 496
@@ -3009,7 +3009,7 @@ bytestream2_get_byte.exit13:                      ; preds = %32, %31, %16
   ret i32 %.011
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @ipvideo_decode_block_opcode_0xE(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 496
@@ -3055,7 +3055,7 @@ bytestream2_get_byte.exit:                        ; preds = %11, %12
   ret i32 0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @ipvideo_decode_block_opcode_0xF(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #5 {
   %3 = alloca [2 x i8], align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -3194,7 +3194,7 @@ bytestream2_get_byte.exit:                        ; preds = %18, %19
   ret i32 %25
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @ipvideo_decode_block_opcode_0x7_16(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #5 {
   %3 = alloca [2 x i16], align 2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -3359,7 +3359,7 @@ bytestream2_get_le16.exit:                        ; preds = %55, %56
   ret i32 0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @ipvideo_decode_block_opcode_0x8_16(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #5 {
   %3 = alloca [4 x i16], align 2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -3700,7 +3700,7 @@ bytestream2_get_le32.exit:                        ; preds = %139, %138, %131
   ret i32 0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @ipvideo_decode_block_opcode_0x9_16(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #5 {
   %3 = alloca [4 x i16], align 2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -3958,7 +3958,7 @@ bytestream2_get_le64.exit:                        ; preds = %81, %82
   ret i32 0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @ipvideo_decode_block_opcode_0xA_16(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #5 {
   %3 = alloca [8 x i16], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -4281,7 +4281,7 @@ bytestream2_get_le64.exit:                        ; preds = %134, %133, %126
   ret i32 0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @ipvideo_decode_block_opcode_0xB_16(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %4 = load ptr, ptr %3, align 8, !tbaa !67
@@ -4338,7 +4338,7 @@ bytestream2_get_le16.exit:                        ; preds = %17, %18
   ret i32 0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @ipvideo_decode_block_opcode_0xC_16(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %4 = load ptr, ptr %3, align 8, !tbaa !67
@@ -4406,7 +4406,7 @@ bytestream2_get_le16.exit:                        ; preds = %19, %20
   ret i32 0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @ipvideo_decode_block_opcode_0xD_16(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #5 {
   %3 = alloca [2 x i16], align 2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -4493,7 +4493,7 @@ bytestream2_get_le16.exit:                        ; preds = %27, %28
   ret i32 0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @ipvideo_decode_block_opcode_0xE_16(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %4 = load ptr, ptr %3, align 8, !tbaa !67
@@ -4566,7 +4566,7 @@ attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros
 attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }

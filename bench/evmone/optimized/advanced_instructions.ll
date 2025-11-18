@@ -100,7 +100,7 @@ define internal noalias noundef ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr null
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE1EXadL_ZNS_5instr4core3addENS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESD_SA_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #2 {
   %3 = alloca %"struct.intx::uint", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 552
@@ -144,7 +144,7 @@ _ZN6evmone8advanced5instr4implILNS_6OpcodeE1EXadL_ZNS_5instr4core3addENS_8StackT
   ret ptr %25
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE2EXadL_ZNS_5instr4core3mulENS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESD_SA_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #3 {
   %.sroa.011.i.i.i.i.i = alloca i64, align 8
   %.sroa.512.i.i.i.i.i = alloca i64, align 8
@@ -257,7 +257,7 @@ _ZN6evmone8advanced5instr4implILNS_6OpcodeE2EXadL_ZNS_5instr4core3mulENS_8StackT
   ret ptr %48
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE3EXadL_ZNS_5instr4core3subENS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESD_SA_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #2 {
   %3 = alloca %"struct.intx::uint", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 552
@@ -810,7 +810,7 @@ _ZN4intx23count_significant_bytesILj256EEEjRKNS_4uintIXT_EEE.exit.i.i: ; preds =
   ret ptr %41
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE11EXadL_ZNS_5instr4core10signextendENS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESD_SA_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -885,7 +885,7 @@ define internal noalias noundef ptr @_ZN6evmone8advanced12_GLOBAL__N_112op_undef
   ret ptr null
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE16EXadL_ZNS_5instr4core2ltENS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESD_SA_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -940,7 +940,7 @@ _ZN6evmone8advanced5instr4implILNS_6OpcodeE16EXadL_ZNS_5instr4core2ltENS_8StackT
   ret ptr %37
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE17EXadL_ZNS_5instr4core2gtENS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESD_SA_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -995,7 +995,7 @@ _ZN6evmone8advanced5instr4implILNS_6OpcodeE17EXadL_ZNS_5instr4core2gtENS_8StackT
   ret ptr %37
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE18EXadL_ZNS_5instr4core3sltENS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESD_SA_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -1063,7 +1063,7 @@ _ZN6evmone8advanced5instr4implILNS_6OpcodeE18EXadL_ZNS_5instr4core3sltENS_8Stack
   ret ptr %41
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE19EXadL_ZNS_5instr4core3sgtENS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESD_SA_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -1131,7 +1131,7 @@ _ZN6evmone8advanced5instr4implILNS_6OpcodeE19EXadL_ZNS_5instr4core3sgtENS_8Stack
   ret ptr %41
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE20EXadL_ZNS_5instr4core2eqENS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESD_SA_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -1167,7 +1167,7 @@ _ZN6evmone8advanced5instr4implILNS_6OpcodeE20EXadL_ZNS_5instr4core2eqENS_8StackT
   ret ptr %19
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE21EXadL_ZNS_5instr4core6iszeroENS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESD_SA_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #2 {
   %3 = alloca %"struct.intx::uint", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 552
@@ -1205,7 +1205,7 @@ _ZN6evmone8advanced5instr4implILNS_6OpcodeE21EXadL_ZNS_5instr4core6iszeroENS_8St
   ret ptr %18
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE22EXadL_ZNS_5instr4core4and_ENS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESD_SA_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #3 {
   %3 = alloca %"struct.intx::uint", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 552
@@ -1242,7 +1242,7 @@ _ZN6evmone8advanced5instr4implILNS_6OpcodeE22EXadL_ZNS_5instr4core4and_ENS_8Stac
   ret ptr %18
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE23EXadL_ZNS_5instr4core3or_ENS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESD_SA_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #3 {
   %3 = alloca %"struct.intx::uint", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 552
@@ -1279,7 +1279,7 @@ _ZN6evmone8advanced5instr4implILNS_6OpcodeE23EXadL_ZNS_5instr4core3or_ENS_8Stack
   ret ptr %18
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE24EXadL_ZNS_5instr4core4xor_ENS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESD_SA_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #3 {
   %3 = alloca %"struct.intx::uint", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 552
@@ -1316,7 +1316,7 @@ _ZN6evmone8advanced5instr4implILNS_6OpcodeE24EXadL_ZNS_5instr4core4xor_ENS_8Stac
   ret ptr %18
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE25EXadL_ZNS_5instr4core4not_ENS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESD_SA_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #3 {
   %3 = alloca %"struct.intx::uint", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 552
@@ -1349,7 +1349,7 @@ _ZN6evmone8advanced5instr4implILNS_6OpcodeE25EXadL_ZNS_5instr4core4not_ENS_8Stac
   ret ptr %14
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE26EXadL_ZNS_5instr4core4byteENS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESD_SA_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -1433,7 +1433,7 @@ define internal noundef ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5ins
   ret ptr %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE48EXadL_ZNS_5instr4core7addressENS_8StackTopERNS_14ExecutionStateEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESF_SC_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -1615,7 +1615,7 @@ _ZN6evmone8advanced5instr4implILNS_6OpcodeE50EXadL_ZNS_5instr4core6originENS_8St
   ret ptr %24
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE51EXadL_ZNS_5instr4core6callerENS_8StackTopERNS_14ExecutionStateEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESF_SC_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -1647,7 +1647,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %14
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE52EXadL_ZNS_5instr4core9callvalueENS_8StackTopERNS_14ExecutionStateEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESF_SC_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -1681,7 +1681,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %14
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE53EXadL_ZNS_5instr4core12calldataloadENS_8StackTopERNS_14ExecutionStateEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESF_SC_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = alloca [32 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 552
@@ -1771,7 +1771,7 @@ _ZN6evmone8advanced5instr4implILNS_6OpcodeE53EXadL_ZNS_5instr4core12calldataload
   ret ptr %40
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE54EXadL_ZNS_5instr4core12calldatasizeENS_8StackTopERNS_14ExecutionStateEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESF_SC_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -1820,7 +1820,7 @@ define internal noundef ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5ins
   ret ptr %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE56EXadL_ZNS_5instr4core8codesizeENS_8StackTopERNS_14ExecutionStateEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESF_SC_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -2700,7 +2700,7 @@ define internal noundef ptr @_ZN6evmone8advanced12_GLOBAL__N_19op_sstoreEPKNS0_1
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef ptr @_ZN6evmone8advanced12_GLOBAL__N_17op_jumpEPKNS0_11InstructionERNS0_22AdvancedExecutionStateE(ptr readnone captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #8 {
 _ZN4intxltERKNS_4uintILj256EEES3_.exit:
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 552
@@ -2793,7 +2793,7 @@ _ZN6evmone8advanced13find_jumpdestERKNS0_20AdvancedCodeAnalysisEi.exit: ; preds 
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef ptr @_ZN6evmone8advanced12_GLOBAL__N_18op_jumpiEPKNS0_11InstructionERNS0_22AdvancedExecutionStateE(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #8 {
   %3 = alloca %"struct.intx::uint", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 552
@@ -2970,7 +2970,7 @@ _ZN6evmone8advanced12_GLOBAL__N_114opx_beginblockEPKNS0_11InstructionERNS0_22Adv
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_15op_pcEPKNS0_11InstructionERNS0_22AdvancedExecutionStateE(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #9 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2985,7 +2985,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_15op_pcEPKN
   ret ptr %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE89EXadL_ZNS_5instr4core5msizeENS_8StackTopERNS_14ExecutionStateEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESF_SC_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -3003,7 +3003,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %9
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_16op_gasEPKNS0_11InstructionERNS0_22AdvancedExecutionStateE(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #9 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 560
   %4 = load i32, ptr %3, align 8, !tbaa !201
@@ -3087,7 +3087,7 @@ define internal noundef ptr @_ZN6evmone8advanced12_GLOBAL__N_114opx_beginblockEP
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_113op_push_smallEPKNS0_11InstructionERNS0_22AdvancedExecutionStateE(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #9 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3102,7 +3102,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_113op_push_
   ret ptr %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_112op_push_fullEPKNS0_11InstructionERNS0_22AdvancedExecutionStateE(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3115,7 +3115,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_112op_push_
   ret ptr %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE128EXadL_ZNS_5instr4core3dupILi1EEEvNS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESE_SB_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -3130,7 +3130,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE129EXadL_ZNS_5instr4core3dupILi2EEEvNS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESE_SB_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -3145,7 +3145,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE130EXadL_ZNS_5instr4core3dupILi3EEEvNS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESE_SB_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -3160,7 +3160,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE131EXadL_ZNS_5instr4core3dupILi4EEEvNS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESE_SB_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -3175,7 +3175,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE132EXadL_ZNS_5instr4core3dupILi5EEEvNS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESE_SB_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -3190,7 +3190,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE133EXadL_ZNS_5instr4core3dupILi6EEEvNS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESE_SB_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -3205,7 +3205,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE134EXadL_ZNS_5instr4core3dupILi7EEEvNS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESE_SB_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -3220,7 +3220,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE135EXadL_ZNS_5instr4core3dupILi8EEEvNS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESE_SB_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -3235,7 +3235,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE136EXadL_ZNS_5instr4core3dupILi9EEEvNS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESE_SB_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -3250,7 +3250,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE137EXadL_ZNS_5instr4core3dupILi10EEEvNS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESE_SB_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -3265,7 +3265,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE138EXadL_ZNS_5instr4core3dupILi11EEEvNS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESE_SB_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -3280,7 +3280,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE139EXadL_ZNS_5instr4core3dupILi12EEEvNS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESE_SB_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -3295,7 +3295,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE140EXadL_ZNS_5instr4core3dupILi13EEEvNS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESE_SB_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -3310,7 +3310,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE141EXadL_ZNS_5instr4core3dupILi14EEEvNS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESE_SB_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -3325,7 +3325,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE142EXadL_ZNS_5instr4core3dupILi15EEEvNS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESE_SB_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -3340,7 +3340,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE143EXadL_ZNS_5instr4core3dupILi16EEEvNS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESE_SB_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -3355,7 +3355,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE144EXadL_ZNS_5instr4core4swapILi1EEEvNS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESE_SB_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -3384,7 +3384,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %18
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE145EXadL_ZNS_5instr4core4swapILi2EEEvNS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESE_SB_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -3413,7 +3413,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %18
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE146EXadL_ZNS_5instr4core4swapILi3EEEvNS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESE_SB_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -3442,7 +3442,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %18
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE147EXadL_ZNS_5instr4core4swapILi4EEEvNS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESE_SB_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -3471,7 +3471,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %18
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE148EXadL_ZNS_5instr4core4swapILi5EEEvNS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESE_SB_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -3500,7 +3500,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %18
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE149EXadL_ZNS_5instr4core4swapILi6EEEvNS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESE_SB_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -3529,7 +3529,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %18
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE150EXadL_ZNS_5instr4core4swapILi7EEEvNS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESE_SB_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -3558,7 +3558,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %18
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE151EXadL_ZNS_5instr4core4swapILi8EEEvNS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESE_SB_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -3587,7 +3587,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %18
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE152EXadL_ZNS_5instr4core4swapILi9EEEvNS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESE_SB_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -3616,7 +3616,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %18
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE153EXadL_ZNS_5instr4core4swapILi10EEEvNS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESE_SB_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -3645,7 +3645,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %18
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE154EXadL_ZNS_5instr4core4swapILi11EEEvNS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESE_SB_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -3674,7 +3674,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %18
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE155EXadL_ZNS_5instr4core4swapILi12EEEvNS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESE_SB_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -3703,7 +3703,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %18
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE156EXadL_ZNS_5instr4core4swapILi13EEEvNS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESE_SB_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -3732,7 +3732,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %18
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE157EXadL_ZNS_5instr4core4swapILi14EEEvNS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESE_SB_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -3761,7 +3761,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %18
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE158EXadL_ZNS_5instr4core4swapILi15EEEvNS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESE_SB_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -3790,7 +3790,7 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   ret ptr %18
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE159EXadL_ZNS_5instr4core4swapILi16EEEvNS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESE_SB_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -4295,7 +4295,7 @@ define internal noundef ptr @_ZN6evmone8advanced12_GLOBAL__N_17op_callILNS_6Opco
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE61EXadL_ZNS_5instr4core14returndatasizeENS_8StackTopERNS_14ExecutionStateEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESF_SC_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -4498,7 +4498,7 @@ _ZN6evmone8advanced5instr4implILNS_6OpcodeE253EXadL_ZNS_5instr4core11return_impl
   ret ptr null
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE27EXadL_ZNS_5instr4core3shlENS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESD_SA_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #2 {
   %3 = alloca %"struct.intx::uint", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 552
@@ -4618,7 +4618,7 @@ _ZN6evmone8advanced5instr4implILNS_6OpcodeE27EXadL_ZNS_5instr4core3shlENS_8Stack
   ret ptr %73
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE28EXadL_ZNS_5instr4core3shrENS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESD_SA_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #2 {
   %3 = alloca %"struct.intx::uint", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 552
@@ -5056,7 +5056,7 @@ _ZN6evmone8advanced5instr4implILNS_6OpcodeE72EXadL_ZNS_5instr4core7basefeeENS_8S
   ret ptr %24
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE95EXadL_ZNS_5instr4core5push0ENS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESD_SA_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -5406,7 +5406,7 @@ define internal noundef ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5ins
   ret ptr %spec.select
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5instr4implILNS_6OpcodeE30EXadL_ZNS_5instr4core3clzENS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateEEEEEPKNS0_11InstructionESD_SA_(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(564) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %.sroa.0.0.copyload.i = load ptr, ptr %3, align 8, !tbaa !57
@@ -10399,16 +10399,16 @@ declare i64 @llvm.umax.i64(i64, i64) #26
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

@@ -1843,7 +1843,7 @@ _ZNK6Symbol6equalsEPKci.exit:                     ; preds = %2, %_ZNK6Symbol16co
   ret i1 %.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZN22SystemDictionaryShared32is_registered_lambda_proxy_classEP13InstanceKlass(ptr noundef %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr @_ZN22SystemDictionaryShared15_dumptime_tableE, align 8
   %3 = load i8, ptr @_ZN9CDSConfig26_is_dumping_static_archiveE, align 1
@@ -1905,7 +1905,7 @@ _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceK
   ret i1 %36
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN22SystemDictionaryShared35reset_registered_lambda_proxy_classEP13InstanceKlass(ptr noundef %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr @_ZN22SystemDictionaryShared15_dumptime_tableE, align 8
   %3 = load i8, ptr @_ZN9CDSConfig26_is_dumping_static_archiveE, align 1
@@ -1967,7 +1967,7 @@ _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceK
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZN22SystemDictionaryShared14is_early_klassEP13InstanceKlass(ptr noundef %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr @_ZN22SystemDictionaryShared15_dumptime_tableE, align 8
   %3 = load i8, ptr @_ZN9CDSConfig26_is_dumping_static_archiveE, align 1
@@ -2091,7 +2091,7 @@ define hidden noundef zeroext i1 @_ZN22SystemDictionaryShared18has_been_redefine
 
 declare noundef ptr @_ZNK13InstanceKlass7signersEv(ptr noundef nonnull align 8 dereferenceable(464)) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZN22SystemDictionaryShared29has_class_failed_verificationEP13InstanceKlass(ptr noundef %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr @_ZN22SystemDictionaryShared15_dumptime_tableE, align 8
   %3 = load i8, ptr @_ZN9CDSConfig26_is_dumping_static_archiveE, align 1
@@ -2190,7 +2190,7 @@ _ZNK15ClassLoaderData12class_loaderEv.exit.thread: ; preds = %1, %10, %8, %_ZNK1
   ret i1 %12
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZN22SystemDictionaryShared27has_platform_or_app_classesEv() local_unnamed_addr #3 align 2 {
   %1 = load ptr, ptr @_ZN11FileMapInfo13_current_infoE, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -9223,8 +9223,8 @@ declare i16 @llvm.umax.i16(i16, i16) #16
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

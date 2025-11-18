@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [36 x i8] c"unknown variable function in '%.*s'\00", align 1
 @.str.17 = private unnamed_addr constant [26 x i8] c"Overwriting variable '%s'\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @varcleanup(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8, !tbaa !4
@@ -34,8 +34,8 @@ define dso_local void @varcleanup(ptr noundef readonly captures(none) %0) local_
   %4 = load ptr, ptr %.07, align 8, !tbaa !17
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !19
-  tail call void @free(ptr noundef %6) #12
-  tail call void @free(ptr noundef nonnull %.07) #12
+  tail call void @free(ptr noundef %6) #13
+  tail call void @free(ptr noundef nonnull %.07) #13
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
@@ -47,20 +47,20 @@ define dso_local void @varcleanup(ptr noundef readonly captures(none) %0) local_
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 23) i32 @varexpand(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 23) i32 @varexpand(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3) local_unnamed_addr #2 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca [128 x i8], align 16
   %8 = alloca %struct.dynbuf, align 8
   store i8 0, ptr %3, align 1, !tbaa !22
-  tail call void @curlx_dyn_init(ptr noundef %2, i64 noundef 10000000) #12
+  tail call void @curlx_dyn_init(ptr noundef %2, i64 noundef 10000000) #13
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %10
 
 10:                                               ; preds = %153, %4
   %.0127 = phi i8 [ 0, %4 ], [ %.5132, %153 ]
   %.0115 = phi ptr [ %1, %4 ], [ %.3118, %153 ]
-  %11 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0115, ptr noundef nonnull dereferenceable(1) @.str) #13
+  %11 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0115, ptr noundef nonnull dereferenceable(1) @.str) #14
   %12 = icmp ugt ptr %11, %.0115
   br i1 %12, label %13, label %25
 
@@ -75,12 +75,12 @@ define dso_local range(i32 0, 23) i32 @varexpand(ptr noundef %0, ptr noundef %1,
   %19 = ptrtoint ptr %.0115 to i64
   %20 = xor i64 %19, -1
   %21 = add i64 %18, %20
-  %22 = call i32 @curlx_dyn_addn(ptr noundef %2, ptr noundef nonnull %.0115, i64 noundef %21) #12
+  %22 = call i32 @curlx_dyn_addn(ptr noundef %2, ptr noundef nonnull %.0115, i64 noundef %21) #13
   %.not160 = icmp eq i32 %22, 0
   br i1 %.not160, label %23, label %.loopexit
 
 23:                                               ; preds = %17
-  %24 = call i32 @curlx_dyn_addn(ptr noundef %2, ptr noundef nonnull @.str, i64 noundef 2) #12
+  %24 = call i32 @curlx_dyn_addn(ptr noundef %2, ptr noundef nonnull @.str, i64 noundef 2) #13
   %.not161 = icmp eq i32 %24, 0
   br i1 %.not161, label %153, label %.loopexit
 
@@ -90,7 +90,7 @@ define dso_local range(i32 0, 23) i32 @varexpand(ptr noundef %0, ptr noundef %1,
 
 .thread:                                          ; preds = %13, %25
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %26 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) @.str.1) #13
+  %26 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) @.str.1) #14
   %.not150 = icmp eq ptr %26, null
   br i1 %.not150, label %152, label %27
 
@@ -99,7 +99,7 @@ define dso_local range(i32 0, 23) i32 @varexpand(ptr noundef %0, ptr noundef %1,
   %29 = ptrtoint ptr %26 to i64
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
-  %32 = call ptr @memchr(ptr noundef nonnull %28, i32 noundef 58, i64 noundef %31) #13
+  %32 = call ptr @memchr(ptr noundef nonnull %28, i32 noundef 58, i64 noundef %31) #14
   %.not151 = icmp eq ptr %32, null
   %33 = ptrtoint ptr %32 to i64
   %34 = sub i64 %33, %30
@@ -110,17 +110,17 @@ define dso_local range(i32 0, 23) i32 @varexpand(ptr noundef %0, ptr noundef %1,
   br i1 %or.cond, label %37, label %40
 
 37:                                               ; preds = %27
-  call void (ptr, ptr, ...) @warnf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %1) #12
+  call void (ptr, ptr, ...) @warnf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %1) #13
   %reass.sub = sub i64 %29, %36
   %38 = add i64 %reass.sub, 2
-  %39 = call i32 @curlx_dyn_addn(ptr noundef %2, ptr noundef nonnull %.0115, i64 noundef %38) #12
+  %39 = call i32 @curlx_dyn_addn(ptr noundef %2, ptr noundef nonnull %.0115, i64 noundef %38) #13
   %.not159 = icmp eq i32 %39, 0
   br i1 %.not159, label %.thread191, label %.thread186
 
 40:                                               ; preds = %27
   %41 = ptrtoint ptr %11 to i64
   %42 = sub i64 %41, %36
-  %43 = call i32 @curlx_dyn_addn(ptr noundef %2, ptr noundef nonnull %.0115, i64 noundef %42) #12
+  %43 = call i32 @curlx_dyn_addn(ptr noundef %2, ptr noundef nonnull %.0115, i64 noundef %42) #13
   %.not152 = icmp eq i32 %43, 0
   br i1 %.not152, label %.lr.ph.preheader, label %.thread186
 
@@ -158,9 +158,9 @@ define dso_local range(i32 0, 23) i32 @varexpand(ptr noundef %0, ptr noundef %1,
   br i1 %53, label %.critedge.thread, label %54
 
 54:                                               ; preds = %.critedge
-  call void (ptr, ptr, ...) @warnf(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef nonnull %7) #12
+  call void (ptr, ptr, ...) @warnf(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef nonnull %7) #13
   %55 = add i64 %31, 4
-  %56 = call i32 @curlx_dyn_addn(ptr noundef %2, ptr noundef nonnull %11, i64 noundef %55) #12
+  %56 = call i32 @curlx_dyn_addn(ptr noundef %2, ptr noundef nonnull %11, i64 noundef %55) #13
   %.not158 = icmp eq i32 %56, 0
   br i1 %.not158, label %.thread191, label %.thread186
 
@@ -173,12 +173,12 @@ define dso_local range(i32 0, 23) i32 @varexpand(ptr noundef %0, ptr noundef %1,
 .lr.ph.i:                                         ; preds = %.critedge.thread, %62
   %.014.i = phi ptr [ %.0.i, %62 ], [ %.012.i, %.critedge.thread ]
   %57 = getelementptr inbounds nuw i8, ptr %.014.i, i64 24
-  %58 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %57) #13
+  %58 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %57) #14
   %59 = icmp eq i64 %58, %.0137
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %.lr.ph.i
-  %61 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %57, i64 noundef range(i64 1, 128) %.0137) #13
+  %61 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %57, i64 noundef range(i64 1, 128) %.0137) #14
   %.not11.i = icmp eq i32 %61, 0
   br i1 %.not11.i, label %varcontent.exit, label %62
 
@@ -197,7 +197,7 @@ varcontent.exit:                                  ; preds = %60
 varcontent.exit.thread:                           ; preds = %62, %.critedge.thread, %varcontent.exit
   %.0124 = phi ptr [ %64, %varcontent.exit ], [ null, %.critedge.thread ], [ null, %62 ]
   %.0121 = phi i64 [ %66, %varcontent.exit ], [ 0, %.critedge.thread ], [ 0, %62 ]
-  call void @curlx_dyn_init(ptr noundef nonnull %8, i64 noundef 10000000) #12
+  call void @curlx_dyn_init(ptr noundef nonnull %8, i64 noundef 10000000) #13
   br i1 %.not151, label %145, label %67
 
 67:                                               ; preds = %varcontent.exit.thread
@@ -217,7 +217,7 @@ varcontent.exit.thread:                           ; preds = %62, %.critedge.thre
 
 71:                                               ; preds = %69
   %72 = getelementptr inbounds nuw i8, ptr %.094.i, i64 1
-  %73 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull dereferenceable(5) @.str.12, i64 noundef 4) #13
+  %73 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull dereferenceable(5) @.str.12, i64 noundef 4) #14
   %.not112.i = icmp eq i32 %73, 0
   br i1 %.not112.i, label %74, label %90
 
@@ -280,13 +280,13 @@ varcontent.exit.thread:                           ; preds = %62, %.critedge.thre
 .critedge4.i:                                     ; preds = %.critedge6.i, %86, %.critedge.i, %77
   %.091.i = phi i64 [ 0, %77 ], [ 0, %.critedge.i ], [ %.293159.i, %86 ], [ 0, %.critedge6.i ]
   %.2.i = phi ptr [ %.0.i170, %77 ], [ %.3.i, %.critedge.i ], [ %.3.i, %86 ], [ %.3.i, %.critedge6.i ]
-  call void @curlx_dyn_reset(ptr noundef nonnull %8) #12
-  %89 = call i32 @curlx_dyn_addn(ptr noundef nonnull %8, ptr noundef %.2.i, i64 noundef %.091.i) #12
+  call void @curlx_dyn_reset(ptr noundef nonnull %8) #13
+  %89 = call i32 @curlx_dyn_addn(ptr noundef nonnull %8, ptr noundef %.2.i, i64 noundef %.091.i) #13
   %.not116.i = icmp eq i32 %89, 0
   br i1 %.not116.i, label %131, label %.thread.i
 
 90:                                               ; preds = %74, %71
-  %91 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull dereferenceable(5) @.str.13, i64 noundef 4) #13
+  %91 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull dereferenceable(5) @.str.13, i64 noundef 4) #14
   %.not117.i = icmp eq i32 %91, 0
   br i1 %.not117.i, label %92, label %sub_0.i
 
@@ -299,12 +299,12 @@ varcontent.exit.thread:                           ; preds = %62, %.critedge.thre
   ]
 
 95:                                               ; preds = %92, %92
-  call void @curlx_dyn_reset(ptr noundef nonnull %8) #12
+  call void @curlx_dyn_reset(ptr noundef nonnull %8) #13
   %.not118.i = icmp eq i64 %.087.i, 0
   br i1 %.not118.i, label %131, label %96
 
 96:                                               ; preds = %95
-  %97 = call i32 @jsonquoted(ptr noundef %.0.i170, i64 noundef %.087.i, ptr noundef nonnull %8, i1 noundef zeroext false) #12
+  %97 = call i32 @jsonquoted(ptr noundef %.0.i170, i64 noundef %.087.i, ptr noundef nonnull %8, i1 noundef zeroext false) #13
   %.not119.i = icmp eq i32 %97, 0
   br i1 %.not119.i, label %131, label %.thread.i
 
@@ -336,20 +336,20 @@ sub_1.i:                                          ; preds = %sub_0.i
   ]
 
 107:                                              ; preds = %104, %104
-  call void @curlx_dyn_reset(ptr noundef nonnull %8) #12
+  call void @curlx_dyn_reset(ptr noundef nonnull %8) #13
   %.not121.i = icmp eq i64 %.087.i, 0
   br i1 %.not121.i, label %131, label %108
 
 108:                                              ; preds = %107
   %109 = trunc i64 %.087.i to i32
-  %110 = call ptr @curl_easy_escape(ptr noundef null, ptr noundef %.0.i170, i32 noundef %109) #12
+  %110 = call ptr @curl_easy_escape(ptr noundef null, ptr noundef %.0.i170, i32 noundef %109) #13
   %.not122.i = icmp eq ptr %110, null
   br i1 %.not122.i, label %.thread.i, label %111
 
 111:                                              ; preds = %108
-  %112 = call i32 @curlx_dyn_add(ptr noundef nonnull %8, ptr noundef nonnull %110) #12
+  %112 = call i32 @curlx_dyn_add(ptr noundef nonnull %8, ptr noundef nonnull %110) #13
   %.not123.i = icmp eq i32 %112, 0
-  call void @curl_free(ptr noundef nonnull %110) #12
+  call void @curl_free(ptr noundef nonnull %110) #13
   br i1 %.not123.i, label %131, label %.thread.i
 
 sub_1150.i:                                       ; preds = %sub_0.i
@@ -373,24 +373,24 @@ sub_1150.i:                                       ; preds = %sub_0.i
   ]
 
 121:                                              ; preds = %118, %118
-  call void @curlx_dyn_reset(ptr noundef nonnull %8) #12
+  call void @curlx_dyn_reset(ptr noundef nonnull %8) #13
   %.not126.i = icmp eq i64 %.087.i, 0
   br i1 %.not126.i, label %131, label %122
 
 122:                                              ; preds = %121
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %123 = call i32 @curlx_base64_encode(ptr noundef %.0.i170, i64 noundef %.087.i, ptr noundef nonnull %5, ptr noundef nonnull %6) #12
+  %123 = call i32 @curlx_base64_encode(ptr noundef %.0.i170, i64 noundef %.087.i, ptr noundef nonnull %5, ptr noundef nonnull %6) #13
   %.not127.i = icmp eq i32 %123, 0
   br i1 %.not127.i, label %124, label %.thread145.i
 
 124:                                              ; preds = %122
   %125 = load ptr, ptr %5, align 8, !tbaa !30
   %126 = load i64, ptr %6, align 8, !tbaa !31
-  %127 = call i32 @curlx_dyn_addn(ptr noundef nonnull %8, ptr noundef %125, i64 noundef %126) #12
+  %127 = call i32 @curlx_dyn_addn(ptr noundef nonnull %8, ptr noundef %125, i64 noundef %126) #13
   %.not128.i = icmp eq i32 %127, 0
   %128 = load ptr, ptr %5, align 8, !tbaa !30
-  call void @curl_free(ptr noundef %128) #12
+  call void @curl_free(ptr noundef %128) #13
   br i1 %.not128.i, label %129, label %.thread145.i
 
 .thread145.i:                                     ; preds = %124, %122
@@ -405,7 +405,7 @@ sub_1150.i:                                       ; preds = %sub_0.i
 
 .tail148.thread.i:                                ; preds = %118, %.tail148.i, %sub_1150.i, %104, %.tail.i, %sub_1.i, %sub_0.i
   %130 = trunc i64 %68 to i32
-  call void (ptr, ptr, ...) @errorf(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef %130, ptr noundef nonnull %32) #12
+  call void (ptr, ptr, ...) @errorf(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef %130, ptr noundef nonnull %32) #13
   br label %.thread.i
 
 131:                                              ; preds = %129, %121, %111, %107, %96, %95, %.critedge4.i
@@ -414,14 +414,14 @@ sub_1150.i:                                       ; preds = %sub_0.i
   br i1 %.0101.i, label %132, label %133
 
 132:                                              ; preds = %131
-  call void @free(ptr noundef %.4.i) #12
+  call void @free(ptr noundef %.4.i) #13
   br label %133
 
 133:                                              ; preds = %132, %131
-  %134 = call i64 @curlx_dyn_len(ptr noundef nonnull %8) #12
-  %135 = call ptr @curlx_dyn_ptr(ptr noundef nonnull %8) #12
+  %134 = call i64 @curlx_dyn_len(ptr noundef nonnull %8) #13
+  %135 = call ptr @curlx_dyn_ptr(ptr noundef nonnull %8) #13
   %136 = add i64 %134, 1
-  %137 = call noalias ptr @malloc(i64 noundef %136) #14
+  %137 = call noalias ptr @malloc(i64 noundef %136) #15
   %.not.i.i = icmp eq ptr %137, null
   br i1 %.not.i.i, label %.thread.i, label %138
 
@@ -445,19 +445,19 @@ Memdup.exit.i:                                    ; preds = %139, %138
   br i1 %.0101.i, label %141, label %142
 
 141:                                              ; preds = %.thread.i
-  call void @free(ptr noundef %.1.i) #12
+  call void @free(ptr noundef %.1.i) #13
   br label %142
 
 142:                                              ; preds = %141, %.thread.i
   br i1 %.not131.i, label %.thread175, label %varfunc.exit
 
 varfunc.exit:                                     ; preds = %142
-  call void @curlx_dyn_free(ptr noundef nonnull %8) #12
+  call void @curlx_dyn_free(ptr noundef nonnull %8) #13
   br label %.thread181
 
 .thread175:                                       ; preds = %142
-  %143 = call ptr @curlx_dyn_ptr(ptr noundef nonnull %8) #12
-  %144 = call i64 @curlx_dyn_len(ptr noundef nonnull %8) #12
+  %143 = call ptr @curlx_dyn_ptr(ptr noundef nonnull %8) #13
+  %144 = call i64 @curlx_dyn_len(ptr noundef nonnull %8) #13
   br label %145
 
 145:                                              ; preds = %.thread175, %varcontent.exit.thread
@@ -469,12 +469,12 @@ varfunc.exit:                                     ; preds = %142
   br i1 %or.cond7, label %148, label %.thread179
 
 148:                                              ; preds = %145
-  %149 = call ptr @memchr(ptr noundef nonnull %.1125, i32 noundef 0, i64 noundef %.1122) #13
+  %149 = call ptr @memchr(ptr noundef nonnull %.1125, i32 noundef 0, i64 noundef %.1122) #14
   %.not156 = icmp eq ptr %149, null
   br i1 %.not156, label %.thread179, label %150
 
 150:                                              ; preds = %148
-  call void (ptr, ptr, ...) @errorf(ptr noundef %0, ptr noundef nonnull @.str.5) #12
+  call void (ptr, ptr, ...) @errorf(ptr noundef %0, ptr noundef nonnull @.str.5) #13
   br label %.thread181
 
 .thread181:                                       ; preds = %varfunc.exit, %150
@@ -483,8 +483,8 @@ varfunc.exit:                                     ; preds = %142
   br label %.thread186
 
 .thread179:                                       ; preds = %148, %145
-  %151 = call i32 @curlx_dyn_addn(ptr noundef %2, ptr noundef %.1125, i64 noundef %.1122) #12
-  call void @curlx_dyn_free(ptr noundef nonnull %8) #12
+  %151 = call i32 @curlx_dyn_addn(ptr noundef %2, ptr noundef %.1125, i64 noundef %.1122) #13
+  call void @curlx_dyn_free(ptr noundef nonnull %8) #13
   %.not157 = icmp eq i32 %151, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.not157, label %.thread191, label %.thread186
@@ -500,7 +500,7 @@ varfunc.exit:                                     ; preds = %142
   br label %.loopexit
 
 152:                                              ; preds = %.thread
-  call void (ptr, ptr, ...) @warnf(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %1) #12
+  call void (ptr, ptr, ...) @warnf(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %1) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread196
 
@@ -520,7 +520,7 @@ varfunc.exit:                                     ; preds = %142
   br i1 %.not163, label %159, label %157
 
 157:                                              ; preds = %155
-  %158 = call i32 @curlx_dyn_add(ptr noundef %2, ptr noundef nonnull %.0115) #12
+  %158 = call i32 @curlx_dyn_add(ptr noundef %2, ptr noundef nonnull %.0115) #13
   %.not164 = icmp eq i32 %158, 0
   br i1 %.not164, label %159, label %.loopexit
 
@@ -530,7 +530,7 @@ varfunc.exit:                                     ; preds = %142
 
 160:                                              ; preds = %.thread196
   store i8 0, ptr %3, align 1, !tbaa !22
-  call void @curlx_dyn_free(ptr noundef %2) #12
+  call void @curlx_dyn_free(ptr noundef %2) #13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %17, %159, %.thread186, %160, %157
@@ -538,33 +538,33 @@ varfunc.exit:                                     ; preds = %142
   ret i32 %.1
 }
 
-declare void @curlx_dyn_init(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @curlx_dyn_init(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #3
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
-declare i32 @curlx_dyn_addn(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @curlx_dyn_addn(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @warnf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @warnf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare ptr @curlx_dyn_ptr(ptr noundef) local_unnamed_addr #2
+declare ptr @curlx_dyn_ptr(ptr noundef) local_unnamed_addr #3
 
-declare i64 @curlx_dyn_len(ptr noundef) local_unnamed_addr #2
+declare i64 @curlx_dyn_len(ptr noundef) local_unnamed_addr #3
 
-declare void @errorf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @errorf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare void @curlx_dyn_free(ptr noundef) local_unnamed_addr #2
+declare void @curlx_dyn_free(ptr noundef) local_unnamed_addr #3
 
-declare i32 @curlx_dyn_add(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @curlx_dyn_add(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setvariable(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @setvariable(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca [128 x i8], align 16
@@ -626,7 +626,7 @@ define dso_local i32 @setvariable(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 .critedge.thread:                                 ; preds = %2, %.critedge
   %27 = phi i64 [ %24, %.critedge ], [ 0, %2 ]
-  tail call void (ptr, ptr, ...) @warnf(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef %27) #12
+  tail call void (ptr, ptr, ...) @warnf(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef %27) #13
   br label %132
 
 28:                                               ; preds = %.critedge
@@ -643,14 +643,14 @@ define dso_local i32 @setvariable(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 32:                                               ; preds = %30, %29
   %.185 = phi ptr [ %5, %30 ], [ %12, %29 ]
-  %33 = call ptr @getenv(ptr noundef nonnull %.185) #12
+  %33 = call ptr @getenv(ptr noundef nonnull %.185) #13
   %34 = icmp ne i8 %.lcssa163, 0
   %35 = icmp ne ptr %33, null
   %or.cond7 = or i1 %34, %35
   br i1 %or.cond7, label %37, label %36
 
 36:                                               ; preds = %32
-  call void (ptr, ptr, ...) @errorf(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull %.185) #12
+  call void (ptr, ptr, ...) @errorf(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull %.185) #13
   br label %132
 
 37:                                               ; preds = %32
@@ -658,7 +658,7 @@ define dso_local i32 @setvariable(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 38:                                               ; preds = %37
   store ptr %33, ptr %3, align 8, !tbaa !30
-  %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #13
+  %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #14
   store i64 %39, ptr %4, align 8, !tbaa !31
   br label %40
 
@@ -677,7 +677,7 @@ define dso_local i32 @setvariable(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 47:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %48 = call i32 @curlx_strtoofft(ptr noundef nonnull %44, ptr noundef nonnull %8, i32 noundef 10, ptr noundef nonnull %6) #12
+  %48 = call i32 @curlx_strtoofft(ptr noundef nonnull %44, ptr noundef nonnull %8, i32 noundef 10, ptr noundef nonnull %6) #13
   %.not109 = icmp eq i32 %48, 0
   br i1 %.not109, label %49, label %.critedge126
 
@@ -694,7 +694,7 @@ define dso_local i32 @setvariable(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %.not111, label %.thread, label %55
 
 55:                                               ; preds = %52
-  %56 = call i32 @curlx_strtoofft(ptr noundef nonnull %53, ptr noundef nonnull %8, i32 noundef 10, ptr noundef nonnull %7) #12
+  %56 = call i32 @curlx_strtoofft(ptr noundef nonnull %53, ptr noundef nonnull %8, i32 noundef 10, ptr noundef nonnull %7) #13
   %.not112 = icmp eq i32 %56, 0
   br i1 %.not112, label %58, label %.critedge126
 
@@ -739,7 +739,7 @@ define dso_local i32 @setvariable(ptr noundef %0, ptr noundef %1) local_unnamed_
 sub_0:                                            ; preds = %69
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %71 = getelementptr inbounds nuw i8, ptr %.294, i64 1
-  call void @curlx_dyn_init(ptr noundef nonnull %9, i64 noundef 10000) #12
+  call void @curlx_dyn_init(ptr noundef nonnull %9, i64 noundef 10000) #13
   %72 = load i8, ptr %71, align 1
   %.not173 = icmp eq i8 %72, 45
   br i1 %.not173, label %.tail, label %.tail.thread
@@ -760,11 +760,11 @@ sub_0:                                            ; preds = %69
   br i1 %.not117, label %.thread149, label %81
 
 .thread149:                                       ; preds = %.tail.thread
-  %78 = tail call ptr @__errno_location() #15
+  %78 = tail call ptr @__errno_location() #16
   %79 = load i32, ptr %78, align 4, !tbaa !36
-  %80 = call ptr @strerror(i32 noundef %79) #12
-  call void (ptr, ptr, ...) @errorf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef nonnull %71, ptr noundef %80) #12
-  call void @curlx_dyn_free(ptr noundef nonnull %9) #12
+  %80 = call ptr @strerror(i32 noundef %79) #13
+  call void (ptr, ptr, ...) @errorf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef nonnull %71, ptr noundef %80) #13
+  call void @curlx_dyn_free(ptr noundef nonnull %9) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %132
 
@@ -773,10 +773,10 @@ sub_0:                                            ; preds = %69
   %.083.ph = phi ptr [ %77, %.tail.thread ], [ %76, %75 ]
   %83 = load i64, ptr %6, align 8, !tbaa !31
   %84 = load i64, ptr %7, align 8, !tbaa !31
-  %85 = call i32 @file2memory_range(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %.083.ph, i64 noundef %83, i64 noundef %84) #12
+  %85 = call i32 @file2memory_range(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %.083.ph, i64 noundef %83, i64 noundef %84) #13
   %86 = load i64, ptr %4, align 8, !tbaa !31
   %.not119 = icmp ne i64 %86, 0
-  call void @curlx_dyn_free(ptr noundef nonnull %9) #12
+  call void @curlx_dyn_free(ptr noundef nonnull %9) #13
   %87 = icmp ne ptr %.083.ph, null
   %or.cond9 = and i1 %82, %87
   br i1 %or.cond9, label %88, label %90
@@ -796,7 +796,7 @@ sub_0:                                            ; preds = %69
 
 91:                                               ; preds = %69
   %92 = getelementptr inbounds nuw i8, ptr %.294, i64 1
-  %93 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #13
+  %93 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #14
   store i64 %93, ptr %4, align 8, !tbaa !31
   store ptr %92, ptr %3, align 8, !tbaa !30
   %94 = icmp ne i64 %67, 0
@@ -831,7 +831,7 @@ sub_0:                                            ; preds = %69
   br label %thread-pre-split154
 
 106:                                              ; preds = %69
-  call void (ptr, ptr, ...) @warnf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef nonnull %1) #12
+  call void (ptr, ptr, ...) @warnf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef nonnull %1) #13
   br label %132
 
 thread-pre-split:                                 ; preds = %.thread-pre-split_crit_edge, %65, %91
@@ -852,12 +852,12 @@ thread-pre-split154:                              ; preds = %thread-pre-split, %
 .lr.ph.i.i:                                       ; preds = %thread-pre-split154, %115
   %.014.i.i = phi ptr [ %.0.i.i, %115 ], [ %.012.i.i, %thread-pre-split154 ]
   %110 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 24
-  %111 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %110) #13
+  %111 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %110) #14
   %112 = icmp eq i64 %111, %24
   br i1 %112, label %113, label %115
 
 113:                                              ; preds = %.lr.ph.i.i
-  %114 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %.084, ptr noundef nonnull dereferenceable(1) %110, i64 noundef range(i64 1, 128) %24) #13
+  %114 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %.084, ptr noundef nonnull dereferenceable(1) %110, i64 noundef range(i64 1, 128) %24) #14
   %.not11.i.i = icmp eq i32 %114, 0
   br i1 %.not11.i.i, label %varcontent.exit.i, label %115
 
@@ -867,12 +867,12 @@ thread-pre-split154:                              ; preds = %thread-pre-split, %
   br i1 %.not.i.i, label %varcontent.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !26
 
 varcontent.exit.i:                                ; preds = %113
-  call void (ptr, ptr, ...) @notef(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull %110) #12
+  call void (ptr, ptr, ...) @notef(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull %110) #13
   br label %varcontent.exit.thread.i
 
 varcontent.exit.thread.i:                         ; preds = %115, %varcontent.exit.i, %thread-pre-split154
   %116 = add nuw nsw i64 %24, 32
-  %117 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %116) #16
+  %117 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %116) #17
   %.not26.i = icmp eq ptr %117, null
   br i1 %.not26.i, label %addvariable.exit, label %118
 
@@ -883,7 +883,7 @@ varcontent.exit.thread.i:                         ; preds = %115, %varcontent.ex
 
 120:                                              ; preds = %118
   %121 = add i64 %108, 1
-  %122 = call noalias ptr @malloc(i64 noundef %121) #14
+  %122 = call noalias ptr @malloc(i64 noundef %121) #15
   %.not.i28.i = icmp eq ptr %122, null
   br i1 %.not.i28.i, label %Memdup.exit.thread.i, label %123
 
@@ -917,7 +917,7 @@ addvariable.exit.thread:                          ; preds = %Memdup.exit.thread3
   br label %132
 
 Memdup.exit.thread.i:                             ; preds = %Memdup.exit.i, %120
-  call void @free(ptr noundef nonnull %117) #12
+  call void @free(ptr noundef nonnull %117) #13
   br label %addvariable.exit
 
 addvariable.exit:                                 ; preds = %varcontent.exit.thread.i, %Memdup.exit.thread.i
@@ -925,7 +925,7 @@ addvariable.exit:                                 ; preds = %varcontent.exit.thr
 
 130:                                              ; preds = %addvariable.exit
   %131 = load ptr, ptr %3, align 8, !tbaa !30
-  call void @free(ptr noundef %131) #12
+  call void @free(ptr noundef %131) #13
   br label %132
 
 .critedge126:                                     ; preds = %55, %47, %49, %58
@@ -943,71 +943,72 @@ addvariable.exit:                                 ; preds = %varcontent.exit.thr
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
-declare i32 @curlx_strtoofft(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @curlx_strtoofft(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #6
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #7
+declare ptr @strerror(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #8
+declare ptr @__errno_location() local_unnamed_addr #9
 
-declare i32 @file2memory_range(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @file2memory_range(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
-declare void @curlx_dyn_reset(ptr noundef) local_unnamed_addr #2
+declare void @curlx_dyn_reset(ptr noundef) local_unnamed_addr #3
 
-declare i32 @jsonquoted(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @jsonquoted(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-declare ptr @curl_easy_escape(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @curl_easy_escape(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @curl_free(ptr noundef) local_unnamed_addr #2
+declare void @curl_free(ptr noundef) local_unnamed_addr #3
 
-declare i32 @curlx_base64_encode(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @curlx_base64_encode(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
-declare void @notef(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @notef(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #10
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
-attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind willreturn memory(read) }
-attributes #14 = { nounwind allocsize(0) }
-attributes #15 = { nounwind willreturn memory(none) }
-attributes #16 = { nounwind allocsize(0,1) }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind willreturn memory(read) }
+attributes #15 = { nounwind allocsize(0) }
+attributes #16 = { nounwind willreturn memory(none) }
+attributes #17 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

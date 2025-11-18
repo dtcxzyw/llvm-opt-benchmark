@@ -198,7 +198,7 @@ define dso_local ptr @get_encoding_name_for_icu(i32 noundef %0) local_unnamed_ad
   ret ptr %.0
 }
 
-; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local range(i32 -1, 42) i32 @pg_valid_client_encoding(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = tail call i32 @pg_char_to_encoding_private(ptr noundef %0)
   %3 = icmp ult i32 %2, 42
@@ -206,7 +206,7 @@ define dso_local range(i32 -1, 42) i32 @pg_valid_client_encoding(ptr noundef rea
   ret i32 %.0
 }
 
-; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i32 @pg_char_to_encoding_private(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -302,7 +302,7 @@ clean_encoding_name.exit:                         ; preds = %21
   ret i32 %.0
 }
 
-; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local range(i32 -1, 35) i32 @pg_valid_server_encoding_private(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = tail call i32 @pg_char_to_encoding_private(ptr noundef %0)
   %3 = icmp ult i32 %2, 35
@@ -349,7 +349,7 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

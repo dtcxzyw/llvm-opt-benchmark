@@ -32066,7 +32066,7 @@ _ZN15CallBackContextD2Ev.exit119:                 ; preds = %291, %90
 
 declare i32 @hs_set_allocator(ptr noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal noalias noundef ptr @_ZN12_GLOBAL__N_16wrap_mEm(i64 noundef %0) #13 {
   store i64 %0, ptr @_ZN12_GLOBAL__N_110last_allocE, align 8
   %2 = tail call noalias ptr @malloc(i64 noundef %0) #30
@@ -34248,7 +34248,7 @@ _ZN15CallBackContextD2Ev.exit287:                 ; preds = %706, %708
 
 declare i32 @hs_set_stream_allocator(ptr noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noalias noundef ptr @_ZN12_GLOBAL__N_18my_allocEm(i64 noundef %0) #15 {
   %2 = load i32, ptr @_ZN12_GLOBAL__N_112alloc_calledE, align 4
   %3 = add nsw i32 %2, 1
@@ -34257,7 +34257,7 @@ define internal noalias noundef ptr @_ZN12_GLOBAL__N_18my_allocEm(i64 noundef %0
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_17my_freeEPv(ptr noundef captures(none) %0) #16 {
   tail call void @free(ptr noundef %0) #27
   %2 = load i32, ptr @_ZN12_GLOBAL__N_112alloc_calledE, align 4
@@ -41727,7 +41727,7 @@ _ZN15CallBackContextD2Ev.exit480:                 ; preds = %283, %346, %412, %4
   resume { ptr, i32 } %.pn204.pn.pn.pn.pn.pn
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noalias noundef ptr @_ZN12_GLOBAL__N_19my_alloc2Em(i64 noundef %0) #15 {
   %2 = load i32, ptr @_ZN12_GLOBAL__N_113alloc2_calledE, align 4
   %3 = add nsw i32 %2, 1
@@ -41736,7 +41736,7 @@ define internal noalias noundef ptr @_ZN12_GLOBAL__N_19my_alloc2Em(i64 noundef %
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_18my_free2EPv(ptr noundef captures(none) %0) #16 {
   tail call void @free(ptr noundef %0) #27
   %2 = load i32, ptr @_ZN12_GLOBAL__N_113alloc2_calledE, align 4
@@ -41747,7 +41747,7 @@ define internal void @_ZN12_GLOBAL__N_18my_free2EPv(ptr noundef captures(none) %
 
 declare i32 @hs_set_scratch_allocator(ptr noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noalias noundef ptr @_ZN12_GLOBAL__N_19my_alloc3Em(i64 noundef %0) #15 {
   %2 = load i32, ptr @_ZN12_GLOBAL__N_113alloc3_calledE, align 4
   %3 = add nsw i32 %2, 1
@@ -41756,7 +41756,7 @@ define internal noalias noundef ptr @_ZN12_GLOBAL__N_19my_alloc3Em(i64 noundef %
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_18my_free3EPv(ptr noundef captures(none) %0) #16 {
   tail call void @free(ptr noundef %0) #27
   %2 = load i32, ptr @_ZN12_GLOBAL__N_113alloc3_calledE, align 4
@@ -41908,10 +41908,10 @@ attributes #9 = { noinline noreturn nounwind uwtable "frame-pointer"="all" "no-t
 attributes #10 = { cold nofree noreturn }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

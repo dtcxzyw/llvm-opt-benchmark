@@ -63,14 +63,14 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.28 = private unnamed_addr constant [24 x i8] c"unknown type of UD link\00", align 1
 @switch.table.trav_print_visit_obj = private unnamed_addr constant [3 x ptr] [ptr @.str.14, ptr @.str.15, ptr @.str.16], align 8
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @h5trav_set_index(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   store i32 %0, ptr @trav_index_by, align 4, !tbaa !3
   store i32 %1, ptr @trav_index_order, align 4, !tbaa !3
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @h5trav_set_verbose(i32 noundef %0) local_unnamed_addr #0 {
   store i32 %0, ptr @trav_verbosity, align 4, !tbaa !3
   ret void
@@ -100,7 +100,7 @@ define void @trav_info_add(ptr noundef captures(address_is_null) %0, ptr noundef
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !17
   %13 = mul i64 %spec.select, 40
-  %14 = tail call ptr @realloc(ptr noundef %12, i64 noundef %13) #17
+  %14 = tail call ptr @realloc(ptr noundef %12, i64 noundef %13) #18
   store ptr %14, ptr %11, align 8, !tbaa !17
   %.pre = load i64, ptr %5, align 8, !tbaa !7
   br label %15
@@ -110,7 +110,7 @@ define void @trav_info_add(ptr noundef captures(address_is_null) %0, ptr noundef
   %17 = phi i64 [ %.pre, %9 ], [ %6, %._crit_edge ]
   %18 = add i64 %17, 1
   store i64 %18, ptr %5, align 8, !tbaa !7
-  %19 = tail call noalias ptr @strdup(ptr noundef %1) #18
+  %19 = tail call noalias ptr @strdup(ptr noundef %1) #19
   %20 = getelementptr inbounds nuw %struct.trav_path_t, ptr %16, i64 %17
   store ptr %19, ptr %20, align 8, !tbaa !18
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -126,7 +126,7 @@ define void @trav_info_add(ptr noundef captures(address_is_null) %0, ptr noundef
   br i1 %28, label %31, label %29, !prof !26
 
 29:                                               ; preds = %15
-  %30 = tail call i32 @H5open() #18
+  %30 = tail call i32 @H5open() #19
   br label %31
 
 31:                                               ; preds = %15, %29
@@ -174,11 +174,11 @@ sub_0:                                            ; preds = %2
   br i1 %14, label %16, label %.tail.thread
 
 .tail.thread:                                     ; preds = %sub_0, %.tail
-  %15 = call i32 @H5Oget_info_by_name3(i64 noundef %1, ptr noundef nonnull %10, ptr noundef nonnull %3, i32 noundef 1, i64 noundef 0) #18
+  %15 = call i32 @H5Oget_info_by_name3(i64 noundef %1, ptr noundef nonnull %10, ptr noundef nonnull %3, i32 noundef 1, i64 noundef 0) #19
   br label %18
 
 16:                                               ; preds = %.tail, %2
-  %17 = call i32 @H5Oget_info3(i64 noundef %1, ptr noundef nonnull %3, i32 noundef 1) #18
+  %17 = call i32 @H5Oget_info3(i64 noundef %1, ptr noundef nonnull %3, i32 noundef 1) #19
   br label %18
 
 18:                                               ; preds = %16, %.tail.thread
@@ -229,7 +229,7 @@ define noundef i32 @trav_info_visit_obj(ptr noundef readonly captures(none) %0, 
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %15 = load ptr, ptr %14, align 8, !tbaa !17
   %16 = mul i64 %spec.select.i, 40
-  %17 = tail call ptr @realloc(ptr noundef %15, i64 noundef %16) #17
+  %17 = tail call ptr @realloc(ptr noundef %15, i64 noundef %16) #18
   store ptr %17, ptr %14, align 8, !tbaa !17
   %.pre.i = load i64, ptr %8, align 8, !tbaa !7
   br label %18
@@ -239,7 +239,7 @@ define noundef i32 @trav_info_visit_obj(ptr noundef readonly captures(none) %0, 
   %20 = phi i64 [ %.pre.i, %12 ], [ %9, %._crit_edge.i ]
   %21 = add i64 %20, 1
   store i64 %21, ptr %8, align 8, !tbaa !7
-  %22 = tail call noalias ptr @strdup(ptr noundef readonly %0) #18
+  %22 = tail call noalias ptr @strdup(ptr noundef readonly %0) #19
   %23 = getelementptr inbounds nuw %struct.trav_path_t, ptr %19, i64 %20
   store ptr %22, ptr %23, align 8, !tbaa !18
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -255,7 +255,7 @@ define noundef i32 @trav_info_visit_obj(ptr noundef readonly captures(none) %0, 
   br i1 %31, label %34, label %32, !prof !26
 
 32:                                               ; preds = %18
-  %33 = tail call i32 @H5open() #18
+  %33 = tail call i32 @H5open() #19
   br label %34
 
 34:                                               ; preds = %32, %18
@@ -307,7 +307,7 @@ define noundef i32 @trav_info_visit_lnk(ptr noundef readonly captures(none) %0, 
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %15 = load ptr, ptr %14, align 8, !tbaa !17
   %16 = mul i64 %spec.select.i, 40
-  %17 = tail call ptr @realloc(ptr noundef %15, i64 noundef %16) #17
+  %17 = tail call ptr @realloc(ptr noundef %15, i64 noundef %16) #18
   store ptr %17, ptr %14, align 8, !tbaa !17
   %.pre.i = load i64, ptr %8, align 8, !tbaa !7
   br label %18
@@ -317,7 +317,7 @@ define noundef i32 @trav_info_visit_lnk(ptr noundef readonly captures(none) %0, 
   %20 = phi i64 [ %.pre.i, %12 ], [ %9, %._crit_edge.i ]
   %21 = add i64 %20, 1
   store i64 %21, ptr %8, align 8, !tbaa !7
-  %22 = tail call noalias ptr @strdup(ptr noundef readonly %0) #18
+  %22 = tail call noalias ptr @strdup(ptr noundef readonly %0) #19
   %23 = getelementptr inbounds nuw %struct.trav_path_t, ptr %19, i64 %20
   store ptr %22, ptr %23, align 8, !tbaa !18
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -333,7 +333,7 @@ define noundef i32 @trav_info_visit_lnk(ptr noundef readonly captures(none) %0, 
   br i1 %31, label %34, label %32, !prof !26
 
 32:                                               ; preds = %18
-  %33 = tail call i32 @H5open() #18
+  %33 = tail call i32 @H5open() #19
   br label %34
 
 34:                                               ; preds = %32, %18
@@ -373,12 +373,12 @@ define range(i32 -1, 1) i32 @h5trav_getinfo(i64 noundef %0, ptr noundef %1) loca
 16:                                               ; preds = %11
   %17 = load i64, ptr @H5E_tools_g, align 8, !tbaa !38
   %18 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !38
-  %19 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %12, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.h5trav_getinfo, i32 noundef 432, i64 noundef %14, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.3) #18
+  %19 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %12, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.h5trav_getinfo, i32 noundef 432, i64 noundef %14, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.3) #19
   br label %24
 
 20:                                               ; preds = %11
   %21 = load ptr, ptr @stderr, align 8, !tbaa !39
-  %22 = call i64 @fwrite(ptr nonnull @.str.3, i64 15, i64 1, ptr %21) #19
+  %22 = call i64 @fwrite(ptr nonnull @.str.3, i64 15, i64 1, ptr %21) #20
   %23 = load ptr, ptr @stderr, align 8, !tbaa !39
   %fputc = call i32 @fputc(i32 10, ptr %23)
   br label %24
@@ -395,7 +395,7 @@ define internal fastcc range(i32 -1, 1) i32 @traverse(i64 noundef %0, ptr nounde
   %8 = alloca %struct.trav_addr_t, align 8
   %9 = alloca %struct.trav_ud_traverse_t, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %10 = call i32 @H5Oget_info_by_name3(i64 noundef %0, ptr noundef %1, ptr noundef nonnull %7, i32 noundef %5, i64 noundef 0) #18
+  %10 = call i32 @H5Oget_info_by_name3(i64 noundef %0, ptr noundef %1, ptr noundef nonnull %7, i32 noundef %5, i64 noundef 0) #19
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %12, label %28
 
@@ -415,12 +415,12 @@ define internal fastcc range(i32 -1, 1) i32 @traverse(i64 noundef %0, ptr nounde
 20:                                               ; preds = %15
   %21 = load i64, ptr @H5E_tools_g, align 8, !tbaa !38
   %22 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !38
-  %23 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %16, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.traverse, i32 noundef 252, i64 noundef %18, i64 noundef %21, i64 noundef %22, ptr noundef nonnull @.str.8) #18
+  %23 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %16, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.traverse, i32 noundef 252, i64 noundef %18, i64 noundef %21, i64 noundef %22, ptr noundef nonnull @.str.8) #19
   br label %108
 
 24:                                               ; preds = %15
   %25 = load ptr, ptr @stderr, align 8, !tbaa !39
-  %26 = call i64 @fwrite(ptr nonnull @.str.8, i64 26, i64 1, ptr %25) #19
+  %26 = call i64 @fwrite(ptr nonnull @.str.8, i64 26, i64 1, ptr %25) #20
   %27 = load ptr, ptr @stderr, align 8, !tbaa !39
   %fputc36 = call i32 @fputc(i32 10, ptr %27)
   br label %108
@@ -436,7 +436,7 @@ define internal fastcc range(i32 -1, 1) i32 @traverse(i64 noundef %0, ptr nounde
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !37
-  %34 = call i32 %30(ptr noundef %1, ptr noundef nonnull %7, ptr noundef null, ptr noundef %33) #18
+  %34 = call i32 %30(ptr noundef %1, ptr noundef nonnull %7, ptr noundef null, ptr noundef %33) #19
   br label %35
 
 35:                                               ; preds = %31, %29, %28
@@ -463,7 +463,7 @@ trav_token_add.exit:                              ; preds = %39
   store ptr %malloc, ptr %41, align 8, !tbaa !45
   store i64 1, ptr %40, align 8, !tbaa !46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %malloc, ptr noundef nonnull readonly align 8 dereferenceable(16) %45, i64 16, i1 false)
-  %46 = call noalias ptr @strdup(ptr noundef readonly %1) #18
+  %46 = call noalias ptr @strdup(ptr noundef readonly %1) #19
   %47 = getelementptr inbounds nuw i8, ptr %malloc, i64 16
   store ptr %46, ptr %47, align 8, !tbaa !47
   br label %48
@@ -486,7 +486,7 @@ trav_token_add.exit:                              ; preds = %39
   br i1 %3, label %58, label %77
 
 58:                                               ; preds = %48
-  %59 = call i32 @H5Lvisit_by_name2(i64 noundef %0, ptr noundef nonnull %1, i32 noundef %56, i32 noundef %57, ptr noundef nonnull @traverse_cb, ptr noundef nonnull %9, i64 noundef 0) #18
+  %59 = call i32 @H5Lvisit_by_name2(i64 noundef %0, ptr noundef nonnull %1, i32 noundef %56, i32 noundef %57, ptr noundef nonnull @traverse_cb, ptr noundef nonnull %9, i64 noundef 0) #19
   %60 = icmp slt i32 %59, 0
   br i1 %60, label %61, label %96
 
@@ -506,18 +506,18 @@ trav_token_add.exit:                              ; preds = %39
 69:                                               ; preds = %64
   %70 = load i64, ptr @H5E_tools_g, align 8, !tbaa !38
   %71 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !38
-  %72 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %65, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.traverse, i32 noundef 283, i64 noundef %67, i64 noundef %70, i64 noundef %71, ptr noundef nonnull @.str.9) #18
+  %72 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %65, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.traverse, i32 noundef 283, i64 noundef %67, i64 noundef %70, i64 noundef %71, ptr noundef nonnull @.str.9) #19
   br label %96
 
 73:                                               ; preds = %64
   %74 = load ptr, ptr @stderr, align 8, !tbaa !39
-  %75 = call i64 @fwrite(ptr nonnull @.str.9, i64 23, i64 1, ptr %74) #19
+  %75 = call i64 @fwrite(ptr nonnull @.str.9, i64 23, i64 1, ptr %74) #20
   %76 = load ptr, ptr @stderr, align 8, !tbaa !39
   %fputc34 = call i32 @fputc(i32 10, ptr %76)
   br label %96
 
 77:                                               ; preds = %48
-  %78 = call i32 @H5Literate_by_name2(i64 noundef %0, ptr noundef nonnull %1, i32 noundef %56, i32 noundef %57, ptr noundef null, ptr noundef nonnull @traverse_cb, ptr noundef nonnull %9, i64 noundef 0) #18
+  %78 = call i32 @H5Literate_by_name2(i64 noundef %0, ptr noundef nonnull %1, i32 noundef %56, i32 noundef %57, ptr noundef null, ptr noundef nonnull @traverse_cb, ptr noundef nonnull %9, i64 noundef 0) #19
   %79 = icmp slt i32 %78, 0
   br i1 %79, label %80, label %96
 
@@ -537,12 +537,12 @@ trav_token_add.exit:                              ; preds = %39
 88:                                               ; preds = %83
   %89 = load i64, ptr @H5E_tools_g, align 8, !tbaa !38
   %90 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !38
-  %91 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %84, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.traverse, i32 noundef 289, i64 noundef %86, i64 noundef %89, i64 noundef %90, ptr noundef nonnull @.str.10) #18
+  %91 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %84, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.traverse, i32 noundef 289, i64 noundef %86, i64 noundef %89, i64 noundef %90, ptr noundef nonnull @.str.10) #19
   br label %96
 
 92:                                               ; preds = %83
   %93 = load ptr, ptr @stderr, align 8, !tbaa !39
-  %94 = call i64 @fwrite(ptr nonnull @.str.10, i64 25, i64 1, ptr %93) #19
+  %94 = call i64 @fwrite(ptr nonnull @.str.10, i64 25, i64 1, ptr %93) #20
   %95 = load ptr, ptr @stderr, align 8, !tbaa !39
   %fputc = call i32 @fputc(i32 10, ptr %95)
   br label %96
@@ -564,7 +564,7 @@ trav_token_add.exit:                              ; preds = %39
   %100 = getelementptr inbounds nuw %struct.trav_addr_path_t, ptr %99, i64 %.037
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %102 = load ptr, ptr %101, align 8, !tbaa !47
-  call void @free(ptr noundef %102) #18
+  call void @free(ptr noundef %102) #19
   %103 = add nuw i64 %.037, 1
   %104 = load i64, ptr %40, align 8, !tbaa !46
   %105 = icmp ult i64 %103, %104
@@ -576,7 +576,7 @@ trav_token_add.exit:                              ; preds = %39
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %106 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %97, %.preheader ]
-  call void @free(ptr noundef %106) #18
+  call void @free(ptr noundef %106) #19
   br label %107
 
 107:                                              ; preds = %._crit_edge, %96
@@ -592,7 +592,7 @@ trav_token_add.exit:                              ; preds = %39
 
 declare i32 @H5Epush2(i64 noundef, ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i64 @h5trav_getindex(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !7
@@ -608,13 +608,13 @@ define i64 @h5trav_getindex(ptr noundef readonly captures(none) %0, ptr noundef 
   %.012 = phi i64 [ 0, %.lr.ph ], [ %17, %16 ]
   %8 = getelementptr inbounds nuw %struct.trav_path_t, ptr %6, i64 %.012
   %9 = load ptr, ptr %8, align 8, !tbaa !18
-  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %9) #20
+  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %9) #21
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %._crit_edge, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %13) #20
+  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %13) #21
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %._crit_edge, label %16
 
@@ -628,9 +628,9 @@ define i64 @h5trav_getindex(ptr noundef readonly captures(none) %0, ptr noundef 
   ret i64 %.011
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @trav_info_init(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #8 {
-  %4 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #21
+  %4 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #22
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %5, align 8, !tbaa !17
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -647,8 +647,8 @@ define void @trav_info_init(ptr noundef %0, i64 noundef %1, ptr noundef writeonl
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
-; Function Attrs: nounwind uwtable
-define void @trav_info_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define void @trav_info_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %33, label %.preheader
 
@@ -672,7 +672,7 @@ define void @trav_info_free(ptr noundef captures(address_is_null) %0) local_unna
   br i1 %.not19, label %11, label %10
 
 10:                                               ; preds = %5
-  tail call void @free(ptr noundef nonnull %9) #18
+  tail call void @free(ptr noundef nonnull %9) #19
   %.pre = load ptr, ptr %4, align 8, !tbaa !64
   br label %11
 
@@ -681,7 +681,7 @@ define void @trav_info_free(ptr noundef captures(address_is_null) %0) local_unna
   %13 = getelementptr inbounds nuw %struct.symlink_trav_path_t, ptr %12, i64 %.020
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !67
-  tail call void @free(ptr noundef %15) #18
+  tail call void @free(ptr noundef %15) #19
   %16 = add nuw i64 %.020, 1
   %17 = load i64, ptr %2, align 8, !tbaa !63
   %18 = icmp ult i64 %16, %17
@@ -690,7 +690,7 @@ define void @trav_info_free(ptr noundef captures(address_is_null) %0) local_unna
 ._crit_edge:                                      ; preds = %11, %.preheader
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8, !tbaa !64
-  tail call void @free(ptr noundef %20) #18
+  tail call void @free(ptr noundef %20) #19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !7
   %.not26 = icmp eq i64 %22, 0
@@ -705,7 +705,7 @@ define void @trav_info_free(ptr noundef captures(address_is_null) %0) local_unna
   %25 = load ptr, ptr %23, align 8, !tbaa !17
   %26 = getelementptr inbounds nuw %struct.trav_path_t, ptr %25, i64 %.121
   %27 = load ptr, ptr %26, align 8, !tbaa !18
-  tail call void @free(ptr noundef %27) #18
+  tail call void @free(ptr noundef %27) #19
   %28 = add nuw i64 %.121, 1
   %29 = load i64, ptr %21, align 8, !tbaa !7
   %30 = icmp ult i64 %28, %29
@@ -714,8 +714,8 @@ define void @trav_info_free(ptr noundef captures(address_is_null) %0) local_unna
 ._crit_edge24:                                    ; preds = %24, %._crit_edge
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load ptr, ptr %31, align 8, !tbaa !17
-  tail call void @free(ptr noundef %32) #18
-  tail call void @free(ptr noundef nonnull %0) #18
+  tail call void @free(ptr noundef %32) #19
+  tail call void @free(ptr noundef nonnull %0) #19
   br label %33
 
 33:                                               ; preds = %._crit_edge24, %1
@@ -723,7 +723,7 @@ define void @trav_info_free(ptr noundef captures(address_is_null) %0) local_unna
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @h5trav_gettable(i64 noundef %0, ptr noundef %1) local_unnamed_addr #1 {
@@ -754,12 +754,12 @@ define range(i32 -1, 1) i32 @h5trav_gettable(i64 noundef %0, ptr noundef %1) loc
 16:                                               ; preds = %11
   %17 = load i64, ptr @H5E_tools_g, align 8, !tbaa !38
   %18 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !38
-  %19 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %12, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.h5trav_gettable, i32 noundef 591, i64 noundef %14, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.3) #18
+  %19 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %12, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.h5trav_gettable, i32 noundef 591, i64 noundef %14, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.3) #19
   br label %24
 
 20:                                               ; preds = %11
   %21 = load ptr, ptr @stderr, align 8, !tbaa !39
-  %22 = call i64 @fwrite(ptr nonnull @.str.3, i64 15, i64 1, ptr %21) #19
+  %22 = call i64 @fwrite(ptr nonnull @.str.3, i64 15, i64 1, ptr %21) #20
   %23 = load ptr, ptr @stderr, align 8, !tbaa !39
   %fputc = call i32 @fputc(i32 10, ptr %23)
   br label %24
@@ -800,7 +800,7 @@ define internal noundef i32 @trav_table_visit_obj(ptr noundef readonly captures(
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !74
   %18 = mul i64 %spec.select.i, 72
-  %19 = tail call ptr @realloc(ptr noundef %17, i64 noundef %18) #17
+  %19 = tail call ptr @realloc(ptr noundef %17, i64 noundef %18) #18
   store ptr %19, ptr %16, align 8, !tbaa !74
   %.pre.i = load i64, ptr %9, align 8, !tbaa !70
   br label %20
@@ -829,7 +829,7 @@ define internal noundef i32 @trav_table_visit_obj(ptr noundef readonly captures(
   br i1 %33, label %36, label %34, !prof !26
 
 34:                                               ; preds = %28
-  %35 = tail call i32 @H5open() #18
+  %35 = tail call i32 @H5open() #19
   br label %36
 
 36:                                               ; preds = %34, %28
@@ -841,7 +841,7 @@ define internal noundef i32 @trav_table_visit_obj(ptr noundef readonly captures(
   %39 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %38, i64 %22
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %40, i8 0, i64 9, i1 false)
-  %41 = tail call noalias ptr @strdup(ptr noundef readonly %0) #18
+  %41 = tail call noalias ptr @strdup(ptr noundef readonly %0) #19
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store ptr %41, ptr %42, align 8, !tbaa !75
   br i1 %.not37.i, label %46, label %43
@@ -880,7 +880,7 @@ define internal noundef i32 @trav_table_visit_obj(ptr noundef readonly captures(
   %56 = load i64, ptr %3, align 8, !tbaa !79
   %57 = load ptr, ptr %54, align 8, !tbaa !74
   %58 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %57, i64 %.036.i
-  %59 = call i32 @H5Otoken_cmp(i64 noundef %56, ptr noundef %58, ptr noundef nonnull %51, ptr noundef nonnull %5) #18
+  %59 = call i32 @H5Otoken_cmp(i64 noundef %56, ptr noundef %58, ptr noundef nonnull %51, ptr noundef nonnull %5) #19
   %60 = icmp slt i32 %59, 0
   br i1 %60, label %trav_table_addlink.exit, label %61
 
@@ -894,7 +894,7 @@ define internal noundef i32 @trav_table_visit_obj(ptr noundef readonly captures(
   %65 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %64, i64 %.036.i
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %67 = load ptr, ptr %66, align 8, !tbaa !75
-  %68 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull readonly dereferenceable(1) %0) #20
+  %68 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull readonly dereferenceable(1) %0) #21
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %trav_table_addlink.exit, label %70
 
@@ -919,7 +919,7 @@ define internal noundef i32 @trav_table_visit_obj(ptr noundef readonly captures(
   %79 = getelementptr inbounds nuw i8, ptr %65, i64 48
   %80 = load ptr, ptr %79, align 8, !tbaa !82
   %81 = shl i64 %spec.select.i9, 3
-  %82 = call ptr @realloc(ptr noundef %80, i64 noundef %81) #17
+  %82 = call ptr @realloc(ptr noundef %80, i64 noundef %81) #18
   %83 = load ptr, ptr %54, align 8, !tbaa !74
   %84 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %83, i64 %.036.i
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 48
@@ -936,7 +936,7 @@ define internal noundef i32 @trav_table_visit_obj(ptr noundef readonly captures(
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 64
   %92 = add i64 %88, 1
   store i64 %92, ptr %91, align 8, !tbaa !80
-  %93 = call noalias ptr @strdup(ptr noundef nonnull readonly %0) #18
+  %93 = call noalias ptr @strdup(ptr noundef nonnull readonly %0) #19
   %94 = getelementptr inbounds nuw %struct.trav_link_t, ptr %87, i64 %88
   store ptr %93, ptr %94, align 8, !tbaa !83
   br label %trav_table_addlink.exit
@@ -980,7 +980,7 @@ define internal noundef i32 @trav_table_visit_lnk(ptr noundef readonly captures(
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !74
   %14 = mul i64 %spec.select.i, 72
-  %15 = tail call ptr @realloc(ptr noundef %13, i64 noundef %14) #17
+  %15 = tail call ptr @realloc(ptr noundef %13, i64 noundef %14) #18
   store ptr %15, ptr %12, align 8, !tbaa !74
   %.pre.i = load i64, ptr %5, align 8, !tbaa !70
   br label %16
@@ -1000,7 +1000,7 @@ define internal noundef i32 @trav_table_visit_lnk(ptr noundef readonly captures(
   br i1 %26, label %29, label %27, !prof !26
 
 27:                                               ; preds = %16
-  %28 = tail call i32 @H5open() #18
+  %28 = tail call i32 @H5open() #19
   br label %29
 
 29:                                               ; preds = %27, %16
@@ -1009,7 +1009,7 @@ define internal noundef i32 @trav_table_visit_lnk(ptr noundef readonly captures(
   %31 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %30, i64 %18
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %32, i8 0, i64 9, i1 false)
-  %33 = tail call noalias ptr @strdup(ptr noundef readonly %0) #18
+  %33 = tail call noalias ptr @strdup(ptr noundef readonly %0) #19
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store ptr %33, ptr %34, align 8, !tbaa !75
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 40
@@ -1022,7 +1022,7 @@ trav_table_add.exit:                              ; preds = %3, %29
   ret i32 0
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @h5trav_getindext(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread, label %.preheader38
@@ -1044,13 +1044,13 @@ define i32 @h5trav_getindext(ptr noundef readonly captures(none) %0, ptr noundef
   %9 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !75
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %11) #20
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %11) #21
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %15) #20
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %15) #21
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %.thread, label %18
 
@@ -1076,13 +1076,13 @@ define i32 @h5trav_getindext(ptr noundef readonly captures(none) %0, ptr noundef
   %.041 = phi i32 [ 0, %.preheader ], [ %24, %23 ]
   %28 = getelementptr inbounds nuw %struct.trav_link_t, ptr %22, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !83
-  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %29) #20
+  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %29) #21
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %.thread, label %32
 
 32:                                               ; preds = %26
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %33) #20
+  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %33) #21
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %.thread, label %23
 
@@ -1122,7 +1122,7 @@ define void @trav_table_addflags(ptr noundef readonly captures(none) %0, ptr nou
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !74
   %15 = mul i64 %spec.select, 72
-  %16 = tail call ptr @realloc(ptr noundef %14, i64 noundef %15) #17
+  %16 = tail call ptr @realloc(ptr noundef %14, i64 noundef %15) #18
   store ptr %16, ptr %13, align 8, !tbaa !74
   %.pre = load i64, ptr %6, align 8, !tbaa !70
   br label %17
@@ -1142,7 +1142,7 @@ define void @trav_table_addflags(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %27, label %30, label %28, !prof !26
 
 28:                                               ; preds = %17
-  %29 = tail call i32 @H5open() #18
+  %29 = tail call i32 @H5open() #19
   br label %30
 
 30:                                               ; preds = %17, %28
@@ -1158,7 +1158,7 @@ define void @trav_table_addflags(ptr noundef readonly captures(none) %0, ptr nou
   store i32 %36, ptr %37, align 4, !tbaa !3
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store i8 0, ptr %38, align 8, !tbaa !88
-  %39 = tail call noalias ptr @strdup(ptr noundef %1) #18
+  %39 = tail call noalias ptr @strdup(ptr noundef %1) #19
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store ptr %39, ptr %40, align 8, !tbaa !75
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 40
@@ -1171,9 +1171,9 @@ define void @trav_table_addflags(ptr noundef readonly captures(none) %0, ptr nou
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @trav_table_init(i64 noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #8 {
-  %3 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #21
+  %3 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #22
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
 
@@ -1188,8 +1188,8 @@ define void @trav_table_init(i64 noundef %0, ptr noundef writeonly captures(none
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define void @trav_table_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define void @trav_table_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %40, label %2
 
@@ -1212,7 +1212,7 @@ define void @trav_table_free(ptr noundef captures(address_is_null) %0) local_unn
   %9 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %8, i64 %7
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !75
-  tail call void @free(ptr noundef %11) #18
+  tail call void @free(ptr noundef %11) #19
   %12 = load ptr, ptr %3, align 8, !tbaa !74
   %13 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %12, i64 %7
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
@@ -1229,7 +1229,7 @@ define void @trav_table_free(ptr noundef captures(address_is_null) %0) local_unn
   %20 = load ptr, ptr %19, align 8, !tbaa !82
   %21 = getelementptr inbounds nuw %struct.trav_link_t, ptr %20, i64 %17
   %22 = load ptr, ptr %21, align 8, !tbaa !83
-  tail call void @free(ptr noundef %22) #18
+  tail call void @free(ptr noundef %22) #19
   %23 = add i32 %.026, 1
   %24 = zext i32 %23 to i64
   %25 = load ptr, ptr %3, align 8, !tbaa !74
@@ -1243,7 +1243,7 @@ define void @trav_table_free(ptr noundef captures(address_is_null) %0) local_unn
   %30 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %25, i64 %7
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %32 = load ptr, ptr %31, align 8, !tbaa !82
-  tail call void @free(ptr noundef %32) #18
+  tail call void @free(ptr noundef %32) #19
   br label %33
 
 33:                                               ; preds = %.lr.ph28, %._crit_edge
@@ -1259,11 +1259,11 @@ define void @trav_table_free(ptr noundef captures(address_is_null) %0) local_unn
 
 ._crit_edge29:                                    ; preds = %._crit_edge29.loopexit, %.preheader25
   %38 = phi ptr [ %.pre, %._crit_edge29.loopexit ], [ %4, %.preheader25 ]
-  tail call void @free(ptr noundef %38) #18
+  tail call void @free(ptr noundef %38) #19
   br label %39
 
 39:                                               ; preds = %._crit_edge29, %2
-  tail call void @free(ptr noundef nonnull %0) #18
+  tail call void @free(ptr noundef nonnull %0) #19
   br label %40
 
 40:                                               ; preds = %39, %1
@@ -1302,12 +1302,12 @@ define range(i32 -1, 1) i32 @h5trav_print(i64 noundef %0) local_unnamed_addr #1 
 16:                                               ; preds = %11
   %17 = load i64, ptr @H5E_tools_g, align 8, !tbaa !38
   %18 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !38
-  %19 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %12, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.h5trav_print, i32 noundef 1021, i64 noundef %14, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.3) #18
+  %19 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %12, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.h5trav_print, i32 noundef 1021, i64 noundef %14, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.3) #19
   br label %24
 
 20:                                               ; preds = %11
   %21 = load ptr, ptr @stderr, align 8, !tbaa !39
-  %22 = call i64 @fwrite(ptr nonnull @.str.3, i64 15, i64 1, ptr %21) #19
+  %22 = call i64 @fwrite(ptr nonnull @.str.3, i64 15, i64 1, ptr %21) #20
   %23 = load ptr, ptr @stderr, align 8, !tbaa !39
   %fputc = call i32 @fputc(i32 10, ptr %23)
   br label %24
@@ -1351,7 +1351,7 @@ switch.lookup:                                    ; preds = %4
   %17 = load i64, ptr %3, align 8, !tbaa !93
   %18 = load i32, ptr @trav_index_by, align 4, !tbaa !3
   %19 = load i32, ptr @trav_index_order, align 4, !tbaa !3
-  %20 = call i32 @H5Aiterate_by_name(i64 noundef %17, ptr noundef %0, i32 noundef %18, i32 noundef %19, ptr noundef null, ptr noundef nonnull @trav_attr, ptr noundef nonnull %5, i64 noundef 0) #18
+  %20 = call i32 @H5Aiterate_by_name(i64 noundef %17, ptr noundef %0, i32 noundef %18, i32 noundef %19, ptr noundef null, ptr noundef nonnull @trav_attr, ptr noundef nonnull %5, i64 noundef 0) #19
   br label %21
 
 21:                                               ; preds = %16, %13
@@ -1385,13 +1385,13 @@ define internal range(i32 -1, 1) i32 @trav_print_visit_lnk(ptr noundef %0, ptr n
 
 10:                                               ; preds = %7
   %11 = add i64 %9, 1
-  %12 = tail call noalias ptr @malloc(i64 noundef %11) #21
+  %12 = tail call noalias ptr @malloc(i64 noundef %11) #22
   %.not33 = icmp eq ptr %12, null
   br i1 %.not33, label %47, label %13
 
 13:                                               ; preds = %10
   %14 = load i64, ptr %2, align 8, !tbaa !93
-  %15 = tail call i32 @H5Lget_val(i64 noundef %14, ptr noundef %0, ptr noundef nonnull %12, i64 noundef %11, i64 noundef 0) #18
+  %15 = tail call i32 @H5Lget_val(i64 noundef %14, ptr noundef %0, ptr noundef nonnull %12, i64 noundef %11, i64 noundef 0) #19
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %17, label %18
 
@@ -1401,7 +1401,7 @@ define internal range(i32 -1, 1) i32 @trav_print_visit_lnk(ptr noundef %0, ptr n
 
 18:                                               ; preds = %17, %13
   %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, ptr noundef nonnull @.str.23, ptr noundef %0, ptr noundef nonnull %12)
-  tail call void @free(ptr noundef nonnull %12) #18
+  tail call void @free(ptr noundef nonnull %12) #19
   br label %47
 
 20:                                               ; preds = %7
@@ -1420,13 +1420,13 @@ define internal range(i32 -1, 1) i32 @trav_print_visit_lnk(ptr noundef %0, ptr n
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !97
   %26 = add i64 %24, 1
-  %27 = tail call noalias ptr @malloc(i64 noundef %26) #21
+  %27 = tail call noalias ptr @malloc(i64 noundef %26) #22
   %.not31 = icmp eq ptr %27, null
   br i1 %.not31, label %42, label %28
 
 28:                                               ; preds = %25
   %29 = load i64, ptr %2, align 8, !tbaa !93
-  %30 = tail call i32 @H5Lget_val(i64 noundef %29, ptr noundef %0, ptr noundef nonnull %27, i64 noundef %26, i64 noundef 0) #18
+  %30 = tail call i32 @H5Lget_val(i64 noundef %29, ptr noundef %0, ptr noundef nonnull %27, i64 noundef %26, i64 noundef 0) #19
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %32, label %33
 
@@ -1436,7 +1436,7 @@ define internal range(i32 -1, 1) i32 @trav_print_visit_lnk(ptr noundef %0, ptr n
 
 33:                                               ; preds = %32, %28
   %34 = load i64, ptr %23, align 8, !tbaa !28
-  %35 = call i32 @H5Lunpack_elink_val(ptr noundef nonnull %27, i64 noundef %34, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %5) #18
+  %35 = call i32 @H5Lunpack_elink_val(ptr noundef nonnull %27, i64 noundef %34, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %5) #19
   %36 = icmp sgt i32 %35, -1
   br i1 %36, label %37, label %41
 
@@ -1447,7 +1447,7 @@ define internal range(i32 -1, 1) i32 @trav_print_visit_lnk(ptr noundef %0, ptr n
   br label %41
 
 41:                                               ; preds = %37, %33
-  call void @free(ptr noundef nonnull %27) #18
+  call void @free(ptr noundef nonnull %27) #19
   br label %42
 
 42:                                               ; preds = %41, %25
@@ -1497,12 +1497,12 @@ define range(i32 -1, 1) i32 @h5trav_visit(i64 noundef %0, ptr noundef %1, i1 nou
 22:                                               ; preds = %17
   %23 = load i64, ptr @H5E_tools_g, align 8, !tbaa !38
   %24 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !38
-  %25 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %18, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.h5trav_visit, i32 noundef 1050, i64 noundef %20, i64 noundef %23, i64 noundef %24, ptr noundef nonnull @.str.3) #18
+  %25 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %18, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.h5trav_visit, i32 noundef 1050, i64 noundef %20, i64 noundef %23, i64 noundef %24, ptr noundef nonnull @.str.3) #19
   br label %30
 
 26:                                               ; preds = %17
   %27 = load ptr, ptr @stderr, align 8, !tbaa !39
-  %28 = call i64 @fwrite(ptr nonnull @.str.3, i64 15, i64 1, ptr %27) #19
+  %28 = call i64 @fwrite(ptr nonnull @.str.3, i64 15, i64 1, ptr %27) #20
   %29 = load ptr, ptr @stderr, align 8, !tbaa !39
   %fputc = call i32 @fputc(i32 10, ptr %29)
   br label %30
@@ -1533,7 +1533,7 @@ define range(i32 -1, 1) i32 @symlink_visit_add(ptr noundef captures(none) %0, i3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !100
   %13 = mul i64 %spec.select, 24
-  %14 = tail call ptr @realloc(ptr noundef %12, i64 noundef %13) #17
+  %14 = tail call ptr @realloc(ptr noundef %12, i64 noundef %13) #18
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %32
 
@@ -1553,12 +1553,12 @@ define range(i32 -1, 1) i32 @symlink_visit_add(ptr noundef captures(none) %0, i3
 24:                                               ; preds = %19
   %25 = load i64, ptr @H5E_tools_g, align 8, !tbaa !38
   %26 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !38
-  %27 = tail call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %20, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.symlink_visit_add, i32 noundef 1077, i64 noundef %22, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.5) #18
+  %27 = tail call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %20, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.symlink_visit_add, i32 noundef 1077, i64 noundef %22, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.5) #19
   br label %.thread
 
 28:                                               ; preds = %19
   %29 = load ptr, ptr @stderr, align 8, !tbaa !39
-  %30 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 37, i64 1, ptr %29) #19
+  %30 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 37, i64 1, ptr %29) #20
   %31 = load ptr, ptr @stderr, align 8, !tbaa !39
   %fputc = tail call i32 @fputc(i32 10, ptr %31)
   br label %.thread
@@ -1582,7 +1582,7 @@ define range(i32 -1, 1) i32 @symlink_visit_add(ptr noundef captures(none) %0, i3
   br i1 %40, label %41, label %60
 
 41:                                               ; preds = %33
-  %42 = tail call noalias ptr @strdup(ptr noundef %2) #18
+  %42 = tail call noalias ptr @strdup(ptr noundef %2) #19
   store ptr %42, ptr %38, align 8, !tbaa !65
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %60
@@ -1604,19 +1604,19 @@ define range(i32 -1, 1) i32 @symlink_visit_add(ptr noundef captures(none) %0, i3
 52:                                               ; preds = %47
   %53 = load i64, ptr @H5E_tools_g, align 8, !tbaa !38
   %54 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !38
-  %55 = tail call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %48, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.symlink_visit_add, i32 noundef 1091, i64 noundef %50, i64 noundef %53, i64 noundef %54, ptr noundef nonnull @.str.6) #18
+  %55 = tail call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %48, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.symlink_visit_add, i32 noundef 1091, i64 noundef %50, i64 noundef %53, i64 noundef %54, ptr noundef nonnull @.str.6) #19
   br label %.thread
 
 56:                                               ; preds = %47
   %57 = load ptr, ptr @stderr, align 8, !tbaa !39
-  %58 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 45, i64 1, ptr %57) #19
+  %58 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 45, i64 1, ptr %57) #20
   %59 = load ptr, ptr @stderr, align 8, !tbaa !39
   %fputc50 = tail call i32 @fputc(i32 10, ptr %59)
   br label %.thread
 
 60:                                               ; preds = %41, %33
   %61 = phi ptr [ %42, %41 ], [ null, %33 ]
-  %62 = tail call noalias ptr @strdup(ptr noundef %3) #18
+  %62 = tail call noalias ptr @strdup(ptr noundef %3) #19
   store ptr %62, ptr %39, align 8, !tbaa !67
   %63 = icmp eq ptr %62, null
   br i1 %63, label %64, label %.thread
@@ -1627,7 +1627,7 @@ define range(i32 -1, 1) i32 @symlink_visit_add(ptr noundef captures(none) %0, i3
   br i1 %.not, label %66, label %65
 
 65:                                               ; preds = %64
-  tail call void @free(ptr noundef nonnull %61) #18
+  tail call void @free(ptr noundef nonnull %61) #19
   br label %66
 
 66:                                               ; preds = %65, %64
@@ -1646,12 +1646,12 @@ define range(i32 -1, 1) i32 @symlink_visit_add(ptr noundef captures(none) %0, i3
 74:                                               ; preds = %69
   %75 = load i64, ptr @H5E_tools_g, align 8, !tbaa !38
   %76 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !38
-  %77 = tail call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %70, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.symlink_visit_add, i32 noundef 1099, i64 noundef %72, i64 noundef %75, i64 noundef %76, ptr noundef nonnull @.str.7) #18
+  %77 = tail call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %70, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.symlink_visit_add, i32 noundef 1099, i64 noundef %72, i64 noundef %75, i64 noundef %76, ptr noundef nonnull @.str.7) #19
   br label %.thread
 
 78:                                               ; preds = %69
   %79 = load ptr, ptr @stderr, align 8, !tbaa !39
-  %80 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 45, i64 1, ptr %79) #19
+  %80 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 45, i64 1, ptr %79) #20
   %81 = load ptr, ptr @stderr, align 8, !tbaa !39
   %fputc49 = tail call i32 @fputc(i32 10, ptr %81)
   br label %.thread
@@ -1661,7 +1661,7 @@ define range(i32 -1, 1) i32 @symlink_visit_add(ptr noundef captures(none) %0, i3
   ret i32 %.2
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @symlink_is_visited(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #7 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !98
@@ -1683,7 +1683,7 @@ define noundef zeroext i1 @symlink_is_visited(ptr noundef readonly captures(none
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !67
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %3) #20
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %3) #21
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %._crit_edge, label %17
 
@@ -1711,7 +1711,7 @@ define internal range(i32 -1, 1) i32 @traverse_cb(i64 noundef %0, ptr noundef %1
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !54
-  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #20
+  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #21
   %.not = icmp eq i64 %13, 0
   br i1 %.not, label %20, label %14
 
@@ -1725,18 +1725,18 @@ define internal range(i32 -1, 1) i32 @traverse_cb(i64 noundef %0, ptr noundef %1
 
 20:                                               ; preds = %10, %14
   %21 = phi i64 [ %19, %14 ], [ 1, %10 ]
-  %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #21
   %23 = add i64 %13, 4
   %24 = add i64 %23, %21
   %25 = add i64 %24, %22
-  %26 = tail call noalias ptr @malloc(i64 noundef %25) #21
+  %26 = tail call noalias ptr @malloc(i64 noundef %25) #22
   %.not63 = icmp eq ptr %26, null
   br i1 %.not63, label %.critedge, label %.sink.split
 
 .sink.split:                                      ; preds = %20
   %.not62 = icmp eq i64 %21, 0
   %.str.12..str.11 = select i1 %.not62, ptr @.str.12, ptr @.str.11
-  %27 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %26, i64 noundef %25, ptr noundef nonnull %.str.12..str.11, ptr noundef nonnull %12, ptr noundef nonnull %1) #18
+  %27 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %26, i64 noundef %25, ptr noundef nonnull %.str.12..str.11, ptr noundef nonnull %12, ptr noundef nonnull %1) #19
   br label %28
 
 28:                                               ; preds = %.sink.split, %4
@@ -1750,7 +1750,7 @@ define internal range(i32 -1, 1) i32 @traverse_cb(i64 noundef %0, ptr noundef %1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %33 = load i32, ptr %32, align 8, !tbaa !55
-  %34 = call i32 @H5Oget_info_by_name3(i64 noundef %0, ptr noundef %1, ptr noundef nonnull %6, i32 noundef %33, i64 noundef 0) #18
+  %34 = call i32 @H5Oget_info_by_name3(i64 noundef %0, ptr noundef %1, ptr noundef nonnull %6, i32 noundef %33, i64 noundef 0) #19
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %36, label %37
 
@@ -1781,7 +1781,7 @@ define internal range(i32 -1, 1) i32 @traverse_cb(i64 noundef %0, ptr noundef %1
   %.011.i = phi i64 [ 0, %.lr.ph.i ], [ %55, %54 ]
   %48 = load ptr, ptr %46, align 8, !tbaa !45
   %49 = getelementptr inbounds nuw %struct.trav_addr_path_t, ptr %48, i64 %.011.i
-  %50 = call i32 @H5Otoken_cmp(i64 noundef %0, ptr noundef %49, ptr noundef nonnull %43, ptr noundef nonnull %5) #18
+  %50 = call i32 @H5Otoken_cmp(i64 noundef %0, ptr noundef %49, ptr noundef nonnull %43, ptr noundef nonnull %5) #19
   %51 = icmp slt i32 %50, 0
   br i1 %51, label %trav_token_visited.exit.thread, label %52
 
@@ -1827,7 +1827,7 @@ trav_token_visited.exit:                          ; preds = %52
   %69 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %70 = load ptr, ptr %69, align 8, !tbaa !45
   %71 = mul i64 %spec.select.i, 24
-  %72 = call ptr @realloc(ptr noundef %70, i64 noundef %71) #17
+  %72 = call ptr @realloc(ptr noundef %70, i64 noundef %71) #18
   store ptr %72, ptr %69, align 8, !tbaa !45
   %.pre.i = load i64, ptr %44, align 8, !tbaa !46
   br label %trav_token_add.exit
@@ -1840,7 +1840,7 @@ trav_token_add.exit:                              ; preds = %._crit_edge.i, %67
   %76 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %77 = getelementptr inbounds nuw %struct.trav_addr_path_t, ptr %73, i64 %74
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull readonly align 8 dereferenceable(16) %43, i64 16, i1 false)
-  %78 = call noalias ptr @strdup(ptr noundef readonly %.154) #18
+  %78 = call noalias ptr @strdup(ptr noundef readonly %.154) #19
   %79 = load ptr, ptr %76, align 8, !tbaa !45
   %80 = getelementptr inbounds nuw %struct.trav_addr_path_t, ptr %79, i64 %74
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
@@ -1858,7 +1858,7 @@ trav_token_add.exit:                              ; preds = %._crit_edge.i, %67
 86:                                               ; preds = %82
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %88 = load ptr, ptr %87, align 8, !tbaa !37
-  %89 = call i32 %85(ptr noundef %.154, ptr noundef nonnull %6, ptr noundef %.055, ptr noundef %88) #18
+  %89 = call i32 %85(ptr noundef %.154, ptr noundef nonnull %6, ptr noundef %.055, ptr noundef %88) #19
   %90 = icmp slt i32 %89, 0
   br i1 %90, label %91, label %92
 
@@ -1881,7 +1881,7 @@ trav_token_add.exit:                              ; preds = %._crit_edge.i, %67
 98:                                               ; preds = %93
   %99 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %100 = load ptr, ptr %99, align 8, !tbaa !37
-  %101 = tail call i32 %97(ptr noundef %.154, ptr noundef nonnull %2, ptr noundef %100) #18
+  %101 = tail call i32 %97(ptr noundef %.154, ptr noundef nonnull %2, ptr noundef %100) #19
   %102 = icmp slt i32 %101, 0
   br i1 %102, label %103, label %105
 
@@ -1890,7 +1890,7 @@ trav_token_add.exit:                              ; preds = %._crit_edge.i, %67
   br i1 %.not65, label %.critedge, label %104
 
 104:                                              ; preds = %103
-  tail call void @free(ptr noundef nonnull %.052) #18
+  tail call void @free(ptr noundef nonnull %.052) #19
   br label %.critedge
 
 105:                                              ; preds = %92, %93, %98
@@ -1898,11 +1898,11 @@ trav_token_add.exit:                              ; preds = %._crit_edge.i, %67
   br i1 %.not69, label %.critedge, label %106
 
 106:                                              ; preds = %105
-  call void @free(ptr noundef nonnull %.052) #18
+  call void @free(ptr noundef nonnull %.052) #19
   br label %.critedge
 
 .critedge71.sink.split:                           ; preds = %91, %36
-  call void @free(ptr noundef nonnull %.052) #18
+  call void @free(ptr noundef nonnull %.052) #19
   br label %.critedge71
 
 .critedge71:                                      ; preds = %.critedge71.sink.split, %91, %36
@@ -1920,19 +1920,19 @@ declare i32 @H5Literate_by_name2(i64 noundef, ptr noundef, i32 noundef, i32 noun
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #11
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 declare i32 @H5Otoken_cmp(i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #11
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 declare i32 @H5Aiterate_by_name(i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @trav_attr(i64 %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3) #12 {
+define internal noundef i32 @trav_attr(i64 %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3) #13 {
   %5 = load ptr, ptr %3, align 8, !tbaa !95
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #20
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #21
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %11
 
@@ -1956,48 +1956,49 @@ declare i32 @H5Lget_val(i64 noundef, ptr noundef, ptr noundef, i64 noundef, i64 
 declare i32 @H5Lunpack_elink_val(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #14
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #14
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #15
+declare i64 @llvm.umax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nofree nounwind }
-attributes #15 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #17 = { nounwind allocsize(1) }
-attributes #18 = { nounwind }
-attributes #19 = { cold }
-attributes #20 = { nounwind willreturn memory(read) }
-attributes #21 = { nounwind allocsize(0) }
+attributes #10 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nofree nounwind }
+attributes #16 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #18 = { nounwind allocsize(1) }
+attributes #19 = { nounwind }
+attributes #20 = { cold }
+attributes #21 = { nounwind willreturn memory(read) }
+attributes #22 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

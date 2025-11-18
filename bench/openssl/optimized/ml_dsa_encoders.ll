@@ -1090,7 +1090,7 @@ PACKET_buf_init.exit.thread:                      ; preds = %37, %33, %30, %25, 
 
 declare i32 @ossl_ml_dsa_key_priv_alloc(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 2) i32 @poly_decode_signed_4(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr i8, ptr %1, i64 8
   %.promoted = load i64, ptr %3, align 8, !tbaa !50
@@ -1235,7 +1235,7 @@ PACKET_get_bytes.exit.thread:                     ; preds = %4, %21, %7
   ret i32 %.016
 }
 
-; Function Attrs: nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 2) i32 @poly_decode_signed_2(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr i8, ptr %1, i64 8
   %.promoted = load i64, ptr %3, align 8, !tbaa !50
@@ -1854,7 +1854,7 @@ PACKET_buf_init.exit.thread:                      ; preds = %.lr.ph, %vector_zer
   ret i32 %.014
 }
 
-; Function Attrs: nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 2) i32 @poly_decode_signed_two_to_power_19(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr i8, ptr %1, i64 8
   %.promoted = load i64, ptr %3, align 8, !tbaa !50
@@ -1940,7 +1940,7 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_two_to_power_19(ptr noun
   ret i32 %.011
 }
 
-; Function Attrs: nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 2) i32 @poly_decode_signed_two_to_power_17(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr i8, ptr %1, i64 8
   %.promoted = load i64, ptr %3, align 8, !tbaa !50
@@ -2025,7 +2025,7 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_two_to_power_17(ptr noun
   ret i32 %.2
 }
 
-; Function Attrs: nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @ossl_ml_dsa_poly_decode_expand_mask(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = alloca %struct.PACKET, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2205,7 +2205,7 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

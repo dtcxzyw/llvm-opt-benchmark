@@ -4580,7 +4580,7 @@ define dso_local { ptr, ptr } @_ZNK5caffe9BlobShape11GetMetadataEv(ptr nonnull r
   ret { ptr, ptr } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5caffe9BlobProto21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe28_BlobShape_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe28_BlobProto_default_instance_E, i64 120), align 8, !tbaa !39
   ret void
@@ -11718,7 +11718,7 @@ define dso_local { ptr, ptr } @_ZNK5caffe15FillerParameter11GetMetadataEv(ptr no
   ret { ptr, ptr } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5caffe12NetParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe27_NetState_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe31_NetParameter_default_instance_E, i64 144), align 8, !tbaa !260
   ret void
@@ -15467,7 +15467,7 @@ define dso_local void @_ZN5caffe12NetParameter8CopyFromERKS0_(ptr noundef nonnul
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5caffe12NetParameter13IsInitializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %0) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i32, ptr %2, align 8, !tbaa !485
@@ -15644,7 +15644,7 @@ define dso_local { ptr, ptr } @_ZNK5caffe12NetParameter11GetMetadataEv(ptr nonnu
   ret { ptr, ptr } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5caffe15SolverParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe31_NetParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe34_SolverParameter_default_instance_E, i64 192), align 8, !tbaa !334
   store ptr @_ZN5caffe31_NetParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe34_SolverParameter_default_instance_E, i64 184), align 8, !tbaa !339
@@ -23441,7 +23441,7 @@ define dso_local void @_ZN5caffe15SolverParameter8CopyFromERKS0_(ptr noundef non
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5caffe15SolverParameter13IsInitializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %0) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i32, ptr %2, align 8, !tbaa !485
@@ -29905,7 +29905,7 @@ define dso_local { ptr, ptr } @_ZNK5caffe9ParamSpec11GetMetadataEv(ptr nonnull r
   ret { ptr, ptr } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5caffe14LayerParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe42_TransformationParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe33_LayerParameter_default_instance_E, i64 232), align 8, !tbaa !121
   store ptr @_ZN5caffe32_LossParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe33_LayerParameter_default_instance_E, i64 240), align 8, !tbaa !192
@@ -74109,7 +74109,7 @@ define dso_local void @_ZN5caffe14LayerParameter8CopyFromERKS0_(ptr noundef nonn
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5caffe14LayerParameter13IsInitializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(712) %0) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4, !tbaa !468
@@ -83243,7 +83243,7 @@ define dso_local { ptr, ptr } @_ZNK5caffe18BatchNormParameter11GetMetadataEv(ptr
   ret { ptr, ptr } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5caffe13BiasParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe32_BiasParameter_default_instance_E, i64 24), align 8, !tbaa !35
   ret void
@@ -84329,7 +84329,7 @@ define dso_local { ptr, ptr } @_ZNK5caffe13BiasParameter11GetMetadataEv(ptr nonn
   ret { ptr, ptr } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5caffe11BNParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe30_BNParameter_default_instance_E, i64 24), align 8, !tbaa !27
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe30_BNParameter_default_instance_E, i64 32), align 8, !tbaa !30
@@ -86527,7 +86527,7 @@ define dso_local { ptr, ptr } @_ZNK5caffe24ContrastiveLossParameter11GetMetadata
   ret { ptr, ptr } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5caffe20ConvolutionParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe39_ConvolutionParameter_default_instance_E, i64 88), align 8, !tbaa !54
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe39_ConvolutionParameter_default_instance_E, i64 96), align 8, !tbaa !55
@@ -94120,7 +94120,7 @@ define dso_local { ptr, ptr } @_ZNK5caffe30NonMaximumSuppressionParameter11GetMe
   ret { ptr, ptr } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5caffe19SaveOutputParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe34_ResizeParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe38_SaveOutputParameter_default_instance_E, i64 64), align 8, !tbaa !314
   ret void
@@ -96262,7 +96262,7 @@ define dso_local { ptr, ptr } @_ZNK5caffe19SaveOutputParameter11GetMetadataEv(pt
   ret { ptr, ptr } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5caffe24DetectionOutputParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe49_NonMaximumSuppressionParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe43_DetectionOutputParameter_default_instance_E, i64 32), align 8, !tbaa !70
   store ptr @_ZN5caffe38_SaveOutputParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe43_DetectionOutputParameter_default_instance_E, i64 40), align 8, !tbaa !71
@@ -106627,7 +106627,7 @@ define dso_local { ptr, ptr } @_ZNK5caffe12ELUParameter11GetMetadataEv(ptr nonnu
   ret { ptr, ptr } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5caffe14EmbedParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe33_EmbedParameter_default_instance_E, i64 24), align 8, !tbaa !82
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe33_EmbedParameter_default_instance_E, i64 32), align 8, !tbaa !83
@@ -115389,7 +115389,7 @@ define dso_local { ptr, ptr } @_ZNK5caffe21InfogainLossParameter11GetMetadataEv(
   ret { ptr, ptr } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5caffe21InnerProductParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe40_InnerProductParameter_default_instance_E, i64 24), align 8, !tbaa !111
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe40_InnerProductParameter_default_instance_E, i64 32), align 8, !tbaa !112
@@ -123779,7 +123779,7 @@ define dso_local { ptr, ptr } @_ZNK5caffe12MVNParameter11GetMetadataEv(ptr nonnu
   ret { ptr, ptr } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5caffe18NormalizeParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe37_NormalizeParameter_default_instance_E, i64 24), align 8, !tbaa !274
   ret void
@@ -133032,7 +133032,7 @@ define dso_local { ptr, ptr } @_ZNK5caffe15PythonParameter11GetMetadataEv(ptr no
   ret { ptr, ptr } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5caffe18RecurrentParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe37_RecurrentParameter_default_instance_E, i64 24), align 8, !tbaa !300
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe37_RecurrentParameter_default_instance_E, i64 32), align 8, !tbaa !302
@@ -137573,7 +137573,7 @@ define dso_local { ptr, ptr } @_ZNK5caffe14ReorgParameter11GetMetadataEv(ptr non
   ret { ptr, ptr } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5caffe16ReshapeParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe28_BlobShape_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe35_ReshapeParameter_default_instance_E, i64 24), align 8, !tbaa !309
   ret void
@@ -140948,7 +140948,7 @@ define dso_local { ptr, ptr } @_ZNK5caffe19ROIPoolingParameter11GetMetadataEv(pt
   ret { ptr, ptr } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5caffe14ScaleParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe33_ScaleParameter_default_instance_E, i64 24), align 8, !tbaa !320
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe33_ScaleParameter_default_instance_E, i64 32), align 8, !tbaa !321
@@ -152900,7 +152900,7 @@ define dso_local { ptr, ptr } @_ZNK5caffe12SPPParameter11GetMetadataEv(ptr nonnu
   ret { ptr, ptr } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5caffe16V1LayerParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe36_AccuracyParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe35_V1LayerParameter_default_instance_E, i64 400), align 8, !tbaa !354
   store ptr @_ZN5caffe34_ArgMaxParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe35_V1LayerParameter_default_instance_E, i64 368), align 8, !tbaa !357
@@ -173607,7 +173607,7 @@ define dso_local { ptr, ptr } @_ZNK5caffe16V1LayerParameter11GetMetadataEv(ptr n
   ret { ptr, ptr } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5caffe16V0LayerParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe35_V0LayerParameter_default_instance_E, i64 128), align 8, !tbaa !350
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe35_V0LayerParameter_default_instance_E, i64 136), align 8, !tbaa !352
@@ -179597,7 +179597,7 @@ define dso_local { ptr, ptr } @_ZNK5caffe16V0LayerParameter11GetMetadataEv(ptr n
   ret { ptr, ptr } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN5caffe14PReLUParameter21InitAsDefaultInstanceEv() local_unnamed_addr #12 align 2 {
   store ptr @_ZN5caffe34_FillerParameter_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN5caffe33_PReLUParameter_default_instance_E, i64 24), align 8, !tbaa !279
   ret void
@@ -187079,13 +187079,13 @@ attributes #8 = { cold nofree noreturn }
 attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #21 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -1168,7 +1168,7 @@ define internal noundef float @_ZN4core3ops8function5FnMut8call_mut17hac932df601
   ret float %3
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef float @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h10063d848f6f598cE.llvm.6960974148744716740"(ptr noundef readonly captures(none) %0, float noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !nonnull !15, !align !100, !noundef !15
   %4 = load float, ptr %3, align 4, !alias.scope !101, !noalias !104, !noundef !15
@@ -1189,7 +1189,7 @@ define internal noundef float @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b
   ret float 1.000000e+00
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef float @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h32a30c14731ff357E.llvm.6960974148744716740"(ptr noundef readonly captures(none) %0, float noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !nonnull !15, !align !100, !noundef !15
   %4 = load float, ptr %3, align 4, !alias.scope !107, !noalias !110, !noundef !15
@@ -1205,7 +1205,7 @@ define hidden noundef float @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$v
   ret float %13
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef float @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h4fd08491d8f7490eE.llvm.6960974148744716740"(ptr noundef readonly captures(none) %0, float noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !nonnull !15, !align !100, !noundef !15
   %4 = load float, ptr %3, align 4, !alias.scope !113, !noalias !116, !noundef !15
@@ -1221,7 +1221,7 @@ define hidden noundef float @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$v
   ret float %13
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef float @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h623469a1aac10f37E.llvm.6960974148744716740"(ptr noundef readonly captures(none) %0, float noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !nonnull !15, !align !100, !noundef !15
   %4 = load float, ptr %3, align 4, !alias.scope !119, !noalias !122, !noundef !15
@@ -1237,7 +1237,7 @@ define hidden noundef float @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$v
   ret float %13
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef float @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h6918515db04591adE.llvm.6960974148744716740"(ptr noundef readonly captures(none) %0, float noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !nonnull !15, !align !100, !noundef !15
   %4 = load float, ptr %3, align 4, !alias.scope !125, !noalias !128, !noundef !15
@@ -1259,7 +1259,7 @@ define internal noundef float @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b
   ret float %3
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef float @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h9b2858527cf28daeE.llvm.6960974148744716740"(ptr noundef readonly captures(none) %0, float noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !nonnull !15, !align !100, !noundef !15
   %4 = load float, ptr %3, align 4, !alias.scope !131, !noalias !134, !noundef !15
@@ -1294,7 +1294,7 @@ define internal noundef float @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b
   ret float %.0.i.i
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef float @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hb5bdcb33efe64505E.llvm.6960974148744716740"(ptr noundef readonly captures(none) %0, float noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !nonnull !15, !align !100, !noundef !15
   %4 = load float, ptr %3, align 4, !alias.scope !137, !noalias !140, !noundef !15
@@ -1310,7 +1310,7 @@ define hidden noundef float @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$v
   ret float %13
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef float @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hbae435f521cf2ff6E.llvm.6960974148744716740"(ptr noundef readonly captures(none) %0, float noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !nonnull !15, !align !100, !noundef !15
   %4 = load float, ptr %3, align 4, !alias.scope !143, !noalias !146, !noundef !15
@@ -1326,7 +1326,7 @@ define hidden noundef float @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$v
   ret float %13
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef float @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hc707b841bcacf428E.llvm.6960974148744716740"(ptr noundef readonly captures(none) %0, float noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !nonnull !15, !align !100, !noundef !15
   %4 = load float, ptr %3, align 4, !alias.scope !149, !noalias !152, !noundef !15
@@ -1380,7 +1380,7 @@ _ZN4core3ops8function6FnOnce9call_once17hfafd3d06e8c282beE.exit: ; preds = %2, %
   ret float %.0.i.i.i
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef float @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hf1797fe9f299fbbeE.llvm.6960974148744716740"(ptr noundef readonly captures(none) %0, float noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !nonnull !15, !align !100, !noundef !15
   %4 = load float, ptr %3, align 4, !alias.scope !155, !noalias !158, !noundef !15
@@ -1805,7 +1805,7 @@ define internal fastcc void @"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..
   resume { ptr, i32 } %12
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6148fd1abfabaf11E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 57
   %.promoted = load i8, ptr %2, align 1, !alias.scope !226
@@ -26048,7 +26048,7 @@ common.resume:                                    ; preds = %13, %39
   unreachable
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef float @"_ZN5image8imageops6sample4blur28_$u7b$$u7b$closure$u7d$$u7d$17h10bbbf07ce41c9dbE.llvm.6960974148744716740"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, float noundef %1) unnamed_addr #5 {
   %3 = load ptr, ptr %0, align 8, !nonnull !15, !align !100, !noundef !15
   %4 = load float, ptr %3, align 4, !noundef !15
@@ -26064,7 +26064,7 @@ define hidden noundef float @"_ZN5image8imageops6sample4blur28_$u7b$$u7b$closure
   ret float %13
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef float @"_ZN5image8imageops6sample4blur28_$u7b$$u7b$closure$u7d$$u7d$17h32097bc9f707c0a4E.llvm.6960974148744716740"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, float noundef %1) unnamed_addr #5 {
   %3 = load ptr, ptr %0, align 8, !nonnull !15, !align !100, !noundef !15
   %4 = load float, ptr %3, align 4, !noundef !15
@@ -26080,7 +26080,7 @@ define hidden noundef float @"_ZN5image8imageops6sample4blur28_$u7b$$u7b$closure
   ret float %13
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef float @"_ZN5image8imageops6sample4blur28_$u7b$$u7b$closure$u7d$$u7d$17h49c8a2638e9933d3E.llvm.6960974148744716740"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, float noundef %1) unnamed_addr #5 {
   %3 = load ptr, ptr %0, align 8, !nonnull !15, !align !100, !noundef !15
   %4 = load float, ptr %3, align 4, !noundef !15
@@ -26096,7 +26096,7 @@ define hidden noundef float @"_ZN5image8imageops6sample4blur28_$u7b$$u7b$closure
   ret float %13
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef float @"_ZN5image8imageops6sample4blur28_$u7b$$u7b$closure$u7d$$u7d$17h4f6f4ddc269b8ec2E.llvm.6960974148744716740"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, float noundef %1) unnamed_addr #5 {
   %3 = load ptr, ptr %0, align 8, !nonnull !15, !align !100, !noundef !15
   %4 = load float, ptr %3, align 4, !noundef !15
@@ -26112,7 +26112,7 @@ define hidden noundef float @"_ZN5image8imageops6sample4blur28_$u7b$$u7b$closure
   ret float %13
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef float @"_ZN5image8imageops6sample4blur28_$u7b$$u7b$closure$u7d$$u7d$17h7d5082fc022732a3E.llvm.6960974148744716740"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, float noundef %1) unnamed_addr #5 {
   %3 = load ptr, ptr %0, align 8, !nonnull !15, !align !100, !noundef !15
   %4 = load float, ptr %3, align 4, !noundef !15
@@ -26128,7 +26128,7 @@ define hidden noundef float @"_ZN5image8imageops6sample4blur28_$u7b$$u7b$closure
   ret float %13
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef float @"_ZN5image8imageops6sample4blur28_$u7b$$u7b$closure$u7d$$u7d$17h837d76bc6596f413E.llvm.6960974148744716740"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, float noundef %1) unnamed_addr #5 {
   %3 = load ptr, ptr %0, align 8, !nonnull !15, !align !100, !noundef !15
   %4 = load float, ptr %3, align 4, !noundef !15
@@ -26144,7 +26144,7 @@ define hidden noundef float @"_ZN5image8imageops6sample4blur28_$u7b$$u7b$closure
   ret float %13
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef float @"_ZN5image8imageops6sample4blur28_$u7b$$u7b$closure$u7d$$u7d$17hb7ca293ac1b9848eE.llvm.6960974148744716740"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, float noundef %1) unnamed_addr #5 {
   %3 = load ptr, ptr %0, align 8, !nonnull !15, !align !100, !noundef !15
   %4 = load float, ptr %3, align 4, !noundef !15
@@ -26160,7 +26160,7 @@ define hidden noundef float @"_ZN5image8imageops6sample4blur28_$u7b$$u7b$closure
   ret float %13
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef float @"_ZN5image8imageops6sample4blur28_$u7b$$u7b$closure$u7d$$u7d$17hca34dceea3d35750E.llvm.6960974148744716740"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, float noundef %1) unnamed_addr #5 {
   %3 = load ptr, ptr %0, align 8, !nonnull !15, !align !100, !noundef !15
   %4 = load float, ptr %3, align 4, !noundef !15
@@ -26176,7 +26176,7 @@ define hidden noundef float @"_ZN5image8imageops6sample4blur28_$u7b$$u7b$closure
   ret float %13
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef float @"_ZN5image8imageops6sample4blur28_$u7b$$u7b$closure$u7d$$u7d$17hd99edc034ed623b5E.llvm.6960974148744716740"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, float noundef %1) unnamed_addr #5 {
   %3 = load ptr, ptr %0, align 8, !nonnull !15, !align !100, !noundef !15
   %4 = load float, ptr %3, align 4, !noundef !15
@@ -26192,7 +26192,7 @@ define hidden noundef float @"_ZN5image8imageops6sample4blur28_$u7b$$u7b$closure
   ret float %13
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef float @"_ZN5image8imageops6sample4blur28_$u7b$$u7b$closure$u7d$$u7d$17he6f1d1204bec5a5bE.llvm.6960974148744716740"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, float noundef %1) unnamed_addr #5 {
   %3 = load ptr, ptr %0, align 8, !nonnull !15, !align !100, !noundef !15
   %4 = load float, ptr %3, align 4, !noundef !15
@@ -33042,8 +33042,8 @@ attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind will
 attributes #2 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #5 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #6 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #5 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #6 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

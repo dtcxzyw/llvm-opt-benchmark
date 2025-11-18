@@ -4715,7 +4715,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP12QCPLayerableEED2Ev.exit17: ; preds = 
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK12QCPLayerable14realVisibilityEv(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(57) %0) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8, !range !6, !noundef !7
@@ -8616,7 +8616,7 @@ define noundef i32 @_ZNK12QCPLayerable17selectionCategoryEv(ptr readnone align 8
   ret i32 128
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i64, i64 } @_ZNK12QCPLayerable8clipRectEv(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(57) %0) unnamed_addr #18 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -9333,7 +9333,7 @@ _ZN17QArrayDataPointerI12QCPDataRangeED2Ev.exit:  ; preds = %1, %_ZN17QArrayData
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK16QCPDataSelectioneqERKS_(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(24) %0, ptr noundef readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #18 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
@@ -10757,7 +10757,7 @@ _ZN5QListI12QCPDataRangeE5clearEv.exit:           ; preds = %25, %24, %_ZN17QArr
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #23
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK16QCPDataSelection8containsERKS_(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(24) %0, ptr noundef readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #18 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8
@@ -11637,7 +11637,7 @@ _ZN6QDebuglsEPKc.exit21:                          ; preds = %_ZN7QStringD2Ev.exi
   ret { double, double } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, errnomem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, errnomem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef double @_ZNK7QCPAxis12pixelToCoordEd(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(472) %0, double noundef %1) local_unnamed_addr #24 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = load i32, ptr %3, align 4
@@ -19948,7 +19948,7 @@ _ZN6QDebuglsEi.exit61:                            ; preds = %.noexc59, %158
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZN13QCPLayoutGrid10hasElementEii(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(256) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
   %4 = icmp sgt i32 %1, -1
   br i1 %4, label %5, label %_ZNK13QCPLayoutGrid11columnCountEv.exit.thread
@@ -28049,7 +28049,7 @@ define noundef i32 @_ZNK14QCPLayoutInset12elementCountEv(ptr noundef readonly al
   ret i32 %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @_ZNK14QCPLayoutInset9elementAtEi(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(264) %0, i32 noundef %1) unnamed_addr #18 align 2 {
   %3 = icmp sgt i32 %1, -1
   br i1 %3, label %4, label %14
@@ -37676,7 +37676,7 @@ _ZN17QArrayDataPointerI7QStringED2Ev.exit:        ; preds = %_ZN9QtPrivate16QGen
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef double @_ZNK13QCPAxisTicker11pickClosestEdRK5QListIdE(ptr noundef readnone align 8 captures(none) dereferenceable_or_null(24) %0, double noundef %1, ptr noundef readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i64, ptr %4, align 8
@@ -41973,7 +41973,7 @@ define noundef i32 @_ZN17QCPAxisTickerText15getSubTickCountEd(ptr noundef readon
   ret i32 %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN17QCPAxisTickerText12getTickLabelEdRK7QLocale5QChari(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) %0, ptr noundef readonly align 8 captures(none) dereferenceable_or_null(36) %1, double noundef %2, ptr readnone align 8 captures(none) %3, i16 %4, i32 %5) unnamed_addr #30 align 2 personality ptr @__gxx_personality_v0 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !282)
@@ -46810,7 +46810,7 @@ _ZN10QCPPainter8drawLineERK6QLineF.exit107:       ; preds = %282, %283
 ; Function Attrs: null_pointer_is_valid
 declare noundef i32 @_ZNK4QPen5styleEv(ptr noundef align 8 dereferenceable_or_null(8)) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, errnomem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, errnomem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef double @_ZNK7QCPAxis12coordToPixelEd(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(472) %0, double noundef %1) local_unnamed_addr #24 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = load i32, ptr %3, align 4
@@ -47773,7 +47773,7 @@ declare void @_ZNK5QFont6familyEv(ptr dead_on_unwind writable sret(%class.QStrin
 ; Function Attrs: null_pointer_is_valid
 declare void @_ZN5QFontC1ERK7QStringiib(ptr noundef align 8 dereferenceable_or_null(12), ptr noundef align 8 dereferenceable(24), i32 noundef, i32 noundef, i1 noundef zeroext) unnamed_addr #4
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN7QCPAxis19setTickLabelPaddingEi(ptr noundef align 8 captures(none) dereferenceable_or_null(472) %0, i32 noundef %1) local_unnamed_addr #33 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8
@@ -47792,7 +47792,7 @@ define void @_ZN7QCPAxis19setTickLabelPaddingEi(ptr noundef align 8 captures(non
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN7QCPAxis15setLabelPaddingEi(ptr noundef align 8 captures(none) dereferenceable_or_null(472) %0, i32 noundef %1) local_unnamed_addr #33 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8
@@ -48081,7 +48081,7 @@ define void @_ZN7QCPAxisD0Ev(ptr noundef align 8 dereferenceable_or_null(472) %0
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZNK7QCPAxis16tickLabelPaddingEv(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(472) %0) local_unnamed_addr #18 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
@@ -48090,7 +48090,7 @@ define noundef i32 @_ZNK7QCPAxis16tickLabelPaddingEv(ptr noundef readonly align 
   ret i32 %5
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef double @_ZNK7QCPAxis17tickLabelRotationEv(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(472) %0) local_unnamed_addr #18 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
@@ -48099,7 +48099,7 @@ define noundef double @_ZNK7QCPAxis17tickLabelRotationEv(ptr noundef readonly al
   ret double %5
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZNK7QCPAxis13tickLabelSideEv(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(472) %0) local_unnamed_addr #18 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
@@ -48152,7 +48152,7 @@ define void @_ZNK7QCPAxis12numberFormatEv(ptr dead_on_unwind noalias writable sr
 ; Function Attrs: null_pointer_is_valid
 declare noundef align 8 dereferenceable(24) ptr @_ZN7QString6appendE5QChar(ptr noundef align 8 dereferenceable_or_null(24), i16) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZNK7QCPAxis12tickLengthInEv(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(472) %0) local_unnamed_addr #18 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
@@ -48161,7 +48161,7 @@ define noundef i32 @_ZNK7QCPAxis12tickLengthInEv(ptr noundef readonly align 8 ca
   ret i32 %5
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZNK7QCPAxis13tickLengthOutEv(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(472) %0) local_unnamed_addr #18 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
@@ -48170,7 +48170,7 @@ define noundef i32 @_ZNK7QCPAxis13tickLengthOutEv(ptr noundef readonly align 8 c
   ret i32 %5
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZNK7QCPAxis15subTickLengthInEv(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(472) %0) local_unnamed_addr #18 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
@@ -48179,7 +48179,7 @@ define noundef i32 @_ZNK7QCPAxis15subTickLengthInEv(ptr noundef readonly align 8
   ret i32 %5
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZNK7QCPAxis16subTickLengthOutEv(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(472) %0) local_unnamed_addr #18 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
@@ -48188,7 +48188,7 @@ define noundef i32 @_ZNK7QCPAxis16subTickLengthOutEv(ptr noundef readonly align 
   ret i32 %5
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZNK7QCPAxis12labelPaddingEv(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(472) %0) local_unnamed_addr #18 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
@@ -48197,7 +48197,7 @@ define noundef i32 @_ZNK7QCPAxis12labelPaddingEv(ptr noundef readonly align 8 ca
   ret i32 %5
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZNK7QCPAxis6offsetEv(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(472) %0) local_unnamed_addr #18 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
@@ -48206,7 +48206,7 @@ define noundef i32 @_ZNK7QCPAxis6offsetEv(ptr noundef readonly align 8 captures(
   ret i32 %5
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZNK7QCPAxis11lowerEndingEv(ptr dead_on_unwind noalias writable writeonly sret(%class.QCPLineEnding) align 8 captures(none) initializes((0, 32)) %0, ptr noundef readonly align 8 captures(none) dereferenceable_or_null(472) %1) local_unnamed_addr #33 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %4 = load ptr, ptr %3, align 8
@@ -48215,7 +48215,7 @@ define void @_ZNK7QCPAxis11lowerEndingEv(ptr dead_on_unwind noalias writable wri
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZNK7QCPAxis11upperEndingEv(ptr dead_on_unwind noalias writable writeonly sret(%class.QCPLineEnding) align 8 captures(none) initializes((0, 32)) %0, ptr noundef readonly align 8 captures(none) dereferenceable_or_null(472) %1) local_unnamed_addr #33 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %4 = load ptr, ptr %3, align 8
@@ -49317,7 +49317,7 @@ define void @_ZN7QCPAxis17setTickLabelColorERK6QColor(ptr noundef writeonly alig
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN7QCPAxis20setTickLabelRotationEd(ptr noundef align 8 captures(none) dereferenceable_or_null(472) %0, double noundef %1) local_unnamed_addr #33 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8
@@ -49342,7 +49342,7 @@ define void @_ZN7QCPAxis20setTickLabelRotationEd(ptr noundef align 8 captures(no
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN7QCPAxis16setTickLabelSideENS_9LabelSideE(ptr noundef align 8 captures(none) dereferenceable_or_null(472) initializes((432, 433)) %0, i32 noundef %1) local_unnamed_addr #34 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8
@@ -50133,7 +50133,7 @@ define void @_ZN7QCPAxis18setNumberPrecisionEi(ptr noundef align 8 captures(none
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN7QCPAxis13setTickLengthEii(ptr noundef align 8 captures(none) dereferenceable_or_null(472) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #33 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %5 = load ptr, ptr %4, align 8
@@ -50164,7 +50164,7 @@ _ZN7QCPAxis16setTickLengthOutEi.exit:             ; preds = %_ZN7QCPAxis15setTic
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN7QCPAxis15setTickLengthInEi(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(472) %0, i32 noundef %1) local_unnamed_addr #33 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8
@@ -50181,7 +50181,7 @@ define void @_ZN7QCPAxis15setTickLengthInEi(ptr noundef readonly align 8 capture
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN7QCPAxis16setTickLengthOutEi(ptr noundef align 8 captures(none) dereferenceable_or_null(472) %0, i32 noundef %1) local_unnamed_addr #33 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8
@@ -50218,7 +50218,7 @@ define void @_ZN7QCPAxis11setSubTicksEb(ptr noundef align 8 captures(none) deref
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN7QCPAxis16setSubTickLengthEii(ptr noundef align 8 captures(none) dereferenceable_or_null(472) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #33 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %5 = load ptr, ptr %4, align 8
@@ -50249,7 +50249,7 @@ _ZN7QCPAxis19setSubTickLengthOutEi.exit:          ; preds = %_ZN7QCPAxis18setSub
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN7QCPAxis18setSubTickLengthInEi(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(472) %0, i32 noundef %1) local_unnamed_addr #33 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8
@@ -50266,7 +50266,7 @@ define void @_ZN7QCPAxis18setSubTickLengthInEi(ptr noundef readonly align 8 capt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN7QCPAxis19setSubTickLengthOutEi(ptr noundef align 8 captures(none) dereferenceable_or_null(472) %0, i32 noundef %1) local_unnamed_addr #33 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8
@@ -50375,7 +50375,7 @@ define void @_ZN7QCPAxis10setPaddingEi(ptr noundef align 8 captures(none) derefe
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN7QCPAxis9setOffsetEi(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(472) %0, i32 noundef %1) local_unnamed_addr #34 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8
@@ -50450,7 +50450,7 @@ define void @_ZN7QCPAxis21setSelectedSubTickPenERK4QPen(ptr noundef align 8 dere
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN7QCPAxis14setLowerEndingERK13QCPLineEnding(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(472) %0, ptr noundef readonly align 8 captures(none) dereferenceable(25) %1) local_unnamed_addr #33 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8
@@ -50459,7 +50459,7 @@ define void @_ZN7QCPAxis14setLowerEndingERK13QCPLineEnding(ptr noundef readonly 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN7QCPAxis14setUpperEndingERK13QCPLineEnding(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(472) %0, ptr noundef readonly align 8 captures(none) dereferenceable(25) %1) local_unnamed_addr #33 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8
@@ -53248,7 +53248,7 @@ define void @_ZN11QCustomPlot25setNotAntialiasedElementsERK6QFlagsIN3QCP18Antial
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN7QCPAxis17mouseReleaseEventEP11QMouseEventRK7QPointF(ptr noundef align 8 captures(none) dereferenceable_or_null(472) initializes((440, 441)) %0, ptr readnone captures(none) %1, ptr readnone align 8 captures(none) %2) unnamed_addr #33 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store i8 0, ptr %4, align 8
@@ -68802,7 +68802,7 @@ _ZN16QCPDataSelectionD2Ev.exit16:                 ; preds = %50, %_ZN17QArrayDat
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN13QCPItemAnchorC2EP11QCustomPlotP15QCPAbstractItemRK7QStringi(ptr noundef writeonly align 8 captures(none) dereferenceable_or_null(72) initializes((0, 52), (56, 72)) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly align 8 captures(none) dereferenceable(24) %3, i32 noundef %4) unnamed_addr #35 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV13QCPItemAnchor, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -71864,7 +71864,7 @@ _ZN6QDebuglsEy.exit:                              ; preds = %.noexc16, %59
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN15QCPItemPositionC2EP11QCustomPlotP15QCPAbstractItemRK7QString(ptr noundef writeonly align 8 captures(none) dereferenceable_or_null(160) initializes((0, 52), (56, 160)) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly align 8 captures(none) dereferenceable(24) %3) unnamed_addr #35 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV13QCPItemAnchor, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -72137,7 +72137,7 @@ define void @_ZN15QCPItemPositionD0Ev(ptr noundef align 8 dereferenceable_or_nul
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @_ZNK15QCPItemPosition8axisRectEv(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(160) %0) local_unnamed_addr #35 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
@@ -76214,7 +76214,7 @@ define void @_ZN15QCPAbstractItemD0Ev(ptr readnone align 8 captures(none) %0) un
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @_ZNK15QCPAbstractItem12clipAxisRectEv(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(130) %0) local_unnamed_addr #35 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
@@ -76906,7 +76906,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP13QCPItemAnchorEED2Ev.exit: ; preds = %
   ret i1 %.not.lcssa
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i64, i64 } @_ZNK15QCPAbstractItem8clipRectEv(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(130) %0) unnamed_addr #35 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 57
   %3 = load i8, ptr %2, align 1, !range !6, !noundef !7
@@ -80789,7 +80789,7 @@ _ZN14QSharedPointerI22QCPAbstractPaintBufferED2Ev.exit: ; preds = %_ZN22QCPAbstr
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZNK11QCustomPlot18updateLayerIndicesEv(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(513) %0) local_unnamed_addr #36 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load i64, ptr %2, align 8
@@ -81268,7 +81268,7 @@ _ZN5QListIP7QCPAxisED2Ev.exit36:                  ; preds = %86, %_ZN17QArrayDat
   ret ptr %.08
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN11QCustomPlot11setViewportERK5QRect(ptr noundef align 8 captures(none) dereferenceable_or_null(513) initializes((80, 96)) %0, ptr noundef readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #33 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef align 4 dereferenceable(16) %1, i64 16, i1 false)
@@ -83678,7 +83678,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP20QCPAbstractPlottableEED2Ev.exit49: ; 
   resume { ptr, i32 } %.pn41.pn.pn
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK11QCustomPlot12hasPlottableEP20QCPAbstractPlottable(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(513) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i64, ptr %3, align 8
@@ -83909,7 +83909,7 @@ _ZN6QDebuglsEi.exit:                              ; preds = %.noexc23, %65
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @_ZNK11QCustomPlot5graphEv(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(513) %0) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load i64, ptr %2, align 8
@@ -84833,7 +84833,7 @@ _ZN6QDebuglsEi.exit:                              ; preds = %.noexc23, %65
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @_ZNK11QCustomPlot4itemEv(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(513) %0) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load i64, ptr %2, align 8
@@ -85567,7 +85567,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP15QCPAbstractItemEED2Ev.exit31: ; preds
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK11QCustomPlot7hasItemEP15QCPAbstractItem(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(513) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = load i64, ptr %3, align 8
@@ -112359,7 +112359,7 @@ _ZN11QCustomPlot6replotENS_15RefreshPriorityE.exit: ; preds = %3, %166, %_ZN11QC
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN11QCPAxisRect17mouseReleaseEventEP11QMouseEventRK7QPointF(ptr noundef align 8 captures(none) dereferenceable_or_null(432) initializes((416, 417)) %0, ptr readnone captures(none) %1, ptr readnone align 8 captures(none) %2) unnamed_addr #33 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store i8 0, ptr %4, align 8
@@ -139240,7 +139240,7 @@ _ZN5QListI7QPointFE5beginEv.exit:                 ; preds = %_ZNK17QArrayDataPoi
   ret ptr %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef range(i32 -1, 2147483647) i32 @_ZNK8QCPGraph15findIndexBelowXEPK5QListI7QPointFEd(ptr noundef readnone align 8 captures(none) dereferenceable_or_null(313) %0, ptr noundef readonly captures(none) %1, double noundef %2) local_unnamed_addr #18 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
@@ -139359,7 +139359,7 @@ _ZN5QListI7QPointFE3endEv.exit:                   ; preds = %_ZNK17QArrayDataPoi
   ret ptr %10
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZNK8QCPGraph15findIndexAboveXEPK5QListI7QPointFEd(ptr noundef readnone align 8 captures(none) dereferenceable_or_null(313) %0, ptr noundef readonly captures(none) %1, double noundef %2) local_unnamed_addr #18 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
@@ -139396,7 +139396,7 @@ define noundef i32 @_ZNK8QCPGraph15findIndexAboveXEPK5QListI7QPointFEd(ptr nound
   ret i32 %23
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef range(i32 -1, 2147483647) i32 @_ZNK8QCPGraph15findIndexBelowYEPK5QListI7QPointFEd(ptr noundef readnone align 8 captures(none) dereferenceable_or_null(313) %0, ptr noundef readonly captures(none) %1, double noundef %2) local_unnamed_addr #18 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
@@ -139433,7 +139433,7 @@ define noundef range(i32 -1, 2147483647) i32 @_ZNK8QCPGraph15findIndexBelowYEPK5
   ret i32 %21
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZNK8QCPGraph15findIndexAboveYEPK5QListI7QPointFEd(ptr noundef readnone align 8 captures(none) dereferenceable_or_null(313) %0, ptr noundef readonly captures(none) %1, double noundef %2) local_unnamed_addr #18 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
@@ -146286,7 +146286,7 @@ define noundef range(i32 1, 10) i32 @_ZNK8QCPCurve9getRegionEdddddd(ptr noundef 
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { double, double } @_ZNK8QCPCurve17getOptimizedPointEidddddddd(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(288) %0, i32 noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9) local_unnamed_addr #35 align 2 personality ptr @__gxx_personality_v0 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load ptr, ptr %11, align 8
@@ -152847,7 +152847,7 @@ _ZN5QListIPK7QCPBarsED2Ev.exit68:                 ; preds = %_ZN9QtPrivate17QFor
   resume { ptr, i32 } %.pn52.pn
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef double @_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(64) %0, ptr noundef readonly captures(none) %1, double noundef %2) local_unnamed_addr #35 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
@@ -160205,7 +160205,7 @@ define void @_ZN21QCPStatisticalBoxDataC2Ev(ptr noundef writeonly align 8 captur
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN21QCPStatisticalBoxDataC2EddddddRK5QListIdE(ptr noundef writeonly align 8 captures(none) dereferenceable_or_null(72) initializes((0, 72)) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, ptr noundef readonly align 8 captures(none) dereferenceable(24) %7) unnamed_addr #35 align 2 personality ptr @__gxx_personality_v0 {
   store double %1, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -167028,7 +167028,7 @@ define void @_ZN15QCPColorMapData8setRangeERK8QCPRangeS2_(ptr noundef writeonly 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef double @_ZN15QCPColorMapData4dataEdd(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(81) %0, double noundef %1, double noundef %2) local_unnamed_addr #18 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load double, ptr %4, align 8
@@ -167081,7 +167081,7 @@ define noundef double @_ZN15QCPColorMapData4dataEdd(ptr noundef readonly align 8
   ret double %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef double @_ZN15QCPColorMapData4cellEii(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(81) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #18 align 2 {
   %4 = icmp sgt i32 %1, -1
   br i1 %4, label %5, label %21
@@ -167114,7 +167114,7 @@ define noundef double @_ZN15QCPColorMapData4cellEii(ptr noundef readonly align 8
   ret double %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i8 @_ZN15QCPColorMapData5alphaEii(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(81) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #18 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
@@ -167186,7 +167186,7 @@ define void @_ZN15QCPColorMapData13setValueRangeERK8QCPRange(ptr noundef writeon
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN15QCPColorMapData7setDataEddd(ptr noundef align 8 captures(none) dereferenceable_or_null(81) %0, double noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #34 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load double, ptr %5, align 8
@@ -167743,7 +167743,7 @@ _ZN6QDebuglsEi.exit31:                            ; preds = %.noexc29, %86
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN15QCPColorMapData21recalculateDataBoundsEv(ptr noundef align 8 captures(none) dereferenceable_or_null(81) %0) local_unnamed_addr #39 align 2 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp sgt i32 %2, 0
@@ -169625,7 +169625,7 @@ _ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit.thread:      ; preds = %_ZNK8QPointerI7QCPA
   ret double %.011
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { double, double } @_ZNK11QCPColorMap11getKeyRangeERbN3QCP10SignDomainE(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(393) %0, ptr noundef writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %1, i32 noundef %2) unnamed_addr #40 align 2 {
 _ZN8QCPRange9normalizeEv.exit:
   store i8 1, ptr %1, align 1
@@ -181479,7 +181479,7 @@ define void @_ZN12QCPErrorBars7addDataEdd(ptr noundef readonly align 8 captures(
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZNK12QCPErrorBars9dataCountEv(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(248) %0) unnamed_addr #18 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
@@ -181489,7 +181489,7 @@ define noundef i32 @_ZNK12QCPErrorBars9dataCountEv(ptr noundef readonly align 8 
   ret i32 %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZThn184_NK12QCPErrorBars9dataCountEv(ptr noundef readonly captures(none) %0) unnamed_addr #18 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -209332,7 +209332,7 @@ define noundef double @_ZNK18QCPPolarAxisRadial13radiusToCoordEd(ptr noundef rea
   ret double %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, errnomem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, errnomem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define { double, double } @_ZNK18QCPPolarAxisRadial12coordToPixelEdd(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(776) %0, double noundef %1, double noundef %2) local_unnamed_addr #24 align 2 {
   %4 = tail call noundef double @_ZNK18QCPPolarAxisRadial13coordToRadiusEd(ptr noundef align 8 dereferenceable_or_null(776) %0, double noundef %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -209675,7 +209675,7 @@ _ZN18QCPPolarAxisRadial16setSelectedPartsERK6QFlagsINS_14SelectablePartEE.exit: 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN18QCPPolarAxisRadial15mousePressEventEP11QMouseEventRK8QVariant(ptr noundef align 8 captures(none) dereferenceable_or_null(776) %0, ptr noundef captures(none) %1, ptr readnone align 8 captures(none) %2) unnamed_addr #40 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -209777,7 +209777,7 @@ _ZN11QCustomPlot6replotENS_15RefreshPriorityE.exit: ; preds = %23, %_ZN11QCustom
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN18QCPPolarAxisRadial17mouseReleaseEventEP11QMouseEventRK7QPointF(ptr noundef align 8 captures(none) dereferenceable_or_null(776) initializes((488, 489)) %0, ptr readnone captures(none) %1, ptr readnone align 8 captures(none) %2) unnamed_addr #33 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 488
   store i8 0, ptr %4, align 8
@@ -212609,7 +212609,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN5QListIP18QCPPol
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZNK19QCPPolarAxisAngular10radialAxesEv(ptr dead_on_unwind noalias writable writeonly sret(%class.QList.294) align 8 captures(none) initializes((0, 24)) %0, ptr noundef readonly align 8 captures(none) dereferenceable_or_null(1080) %1) local_unnamed_addr #35 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 576
   %4 = load ptr, ptr %3, align 8
@@ -218250,7 +218250,7 @@ _ZN11QCustomPlot6replotENS_15RefreshPriorityE.exit: ; preds = %3, %234, %_ZN11QC
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN19QCPPolarAxisAngular17mouseReleaseEventEP11QMouseEventRK7QPointF(ptr noundef align 8 captures(none) dereferenceable_or_null(1080) initializes((768, 769)) %0, ptr readnone captures(none) %1, ptr readnone align 8 captures(none) %2) unnamed_addr #33 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 768
   store i8 0, ptr %4, align 8
@@ -225150,7 +225150,7 @@ define { double, double } @_ZNK13QCPPolarGraph13getValueRangeERbN3QCP10SignDomai
   ret { double, double } %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i64, i64 } @_ZNK13QCPPolarGraph8clipRectEv(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(280) %0) unnamed_addr #35 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = load ptr, ptr %2, align 8
@@ -228401,7 +228401,7 @@ _ZNK15QCPScatterStyle7applyToEP10QCPPainterRK4QPen.exit66: ; preds = %.critedge5
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZNK13QCPPolarGraph9dataCountEv(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(280) %0) unnamed_addr #18 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
@@ -302828,30 +302828,30 @@ attributes #13 = { noinline noreturn nounwind null_pointer_is_valid sspstrong uw
 attributes #14 = { cold nofree noreturn }
 attributes #15 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nofree nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { mustprogress nofree nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { mustprogress nofree nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #23 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #24 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, errnomem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, errnomem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #25 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #26 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #27 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #28 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #29 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #30 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #30 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #31 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #32 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #33 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #34 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #35 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #36 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #33 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #34 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #35 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #36 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #37 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #38 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #39 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #40 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #39 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #40 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #41 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #42 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #43 = { nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

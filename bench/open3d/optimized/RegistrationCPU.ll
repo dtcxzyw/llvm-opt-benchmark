@@ -33173,7 +33173,7 @@ declare void @__kmpc_for_static_init_4(ptr, i32, i32, ptr, ptr, ptr, ptr, i32, i
 ; Function Attrs: nounwind
 declare void @__kmpc_for_static_fini(ptr, i32) local_unnamed_addr #25
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL32ComputePosePointToPlaneKernelCPUIfZZZZNS2_26ComputePosePointToPlaneCPUERKNS_4core6TensorES7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelEENK3$_0clEvENKUlvE_clEvENKUlvE_clEvEUlfE_EEvPKT_SR_SR_PKliPSP_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -33429,7 +33429,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL32ComputePosePointToPlaneKe
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL32ComputePosePointToPlaneKernelCPUIfZZZZNS2_26ComputePosePointToPlaneCPUERKNS_4core6TensorES7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelEENK3$_0clEvENKUlvE_clEvENKUlvE_clEvEUlfE0_EEvPKT_SR_SR_PKliPSP_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -33671,7 +33671,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL32ComputePosePointToPlaneKe
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL32ComputePosePointToPlaneKernelCPUIfZZZZNS2_26ComputePosePointToPlaneCPUERKNS_4core6TensorES7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelEENK3$_0clEvENKUlvE_clEvENKUlvE_clEvEUlfE1_EEvPKT_SR_SR_PKliPSP_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -33912,7 +33912,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL32ComputePosePointToPlaneKe
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL32ComputePosePointToPlaneKernelCPUIfZZZZNS2_26ComputePosePointToPlaneCPUERKNS_4core6TensorES7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelEENK3$_0clEvENKUlvE_clEvENKUlvE_clEvEUlfE2_EEvPKT_SR_SR_PKliPSP_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -34151,7 +34151,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL32ComputePosePointToPlaneKe
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL32ComputePosePointToPlaneKernelCPUIfZZZZNS2_26ComputePosePointToPlaneCPUERKNS_4core6TensorES7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelEENK3$_0clEvENKUlvE_clEvENKUlvE_clEvEUlfE3_EEvPKT_SR_SR_PKliPSP_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -34395,7 +34395,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL32ComputePosePointToPlaneKe
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL32ComputePosePointToPlaneKernelCPUIfZZZZNS2_26ComputePosePointToPlaneCPUERKNS_4core6TensorES7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelEENK3$_0clEvENKUlvE_clEvENKUlvE_clEvEUlfE4_EEvPKT_SR_SR_PKliPSP_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -34631,7 +34631,7 @@ _ZN6open3d1t9pipelines6kernel23GetJacobianPointToPlaneIfEEblPKT_S6_S6_PKlPS4_RS4
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL32ComputePosePointToPlaneKernelCPUIfZZZZNS2_26ComputePosePointToPlaneCPUERKNS_4core6TensorES7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelEENK3$_0clEvENKUlvE_clEvENKUlvE_clEvEUlfE5_EEvPKT_SR_SR_PKliPSP_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -34889,7 +34889,7 @@ cdce.end:                                         ; preds = %cdce.call, %.crited
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL32ComputePosePointToPlaneKernelCPUIfZZZZNS2_26ComputePosePointToPlaneCPUERKNS_4core6TensorES7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelEENK3$_0clEvENKUlvE_clEvENKUlvE_clEvEUlfE7_EEvPKT_SR_SR_PKliPSP_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -35152,7 +35152,7 @@ _ZN6open3d1t9pipelines6kernel23GetJacobianPointToPlaneIfEEblPKT_S6_S6_PKlPS4_RS4
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL32ComputePosePointToPlaneKernelCPUIfZZZZNS2_26ComputePosePointToPlaneCPUERKNS_4core6TensorES7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelEENK3$_0clEvENKUlvE_clEvENKUlvE_clEvEUlfE8_EEvPKT_SR_SR_PKliPSP_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -35470,7 +35470,7 @@ _ZN6open3d1t9pipelines6kernel23GetJacobianPointToPlaneIdEEblPKT_S6_S6_PKlPS4_RS4
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL32ComputePosePointToPlaneKernelCPUIdZZZZNS2_26ComputePosePointToPlaneCPUERKNS_4core6TensorES7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelEENK3$_0clEvENKUlvE0_clEvENKUlvE_clEvEUldE_EEvPKT_SR_SR_PKliPSP_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -35706,7 +35706,7 @@ _ZN6open3d1t9pipelines6kernel23GetJacobianPointToPlaneIdEEblPKT_S6_S6_PKlPS4_RS4
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL32ComputePosePointToPlaneKernelCPUIdZZZZNS2_26ComputePosePointToPlaneCPUERKNS_4core6TensorES7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelEENK3$_0clEvENKUlvE0_clEvENKUlvE_clEvEUldE0_EEvPKT_SR_SR_PKliPSP_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -35945,7 +35945,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL32ComputePosePointToPlaneKe
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL32ComputePosePointToPlaneKernelCPUIdZZZZNS2_26ComputePosePointToPlaneCPUERKNS_4core6TensorES7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelEENK3$_0clEvENKUlvE0_clEvENKUlvE_clEvEUldE1_EEvPKT_SR_SR_PKliPSP_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -36184,7 +36184,7 @@ _ZN6open3d1t9pipelines6kernel23GetJacobianPointToPlaneIdEEblPKT_S6_S6_PKlPS4_RS4
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL32ComputePosePointToPlaneKernelCPUIdZZZZNS2_26ComputePosePointToPlaneCPUERKNS_4core6TensorES7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelEENK3$_0clEvENKUlvE0_clEvENKUlvE_clEvEUldE2_EEvPKT_SR_SR_PKliPSP_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -36423,7 +36423,7 @@ _ZN6open3d1t9pipelines6kernel23GetJacobianPointToPlaneIdEEblPKT_S6_S6_PKlPS4_RS4
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL32ComputePosePointToPlaneKernelCPUIdZZZZNS2_26ComputePosePointToPlaneCPUERKNS_4core6TensorES7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelEENK3$_0clEvENKUlvE0_clEvENKUlvE_clEvEUldE3_EEvPKT_SR_SR_PKliPSP_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -36665,7 +36665,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL32ComputePosePointToPlaneKe
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL32ComputePosePointToPlaneKernelCPUIdZZZZNS2_26ComputePosePointToPlaneCPUERKNS_4core6TensorES7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelEENK3$_0clEvENKUlvE0_clEvENKUlvE_clEvEUldE4_EEvPKT_SR_SR_PKliPSP_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -36900,7 +36900,7 @@ _ZN6open3d1t9pipelines6kernel23GetJacobianPointToPlaneIdEEblPKT_S6_S6_PKlPS4_RS4
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL32ComputePosePointToPlaneKernelCPUIdZZZZNS2_26ComputePosePointToPlaneCPUERKNS_4core6TensorES7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelEENK3$_0clEvENKUlvE0_clEvENKUlvE_clEvEUldE5_EEvPKT_SR_SR_PKliPSP_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -37154,7 +37154,7 @@ cdce.end:                                         ; preds = %cdce.call, %.crited
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL32ComputePosePointToPlaneKernelCPUIdZZZZNS2_26ComputePosePointToPlaneCPUERKNS_4core6TensorES7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelEENK3$_0clEvENKUlvE0_clEvENKUlvE_clEvEUldE7_EEvPKT_SR_SR_PKliPSP_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -37410,7 +37410,7 @@ _ZN6open3d1t9pipelines6kernel23GetJacobianPointToPlaneIdEEblPKT_S6_S6_PKlPS4_RS4
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL32ComputePosePointToPlaneKernelCPUIdZZZZNS2_26ComputePosePointToPlaneCPUERKNS_4core6TensorES7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelEENK3$_0clEvENKUlvE0_clEvENKUlvE_clEvEUldE8_EEvPKT_SR_SR_PKliPSP_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -39586,7 +39586,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKern
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKernelCPUIfZZZZNS2_24ComputePoseColoredICPCPUERKNS_4core6TensorES7_S7_S7_S7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelERKdENK3$_0clEvENKUlvE_clEvENKUlvE_clEvEUlfE_EEvPKT_ST_ST_ST_ST_ST_PKlRSS_SW_iPSR_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -39800,7 +39800,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKern
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKernelCPUIfZZZZNS2_24ComputePoseColoredICPCPUERKNS_4core6TensorES7_S7_S7_S7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelERKdENK3$_0clEvENKUlvE_clEvENKUlvE_clEvEUlfE0_EEvPKT_ST_ST_ST_ST_ST_PKlRSS_SW_iPSR_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -40019,7 +40019,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKern
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKernelCPUIfZZZZNS2_24ComputePoseColoredICPCPUERKNS_4core6TensorES7_S7_S7_S7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelERKdENK3$_0clEvENKUlvE_clEvENKUlvE_clEvEUlfE1_EEvPKT_ST_ST_ST_ST_ST_PKlRSS_SW_iPSR_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -40242,7 +40242,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKern
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKernelCPUIfZZZZNS2_24ComputePoseColoredICPCPUERKNS_4core6TensorES7_S7_S7_S7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelERKdENK3$_0clEvENKUlvE_clEvENKUlvE_clEvEUlfE2_EEvPKT_ST_ST_ST_ST_ST_PKlRSS_SW_iPSR_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -40460,7 +40460,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKern
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKernelCPUIfZZZZNS2_24ComputePoseColoredICPCPUERKNS_4core6TensorES7_S7_S7_S7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelERKdENK3$_0clEvENKUlvE_clEvENKUlvE_clEvEUlfE3_EEvPKT_ST_ST_ST_ST_ST_PKlRSS_SW_iPSR_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -40689,7 +40689,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKern
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKernelCPUIfZZZZNS2_24ComputePoseColoredICPCPUERKNS_4core6TensorES7_S7_S7_S7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelERKdENK3$_0clEvENKUlvE_clEvENKUlvE_clEvEUlfE4_EEvPKT_ST_ST_ST_ST_ST_PKlRSS_SW_iPSR_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -40904,7 +40904,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKern
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKernelCPUIfZZZZNS2_24ComputePoseColoredICPCPUERKNS_4core6TensorES7_S7_S7_S7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelERKdENK3$_0clEvENKUlvE_clEvENKUlvE_clEvEUlfE5_EEvPKT_ST_ST_ST_ST_ST_PKlRSS_SW_iPSR_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -41131,7 +41131,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKern
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKernelCPUIfZZZZNS2_24ComputePoseColoredICPCPUERKNS_4core6TensorES7_S7_S7_S7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelERKdENK3$_0clEvENKUlvE_clEvENKUlvE_clEvEUlfE7_EEvPKT_ST_ST_ST_ST_ST_PKlRSS_SW_iPSR_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -41366,7 +41366,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKern
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKernelCPUIfZZZZNS2_24ComputePoseColoredICPCPUERKNS_4core6TensorES7_S7_S7_S7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelERKdENK3$_0clEvENKUlvE_clEvENKUlvE_clEvEUlfE8_EEvPKT_ST_ST_ST_ST_ST_PKlRSS_SW_iPSR_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -41577,7 +41577,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKern
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKernelCPUIdZZZZNS2_24ComputePoseColoredICPCPUERKNS_4core6TensorES7_S7_S7_S7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelERKdENK3$_0clEvENKUlvE0_clEvENKUlvE_clEvEUldE_EEvPKT_ST_ST_ST_ST_ST_PKlRSS_SW_iPSR_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -41791,7 +41791,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKern
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKernelCPUIdZZZZNS2_24ComputePoseColoredICPCPUERKNS_4core6TensorES7_S7_S7_S7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelERKdENK3$_0clEvENKUlvE0_clEvENKUlvE_clEvEUldE0_EEvPKT_ST_ST_ST_ST_ST_PKlRSS_SW_iPSR_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -42010,7 +42010,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKern
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKernelCPUIdZZZZNS2_24ComputePoseColoredICPCPUERKNS_4core6TensorES7_S7_S7_S7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelERKdENK3$_0clEvENKUlvE0_clEvENKUlvE_clEvEUldE1_EEvPKT_ST_ST_ST_ST_ST_PKlRSS_SW_iPSR_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -42229,7 +42229,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKern
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKernelCPUIdZZZZNS2_24ComputePoseColoredICPCPUERKNS_4core6TensorES7_S7_S7_S7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelERKdENK3$_0clEvENKUlvE0_clEvENKUlvE_clEvEUldE2_EEvPKT_ST_ST_ST_ST_ST_PKlRSS_SW_iPSR_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -42447,7 +42447,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKern
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKernelCPUIdZZZZNS2_24ComputePoseColoredICPCPUERKNS_4core6TensorES7_S7_S7_S7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelERKdENK3$_0clEvENKUlvE0_clEvENKUlvE_clEvEUldE3_EEvPKT_ST_ST_ST_ST_ST_PKlRSS_SW_iPSR_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -42672,7 +42672,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKern
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKernelCPUIdZZZZNS2_24ComputePoseColoredICPCPUERKNS_4core6TensorES7_S7_S7_S7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelERKdENK3$_0clEvENKUlvE0_clEvENKUlvE_clEvEUldE4_EEvPKT_ST_ST_ST_ST_ST_PKlRSS_SW_iPSR_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -42886,7 +42886,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKern
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKernelCPUIdZZZZNS2_24ComputePoseColoredICPCPUERKNS_4core6TensorES7_S7_S7_S7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelERKdENK3$_0clEvENKUlvE0_clEvENKUlvE_clEvEUldE5_EEvPKT_ST_ST_ST_ST_ST_PKlRSS_SW_iPSR_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -43108,7 +43108,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKern
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKernelCPUIdZZZZNS2_24ComputePoseColoredICPCPUERKNS_4core6TensorES7_S7_S7_S7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelERKdENK3$_0clEvENKUlvE0_clEvENKUlvE_clEvEUldE7_EEvPKT_ST_ST_ST_ST_ST_PKlRSS_SW_iPSR_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -43338,7 +43338,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKern
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseColoredICPKernelCPUIdZZZZNS2_24ComputePoseColoredICPCPUERKNS_4core6TensorES7_S7_S7_S7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceERKNS1_12registration12RobustKernelERKdENK3$_0clEvENKUlvE0_clEvENKUlvE_clEvEUldE8_EEvPKT_ST_ST_ST_ST_ST_PKlRSS_SW_iPSR_T0_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -45179,7 +45179,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseDopplerICPKern
   unreachable
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseDopplerICPKernelCPUIfZZZZNS2_24ComputePoseDopplerICPCPUERKNS_4core6TensorES7_S7_S7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceES7_S7_S7_S7_dbdRKNS1_12registration12RobustKernelESK_dENK3$_0clEvENKUlvE_clEvENKUlvE_clEvEUlfE_ZZZZNS2_24ComputePoseDopplerICPCPUES7_S7_S7_S7_S7_S7_S8_S9_SA_SD_SG_S7_S7_S7_S7_dbdSK_SK_dENKSL_clEvENKSM_clEvENKSN_clEvEUlfE0_EEvPKT_SS_SS_SS_SS_PKlSS_SS_SS_bSQ_SQ_SQ_SQ_iPSQ_T0_T1_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -45416,7 +45416,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseDopplerICPKern
   unreachable
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseDopplerICPKernelCPUIfZZZZNS2_24ComputePoseDopplerICPCPUERKNS_4core6TensorES7_S7_S7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceES7_S7_S7_S7_dbdRKNS1_12registration12RobustKernelESK_dENK3$_0clEvENKUlvE_clEvENKUlvE_clEvEUlfE1_ZZZZNS2_24ComputePoseDopplerICPCPUES7_S7_S7_S7_S7_S7_S8_S9_SA_SD_SG_S7_S7_S7_S7_dbdSK_SK_dENKSL_clEvENKSM_clEvENKSN_clEvEUlfE2_EEvPKT_SS_SS_SS_SS_PKlSS_SS_SS_bSQ_SQ_SQ_SQ_iPSQ_T0_T1_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -45653,7 +45653,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseDopplerICPKern
   unreachable
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseDopplerICPKernelCPUIfZZZZNS2_24ComputePoseDopplerICPCPUERKNS_4core6TensorES7_S7_S7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceES7_S7_S7_S7_dbdRKNS1_12registration12RobustKernelESK_dENK3$_0clEvENKUlvE_clEvENKUlvE_clEvEUlfE3_ZZZZNS2_24ComputePoseDopplerICPCPUES7_S7_S7_S7_S7_S7_S8_S9_SA_SD_SG_S7_S7_S7_S7_dbdSK_SK_dENKSL_clEvENKSM_clEvENKSN_clEvEUlfE4_EEvPKT_SS_SS_SS_SS_PKlSS_SS_SS_bSQ_SQ_SQ_SQ_iPSQ_T0_T1_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -45898,7 +45898,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseDopplerICPKern
   unreachable
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseDopplerICPKernelCPUIfZZZZNS2_24ComputePoseDopplerICPCPUERKNS_4core6TensorES7_S7_S7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceES7_S7_S7_S7_dbdRKNS1_12registration12RobustKernelESK_dENK3$_0clEvENKUlvE_clEvENKUlvE_clEvEUlfE5_ZZZZNS2_24ComputePoseDopplerICPCPUES7_S7_S7_S7_S7_S7_S8_S9_SA_SD_SG_S7_S7_S7_S7_dbdSK_SK_dENKSL_clEvENKSM_clEvENKSN_clEvEUlfE6_EEvPKT_SS_SS_SS_SS_PKlSS_SS_SS_bSQ_SQ_SQ_SQ_iPSQ_T0_T1_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -46124,7 +46124,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseDopplerICPKern
   unreachable
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseDopplerICPKernelCPUIdZZZZNS2_24ComputePoseDopplerICPCPUERKNS_4core6TensorES7_S7_S7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceES7_S7_S7_S7_dbdRKNS1_12registration12RobustKernelESK_dENK3$_0clEvENKUlvE0_clEvENKUlvE_clEvEUldE_ZZZZNS2_24ComputePoseDopplerICPCPUES7_S7_S7_S7_S7_S7_S8_S9_SA_SD_SG_S7_S7_S7_S7_dbdSK_SK_dENKSL_clEvENKSM_clEvENKSN_clEvEUldE0_EEvPKT_SS_SS_SS_SS_PKlSS_SS_SS_bSQ_SQ_SQ_SQ_iPSQ_T0_T1_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -46359,7 +46359,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseDopplerICPKern
   unreachable
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseDopplerICPKernelCPUIdZZZZNS2_24ComputePoseDopplerICPCPUERKNS_4core6TensorES7_S7_S7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceES7_S7_S7_S7_dbdRKNS1_12registration12RobustKernelESK_dENK3$_0clEvENKUlvE0_clEvENKUlvE_clEvEUldE1_ZZZZNS2_24ComputePoseDopplerICPCPUES7_S7_S7_S7_S7_S7_S8_S9_SA_SD_SG_S7_S7_S7_S7_dbdSK_SK_dENKSL_clEvENKSM_clEvENKSN_clEvEUldE2_EEvPKT_SS_SS_SS_SS_PKlSS_SS_SS_bSQ_SQ_SQ_SQ_iPSQ_T0_T1_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -46594,7 +46594,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseDopplerICPKern
   unreachable
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseDopplerICPKernelCPUIdZZZZNS2_24ComputePoseDopplerICPCPUERKNS_4core6TensorES7_S7_S7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceES7_S7_S7_S7_dbdRKNS1_12registration12RobustKernelESK_dENK3$_0clEvENKUlvE0_clEvENKUlvE_clEvEUldE3_ZZZZNS2_24ComputePoseDopplerICPCPUES7_S7_S7_S7_S7_S7_S8_S9_SA_SD_SG_S7_S7_S7_S7_dbdSK_SK_dENKSL_clEvENKSM_clEvENKSN_clEvEUldE4_EEvPKT_SS_SS_SS_SS_PKlSS_SS_SS_bSQ_SQ_SQ_SQ_iPSQ_T0_T1_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -46835,7 +46835,7 @@ define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseDopplerICPKern
   unreachable
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN6open3d1t9pipelines6kernelL30ComputePoseDopplerICPKernelCPUIdZZZZNS2_24ComputePoseDopplerICPCPUERKNS_4core6TensorES7_S7_S7_S7_S7_RS5_RfRiRKNS4_5DtypeERKNS4_6DeviceES7_S7_S7_S7_dbdRKNS1_12registration12RobustKernelESK_dENK3$_0clEvENKUlvE0_clEvENKUlvE_clEvEUldE5_ZZZZNS2_24ComputePoseDopplerICPCPUES7_S7_S7_S7_S7_S7_S8_S9_SA_SD_SG_S7_S7_S7_S7_dbdSK_SK_dENKSL_clEvENKSM_clEvENKSN_clEvEUldE6_EEvPKT_SS_SS_SS_SS_PKlSS_SS_SS_bSQ_SQ_SQ_SQ_iPSQ_T0_T1_.omp_outlined.omp.reduction.reduction_func"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -63154,7 +63154,7 @@ _ZN6open3d1t9pipelines6kernel23GetInformationJacobiansIfEEblPKT_PKlPS4_S9_S9_.ex
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN6open3d1t9pipelines6kernel33ComputeInformationMatrixKernelCPUIfEEvPKT_PKliPS4_.omp_outlined.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -63404,7 +63404,7 @@ _ZN6open3d1t9pipelines6kernel23GetInformationJacobiansIdEEblPKT_PKlPS4_S9_S9_.ex
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN6open3d1t9pipelines6kernel33ComputeInformationMatrixKernelCPUIdEEvPKT_PKliPS4_.omp_outlined.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #26 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -63427,7 +63427,7 @@ define internal void @_ZN6open3d1t9pipelines6kernel33ComputeInformationMatrixKer
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @__cxx_global_var_init() #30 section ".text.startup" comdat($_ZN3fmt3v1012format_facetISt6localeE2idE) {
   %1 = load i8, ptr @_ZGVN3fmt3v1012format_facetISt6localeE2idE, align 8
   %2 = icmp eq i8 %1, 0
@@ -63518,11 +63518,11 @@ attributes #22 = { mustprogress nounwind ssp uwtable "min-legal-vector-width"="0
 attributes #23 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #24 = { alwaysinline norecurse nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #25 = { nounwind }
-attributes #26 = { nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #27 = { convergent nounwind }
 attributes #28 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #29 = { mustprogress noinline nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #30 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #30 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #31 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #32 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #33 = { nocallback nofree nounwind willreturn memory(argmem: read) }

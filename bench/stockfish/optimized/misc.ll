@@ -172,7 +172,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN9Stockfish10dbg_hit_onEbi(i1 noundef zeroext %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"struct.Stockfish::(anonymous namespace)::DebugInfo", ptr @_ZN9Stockfish12_GLOBAL__N_13hitE, i64 %3
@@ -188,7 +188,7 @@ define dso_local void @_ZN9Stockfish10dbg_hit_onEbi(i1 noundef zeroext %0, i32 n
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN9Stockfish11dbg_mean_ofEli(i64 noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"struct.Stockfish::(anonymous namespace)::DebugInfo", ptr @_ZN9Stockfish12_GLOBAL__N_14meanE, i64 %3
@@ -198,7 +198,7 @@ define dso_local void @_ZN9Stockfish11dbg_mean_ofEli(i64 noundef %0, i32 noundef
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN9Stockfish12dbg_stdev_ofEli(i64 noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"struct.Stockfish::(anonymous namespace)::DebugInfo.0", ptr @_ZN9Stockfish12_GLOBAL__N_15stdevE, i64 %3
@@ -211,7 +211,7 @@ define dso_local void @_ZN9Stockfish12dbg_stdev_ofEli(i64 noundef %0, i32 nounde
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN9Stockfish13dbg_correl_ofElli(i64 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds %"struct.Stockfish::(anonymous namespace)::DebugInfo.1", ptr @_ZN9Stockfish12_GLOBAL__N_16correlE, i64 %4
@@ -984,7 +984,7 @@ attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

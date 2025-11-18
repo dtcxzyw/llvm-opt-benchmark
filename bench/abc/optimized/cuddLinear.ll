@@ -35,7 +35,7 @@ define range(i32 0, 2) i32 @Cudd_PrintLinear(ptr noundef readonly captures(none)
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %14
   %.02130.us = phi i32 [ %15, %14 ], [ 0, %.preheader.lr.ph ]
   %11 = load ptr, ptr %9, align 8, !tbaa !24
-  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.1) #13
+  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.1) #14
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %.loopexit, label %14
 
@@ -67,7 +67,7 @@ define range(i32 0, 2) i32 @Cudd_PrintLinear(ptr noundef readonly captures(none)
   %.02226 = phi i32 [ 0, %18 ], [ %30, %28 ]
   %24 = load ptr, ptr %9, align 8, !tbaa !24
   %25 = and i64 %.027, 1
-  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str, i64 noundef %25) #13
+  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str, i64 noundef %25) #14
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %.loopexit, label %28
 
@@ -84,7 +84,7 @@ define range(i32 0, 2) i32 @Cudd_PrintLinear(ptr noundef readonly captures(none)
 
 ._crit_edge:                                      ; preds = %31
   %32 = load ptr, ptr %9, align 8, !tbaa !24
-  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.1) #13
+  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.1) #14
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %.loopexit, label %16
 
@@ -96,7 +96,7 @@ define range(i32 0, 2) i32 @Cudd_PrintLinear(ptr noundef readonly captures(none)
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @Cudd_ReadLinear(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load i32, ptr %4, align 8, !tbaa !31
@@ -136,7 +136,7 @@ define range(i32 0, 2) i32 @cuddLinearAndSifting(ptr noundef %0, i32 noundef %1,
   %13 = mul nsw i32 %12, %5
   %14 = sext i32 %13 to i64
   %15 = shl nsw i64 %14, 3
-  %16 = tail call noalias ptr @malloc(i64 noundef %15) #14
+  %16 = tail call noalias ptr @malloc(i64 noundef %15) #15
   store ptr %16, ptr %6, align 8, !tbaa !27
   %17 = icmp eq ptr %16, null
   br i1 %17, label %cuddInitLinear.exit, label %18
@@ -195,7 +195,7 @@ cuddInitLinear.exit:                              ; preds = %9
 cuddInitLinear.exit.thread:                       ; preds = %.lr.ph31.i, %.preheader.i, %37, %40
   %43 = sext i32 %5 to i64
   %44 = shl nsw i64 %43, 2
-  %45 = tail call noalias ptr @malloc(i64 noundef %44) #14
+  %45 = tail call noalias ptr @malloc(i64 noundef %44) #15
   store ptr %45, ptr @entry, align 8, !tbaa !32
   %46 = icmp eq ptr %45, null
   br i1 %46, label %.thread, label %48
@@ -206,7 +206,7 @@ cuddInitLinear.exit.thread:                       ; preds = %.lr.ph31.i, %.prehe
   br label %267
 
 48:                                               ; preds = %cuddInitLinear.exit.thread
-  %49 = tail call noalias ptr @malloc(i64 noundef %44) #14
+  %49 = tail call noalias ptr @malloc(i64 noundef %44) #15
   %50 = icmp eq ptr %49, null
   br i1 %50, label %56, label %.preheader
 
@@ -245,7 +245,7 @@ cuddInitLinear.exit.thread:                       ; preds = %.lr.ph31.i, %.prehe
   br i1 %exitcond.not, label %._crit_edge, label %58, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %58, %.preheader
-  tail call void @qsort(ptr noundef nonnull %49, i64 noundef %43, i64 noundef 4, ptr noundef nonnull @ddLinearUniqueCompare) #13
+  tail call void @qsort(ptr noundef nonnull %49, i64 noundef %43, i64 noundef 4, ptr noundef nonnull @ddLinearUniqueCompare) #14
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %69 = load i32, ptr %68, align 8, !tbaa !41
   %.91 = tail call i32 @llvm.smin.i32(i32 %5, i32 %69)
@@ -323,7 +323,7 @@ cuddInitLinear.exit.thread:                       ; preds = %.lr.ph31.i, %.prehe
   %108 = load i32, ptr %.137.i.i, align 8, !tbaa !50
   %109 = getelementptr inbounds nuw i8, ptr %.137.i.i, i64 4
   %110 = load i32, ptr %109, align 4, !tbaa !51
-  %111 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %108, i32 noundef %110) #13
+  %111 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %108, i32 noundef %110) #14
   %.not31.i.i = icmp eq i32 %111, 0
   br i1 %.not31.i.i, label %ddLinearAndSiftingBackward.exit.thread.i, label %112
 
@@ -393,7 +393,7 @@ cuddInitLinear.exit.thread:                       ; preds = %.lr.ph31.i, %.prehe
   %143 = load i32, ptr %.137.i124.i, align 8, !tbaa !50
   %144 = getelementptr inbounds nuw i8, ptr %.137.i124.i, i64 4
   %145 = load i32, ptr %144, align 4, !tbaa !51
-  %146 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %143, i32 noundef %145) #13
+  %146 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %143, i32 noundef %145) #14
   %.not31.i125.i = icmp eq i32 %146, 0
   br i1 %.not31.i125.i, label %.preheader172.i, label %147
 
@@ -471,7 +471,7 @@ cuddInitLinear.exit.thread:                       ; preds = %.lr.ph31.i, %.prehe
   %184 = load i32, ptr %.137.i139.i, align 8, !tbaa !50
   %185 = getelementptr inbounds nuw i8, ptr %.137.i139.i, i64 4
   %186 = load i32, ptr %185, align 4, !tbaa !51
-  %187 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %184, i32 noundef %186) #13
+  %187 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %184, i32 noundef %186) #14
   %.not31.i140.i = icmp eq i32 %187, 0
   br i1 %.not31.i140.i, label %ddLinearAndSiftingBackward.exit.thread.i, label %188
 
@@ -543,7 +543,7 @@ cuddInitLinear.exit.thread:                       ; preds = %.lr.ph31.i, %.prehe
   %221 = load i32, ptr %.137.i154.i, align 8, !tbaa !50
   %222 = getelementptr inbounds nuw i8, ptr %.137.i154.i, i64 4
   %223 = load i32, ptr %222, align 4, !tbaa !51
-  %224 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %221, i32 noundef %223) #13
+  %224 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %221, i32 noundef %223) #14
   %.not31.i155.i = icmp eq i32 %224, 0
   br i1 %.not31.i155.i, label %ddLinearAndSiftingBackward.exit.thread.i, label %225
 
@@ -679,13 +679,13 @@ ddLinearAndSiftingAux.exit.thread:                ; preds = %89, %124, %.prehead
   br i1 %261, label %75, label %._crit_edge95, !llvm.loop !60
 
 ._crit_edge95:                                    ; preds = %ddLinearAndSiftingAux.exit.thread, %._crit_edge
-  tail call void @free(ptr noundef %49) #13
+  tail call void @free(ptr noundef %49) #14
   %262 = load ptr, ptr @entry, align 8, !tbaa !32
   %.not63 = icmp eq ptr %262, null
   br i1 %.not63, label %267, label %263
 
 263:                                              ; preds = %._crit_edge95
-  tail call void @free(ptr noundef nonnull %262) #13
+  tail call void @free(ptr noundef nonnull %262) #14
   store ptr null, ptr @entry, align 8, !tbaa !32
   br label %267
 
@@ -696,7 +696,7 @@ ddLinearAndSiftingAux.exit:                       ; preds = %..loopexit173_crit_
   br i1 %.not65, label %265, label %264
 
 264:                                              ; preds = %ddLinearAndSiftingAux.exit
-  tail call void @free(ptr noundef nonnull %.pr) #13
+  tail call void @free(ptr noundef nonnull %.pr) #14
   store ptr null, ptr @entry, align 8, !tbaa !32
   br label %265
 
@@ -705,7 +705,7 @@ ddLinearAndSiftingAux.exit:                       ; preds = %..loopexit173_crit_
   br i1 %.not66, label %267, label %266
 
 266:                                              ; preds = %265
-  tail call void @free(ptr noundef nonnull %.052.ph) #13
+  tail call void @free(ptr noundef nonnull %.052.ph) #14
   br label %267
 
 267:                                              ; preds = %.thread, %265, %266, %263, %._crit_edge95
@@ -713,7 +713,7 @@ ddLinearAndSiftingAux.exit:                       ; preds = %..loopexit173_crit_
   ret i32 %.0
 }
 
-; Function Attrs: nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @cuddInitLinear(ptr noundef captures(none) initializes((384, 392)) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load i32, ptr %2, align 8, !tbaa !31
@@ -723,7 +723,7 @@ define range(i32 0, 2) i32 @cuddInitLinear(ptr noundef captures(none) initialize
   %7 = mul nsw i32 %6, %3
   %8 = sext i32 %7 to i64
   %9 = shl nsw i64 %8, 3
-  %10 = tail call noalias ptr @malloc(i64 noundef %9) #14
+  %10 = tail call noalias ptr @malloc(i64 noundef %9) #15
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store ptr %10, ptr %11, align 8, !tbaa !27
   %12 = icmp eq ptr %10, null
@@ -774,8 +774,8 @@ define range(i32 0, 2) i32 @cuddInitLinear(ptr noundef captures(none) initialize
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @cuddResizeLinear(ptr noundef captures(none) %0) local_unnamed_addr #3 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define range(i32 0, 2) i32 @cuddResizeLinear(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %3 = load i32, ptr %2, align 8, !tbaa !3
   %4 = add nsw i32 %3, -1
@@ -791,7 +791,7 @@ define range(i32 0, 2) i32 @cuddResizeLinear(ptr noundef captures(none) %0) loca
   %14 = mul nsw i32 %13, %10
   %15 = sext i32 %14 to i64
   %16 = shl nsw i64 %15, 3
-  %17 = tail call noalias ptr @malloc(i64 noundef %16) #14
+  %17 = tail call noalias ptr @malloc(i64 noundef %16) #15
   store ptr %17, ptr %7, align 8, !tbaa !27
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %21
@@ -860,7 +860,7 @@ define range(i32 0, 2) i32 @cuddResizeLinear(ptr noundef captures(none) %0) loca
   br i1 %.not, label %39, label %._crit_edge66.thread
 
 ._crit_edge66.thread:                             ; preds = %._crit_edge, %._crit_edge66
-  tail call void @free(ptr noundef nonnull %8) #13
+  tail call void @free(ptr noundef nonnull %8) #14
   br label %39
 
 39:                                               ; preds = %._crit_edge66, %._crit_edge66.thread
@@ -892,12 +892,12 @@ define range(i32 0, 2) i32 @cuddResizeLinear(ptr noundef captures(none) %0) loca
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal i32 @ddLinearUniqueCompare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load ptr, ptr @entry, align 8, !tbaa !32
   %4 = load i32, ptr %1, align 4, !tbaa !38
@@ -913,7 +913,7 @@ define internal i32 @ddLinearUniqueCompare(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define i32 @cuddLinearInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
@@ -925,7 +925,7 @@ define i32 @cuddLinearInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
   %9 = sext i32 %2 to i64
   %10 = getelementptr inbounds i32, ptr %5, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !38
-  %12 = tail call i32 @cuddTestInteract(ptr noundef %0, i32 noundef %8, i32 noundef %11) #13
+  %12 = tail call i32 @cuddTestInteract(ptr noundef %0, i32 noundef %8, i32 noundef %11) #14
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %.cuddXorLinear.exit_crit_edge, label %13
 
@@ -1162,7 +1162,7 @@ define i32 @cuddLinearInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader296, %.lr.ph310._crit_edge
   %.1244298 = phi ptr [ %.1244309.lcssa, %.lr.ph310._crit_edge ], [ %.0243, %.preheader296 ], [ %139, %.critedge.loopexit ]
-  %140 = tail call ptr @cuddDynamicAllocNode(ptr noundef %0) #13
+  %140 = tail call ptr @cuddDynamicAllocNode(ptr noundef %0) #14
   %141 = icmp eq ptr %140, null
   br i1 %141, label %350, label %142
 
@@ -1299,7 +1299,7 @@ define i32 @cuddLinearInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %.preheader295, %.lr.ph314._crit_edge
   %.3301 = phi ptr [ %.3313.lcssa, %.lr.ph314._crit_edge ], [ %.2, %.preheader295 ], [ %218, %.critedge2.loopexit ]
-  %219 = tail call ptr @cuddDynamicAllocNode(ptr noundef %0) #13
+  %219 = tail call ptr @cuddDynamicAllocNode(ptr noundef %0) #14
   %220 = icmp eq ptr %219, null
   br i1 %220, label %350, label %221
 
@@ -1557,9 +1557,9 @@ cuddXorLinear.exit:                               ; preds = %.lr.ph.i, %.cuddXor
   ret i32 %.0
 }
 
-declare i32 @cuddTestInteract(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @cuddTestInteract(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #9
 
-declare ptr @cuddDynamicAllocNode(ptr noundef) local_unnamed_addr #8
+declare ptr @cuddDynamicAllocNode(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define void @cuddUpdateInteractionMatrix(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
@@ -1579,7 +1579,7 @@ define void @cuddUpdateInteractionMatrix(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %.not36, label %14, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = tail call i32 @cuddTestInteract(ptr noundef %0, i32 noundef %.038, i32 noundef %2) #13
+  %9 = tail call i32 @cuddTestInteract(ptr noundef %0, i32 noundef %.038, i32 noundef %2) #14
   %.not37 = icmp eq i32 %9, 0
   br i1 %.not37, label %14, label %10
 
@@ -1588,11 +1588,11 @@ define void @cuddUpdateInteractionMatrix(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %10
-  tail call void @cuddSetInteract(ptr noundef %0, i32 noundef %.038, i32 noundef %1) #13
+  tail call void @cuddSetInteract(ptr noundef %0, i32 noundef %.038, i32 noundef %1) #14
   br label %14
 
 13:                                               ; preds = %10
-  tail call void @cuddSetInteract(ptr noundef %0, i32 noundef %1, i32 noundef %.038) #13
+  tail call void @cuddSetInteract(ptr noundef %0, i32 noundef %1, i32 noundef %.038) #14
   br label %14
 
 14:                                               ; preds = %.lr.ph, %8, %13, %12
@@ -1606,7 +1606,7 @@ define void @cuddUpdateInteractionMatrix(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %.not, label %22, label %16
 
 16:                                               ; preds = %.lr.ph41
-  %17 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %2, i32 noundef %.140) #13
+  %17 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %2, i32 noundef %.140) #14
   %.not35 = icmp eq i32 %17, 0
   br i1 %.not35, label %22, label %18
 
@@ -1615,11 +1615,11 @@ define void @cuddUpdateInteractionMatrix(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %18
-  tail call void @cuddSetInteract(ptr noundef nonnull %0, i32 noundef %.140, i32 noundef %1) #13
+  tail call void @cuddSetInteract(ptr noundef nonnull %0, i32 noundef %.140, i32 noundef %1) #14
   br label %22
 
 21:                                               ; preds = %18
-  tail call void @cuddSetInteract(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %.140) #13
+  tail call void @cuddSetInteract(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %.140) #14
   br label %22
 
 22:                                               ; preds = %.lr.ph41, %16, %21, %20
@@ -1632,7 +1632,7 @@ define void @cuddUpdateInteractionMatrix(ptr noundef %0, i32 noundef %1, i32 nou
   ret void
 }
 
-declare void @cuddSetInteract(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @cuddSetInteract(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @ddLinearAndSiftingDown(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #3 {
@@ -1661,7 +1661,7 @@ define internal fastcc ptr @ddLinearAndSiftingDown(ptr noundef %0, i32 noundef %
   %20 = load ptr, ptr %5, align 8, !tbaa !64
   %21 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !38
-  %23 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %22) #13
+  %23 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %22) #14
   %.not117 = icmp eq i32 %23, 0
   br i1 %.not117, label %38, label %24
 
@@ -1690,7 +1690,7 @@ define internal fastcc ptr @ddLinearAndSiftingDown(ptr noundef %0, i32 noundef %
 
 ._crit_edge:                                      ; preds = %38, %4
   %.096.lcssa = phi i32 [ 0, %4 ], [ %.197, %38 ]
-  %40 = tail call i32 @cuddNextHigh(ptr noundef nonnull %0, i32 noundef %1) #13
+  %40 = tail call i32 @cuddNextHigh(ptr noundef nonnull %0, i32 noundef %1) #14
   %.not125 = icmp sle i32 %40, %2
   %41 = icmp sgt i32 %.096.lcssa, 0
   %or.cond126 = select i1 %.not125, i1 %41, i1 false
@@ -1713,7 +1713,7 @@ define internal fastcc ptr @ddLinearAndSiftingDown(ptr noundef %0, i32 noundef %
   %48 = sext i32 %.1101129 to i64
   %49 = getelementptr inbounds i32, ptr %47, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !38
-  %51 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %50) #13
+  %51 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %50) #14
   %.not112 = icmp eq i32 %51, 0
   br i1 %.not112, label %65, label %52
 
@@ -1736,7 +1736,7 @@ define internal fastcc ptr @ddLinearAndSiftingDown(ptr noundef %0, i32 noundef %
 
 65:                                               ; preds = %52, %46
   %.3 = phi i32 [ %64, %52 ], [ %.2130, %46 ]
-  %66 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %.0106127, i32 noundef %.1101129) #13
+  %66 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %.0106127, i32 noundef %.1101129) #14
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %99, label %68
 
@@ -1746,7 +1746,7 @@ define internal fastcc ptr @ddLinearAndSiftingDown(ptr noundef %0, i32 noundef %
   br i1 %70, label %99, label %71
 
 71:                                               ; preds = %68
-  %72 = tail call ptr @cuddDynamicAllocNode(ptr noundef nonnull %0) #13
+  %72 = tail call ptr @cuddDynamicAllocNode(ptr noundef nonnull %0) #14
   %73 = icmp eq ptr %72, null
   br i1 %73, label %99, label %74
 
@@ -1772,11 +1772,11 @@ define internal fastcc ptr @ddLinearAndSiftingDown(ptr noundef %0, i32 noundef %
 
 82:                                               ; preds = %81
   %83 = load ptr, ptr %44, align 8, !tbaa !24
-  %84 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %83, ptr noundef nonnull @.str.3, i32 noundef %66, i32 noundef %79) #13
+  %84 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %83, ptr noundef nonnull @.str.3, i32 noundef %66, i32 noundef %79) #14
   br label %88
 
 85:                                               ; preds = %74
-  %86 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %50) #13
+  %86 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %50) #14
   %.not114 = icmp eq i32 %86, 0
   br i1 %.not114, label %88, label %87
 
@@ -1798,7 +1798,7 @@ define internal fastcc ptr @ddLinearAndSiftingDown(ptr noundef %0, i32 noundef %
 
 95:                                               ; preds = %88
   %spec.select = tail call i32 @llvm.smin.i32(i32 %.199, i32 %.095131)
-  %96 = tail call i32 @cuddNextHigh(ptr noundef nonnull %0, i32 noundef %.1101129) #13
+  %96 = tail call i32 @cuddNextHigh(ptr noundef nonnull %0, i32 noundef %.1101129) #14
   %.not = icmp sle i32 %96, %2
   %97 = sub nsw i32 %.199, %.3
   %98 = icmp slt i32 %97, %spec.select
@@ -1865,7 +1865,7 @@ define internal fastcc ptr @ddLinearAndSiftingUp(ptr noundef %0, i32 noundef %1,
   %21 = load ptr, ptr %5, align 8, !tbaa !64
   %22 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !38
-  %24 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %23, i32 noundef %9) #13
+  %24 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %23, i32 noundef %9) #14
   %.not114 = icmp eq i32 %24, 0
   br i1 %.not114, label %38, label %25
 
@@ -1911,7 +1911,7 @@ define internal fastcc ptr @ddLinearAndSiftingUp(ptr noundef %0, i32 noundef %1,
   %51 = load i32, ptr %50, align 8, !tbaa !39
   %.neg117 = add i32 %.0.lcssa, %.neg.neg139
   %52 = sub i32 %.neg117, %51
-  %53 = tail call i32 @cuddNextLow(ptr noundef nonnull %0, i32 noundef %1) #13
+  %53 = tail call i32 @cuddNextLow(ptr noundef nonnull %0, i32 noundef %1) #14
   %54 = icmp sge i32 %53, %2
   %55 = icmp sle i32 %52, %14
   %56 = select i1 %54, i1 %55, i1 false
@@ -1931,7 +1931,7 @@ define internal fastcc ptr @ddLinearAndSiftingUp(ptr noundef %0, i32 noundef %1,
   %60 = sext i32 %.1100126 to i64
   %61 = getelementptr inbounds i32, ptr %59, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !38
-  %63 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %.1100126, i32 noundef %.0105124) #13
+  %63 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %.1100126, i32 noundef %.0105124) #14
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %110, label %65
 
@@ -1941,7 +1941,7 @@ define internal fastcc ptr @ddLinearAndSiftingUp(ptr noundef %0, i32 noundef %1,
   br i1 %67, label %110, label %68
 
 68:                                               ; preds = %65
-  %69 = tail call ptr @cuddDynamicAllocNode(ptr noundef nonnull %0) #13
+  %69 = tail call ptr @cuddDynamicAllocNode(ptr noundef nonnull %0) #14
   %70 = icmp eq ptr %69, null
   br i1 %70, label %110, label %71
 
@@ -1962,7 +1962,7 @@ define internal fastcc ptr @ddLinearAndSiftingUp(ptr noundef %0, i32 noundef %1,
   br i1 %77, label %.lr.ph137, label %81
 
 78:                                               ; preds = %71
-  %79 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %62, i32 noundef %9) #13
+  %79 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %62, i32 noundef %9) #14
   %.not110 = icmp eq i32 %79, 0
   br i1 %.not110, label %81, label %80
 
@@ -1975,7 +1975,7 @@ define internal fastcc ptr @ddLinearAndSiftingUp(ptr noundef %0, i32 noundef %1,
   %.098 = phi i32 [ %63, %75 ], [ %66, %80 ], [ %63, %78 ]
   %82 = getelementptr inbounds nuw i8, ptr %69, i64 12
   store i32 %.098, ptr %82, align 4, !tbaa !44
-  %83 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %62, i32 noundef %9) #13
+  %83 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %62, i32 noundef %9) #14
   %.not111 = icmp eq i32 %83, 0
   br i1 %.not111, label %99, label %84
 
@@ -2008,7 +2008,7 @@ define internal fastcc ptr @ddLinearAndSiftingUp(ptr noundef %0, i32 noundef %1,
 
 105:                                              ; preds = %99
   %spec.select = tail call i32 @llvm.smin.i32(i32 %.098, i32 %.096127)
-  %106 = tail call i32 @cuddNextLow(ptr noundef nonnull %0, i32 noundef %.1100126) #13
+  %106 = tail call i32 @cuddNextLow(ptr noundef nonnull %0, i32 noundef %.1100126) #14
   %107 = icmp sge i32 %106, %2
   %108 = icmp sle i32 %.3, %spec.select
   %109 = select i1 %107, i1 %108, i1 false
@@ -2053,7 +2053,7 @@ define internal fastcc ptr @ddUndoMoves(ptr noundef %0, ptr noundef readonly cap
 .lr.ph:                                           ; preds = %2, %28
   %.04966 = phi ptr [ %31, %28 ], [ %1, %2 ]
   %.05065 = phi ptr [ %3, %28 ], [ null, %2 ]
-  %3 = tail call ptr @cuddDynamicAllocNode(ptr noundef %0) #13
+  %3 = tail call ptr @cuddDynamicAllocNode(ptr noundef %0) #14
   %4 = icmp eq ptr %3, null
   br i1 %4, label %32, label %5
 
@@ -2076,7 +2076,7 @@ define internal fastcc ptr @ddUndoMoves(ptr noundef %0, ptr noundef readonly cap
 
 14:                                               ; preds = %5
   store i32 0, ptr %13, align 8, !tbaa !49
-  %15 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %6, i32 noundef %8) #13
+  %15 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %6, i32 noundef %8) #14
   %.not60 = icmp eq i32 %15, 0
   br i1 %.not60, label %.lr.ph69, label %28
 
@@ -2089,13 +2089,13 @@ define internal fastcc ptr @ddUndoMoves(ptr noundef %0, ptr noundef readonly cap
 18:                                               ; preds = %16
   %19 = load i32, ptr %.04966, align 8, !tbaa !50
   %20 = load i32, ptr %7, align 4, !tbaa !51
-  %21 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %19, i32 noundef %20) #13
+  %21 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %19, i32 noundef %20) #14
   %.not59 = icmp eq i32 %21, 0
   br i1 %.not59, label %.lr.ph69, label %28
 
 22:                                               ; preds = %5
   store i32 1, ptr %13, align 8, !tbaa !49
-  %23 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %6, i32 noundef %8) #13
+  %23 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %6, i32 noundef %8) #14
   %.not56 = icmp eq i32 %23, 0
   br i1 %.not56, label %.lr.ph69, label %24
 
@@ -2146,39 +2146,40 @@ define internal fastcc ptr @ddUndoMoves(ptr noundef %0, ptr noundef readonly cap
   ret ptr %.048
 }
 
-declare i32 @cuddNextHigh(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @cuddNextHigh(ptr noundef, i32 noundef) local_unnamed_addr #9
 
-declare i32 @cuddSwapInPlace(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @cuddSwapInPlace(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #9
 
-declare i32 @cuddNextLow(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @cuddNextLow(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
+declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #12
+declare i32 @llvm.smin.i32(i32, i32) #13
 
 attributes #0 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind allocsize(0) }
+attributes #4 = { nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

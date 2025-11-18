@@ -82640,7 +82640,7 @@ _ZNSt3mapIPKZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degree_Test8Tes
   ret ptr %.sroa.019.0
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN20TestDeformationModel6GridExIZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degree_Test8TestBodyEvE4GridE21getBilinearGeocentricEiiddddddddddddRdS5_S5_(ptr noundef nonnull align 8 captures(none) dereferenceable(184) %0, i32 noundef %1, i32 noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9, double noundef %10, double noundef %11, double noundef %12, double noundef %13, double noundef %14, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %15, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %16, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %17) unnamed_addr #29 align 2 {
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = load i32, ptr %19, align 8, !tbaa !963
@@ -93122,7 +93122,7 @@ _ZNSt3mapIPKZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8Test
   ret ptr %.sroa.019.0
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN20TestDeformationModel6GridExIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvE4GridE21getBilinearGeocentricEiiddddddddddddRdS5_S5_(ptr noundef nonnull align 8 captures(none) dereferenceable(184) %0, i32 noundef %1, i32 noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9, double noundef %10, double noundef %11, double noundef %12, double noundef %13, double noundef %14, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %15, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %16, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %17) unnamed_addr #29 align 2 {
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = load i32, ptr %19, align 8, !tbaa !1099
@@ -100315,7 +100315,7 @@ _ZNSt3mapIPKZN12_GLOBAL__N_137defmodel_evaluator_projected_crs_Test8TestBodyEvE4
   ret ptr %.sroa.019.0
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN20TestDeformationModel6GridExIZN12_GLOBAL__N_137defmodel_evaluator_projected_crs_Test8TestBodyEvE4GridE21getBilinearGeocentricEiiddddddddddddRdS5_S5_(ptr noundef nonnull align 8 captures(none) dereferenceable(184) %0, i32 noundef %1, i32 noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9, double noundef %10, double noundef %11, double noundef %12, double noundef %13, double noundef %14, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %15, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %16, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %17) unnamed_addr #29 align 2 {
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = load i32, ptr %19, align 8, !tbaa !1231
@@ -121689,7 +121689,7 @@ attributes #25 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-si
 attributes #26 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #27 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #28 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #29 = { inlinehint mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { inlinehint mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #30 = { mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #31 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #32 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

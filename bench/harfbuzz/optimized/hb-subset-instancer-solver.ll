@@ -116,7 +116,7 @@ define hidden noundef double @_Z16renormalizeValuedRK6TripleRK15TripleDistancesb
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #1
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_Z11rebase_tent6TripleS_15TripleDistances(ptr dead_on_unwind noalias writable writeonly sret(%struct.hb_vector_t) align 8 captures(none) initializes((0, 16)) %0, ptr noundef readonly byval(%struct.Triple) align 8 captures(none) %1, ptr noundef readonly byval(%struct.Triple) align 8 captures(none) %2, double %3, double %4) local_unnamed_addr #2 {
   %6 = alloca %struct.TripleDistances, align 8
   %7 = alloca %struct.hb_vector_t, align 8
@@ -312,7 +312,7 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EED2Ev.exit: ; preds = %69, %71
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nounwind uwtable
+; Function Attrs: inlinehint mustprogress nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZL6_solve6TripleS_b(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef byval(%struct.Triple) align 8 captures(none) %1, ptr noundef readonly byval(%struct.Triple) align 8 captures(none) %2, i1 noundef zeroext %3) unnamed_addr #3 {
   %5 = alloca %struct.Triple, align 8
   %6 = alloca %struct.Triple, align 8
@@ -1252,8 +1252,8 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint mustprogress nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

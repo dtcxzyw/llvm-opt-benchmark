@@ -4318,7 +4318,7 @@ define hidden void @_ZN12HotSpotJVMCI29HotSpotResolvedObjectTypeImpl5checkEP7oop
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN12HotSpotJVMCI29HotSpotResolvedObjectTypeImpl12klassPointerEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI29HotSpotResolvedObjectTypeImpl20_klassPointer_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -4329,7 +4329,7 @@ define hidden noundef i64 @_ZN12HotSpotJVMCI29HotSpotResolvedObjectTypeImpl12kla
   ret i64 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI29HotSpotResolvedObjectTypeImpl16set_klassPointerEP8JVMCIEnvP7oopDescl(ptr noundef readnone captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI29HotSpotResolvedObjectTypeImpl20_klassPointer_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -4642,7 +4642,7 @@ define hidden void @_ZN12HotSpotJVMCI28HotSpotResolvedJavaFieldImpl10set_holderE
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN12HotSpotJVMCI28HotSpotResolvedJavaFieldImpl6offsetEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI28HotSpotResolvedJavaFieldImpl14_offset_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -4653,7 +4653,7 @@ define hidden noundef i32 @_ZN12HotSpotJVMCI28HotSpotResolvedJavaFieldImpl6offse
   ret i32 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI28HotSpotResolvedJavaFieldImpl10set_offsetEP8JVMCIEnvP7oopDesci(ptr noundef readnone captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI28HotSpotResolvedJavaFieldImpl14_offset_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -4757,7 +4757,7 @@ define hidden void @_ZN12HotSpotJVMCI9FieldInfo5checkEP7oopDescPKci(ptr noundef 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN12HotSpotJVMCI9FieldInfo9nameIndexEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI9FieldInfo17_nameIndex_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -4768,7 +4768,7 @@ define hidden noundef i32 @_ZN12HotSpotJVMCI9FieldInfo9nameIndexEP8JVMCIEnvP7oop
   ret i32 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI9FieldInfo13set_nameIndexEP8JVMCIEnvP7oopDesci(ptr noundef readnone captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI9FieldInfo17_nameIndex_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -4779,7 +4779,7 @@ define hidden void @_ZN12HotSpotJVMCI9FieldInfo13set_nameIndexEP8JVMCIEnvP7oopDe
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN12HotSpotJVMCI9FieldInfo14signatureIndexEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI9FieldInfo22_signatureIndex_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -4790,7 +4790,7 @@ define hidden noundef i32 @_ZN12HotSpotJVMCI9FieldInfo14signatureIndexEP8JVMCIEn
   ret i32 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI9FieldInfo18set_signatureIndexEP8JVMCIEnvP7oopDesci(ptr noundef readnone captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI9FieldInfo22_signatureIndex_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -4801,7 +4801,7 @@ define hidden void @_ZN12HotSpotJVMCI9FieldInfo18set_signatureIndexEP8JVMCIEnvP7
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN12HotSpotJVMCI9FieldInfo6offsetEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI9FieldInfo14_offset_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -4812,7 +4812,7 @@ define hidden noundef i32 @_ZN12HotSpotJVMCI9FieldInfo6offsetEP8JVMCIEnvP7oopDes
   ret i32 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI9FieldInfo10set_offsetEP8JVMCIEnvP7oopDesci(ptr noundef readnone captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI9FieldInfo14_offset_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -4823,7 +4823,7 @@ define hidden void @_ZN12HotSpotJVMCI9FieldInfo10set_offsetEP8JVMCIEnvP7oopDesci
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN12HotSpotJVMCI9FieldInfo14classfileFlagsEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI9FieldInfo22_classfileFlags_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -4834,7 +4834,7 @@ define hidden noundef i32 @_ZN12HotSpotJVMCI9FieldInfo14classfileFlagsEP8JVMCIEn
   ret i32 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI9FieldInfo18set_classfileFlagsEP8JVMCIEnvP7oopDesci(ptr noundef readnone captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI9FieldInfo22_classfileFlags_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -4845,7 +4845,7 @@ define hidden void @_ZN12HotSpotJVMCI9FieldInfo18set_classfileFlagsEP8JVMCIEnvP7
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN12HotSpotJVMCI9FieldInfo13internalFlagsEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI9FieldInfo21_internalFlags_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -4856,7 +4856,7 @@ define hidden noundef i32 @_ZN12HotSpotJVMCI9FieldInfo13internalFlagsEP8JVMCIEnv
   ret i32 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI9FieldInfo17set_internalFlagsEP8JVMCIEnvP7oopDesci(ptr noundef readnone captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI9FieldInfo21_internalFlags_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -4867,7 +4867,7 @@ define hidden void @_ZN12HotSpotJVMCI9FieldInfo17set_internalFlagsEP8JVMCIEnvP7o
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN12HotSpotJVMCI9FieldInfo16initializerIndexEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI9FieldInfo24_initializerIndex_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -4878,7 +4878,7 @@ define hidden noundef i32 @_ZN12HotSpotJVMCI9FieldInfo16initializerIndexEP8JVMCI
   ret i32 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI9FieldInfo20set_initializerIndexEP8JVMCIEnvP7oopDesci(ptr noundef readnone captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI9FieldInfo24_initializerIndex_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -4982,7 +4982,7 @@ define hidden void @_ZN12HotSpotJVMCI29HotSpotResolvedJavaMethodImpl5checkEP7oop
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN12HotSpotJVMCI29HotSpotResolvedJavaMethodImpl12methodHandleEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI29HotSpotResolvedJavaMethodImpl20_methodHandle_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -4993,7 +4993,7 @@ define hidden noundef i64 @_ZN12HotSpotJVMCI29HotSpotResolvedJavaMethodImpl12met
   ret i64 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI29HotSpotResolvedJavaMethodImpl16set_methodHandleEP8JVMCIEnvP7oopDescl(ptr noundef readnone captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI29HotSpotResolvedJavaMethodImpl20_methodHandle_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -5097,7 +5097,7 @@ define hidden void @_ZN12HotSpotJVMCI17HotSpotMethodData5checkEP7oopDescPKci(ptr
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN12HotSpotJVMCI17HotSpotMethodData17methodDataPointerEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI17HotSpotMethodData25_methodDataPointer_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -5108,7 +5108,7 @@ define hidden noundef i64 @_ZN12HotSpotJVMCI17HotSpotMethodData17methodDataPoint
   ret i64 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI17HotSpotMethodData21set_methodDataPointerEP8JVMCIEnvP7oopDescl(ptr noundef readnone captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI17HotSpotMethodData25_methodDataPointer_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -5212,7 +5212,7 @@ define hidden void @_ZN12HotSpotJVMCI13InstalledCode5checkEP7oopDescPKci(ptr nou
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN12HotSpotJVMCI13InstalledCode7addressEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI13InstalledCode15_address_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -5223,7 +5223,7 @@ define hidden noundef i64 @_ZN12HotSpotJVMCI13InstalledCode7addressEP8JVMCIEnvP7
   ret i64 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI13InstalledCode11set_addressEP8JVMCIEnvP7oopDescl(ptr noundef readnone captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI13InstalledCode15_address_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -5234,7 +5234,7 @@ define hidden void @_ZN12HotSpotJVMCI13InstalledCode11set_addressEP8JVMCIEnvP7oo
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN12HotSpotJVMCI13InstalledCode10entryPointEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI13InstalledCode18_entryPoint_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -5245,7 +5245,7 @@ define hidden noundef i64 @_ZN12HotSpotJVMCI13InstalledCode10entryPointEP8JVMCIE
   ret i64 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI13InstalledCode14set_entryPointEP8JVMCIEnvP7oopDescl(ptr noundef readnone captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI13InstalledCode18_entryPoint_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -5256,7 +5256,7 @@ define hidden void @_ZN12HotSpotJVMCI13InstalledCode14set_entryPointEP8JVMCIEnvP
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN12HotSpotJVMCI13InstalledCode7versionEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI13InstalledCode15_version_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -5267,7 +5267,7 @@ define hidden noundef i64 @_ZN12HotSpotJVMCI13InstalledCode7versionEP8JVMCIEnvP7
   ret i64 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI13InstalledCode11set_versionEP8JVMCIEnvP7oopDescl(ptr noundef readnone captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI13InstalledCode15_version_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -5389,7 +5389,7 @@ define hidden void @_ZN12HotSpotJVMCI20HotSpotInstalledCode5checkEP7oopDescPKci(
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN12HotSpotJVMCI20HotSpotInstalledCode4sizeEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI20HotSpotInstalledCode12_size_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -5400,7 +5400,7 @@ define hidden noundef i32 @_ZN12HotSpotJVMCI20HotSpotInstalledCode4sizeEP8JVMCIE
   ret i32 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI20HotSpotInstalledCode8set_sizeEP8JVMCIEnvP7oopDesci(ptr noundef readnone captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI20HotSpotInstalledCode12_size_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -5411,7 +5411,7 @@ define hidden void @_ZN12HotSpotJVMCI20HotSpotInstalledCode8set_sizeEP8JVMCIEnvP
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN12HotSpotJVMCI20HotSpotInstalledCode9codeStartEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI20HotSpotInstalledCode17_codeStart_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -5422,7 +5422,7 @@ define hidden noundef i64 @_ZN12HotSpotJVMCI20HotSpotInstalledCode9codeStartEP8J
   ret i64 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI20HotSpotInstalledCode13set_codeStartEP8JVMCIEnvP7oopDescl(ptr noundef readnone captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI20HotSpotInstalledCode17_codeStart_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -5433,7 +5433,7 @@ define hidden void @_ZN12HotSpotJVMCI20HotSpotInstalledCode13set_codeStartEP8JVM
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN12HotSpotJVMCI20HotSpotInstalledCode8codeSizeEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI20HotSpotInstalledCode16_codeSize_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -5444,7 +5444,7 @@ define hidden noundef i32 @_ZN12HotSpotJVMCI20HotSpotInstalledCode8codeSizeEP8JV
   ret i32 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI20HotSpotInstalledCode12set_codeSizeEP8JVMCIEnvP7oopDesci(ptr noundef readnone captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI20HotSpotInstalledCode16_codeSize_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -5548,7 +5548,7 @@ define hidden void @_ZN12HotSpotJVMCI14HotSpotNmethod5checkEP7oopDescPKci(ptr no
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i8 @_ZN12HotSpotJVMCI14HotSpotNmethod9isDefaultEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI14HotSpotNmethod17_isDefault_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -5559,7 +5559,7 @@ define hidden noundef zeroext i8 @_ZN12HotSpotJVMCI14HotSpotNmethod9isDefaultEP8
   ret i8 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI14HotSpotNmethod13set_isDefaultEP8JVMCIEnvP7oopDesch(ptr noundef readnone captures(none) %0, ptr noundef %1, i8 noundef zeroext %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI14HotSpotNmethod17_isDefault_offsetE, align 4
   %5 = and i8 %2, 1
@@ -5571,7 +5571,7 @@ define hidden void @_ZN12HotSpotJVMCI14HotSpotNmethod13set_isDefaultEP8JVMCIEnvP
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN12HotSpotJVMCI14HotSpotNmethod17compileIdSnapshotEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI14HotSpotNmethod25_compileIdSnapshot_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -5582,7 +5582,7 @@ define hidden noundef i64 @_ZN12HotSpotJVMCI14HotSpotNmethod17compileIdSnapshotE
   ret i64 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI14HotSpotNmethod21set_compileIdSnapshotEP8JVMCIEnvP7oopDescl(ptr noundef readnone captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI14HotSpotNmethod25_compileIdSnapshot_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -5851,7 +5851,7 @@ define hidden void @_ZN12HotSpotJVMCI22HotSpotCompiledNmethod30set_installationF
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN12HotSpotJVMCI22HotSpotCompiledNmethod2idEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI22HotSpotCompiledNmethod10_id_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -5862,7 +5862,7 @@ define hidden noundef i32 @_ZN12HotSpotJVMCI22HotSpotCompiledNmethod2idEP8JVMCIE
   ret i32 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI22HotSpotCompiledNmethod6set_idEP8JVMCIEnvP7oopDesci(ptr noundef readnone captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI22HotSpotCompiledNmethod10_id_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -6002,7 +6002,7 @@ define hidden void @_ZN12HotSpotJVMCI7VMField8set_typeEP8JVMCIEnvP7oopDescS4_(pt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN12HotSpotJVMCI7VMField6offsetEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI7VMField14_offset_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -6013,7 +6013,7 @@ define hidden noundef i64 @_ZN12HotSpotJVMCI7VMField6offsetEP8JVMCIEnvP7oopDesc(
   ret i64 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI7VMField10set_offsetEP8JVMCIEnvP7oopDescl(ptr noundef readnone captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI7VMField14_offset_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -6024,7 +6024,7 @@ define hidden void @_ZN12HotSpotJVMCI7VMField10set_offsetEP8JVMCIEnvP7oopDescl(p
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN12HotSpotJVMCI7VMField7addressEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI7VMField15_address_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -6035,7 +6035,7 @@ define hidden noundef i64 @_ZN12HotSpotJVMCI7VMField7addressEP8JVMCIEnvP7oopDesc
   ret i64 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI7VMField11set_addressEP8JVMCIEnvP7oopDescl(ptr noundef readnone captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI7VMField15_address_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -6358,7 +6358,7 @@ define hidden void @_ZN12HotSpotJVMCI17VMIntrinsicMethod14set_descriptorEP8JVMCI
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN12HotSpotJVMCI17VMIntrinsicMethod2idEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI17VMIntrinsicMethod10_id_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -6369,7 +6369,7 @@ define hidden noundef i32 @_ZN12HotSpotJVMCI17VMIntrinsicMethod2idEP8JVMCIEnvP7o
   ret i32 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI17VMIntrinsicMethod6set_idEP8JVMCIEnvP7oopDesci(ptr noundef readnone captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI17VMIntrinsicMethod10_id_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -6380,7 +6380,7 @@ define hidden void @_ZN12HotSpotJVMCI17VMIntrinsicMethod6set_idEP8JVMCIEnvP7oopD
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i8 @_ZN12HotSpotJVMCI17VMIntrinsicMethod11isAvailableEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI17VMIntrinsicMethod19_isAvailable_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -6391,7 +6391,7 @@ define hidden noundef zeroext i8 @_ZN12HotSpotJVMCI17VMIntrinsicMethod11isAvaila
   ret i8 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI17VMIntrinsicMethod15set_isAvailableEP8JVMCIEnvP7oopDesch(ptr noundef readnone captures(none) %0, ptr noundef %1, i8 noundef zeroext %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI17VMIntrinsicMethod19_isAvailable_offsetE, align 4
   %5 = and i8 %2, 1
@@ -6403,7 +6403,7 @@ define hidden void @_ZN12HotSpotJVMCI17VMIntrinsicMethod15set_isAvailableEP8JVMC
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i8 @_ZN12HotSpotJVMCI17VMIntrinsicMethod11c1SupportedEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI17VMIntrinsicMethod19_c1Supported_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -6414,7 +6414,7 @@ define hidden noundef zeroext i8 @_ZN12HotSpotJVMCI17VMIntrinsicMethod11c1Suppor
   ret i8 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI17VMIntrinsicMethod15set_c1SupportedEP8JVMCIEnvP7oopDesch(ptr noundef readnone captures(none) %0, ptr noundef %1, i8 noundef zeroext %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI17VMIntrinsicMethod19_c1Supported_offsetE, align 4
   %5 = and i8 %2, 1
@@ -6426,7 +6426,7 @@ define hidden void @_ZN12HotSpotJVMCI17VMIntrinsicMethod15set_c1SupportedEP8JVMC
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i8 @_ZN12HotSpotJVMCI17VMIntrinsicMethod11c2SupportedEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI17VMIntrinsicMethod19_c2Supported_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -6437,7 +6437,7 @@ define hidden noundef zeroext i8 @_ZN12HotSpotJVMCI17VMIntrinsicMethod11c2Suppor
   ret i8 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI17VMIntrinsicMethod15set_c2SupportedEP8JVMCIEnvP7oopDesch(ptr noundef readnone captures(none) %0, ptr noundef %1, i8 noundef zeroext %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI17VMIntrinsicMethod19_c2Supported_offsetE, align 4
   %5 = and i8 %2, 1
@@ -6560,7 +6560,7 @@ define hidden void @_ZN12HotSpotJVMCI31HotSpotCompilationRequestResult18set_fail
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i8 @_ZN12HotSpotJVMCI31HotSpotCompilationRequestResult5retryEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI31HotSpotCompilationRequestResult13_retry_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -6571,7 +6571,7 @@ define hidden noundef zeroext i8 @_ZN12HotSpotJVMCI31HotSpotCompilationRequestRe
   ret i8 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI31HotSpotCompilationRequestResult9set_retryEP8JVMCIEnvP7oopDesch(ptr noundef readnone captures(none) %0, ptr noundef %1, i8 noundef zeroext %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI31HotSpotCompilationRequestResult13_retry_offsetE, align 4
   %5 = and i8 %2, 1
@@ -6583,7 +6583,7 @@ define hidden void @_ZN12HotSpotJVMCI31HotSpotCompilationRequestResult9set_retry
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN12HotSpotJVMCI31HotSpotCompilationRequestResult16inlinedBytecodesEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI31HotSpotCompilationRequestResult24_inlinedBytecodes_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -6594,7 +6594,7 @@ define hidden noundef i32 @_ZN12HotSpotJVMCI31HotSpotCompilationRequestResult16i
   ret i32 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI31HotSpotCompilationRequestResult20set_inlinedBytecodesEP8JVMCIEnvP7oopDesci(ptr noundef readnone captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI31HotSpotCompilationRequestResult24_inlinedBytecodes_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -6698,7 +6698,7 @@ define hidden void @_ZN12HotSpotJVMCI13BytecodeFrame5checkEP7oopDescPKci(ptr nou
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN12HotSpotJVMCI13BytecodeFrame9numLocalsEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI13BytecodeFrame17_numLocals_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -6709,7 +6709,7 @@ define hidden noundef i32 @_ZN12HotSpotJVMCI13BytecodeFrame9numLocalsEP8JVMCIEnv
   ret i32 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI13BytecodeFrame13set_numLocalsEP8JVMCIEnvP7oopDesci(ptr noundef readnone captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI13BytecodeFrame17_numLocals_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -6720,7 +6720,7 @@ define hidden void @_ZN12HotSpotJVMCI13BytecodeFrame13set_numLocalsEP8JVMCIEnvP7
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN12HotSpotJVMCI13BytecodeFrame8numStackEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI13BytecodeFrame16_numStack_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -6731,7 +6731,7 @@ define hidden noundef i32 @_ZN12HotSpotJVMCI13BytecodeFrame8numStackEP8JVMCIEnvP
   ret i32 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI13BytecodeFrame12set_numStackEP8JVMCIEnvP7oopDesci(ptr noundef readnone captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI13BytecodeFrame16_numStack_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -6742,7 +6742,7 @@ define hidden void @_ZN12HotSpotJVMCI13BytecodeFrame12set_numStackEP8JVMCIEnvP7o
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN12HotSpotJVMCI13BytecodeFrame8numLocksEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI13BytecodeFrame16_numLocks_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -6753,7 +6753,7 @@ define hidden noundef i32 @_ZN12HotSpotJVMCI13BytecodeFrame8numLocksEP8JVMCIEnvP
   ret i32 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI13BytecodeFrame12set_numLocksEP8JVMCIEnvP7oopDesci(ptr noundef readnone captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI13BytecodeFrame16_numLocks_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -7181,7 +7181,7 @@ define hidden void @_ZN12HotSpotJVMCI16BytecodePosition10set_methodEP8JVMCIEnvP7
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN12HotSpotJVMCI16BytecodePosition3bciEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI16BytecodePosition11_bci_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -7192,7 +7192,7 @@ define hidden noundef i32 @_ZN12HotSpotJVMCI16BytecodePosition3bciEP8JVMCIEnvP7o
   ret i32 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI16BytecodePosition7set_bciEP8JVMCIEnvP7oopDesci(ptr noundef readnone captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI16BytecodePosition11_bci_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -7588,7 +7588,7 @@ define hidden void @_ZN12HotSpotJVMCI17PrimitiveConstant8set_kindEP8JVMCIEnvP7oo
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN12HotSpotJVMCI17PrimitiveConstant9primitiveEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI17PrimitiveConstant17_primitive_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -7599,7 +7599,7 @@ define hidden noundef i64 @_ZN12HotSpotJVMCI17PrimitiveConstant9primitiveEP8JVMC
   ret i64 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI17PrimitiveConstant13set_primitiveEP8JVMCIEnvP7oopDescl(ptr noundef readnone captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI17PrimitiveConstant17_primitive_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -7703,7 +7703,7 @@ define hidden void @_ZN12HotSpotJVMCI25HotSpotObjectConstantImpl5checkEP7oopDesc
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i8 @_ZN12HotSpotJVMCI25HotSpotObjectConstantImpl10compressedEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI25HotSpotObjectConstantImpl18_compressed_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -7714,7 +7714,7 @@ define hidden noundef zeroext i8 @_ZN12HotSpotJVMCI25HotSpotObjectConstantImpl10
   ret i8 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI25HotSpotObjectConstantImpl14set_compressedEP8JVMCIEnvP7oopDesch(ptr noundef readnone captures(none) %0, ptr noundef %1, i8 noundef zeroext %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI25HotSpotObjectConstantImpl18_compressed_offsetE, align 4
   %5 = and i8 %2, 1
@@ -7930,7 +7930,7 @@ define hidden void @_ZN12HotSpotJVMCI33IndirectHotSpotObjectConstantImpl5checkEP
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN12HotSpotJVMCI33IndirectHotSpotObjectConstantImpl12objectHandleEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI33IndirectHotSpotObjectConstantImpl20_objectHandle_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -7941,7 +7941,7 @@ define hidden noundef i64 @_ZN12HotSpotJVMCI33IndirectHotSpotObjectConstantImpl1
   ret i64 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI33IndirectHotSpotObjectConstantImpl16set_objectHandleEP8JVMCIEnvP7oopDescl(ptr noundef readnone captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI33IndirectHotSpotObjectConstantImpl20_objectHandle_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -8045,7 +8045,7 @@ define hidden void @_ZN12HotSpotJVMCI8JavaKind5checkEP7oopDescPKci(ptr noundef r
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i16 @_ZN12HotSpotJVMCI8JavaKind8typeCharEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI8JavaKind16_typeChar_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -8056,7 +8056,7 @@ define hidden noundef zeroext i16 @_ZN12HotSpotJVMCI8JavaKind8typeCharEP8JVMCIEn
   ret i16 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI8JavaKind12set_typeCharEP8JVMCIEnvP7oopDesct(ptr noundef readnone captures(none) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI8JavaKind16_typeChar_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -8289,7 +8289,7 @@ define hidden void @_ZN12HotSpotJVMCI26HotSpotStackFrameReference16set_compilerT
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i8 @_ZN12HotSpotJVMCI26HotSpotStackFrameReference19objectsMaterializedEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI26HotSpotStackFrameReference27_objectsMaterialized_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -8300,7 +8300,7 @@ define hidden noundef zeroext i8 @_ZN12HotSpotJVMCI26HotSpotStackFrameReference1
   ret i8 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI26HotSpotStackFrameReference23set_objectsMaterializedEP8JVMCIEnvP7oopDesch(ptr noundef readnone captures(none) %0, ptr noundef %1, i8 noundef zeroext %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI26HotSpotStackFrameReference27_objectsMaterialized_offsetE, align 4
   %5 = and i8 %2, 1
@@ -8312,7 +8312,7 @@ define hidden void @_ZN12HotSpotJVMCI26HotSpotStackFrameReference23set_objectsMa
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN12HotSpotJVMCI26HotSpotStackFrameReference12stackPointerEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI26HotSpotStackFrameReference20_stackPointer_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -8323,7 +8323,7 @@ define hidden noundef i64 @_ZN12HotSpotJVMCI26HotSpotStackFrameReference12stackP
   ret i64 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI26HotSpotStackFrameReference16set_stackPointerEP8JVMCIEnvP7oopDescl(ptr noundef readnone captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI26HotSpotStackFrameReference20_stackPointer_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -8334,7 +8334,7 @@ define hidden void @_ZN12HotSpotJVMCI26HotSpotStackFrameReference16set_stackPoin
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN12HotSpotJVMCI26HotSpotStackFrameReference11frameNumberEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI26HotSpotStackFrameReference19_frameNumber_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -8345,7 +8345,7 @@ define hidden noundef i32 @_ZN12HotSpotJVMCI26HotSpotStackFrameReference11frameN
   ret i32 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI26HotSpotStackFrameReference15set_frameNumberEP8JVMCIEnvP7oopDesci(ptr noundef readnone captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI26HotSpotStackFrameReference19_frameNumber_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -8356,7 +8356,7 @@ define hidden void @_ZN12HotSpotJVMCI26HotSpotStackFrameReference15set_frameNumb
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN12HotSpotJVMCI26HotSpotStackFrameReference3bciEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI26HotSpotStackFrameReference11_bci_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -8367,7 +8367,7 @@ define hidden noundef i32 @_ZN12HotSpotJVMCI26HotSpotStackFrameReference3bciEP8J
   ret i32 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI26HotSpotStackFrameReference7set_bciEP8JVMCIEnvP7oopDesci(ptr noundef readnone captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI26HotSpotStackFrameReference11_bci_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -8525,7 +8525,7 @@ define hidden void @_ZN12HotSpotJVMCI19HotSpotConstantPool5checkEP7oopDescPKci(p
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @_ZN12HotSpotJVMCI19HotSpotConstantPool18constantPoolHandleEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI19HotSpotConstantPool26_constantPoolHandle_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -8536,7 +8536,7 @@ define hidden noundef i64 @_ZN12HotSpotJVMCI19HotSpotConstantPool18constantPoolH
   ret i64 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI19HotSpotConstantPool22set_constantPoolHandleEP8JVMCIEnvP7oopDescl(ptr noundef readnone captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI19HotSpotConstantPool26_constantPoolHandle_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -10479,7 +10479,7 @@ define hidden void @_ZN12HotSpotJVMCI17StackTraceElement12set_fileNameEP8JVMCIEn
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN12HotSpotJVMCI17StackTraceElement10lineNumberEP8JVMCIEnvP7oopDesc(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr @_ZN12HotSpotJVMCI17StackTraceElement18_lineNumber_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
@@ -10490,7 +10490,7 @@ define hidden noundef i32 @_ZN12HotSpotJVMCI17StackTraceElement10lineNumberEP8JV
   ret i32 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN12HotSpotJVMCI17StackTraceElement14set_lineNumberEP8JVMCIEnvP7oopDesci(ptr noundef readnone captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr @_ZN12HotSpotJVMCI17StackTraceElement18_lineNumber_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -40019,8 +40019,8 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

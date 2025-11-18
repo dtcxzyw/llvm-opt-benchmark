@@ -68,7 +68,7 @@ define internal void @pmix_mca_base_var_enum_constructor(ptr noundef writeonly c
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal void @pmix_mca_base_var_enum_destructor(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8, !tbaa !20
@@ -76,7 +76,7 @@ define internal void @pmix_mca_base_var_enum_destructor(ptr noundef readonly cap
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %3) #21
+  tail call void @free(ptr noundef nonnull %3) #22
   br label %5
 
 5:                                                ; preds = %4, %1
@@ -97,7 +97,7 @@ define internal void @pmix_mca_base_var_enum_destructor(ptr noundef readonly cap
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %11 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %7, %.preheader ]
-  tail call void @free(ptr noundef %11) #21
+  tail call void @free(ptr noundef %11) #22
   br label %19
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
@@ -106,7 +106,7 @@ define internal void @pmix_mca_base_var_enum_destructor(ptr noundef readonly cap
   %13 = getelementptr inbounds nuw %struct.pmix_mca_base_var_enum_value_t, ptr %12, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !23
-  tail call void @free(ptr noundef %15) #21
+  tail call void @free(ptr noundef %15) #22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %8, align 8, !tbaa !22
   %17 = sext i32 %16 to i64
@@ -136,7 +136,7 @@ define internal void @pmix_mca_base_var_enum_flag_constructor(ptr noundef writeo
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal void @pmix_mca_base_var_enum_flag_destructor(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8, !tbaa !27
@@ -155,7 +155,7 @@ define internal void @pmix_mca_base_var_enum_flag_destructor(ptr noundef readonl
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %7 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %3, %.preheader ]
-  tail call void @free(ptr noundef %7) #21
+  tail call void @free(ptr noundef %7) #22
   br label %15
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
@@ -164,7 +164,7 @@ define internal void @pmix_mca_base_var_enum_flag_destructor(ptr noundef readonl
   %9 = getelementptr inbounds nuw %struct.pmix_mca_base_var_enum_value_flag_t, ptr %8, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !37
-  tail call void @free(ptr noundef %11) #21
+  tail call void @free(ptr noundef %11) #22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %4, align 8, !tbaa !36
   %13 = sext i32 %12 to i64
@@ -203,9 +203,9 @@ define internal range(i32 -65, 1) i32 @pmix_mca_base_var_enum_bool_get_value(ptr
 define internal range(i32 -65, 1) i32 @pmix_mca_base_var_enum_bool_vfs(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #2 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %5 = tail call i64 @strspn(ptr noundef %1, ptr noundef nonnull @.str.6) #22
+  %5 = tail call i64 @strspn(ptr noundef %1, ptr noundef nonnull @.str.6) #23
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %5
-  %7 = call i64 @strtol(ptr noundef %6, ptr noundef nonnull %4, i32 noundef 10) #21
+  %7 = call i64 @strtol(ptr noundef %6, ptr noundef nonnull %4, i32 noundef 10) #22
   %8 = trunc i64 %7 to i32
   %9 = load ptr, ptr %4, align 8, !tbaa !41
   %10 = load i8, ptr %9, align 1, !tbaa !42
@@ -213,7 +213,7 @@ define internal range(i32 -65, 1) i32 @pmix_mca_base_var_enum_bool_vfs(ptr readn
   br i1 %.not, label %38, label %11
 
 11:                                               ; preds = %3
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(5) @.str.4) #22
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(5) @.str.4) #23
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %38, label %sub_0
 
@@ -229,17 +229,17 @@ sub_0:                                            ; preds = %11
   br i1 %17, label %38, label %.tail.thread
 
 .tail.thread:                                     ; preds = %sub_0, %.tail
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(8) @.str.8) #22
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(8) @.str.8) #23
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %38, label %20
 
 20:                                               ; preds = %.tail.thread
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(4) @.str.9) #22
+  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(4) @.str.9) #23
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %38, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(6) @.str.5) #22
+  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(6) @.str.5) #23
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %38, label %sub_015
 
@@ -254,12 +254,12 @@ sub_015:                                          ; preds = %23
   br i1 %28, label %38, label %.thread
 
 .tail14.thread:                                   ; preds = %sub_015
-  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(9) @.str.11) #22
+  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(9) @.str.11) #23
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %38, label %sub_019
 
 .thread:                                          ; preds = %.tail14
-  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(9) @.str.11) #22
+  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(9) @.str.11) #23
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %38, label %.tail18.thread
 
@@ -300,7 +300,7 @@ define internal noundef i32 @pmix_mca_base_var_enum_bool_sfv(ptr readnone captur
 4:                                                ; preds = %3
   %.not2 = icmp eq i32 %1, 0
   %5 = select i1 %.not2, ptr @.str.5, ptr @.str.4
-  %6 = tail call noalias ptr @strdup(ptr noundef nonnull %5) #21
+  %6 = tail call noalias ptr @strdup(ptr noundef nonnull %5) #22
   store ptr %6, ptr %2, align 8, !tbaa !41
   br label %7
 
@@ -310,7 +310,7 @@ define internal noundef i32 @pmix_mca_base_var_enum_bool_sfv(ptr readnone captur
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
 define internal noundef range(i32 -29, 1) i32 @pmix_mca_base_var_enum_bool_dump(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #3 {
-  %3 = tail call noalias dereferenceable_or_null(46) ptr @strdup(ptr noundef nonnull @.str.13) #21
+  %3 = tail call noalias dereferenceable_or_null(46) ptr @strdup(ptr noundef nonnull @.str.13) #22
   store ptr %3, ptr %1, align 8, !tbaa !41
   %.not = icmp eq ptr %3, null
   %4 = select i1 %.not, i32 -29, i32 0
@@ -326,12 +326,12 @@ define internal noundef i32 @enum_get_count(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @enum_get_value(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) #1 {
+define internal i32 @enum_get_value(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) #5 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load ptr, ptr %6, align 8, !tbaa !15
-  %8 = call i32 %7(ptr noundef %0, ptr noundef nonnull %5) #21
+  %8 = call i32 %7(ptr noundef %0, ptr noundef nonnull %5) #22
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %27
 
@@ -364,7 +364,7 @@ define internal i32 @enum_get_value(ptr noundef %0, i32 noundef %1, ptr noundef 
   %23 = getelementptr inbounds %struct.pmix_mca_base_var_enum_value_t, ptr %21, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !23
-  %26 = call noalias ptr @strdup(ptr noundef %25) #21
+  %26 = call noalias ptr @strdup(ptr noundef %25) #22
   store ptr %26, ptr %3, align 8, !tbaa !41
   br label %27
 
@@ -375,12 +375,12 @@ define internal i32 @enum_get_value(ptr noundef %0, i32 noundef %1, ptr noundef 
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal range(i32 -46, 1) i32 @pmix_mca_base_var_enum_verbose_vfs(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #5 {
+define internal range(i32 -46, 1) i32 @pmix_mca_base_var_enum_verbose_vfs(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #6 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %5 = tail call i64 @strspn(ptr noundef %1, ptr noundef nonnull @.str.6) #22
+  %5 = tail call i64 @strspn(ptr noundef %1, ptr noundef nonnull @.str.6) #23
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %5
-  %7 = call i64 @strtol(ptr noundef %6, ptr noundef nonnull %4, i32 noundef 10) #21
+  %7 = call i64 @strtol(ptr noundef %6, ptr noundef nonnull %4, i32 noundef 10) #22
   %8 = load ptr, ptr %4, align 8, !tbaa !41
   %9 = load i8, ptr %8, align 1, !tbaa !42
   %.not = icmp eq i8 %9, 0
@@ -402,7 +402,7 @@ define internal range(i32 -46, 1) i32 @pmix_mca_base_var_enum_verbose_vfs(ptr re
 .lr.ph:                                           ; preds = %.preheader, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %.preheader ]
   %15 = phi ptr [ %14, %11 ], [ %10, %.preheader ]
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %6) #22
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %6) #23
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %11
 
@@ -429,7 +429,7 @@ define internal range(i32 -46, 1) i32 @pmix_mca_base_var_enum_verbose_vfs(ptr re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -65, 1) i32 @pmix_mca_base_var_enum_verbose_sfv(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #1 {
+define internal range(i32 -65, 1) i32 @pmix_mca_base_var_enum_verbose_sfv(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #5 {
   %or.cond = icmp ugt i32 %1, 100
   br i1 %or.cond, label %18, label %.preheader
 
@@ -460,7 +460,7 @@ define internal range(i32 -65, 1) i32 @pmix_mca_base_var_enum_verbose_sfv(ptr re
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %4, %.lr.ph.preheader ], [ %9, %.lr.ph ]
-  %13 = tail call noalias ptr @strdup(ptr noundef nonnull %.lcssa) #21
+  %13 = tail call noalias ptr @strdup(ptr noundef nonnull %.lcssa) #22
   store ptr %13, ptr %2, align 8, !tbaa !41
   br label %18
 
@@ -469,7 +469,7 @@ define internal range(i32 -65, 1) i32 @pmix_mca_base_var_enum_verbose_sfv(ptr re
   br i1 %.not19, label %17, label %14
 
 14:                                               ; preds = %.critedge
-  %15 = tail call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.14, i32 noundef %1) #21
+  %15 = tail call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.14, i32 noundef %1) #22
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %18, label %17
 
@@ -482,7 +482,7 @@ define internal range(i32 -65, 1) i32 @pmix_mca_base_var_enum_verbose_sfv(ptr re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -29, 1) i32 @pmix_mca_base_var_enum_verbose_dump(ptr noundef readonly captures(address_is_null) %0, ptr noundef initializes((0, 8)) %1) #1 {
+define internal range(i32 -29, 1) i32 @pmix_mca_base_var_enum_verbose_dump(ptr noundef readonly captures(address_is_null) %0, ptr noundef initializes((0, 8)) %1) #5 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %1, align 8, !tbaa !41
@@ -511,11 +511,11 @@ define internal range(i32 -29, 1) i32 @pmix_mca_base_var_enum_verbose_dump(ptr n
   %14 = select i1 %.not23.i, ptr @.str.17, ptr %.01925.i
   %15 = select i1 %.not23.i, ptr @.str.17, ptr @.str.18
   %16 = load i32, ptr %10, align 8, !tbaa !43
-  %17 = tail call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.16, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef %16, ptr noundef nonnull %12) #21
+  %17 = tail call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.16, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef %16, ptr noundef nonnull %12) #22
   br i1 %.not23.i, label %19, label %18
 
 18:                                               ; preds = %13
-  tail call void @free(ptr noundef nonnull %.01925.i) #21
+  tail call void @free(ptr noundef nonnull %.01925.i) #22
   br label %19
 
 19:                                               ; preds = %18, %13
@@ -532,9 +532,9 @@ define internal range(i32 -29, 1) i32 @pmix_mca_base_var_enum_verbose_dump(ptr n
 
 .loopexit:                                        ; preds = %21, %.lr.ph.i, %.preheader.i
   %26 = phi ptr [ null, %.preheader.i ], [ %22, %21 ], [ %.01925.i, %.lr.ph.i ]
-  %27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.15, ptr noundef %26) #21
+  %27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.15, ptr noundef %26) #22
   %28 = load ptr, ptr %1, align 8, !tbaa !41
-  call void @free(ptr noundef %28) #21
+  call void @free(ptr noundef %28) #22
   %29 = icmp slt i32 %27, 0
   %30 = load ptr, ptr %3, align 8
   %.sink = select i1 %29, ptr null, ptr %30
@@ -549,17 +549,17 @@ enum_dump.exit:                                   ; preds = %19, %.loopexit, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -29, 1) i32 @pmix_mca_base_var_enum_create(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #1 {
+define range(i32 -29, 1) i32 @pmix_mca_base_var_enum_create(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #5 {
   store ptr null, ptr %2, align 8, !tbaa !47
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_var_enum_t_class, i64 56), align 8, !tbaa !49
-  %5 = tail call noalias noundef ptr @malloc(i64 noundef %4) #23
+  %5 = tail call noalias noundef ptr @malloc(i64 noundef %4) #24
   %6 = load i32, ptr @pmix_class_init_epoch, align 4, !tbaa !40
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_var_enum_t_class, i64 32), align 8, !tbaa !52
   %.not.i = icmp eq i32 %6, %7
   br i1 %.not.i, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void @pmix_class_initialize(ptr noundef nonnull @pmix_mca_base_var_enum_t_class) #21
+  tail call void @pmix_class_initialize(ptr noundef nonnull @pmix_mca_base_var_enum_t_class) #22
   br label %9
 
 9:                                                ; preds = %8, %3
@@ -567,7 +567,7 @@ define range(i32 -29, 1) i32 @pmix_mca_base_var_enum_create(ptr noundef readonly
   br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %10
 
 10:                                               ; preds = %9
-  %11 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %5, ptr noundef null) #21
+  %11 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %5, ptr noundef null) #22
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr @pmix_mca_base_var_enum_t_class, ptr %12, align 8, !tbaa !53
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -584,14 +584,14 @@ define range(i32 -29, 1) i32 @pmix_mca_base_var_enum_create(ptr noundef readonly
 .lr.ph.i.i:                                       ; preds = %10, %.lr.ph.i.i
   %18 = phi ptr [ %20, %.lr.ph.i.i ], [ %17, %10 ]
   %.07.i.i = phi ptr [ %19, %.lr.ph.i.i ], [ %16, %10 ]
-  tail call void %18(ptr noundef nonnull %5) #21
+  tail call void %18(ptr noundef nonnull %5) #22
   %19 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !56
   %.not.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !57
 
 .loopexit:                                        ; preds = %.lr.ph.i.i, %10
-  %21 = tail call noalias ptr @strdup(ptr noundef %0) #21
+  %21 = tail call noalias ptr @strdup(ptr noundef %0) #22
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 128
   store ptr %21, ptr %22, align 8, !tbaa !20
   %23 = icmp eq ptr %21, null
@@ -614,7 +614,7 @@ define range(i32 -29, 1) i32 @pmix_mca_base_var_enum_create(ptr noundef readonly
   store i32 %28, ptr %29, align 8, !tbaa !22
   %30 = add nuw i64 %indvars.iv, 1
   %31 = and i64 %30, 4294967295
-  %32 = tail call noalias ptr @calloc(i64 noundef %31, i64 noundef 16) #24
+  %32 = tail call noalias ptr @calloc(i64 noundef %31, i64 noundef 16) #25
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 184
   store ptr %32, ptr %33, align 8, !tbaa !21
   %34 = icmp eq ptr %32, null
@@ -629,22 +629,22 @@ define range(i32 -29, 1) i32 @pmix_mca_base_var_enum_create(ptr noundef readonly
   br label %.lr.ph
 
 35:                                               ; preds = %27
-  %36 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #21
+  %36 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #22
   %37 = icmp eq i32 %36, 35
   br i1 %37, label %38, label %pmix_obj_update.exit
 
 38:                                               ; preds = %35
-  %39 = tail call ptr @__errno_location() #25
+  %39 = tail call ptr @__errno_location() #26
   store i32 35, ptr %39, align 4, !tbaa !40
-  tail call void @perror(ptr noundef nonnull @.str.28) #26
-  tail call void @abort() #27
+  tail call void @perror(ptr noundef nonnull @.str.28) #27
+  tail call void @abort() #28
   unreachable
 
 pmix_obj_update.exit:                             ; preds = %35
   %40 = load i32, ptr %13, align 8, !tbaa !54
   %41 = add nsw i32 %40, -1
   store i32 %41, ptr %13, align 8, !tbaa !54
-  %42 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #21
+  %42 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #22
   %43 = icmp eq i32 %41, 0
   br i1 %43, label %44, label %pmix_obj_new_tma.exit
 
@@ -659,7 +659,7 @@ pmix_obj_update.exit:                             ; preds = %35
 .lr.ph.i:                                         ; preds = %44, %.lr.ph.i
   %49 = phi ptr [ %51, %.lr.ph.i ], [ %48, %44 ]
   %.07.i = phi ptr [ %50, %.lr.ph.i ], [ %47, %44 ]
-  tail call void %49(ptr noundef nonnull %5) #21
+  tail call void %49(ptr noundef nonnull %5) #22
   %50 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !56
   %.not.i36 = icmp eq ptr %51, null
@@ -671,11 +671,11 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %44
   br i1 %.not35, label %54, label %53
 
 53:                                               ; preds = %pmix_obj_run_destructors.exit
-  tail call void %52(ptr noundef nonnull %14, ptr noundef nonnull %5) #21
+  tail call void %52(ptr noundef nonnull %14, ptr noundef nonnull %5) #22
   br label %pmix_obj_new_tma.exit
 
 54:                                               ; preds = %pmix_obj_run_destructors.exit
-  tail call void @free(ptr noundef nonnull %5) #21
+  tail call void @free(ptr noundef nonnull %5) #22
   br label %pmix_obj_new_tma.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -686,7 +686,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %44
   store i32 %56, ptr %57, align 8, !tbaa !43
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !23
-  %60 = tail call noalias ptr @strdup(ptr noundef %59) #21
+  %60 = tail call noalias ptr @strdup(ptr noundef %59) #22
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %60, ptr %61, align 8, !tbaa !23
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
@@ -703,26 +703,26 @@ pmix_obj_new_tma.exit:                            ; preds = %9, %pmix_obj_update
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #6
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -29, 1) i32 @pmix_mca_base_var_enum_create_flag(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #1 {
+define range(i32 -29, 1) i32 @pmix_mca_base_var_enum_create_flag(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #5 {
   store ptr null, ptr %2, align 8, !tbaa !63
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_var_enum_flag_t_class, i64 56), align 8, !tbaa !49
-  %5 = tail call noalias noundef ptr @malloc(i64 noundef %4) #23
+  %5 = tail call noalias noundef ptr @malloc(i64 noundef %4) #24
   %6 = load i32, ptr @pmix_class_init_epoch, align 4, !tbaa !40
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_var_enum_flag_t_class, i64 32), align 8, !tbaa !52
   %.not.i = icmp eq i32 %6, %7
   br i1 %.not.i, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void @pmix_class_initialize(ptr noundef nonnull @pmix_mca_base_var_enum_flag_t_class) #21
+  tail call void @pmix_class_initialize(ptr noundef nonnull @pmix_mca_base_var_enum_flag_t_class) #22
   br label %9
 
 9:                                                ; preds = %8, %3
@@ -730,7 +730,7 @@ define range(i32 -29, 1) i32 @pmix_mca_base_var_enum_create_flag(ptr noundef rea
   br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %10
 
 10:                                               ; preds = %9
-  %11 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %5, ptr noundef null) #21
+  %11 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %5, ptr noundef null) #22
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr @pmix_mca_base_var_enum_flag_t_class, ptr %12, align 8, !tbaa !53
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -747,14 +747,14 @@ define range(i32 -29, 1) i32 @pmix_mca_base_var_enum_create_flag(ptr noundef rea
 .lr.ph.i.i:                                       ; preds = %10, %.lr.ph.i.i
   %18 = phi ptr [ %20, %.lr.ph.i.i ], [ %17, %10 ]
   %.07.i.i = phi ptr [ %19, %.lr.ph.i.i ], [ %16, %10 ]
-  tail call void %18(ptr noundef nonnull %5) #21
+  tail call void %18(ptr noundef nonnull %5) #22
   %19 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !56
   %.not.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !57
 
 .loopexit:                                        ; preds = %.lr.ph.i.i, %10
-  %21 = tail call noalias ptr @strdup(ptr noundef %0) #21
+  %21 = tail call noalias ptr @strdup(ptr noundef %0) #22
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 128
   store ptr %21, ptr %22, align 8, !tbaa !65
   %23 = icmp eq ptr %21, null
@@ -777,7 +777,7 @@ define range(i32 -29, 1) i32 @pmix_mca_base_var_enum_create_flag(ptr noundef rea
   store i32 %28, ptr %29, align 8, !tbaa !36
   %30 = add nuw i64 %indvars.iv, 1
   %31 = and i64 %30, 4294967295
-  %32 = tail call noalias ptr @calloc(i64 noundef %31, i64 noundef 24) #24
+  %32 = tail call noalias ptr @calloc(i64 noundef %31, i64 noundef 24) #25
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 192
   store ptr %32, ptr %33, align 8, !tbaa !27
   %34 = icmp eq ptr %32, null
@@ -792,22 +792,22 @@ define range(i32 -29, 1) i32 @pmix_mca_base_var_enum_create_flag(ptr noundef rea
   br label %.lr.ph
 
 35:                                               ; preds = %27
-  %36 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #21
+  %36 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #22
   %37 = icmp eq i32 %36, 35
   br i1 %37, label %38, label %pmix_obj_update.exit
 
 38:                                               ; preds = %35
-  %39 = tail call ptr @__errno_location() #25
+  %39 = tail call ptr @__errno_location() #26
   store i32 35, ptr %39, align 4, !tbaa !40
-  tail call void @perror(ptr noundef nonnull @.str.28) #26
-  tail call void @abort() #27
+  tail call void @perror(ptr noundef nonnull @.str.28) #27
+  tail call void @abort() #28
   unreachable
 
 pmix_obj_update.exit:                             ; preds = %35
   %40 = load i32, ptr %13, align 8, !tbaa !54
   %41 = add nsw i32 %40, -1
   store i32 %41, ptr %13, align 8, !tbaa !54
-  %42 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #21
+  %42 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #22
   %43 = icmp eq i32 %41, 0
   br i1 %43, label %44, label %pmix_obj_new_tma.exit
 
@@ -822,7 +822,7 @@ pmix_obj_update.exit:                             ; preds = %35
 .lr.ph.i:                                         ; preds = %44, %.lr.ph.i
   %49 = phi ptr [ %51, %.lr.ph.i ], [ %48, %44 ]
   %.07.i = phi ptr [ %50, %.lr.ph.i ], [ %47, %44 ]
-  tail call void %49(ptr noundef nonnull %5) #21
+  tail call void %49(ptr noundef nonnull %5) #22
   %50 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !56
   %.not.i40 = icmp eq ptr %51, null
@@ -834,11 +834,11 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %44
   br i1 %.not39, label %54, label %53
 
 53:                                               ; preds = %pmix_obj_run_destructors.exit
-  tail call void %52(ptr noundef nonnull %14, ptr noundef nonnull %5) #21
+  tail call void %52(ptr noundef nonnull %14, ptr noundef nonnull %5) #22
   br label %pmix_obj_new_tma.exit
 
 54:                                               ; preds = %pmix_obj_run_destructors.exit
-  tail call void @free(ptr noundef nonnull %5) #21
+  tail call void @free(ptr noundef nonnull %5) #22
   br label %pmix_obj_new_tma.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -849,7 +849,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %44
   store i32 %56, ptr %57, align 8, !tbaa !67
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !37
-  %60 = tail call noalias ptr @strdup(ptr noundef %59) #21
+  %60 = tail call noalias ptr @strdup(ptr noundef %59) #22
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %60, ptr %61, align 8, !tbaa !37
   %62 = getelementptr inbounds nuw i8, ptr %55, i64 16
@@ -870,19 +870,19 @@ pmix_obj_new_tma.exit:                            ; preds = %9, %pmix_obj_update
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
-declare i32 @asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #11
+declare i32 @asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -29, 1) i32 @enum_dump(ptr noundef readonly captures(address_is_null) %0, ptr noundef initializes((0, 8)) %1) #1 {
+define internal range(i32 -29, 1) i32 @enum_dump(ptr noundef readonly captures(address_is_null) %0, ptr noundef initializes((0, 8)) %1) #5 {
   store ptr null, ptr %1, align 8, !tbaa !41
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.critedge, label %.preheader
@@ -909,11 +909,11 @@ define internal range(i32 -29, 1) i32 @enum_dump(ptr noundef readonly captures(a
   %13 = select i1 %.not23, ptr @.str.17, ptr %.01925
   %14 = select i1 %.not23, ptr @.str.17, ptr @.str.18
   %15 = load i32, ptr %9, align 8, !tbaa !43
-  %16 = tail call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.16, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef %15, ptr noundef nonnull %11) #21
+  %16 = tail call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.16, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef %15, ptr noundef nonnull %11) #22
   br i1 %.not23, label %18, label %17
 
 17:                                               ; preds = %12
-  tail call void @free(ptr noundef nonnull %.01925) #21
+  tail call void @free(ptr noundef nonnull %.01925) #22
   br label %18
 
 18:                                               ; preds = %17, %12
@@ -933,46 +933,46 @@ define internal range(i32 -29, 1) i32 @enum_dump(ptr noundef readonly captures(a
   ret i32 %.0
 }
 
-declare void @pmix_class_initialize(ptr noundef) local_unnamed_addr #12
+declare void @pmix_class_initialize(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #11
+declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #13
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #11
+declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #14
+declare ptr @__errno_location() local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #15
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #16
+declare void @abort() local_unnamed_addr #17
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #11
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @enum_value_from_string(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #1 {
+define internal i32 @enum_value_from_string(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load ptr, ptr %6, align 8, !tbaa !15
-  %8 = call i32 %7(ptr noundef %0, ptr noundef nonnull %4) #21
+  %8 = call i32 %7(ptr noundef %0, ptr noundef nonnull %4) #22
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %._crit_edge.thread
 
 9:                                                ; preds = %3
-  %10 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %5, i32 noundef 0) #21
+  %10 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %5, i32 noundef 0) #22
   %11 = trunc i64 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %13 = load i32, ptr %4, align 4, !tbaa !40
@@ -997,7 +997,7 @@ define internal i32 @enum_value_from_string(ptr noundef %0, ptr noundef %1, ptr 
 22:                                               ; preds = %.lr.ph.split.us
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !23
-  %25 = call i32 @strcasecmp(ptr noundef %1, ptr noundef %24) #22
+  %25 = call i32 @strcasecmp(ptr noundef %1, ptr noundef %24) #23
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %._crit_edge.loopexit, label %27
 
@@ -1011,7 +1011,7 @@ define internal i32 @enum_value_from_string(ptr noundef %0, ptr noundef %1, ptr 
   %28 = getelementptr inbounds nuw %struct.pmix_mca_base_var_enum_value_t, ptr %18, i64 %indvars.iv
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !23
-  %31 = call i32 @strcasecmp(ptr noundef %1, ptr noundef %30) #22
+  %31 = call i32 @strcasecmp(ptr noundef %1, ptr noundef %30) #23
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %._crit_edge.loopexit44, label %33
 
@@ -1049,12 +1049,12 @@ define internal i32 @enum_value_from_string(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @enum_string_from_value(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) #1 {
+define internal i32 @enum_string_from_value(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) #5 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load ptr, ptr %5, align 8, !tbaa !15
-  %7 = call i32 %6(ptr noundef %0, ptr noundef nonnull %4) #21
+  %7 = call i32 %6(ptr noundef %0, ptr noundef nonnull %4) #22
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %.preheader, label %._crit_edge.thread
 
@@ -1101,7 +1101,7 @@ define internal i32 @enum_string_from_value(ptr noundef %0, i32 noundef %1, ptr 
   %24 = getelementptr inbounds nuw %struct.pmix_mca_base_var_enum_value_t, ptr %22, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !23
-  %27 = call noalias ptr @strdup(ptr noundef %26) #21
+  %27 = call noalias ptr @strdup(ptr noundef %26) #22
   store ptr %27, ptr %2, align 8, !tbaa !41
   br label %._crit_edge.thread
 
@@ -1112,15 +1112,15 @@ define internal i32 @enum_string_from_value(ptr noundef %0, i32 noundef %1, ptr 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #18
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @enum_get_value_flag(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) #1 {
+define internal i32 @enum_get_value_flag(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) #5 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load ptr, ptr %6, align 8, !tbaa !15
-  %8 = call i32 %7(ptr noundef %0, ptr noundef nonnull %5) #21
+  %8 = call i32 %7(ptr noundef %0, ptr noundef nonnull %5) #22
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %27
 
@@ -1153,7 +1153,7 @@ define internal i32 @enum_get_value_flag(ptr noundef %0, i32 noundef %1, ptr nou
   %23 = getelementptr inbounds %struct.pmix_mca_base_var_enum_value_flag_t, ptr %21, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !37
-  %26 = call noalias ptr @strdup(ptr noundef %25) #21
+  %26 = call noalias ptr @strdup(ptr noundef %25) #22
   store ptr %26, ptr %3, align 8, !tbaa !41
   br label %27
 
@@ -1164,19 +1164,19 @@ define internal i32 @enum_get_value_flag(ptr noundef %0, i32 noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @enum_value_from_string_flag(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #1 {
+define internal i32 @enum_value_from_string_flag(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load ptr, ptr %6, align 8, !tbaa !15
-  %8 = call i32 %7(ptr noundef %0, ptr noundef nonnull %4) #21
+  %8 = call i32 %7(ptr noundef %0, ptr noundef nonnull %4) #22
   %.not53 = icmp eq i32 %8, 0
   br i1 %.not53, label %9, label %50
 
 9:                                                ; preds = %3
-  %10 = call ptr @PMIx_Argv_split(ptr noundef %1, i32 noundef 44) #21
+  %10 = call ptr @PMIx_Argv_split(ptr noundef %1, i32 noundef 44) #22
   %11 = icmp eq ptr %10, null
   br i1 %11, label %50, label %.preheader
 
@@ -1194,7 +1194,7 @@ define internal i32 @enum_value_from_string_flag(ptr noundef %0, ptr noundef %1,
   %15 = phi ptr [ %12, %.lr.ph91 ], [ %49, %45 ]
   %.04689 = phi i32 [ 0, %.lr.ph91 ], [ %47, %45 ]
   %16 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
-  %17 = call i64 @strtol(ptr noundef nonnull %15, ptr noundef nonnull %5, i32 noundef 0) #21
+  %17 = call i64 @strtol(ptr noundef nonnull %15, ptr noundef nonnull %5, i32 noundef 0) #22
   %18 = trunc i64 %17 to i32
   %19 = load i32, ptr %4, align 4, !tbaa !40
   %.not79 = icmp sgt i32 %19, 0
@@ -1217,7 +1217,7 @@ define internal i32 @enum_value_from_string_flag(ptr noundef %0, ptr noundef %1,
   %27 = load ptr, ptr %16, align 8, !tbaa !41
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !37
-  %30 = call i32 @strcasecmp(ptr noundef %27, ptr noundef %29) #22
+  %30 = call i32 @strcasecmp(ptr noundef %27, ptr noundef %29) #23
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %.split.us.split, label %.loopexit
 
@@ -1227,7 +1227,7 @@ define internal i32 @enum_value_from_string_flag(ptr noundef %0, ptr noundef %1,
   %34 = getelementptr inbounds nuw %struct.pmix_mca_base_var_enum_value_flag_t, ptr %33, i64 %indvars.iv
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !37
-  %37 = call i32 @strcasecmp(ptr noundef %32, ptr noundef %36) #22
+  %37 = call i32 @strcasecmp(ptr noundef %32, ptr noundef %36) #23
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %.split.us.split, label %.loopexit
 
@@ -1242,7 +1242,7 @@ define internal i32 @enum_value_from_string_flag(ptr noundef %0, ptr noundef %1,
 
 .loopexit:                                        ; preds = %.split.us.split, %14, %.lr.ph.split, %.lr.ph.split.us.split
   %44 = phi i32 [ -65, %.lr.ph.split.us.split ], [ -65, %.lr.ph.split ], [ -27, %.split.us.split ], [ -65, %14 ]
-  call void @PMIx_Argv_free(ptr noundef nonnull %10) #21
+  call void @PMIx_Argv_free(ptr noundef nonnull %10) #22
   br label %50
 
 45:                                               ; preds = %.split.us.split
@@ -1256,7 +1256,7 @@ define internal i32 @enum_value_from_string_flag(ptr noundef %0, ptr noundef %1,
 
 .thread72:                                        ; preds = %45, %.preheader
   %.046.lcssa = phi i32 [ 0, %.preheader ], [ %47, %45 ]
-  call void @PMIx_Argv_free(ptr noundef nonnull %10) #21
+  call void @PMIx_Argv_free(ptr noundef nonnull %10) #22
   store i32 %.046.lcssa, ptr %2, align 4, !tbaa !40
   br label %50
 
@@ -1268,7 +1268,7 @@ define internal i32 @enum_value_from_string_flag(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @enum_string_from_value_flag(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) #1 {
+define internal i32 @enum_string_from_value_flag(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) #5 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1276,7 +1276,7 @@ define internal i32 @enum_string_from_value_flag(ptr noundef %0, i32 noundef %1,
   store ptr null, ptr %5, align 8, !tbaa !41
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load ptr, ptr %6, align 8, !tbaa !15
-  %8 = call i32 %7(ptr noundef %0, ptr noundef nonnull %4) #21
+  %8 = call i32 %7(ptr noundef %0, ptr noundef nonnull %4) #22
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %.preheader, label %.thread
 
@@ -1308,8 +1308,8 @@ define internal i32 @enum_string_from_value_flag(ptr noundef %0, i32 noundef %1,
   %20 = select i1 %.not36, ptr @.str.17, ptr @.str.30
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !37
-  %23 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.29, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef %22) #21
-  call void @free(ptr noundef %18) #21
+  %23 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.29, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef %22) #22
+  call void @free(ptr noundef %18) #22
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %.thread, label %25
 
@@ -1324,7 +1324,7 @@ define internal i32 @enum_string_from_value_flag(ptr noundef %0, i32 noundef %1,
 
 31:                                               ; preds = %25
   %32 = load ptr, ptr %5, align 8, !tbaa !41
-  call void @free(ptr noundef %32) #21
+  call void @free(ptr noundef %32) #22
   br label %.thread
 
 33:                                               ; preds = %25
@@ -1350,7 +1350,7 @@ define internal i32 @enum_string_from_value_flag(ptr noundef %0, i32 noundef %1,
 
 41:                                               ; preds = %._crit_edge
   %42 = load ptr, ptr %5, align 8, !tbaa !41
-  call void @free(ptr noundef %42) #21
+  call void @free(ptr noundef %42) #22
   br label %.thread
 
 43:                                               ; preds = %._crit_edge
@@ -1363,7 +1363,7 @@ define internal i32 @enum_string_from_value_flag(ptr noundef %0, i32 noundef %1,
   br i1 %.not41, label %46, label %48
 
 46:                                               ; preds = %45
-  %47 = call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull @.str.17) #21
+  %47 = call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull @.str.17) #22
   br label %48
 
 48:                                               ; preds = %45, %46
@@ -1372,7 +1372,7 @@ define internal i32 @enum_string_from_value_flag(ptr noundef %0, i32 noundef %1,
   br label %.thread
 
 50:                                               ; preds = %43
-  call void @free(ptr noundef %44) #21
+  call void @free(ptr noundef %44) #22
   br label %.thread
 
 .thread:                                          ; preds = %17, %31, %48, %50, %3, %41
@@ -1383,13 +1383,13 @@ define internal i32 @enum_string_from_value_flag(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -29, 1) i32 @enum_dump_flag(ptr noundef readonly captures(address_is_null) %0, ptr noundef initializes((0, 8)) %1) #1 {
+define internal range(i32 -29, 1) i32 @enum_dump_flag(ptr noundef readonly captures(address_is_null) %0, ptr noundef initializes((0, 8)) %1) #5 {
   store ptr null, ptr %1, align 8, !tbaa !41
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call noalias dereferenceable_or_null(26) ptr @strdup(ptr noundef nonnull @.str.31) #21
+  %5 = tail call noalias dereferenceable_or_null(26) ptr @strdup(ptr noundef nonnull @.str.31) #22
   store ptr %5, ptr %1, align 8, !tbaa !41
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -1421,8 +1421,8 @@ define internal range(i32 -29, 1) i32 @enum_dump_flag(ptr noundef readonly captu
   %18 = load i32, ptr %17, align 8, !tbaa !67
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !37
-  %21 = tail call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.32, ptr noundef %14, ptr noundef nonnull %15, i32 noundef %18, ptr noundef %20) #21
-  tail call void @free(ptr noundef %14) #21
+  %21 = tail call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.32, ptr noundef %14, ptr noundef nonnull %15, i32 noundef %18, ptr noundef %20) #22
+  tail call void @free(ptr noundef %14) #22
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %.loopexit, label %10
 
@@ -1431,50 +1431,51 @@ define internal range(i32 -29, 1) i32 @enum_dump_flag(ptr noundef readonly captu
   ret i32 %.020
 }
 
-declare ptr @PMIx_Argv_split(ptr noundef, i32 noundef) local_unnamed_addr #12
+declare ptr @PMIx_Argv_split(ptr noundef, i32 noundef) local_unnamed_addr #13
 
-declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #12
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
+declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #20
+declare i32 @llvm.smin.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #20
+declare i32 @llvm.smax.i32(i32, i32) #21
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #20 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #21 = { nounwind }
-attributes #22 = { nounwind willreturn memory(read) }
-attributes #23 = { nounwind allocsize(0) }
-attributes #24 = { nounwind allocsize(0,1) }
-attributes #25 = { nounwind willreturn memory(none) }
-attributes #26 = { cold }
-attributes #27 = { noreturn nounwind }
+attributes #5 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #21 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { nounwind }
+attributes #23 = { nounwind willreturn memory(read) }
+attributes #24 = { nounwind allocsize(0) }
+attributes #25 = { nounwind allocsize(0,1) }
+attributes #26 = { nounwind willreturn memory(none) }
+attributes #27 = { cold }
+attributes #28 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

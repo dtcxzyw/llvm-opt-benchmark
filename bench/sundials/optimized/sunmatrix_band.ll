@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noundef ptr @SUNBandMatrix(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = add nsw i64 %2, %1
-  %6 = tail call ptr @SUNMatNewEmpty(ptr noundef %3) #18
+  %6 = tail call ptr @SUNMatNewEmpty(ptr noundef %3) #19
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   store ptr @SUNMatGetID_Band, ptr %8, align 8, !tbaa !10
@@ -30,7 +30,7 @@ define noundef ptr @SUNBandMatrix(i64 noundef %0, i64 noundef %1, i64 noundef %2
   store ptr @SUNMatMatvec_Band, ptr %15, align 8, !tbaa !18
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store ptr @SUNMatSpace_Band, ptr %16, align 8, !tbaa !19
-  %17 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #19
+  %17 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #20
   store ptr %17, ptr %6, align 8, !tbaa !20
   %18 = add i64 %2, 1
   %19 = add i64 %18, %5
@@ -50,10 +50,10 @@ define noundef ptr @SUNBandMatrix(i64 noundef %0, i64 noundef %1, i64 noundef %2
   store i64 %25, ptr %26, align 8, !tbaa !31
   %27 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 64
-  %29 = tail call noalias ptr @calloc(i64 noundef %25, i64 noundef 8) #20
+  %29 = tail call noalias ptr @calloc(i64 noundef %25, i64 noundef 8) #21
   store ptr %29, ptr %27, align 8, !tbaa !32
   %30 = shl i64 %0, 3
-  %31 = tail call noalias ptr @malloc(i64 noundef %30) #19
+  %31 = tail call noalias ptr @malloc(i64 noundef %30) #20
   store ptr %31, ptr %28, align 8, !tbaa !33
   %32 = icmp sgt i64 %0, 0
   br i1 %32, label %.lr.ph.i, label %SUNBandMatrixStorage.exit
@@ -74,7 +74,7 @@ SUNBandMatrixStorage.exit:                        ; preds = %.lr.ph.i, %4
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @SUNBandMatrixStorage(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = tail call ptr @SUNMatNewEmpty(ptr noundef %4) #18
+  %6 = tail call ptr @SUNMatNewEmpty(ptr noundef %4) #19
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   store ptr @SUNMatGetID_Band, ptr %8, align 8, !tbaa !10
@@ -94,7 +94,7 @@ define noundef ptr @SUNBandMatrixStorage(i64 noundef %0, i64 noundef %1, i64 nou
   store ptr @SUNMatMatvec_Band, ptr %15, align 8, !tbaa !18
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store ptr @SUNMatSpace_Band, ptr %16, align 8, !tbaa !19
-  %17 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #19
+  %17 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #20
   store ptr %17, ptr %6, align 8, !tbaa !20
   %18 = add i64 %2, 1
   %19 = add i64 %18, %3
@@ -114,10 +114,10 @@ define noundef ptr @SUNBandMatrixStorage(i64 noundef %0, i64 noundef %1, i64 nou
   store i64 %25, ptr %26, align 8, !tbaa !31
   %27 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 64
-  %29 = tail call noalias ptr @calloc(i64 noundef %25, i64 noundef 8) #20
+  %29 = tail call noalias ptr @calloc(i64 noundef %25, i64 noundef 8) #21
   store ptr %29, ptr %27, align 8, !tbaa !32
   %30 = shl i64 %0, 3
-  %31 = tail call noalias ptr @malloc(i64 noundef %30) #19
+  %31 = tail call noalias ptr @malloc(i64 noundef %30) #20
   store ptr %31, ptr %28, align 8, !tbaa !33
   %32 = icmp sgt i64 %0, 0
   br i1 %32, label %.lr.ph, label %._crit_edge
@@ -156,7 +156,7 @@ define noundef ptr @SUNMatClone_Band(ptr noundef readonly captures(none) %0) #0 
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %11 = load i64, ptr %10, align 8, !tbaa !29
   %12 = load ptr, ptr %2, align 8, !tbaa !35
-  %13 = tail call ptr @SUNMatNewEmpty(ptr noundef %12) #18
+  %13 = tail call ptr @SUNMatNewEmpty(ptr noundef %12) #19
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !3
   store ptr @SUNMatGetID_Band, ptr %15, align 8, !tbaa !10
@@ -176,7 +176,7 @@ define noundef ptr @SUNMatClone_Band(ptr noundef readonly captures(none) %0) #0 
   store ptr @SUNMatMatvec_Band, ptr %22, align 8, !tbaa !18
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 72
   store ptr @SUNMatSpace_Band, ptr %23, align 8, !tbaa !19
-  %24 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #19
+  %24 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #20
   store ptr %24, ptr %13, align 8, !tbaa !20
   %25 = add i64 %9, 1
   %26 = add i64 %25, %11
@@ -196,10 +196,10 @@ define noundef ptr @SUNMatClone_Band(ptr noundef readonly captures(none) %0) #0 
   store i64 %32, ptr %33, align 8, !tbaa !31
   %34 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 64
-  %36 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 8) #20
+  %36 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 8) #21
   store ptr %36, ptr %34, align 8, !tbaa !32
   %37 = shl i64 %5, 3
-  %38 = tail call noalias ptr @malloc(i64 noundef %37) #19
+  %38 = tail call noalias ptr @malloc(i64 noundef %37) #20
   store ptr %38, ptr %35, align 8, !tbaa !33
   %39 = icmp sgt i64 %5, 0
   br i1 %39, label %.lr.ph.i, label %SUNBandMatrixStorage.exit
@@ -218,7 +218,7 @@ SUNBandMatrixStorage.exit:                        ; preds = %.lr.ph.i, %1
   ret ptr %13
 }
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @SUNMatDestroy_Band(ptr noundef captures(address_is_null) %0) #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %25, label %3
@@ -235,7 +235,7 @@ define void @SUNMatDestroy_Band(ptr noundef captures(address_is_null) %0) #3 {
   br i1 %.not18, label %11, label %8
 
 8:                                                ; preds = %5
-  tail call void @free(ptr noundef nonnull %7) #18
+  tail call void @free(ptr noundef nonnull %7) #19
   %9 = load ptr, ptr %0, align 8, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr null, ptr %10, align 8, !tbaa !32
@@ -249,7 +249,7 @@ define void @SUNMatDestroy_Band(ptr noundef captures(address_is_null) %0) #3 {
   br i1 %.not19, label %18, label %15
 
 15:                                               ; preds = %11
-  tail call void @free(ptr noundef nonnull %14) #18
+  tail call void @free(ptr noundef nonnull %14) #19
   %16 = load ptr, ptr %0, align 8, !tbaa !20
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
   store ptr null, ptr %17, align 8, !tbaa !33
@@ -257,7 +257,7 @@ define void @SUNMatDestroy_Band(ptr noundef captures(address_is_null) %0) #3 {
 
 18:                                               ; preds = %15, %11
   %19 = phi ptr [ %16, %15 ], [ %12, %11 ]
-  tail call void @free(ptr noundef nonnull %19) #18
+  tail call void @free(ptr noundef nonnull %19) #19
   store ptr null, ptr %0, align 8, !tbaa !20
   br label %20
 
@@ -268,18 +268,18 @@ define void @SUNMatDestroy_Band(ptr noundef captures(address_is_null) %0) #3 {
   br i1 %.not20, label %24, label %23
 
 23:                                               ; preds = %20
-  tail call void @free(ptr noundef nonnull %22) #18
+  tail call void @free(ptr noundef nonnull %22) #19
   br label %24
 
 24:                                               ; preds = %23, %20
-  tail call void @free(ptr noundef nonnull %0) #18
+  tail call void @free(ptr noundef nonnull %0) #19
   br label %25
 
 25:                                               ; preds = %1, %24
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @SUNMatZero_Band(ptr noundef readonly captures(none) %0) #4 {
   %2 = load ptr, ptr %0, align 8, !tbaa !20
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -298,8 +298,8 @@ define noundef i32 @SUNMatZero_Band(ptr noundef readonly captures(none) %0) #4 {
   ret i32 0
 }
 
-; Function Attrs: nounwind uwtable
-define noundef i32 @SUNMatCopy_Band(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define noundef i32 @SUNMatCopy_Band(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = load ptr, ptr %0, align 8, !tbaa !20
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i64, ptr %4, align 8, !tbaa !27
@@ -350,7 +350,7 @@ define noundef i32 @SUNMatCopy_Band(ptr noundef readonly captures(none) %0, ptr 
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %34 = load ptr, ptr %33, align 8, !tbaa !32
   %35 = shl i64 %31, 3
-  %36 = tail call ptr @realloc(ptr noundef %34, i64 noundef %35) #21
+  %36 = tail call ptr @realloc(ptr noundef %34, i64 noundef %35) #22
   %37 = load ptr, ptr %1, align 8, !tbaa !20
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
   store ptr %36, ptr %38, align 8, !tbaa !32
@@ -499,7 +499,7 @@ define noundef i32 @SUNMatScaleAdd_Band(double noundef %0, ptr noundef captures(
   %37 = add nsw i64 %35, -1
   %38 = tail call i64 @llvm.smin.i64(i64 %36, i64 %37)
   %39 = load ptr, ptr %32, align 8, !tbaa !35
-  %40 = tail call ptr @SUNMatNewEmpty(ptr noundef %39) #18
+  %40 = tail call ptr @SUNMatNewEmpty(ptr noundef %39) #19
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !3
   store ptr @SUNMatGetID_Band, ptr %42, align 8, !tbaa !10
@@ -519,7 +519,7 @@ define noundef i32 @SUNMatScaleAdd_Band(double noundef %0, ptr noundef captures(
   store ptr @SUNMatMatvec_Band, ptr %49, align 8, !tbaa !18
   %50 = getelementptr inbounds nuw i8, ptr %42, i64 72
   store ptr @SUNMatSpace_Band, ptr %50, align 8, !tbaa !19
-  %51 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #19
+  %51 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #20
   store ptr %51, ptr %40, align 8, !tbaa !20
   %52 = add i64 %..i, 1
   %53 = add i64 %52, %38
@@ -539,10 +539,10 @@ define noundef i32 @SUNMatScaleAdd_Band(double noundef %0, ptr noundef captures(
   store i64 %59, ptr %60, align 8, !tbaa !31
   %61 = getelementptr inbounds nuw i8, ptr %51, i64 48
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 64
-  %63 = tail call noalias ptr @calloc(i64 noundef %59, i64 noundef 8) #20
+  %63 = tail call noalias ptr @calloc(i64 noundef %59, i64 noundef 8) #21
   store ptr %63, ptr %61, align 8, !tbaa !32
   %64 = shl i64 %35, 3
-  %65 = tail call noalias ptr @malloc(i64 noundef %64) #19
+  %65 = tail call noalias ptr @malloc(i64 noundef %64) #20
   store ptr %65, ptr %62, align 8, !tbaa !33
   %66 = icmp sgt i64 %35, 0
   br i1 %66, label %.lr.ph.i.i, label %SUNBandMatrixStorage.exit.i
@@ -653,15 +653,15 @@ SUNBandMatrixStorage.exit.i:                      ; preds = %.lr.ph.i.i, %29
 ._crit_edge85.i:                                  ; preds = %._crit_edge82.i, %.lr.ph84.i, %.preheader.i
   %124 = getelementptr inbounds nuw i8, ptr %71, i64 48
   %125 = load ptr, ptr %124, align 8, !tbaa !32
-  tail call void @free(ptr noundef %125) #18
+  tail call void @free(ptr noundef %125) #19
   %126 = load ptr, ptr %1, align 8, !tbaa !20
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 48
   store ptr null, ptr %127, align 8, !tbaa !32
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 64
   %129 = load ptr, ptr %128, align 8, !tbaa !33
-  tail call void @free(ptr noundef %129) #18
+  tail call void @free(ptr noundef %129) #19
   %130 = load ptr, ptr %1, align 8, !tbaa !20
-  tail call void @free(ptr noundef %130) #18
+  tail call void @free(ptr noundef %130) #19
   store ptr null, ptr %1, align 8, !tbaa !20
   %131 = load ptr, ptr %40, align 8, !tbaa !20
   store ptr %131, ptr %1, align 8, !tbaa !20
@@ -671,11 +671,11 @@ SUNBandMatrixStorage.exit.i:                      ; preds = %.lr.ph.i.i, %29
   br i1 %.not20.i.i, label %SMScaleAddNew_Band.exit, label %133
 
 133:                                              ; preds = %._crit_edge85.i
-  tail call void @free(ptr noundef nonnull %132) #18
+  tail call void @free(ptr noundef nonnull %132) #19
   br label %SMScaleAddNew_Band.exit
 
 SMScaleAddNew_Band.exit:                          ; preds = %._crit_edge85.i, %133
-  tail call void @free(ptr noundef nonnull %40) #18
+  tail call void @free(ptr noundef nonnull %40) #19
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph33, %._crit_edge
@@ -709,8 +709,8 @@ SMScaleAddNew_Band.exit:                          ; preds = %._crit_edge85.i, %1
   ret i32 0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @SUNMatScaleAddI_Band(double noundef %0, ptr noundef readonly captures(none) %1) #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define noundef i32 @SUNMatScaleAddI_Band(double noundef %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = load ptr, ptr %1, align 8, !tbaa !20
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !26
@@ -773,8 +773,8 @@ define noundef i32 @SUNMatScaleAddI_Band(double noundef %0, ptr noundef readonly
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @SUNMatMatvec_Band(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #18
-  %5 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #18
+  %4 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #19
+  %5 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #19
   %6 = load ptr, ptr %0, align 8, !tbaa !20
   %7 = load i64, ptr %6, align 8, !tbaa !21
   %8 = icmp sgt i64 %7, 0
@@ -842,8 +842,8 @@ define noundef i32 @SUNMatMatvec_Band(ptr noundef readonly captures(none) %0, pt
   ret i32 0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @SUNMatSpace_Band(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) #6 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define noundef i32 @SUNMatSpace_Band(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) #7 {
   %4 = load ptr, ptr %0, align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !26
@@ -862,13 +862,13 @@ define noundef i32 @SUNMatSpace_Band(ptr noundef readonly captures(none) %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind uwtable
-define void @SUNBandMatrix_Print(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #9 {
+define void @SUNBandMatrix_Print(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #10 {
   %fputc = tail call i32 @fputc(i32 10, ptr %1)
   %3 = load ptr, ptr %0, align 8, !tbaa !20
   %4 = load i64, ptr %3, align 8, !tbaa !21
@@ -898,7 +898,7 @@ define void @SUNBandMatrix_Print(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph:                                           ; preds = %.lr.ph44, %.lr.ph
   %.03038 = phi i64 [ %19, %.lr.ph ], [ 0, %.lr.ph44 ]
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #18
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #19
   %19 = add nuw nsw i64 %.03038, 1
   %exitcond.not = icmp eq i64 %19, %9
   br i1 %exitcond.not, label %.preheader, label %.lr.ph
@@ -916,7 +916,7 @@ define void @SUNBandMatrix_Print(ptr noundef readonly captures(none) %0, ptr nou
   %28 = getelementptr double, ptr %24, i64 %25
   %29 = getelementptr double, ptr %28, i64 %27
   %30 = load double, ptr %29, align 8, !tbaa !36
-  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.3, double noundef %30) #18
+  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.3, double noundef %30) #19
   %32 = add nuw nsw i64 %.140, 1
   %.not36.not = icmp slt i64 %.140, %16
   br i1 %.not36.not, label %.lr.ph41, label %._crit_edge
@@ -935,81 +935,81 @@ define void @SUNBandMatrix_Print(ptr noundef readonly captures(none) %0, ptr nou
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @SUNBandMatrix_Rows(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define i64 @SUNBandMatrix_Rows(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load ptr, ptr %0, align 8, !tbaa !20
   %3 = load i64, ptr %2, align 8, !tbaa !21
   ret i64 %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @SUNBandMatrix_Columns(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define i64 @SUNBandMatrix_Columns(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load ptr, ptr %0, align 8, !tbaa !20
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !26
   ret i64 %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @SUNBandMatrix_LowerBandwidth(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define i64 @SUNBandMatrix_LowerBandwidth(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load ptr, ptr %0, align 8, !tbaa !20
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load i64, ptr %3, align 8, !tbaa !28
   ret i64 %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @SUNBandMatrix_UpperBandwidth(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define i64 @SUNBandMatrix_UpperBandwidth(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load ptr, ptr %0, align 8, !tbaa !20
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load i64, ptr %3, align 8, !tbaa !27
   ret i64 %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @SUNBandMatrix_StoredUpperBandwidth(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define i64 @SUNBandMatrix_StoredUpperBandwidth(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load ptr, ptr %0, align 8, !tbaa !20
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4 = load i64, ptr %3, align 8, !tbaa !29
   ret i64 %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @SUNBandMatrix_LDim(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define i64 @SUNBandMatrix_LDim(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load ptr, ptr %0, align 8, !tbaa !20
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8, !tbaa !30
   ret i64 %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @SUNBandMatrix_LData(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define i64 @SUNBandMatrix_LData(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load ptr, ptr %0, align 8, !tbaa !20
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4 = load i64, ptr %3, align 8, !tbaa !31
   ret i64 %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @SUNBandMatrix_Data(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define ptr @SUNBandMatrix_Data(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load ptr, ptr %0, align 8, !tbaa !20
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !32
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @SUNBandMatrix_Cols(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define ptr @SUNBandMatrix_Cols(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load ptr, ptr %0, align 8, !tbaa !20
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %4 = load ptr, ptr %3, align 8, !tbaa !33
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @SUNBandMatrix_Column(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #11 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define ptr @SUNBandMatrix_Column(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #12 {
   %3 = load ptr, ptr %0, align 8, !tbaa !20
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8, !tbaa !33
@@ -1022,50 +1022,51 @@ define ptr @SUNBandMatrix_Column(ptr noundef readonly captures(none) %0, i64 nou
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #13
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #14
+declare double @llvm.fmuladd.f64(double, double, double) #15
 
 declare ptr @N_VGetArrayPointer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #15
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #16
+declare i64 @llvm.smax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #16
+declare i64 @llvm.smin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nofree nounwind }
-attributes #16 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #18 = { nounwind }
-attributes #19 = { nounwind allocsize(0) }
-attributes #20 = { nounwind allocsize(0,1) }
-attributes #21 = { nounwind allocsize(1) }
+attributes #3 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nofree nounwind }
+attributes #17 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #19 = { nounwind }
+attributes #20 = { nounwind allocsize(0) }
+attributes #21 = { nounwind allocsize(0,1) }
+attributes #22 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

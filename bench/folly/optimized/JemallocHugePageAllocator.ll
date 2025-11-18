@@ -1487,14 +1487,14 @@ _ZN5folly25JemallocHugePageAllocator23hugePagesAllocSupportedEv.exit: ; preds = 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZN5folly25JemallocHugePageAllocator11initializedEv() local_unnamed_addr #18 align 2 {
   %1 = load i32, ptr @_ZN5folly25JemallocHugePageAllocator6flags_E, align 4, !tbaa !14
   %2 = icmp ne i32 %1, 0
   ret i1 %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i64 @_ZN5folly25JemallocHugePageAllocator9freeSpaceEv() local_unnamed_addr #18 align 2 {
   %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 8), align 8, !tbaa !87
   %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 16), align 8, !tbaa !86
@@ -1502,7 +1502,7 @@ define noundef i64 @_ZN5folly25JemallocHugePageAllocator9freeSpaceEv() local_unn
   ret i64 %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZN5folly25JemallocHugePageAllocator14addressInArenaEPv(ptr noundef %0) local_unnamed_addr #18 align 2 {
   %2 = ptrtoint ptr %0 to i64
   %3 = load i64, ptr @_ZN5folly12_GLOBAL__N_15arenaE, align 8, !tbaa !76
@@ -1513,7 +1513,7 @@ define noundef zeroext i1 @_ZN5folly25JemallocHugePageAllocator14addressInArenaE
   ret i1 %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZN5folly10arenaIndexEv() local_unnamed_addr #18 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 112), align 8, !tbaa !18
   ret i32 %1
@@ -1549,7 +1549,7 @@ attributes #14 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector
 attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #20 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #21 = { nounwind }

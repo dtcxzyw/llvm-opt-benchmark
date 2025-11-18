@@ -3,13 +3,13 @@ source_filename = "bench/sundials/original/sundials_hashmap.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: write) uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: write, target_mem0: none, target_mem1: none) uwtable
 define range(i32 -9997, 1) i32 @SUNHashMap_New(i32 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp slt i32 %0, 1
   br i1 %3, label %.loopexit, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
+  %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #10
   store ptr %5, ptr %1, align 8, !tbaa !3
   store i32 0, ptr %5, align 8, !tbaa !8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -23,7 +23,7 @@ define range(i32 -9997, 1) i32 @SUNHashMap_New(i32 noundef %0, ptr noundef write
   br i1 %.not, label %10, label %.loopexit
 
 10:                                               ; preds = %4
-  tail call void @free(ptr noundef nonnull %5) #10
+  tail call void @free(ptr noundef nonnull %5) #11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %2, %10
@@ -68,7 +68,7 @@ define noundef i32 @SUNHashMap_Destroy(ptr noundef captures(address_is_null) %0,
   br i1 %.not32, label %.thread49, label %17
 
 17:                                               ; preds = %14
-  tail call void %1(ptr noundef nonnull %16) #10
+  tail call void %1(ptr noundef nonnull %16) #11
   %.pre = load ptr, ptr %0, align 8, !tbaa !3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %.pre37 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !13
@@ -79,7 +79,7 @@ define noundef i32 @SUNHashMap_Destroy(ptr noundef captures(address_is_null) %0,
 
 .thread49:                                        ; preds = %14, %17
   %18 = phi ptr [ %.pre39, %17 ], [ %13, %14 ]
-  tail call void @free(ptr noundef nonnull %18) #10
+  tail call void @free(ptr noundef nonnull %18) #11
   %.pre40 = load ptr, ptr %0, align 8, !tbaa !3
   br label %.thread
 
@@ -100,14 +100,14 @@ define noundef i32 @SUNHashMap_Destroy(ptr noundef captures(address_is_null) %0,
   br i1 %.not, label %.thread51, label %26
 
 26:                                               ; preds = %._crit_edge
-  tail call void @free(ptr noundef nonnull %25) #10
+  tail call void @free(ptr noundef nonnull %25) #11
   %.pre41 = load ptr, ptr %0, align 8, !tbaa !3
   %.not30 = icmp eq ptr %.pre41, null
   br i1 %.not30, label %28, label %.thread51
 
 .thread51:                                        ; preds = %._crit_edge, %26
   %27 = phi ptr [ %.pre41, %26 ], [ %.lcssa, %._crit_edge ]
-  tail call void @free(ptr noundef nonnull %27) #10
+  tail call void @free(ptr noundef nonnull %27) #11
   br label %28
 
 28:                                               ; preds = %.thread51, %26
@@ -149,7 +149,7 @@ define i32 @SUNHashMap_Iterate(ptr noundef readonly captures(address_is_null) %0
   %17 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !14
   %19 = trunc nsw i64 %indvars.iv to i32
-  %20 = tail call i32 %2(i32 noundef %19, ptr noundef %18, ptr noundef %3) #10
+  %20 = tail call i32 %2(i32 noundef %19, ptr noundef %18, ptr noundef %3) #11
   %.not = icmp eq i32 %20, -1
   br i1 %.not, label %12, label %.thread
 
@@ -158,7 +158,7 @@ define i32 @SUNHashMap_Iterate(ptr noundef readonly captures(address_is_null) %0
   ret i32 %.0
 }
 
-; Function Attrs: nofree nounwind uwtable
+; Function Attrs: nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define range(i32 -2, 1) i32 @SUNHashMap_Insert(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
@@ -237,7 +237,7 @@ SUNHashMap_Iterate.exit:                          ; preds = %27, %SUNHashMap_Ite
 
 36:                                               ; preds = %34, %fnv1a_hash.exit
   %.025 = phi i32 [ %19, %fnv1a_hash.exit ], [ %.0.i, %34 ]
-  %37 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
+  %37 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #10
   %38 = icmp eq ptr %37, null
   br i1 %38, label %45, label %39
 
@@ -258,7 +258,7 @@ SUNHashMap_Iterate.exit:                          ; preds = %27, %SUNHashMap_Ite
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 -2, 1) i32 @SUNHashMap_GetValue(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #5 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
@@ -302,7 +302,7 @@ fnv1a_hash.exit:                                  ; preds = %.lr.ph.i, %7
 
 26:                                               ; preds = %fnv1a_hash.exit
   %27 = load ptr, ptr %24, align 8, !tbaa !20
-  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %1) #11
+  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %1) #12
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %44, label %.preheader.i
 
@@ -329,7 +329,7 @@ sunHashMapLinearProbeGet.exit.thread:             ; preds = %37, %33
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %35, align 8, !tbaa !20
-  %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull readonly dereferenceable(1) %1) #11
+  %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull readonly dereferenceable(1) %1) #12
   %.not.i29 = icmp ne i32 %39, 0
   %.not.i28 = icmp eq i64 %indvars.iv.i, -1
   %or.cond33 = or i1 %.not.i28, %.not.i29
@@ -363,7 +363,7 @@ SUNHashMap_Iterate.exit:                          ; preds = %sunHashMapLinearPro
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -9999, 1) i32 @SUNHashMap_Sort(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
+define range(i32 -9999, 1) i32 @SUNHashMap_Sort(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #7 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %2, null
   %or.cond = and i1 %4, %5
@@ -374,7 +374,7 @@ define range(i32 -9999, 1) i32 @SUNHashMap_Sort(ptr noundef readonly captures(ad
   %8 = load i32, ptr %7, align 4, !tbaa !12
   %9 = sext i32 %8 to i64
   %10 = shl nsw i64 %9, 3
-  %11 = tail call noalias ptr @malloc(i64 noundef %10) #9
+  %11 = tail call noalias ptr @malloc(i64 noundef %10) #10
   store ptr %11, ptr %1, align 8, !tbaa !22
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %19, label %.preheader
@@ -400,7 +400,7 @@ define range(i32 -9999, 1) i32 @SUNHashMap_Sort(ptr noundef readonly captures(ad
   br i1 %exitcond.not, label %._crit_edge, label %15
 
 ._crit_edge:                                      ; preds = %15, %.preheader
-  tail call void @qsort(ptr noundef nonnull %11, i64 noundef %9, i64 noundef 8, ptr noundef nonnull %2) #10
+  tail call void @qsort(ptr noundef nonnull %11, i64 noundef %9, i64 noundef 8, ptr noundef nonnull %2) #11
   br label %19
 
 19:                                               ; preds = %6, %3, %._crit_edge
@@ -409,23 +409,24 @@ define range(i32 -9999, 1) i32 @SUNHashMap_Sort(ptr noundef readonly captures(ad
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
 
-attributes #0 = { mustprogress nounwind willreturn memory(readwrite, argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nounwind willreturn memory(readwrite, argmem: write, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #9 = { nounwind allocsize(0) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind willreturn memory(read) }
+attributes #7 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #10 = { nounwind allocsize(0) }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -78292,7 +78292,7 @@ _ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZZN25Benchmark_SortSingle_Test8TestBodyEvENK3$_0clEvEUlRKT_RKT0_E_NS3_8std_sortEJEEEvSM_T1_DpOT2_EUlSJ_SM_E_EEEvSJ_SJ_SM_SR_"(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull captures(none) %1, i64 noundef %2, ptr readonly captures(none) %3) unnamed_addr #18 {
   %5 = alloca %"class.std::reverse_iterator.1219", align 8
   %6 = alloca %"class.std::reverse_iterator.1219", align 8
@@ -78611,7 +78611,7 @@ define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gn
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZZN25Benchmark_SortSingle_Test8TestBodyEvENK3$_0clEvEUlRKT_RKT0_E_NS3_8std_sortEJEEEvSM_T1_DpOT2_EUlSJ_SM_E_EEEvSJ_SM_SM_SR_T2_"(ptr noundef nonnull readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr readonly captures(none) %4) unnamed_addr #19 {
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -78799,7 +78799,7 @@ define internal fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_c
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #20
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZZN25Benchmark_SortSingle_Test8TestBodyEvENK3$_0clEvEUlRKT_RKT0_E_NS3_8std_sortEJEEEvSM_T1_DpOT2_EUlSJ_SM_E_EEEvSJ_SJ_SM_"(ptr noundef nonnull readonly captures(none) %0, ptr readnone captures(address) %.0.val, ptr readonly captures(none) %1) unnamed_addr #19 {
   %.sroa.0.0.copyload.i.i = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %.sroa.0.0.copyload.i.i, %.0.val
@@ -78944,7 +78944,7 @@ _ZSt13move_backwardISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZN24Benchmark_SortMulti_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SK_E_EEEvSP_SP_SK_SL_"(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull captures(none) %1, i64 noundef %2, ptr readonly captures(none) %3) unnamed_addr #18 {
   %5 = alloca %"class.std::reverse_iterator.1219", align 8
   %6 = alloca %"class.std::reverse_iterator.1219", align 8
@@ -79263,7 +79263,7 @@ define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gn
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZN24Benchmark_SortMulti_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SK_E_EEEvSP_SK_SK_SL_T2_"(ptr noundef nonnull readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr readonly captures(none) %4) unnamed_addr #19 {
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -79448,7 +79448,7 @@ define internal fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_c
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZN24Benchmark_SortMulti_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SK_E_EEEvSP_SP_SK_"(ptr noundef nonnull readonly captures(none) %0, ptr readnone captures(address) %.0.val, ptr readonly captures(none) %1) unnamed_addr #19 {
   %.sroa.0.0.copyload.i.i = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %.sroa.0.0.copyload.i.i, %.0.val
@@ -79593,7 +79593,7 @@ _ZSt13move_backwardISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZZN34Benchmark_AlmostSortedStdSort_Test8TestBodyEvENK3$_0clEvEUlRKT_RKT0_E_NS3_8std_sortEJEEEvSM_T1_DpOT2_EUlSJ_SM_E_EEEvSJ_SJ_SM_SR_"(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull captures(none) %1, i64 noundef %2, ptr readonly captures(none) %3) unnamed_addr #18 {
   %5 = alloca %"class.std::reverse_iterator.1219", align 8
   %6 = alloca %"class.std::reverse_iterator.1219", align 8
@@ -79912,7 +79912,7 @@ define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gn
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZZN34Benchmark_AlmostSortedStdSort_Test8TestBodyEvENK3$_0clEvEUlRKT_RKT0_E_NS3_8std_sortEJEEEvSM_T1_DpOT2_EUlSJ_SM_E_EEEvSJ_SM_SM_SR_T2_"(ptr noundef nonnull readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr readonly captures(none) %4) unnamed_addr #19 {
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -80097,7 +80097,7 @@ define internal fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_c
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZZN34Benchmark_AlmostSortedStdSort_Test8TestBodyEvENK3$_0clEvEUlRKT_RKT0_E_NS3_8std_sortEJEEEvSM_T1_DpOT2_EUlSJ_SM_E_EEEvSJ_SJ_SM_"(ptr noundef nonnull readonly captures(none) %0, ptr readnone captures(address) %.0.val, ptr readonly captures(none) %1) unnamed_addr #19 {
   %.sroa.0.0.copyload.i.i = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %.sroa.0.0.copyload.i.i, %.0.val
@@ -89633,8 +89633,8 @@ attributes #14 = { mustprogress noinline nounwind uwtable "min-legal-vector-widt
 attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #21 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

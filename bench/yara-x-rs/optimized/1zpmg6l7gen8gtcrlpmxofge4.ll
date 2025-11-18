@@ -1712,7 +1712,7 @@ define { i32, i32 } @"_ZN76_$LT$yara_x_parser..ast..HexJump$u20$as$u20$yara_x_pa
   ret { i32, i32 } %5
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i32, i32 } @"_ZN77_$LT$yara_x_parser..ast..HexToken$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h65a28e033571f345E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %2 = load i32, ptr %0, align 8, !range !173, !noundef !4
   switch i32 %2, label %14 [
@@ -1753,7 +1753,7 @@ define { i32, i32 } @"_ZN77_$LT$yara_x_parser..ast..HexToken$u20$as$u20$yara_x_p
   ret { i32, i32 } %.pn
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define { i32, i32 } @"_ZN82_$LT$yara_x_parser..ast..HexSubPattern$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h387edf66dbe232ffE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #8 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !noundef !4
@@ -2097,7 +2097,7 @@ define { i32, i32 } @"_ZN77_$LT$yara_x_parser..ast..FuncCall$u20$as$u20$yara_x_p
   ret { i32, i32 } %5
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define { i32, i32 } @"_ZN76_$LT$yara_x_parser..ast..Pattern$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h736adcb7513f1085E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #9 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !12, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2256,7 +2256,7 @@ default.unreachable15:                            ; preds = %1
   ret { i32, i32 } %.pn
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define { i32, i32 } @"_ZN80_$LT$yara_x_parser..ast..TextPattern$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h9bf387f2872c9479E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #8 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !noundef !4
@@ -2280,7 +2280,7 @@ define { i32, i32 } @"_ZN80_$LT$yara_x_parser..ast..TextPattern$u20$as$u20$yara_
   ret { i32, i32 } %.pn
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define { i32, i32 } @"_ZN79_$LT$yara_x_parser..ast..HexPattern$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17he244673be063919cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(72) %0) unnamed_addr #9 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8, !noundef !4
@@ -2384,7 +2384,7 @@ define { i32, i32 } @"_ZN79_$LT$yara_x_parser..ast..HexPattern$u20$as$u20$yara_x
   ret { i32, i32 } %.pn
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define { i32, i32 } @"_ZN82_$LT$yara_x_parser..ast..RegexpPattern$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h9312f96041776cf3E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #8 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !noundef !4
@@ -2419,7 +2419,7 @@ define { i32, i32 } @"_ZN74_$LT$yara_x_parser..ast..Range$u20$as$u20$yara_x_pars
   ret { i32, i32 } %5
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define { i32, i32 } @"_ZN79_$LT$yara_x_parser..ast..PatternSet$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17hadad8125b73a8bbaE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #8 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !66, !noundef !4
   %.not = icmp eq i64 %2, -9223372036854775808
@@ -2616,7 +2616,7 @@ _ZN13yara_x_parser3ast8NAryExpr4last17h100bd6865e917855E.exit: ; preds = %1
   ret { i32, i32 } %12
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i32, i32 } @"_ZN81_$LT$yara_x_parser..ast..PatternMatch$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h3bf98743cde835e7E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val.i = load i32, ptr %2, align 8, !alias.scope !267, !noundef !4
@@ -2635,7 +2635,7 @@ define { i32, i32 } @"_ZN81_$LT$yara_x_parser..ast..PatternMatch$u20$as$u20$yara
   ret { i32, i32 } %9
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define { i32, i32 } @"_ZN80_$LT$yara_x_parser..ast..MatchAnchor$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17ha6211b7c2a4f49d2E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !180, !noundef !4
   %3 = trunc nuw i64 %2 to i1
@@ -3777,9 +3777,9 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind will
 attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #11 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #12 = { cold minsize noreturn nounwind nonlazybind optsize uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

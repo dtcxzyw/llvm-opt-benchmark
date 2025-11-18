@@ -49,7 +49,7 @@ target triple = "x86_64-pc-linux-gnu"
 @aead_aes_128_ctr_hmac_sha256 = internal constant { i8, i8, i8, i8, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr } { i8 48, i8 12, i8 32, i8 32, [4 x i8] zeroinitializer, ptr @aead_aes_ctr_hmac_sha256_init, ptr null, ptr @aead_aes_ctr_hmac_sha256_cleanup, ptr @aead_aes_ctr_hmac_sha256_seal, ptr @aead_aes_ctr_hmac_sha256_open, ptr null, ptr null }, align 8
 @aead_aes_256_ctr_hmac_sha256 = internal constant { i8, i8, i8, i8, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr } { i8 64, i8 12, i8 32, i8 32, [4 x i8] zeroinitializer, ptr @aead_aes_ctr_hmac_sha256_init, ptr null, ptr @aead_aes_ctr_hmac_sha256_cleanup, ptr @aead_aes_ctr_hmac_sha256_seal, ptr @aead_aes_ctr_hmac_sha256_open, ptr null, ptr null }, align 8
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden nonnull ptr @EVP_aes_128_cbc() local_unnamed_addr #0 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4, !tbaa !6
   %2 = and i32 %1, 33554432
@@ -58,7 +58,7 @@ define hidden nonnull ptr @EVP_aes_128_cbc() local_unnamed_addr #0 {
   ret ptr %aes_128_cbc.aesni_128_cbc
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden nonnull ptr @EVP_aes_128_ctr() local_unnamed_addr #0 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4, !tbaa !6
   %2 = and i32 %1, 33554432
@@ -67,7 +67,7 @@ define hidden nonnull ptr @EVP_aes_128_ctr() local_unnamed_addr #0 {
   ret ptr %aes_128_ctr.aesni_128_ctr
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden nonnull ptr @EVP_aes_128_ecb() local_unnamed_addr #0 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4, !tbaa !6
   %2 = and i32 %1, 33554432
@@ -76,7 +76,7 @@ define hidden nonnull ptr @EVP_aes_128_ecb() local_unnamed_addr #0 {
   ret ptr %aes_128_ecb.aesni_128_ecb
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden nonnull ptr @EVP_aes_128_ofb() local_unnamed_addr #0 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4, !tbaa !6
   %2 = and i32 %1, 33554432
@@ -85,7 +85,7 @@ define hidden nonnull ptr @EVP_aes_128_ofb() local_unnamed_addr #0 {
   ret ptr %aes_128_ofb.aesni_128_ofb
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden nonnull ptr @EVP_aes_128_gcm() local_unnamed_addr #0 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4, !tbaa !6
   %2 = and i32 %1, 33554432
@@ -94,7 +94,7 @@ define hidden nonnull ptr @EVP_aes_128_gcm() local_unnamed_addr #0 {
   ret ptr %aes_128_gcm.aesni_128_gcm
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden nonnull ptr @EVP_aes_192_cbc() local_unnamed_addr #0 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4, !tbaa !6
   %2 = and i32 %1, 33554432
@@ -103,7 +103,7 @@ define hidden nonnull ptr @EVP_aes_192_cbc() local_unnamed_addr #0 {
   ret ptr %aes_192_cbc.aesni_192_cbc
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden nonnull ptr @EVP_aes_192_ctr() local_unnamed_addr #0 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4, !tbaa !6
   %2 = and i32 %1, 33554432
@@ -112,7 +112,7 @@ define hidden nonnull ptr @EVP_aes_192_ctr() local_unnamed_addr #0 {
   ret ptr %aes_192_ctr.aesni_192_ctr
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden nonnull ptr @EVP_aes_192_ecb() local_unnamed_addr #0 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4, !tbaa !6
   %2 = and i32 %1, 33554432
@@ -121,7 +121,7 @@ define hidden nonnull ptr @EVP_aes_192_ecb() local_unnamed_addr #0 {
   ret ptr %aes_192_ecb.aesni_192_ecb
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden nonnull ptr @EVP_aes_192_gcm() local_unnamed_addr #0 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4, !tbaa !6
   %2 = and i32 %1, 33554432
@@ -130,7 +130,7 @@ define hidden nonnull ptr @EVP_aes_192_gcm() local_unnamed_addr #0 {
   ret ptr %aes_192_gcm.aesni_192_gcm
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden nonnull ptr @EVP_aes_256_cbc() local_unnamed_addr #0 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4, !tbaa !6
   %2 = and i32 %1, 33554432
@@ -139,7 +139,7 @@ define hidden nonnull ptr @EVP_aes_256_cbc() local_unnamed_addr #0 {
   ret ptr %aes_256_cbc.aesni_256_cbc
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden nonnull ptr @EVP_aes_256_ctr() local_unnamed_addr #0 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4, !tbaa !6
   %2 = and i32 %1, 33554432
@@ -148,7 +148,7 @@ define hidden nonnull ptr @EVP_aes_256_ctr() local_unnamed_addr #0 {
   ret ptr %aes_256_ctr.aesni_256_ctr
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden nonnull ptr @EVP_aes_256_ecb() local_unnamed_addr #0 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4, !tbaa !6
   %2 = and i32 %1, 33554432
@@ -157,7 +157,7 @@ define hidden nonnull ptr @EVP_aes_256_ecb() local_unnamed_addr #0 {
   ret ptr %aes_256_ecb.aesni_256_ecb
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden nonnull ptr @EVP_aes_256_ofb() local_unnamed_addr #0 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4, !tbaa !6
   %2 = and i32 %1, 33554432
@@ -166,7 +166,7 @@ define hidden nonnull ptr @EVP_aes_256_ofb() local_unnamed_addr #0 {
   ret ptr %aes_256_ofb.aesni_256_ofb
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden nonnull ptr @EVP_aes_256_gcm() local_unnamed_addr #0 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4, !tbaa !6
   %2 = and i32 %1, 33554432
@@ -2187,7 +2187,7 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

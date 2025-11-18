@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @je_sz_index2size_tab = hidden local_unnamed_addr global [232 x i64] zeroinitializer, align 64
 @je_sz_size2index_tab = hidden local_unnamed_addr global [513 x i8] zeroinitializer, align 64
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden i64 @je_sz_psz_quantize_floor(i64 noundef %0) local_unnamed_addr #0 {
   %2 = load i64, ptr @je_sz_large_pad, align 8, !tbaa !4
   %3 = sub i64 %0, %2
@@ -50,7 +50,7 @@ sz_psz2ind.exit.thread:                           ; preds = %1, %sz_psz2ind.exit
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden i64 @je_sz_psz_quantize_ceil(i64 noundef %0) local_unnamed_addr #0 {
   %2 = load i64, ptr @je_sz_large_pad, align 8, !tbaa !4
   %3 = sub i64 %0, %2
@@ -121,7 +121,7 @@ je_sz_psz_quantize_floor.exit.thread:             ; preds = %sz_psz2ind.exit.i, 
   ret i64 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @je_sz_boot(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #1 {
   %3 = select i1 %1, i64 4096, i64 0
   store i64 %3, ptr @je_sz_large_pad, align 8, !tbaa !4
@@ -265,8 +265,8 @@ declare i64 @llvm.umin.i64(i64, i64) #4
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(write, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(write, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }

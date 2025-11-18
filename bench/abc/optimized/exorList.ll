@@ -61,7 +61,7 @@ target triple = "x86_64-pc-linux-gnu"
 @s_nPosMax = local_unnamed_addr global [3 x i32] zeroinitializer, align 4
 @BitCount = external local_unnamed_addr global [0 x i8], align 1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @CheckAndInsert(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @s_List, align 8, !tbaa !3
   %3 = icmp eq ptr %2, null
@@ -82,7 +82,7 @@ CubeInsert.exit:                                  ; preds = %1, %4
   ret i32 0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @CubeInsert(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @s_List, align 8, !tbaa !3
   %3 = icmp eq ptr %2, null
@@ -186,7 +186,7 @@ define i32 @IterativelyApplyExorLink2(i8 noundef signext %0) local_unnamed_addr 
   %44 = load ptr, ptr @s_pC1, align 8, !tbaa !3
   %45 = load ptr, ptr @s_pC2, align 8, !tbaa !3
   %46 = load i32, ptr @s_Dist, align 4, !tbaa !17
-  %47 = tail call i32 @ExorLinkCubeIteratorStart(ptr noundef nonnull @s_CubeGroup, ptr noundef %44, ptr noundef %45, i32 noundef %46) #16
+  %47 = tail call i32 @ExorLinkCubeIteratorStart(ptr noundef nonnull @s_CubeGroup, ptr noundef %44, ptr noundef %45, i32 noundef %46) #17
   %.not4 = icmp eq i32 %47, 0
   br i1 %.not4, label %189, label %48
 
@@ -294,7 +294,7 @@ CubeExtract.exit15:                               ; preds = %77, %78
   store i32 %100, ptr getelementptr inbounds nuw (i8, ptr @s_Que, i64 92), align 4, !tbaa !22
   %101 = load i32, ptr getelementptr inbounds nuw (i8, ptr @s_Que, i64 156), align 4, !tbaa !35
   store i32 %101, ptr getelementptr inbounds nuw (i8, ptr @s_Que, i64 148), align 4, !tbaa !22
-  %102 = tail call i32 @ExorLinkCubeIteratorNext(ptr noundef nonnull @s_CubeGroup) #16
+  %102 = tail call i32 @ExorLinkCubeIteratorNext(ptr noundef nonnull @s_CubeGroup) #17
   %103 = load ptr, ptr @s_CubeGroup, align 16, !tbaa !3
   %104 = tail call i32 @CheckForCloseCubes(ptr noundef %103, i32 noundef 0)
   %.not7 = icmp eq i32 %104, 0
@@ -396,7 +396,7 @@ CubeInsert.exit16:                                ; preds = %151, %CubeInsert.ex
   store ptr %120, ptr @s_List, align 8, !tbaa !3
   %162 = add nsw i32 %159, 2
   store i32 %162, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 24), align 8, !tbaa !13
-  tail call void @ExorLinkCubeIteratorCleanUp(i32 noundef 0) #16
+  tail call void @ExorLinkCubeIteratorCleanUp(i32 noundef 0) #17
   br label %189
 
 163:                                              ; preds = %._crit_edge56, %121, %136
@@ -440,11 +440,11 @@ CubeInsert.exit18:                                ; preds = %CubeInsert.exit17, 
   br label %184
 
 184:                                              ; preds = %CubeInsert.exit18, %110, %106, %95, %91
-  tail call void @ExorLinkCubeIteratorCleanUp(i32 noundef 1) #16
+  tail call void @ExorLinkCubeIteratorCleanUp(i32 noundef 1) #17
   %185 = load ptr, ptr @s_pC1, align 8, !tbaa !3
-  tail call void @AddToFreeCubes(ptr noundef %185) #16
+  tail call void @AddToFreeCubes(ptr noundef %185) #17
   %186 = load ptr, ptr @s_pC2, align 8, !tbaa !3
-  tail call void @AddToFreeCubes(ptr noundef %186) #16
+  tail call void @AddToFreeCubes(ptr noundef %186) #17
   %187 = load i32, ptr @s_cReshapes, align 4, !tbaa !17
   %188 = add nsw i32 %187, 1
   store i32 %188, ptr @s_cReshapes, align 4, !tbaa !17
@@ -545,9 +545,9 @@ IteratorCubePairNext.exit:                        ; preds = %214
   %247 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 24), align 8, !tbaa !13
   %248 = sub nsw i32 %246, %247
   %249 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %248)
-  %250 = tail call i32 (...) @CountLiterals() #16
+  %250 = tail call i32 (...) @CountLiterals() #17
   %251 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %250)
-  %252 = tail call i32 (...) @CountQCost() #16
+  %252 = tail call i32 (...) @CountQCost() #17
   %253 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %252)
   %putchar = tail call i32 @putchar(i32 10)
   br label %254
@@ -559,7 +559,7 @@ IteratorCubePairNext.exit:                        ; preds = %214
   ret i32 %257
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 -2147483647, -2147483648) i32 @GetQuequeStats(i32 noundef %0) local_unnamed_addr #2 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr inbounds nuw %struct.que, ptr @s_Que, i64 %2
@@ -574,7 +574,7 @@ define range(i32 -2147483647, -2147483648) i32 @GetQuequeStats(i32 noundef %0) l
   ret i32 %11
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @IteratorCubePairStart(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   store i32 %0, ptr @s_Iter.1, align 4, !tbaa !23
   store ptr %1, ptr @s_Iter.2, align 8, !tbaa !25
@@ -654,7 +654,7 @@ define range(i32 0, 2) i32 @IteratorCubePairStart(i32 noundef %0, ptr noundef %1
 
 declare i32 @ExorLinkCubeIteratorStart(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @CubeExtract(ptr noundef returned captures(address, ret: address, provenance) %0) local_unnamed_addr #5 {
   %2 = load ptr, ptr @s_List, align 8, !tbaa !3
   %3 = icmp eq ptr %2, %0
@@ -722,7 +722,7 @@ define range(i32 -2147483647, -2147483648) i32 @CheckForCloseCubes(ptr noundef %
 
 11:                                               ; preds = %.lr.ph, %NewRangeInsertCubePair.exit
   %storemerge53 = phi ptr [ %storemerge5164, %.lr.ph ], [ %storemerge, %NewRangeInsertCubePair.exit ]
-  %12 = tail call i32 @GetDistancePlus(ptr noundef %0, ptr noundef nonnull %storemerge53) #16
+  %12 = tail call i32 @GetDistancePlus(ptr noundef %0, ptr noundef nonnull %storemerge53) #17
   store i32 %12, ptr @s_Distance, align 4, !tbaa !17
   %13 = icmp sgt i32 %12, 4
   br i1 %13, label %NewRangeInsertCubePair.exit, label %14
@@ -985,7 +985,7 @@ CubeExtract.exit:                                 ; preds = %117, %118
   br label %166
 
 166:                                              ; preds = %160, %163
-  %167 = tail call i32 @ComputeQCostBits(ptr noundef nonnull %0) #16
+  %167 = tail call i32 @ComputeQCostBits(ptr noundef nonnull %0) #17
   %168 = trunc i32 %167 to i16
   store i16 %168, ptr %8, align 2, !tbaa !37
   %.pre = load ptr, ptr @s_q, align 8, !tbaa !3
@@ -993,7 +993,7 @@ CubeExtract.exit:                                 ; preds = %117, %118
 
 tailrecurse:                                      ; preds = %132, %126, %166
   %169 = phi ptr [ %91, %126 ], [ %.pre, %166 ], [ %91, %132 ]
-  tail call void @AddToFreeCubes(ptr noundef %169) #16
+  tail call void @AddToFreeCubes(ptr noundef %169) #17
   %170 = add nuw nsw i32 %accumulator.tr62, 1
   %171 = load i32, ptr getelementptr inbounds nuw (i8, ptr @s_Que, i64 36), align 4, !tbaa !22
   store i32 %171, ptr getelementptr inbounds nuw (i8, ptr @s_Que, i64 40), align 8, !tbaa !44
@@ -1007,7 +1007,7 @@ tailrecurse:                                      ; preds = %132, %126, %166
   br i1 %.not52, label %CubeInsert.exit, label %.lr.ph
 
 174:                                              ; preds = %14
-  tail call void @AddToFreeCubes(ptr noundef %0) #16
+  tail call void @AddToFreeCubes(ptr noundef %0) #17
   %175 = load ptr, ptr @s_q, align 8, !tbaa !3
   %176 = load ptr, ptr @s_List, align 8, !tbaa !3
   %177 = icmp eq ptr %176, %175
@@ -1043,7 +1043,7 @@ CubeExtract.exit43:                               ; preds = %185, %186
   %191 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 24), align 8, !tbaa !13
   %192 = add nsw i32 %191, -1
   store i32 %192, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 24), align 8, !tbaa !13
-  tail call void @AddToFreeCubes(ptr noundef nonnull %175) #16
+  tail call void @AddToFreeCubes(ptr noundef nonnull %175) #17
   %193 = load i32, ptr getelementptr inbounds nuw (i8, ptr @s_Que, i64 36), align 4, !tbaa !22
   store i32 %193, ptr getelementptr inbounds nuw (i8, ptr @s_Que, i64 40), align 8, !tbaa !44
   %194 = load i32, ptr getelementptr inbounds nuw (i8, ptr @s_Que, i64 92), align 4, !tbaa !22
@@ -1199,7 +1199,7 @@ define i32 @IterativelyApplyExorLink3(i8 noundef signext %0) local_unnamed_addr 
   %44 = load ptr, ptr @s_pC1, align 8, !tbaa !3
   %45 = load ptr, ptr @s_pC2, align 8, !tbaa !3
   %46 = load i32, ptr @s_Dist, align 4, !tbaa !17
-  %47 = tail call i32 @ExorLinkCubeIteratorStart(ptr noundef nonnull @s_CubeGroup, ptr noundef %44, ptr noundef %45, i32 noundef %46) #16
+  %47 = tail call i32 @ExorLinkCubeIteratorStart(ptr noundef nonnull @s_CubeGroup, ptr noundef %44, ptr noundef %45, i32 noundef %46) #17
   %.not18 = icmp eq i32 %47, 0
   br i1 %.not18, label %249, label %48
 
@@ -1362,7 +1362,7 @@ CubeExtract.exit26:                               ; preds = %77, %78
   br i1 %148, label %149, label %206
 
 149:                                              ; preds = %127, %105
-  %150 = tail call ptr (...) @GetFreeCube() #16
+  %150 = tail call ptr (...) @GetFreeCube() #17
   %151 = load i32, ptr @s_ChangeStore.9, align 4, !tbaa !57
   %152 = trunc i32 %151 to i8
   %153 = getelementptr inbounds nuw i8, ptr %150, i64 1
@@ -1436,7 +1436,7 @@ CubeExtract.exit.i:                               ; preds = %171, %170
 185:                                              ; preds = %CubeExtract.exit.i
   %186 = load i32, ptr @s_ChangeStore.7, align 4, !tbaa !55
   %187 = load i32, ptr @s_ChangeStore.8, align 8, !tbaa !56
-  tail call void @ExorVar(ptr noundef nonnull %161, i32 noundef %186, i32 noundef %187) #16
+  tail call void @ExorVar(ptr noundef nonnull %161, i32 noundef %186, i32 noundef %187) #17
   %188 = load i32, ptr @s_ChangeStore.3, align 4, !tbaa !50
   %189 = trunc i32 %188 to i16
   %190 = getelementptr inbounds nuw i8, ptr %161, i64 2
@@ -1489,11 +1489,11 @@ CubeExtract.exit.i:                               ; preds = %171, %170
   br i1 %exitcond77.not, label %214, label %208, !llvm.loop !64
 
 214:                                              ; preds = %213
-  tail call void @ExorLinkCubeIteratorCleanUp(i32 noundef 1) #16
+  tail call void @ExorLinkCubeIteratorCleanUp(i32 noundef 1) #17
   %215 = load ptr, ptr @s_pC1, align 8, !tbaa !3
-  tail call void @AddToFreeCubes(ptr noundef %215) #16
+  tail call void @AddToFreeCubes(ptr noundef %215) #17
   %216 = load ptr, ptr @s_pC2, align 8, !tbaa !3
-  tail call void @AddToFreeCubes(ptr noundef %216) #16
+  tail call void @AddToFreeCubes(ptr noundef %216) #17
   %217 = load i32, ptr @s_cReshapes, align 4, !tbaa !17
   %218 = add nsw i32 %217, 1
   store i32 %218, ptr @s_cReshapes, align 4, !tbaa !17
@@ -1523,7 +1523,7 @@ UndoRecentChanges.exit:                           ; preds = %221, %._crit_edge.i
   store i32 %225, ptr getelementptr inbounds nuw (i8, ptr @s_Que, i64 92), align 4, !tbaa !22
   %226 = load i32, ptr getelementptr inbounds nuw (i8, ptr @s_Que, i64 156), align 4, !tbaa !35
   store i32 %226, ptr getelementptr inbounds nuw (i8, ptr @s_Que, i64 148), align 4, !tbaa !22
-  %227 = tail call i32 @ExorLinkCubeIteratorNext(ptr noundef nonnull @s_CubeGroup) #16
+  %227 = tail call i32 @ExorLinkCubeIteratorNext(ptr noundef nonnull @s_CubeGroup) #17
   %.not23 = icmp eq i32 %227, 0
   br i1 %.not23, label %228, label %.backedge
 
@@ -1565,7 +1565,7 @@ CubeInsert.exit29:                                ; preds = %CubeInsert.exit, %2
   store ptr %246, ptr @s_List, align 8, !tbaa !3
   %248 = add nsw i32 %247, 1
   store i32 %248, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 24), align 8, !tbaa !13
-  tail call void @ExorLinkCubeIteratorCleanUp(i32 noundef 0) #16
+  tail call void @ExorLinkCubeIteratorCleanUp(i32 noundef 0) #17
   br label %249
 
 249:                                              ; preds = %214, %CubeInsert.exit29, %.lr.ph
@@ -1663,9 +1663,9 @@ IteratorCubePairNext.exit:                        ; preds = %274
   %307 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 24), align 8, !tbaa !13
   %308 = sub nsw i32 %306, %307
   %309 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %308)
-  %310 = tail call i32 (...) @CountLiterals() #16
+  %310 = tail call i32 (...) @CountLiterals() #17
   %311 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %310)
-  %312 = tail call i32 (...) @CountQCost() #16
+  %312 = tail call i32 (...) @CountQCost() #17
   %313 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %312)
   %putchar = tail call i32 @putchar(i32 10)
   br label %314
@@ -1760,7 +1760,7 @@ define i32 @IterativelyApplyExorLink4(i8 noundef signext %0) local_unnamed_addr 
   %44 = load ptr, ptr @s_pC1, align 8, !tbaa !3
   %45 = load ptr, ptr @s_pC2, align 8, !tbaa !3
   %46 = load i32, ptr @s_Dist, align 4, !tbaa !17
-  %47 = tail call i32 @ExorLinkCubeIteratorStart(ptr noundef nonnull @s_CubeGroup, ptr noundef %44, ptr noundef %45, i32 noundef %46) #16
+  %47 = tail call i32 @ExorLinkCubeIteratorStart(ptr noundef nonnull @s_CubeGroup, ptr noundef %44, ptr noundef %45, i32 noundef %46) #17
   %.not23 = icmp eq i32 %47, 0
   br i1 %.not23, label %205, label %48
 
@@ -1890,7 +1890,7 @@ CubeExtract.exit30:                               ; preds = %77, %78
   br i1 %exitcond86.not, label %.loopexit, label %.preheader, !llvm.loop !68
 
 106:                                              ; preds = %103
-  %107 = tail call ptr (...) @GetFreeCube() #16
+  %107 = tail call ptr (...) @GetFreeCube() #17
   %108 = load i32, ptr @s_ChangeStore.9, align 4, !tbaa !57
   %109 = trunc i32 %108 to i8
   %110 = getelementptr inbounds nuw i8, ptr %107, i64 1
@@ -1964,7 +1964,7 @@ CubeExtract.exit.i:                               ; preds = %128, %127
 142:                                              ; preds = %CubeExtract.exit.i
   %143 = load i32, ptr @s_ChangeStore.7, align 4, !tbaa !55
   %144 = load i32, ptr @s_ChangeStore.8, align 8, !tbaa !56
-  tail call void @ExorVar(ptr noundef nonnull %118, i32 noundef %143, i32 noundef %144) #16
+  tail call void @ExorVar(ptr noundef nonnull %118, i32 noundef %143, i32 noundef %144) #17
   %145 = load i32, ptr @s_ChangeStore.3, align 4, !tbaa !50
   %146 = trunc i32 %145 to i16
   %147 = getelementptr inbounds nuw i8, ptr %118, i64 2
@@ -2031,11 +2031,11 @@ UndoRecentChanges.exit:                           ; preds = %UndoRecentChanges.e
   br i1 %exitcond90.not, label %175, label %.preheader39, !llvm.loop !70
 
 175:                                              ; preds = %174
-  tail call void @ExorLinkCubeIteratorCleanUp(i32 noundef 1) #16
+  tail call void @ExorLinkCubeIteratorCleanUp(i32 noundef 1) #17
   %176 = load ptr, ptr @s_pC1, align 8, !tbaa !3
-  tail call void @AddToFreeCubes(ptr noundef %176) #16
+  tail call void @AddToFreeCubes(ptr noundef %176) #17
   %177 = load ptr, ptr @s_pC2, align 8, !tbaa !3
-  tail call void @AddToFreeCubes(ptr noundef %177) #16
+  tail call void @AddToFreeCubes(ptr noundef %177) #17
   %178 = load i32, ptr @s_cReshapes, align 4, !tbaa !17
   %179 = add nsw i32 %178, 1
   store i32 %179, ptr @s_cReshapes, align 4, !tbaa !17
@@ -2048,7 +2048,7 @@ UndoRecentChanges.exit:                           ; preds = %UndoRecentChanges.e
   store i32 %181, ptr getelementptr inbounds nuw (i8, ptr @s_Que, i64 92), align 4, !tbaa !22
   %182 = load i32, ptr getelementptr inbounds nuw (i8, ptr @s_Que, i64 156), align 4, !tbaa !35
   store i32 %182, ptr getelementptr inbounds nuw (i8, ptr @s_Que, i64 148), align 4, !tbaa !22
-  %183 = tail call i32 @ExorLinkCubeIteratorNext(ptr noundef nonnull @s_CubeGroup) #16
+  %183 = tail call i32 @ExorLinkCubeIteratorNext(ptr noundef nonnull @s_CubeGroup) #17
   %.not26 = icmp eq i32 %183, 0
   br i1 %.not26, label %184, label %88, !llvm.loop !71
 
@@ -2090,7 +2090,7 @@ CubeInsert.exit33:                                ; preds = %CubeInsert.exit, %1
   store ptr %202, ptr @s_List, align 8, !tbaa !3
   %204 = add nsw i32 %203, 1
   store i32 %204, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 24), align 8, !tbaa !13
-  tail call void @ExorLinkCubeIteratorCleanUp(i32 noundef 0) #16
+  tail call void @ExorLinkCubeIteratorCleanUp(i32 noundef 0) #17
   br label %205
 
 205:                                              ; preds = %175, %CubeInsert.exit33, %.lr.ph
@@ -2188,9 +2188,9 @@ IteratorCubePairNext.exit:                        ; preds = %230
   %263 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 24), align 8, !tbaa !13
   %264 = sub nsw i32 %262, %263
   %265 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %264)
-  %266 = tail call i32 (...) @CountLiterals() #16
+  %266 = tail call i32 (...) @CountLiterals() #17
   %267 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %266)
-  %268 = tail call i32 (...) @CountQCost() #16
+  %268 = tail call i32 (...) @CountQCost() #17
   %269 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %268)
   %putchar = tail call i32 @putchar(i32 10)
   br label %270
@@ -2208,7 +2208,7 @@ declare i32 @ComputeQCostBits(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @UndoRecentChanges() local_unnamed_addr #1 {
-  %1 = tail call ptr (...) @GetFreeCube() #16
+  %1 = tail call ptr (...) @GetFreeCube() #17
   %2 = load i32, ptr @s_ChangeStore.9, align 4, !tbaa !57
   %3 = trunc i32 %2 to i8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -2282,7 +2282,7 @@ CubeExtract.exit:                                 ; preds = %21, %22
 36:                                               ; preds = %CubeExtract.exit
   %37 = load i32, ptr @s_ChangeStore.7, align 4, !tbaa !55
   %38 = load i32, ptr @s_ChangeStore.8, align 8, !tbaa !56
-  tail call void @ExorVar(ptr noundef nonnull %12, i32 noundef %37, i32 noundef %38) #16
+  tail call void @ExorVar(ptr noundef nonnull %12, i32 noundef %37, i32 noundef %38) #17
   %39 = load i32, ptr @s_ChangeStore.3, align 4, !tbaa !50
   %40 = trunc i32 %39 to i16
   %41 = getelementptr inbounds nuw i8, ptr %12, i64 2
@@ -2322,7 +2322,7 @@ declare ptr @GetFreeCube(...) local_unnamed_addr #4
 
 declare void @ExorVar(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @AllocateCubeSets(i32 noundef %0, i32 noundef %1) local_unnamed_addr #7 {
   store ptr null, ptr @s_List, align 8, !tbaa !3
   store i32 1, ptr @s_fDistEnable2, align 4, !tbaa !17
@@ -2350,7 +2350,7 @@ define void @DelocateCubeSets() local_unnamed_addr #9 {
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @IterCubeSetStart() local_unnamed_addr #10 {
   %1 = load ptr, ptr @s_List, align 8, !tbaa !3
   %2 = icmp eq ptr %1, null
@@ -2364,7 +2364,7 @@ define ptr @IterCubeSetStart() local_unnamed_addr #10 {
   ret ptr %1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @IterCubeSetNext() local_unnamed_addr #11 {
   %1 = load ptr, ptr @s_pCubeLast, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -2373,7 +2373,7 @@ define ptr @IterCubeSetNext() local_unnamed_addr #11 {
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 -2147483647, -2147483648) i32 @GetPosDiff(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = sub i32 %1, %0
   %4 = load i32, ptr @s_nPosAlloc, align 4, !tbaa !17
@@ -2387,7 +2387,7 @@ define void @PrintQuequeStats() local_unnamed_addr #9 {
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @IteratorCubePairNext() local_unnamed_addr #3 {
   %1 = load i32, ptr @s_Iter.1, align 4, !tbaa !23
   %2 = zext i32 %1 to i64
@@ -2463,7 +2463,7 @@ define range(i32 0, 2) i32 @IteratorCubePairNext() local_unnamed_addr #3 {
   ret i32 %.05
 }
 
-; Function Attrs: nofree nounwind memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree nounwind memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @AllocateQueques(i32 noundef %0) local_unnamed_addr #12 {
   store i32 %0, ptr @s_nPosAlloc, align 4, !tbaa !17
   %2 = sext i32 %0 to i64
@@ -2475,15 +2475,15 @@ define noundef i32 @AllocateQueques(i32 noundef %0) local_unnamed_addr #12 {
   %5 = getelementptr inbounds nuw %struct.que, ptr @s_Que, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  %7 = tail call noalias ptr @malloc(i64 noundef %3) #17
+  %7 = tail call noalias ptr @malloc(i64 noundef %3) #18
   store ptr %7, ptr %5, align 8, !tbaa !28
-  %8 = tail call noalias ptr @malloc(i64 noundef %3) #17
+  %8 = tail call noalias ptr @malloc(i64 noundef %3) #18
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !29
-  %10 = tail call noalias ptr @malloc(i64 noundef %2) #17
+  %10 = tail call noalias ptr @malloc(i64 noundef %2) #18
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %10, ptr %11, align 8, !tbaa !30
-  %12 = tail call noalias ptr @malloc(i64 noundef %2) #17
+  %12 = tail call noalias ptr @malloc(i64 noundef %2) #18
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %12, ptr %13, align 8, !tbaa !40
   %14 = icmp eq ptr %7, null
@@ -2518,8 +2518,8 @@ define noundef i32 @AllocateQueques(i32 noundef %0) local_unnamed_addr #12 {
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #13
 
-; Function Attrs: nounwind uwtable
-define void @DelocateQueques() local_unnamed_addr #1 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define void @DelocateQueques() local_unnamed_addr #14 {
   br label %1
 
 1:                                                ; preds = %0, %17
@@ -2530,7 +2530,7 @@ define void @DelocateQueques() local_unnamed_addr #1 {
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %3) #16
+  tail call void @free(ptr noundef nonnull %3) #17
   store ptr null, ptr %2, align 8, !tbaa !28
   br label %5
 
@@ -2541,7 +2541,7 @@ define void @DelocateQueques() local_unnamed_addr #1 {
   br i1 %.not18, label %9, label %8
 
 8:                                                ; preds = %5
-  tail call void @free(ptr noundef nonnull %7) #16
+  tail call void @free(ptr noundef nonnull %7) #17
   store ptr null, ptr %6, align 8, !tbaa !29
   br label %9
 
@@ -2552,7 +2552,7 @@ define void @DelocateQueques() local_unnamed_addr #1 {
   br i1 %.not19, label %13, label %12
 
 12:                                               ; preds = %9
-  tail call void @free(ptr noundef nonnull %11) #16
+  tail call void @free(ptr noundef nonnull %11) #17
   store ptr null, ptr %10, align 8, !tbaa !30
   br label %13
 
@@ -2563,7 +2563,7 @@ define void @DelocateQueques() local_unnamed_addr #1 {
   br i1 %.not20, label %17, label %16
 
 16:                                               ; preds = %13
-  tail call void @free(ptr noundef nonnull %15) #16
+  tail call void @free(ptr noundef nonnull %15) #17
   store ptr null, ptr %14, align 8, !tbaa !40
   br label %17
 
@@ -2577,29 +2577,30 @@ define void @DelocateQueques() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #14
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #15
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #16
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree nounwind }
-attributes #16 = { nounwind }
-attributes #17 = { nounwind allocsize(0) }
+attributes #14 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree nounwind }
+attributes #17 = { nounwind }
+attributes #18 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

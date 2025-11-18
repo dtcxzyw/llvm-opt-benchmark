@@ -18139,7 +18139,7 @@ declare void @_ZN5arrow7compute8internal34VisitPlainxREEFilterOutputSegmentsERKN
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbllbEZN5arrow7compute8internal12_GLOBAL__N_122GetREEFilterOutputSizeERKNS1_9ArraySpanENS2_13FilterOptions21NullSelectionBehaviorEE3$_0E9_M_invokeERKSt9_Any_dataOlSF_Ob"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr nonnull readonly align 8 captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr nonnull readonly align 1 captures(none) %3) #8 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !701
   %.val5 = load i64, ptr %2, align 8, !tbaa !75
@@ -24240,7 +24240,7 @@ _ZNSt14_Function_base13_Base_managerIZN5arrow7compute8internal12_GLOBAL__N_119Pr
 
 declare noundef ptr @_ZN5arrow4util35OffsetPointerOfFixedByteWidthValuesERKNS_9ArraySpanE(ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbllbEZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplILi1ELb0EE13ExecREEFilterEvEUlllbE_E9_M_invokeERKSt9_Any_dataOlSC_Ob(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr nonnull readonly align 1 captures(none) %3) #8 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !906
   %.val4 = load i64, ptr %1, align 8, !tbaa !75
@@ -24427,7 +24427,7 @@ _ZNSt14_Function_base13_Base_managerIZN5arrow7compute8internal12_GLOBAL__N_119Pr
   ret i1 false
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbllbEZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplILi2ELb0EE13ExecREEFilterEvEUlllbE_E9_M_invokeERKSt9_Any_dataOlSC_Ob(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr nonnull readonly align 1 captures(none) %3) #8 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !912
   %.val4 = load i64, ptr %1, align 8, !tbaa !75
@@ -24626,7 +24626,7 @@ _ZNSt14_Function_base13_Base_managerIZN5arrow7compute8internal12_GLOBAL__N_119Pr
   ret i1 false
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbllbEZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplILi4ELb0EE13ExecREEFilterEvEUlllbE_E9_M_invokeERKSt9_Any_dataOlSC_Ob(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr nonnull readonly align 1 captures(none) %3) #8 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !918
   %.val4 = load i64, ptr %1, align 8, !tbaa !75
@@ -24825,7 +24825,7 @@ _ZNSt14_Function_base13_Base_managerIZN5arrow7compute8internal12_GLOBAL__N_119Pr
   ret i1 false
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbllbEZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplILi8ELb0EE13ExecREEFilterEvEUlllbE_E9_M_invokeERKSt9_Any_dataOlSC_Ob(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr nonnull readonly align 1 captures(none) %3) #8 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !924
   %.val4 = load i64, ptr %1, align 8, !tbaa !75
@@ -25024,7 +25024,7 @@ _ZNSt14_Function_base13_Base_managerIZN5arrow7compute8internal12_GLOBAL__N_119Pr
   ret i1 false
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbllbEZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplILi16ELb0EE13ExecREEFilterEvEUlllbE_E9_M_invokeERKSt9_Any_dataOlSC_Ob(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr nonnull readonly align 1 captures(none) %3) #8 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !930
   %.val4 = load i64, ptr %1, align 8, !tbaa !75
@@ -25223,7 +25223,7 @@ _ZNSt14_Function_base13_Base_managerIZN5arrow7compute8internal12_GLOBAL__N_119Pr
   ret i1 false
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbllbEZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplILi32ELb0EE13ExecREEFilterEvEUlllbE_E9_M_invokeERKSt9_Any_dataOlSC_Ob(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr nonnull readonly align 1 captures(none) %3) #8 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !936
   %.val4 = load i64, ptr %1, align 8, !tbaa !75
@@ -25422,7 +25422,7 @@ _ZNSt14_Function_base13_Base_managerIZN5arrow7compute8internal12_GLOBAL__N_119Pr
   ret i1 false
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbllbEZN5arrow7compute8internal12_GLOBAL__N_119PrimitiveFilterImplILin1ELb0EE13ExecREEFilterEvEUlllbE_E9_M_invokeERKSt9_Any_dataOlSC_Ob(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr nonnull readonly align 1 captures(none) %3) #8 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !942
   %.val4 = load i64, ptr %1, align 8, !tbaa !75
@@ -34907,7 +34907,7 @@ attributes #4 = { nofree nounwind }
 attributes #5 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #10 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #11 = { cold nofree noreturn }

@@ -194,7 +194,7 @@ define hidden nonnull ptr @rb_ractor_main_alloc() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = load ptr, ptr @stderr, align 8, !tbaa !7
   %5 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %4, i32 noundef 1, ptr noundef nonnull @.str.1) #18
-  tail call void @exit(i32 noundef 1) #33
+  tail call void @exit(i32 noundef 1) #34
   unreachable
 
 6:                                                ; preds = %0
@@ -320,7 +320,7 @@ vm_insert_ractor0.exit.i:                         ; preds = %27, %rb_vm_lock.exi
   br i1 %cond.i.i.i, label %31, label %vm_ractor_blocking_cnt_inc.exit.i
 
 31:                                               ; preds = %vm_insert_ractor0.exit.i
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #33
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #34
   unreachable
 
 vm_ractor_blocking_cnt_inc.exit.i:                ; preds = %vm_insert_ractor0.exit.i
@@ -371,7 +371,7 @@ vm_insert_ractor0.exit16.i:                       ; preds = %49, %41
   br i1 %cond.i.i, label %53, label %ractor_status_set.exit18.i
 
 53:                                               ; preds = %vm_insert_ractor0.exit16.i
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #33
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #34
   unreachable
 
 ractor_status_set.exit18.i:                       ; preds = %vm_insert_ractor0.exit16.i
@@ -433,7 +433,7 @@ vm_insert_ractor0.exit22.i:                       ; preds = %72, %cancel_single_
   br i1 %cond.i.i23.i, label %76, label %vm_ractor_blocking_cnt_inc.exit24.i
 
 76:                                               ; preds = %vm_insert_ractor0.exit22.i
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #33
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #34
   unreachable
 
 vm_ractor_blocking_cnt_inc.exit24.i:              ; preds = %vm_insert_ractor0.exit22.i
@@ -465,7 +465,7 @@ define hidden void @rb_ractor_main_setup(ptr noundef readnone captures(none) %0,
   store i32 0, ptr %12, align 4, !tbaa !86
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store i32 0, ptr %13, align 8, !tbaa !87
-  %14 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #34
+  %14 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #35
   store ptr %14, ptr %10, align 8, !tbaa !88
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -474,7 +474,7 @@ define hidden void @rb_ractor_main_setup(ptr noundef readnone captures(none) %0,
   store i32 0, ptr %17, align 4, !tbaa !86
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store i32 0, ptr %18, align 8, !tbaa !87
-  %19 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #34
+  %19 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #35
   store ptr %19, ptr %15, align 8, !tbaa !88
   tail call void @rb_native_mutex_initialize(ptr noundef nonnull %9) #18
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 208
@@ -809,7 +809,7 @@ ractor_queue_advance.exit.i.i:                    ; preds = %48, %42
   br i1 %.not, label %64, label %63
 
 63:                                               ; preds = %59
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #33
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #34
   unreachable
 
 64:                                               ; preds = %59, %53
@@ -913,7 +913,7 @@ define hidden void @rb_ractor_receive_parameters(ptr noundef %0, ptr noundef %1,
 
 20:                                               ; preds = %18
   %21 = load i64, ptr @rb_eRactorError, align 8, !tbaa !80
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %21, ptr noundef nonnull @.str.72) #26
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %21, ptr noundef nonnull @.str.72) #27
   unreachable
 
 ractor_recursive_receive_if.exit.i:               ; preds = %18, %.lr.ph.i
@@ -1002,7 +1002,7 @@ ractor_queue_advance.exit.i.i.i:                  ; preds = %55, %49
 
 60:                                               ; preds = %.loopexit1.i
   %61 = load i64, ptr @rb_eRactorClosedError, align 8, !tbaa !80
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %61, ptr noundef nonnull @.str.71) #26
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %61, ptr noundef nonnull @.str.71) #27
   unreachable
 
 .loopexit.i:                                      ; preds = %ractor_queue_advance.exit.i.i.i, %.lr.ph.i.i.i, %35
@@ -1012,7 +1012,7 @@ ractor_queue_advance.exit.i.i.i:                  ; preds = %55, %49
   br i1 %switch, label %ractor_basket_value.exit.i, label %62
 
 62:                                               ; preds = %.loopexit.i
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #33
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #34
   unreachable
 
 ractor_basket_value.exit.i:                       ; preds = %.loopexit.i
@@ -1022,10 +1022,10 @@ ractor_basket_value.exit.i:                       ; preds = %.loopexit.i
 64:                                               ; preds = %ractor_basket_value.exit.i
   %65 = load i64, ptr @rb_eRactorRemoteError, align 8, !tbaa !80
   %66 = tail call fastcc i64 @rbimpl_exc_new_cstr(i64 noundef %65)
-  %67 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @ractor_basket_accept.rbimpl_id, ptr noundef @.str.74) #35
+  %67 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @ractor_basket_accept.rbimpl_id, ptr noundef @.str.74) #36
   %68 = tail call i64 @rb_ivar_set(i64 noundef %66, i64 noundef %67, i64 noundef %.sroa.56.0.copyload) #18
   tail call void @rb_ec_setup_exception(ptr noundef null, i64 noundef %66, i64 noundef %.sroa.6.0.copyload) #18
-  tail call void @rb_exc_raise(i64 noundef %66) #26
+  tail call void @rb_exc_raise(i64 noundef %66) #27
   unreachable
 
 ractor_try_receive.exit:                          ; preds = %ractor_basket_value.exit.i, %.loopexit1.i
@@ -1067,7 +1067,7 @@ rb_array_len.exit.i:                              ; preds = %10, %7
   br i1 %.not.i1.i, label %RARRAY_LENINT.exit, label %14
 
 14:                                               ; preds = %rb_array_len.exit.i
-  tail call void @rb_out_of_int(i64 noundef %.0.i.i) #33
+  tail call void @rb_out_of_int(i64 noundef %.0.i.i) #34
   unreachable
 
 RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
@@ -1148,7 +1148,7 @@ rb_ec_ractor_ptr.exit:                            ; preds = %3, %6
 21:                                               ; preds = %15
   %22 = sext i32 %18 to i64
   %23 = shl nsw i64 %22, 6
-  %24 = call ptr @realloc(ptr noundef %.pre3.i.i, i64 noundef %23) #36
+  %24 = call ptr @realloc(ptr noundef %.pre3.i.i, i64 noundef %23) #37
   store ptr %24, ptr %16, align 8, !tbaa !88
   %25 = load i32, ptr %17, align 8, !tbaa !85
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1227,7 +1227,7 @@ ractor_sleeping_by.exit.i.i:                      ; preds = %ractor_queue_enq.ex
 .critedge.i:                                      ; preds = %rb_ec_ractor_ptr.exit
   call void @rb_native_mutex_unlock(ptr noundef nonnull %11) #18
   %63 = load i64, ptr @rb_eRactorClosedError, align 8, !tbaa !80
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %63, ptr noundef nonnull @.str.75) #26
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %63, ptr noundef nonnull @.str.75) #27
   unreachable
 
 ractor_send_basket.exit:                          ; preds = %ractor_queue_enq.exit.i, %ractor_sleeping_by.exit.i.i, %62
@@ -1236,7 +1236,7 @@ ractor_send_basket.exit:                          ; preds = %ractor_queue_enq.ex
   ret i64 %64
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden zeroext i1 @rb_ractor_main_p_() local_unnamed_addr #4 {
 rb_ec_vm_ptr.exit:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
@@ -1343,7 +1343,7 @@ define hidden void @rb_vm_ractor_blocking_cnt_inc(ptr noundef captures(none) %0,
   br i1 %cond.i.i, label %7, label %vm_ractor_blocking_cnt_inc.exit
 
 7:                                                ; preds = %4
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #33
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #34
   unreachable
 
 vm_ractor_blocking_cnt_inc.exit:                  ; preds = %4
@@ -1367,7 +1367,7 @@ define hidden void @rb_vm_ractor_blocking_cnt_dec(ptr noundef captures(none) %0,
   br i1 %cond.i, label %10, label %ractor_status_set.exit
 
 10:                                               ; preds = %4
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #33
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #34
   unreachable
 
 ractor_status_set.exit:                           ; preds = %4
@@ -1408,7 +1408,7 @@ rb_vm_lock_enter.exit.i:                          ; preds = %14, %11
   br i1 %cond.i.i.i.i, label %17, label %rb_vm_ractor_blocking_cnt_inc.exit.i
 
 17:                                               ; preds = %rb_vm_lock_enter.exit.i
-  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #33
+  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #34
   unreachable
 
 rb_vm_ractor_blocking_cnt_inc.exit.i:             ; preds = %rb_vm_lock_enter.exit.i
@@ -1485,7 +1485,7 @@ rb_vm_lock.exit.i:                                ; preds = %29, %25
   br i1 %cond.i.i, label %51, label %ractor_status_set.exit.i
 
 51:                                               ; preds = %44
-  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #33
+  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #34
   unreachable
 
 ractor_status_set.exit.i:                         ; preds = %44
@@ -1552,7 +1552,7 @@ rb_vm_lock_enter.exit.i:                          ; preds = %15, %12
   br i1 %cond.i.i.i.i, label %18, label %rb_vm_ractor_blocking_cnt_inc.exit.i
 
 18:                                               ; preds = %rb_vm_lock_enter.exit.i
-  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #33
+  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #34
   unreachable
 
 rb_vm_ractor_blocking_cnt_inc.exit.i:             ; preds = %rb_vm_lock_enter.exit.i
@@ -1613,7 +1613,7 @@ rb_vm_lock_enter.exit:                            ; preds = %10, %13
   br i1 %cond.i.i, label %19, label %rb_vm_ractor_blocking_cnt_dec.exit
 
 19:                                               ; preds = %rb_vm_lock_enter.exit
-  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #33
+  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #34
   unreachable
 
 rb_vm_ractor_blocking_cnt_dec.exit:               ; preds = %rb_vm_lock_enter.exit
@@ -1792,7 +1792,7 @@ rb_vm_lock.exit18:                                ; preds = %rb_vm_unlock.exit, 
   br i1 %cond.i.i.i38, label %._crit_edge39, label %rb_vm_ractor_blocking_cnt_inc.exit
 
 ._crit_edge39:                                    ; preds = %.backedge, %.lr.ph
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #33
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #34
   unreachable
 
 rb_vm_ractor_blocking_cnt_inc.exit:               ; preds = %.lr.ph, %.backedge
@@ -1817,7 +1817,7 @@ rb_vm_ractor_blocking_cnt_inc.exit:               ; preds = %.lr.ph, %.backedge
   br i1 %cond.i.i, label %49, label %rb_vm_ractor_blocking_cnt_dec.exit
 
 49:                                               ; preds = %rb_vm_ractor_blocking_cnt_inc.exit
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #33
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #34
   unreachable
 
 rb_vm_ractor_blocking_cnt_dec.exit:               ; preds = %rb_vm_ractor_blocking_cnt_inc.exit
@@ -1896,7 +1896,7 @@ declare void @rb_vm_cond_timedwait(ptr noundef, ptr noundef, i64 noundef) local_
 
 declare void @rb_add_running_thread(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden ptr @rb_vm_main_ractor_ec(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !123
@@ -1999,7 +1999,7 @@ define internal noundef i64 @ractor_selector_add(i64 noundef %0, i64 noundef ret
 
 4:                                                ; preds = %2
   %5 = load i64, ptr @rb_eArgError, align 8, !tbaa !80
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %5, ptr noundef nonnull @.str.81) #26
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %5, ptr noundef nonnull @.str.81) #27
   unreachable
 
 6:                                                ; preds = %2
@@ -2018,11 +2018,11 @@ define internal noundef i64 @ractor_selector_add(i64 noundef %0, i64 noundef ret
 
 17:                                               ; preds = %6
   %18 = load i64, ptr @rb_eArgError, align 8, !tbaa !80
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %18, ptr noundef nonnull @.str.82) #26
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %18, ptr noundef nonnull @.str.82) #27
   unreachable
 
 19:                                               ; preds = %6
-  %20 = tail call noalias dereferenceable_or_null(2) ptr @malloc(i64 noundef 2) #34
+  %20 = tail call noalias dereferenceable_or_null(2) ptr @malloc(i64 noundef 2) #35
   store i8 0, ptr %20, align 1, !tbaa !113
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 1
   store i8 0, ptr %21, align 1, !tbaa !140
@@ -2066,7 +2066,7 @@ define internal noundef i64 @ractor_selector_remove(i64 noundef %0, i64 noundef 
 
 6:                                                ; preds = %2
   %7 = load i64, ptr @rb_eArgError, align 8, !tbaa !80
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %7, ptr noundef nonnull @.str.81) #26
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %7, ptr noundef nonnull @.str.81) #27
   unreachable
 
 8:                                                ; preds = %2
@@ -2087,7 +2087,7 @@ define internal noundef i64 @ractor_selector_remove(i64 noundef %0, i64 noundef 
 
 19:                                               ; preds = %8
   %20 = load i64, ptr @rb_eArgError, align 8, !tbaa !80
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %20, ptr noundef nonnull @.str.83) #26
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %20, ptr noundef nonnull @.str.83) #27
   unreachable
 
 21:                                               ; preds = %8
@@ -2116,7 +2116,7 @@ define internal noundef i64 @ractor_selector_clear(i64 noundef returned %0) #0 {
   ret i64 %0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i64 0, 21) i64 @ractor_selector_empty_p(i64 noundef %0) #4 {
   %2 = inttoptr i64 %0 to ptr
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -2201,7 +2201,7 @@ rbimpl_intern_const.exit17:                       ; preds = %.lr.ph.i15, %rbimpl
 
 .thread26:                                        ; preds = %12, %20, %18
   %.0.i22 = phi i32 [ %22, %20 ], [ %0, %18 ], [ %0, %12 ]
-  tail call void @rb_error_arity(i32 noundef %.0.i22, i32 noundef 0, i32 noundef 0) #26
+  tail call void @rb_error_arity(i32 noundef %.0.i22, i32 noundef 0, i32 noundef 0) #27
   unreachable
 
 rb_scan_args_set.exit:                            ; preds = %18, %20
@@ -2292,7 +2292,7 @@ rb_ec_ractor_ptr.exit:                            ; preds = %5, %16
 
 ._crit_edge:                                      ; preds = %.backedge, %rb_ec_ractor_ptr.exit
   %49 = load i64, ptr @rb_eRactorError, align 8, !tbaa !80
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %49, ptr noundef nonnull @.str.89) #26
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %49, ptr noundef nonnull @.str.89) #27
   unreachable
 
 50:                                               ; preds = %.lr.ph101, %.backedge
@@ -2600,7 +2600,7 @@ ractor_queue_empty_p.exit:                        ; preds = %ractor_sleep_with_c
   br i1 %155, label %._crit_edge, label %50
 
 156:                                              ; preds = %149
-  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #33
+  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #34
   unreachable
 
 157:                                              ; preds = %149
@@ -2705,7 +2705,7 @@ declare i64 @rb_define_class(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define internal noundef i64 @ractor_moved_missing(i32 %0, ptr readnone captures(none) %1, i64 %2) #6 {
   %4 = load i64, ptr @rb_eRactorMovedError, align 8, !tbaa !80
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.92) #26
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.92) #27
   unreachable
 }
 
@@ -2735,7 +2735,7 @@ define hidden void @rb_ractor_dump() local_unnamed_addr #0 {
   br i1 %9, label %switch.lookup, label %10
 
 10:                                               ; preds = %6
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #33
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #34
   unreachable
 
 switch.lookup:                                    ; preds = %6
@@ -2757,7 +2757,7 @@ switch.lookup:                                    ; preds = %6
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i64 @rb_ractor_stdin() local_unnamed_addr #4 {
   %1 = load ptr, ptr @ruby_single_main_ractor, align 8, !tbaa !39
   %.not.i = icmp eq ptr %1, null
@@ -2785,7 +2785,7 @@ rb_ractor_main_p.exit.thread:                     ; preds = %rb_ractor_main_p.ex
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i64 @rb_ractor_stdout() local_unnamed_addr #4 {
   %1 = load ptr, ptr @ruby_single_main_ractor, align 8, !tbaa !39
   %.not.i = icmp eq ptr %1, null
@@ -2813,7 +2813,7 @@ rb_ractor_main_p.exit.thread:                     ; preds = %rb_ractor_main_p.ex
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i64 @rb_ractor_stderr() local_unnamed_addr #4 {
   %1 = load ptr, ptr @ruby_single_main_ractor, align 8, !tbaa !39
   %.not.i = icmp eq ptr %1, null
@@ -3098,7 +3098,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %rb_ractor_shareable
 
 42:                                               ; preds = %27, %38
   %43 = load i64, ptr @rb_eRactorError, align 8, !tbaa !80
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %43, ptr noundef nonnull @.str.97, i64 noundef %0) #26
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %43, ptr noundef nonnull @.str.97, i64 noundef %0) #27
   unreachable
 
 frozen_shareable_p.exit:                          ; preds = %32, %rbimpl_RB_TYPE_P_fastpath.exit.i
@@ -3115,7 +3115,7 @@ frozen_shareable_p.exit:                          ; preds = %32, %rbimpl_RB_TYPE
 
 49:                                               ; preds = %45
   %50 = load i64, ptr @rb_eRactorError, align 8, !tbaa !80
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %50, ptr noundef nonnull @.str.98) #26
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %50, ptr noundef nonnull @.str.98) #27
   unreachable
 
 51:                                               ; preds = %45
@@ -3136,7 +3136,7 @@ define internal noundef i32 @null_leave(i64 %0) #7 {
   ret i32 0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @mark_shareable(i64 noundef %0) #8 {
   %2 = inttoptr i64 %0 to ptr
   %3 = load i64, ptr %2, align 8, !tbaa !83
@@ -3170,7 +3170,7 @@ define dso_local range(i64 37, 36) i64 @rb_ractor_make_shareable_copy(i64 nounde
 
 13:                                               ; preds = %1
   %14 = load i64, ptr @rb_eRactorError, align 8, !tbaa !80
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %14, ptr noundef nonnull @.str.99) #26
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %14, ptr noundef nonnull @.str.99) #27
   unreachable
 
 ractor_copy.exit:                                 ; preds = %1
@@ -3266,7 +3266,7 @@ rb_ractor_shareable_p.exit:                       ; preds = %17
   %26 = call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.32, i64 noundef %1) #18
   %27 = load i64, ptr @rb_eRactorIsolationError, align 8, !tbaa !80
   %28 = call i64 @rb_exc_new_str(i64 noundef %27, i64 noundef %26) #18
-  call void @rb_exc_raise(i64 noundef %28) #26
+  call void @rb_exc_raise(i64 noundef %28) #27
   unreachable
 
 rb_ractor_shareable_p.exit.thread:                ; preds = %9, %2, %rb_ractor_shareable_p.exit.thread5, %rb_ractor_shareable_p.exit
@@ -3302,7 +3302,7 @@ rb_ractor_main_p.exit:                            ; preds = %1
 
 13:                                               ; preds = %rb_ractor_main_p.exit
   %14 = load i64, ptr @rb_eRactorIsolationError, align 8, !tbaa !80
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %14, ptr noundef nonnull @.str.33, ptr noundef %0) #26
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %14, ptr noundef nonnull @.str.33, ptr noundef %0) #27
   unreachable
 
 rb_ractor_main_p.exit.thread:                     ; preds = %1, %rb_ractor_main_p.exit
@@ -3351,7 +3351,7 @@ rb_obj_traverse.exit:                             ; preds = %1, %7, %9
   ret i1 %.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i32 0, 3) i32 @shareable_p_enter(i64 noundef %0) #8 {
   %2 = inttoptr i64 %0 to ptr
   %3 = load i64, ptr %2, align 8, !tbaa !83
@@ -3421,7 +3421,7 @@ declare void @ruby_xfree(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias noundef nonnull ptr @rb_ractor_local_storage_ptr_newkey(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noalias nonnull dereferenceable(16) ptr @ruby_xmalloc(i64 noundef 16) #34
+  %2 = tail call noalias nonnull dereferenceable(16) ptr @ruby_xmalloc(i64 noundef 16) #35
   %.not = icmp eq ptr %0, null
   %3 = select i1 %.not, ptr @ractor_local_storage_type_null, ptr %0
   store ptr %3, ptr %2, align 8, !tbaa !176
@@ -3435,7 +3435,7 @@ declare noalias nonnull ptr @ruby_xmalloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias noundef nonnull ptr @rb_ractor_local_storage_value_newkey() local_unnamed_addr #0 {
-  %1 = tail call noalias nonnull dereferenceable(16) ptr @ruby_xmalloc(i64 noundef 16) #34
+  %1 = tail call noalias nonnull dereferenceable(16) ptr @ruby_xmalloc(i64 noundef 16) #35
   store ptr @ractor_local_storage_type_value, ptr %1, align 8, !tbaa !176
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr inttoptr (i64 36 to ptr), ptr %2, align 8, !tbaa !179
@@ -3467,7 +3467,7 @@ rb_vm_lock_enter.exit:                            ; preds = %1, %4
   %10 = select i1 %.not, i32 4, i32 %9
   store i32 %10, ptr @freed_ractor_local_keys.1, align 4, !tbaa !183
   %11 = sext i32 %10 to i64
-  %12 = call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre, i64 noundef %11, i64 noundef 8) #37
+  %12 = call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre, i64 noundef %11, i64 noundef 8) #38
   store ptr %12, ptr @freed_ractor_local_keys.2, align 8, !tbaa !184
   %.pre2 = load i32, ptr @freed_ractor_local_keys.0, align 8, !tbaa !180
   br label %13
@@ -3795,7 +3795,7 @@ define dso_local void @rb_ractor_finish_marking() local_unnamed_addr #0 {
 11:                                               ; preds = %._crit_edge
   store i32 16, ptr @freed_ractor_local_keys.1, align 4, !tbaa !183
   %12 = load ptr, ptr @freed_ractor_local_keys.2, align 8, !tbaa !184
-  %13 = tail call nonnull dereferenceable(128) ptr @ruby_xrealloc2(ptr noundef %12, i64 noundef 16, i64 noundef 8) #37
+  %13 = tail call nonnull dereferenceable(128) ptr @ruby_xrealloc2(ptr noundef %12, i64 noundef 16, i64 noundef 8) #38
   store ptr %13, ptr @freed_ractor_local_keys.2, align 8, !tbaa !184
   br label %14
 
@@ -3871,7 +3871,7 @@ rb_ractor_channel_close.exit:                     ; preds = %1, %31, %ractor_sle
   br i1 %.not, label %42, label %41
 
 41:                                               ; preds = %rb_ractor_channel_close.exit
-  call void @rb_exc_raise(i64 noundef %40) #26
+  call void @rb_exc_raise(i64 noundef %40) #27
   unreachable
 
 42:                                               ; preds = %rb_ractor_channel_close.exit
@@ -3971,7 +3971,7 @@ rb_ractor_channel_close.exit:                     ; preds = %2, %33, %ractor_sle
   br i1 %.not, label %44, label %43
 
 43:                                               ; preds = %rb_ractor_channel_close.exit
-  call void @rb_exc_raise(i64 noundef %42) #26
+  call void @rb_exc_raise(i64 noundef %42) #27
   unreachable
 
 44:                                               ; preds = %rb_ractor_channel_close.exit
@@ -4005,7 +4005,7 @@ define hidden void @Init_builtin_ractor() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i64 0, 21) i64 @builtin_inline_class_276(ptr readnone captures(none) %0, i64 %1) #12 {
   %3 = load ptr, ptr @ruby_single_main_ractor, align 8, !tbaa !39
   %.not = icmp eq ptr %3, null
@@ -4044,7 +4044,7 @@ ractor_alloc.exit:
   store i32 0, ptr %20, align 4, !tbaa !86
   %21 = getelementptr inbounds nuw i8, ptr %.pre, i64 96
   store i32 0, ptr %21, align 8, !tbaa !87
-  %22 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #34
+  %22 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #35
   store ptr %22, ptr %18, align 8, !tbaa !88
   %23 = getelementptr inbounds nuw i8, ptr %.pre, i64 120
   %24 = getelementptr inbounds nuw i8, ptr %.pre, i64 136
@@ -4053,7 +4053,7 @@ ractor_alloc.exit:
   store i32 0, ptr %25, align 4, !tbaa !86
   %26 = getelementptr inbounds nuw i8, ptr %.pre, i64 128
   store i32 0, ptr %26, align 8, !tbaa !87
-  %27 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #34
+  %27 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #35
   store ptr %27, ptr %23, align 8, !tbaa !88
   tail call void @rb_native_mutex_initialize(ptr noundef nonnull %17) #18
   %28 = getelementptr inbounds nuw i8, ptr %.pre, i64 208
@@ -4081,7 +4081,7 @@ ractor_alloc.exit:
   br i1 %.not.i.i13, label %rb_enc_asciicompat.exit.i, label %rb_enc_asciicompat.exit.thread.i
 
 rb_enc_asciicompat.exit.i:                        ; preds = %35
-  %40 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %38) #38
+  %40 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %38) #39
   %.not3.i.i = icmp eq i32 %40, 0
   br i1 %.not3.i.i, label %43, label %rb_enc_asciicompat.exit.thread.i
 
@@ -4089,7 +4089,7 @@ rb_enc_asciicompat.exit.thread.i:                 ; preds = %rb_enc_asciicompat.
   %41 = load i64, ptr @rb_eArgError, align 8, !tbaa !80
   %42 = getelementptr i8, ptr %38, i64 8
   %.val.i = load ptr, ptr %42, align 8, !tbaa !199
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %41, ptr noundef nonnull @.str.63, ptr noundef %.val.i) #26
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %41, ptr noundef nonnull @.str.63, ptr noundef %.val.i) #27
   unreachable
 
 43:                                               ; preds = %rb_enc_asciicompat.exit.i
@@ -4133,7 +4133,7 @@ ractor_init.exit:                                 ; preds = %ractor_alloc.exit, 
   ret i64 %64
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal i64 @builtin_inline_class_289(ptr noundef readonly captures(none) %0, i64 %1) #4 {
 rb_ec_ractor_ptr.exit:
   %2 = getelementptr i8, ptr %0, i64 48
@@ -4144,7 +4144,7 @@ rb_ec_ractor_ptr.exit:
   ret i64 %.val1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i64 1, 8589934592) i64 @builtin_inline_class_303(ptr readnone captures(none) %0, i64 %1) #4 {
   %3 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !124
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -4183,7 +4183,7 @@ rb_array_len.exit.i.thread:                       ; preds = %7
   br label %rb_array_const_ptr.exit
 
 22:                                               ; preds = %rb_array_len.exit.i
-  tail call void @rb_out_of_int(i64 noundef %16) #33
+  tail call void @rb_out_of_int(i64 noundef %16) #34
   unreachable
 
 23:                                               ; preds = %rb_array_len.exit.i
@@ -4385,7 +4385,7 @@ define internal range(i64 37, 36) i64 @ractor_receive_if(ptr noundef %0, i64 %1,
 
 6:                                                ; preds = %3
   %7 = load i64, ptr @rb_eArgError, align 8, !tbaa !80
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %7, ptr noundef nonnull @.str.102) #26
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %7, ptr noundef nonnull @.str.102) #27
   unreachable
 
 8:                                                ; preds = %3
@@ -4456,7 +4456,7 @@ rb_vm_check_ints.exit:                            ; preds = %rb_vm_check_ints.ex
   br i1 %switch, label %43, label %40
 
 40:                                               ; preds = %39
-  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #33
+  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #34
   unreachable
 
 41:                                               ; preds = %33
@@ -4563,7 +4563,7 @@ define internal range(i64 37, 36) i64 @builtin_inline_class_711(ptr noundef %0, 
   ret i64 %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal i64 @builtin_inline_class_717(ptr readnone captures(none) %0, i64 noundef %1) #4 {
   %3 = inttoptr i64 %1 to ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -4573,7 +4573,7 @@ define internal i64 @builtin_inline_class_717(ptr readnone captures(none) %0, i6
   ret i64 %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal i64 @builtin_inline_class_718(ptr readnone captures(none) %0, i64 noundef %1) #4 {
   %3 = inttoptr i64 %1 to ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -4583,7 +4583,7 @@ define internal i64 @builtin_inline_class_718(ptr readnone captures(none) %0, i6
   ret i64 %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i64 1, 8589934592) i64 @builtin_inline_class_719(ptr readnone captures(none) %0, i64 noundef %1) #4 {
   %3 = inttoptr i64 %1 to ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -4607,7 +4607,7 @@ define internal i64 @builtin_inline_class_720(ptr readnone captures(none) %0, i6
   br i1 %8, label %switch.lookup, label %9
 
 9:                                                ; preds = %2
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #33
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #34
   unreachable
 
 switch.lookup:                                    ; preds = %2
@@ -4618,7 +4618,7 @@ switch.lookup:                                    ; preds = %2
   ret i64 %11
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal i64 @builtin_inline_class_730(ptr readnone captures(none) %0, i64 noundef %1) #4 {
   %3 = inttoptr i64 %1 to ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -4941,7 +4941,7 @@ rb_ec_ractor_ptr.exit:                            ; preds = %3, %7
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal i64 @builtin_inline_class_880(ptr readnone captures(none) %0, i64 %1) #4 {
   %3 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !124
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -4950,7 +4950,7 @@ define internal i64 @builtin_inline_class_880(ptr readnone captures(none) %0, i6
   ret i64 %.val
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal range(i64 0, 21) i64 @builtin_inline_class_887(ptr noundef readonly captures(none) %0, i64 %1) #4 {
   %3 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !124
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -5432,7 +5432,7 @@ ractor_queue_advance.exit.i.i.i:                  ; preds = %54, %48
 65:                                               ; preds = %62
   %66 = sext i32 %63 to i64
   %67 = shl nsw i64 %66, 6
-  %68 = tail call ptr @realloc(ptr noundef %.pre3.i.i, i64 noundef %67) #36
+  %68 = tail call ptr @realloc(ptr noundef %.pre3.i.i, i64 noundef %67) #37
   store ptr %68, ptr %2, align 8, !tbaa !88
   %69 = load i32, ptr %18, align 8, !tbaa !85
   %70 = load i32, ptr %17, align 8, !tbaa !87
@@ -5527,7 +5527,7 @@ ractor_queue_deq.exit.thread49.i:                 ; preds = %58
 120:                                              ; preds = %117
   %121 = sext i32 %118 to i64
   %122 = shl nsw i64 %121, 6
-  %123 = tail call ptr @realloc(ptr noundef %.pre3.i37.i, i64 noundef %122) #36
+  %123 = tail call ptr @realloc(ptr noundef %.pre3.i37.i, i64 noundef %122) #37
   store ptr %123, ptr %2, align 8, !tbaa !88
   %124 = load i32, ptr %18, align 8, !tbaa !85
   %125 = load i32, ptr %17, align 8, !tbaa !87
@@ -5695,7 +5695,7 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
   br i1 %.not28, label %201, label %200
 
 200:                                              ; preds = %191
-  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #33
+  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #34
   unreachable
 
 201:                                              ; preds = %191
@@ -5730,7 +5730,7 @@ ractor_wakeup.exit:                               ; preds = %201, %ractor_sleepi
 
 212:                                              ; preds = %.loopexit
   %213 = load i64, ptr @rb_eRactorClosedError, align 8, !tbaa !80
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %213, ptr noundef nonnull @.str.65) #26
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %213, ptr noundef nonnull @.str.65) #27
   unreachable
 
 214:                                              ; preds = %.loopexit, %ractor_wakeup.exit
@@ -5884,7 +5884,7 @@ rb_ractor_shareable_p.exit:                       ; preds = %21
 
 40:                                               ; preds = %31
   %41 = load i64, ptr @rb_eRactorError, align 8, !tbaa !80
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %41, ptr noundef nonnull @.str.99) #26
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %41, ptr noundef nonnull @.str.99) #27
   unreachable
 
 42:                                               ; preds = %29
@@ -5910,7 +5910,7 @@ rb_ractor_shareable_p.exit:                       ; preds = %21
 
 52:                                               ; preds = %42
   %53 = load i64, ptr @rb_eRactorError, align 8, !tbaa !80
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %53, ptr noundef nonnull @.str.66) #26
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %53, ptr noundef nonnull @.str.66) #27
   unreachable
 
 ractor_copy.exit:                                 ; preds = %13, %4, %42, %31, %rb_ractor_shareable_p.exit.thread11, %rb_ractor_shareable_p.exit
@@ -5921,8 +5921,8 @@ ractor_copy.exit:                                 ; preds = %13, %4, %42, %31, %
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ractor_queue_enq(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
+; Function Attrs: nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc void @ractor_queue_enq(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #20 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !85
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -5934,7 +5934,7 @@ define internal fastcc void @ractor_queue_enq(ptr noundef captures(none) %0, ptr
 7:                                                ; preds = %2
   %8 = sext i32 %4 to i64
   %9 = shl nsw i64 %8, 6
-  %10 = tail call ptr @realloc(ptr noundef %.pre3, i64 noundef %9) #36
+  %10 = tail call ptr @realloc(ptr noundef %.pre3, i64 noundef %9) #37
   store ptr %10, ptr %0, align 8, !tbaa !88
   %11 = load i32, ptr %3, align 8, !tbaa !85
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5991,13 +5991,13 @@ define internal fastcc void @ractor_queue_enq(ptr noundef captures(none) %0, ptr
 }
 
 ; Function Attrs: cold noreturn
-declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #20
+declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #21
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #22
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #22
+declare void @llvm.assume(i1 noundef) #23
 
 declare void @rb_ec_vm_lock_rec_release(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -6142,7 +6142,7 @@ RB_OBJ_FROZEN.exit.thread:                        ; preds = %23, %RB_FL_ABLE.exi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #23
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #24
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i32 0, 2) i32 @obj_traverse_replace_i(i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
@@ -6448,7 +6448,7 @@ rb_array_len.exit.i:                              ; preds = %131, %128
   br i1 %.not.i1.i, label %RARRAY_LENINT.exit, label %134
 
 134:                                              ; preds = %rb_array_len.exit.i
-  call void @rb_out_of_int(i64 noundef %.0.i.i) #33
+  call void @rb_out_of_int(i64 noundef %.0.i.i) #34
   unreachable
 
 RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
@@ -6456,7 +6456,7 @@ RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
   br i1 %.not171, label %135, label %.critedge183
 
 135:                                              ; preds = %RARRAY_LENINT.exit
-  %136 = call i64 @rb_ary_entry(i64 noundef %50, i64 noundef %indvars.iv234) #38
+  %136 = call i64 @rb_ary_entry(i64 noundef %50, i64 noundef %indvars.iv234) #39
   %137 = call fastcc i32 @obj_traverse_replace_i(i64 noundef %136, ptr noundef nonnull %1)
   %.not169 = icmp eq i32 %137, 0
   br i1 %.not169, label %138, label %.critedge192
@@ -6700,13 +6700,13 @@ rb_obj_write.exit210:                             ; preds = %217, %219, %224
 243:                                              ; preds = %._crit_edge, %236
   %244 = phi ptr [ %242, %._crit_edge ], [ @.str.68, %236 ]
   %245 = load i64, ptr @rb_eRactorError, align 8, !tbaa !80
-  %246 = call fastcc i64 @rb_class_of(i64 noundef %50) #38
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %245, ptr noundef nonnull @.str.67, ptr noundef nonnull %244, i64 noundef %246) #26
+  %246 = call fastcc i64 @rb_class_of(i64 noundef %50) #39
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %245, ptr noundef nonnull @.str.67, ptr noundef nonnull %244, i64 noundef %246) #27
   unreachable
 
 247:                                              ; preds = %88
   call void @rb_obj_info_dump_loc(i64 noundef %50, ptr noundef nonnull @.str, i32 noundef 3514, ptr noundef nonnull @__func__.obj_traverse_replace_i) #18
-  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #33
+  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #34
   unreachable
 
 .critedge180:                                     ; preds = %rb_obj_write.exit207, %rb_obj_write.exit202, %RSTRUCT_CONST_PTR.exit, %ROBJECT_IVPTR.exit, %228, %230, %235, %205, %207, %212, %166, %239, %95, %88, %88, %88, %88, %88, %88, %.critedge183, %92
@@ -6936,8 +6936,8 @@ rb_vm_lock_leave.exit:                            ; preds = %rb_vm_lock_enter_nb
   ret i32 %10
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i64 @rb_class_of(i64 noundef %0) unnamed_addr #24 {
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc i64 @rb_class_of(i64 noundef %0) unnamed_addr #25 {
   %2 = icmp eq i64 %0, 0
   %3 = and i64 %0, 7
   %4 = icmp ne i64 %3, 0
@@ -7074,10 +7074,10 @@ declare void @rb_replace_generic_ivar(i64 noundef, i64 noundef) local_unnamed_ad
 declare void @rb_obj_freeze_inline(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #25
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #26
 
 ; Function Attrs: noreturn nounwind
-declare void @llvm.eh.sjlj.longjmp(ptr) #26
+declare void @llvm.eh.sjlj.longjmp(ptr) #27
 
 declare void @rb_ractor_sched_wakeup(ptr noundef) local_unnamed_addr #1
 
@@ -7101,7 +7101,7 @@ define internal fastcc i64 @ractor_try_receive(ptr noundef %0, ptr noundef captu
 
 7:                                                ; preds = %5
   %8 = load i64, ptr @rb_eRactorError, align 8, !tbaa !80
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.72) #26
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.72) #27
   unreachable
 
 ractor_recursive_receive_if.exit:                 ; preds = %2, %5
@@ -7195,7 +7195,7 @@ ractor_queue_advance.exit.i.i:                    ; preds = %49, %43
 
 55:                                               ; preds = %.loopexit1
   %56 = load i64, ptr @rb_eRactorClosedError, align 8, !tbaa !80
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %56, ptr noundef nonnull @.str.71) #26
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %56, ptr noundef nonnull @.str.71) #27
   unreachable
 
 .loopexit:                                        ; preds = %31, %ractor_queue_advance.exit.i.i, %26
@@ -7223,7 +7223,7 @@ define internal fastcc void @ractor_wait_receive(ptr noundef %0, ptr noundef %1,
 
 7:                                                ; preds = %5
   %8 = load i64, ptr @rb_eRactorError, align 8, !tbaa !80
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.72) #26
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.72) #27
   unreachable
 
 ractor_recursive_receive_if.exit:                 ; preds = %3, %5
@@ -7353,7 +7353,7 @@ define internal fastcc i64 @ractor_basket_accept(ptr noundef nonnull captures(no
   br label %ractor_basket_value.exit
 
 4:                                                ; preds = %1
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #33
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #34
   unreachable
 
 ractor_basket_value.exit:                         ; preds = %1, %3
@@ -7367,12 +7367,12 @@ ractor_basket_value.exit:                         ; preds = %1, %3
 10:                                               ; preds = %ractor_basket_value.exit
   %11 = load i64, ptr @rb_eRactorRemoteError, align 8, !tbaa !80
   %12 = tail call fastcc i64 @rbimpl_exc_new_cstr(i64 noundef %11)
-  %13 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @ractor_basket_accept.rbimpl_id, ptr noundef @.str.74) #35
+  %13 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @ractor_basket_accept.rbimpl_id, ptr noundef @.str.74) #36
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !102
   %16 = tail call i64 @rb_ivar_set(i64 noundef %12, i64 noundef %13, i64 noundef %15) #18
   tail call void @rb_ec_setup_exception(ptr noundef null, i64 noundef %12, i64 noundef %6) #18
-  tail call void @rb_exc_raise(i64 noundef %12) #26
+  tail call void @rb_exc_raise(i64 noundef %12) #27
   unreachable
 
 17:                                               ; preds = %ractor_basket_value.exit
@@ -7390,13 +7390,13 @@ define internal fastcc i64 @rbimpl_exc_new_cstr(i64 noundef %0) unnamed_addr #19
 declare i64 @rb_ivar_set(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc range(i64 1, 0) i64 @rbimpl_intern_const(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1) unnamed_addr #27 {
+define internal fastcc range(i64 1, 0) i64 @rbimpl_intern_const(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1) unnamed_addr #28 {
   %.pr = load i64, ptr %0, align 8, !tbaa !80
   %.not4 = icmp eq i64 %.pr, 0
   br i1 %.not4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #38
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #39
   %4 = tail call i64 @rb_intern2(ptr noundef nonnull %1, i64 noundef %3) #18
   store i64 %4, ptr %0, align 8, !tbaa !80
   %.not = icmp eq i64 %4, 0
@@ -7412,7 +7412,7 @@ declare void @rb_ec_setup_exception(ptr noundef, i64 noundef, i64 noundef) local
 declare i64 @rb_exc_new(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #28
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #29
 
 declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -7447,10 +7447,10 @@ ractor_wakeup.exit:                               ; preds = %1, %ractor_sleeping
 declare void @rb_ec_check_ints(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn
-declare void @rb_out_of_int(i64 noundef) local_unnamed_addr #20
+declare void @rb_out_of_int(i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #29
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #30
 
 declare void @rb_native_mutex_lock(ptr noundef) local_unnamed_addr #1
 
@@ -7518,10 +7518,10 @@ define internal void @ractor_selector_free(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read) uwtable
-define internal i64 @ractor_selector_memsize(ptr noundef readonly captures(none) %0) #30 {
+define internal i64 @ractor_selector_memsize(ptr noundef readonly captures(none) %0) #31 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !137
-  %4 = tail call i64 @rb_st_memsize(ptr noundef %3) #38
+  %4 = tail call i64 @rb_st_memsize(ptr noundef %3) #39
   %5 = add i64 %4, 48
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load i64, ptr %6, align 8, !tbaa !143
@@ -7716,7 +7716,7 @@ ractor_take_will.exit:                            ; preds = %9, %.critedge
 20:                                               ; preds = %14
   %21 = sext i32 %17 to i64
   %22 = shl nsw i64 %21, 6
-  %23 = tail call ptr @realloc(ptr noundef %.pre3.i, i64 noundef %22) #36
+  %23 = tail call ptr @realloc(ptr noundef %.pre3.i, i64 noundef %22) #37
   store ptr %23, ptr %15, align 8, !tbaa !88
   %24 = load i32, ptr %16, align 8, !tbaa !85
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -7809,7 +7809,7 @@ ractor_wakeup.exit:                               ; preds = %ractor_take_will.ex
 
 64:                                               ; preds = %ractor_wakeup.exit
   %65 = load i64, ptr @rb_eRactorClosedError, align 8, !tbaa !80
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %65, ptr noundef nonnull @.str.65) #26
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %65, ptr noundef nonnull @.str.65) #27
   unreachable
 
 66:                                               ; preds = %ractor_wakeup.exit.thread, %ractor_wakeup.exit
@@ -8043,7 +8043,7 @@ rb_array_len.exit.i:                              ; preds = %42, %39
   br i1 %.not.i1.i, label %RARRAY_LENINT.exit, label %45
 
 45:                                               ; preds = %rb_array_len.exit.i
-  call void @rb_out_of_int(i64 noundef %.0.i.i) #33
+  call void @rb_out_of_int(i64 noundef %.0.i.i) #34
   unreachable
 
 RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
@@ -8051,7 +8051,7 @@ RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
   br i1 %.not66, label %46, label %.critedge
 
 46:                                               ; preds = %RARRAY_LENINT.exit
-  %47 = call i64 @rb_ary_entry(i64 noundef %0, i64 noundef %indvars.iv) #38
+  %47 = call i64 @rb_ary_entry(i64 noundef %0, i64 noundef %indvars.iv) #39
   %48 = call fastcc i32 @obj_traverse_i(i64 noundef %47, ptr noundef nonnull %1)
   %.not65 = icmp eq i32 %48, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8174,7 +8174,7 @@ rb_vm_lock_leave.exit:                            ; preds = %rb_vm_lock_enter_nb
 
 98:                                               ; preds = %30
   call void @rb_obj_info_dump_loc(i64 noundef %0, ptr noundef nonnull @.str, i32 noundef 2996, ptr noundef nonnull @__func__.obj_traverse_i) #18
-  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #33
+  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #34
   unreachable
 
 .critedge:                                        ; preds = %69, %RARRAY_LENINT.exit, %RSTRUCT_CONST_PTR.exit, %rb_vm_lock_leave.exit, %86, %78, %53, %30, %30, %30, %30, %30, %30, %30, %30
@@ -8459,7 +8459,7 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
 
 49:                                               ; preds = %47
   %50 = load i64, ptr @rb_eRactorError, align 8, !tbaa !80
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %50, ptr noundef nonnull @.str.72) #26
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %50, ptr noundef nonnull @.str.72) #27
   unreachable
 
 ractor_recursive_receive_if.exit.i:               ; preds = %47, %.lr.ph.i
@@ -8548,7 +8548,7 @@ ractor_queue_advance.exit.i.i.i:                  ; preds = %84, %78
 
 89:                                               ; preds = %.loopexit1.i
   %90 = load i64, ptr @rb_eRactorClosedError, align 8, !tbaa !80
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %90, ptr noundef nonnull @.str.71) #26
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %90, ptr noundef nonnull @.str.71) #27
   unreachable
 
 .loopexit.i:                                      ; preds = %ractor_queue_advance.exit.i.i.i, %.lr.ph.i.i.i, %64
@@ -8558,7 +8558,7 @@ ractor_queue_advance.exit.i.i.i:                  ; preds = %84, %78
   br i1 %switch, label %ractor_basket_value.exit.i, label %91
 
 91:                                               ; preds = %.loopexit.i
-  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #33
+  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #34
   unreachable
 
 ractor_basket_value.exit.i:                       ; preds = %.loopexit.i
@@ -8568,10 +8568,10 @@ ractor_basket_value.exit.i:                       ; preds = %.loopexit.i
 93:                                               ; preds = %ractor_basket_value.exit.i
   %94 = load i64, ptr @rb_eRactorRemoteError, align 8, !tbaa !80
   %95 = call fastcc i64 @rbimpl_exc_new_cstr(i64 noundef %94)
-  %96 = call fastcc i64 @rbimpl_intern_const(ptr noundef @ractor_basket_accept.rbimpl_id, ptr noundef @.str.74) #35
+  %96 = call fastcc i64 @rbimpl_intern_const(ptr noundef @ractor_basket_accept.rbimpl_id, ptr noundef @.str.74) #36
   %97 = call i64 @rb_ivar_set(i64 noundef %95, i64 noundef %96, i64 noundef %.sroa.518.0.copyload) #18
   call void @rb_ec_setup_exception(ptr noundef null, i64 noundef %95, i64 noundef %.sroa.6.0.copyload) #18
-  call void @rb_exc_raise(i64 noundef %95) #26
+  call void @rb_exc_raise(i64 noundef %95) #27
   unreachable
 
 ractor_try_receive.exit:                          ; preds = %ractor_basket_value.exit.i, %.loopexit1.i
@@ -8730,8 +8730,8 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %1
 
 declare i64 @rb_rescue2(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable
-define internal noundef i64 @require_rescue(i64 noundef %0, i64 noundef %1) #31 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal noundef i64 @require_rescue(i64 noundef %0, i64 noundef %1) #32 {
   %3 = inttoptr i64 %0 to ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %1, ptr %4, align 8, !tbaa !193
@@ -8769,7 +8769,7 @@ define internal noundef i64 @require_result_copy_body(i64 noundef %0) #0 {
 
 16:                                               ; preds = %7
   %17 = load i64, ptr @rb_eRactorError, align 8, !tbaa !80
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %17, ptr noundef nonnull @.str.99) #26
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %17, ptr noundef nonnull @.str.99) #27
   unreachable
 
 ractor_copy.exit:                                 ; preds = %7
@@ -8799,7 +8799,7 @@ ractor_copy.exit:                                 ; preds = %7
 
 29:                                               ; preds = %18
   %30 = load i64, ptr @rb_eRactorError, align 8, !tbaa !80
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %30, ptr noundef nonnull @.str.99) #26
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %30, ptr noundef nonnull @.str.99) #27
   unreachable
 
 ractor_copy.exit6:                                ; preds = %18
@@ -8810,8 +8810,8 @@ ractor_copy.exit6:                                ; preds = %18
   ret i64 4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable
-define internal noundef i64 @require_result_copy_resuce(i64 noundef %0, i64 noundef %1) #31 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal noundef i64 @require_result_copy_resuce(i64 noundef %0, i64 noundef %1) #32 {
   %3 = inttoptr i64 %0 to ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %1, ptr %4, align 8, !tbaa !193
@@ -8874,7 +8874,7 @@ ractor_try_take.exit.thread:                      ; preds = %22, %22
 
 24:                                               ; preds = %.critedge.i
   %25 = load i64, ptr @rb_eRactorClosedError, align 8, !tbaa !80
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %25, ptr noundef nonnull @.str.65) #26
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %25, ptr noundef nonnull @.str.65) #27
   unreachable
 
 ractor_try_take.exit:                             ; preds = %.critedge.i
@@ -9281,24 +9281,24 @@ ractor_local_value_set.exit:                      ; preds = %rb_ec_ractor_ptr.ex
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #32
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #33
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #32
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #33
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { allocsize(1,2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -9306,25 +9306,26 @@ attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn mem
 attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #18 = { nounwind }
 attributes #19 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #23 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #24 = { inlinehint mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { noreturn nounwind }
-attributes #27 = { inlinehint nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #29 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #30 = { mustprogress nofree nounwind sspstrong willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #31 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #32 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #33 = { cold noreturn nounwind }
-attributes #34 = { nounwind allocsize(0) }
-attributes #35 = { nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) }
-attributes #36 = { nounwind allocsize(1) }
-attributes #37 = { nounwind allocsize(1,2) }
-attributes #38 = { nounwind willreturn memory(read) }
+attributes #20 = { nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #24 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #25 = { inlinehint mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { noreturn nounwind }
+attributes #28 = { inlinehint nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #30 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #31 = { mustprogress nofree nounwind sspstrong willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #32 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #33 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #34 = { cold noreturn nounwind }
+attributes #35 = { nounwind allocsize(0) }
+attributes #36 = { nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) }
+attributes #37 = { nounwind allocsize(1) }
+attributes #38 = { nounwind allocsize(1,2) }
+attributes #39 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

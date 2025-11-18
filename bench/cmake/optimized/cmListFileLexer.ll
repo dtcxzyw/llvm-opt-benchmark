@@ -103,13 +103,13 @@ define dso_local range(i32 0, 2) i32 @cmListFileLexer_yylex(ptr noundef %0, ptr 
   br i1 %.not288, label %34, label %59
 
 28:                                               ; preds = %20
-  %29 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #28
+  %29 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #29
   store ptr %29, ptr %21, align 8, !tbaa !20
   %.not28.i = icmp eq ptr %29, null
   br i1 %.not28.i, label %30, label %31
 
 30:                                               ; preds = %28
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.27) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.27) #30
   unreachable
 
 31:                                               ; preds = %28
@@ -130,13 +130,13 @@ define dso_local range(i32 0, 2) i32 @cmListFileLexer_yylex(ptr noundef %0, ptr 
 38:                                               ; preds = %34
   %39 = add i64 %36, 8
   %40 = shl i64 %39, 3
-  %41 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %22, i64 noundef %40) #30
+  %41 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %22, i64 noundef %40) #31
   store ptr %41, ptr %21, align 8, !tbaa !20
   %.not30.i = icmp eq ptr %41, null
   br i1 %.not30.i, label %42, label %43
 
 42:                                               ; preds = %38
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.27) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.27) #30
   unreachable
 
 43:                                               ; preds = %38
@@ -149,25 +149,25 @@ define dso_local range(i32 0, 2) i32 @cmListFileLexer_yylex(ptr noundef %0, ptr 
 
 cmListFileLexer_yyensure_buffer_stack.exit:       ; preds = %31, %34, %43
   %46 = phi ptr [ %15, %31 ], [ %15, %34 ], [ %.pre, %43 ]
-  %47 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #28
+  %47 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #29
   %.not.i296 = icmp eq ptr %47, null
   br i1 %.not.i296, label %48, label %49
 
 48:                                               ; preds = %cmListFileLexer_yyensure_buffer_stack.exit
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #30
   unreachable
 
 49:                                               ; preds = %cmListFileLexer_yyensure_buffer_stack.exit
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i32 16384, ptr %50, align 8, !tbaa !25
-  %51 = tail call noalias noundef dereferenceable_or_null(16386) ptr @malloc(i64 noundef 16386) #28
+  %51 = tail call noalias noundef dereferenceable_or_null(16386) ptr @malloc(i64 noundef 16386) #29
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %51, ptr %52, align 8, !tbaa !27
   %.not14.i = icmp eq ptr %51, null
   br i1 %.not14.i, label %53, label %cmListFileLexer_yy_create_buffer.exit
 
 53:                                               ; preds = %49
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #30
   unreachable
 
 cmListFileLexer_yy_create_buffer.exit:            ; preds = %49
@@ -456,11 +456,11 @@ cmListFileLexer_yy_create_buffer.exit:            ; preds = %49
   br i1 %188, label %189, label %191
 
 189:                                              ; preds = %186
-  %190 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %184, ptr noundef nonnull readonly dereferenceable(1) %180) #31
+  %190 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %184, ptr noundef nonnull readonly dereferenceable(1) %180) #32
   br label %cmListFileLexerSetToken.exit
 
 191:                                              ; preds = %186, %185
-  tail call void @free(ptr noundef nonnull %184) #31
+  tail call void @free(ptr noundef nonnull %184) #32
   store ptr null, ptr %85, align 8, !tbaa !55
   store i32 0, ptr %86, align 8, !tbaa !56
   br label %192
@@ -470,7 +470,7 @@ cmListFileLexer_yy_create_buffer.exit:            ; preds = %49
   br i1 %.not25.i, label %cmListFileLexerSetToken.exit, label %193
 
 193:                                              ; preds = %192
-  %194 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %180) #31
+  %194 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %180) #32
   store ptr %194, ptr %85, align 8, !tbaa !55
   store i32 %181, ptr %84, align 8, !tbaa !57
   %195 = add nsw i32 %181, 1
@@ -516,12 +516,12 @@ cmListFileLexerSetToken.exit:                     ; preds = %189, %192, %193
   br label %cmListFileLexerSetToken.exit301
 
 211:                                              ; preds = %207
-  tail call void @free(ptr noundef nonnull %206) #31
+  tail call void @free(ptr noundef nonnull %206) #32
   store i32 0, ptr %86, align 8, !tbaa !56
   br label %212
 
 212:                                              ; preds = %211, %199
-  %213 = tail call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull @.str) #31
+  %213 = tail call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull @.str) #32
   store ptr %213, ptr %85, align 8, !tbaa !55
   store i32 0, ptr %84, align 8, !tbaa !57
   br label %cmListFileLexerSetToken.exit301
@@ -532,7 +532,7 @@ cmListFileLexerSetToken.exit301:                  ; preds = %210, %212
   %214 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink29.i299
   store i32 %.sink.i300, ptr %214, align 8, !tbaa !58
   %215 = getelementptr inbounds nuw i8, ptr %spec.select917, i64 1
-  %216 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %215, i32 noundef 91) #32
+  %216 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %215, i32 noundef 91) #33
   %217 = ptrtoint ptr %216 to i64
   %218 = ptrtoint ptr %spec.select917 to i64
   %219 = sub i64 %217, %218
@@ -601,11 +601,11 @@ cmListFileLexerSetToken.exit301:                  ; preds = %210, %212
   br i1 %252, label %253, label %255
 
 253:                                              ; preds = %250
-  %254 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %248, ptr noundef nonnull readonly dereferenceable(1) %244) #31
+  %254 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %248, ptr noundef nonnull readonly dereferenceable(1) %244) #32
   br label %cmListFileLexerSetToken.exit307
 
 255:                                              ; preds = %250, %249
-  tail call void @free(ptr noundef nonnull %248) #31
+  tail call void @free(ptr noundef nonnull %248) #32
   store ptr null, ptr %85, align 8, !tbaa !55
   store i32 0, ptr %86, align 8, !tbaa !56
   br label %256
@@ -615,7 +615,7 @@ cmListFileLexerSetToken.exit301:                  ; preds = %210, %212
   br i1 %.not25.i304, label %cmListFileLexerSetToken.exit307, label %257
 
 257:                                              ; preds = %256
-  %258 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %244) #31
+  %258 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %244) #32
   store ptr %258, ptr %85, align 8, !tbaa !55
   store i32 %245, ptr %84, align 8, !tbaa !57
   %259 = add nsw i32 %245, 1
@@ -654,11 +654,11 @@ cmListFileLexerSetToken.exit307:                  ; preds = %253, %256, %257
   br i1 %273, label %274, label %276
 
 274:                                              ; preds = %271
-  %275 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %269, ptr noundef nonnull readonly dereferenceable(1) %265) #31
+  %275 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %269, ptr noundef nonnull readonly dereferenceable(1) %265) #32
   br label %cmListFileLexerSetToken.exit313
 
 276:                                              ; preds = %271, %270
-  tail call void @free(ptr noundef nonnull %269) #31
+  tail call void @free(ptr noundef nonnull %269) #32
   store ptr null, ptr %85, align 8, !tbaa !55
   store i32 0, ptr %86, align 8, !tbaa !56
   br label %277
@@ -668,7 +668,7 @@ cmListFileLexerSetToken.exit307:                  ; preds = %253, %256, %257
   br i1 %.not25.i310, label %cmListFileLexerSetToken.exit313, label %278
 
 278:                                              ; preds = %277
-  %279 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %265) #31
+  %279 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %265) #32
   store ptr %279, ptr %85, align 8, !tbaa !55
   store i32 %266, ptr %84, align 8, !tbaa !57
   %280 = add nsw i32 %266, 1
@@ -707,11 +707,11 @@ cmListFileLexerSetToken.exit313:                  ; preds = %274, %277, %278
   br i1 %294, label %295, label %297
 
 295:                                              ; preds = %292
-  %296 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %290, ptr noundef nonnull readonly dereferenceable(1) %286) #31
+  %296 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %290, ptr noundef nonnull readonly dereferenceable(1) %286) #32
   br label %cmListFileLexerSetToken.exit319
 
 297:                                              ; preds = %292, %291
-  tail call void @free(ptr noundef nonnull %290) #31
+  tail call void @free(ptr noundef nonnull %290) #32
   store ptr null, ptr %85, align 8, !tbaa !55
   store i32 0, ptr %86, align 8, !tbaa !56
   br label %298
@@ -721,7 +721,7 @@ cmListFileLexerSetToken.exit313:                  ; preds = %274, %277, %278
   br i1 %.not25.i316, label %cmListFileLexerSetToken.exit319, label %299
 
 299:                                              ; preds = %298
-  %300 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %286) #31
+  %300 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %286) #32
   store ptr %300, ptr %85, align 8, !tbaa !55
   store i32 %287, ptr %84, align 8, !tbaa !57
   %301 = add nsw i32 %287, 1
@@ -750,7 +750,7 @@ cmListFileLexerSetToken.exit319:                  ; preds = %295, %298, %299
 
 .thread.i:                                        ; preds = %306
   %313 = sext i32 %311 to i64
-  %314 = tail call noalias ptr @malloc(i64 noundef %313) #28
+  %314 = tail call noalias ptr @malloc(i64 noundef %313) #29
   br label %327
 
 315:                                              ; preds = %306
@@ -761,7 +761,7 @@ cmListFileLexerSetToken.exit319:                  ; preds = %295, %298, %299
 317:                                              ; preds = %315
   %318 = sext i32 %309 to i64
   %319 = getelementptr inbounds i8, ptr %312, i64 %318
-  %320 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %319, ptr noundef nonnull readonly dereferenceable(1) %307) #31
+  %320 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %319, ptr noundef nonnull readonly dereferenceable(1) %307) #32
   %321 = load i32, ptr %84, align 8, !tbaa !57
   %322 = add nsw i32 %321, %308
   store i32 %322, ptr %84, align 8, !tbaa !57
@@ -769,10 +769,10 @@ cmListFileLexerSetToken.exit319:                  ; preds = %295, %298, %299
 
 323:                                              ; preds = %315
   %324 = sext i32 %311 to i64
-  %325 = tail call noalias ptr @malloc(i64 noundef %324) #28
+  %325 = tail call noalias ptr @malloc(i64 noundef %324) #29
   %326 = sext i32 %309 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %325, ptr nonnull align 1 %312, i64 %326, i1 false)
-  tail call void @free(ptr noundef nonnull %312) #31
+  tail call void @free(ptr noundef nonnull %312) #32
   %.pre.i = load i32, ptr %84, align 8, !tbaa !57
   %.pre31.i = add nsw i32 %.pre.i, %308
   br label %327
@@ -837,7 +837,7 @@ cmListFileLexerAppend.exit:                       ; preds = %317, %327
 
 .thread.i326:                                     ; preds = %351
   %358 = sext i32 %356 to i64
-  %359 = tail call noalias ptr @malloc(i64 noundef %358) #28
+  %359 = tail call noalias ptr @malloc(i64 noundef %358) #29
   br label %372
 
 360:                                              ; preds = %351
@@ -848,7 +848,7 @@ cmListFileLexerAppend.exit:                       ; preds = %317, %327
 362:                                              ; preds = %360
   %363 = sext i32 %354 to i64
   %364 = getelementptr inbounds i8, ptr %357, i64 %363
-  %365 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %364, ptr noundef nonnull readonly dereferenceable(1) %352) #31
+  %365 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %364, ptr noundef nonnull readonly dereferenceable(1) %352) #32
   %366 = load i32, ptr %84, align 8, !tbaa !57
   %367 = add nsw i32 %366, %353
   store i32 %367, ptr %84, align 8, !tbaa !57
@@ -856,10 +856,10 @@ cmListFileLexerAppend.exit:                       ; preds = %317, %327
 
 368:                                              ; preds = %360
   %369 = sext i32 %356 to i64
-  %370 = tail call noalias ptr @malloc(i64 noundef %369) #28
+  %370 = tail call noalias ptr @malloc(i64 noundef %369) #29
   %371 = sext i32 %354 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %370, ptr nonnull align 1 %357, i64 %371, i1 false)
-  tail call void @free(ptr noundef nonnull %357) #31
+  tail call void @free(ptr noundef nonnull %357) #32
   %.pre.i323 = load i32, ptr %84, align 8, !tbaa !57
   %.pre31.i324 = add nsw i32 %.pre.i323, %353
   br label %372
@@ -899,7 +899,7 @@ cmListFileLexerAppend.exit327:                    ; preds = %362, %372
 
 .thread.i333:                                     ; preds = %383
   %390 = sext i32 %388 to i64
-  %391 = tail call noalias ptr @malloc(i64 noundef %390) #28
+  %391 = tail call noalias ptr @malloc(i64 noundef %390) #29
   br label %404
 
 392:                                              ; preds = %383
@@ -910,7 +910,7 @@ cmListFileLexerAppend.exit327:                    ; preds = %362, %372
 394:                                              ; preds = %392
   %395 = sext i32 %386 to i64
   %396 = getelementptr inbounds i8, ptr %389, i64 %395
-  %397 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %396, ptr noundef nonnull readonly dereferenceable(1) %384) #31
+  %397 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %396, ptr noundef nonnull readonly dereferenceable(1) %384) #32
   %398 = load i32, ptr %84, align 8, !tbaa !57
   %399 = add nsw i32 %398, %385
   store i32 %399, ptr %84, align 8, !tbaa !57
@@ -918,10 +918,10 @@ cmListFileLexerAppend.exit327:                    ; preds = %362, %372
 
 400:                                              ; preds = %392
   %401 = sext i32 %388 to i64
-  %402 = tail call noalias ptr @malloc(i64 noundef %401) #28
+  %402 = tail call noalias ptr @malloc(i64 noundef %401) #29
   %403 = sext i32 %386 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %402, ptr nonnull align 1 %389, i64 %403, i1 false)
-  tail call void @free(ptr noundef nonnull %389) #31
+  tail call void @free(ptr noundef nonnull %389) #32
   %.pre.i330 = load i32, ptr %84, align 8, !tbaa !57
   %.pre31.i331 = add nsw i32 %.pre.i330, %385
   br label %404
@@ -962,7 +962,7 @@ cmListFileLexerAppend.exit334:                    ; preds = %394, %404
 
 .thread.i340:                                     ; preds = %414
   %421 = sext i32 %419 to i64
-  %422 = tail call noalias ptr @malloc(i64 noundef %421) #28
+  %422 = tail call noalias ptr @malloc(i64 noundef %421) #29
   br label %435
 
 423:                                              ; preds = %414
@@ -973,7 +973,7 @@ cmListFileLexerAppend.exit334:                    ; preds = %394, %404
 425:                                              ; preds = %423
   %426 = sext i32 %417 to i64
   %427 = getelementptr inbounds i8, ptr %420, i64 %426
-  %428 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %427, ptr noundef nonnull readonly dereferenceable(1) %415) #31
+  %428 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %427, ptr noundef nonnull readonly dereferenceable(1) %415) #32
   %429 = load i32, ptr %84, align 8, !tbaa !57
   %430 = add nsw i32 %429, %416
   store i32 %430, ptr %84, align 8, !tbaa !57
@@ -981,10 +981,10 @@ cmListFileLexerAppend.exit334:                    ; preds = %394, %404
 
 431:                                              ; preds = %423
   %432 = sext i32 %419 to i64
-  %433 = tail call noalias ptr @malloc(i64 noundef %432) #28
+  %433 = tail call noalias ptr @malloc(i64 noundef %432) #29
   %434 = sext i32 %417 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %433, ptr nonnull align 1 %420, i64 %434, i1 false)
-  tail call void @free(ptr noundef nonnull %420) #31
+  tail call void @free(ptr noundef nonnull %420) #32
   %.pre.i337 = load i32, ptr %84, align 8, !tbaa !57
   %.pre31.i338 = add nsw i32 %.pre.i337, %416
   br label %435
@@ -1040,11 +1040,11 @@ cmListFileLexerAppend.exit341:                    ; preds = %425, %435
   br i1 %456, label %457, label %459
 
 457:                                              ; preds = %454
-  %458 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %452, ptr noundef nonnull readonly dereferenceable(1) %448) #31
+  %458 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %452, ptr noundef nonnull readonly dereferenceable(1) %448) #32
   br label %cmListFileLexerSetToken.exit347
 
 459:                                              ; preds = %454, %453
-  tail call void @free(ptr noundef nonnull %452) #31
+  tail call void @free(ptr noundef nonnull %452) #32
   store ptr null, ptr %85, align 8, !tbaa !55
   store i32 0, ptr %86, align 8, !tbaa !56
   br label %460
@@ -1054,7 +1054,7 @@ cmListFileLexerAppend.exit341:                    ; preds = %425, %435
   br i1 %.not25.i344, label %cmListFileLexerSetToken.exit347, label %461
 
 461:                                              ; preds = %460
-  %462 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %448) #31
+  %462 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %448) #32
   store ptr %462, ptr %85, align 8, !tbaa !55
   store i32 %449, ptr %84, align 8, !tbaa !57
   %463 = add nsw i32 %449, 1
@@ -1093,11 +1093,11 @@ cmListFileLexerSetToken.exit347:                  ; preds = %457, %460, %461
   br i1 %477, label %478, label %480
 
 478:                                              ; preds = %475
-  %479 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %473, ptr noundef nonnull readonly dereferenceable(1) %469) #31
+  %479 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %473, ptr noundef nonnull readonly dereferenceable(1) %469) #32
   br label %cmListFileLexerSetToken.exit353
 
 480:                                              ; preds = %475, %474
-  tail call void @free(ptr noundef nonnull %473) #31
+  tail call void @free(ptr noundef nonnull %473) #32
   store ptr null, ptr %85, align 8, !tbaa !55
   store i32 0, ptr %86, align 8, !tbaa !56
   br label %481
@@ -1107,7 +1107,7 @@ cmListFileLexerSetToken.exit347:                  ; preds = %457, %460, %461
   br i1 %.not25.i350, label %cmListFileLexerSetToken.exit353, label %482
 
 482:                                              ; preds = %481
-  %483 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %469) #31
+  %483 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %469) #32
   store ptr %483, ptr %85, align 8, !tbaa !55
   store i32 %470, ptr %84, align 8, !tbaa !57
   %484 = add nsw i32 %470, 1
@@ -1146,11 +1146,11 @@ cmListFileLexerSetToken.exit353:                  ; preds = %478, %481, %482
   br i1 %498, label %499, label %501
 
 499:                                              ; preds = %496
-  %500 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %494, ptr noundef nonnull readonly dereferenceable(1) %490) #31
+  %500 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %494, ptr noundef nonnull readonly dereferenceable(1) %490) #32
   br label %cmListFileLexerSetToken.exit359
 
 501:                                              ; preds = %496, %495
-  tail call void @free(ptr noundef nonnull %494) #31
+  tail call void @free(ptr noundef nonnull %494) #32
   store ptr null, ptr %85, align 8, !tbaa !55
   store i32 0, ptr %86, align 8, !tbaa !56
   br label %502
@@ -1160,7 +1160,7 @@ cmListFileLexerSetToken.exit353:                  ; preds = %478, %481, %482
   br i1 %.not25.i356, label %cmListFileLexerSetToken.exit359, label %503
 
 503:                                              ; preds = %502
-  %504 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %490) #31
+  %504 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %490) #32
   store ptr %504, ptr %85, align 8, !tbaa !55
   store i32 %491, ptr %84, align 8, !tbaa !57
   %505 = add nsw i32 %491, 1
@@ -1197,12 +1197,12 @@ cmListFileLexerSetToken.exit359:                  ; preds = %499, %502, %503
   br label %cmListFileLexerSetToken.exit363
 
 518:                                              ; preds = %514
-  tail call void @free(ptr noundef nonnull %513) #31
+  tail call void @free(ptr noundef nonnull %513) #32
   store i32 0, ptr %86, align 8, !tbaa !56
   br label %519
 
 519:                                              ; preds = %518, %510
-  %520 = tail call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull @.str) #31
+  %520 = tail call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull @.str) #32
   store ptr %520, ptr %85, align 8, !tbaa !55
   store i32 0, ptr %84, align 8, !tbaa !57
   br label %cmListFileLexerSetToken.exit363
@@ -1231,7 +1231,7 @@ cmListFileLexerSetToken.exit363:                  ; preds = %517, %519
 
 .thread.i369:                                     ; preds = %525
   %532 = sext i32 %530 to i64
-  %533 = tail call noalias ptr @malloc(i64 noundef %532) #28
+  %533 = tail call noalias ptr @malloc(i64 noundef %532) #29
   br label %546
 
 534:                                              ; preds = %525
@@ -1242,7 +1242,7 @@ cmListFileLexerSetToken.exit363:                  ; preds = %517, %519
 536:                                              ; preds = %534
   %537 = sext i32 %528 to i64
   %538 = getelementptr inbounds i8, ptr %531, i64 %537
-  %539 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %538, ptr noundef nonnull readonly dereferenceable(1) %526) #31
+  %539 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %538, ptr noundef nonnull readonly dereferenceable(1) %526) #32
   %540 = load i32, ptr %84, align 8, !tbaa !57
   %541 = add nsw i32 %540, %527
   store i32 %541, ptr %84, align 8, !tbaa !57
@@ -1250,10 +1250,10 @@ cmListFileLexerSetToken.exit363:                  ; preds = %517, %519
 
 542:                                              ; preds = %534
   %543 = sext i32 %530 to i64
-  %544 = tail call noalias ptr @malloc(i64 noundef %543) #28
+  %544 = tail call noalias ptr @malloc(i64 noundef %543) #29
   %545 = sext i32 %528 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %544, ptr nonnull align 1 %531, i64 %545, i1 false)
-  tail call void @free(ptr noundef nonnull %531) #31
+  tail call void @free(ptr noundef nonnull %531) #32
   %.pre.i366 = load i32, ptr %84, align 8, !tbaa !57
   %.pre31.i367 = add nsw i32 %.pre.i366, %527
   br label %546
@@ -1300,7 +1300,7 @@ cmListFileLexerAppend.exit370:                    ; preds = %536, %546
 
 .thread.i376:                                     ; preds = %560
   %567 = sext i32 %565 to i64
-  %568 = tail call noalias ptr @malloc(i64 noundef %567) #28
+  %568 = tail call noalias ptr @malloc(i64 noundef %567) #29
   br label %581
 
 569:                                              ; preds = %560
@@ -1311,7 +1311,7 @@ cmListFileLexerAppend.exit370:                    ; preds = %536, %546
 571:                                              ; preds = %569
   %572 = sext i32 %563 to i64
   %573 = getelementptr inbounds i8, ptr %566, i64 %572
-  %574 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %573, ptr noundef nonnull readonly dereferenceable(1) %561) #31
+  %574 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %573, ptr noundef nonnull readonly dereferenceable(1) %561) #32
   %575 = load i32, ptr %84, align 8, !tbaa !57
   %576 = add nsw i32 %575, %562
   store i32 %576, ptr %84, align 8, !tbaa !57
@@ -1319,10 +1319,10 @@ cmListFileLexerAppend.exit370:                    ; preds = %536, %546
 
 577:                                              ; preds = %569
   %578 = sext i32 %565 to i64
-  %579 = tail call noalias ptr @malloc(i64 noundef %578) #28
+  %579 = tail call noalias ptr @malloc(i64 noundef %578) #29
   %580 = sext i32 %563 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %579, ptr nonnull align 1 %566, i64 %580, i1 false)
-  tail call void @free(ptr noundef nonnull %566) #31
+  tail call void @free(ptr noundef nonnull %566) #32
   %.pre.i373 = load i32, ptr %84, align 8, !tbaa !57
   %.pre31.i374 = add nsw i32 %.pre.i373, %562
   br label %581
@@ -1370,7 +1370,7 @@ cmListFileLexerAppend.exit377:                    ; preds = %571, %581
 
 .thread.i383:                                     ; preds = %595
   %602 = sext i32 %600 to i64
-  %603 = tail call noalias ptr @malloc(i64 noundef %602) #28
+  %603 = tail call noalias ptr @malloc(i64 noundef %602) #29
   br label %616
 
 604:                                              ; preds = %595
@@ -1381,7 +1381,7 @@ cmListFileLexerAppend.exit377:                    ; preds = %571, %581
 606:                                              ; preds = %604
   %607 = sext i32 %598 to i64
   %608 = getelementptr inbounds i8, ptr %601, i64 %607
-  %609 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %608, ptr noundef nonnull readonly dereferenceable(1) %596) #31
+  %609 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %608, ptr noundef nonnull readonly dereferenceable(1) %596) #32
   %610 = load i32, ptr %84, align 8, !tbaa !57
   %611 = add nsw i32 %610, %597
   store i32 %611, ptr %84, align 8, !tbaa !57
@@ -1389,10 +1389,10 @@ cmListFileLexerAppend.exit377:                    ; preds = %571, %581
 
 612:                                              ; preds = %604
   %613 = sext i32 %600 to i64
-  %614 = tail call noalias ptr @malloc(i64 noundef %613) #28
+  %614 = tail call noalias ptr @malloc(i64 noundef %613) #29
   %615 = sext i32 %598 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %614, ptr nonnull align 1 %601, i64 %615, i1 false)
-  tail call void @free(ptr noundef nonnull %601) #31
+  tail call void @free(ptr noundef nonnull %601) #32
   %.pre.i380 = load i32, ptr %84, align 8, !tbaa !57
   %.pre31.i381 = add nsw i32 %.pre.i380, %597
   br label %616
@@ -1447,11 +1447,11 @@ cmListFileLexerAppend.exit384:                    ; preds = %606, %616
   br i1 %637, label %638, label %640
 
 638:                                              ; preds = %635
-  %639 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %633, ptr noundef nonnull readonly dereferenceable(1) %629) #31
+  %639 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %633, ptr noundef nonnull readonly dereferenceable(1) %629) #32
   br label %cmListFileLexerSetToken.exit390
 
 640:                                              ; preds = %635, %634
-  tail call void @free(ptr noundef nonnull %633) #31
+  tail call void @free(ptr noundef nonnull %633) #32
   store ptr null, ptr %85, align 8, !tbaa !55
   store i32 0, ptr %86, align 8, !tbaa !56
   br label %641
@@ -1461,7 +1461,7 @@ cmListFileLexerAppend.exit384:                    ; preds = %606, %616
   br i1 %.not25.i387, label %cmListFileLexerSetToken.exit390, label %642
 
 642:                                              ; preds = %641
-  %643 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %629) #31
+  %643 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %629) #32
   store ptr %643, ptr %85, align 8, !tbaa !55
   store i32 %630, ptr %84, align 8, !tbaa !57
   %644 = add nsw i32 %630, 1
@@ -1500,11 +1500,11 @@ cmListFileLexerSetToken.exit390:                  ; preds = %638, %641, %642
   br i1 %658, label %659, label %661
 
 659:                                              ; preds = %656
-  %660 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %654, ptr noundef nonnull readonly dereferenceable(1) %650) #31
+  %660 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %654, ptr noundef nonnull readonly dereferenceable(1) %650) #32
   br label %cmListFileLexerSetToken.exit396
 
 661:                                              ; preds = %656, %655
-  tail call void @free(ptr noundef nonnull %654) #31
+  tail call void @free(ptr noundef nonnull %654) #32
   store ptr null, ptr %85, align 8, !tbaa !55
   store i32 0, ptr %86, align 8, !tbaa !56
   br label %662
@@ -1514,7 +1514,7 @@ cmListFileLexerSetToken.exit390:                  ; preds = %638, %641, %642
   br i1 %.not25.i393, label %cmListFileLexerSetToken.exit396, label %663
 
 663:                                              ; preds = %662
-  %664 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %650) #31
+  %664 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %650) #32
   store ptr %664, ptr %85, align 8, !tbaa !55
   store i32 %651, ptr %84, align 8, !tbaa !57
   %665 = add nsw i32 %651, 1
@@ -1542,7 +1542,7 @@ cmListFileLexerSetToken.exit396:                  ; preds = %659, %662, %663
   br i1 %.not.i397, label %cmListFileLexerSetToken.exit400, label %674
 
 674:                                              ; preds = %670
-  tail call void @free(ptr noundef nonnull %673) #31
+  tail call void @free(ptr noundef nonnull %673) #32
   store ptr null, ptr %85, align 8, !tbaa !55
   store i32 0, ptr %86, align 8, !tbaa !56
   br label %cmListFileLexerSetToken.exit400
@@ -1756,7 +1756,7 @@ yy_try_NUL_trans.exit:                            ; preds = %769, %753
   br i1 %787, label %788, label %789
 
 788:                                              ; preds = %784
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.24) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.24) #30
   unreachable
 
 789:                                              ; preds = %784
@@ -1853,13 +1853,13 @@ yy_try_NUL_trans.exit:                            ; preds = %769, %753
   store i32 %storemerge109.i, ptr %826, align 8, !tbaa !25
   %831 = add nsw i32 %storemerge109.i, 2
   %832 = sext i32 %831 to i64
-  %833 = tail call noalias noundef ptr @realloc(ptr noundef %819, i64 noundef %832) #30
+  %833 = tail call noalias noundef ptr @realloc(ptr noundef %819, i64 noundef %832) #31
   store ptr %833, ptr %818, align 8, !tbaa !27
   %.not110.i = icmp eq ptr %833, null
   br i1 %.not110.i, label %.loopexit.i, label %834
 
 .loopexit.i:                                      ; preds = %825, %.thread.i412
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.25) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.25) #30
   unreachable
 
 834:                                              ; preds = %825
@@ -2045,7 +2045,7 @@ yy_try_NUL_trans.exit:                            ; preds = %769, %753
   %923 = getelementptr inbounds nuw i8, ptr %914, i64 8
   %924 = load ptr, ptr %923, align 8, !tbaa !27
   %925 = sext i32 %922 to i64
-  %926 = tail call noalias noundef ptr @realloc(ptr noundef %924, i64 noundef %925) #30
+  %926 = tail call noalias noundef ptr @realloc(ptr noundef %924, i64 noundef %925) #31
   %927 = load ptr, ptr %79, align 8, !tbaa !20
   %928 = load i64, ptr %80, align 8, !tbaa !21
   %929 = getelementptr inbounds nuw ptr, ptr %927, i64 %928
@@ -2056,7 +2056,7 @@ yy_try_NUL_trans.exit:                            ; preds = %769, %753
   br i1 %.not112.i, label %932, label %933
 
 932:                                              ; preds = %920
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.26) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.26) #30
   unreachable
 
 933:                                              ; preds = %920
@@ -2295,7 +2295,7 @@ yy_get_previous_state.exit430:                    ; preds = %yy_get_next_buffer.
   br label %.loopexit453
 
 1057:                                             ; preds = %.loopexit453
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.1) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.1) #30
   unreachable
 
 1058:                                             ; preds = %cmListFileLexerSetToken.exit400, %cmListFileLexerSetToken.exit396, %cmListFileLexerSetToken.exit390, %627, %591, %cmListFileLexerSetToken.exit359, %cmListFileLexerSetToken.exit353, %cmListFileLexerSetToken.exit347, %446, %341, %cmListFileLexerSetToken.exit319, %cmListFileLexerSetToken.exit313, %cmListFileLexerSetToken.exit307, %cmListFileLexerSetToken.exit
@@ -2305,12 +2305,12 @@ yy_get_previous_state.exit430:                    ; preds = %yy_get_next_buffer.
 
 ; Function Attrs: nounwind uwtable
 define dso_local nonnull ptr @cmListFileLexer_yy_create_buffer(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
-  %4 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #28
+  %4 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #29
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #30
   unreachable
 
 6:                                                ; preds = %3
@@ -2318,14 +2318,14 @@ define dso_local nonnull ptr @cmListFileLexer_yy_create_buffer(ptr noundef %0, i
   store i32 %1, ptr %7, align 8, !tbaa !25
   %8 = add nsw i32 %1, 2
   %9 = sext i32 %8 to i64
-  %10 = tail call noalias noundef ptr @malloc(i64 noundef %9) #28
+  %10 = tail call noalias noundef ptr @malloc(i64 noundef %9) #29
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %11, align 8, !tbaa !27
   %.not14 = icmp eq ptr %10, null
   br i1 %.not14, label %12, label %13
 
 12:                                               ; preds = %6
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #30
   unreachable
 
 13:                                               ; preds = %6
@@ -2341,8 +2341,8 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #2 {
   %2 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.28, ptr noundef %0) #33
-  tail call void @exit(i32 noundef 2) #34
+  %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.28, ptr noundef %0) #34
+  tail call void @exit(i32 noundef 2) #35
   unreachable
 }
 
@@ -2362,13 +2362,13 @@ define dso_local void @cmListFileLexer_yyrestart(ptr noundef %0, ptr noundef cap
   br i1 %.not16, label %16, label %42
 
 10:                                               ; preds = %2
-  %11 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #28
+  %11 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #29
   store ptr %11, ptr %3, align 8, !tbaa !20
   %.not28.i = icmp eq ptr %11, null
   br i1 %.not28.i, label %12, label %13
 
 12:                                               ; preds = %10
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.27) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.27) #30
   unreachable
 
 13:                                               ; preds = %10
@@ -2389,13 +2389,13 @@ define dso_local void @cmListFileLexer_yyrestart(ptr noundef %0, ptr noundef cap
 20:                                               ; preds = %16
   %21 = add i64 %18, 8
   %22 = shl i64 %21, 3
-  %23 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %4, i64 noundef %22) #30
+  %23 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %4, i64 noundef %22) #31
   store ptr %23, ptr %3, align 8, !tbaa !20
   %.not30.i = icmp eq ptr %23, null
   br i1 %.not30.i, label %24, label %25
 
 24:                                               ; preds = %20
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.27) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.27) #30
   unreachable
 
 25:                                               ; preds = %20
@@ -2408,25 +2408,25 @@ define dso_local void @cmListFileLexer_yyrestart(ptr noundef %0, ptr noundef cap
 cmListFileLexer_yyensure_buffer_stack.exit:       ; preds = %13, %16, %25
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !17
-  %30 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #28
+  %30 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #29
   %.not.i18 = icmp eq ptr %30, null
   br i1 %.not.i18, label %31, label %32
 
 31:                                               ; preds = %cmListFileLexer_yyensure_buffer_stack.exit
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #30
   unreachable
 
 32:                                               ; preds = %cmListFileLexer_yyensure_buffer_stack.exit
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store i32 16384, ptr %33, align 8, !tbaa !25
-  %34 = tail call noalias noundef dereferenceable_or_null(16386) ptr @malloc(i64 noundef 16386) #28
+  %34 = tail call noalias noundef dereferenceable_or_null(16386) ptr @malloc(i64 noundef 16386) #29
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %34, ptr %35, align 8, !tbaa !27
   %.not14.i = icmp eq ptr %34, null
   br i1 %.not14.i, label %36, label %.thread19
 
 36:                                               ; preds = %32
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #30
   unreachable
 
 .thread19:                                        ; preds = %32
@@ -2469,7 +2469,7 @@ cmListFileLexer_yyensure_buffer_stack.exit:       ; preds = %13, %16, %25
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @cmListFileLexer_yy_init_buffer(ptr noundef captures(address) %0, ptr noundef %1, ptr noundef captures(none) %2) unnamed_addr #0 {
-  %4 = tail call ptr @__errno_location() #35
+  %4 = tail call ptr @__errno_location() #36
   %5 = load i32, ptr %4, align 4, !tbaa !58
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %cmListFileLexer_yy_flush_buffer.exit, label %6
@@ -2564,8 +2564,8 @@ cmListFileLexer_yy_flush_buffer.exit:             ; preds = %3
   br i1 %.not18, label %54, label %49
 
 49:                                               ; preds = %48
-  %50 = tail call i32 @fileno(ptr noundef nonnull %1) #31
-  %51 = tail call i32 @isatty(i32 noundef %50) #31
+  %50 = tail call i32 @fileno(ptr noundef nonnull %1) #32
+  %51 = tail call i32 @isatty(i32 noundef %50) #32
   %52 = icmp sgt i32 %51, 0
   %53 = zext i1 %52 to i32
   br label %54
@@ -2586,13 +2586,13 @@ define dso_local void @cmListFileLexer_yy_switch_to_buffer(ptr noundef %0, ptr n
   br i1 %.not.i, label %5, label %11
 
 5:                                                ; preds = %2
-  %6 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #28
+  %6 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #29
   store ptr %6, ptr %3, align 8, !tbaa !20
   %.not28.i = icmp eq ptr %6, null
   br i1 %.not28.i, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.27) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.27) #30
   unreachable
 
 8:                                                ; preds = %5
@@ -2615,13 +2615,13 @@ define dso_local void @cmListFileLexer_yy_switch_to_buffer(ptr noundef %0, ptr n
 17:                                               ; preds = %11
   %18 = add i64 %15, 8
   %19 = shl i64 %18, 3
-  %20 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %4, i64 noundef %19) #30
+  %20 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %4, i64 noundef %19) #31
   store ptr %20, ptr %3, align 8, !tbaa !20
   %.not30.i = icmp eq ptr %20, null
   br i1 %.not30.i, label %21, label %22
 
 21:                                               ; preds = %17
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.27) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.27) #30
   unreachable
 
 22:                                               ; preds = %17
@@ -2694,11 +2694,11 @@ define dso_local void @cmListFileLexer_yy_switch_to_buffer(ptr noundef %0, ptr n
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define dso_local noalias noundef ptr @cmListFileLexer_yyalloc(i64 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #3 {
-  %3 = tail call noalias ptr @malloc(i64 noundef %0) #28
+  %3 = tail call noalias ptr @malloc(i64 noundef %0) #29
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @cmListFileLexer_yy_delete_buffer(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %3
@@ -2730,11 +2730,11 @@ define dso_local void @cmListFileLexer_yy_delete_buffer(ptr noundef captures(add
 15:                                               ; preds = %.critedge
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !27
-  tail call void @free(ptr noundef %17) #31
+  tail call void @free(ptr noundef %17) #32
   br label %18
 
 18:                                               ; preds = %15, %.critedge
-  tail call void @free(ptr noundef nonnull %0) #31
+  tail call void @free(ptr noundef nonnull %0) #32
   br label %19
 
 19:                                               ; preds = %2, %18
@@ -2743,11 +2743,11 @@ define dso_local void @cmListFileLexer_yy_delete_buffer(ptr noundef captures(add
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define dso_local void @cmListFileLexer_yyfree(ptr noundef captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #5 {
-  tail call void @free(ptr noundef %0) #31
+  tail call void @free(ptr noundef %0) #32
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @cmListFileLexer_yy_flush_buffer(ptr noundef captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %3
@@ -2816,13 +2816,13 @@ define dso_local void @cmListFileLexer_yypush_buffer_state(ptr noundef %0, ptr n
   br i1 %.not.i, label %7, label %13
 
 7:                                                ; preds = %4
-  %8 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #28
+  %8 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #29
   store ptr %8, ptr %5, align 8, !tbaa !20
   %.not28.i = icmp eq ptr %8, null
   br i1 %.not28.i, label %9, label %10
 
 9:                                                ; preds = %7
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.27) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.27) #30
   unreachable
 
 10:                                               ; preds = %7
@@ -2845,13 +2845,13 @@ define dso_local void @cmListFileLexer_yypush_buffer_state(ptr noundef %0, ptr n
 19:                                               ; preds = %13
   %20 = add i64 %17, 8
   %21 = shl i64 %20, 3
-  %22 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %6, i64 noundef %21) #30
+  %22 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %6, i64 noundef %21) #31
   store ptr %22, ptr %5, align 8, !tbaa !20
   %.not30.i = icmp eq ptr %22, null
   br i1 %.not30.i, label %23, label %24
 
 23:                                               ; preds = %19
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.27) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.27) #30
   unreachable
 
 24:                                               ; preds = %19
@@ -2921,7 +2921,7 @@ cmListFileLexer_yyensure_buffer_stack.exit:       ; preds = %10, %13, %24
   ret void
 }
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @cmListFileLexer_yypop_buffer_state(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !20
@@ -2946,11 +2946,11 @@ define dso_local void @cmListFileLexer_yypop_buffer_state(ptr noundef captures(n
 11:                                               ; preds = %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !27
-  tail call void @free(ptr noundef %13) #31
+  tail call void @free(ptr noundef %13) #32
   br label %cmListFileLexer_yy_delete_buffer.exit
 
 cmListFileLexer_yy_delete_buffer.exit:            ; preds = %.critedge.i, %11
-  tail call void @free(ptr noundef nonnull %8) #31
+  tail call void @free(ptr noundef nonnull %8) #32
   %14 = load ptr, ptr %2, align 8, !tbaa !20
   %15 = load i64, ptr %5, align 8, !tbaa !21
   %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
@@ -3011,12 +3011,12 @@ define dso_local noundef ptr @cmListFileLexer_yy_scan_buffer(ptr noundef %0, i64
   br i1 %.not26, label %13, label %27
 
 13:                                               ; preds = %9
-  %14 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #28
+  %14 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #29
   %.not27 = icmp eq ptr %14, null
   br i1 %.not27, label %15, label %16
 
 15:                                               ; preds = %13
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #30
   unreachable
 
 16:                                               ; preds = %13
@@ -3050,7 +3050,7 @@ define dso_local noundef ptr @cmListFileLexer_yy_scan_buffer(ptr noundef %0, i64
 
 ; Function Attrs: nounwind uwtable
 define dso_local nonnull ptr @cmListFileLexer_yy_scan_string(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #32
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #33
   %4 = trunc i64 %3 to i32
   %5 = tail call ptr @cmListFileLexer_yy_scan_bytes(ptr noundef nonnull %0, i32 noundef %4, ptr noundef %1)
   ret ptr %5
@@ -3060,7 +3060,7 @@ define dso_local nonnull ptr @cmListFileLexer_yy_scan_string(ptr noundef readonl
 define dso_local nonnull ptr @cmListFileLexer_yy_scan_bytes(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = add nsw i32 %1, 2
   %5 = sext i32 %4 to i64
-  %6 = tail call noalias noundef ptr @malloc(i64 noundef %5) #28
+  %6 = tail call noalias noundef ptr @malloc(i64 noundef %5) #29
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %.preheader
 
@@ -3079,7 +3079,7 @@ define dso_local nonnull ptr @cmListFileLexer_yy_scan_bytes(ptr noundef readonly
   br label %17
 
 12:                                               ; preds = %3
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.4) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.4) #30
   unreachable
 
 ._crit_edge:                                      ; preds = %.preheader
@@ -3092,16 +3092,16 @@ define dso_local nonnull ptr @cmListFileLexer_yy_scan_bytes(ptr noundef readonly
   br i1 %16, label %20, label %17
 
 17:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %18 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #28
+  %18 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #29
   %.not27.i = icmp eq ptr %18, null
   br i1 %.not27.i, label %19, label %21
 
 19:                                               ; preds = %17
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #30
   unreachable
 
 20:                                               ; preds = %._crit_edge
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.5) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.5) #30
   unreachable
 
 21:                                               ; preds = %17
@@ -3138,7 +3138,7 @@ define dso_local ptr @cmListFileLexer_yyget_extra(ptr noundef readonly captures(
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i32 @cmListFileLexer_yyget_lineno(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !20
@@ -3163,7 +3163,7 @@ define dso_local i32 @cmListFileLexer_yyget_lineno(ptr noundef readonly captures
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i32 @cmListFileLexer_yyget_column(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !20
@@ -3238,7 +3238,7 @@ define dso_local void @cmListFileLexer_yyset_lineno(i32 noundef %0, ptr noundef 
   br i1 %.not8, label %10, label %11
 
 10:                                               ; preds = %2, %5
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.6) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.6) #30
   unreachable
 
 11:                                               ; preds = %5
@@ -3263,7 +3263,7 @@ define dso_local void @cmListFileLexer_yyset_column(i32 noundef %0, ptr noundef 
   br i1 %.not8, label %10, label %11
 
 10:                                               ; preds = %2, %5
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.7) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.7) #30
   unreachable
 
 11:                                               ; preds = %5
@@ -3300,7 +3300,7 @@ define dso_local void @cmListFileLexer_yyset_debug(i32 noundef %0, ptr noundef w
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local range(i32 0, 2) i32 @cmListFileLexer_yylex_init(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #11 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
@@ -3313,7 +3313,7 @@ define dso_local range(i32 0, 2) i32 @cmListFileLexer_yylex_init(ptr noundef wri
 
 .sink.split:                                      ; preds = %3, %1
   %.sink = phi i32 [ 22, %1 ], [ 12, %3 ]
-  %5 = tail call ptr @__errno_location() #35
+  %5 = tail call ptr @__errno_location() #36
   store i32 %.sink, ptr %5, align 4, !tbaa !58
   br label %6
 
@@ -3328,13 +3328,13 @@ declare ptr @__errno_location() local_unnamed_addr #12
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local range(i32 0, 2) i32 @cmListFileLexer_yylex_init_extra(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #11 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @__errno_location() #35
+  %5 = tail call ptr @__errno_location() #36
   store i32 22, ptr %5, align 4, !tbaa !58
   br label %11
 
@@ -3345,7 +3345,7 @@ define dso_local range(i32 0, 2) i32 @cmListFileLexer_yylex_init_extra(ptr nound
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call ptr @__errno_location() #35
+  %9 = tail call ptr @__errno_location() #36
   store i32 12, ptr %9, align 4, !tbaa !58
   br label %11
 
@@ -3358,8 +3358,8 @@ define dso_local range(i32 0, 2) i32 @cmListFileLexer_yylex_init_extra(ptr nound
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cmListFileLexer_yylex_destroy(ptr noundef captures(none) %0) local_unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define dso_local noundef i32 @cmListFileLexer_yylex_destroy(ptr noundef captures(none) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !20
@@ -3384,11 +3384,11 @@ define dso_local noundef i32 @cmListFileLexer_yylex_destroy(ptr noundef captures
 9:                                                ; preds = %.critedge.i
   %10 = getelementptr inbounds nuw i8, ptr %.pre30, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !27
-  tail call void @free(ptr noundef %11) #31
+  tail call void @free(ptr noundef %11) #32
   br label %cmListFileLexer_yypop_buffer_state.exit
 
 cmListFileLexer_yypop_buffer_state.exit:          ; preds = %.critedge.i, %9
-  tail call void @free(ptr noundef nonnull %.pre30) #31
+  tail call void @free(ptr noundef nonnull %.pre30) #32
   %12 = load ptr, ptr %3, align 8, !tbaa !20
   %13 = load i64, ptr %2, align 8, !tbaa !21
   %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
@@ -3397,32 +3397,32 @@ cmListFileLexer_yypop_buffer_state.exit:          ; preds = %.critedge.i, %9
 
 .critedge:                                        ; preds = %.lr.ph.preheader, %cmListFileLexer_yypop_buffer_state.exit, %1
   %.lcssa = phi ptr [ null, %1 ], [ %12, %cmListFileLexer_yypop_buffer_state.exit ], [ %4, %.lr.ph.preheader ]
-  tail call void @free(ptr noundef %.lcssa) #31
+  tail call void @free(ptr noundef %.lcssa) #32
   store ptr null, ptr %3, align 8, !tbaa !20
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %16 = load ptr, ptr %15, align 8, !tbaa !79
-  tail call void @free(ptr noundef %16) #31
-  tail call void @free(ptr noundef nonnull %0) #31
+  tail call void @free(ptr noundef %16) #32
+  tail call void @free(ptr noundef nonnull %0) #32
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #14
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define dso_local noalias noundef ptr @cmListFileLexer_yyrealloc(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #5 {
-  %4 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #30
+  %4 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #31
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #15
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #16
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #17
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define dso_local noalias noundef ptr @cmListFileLexer_New() local_unnamed_addr #17 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
+define dso_local noalias noundef ptr @cmListFileLexer_New() local_unnamed_addr #18 {
   %calloc = tail call dereferenceable_or_null(104) ptr @calloc(i64 1, i64 104)
   %.not = icmp eq ptr %calloc, null
   br i1 %.not, label %4, label %1
@@ -3442,7 +3442,7 @@ define dso_local noalias noundef ptr @cmListFileLexer_New() local_unnamed_addr #
 define dso_local void @cmListFileLexer_Delete(ptr noundef captures(none) initializes((16, 28)) %0) local_unnamed_addr #0 {
 cmListFileLexer_SetFileName.exit:
   tail call fastcc void @cmListFileLexerDestroy(ptr noundef %0)
-  tail call void @free(ptr noundef nonnull %0) #31
+  tail call void @free(ptr noundef nonnull %0) #32
   ret void
 }
 
@@ -3574,7 +3574,7 @@ cmListFileLexer_ReadBOM.exit:                     ; preds = %19, %24, %30, %50, 
   br i1 %61, label %62, label %cmListFileLexer_yylex_init.exit.i
 
 62:                                               ; preds = %59
-  %63 = tail call ptr @__errno_location() #35
+  %63 = tail call ptr @__errno_location() #36
   store i32 12, ptr %63, align 4, !tbaa !58
   br label %cmListFileLexer_yylex_init.exit.i
 
@@ -3602,7 +3602,7 @@ define internal fastcc void @cmListFileLexerDestroy(ptr noundef captures(none) i
   br i1 %.not.i, label %cmListFileLexerSetToken.exit, label %10
 
 10:                                               ; preds = %1
-  tail call void @free(ptr noundef nonnull %9) #31
+  tail call void @free(ptr noundef nonnull %9) #32
   store ptr null, ptr %8, align 8, !tbaa !55
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %11, align 8, !tbaa !56
@@ -3648,11 +3648,11 @@ cmListFileLexerSetToken.exit:                     ; preds = %1, %10
 27:                                               ; preds = %.critedge.i.i.lr.ph
   %28 = getelementptr inbounds nuw i8, ptr %.pre30.i, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !27
-  tail call void @free(ptr noundef %29) #31
+  tail call void @free(ptr noundef %29) #32
   br label %cmListFileLexer_yypop_buffer_state.exit.i.us
 
 cmListFileLexer_yypop_buffer_state.exit.i.us:     ; preds = %27, %.critedge.i.i.lr.ph
-  tail call void @free(ptr noundef nonnull %.pre30.i) #31
+  tail call void @free(ptr noundef nonnull %.pre30.i) #32
   %30 = load ptr, ptr %22, align 8, !tbaa !20
   %31 = load i64, ptr %21, align 8, !tbaa !21
   %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
@@ -3661,12 +3661,12 @@ cmListFileLexer_yypop_buffer_state.exit.i.us:     ; preds = %27, %.critedge.i.i.
 
 cmListFileLexer_yylex_destroy.exit:               ; preds = %.lr.ph.preheader.i, %cmListFileLexer_yypop_buffer_state.exit.i.us, %18
   %.lcssa.i = phi ptr [ null, %18 ], [ %30, %cmListFileLexer_yypop_buffer_state.exit.i.us ], [ %23, %.lr.ph.preheader.i ]
-  tail call void @free(ptr noundef %.lcssa.i) #31
+  tail call void @free(ptr noundef %.lcssa.i) #32
   store ptr null, ptr %22, align 8, !tbaa !20
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 96
   %34 = load ptr, ptr %33, align 8, !tbaa !79
-  tail call void @free(ptr noundef %34) #31
-  tail call void @free(ptr noundef nonnull %20) #31
+  tail call void @free(ptr noundef %34) #32
+  tail call void @free(ptr noundef nonnull %20) #32
   %35 = load ptr, ptr %13, align 8, !tbaa !69
   %.not14 = icmp eq ptr %35, null
   br i1 %.not14, label %38, label %36
@@ -3683,7 +3683,7 @@ cmListFileLexer_yylex_destroy.exit:               ; preds = %.lr.ph.preheader.i,
   br i1 %.not15, label %42, label %41
 
 41:                                               ; preds = %38
-  tail call void @free(ptr noundef nonnull %40) #31
+  tail call void @free(ptr noundef nonnull %40) #32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %39, i8 0, i64 20, i1 false)
   br label %42
 
@@ -3692,7 +3692,7 @@ cmListFileLexer_yylex_destroy.exit:               ; preds = %.lr.ph.preheader.i,
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #18
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @cmListFileLexer_SetString(ptr noundef initializes((16, 28)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
@@ -3701,11 +3701,11 @@ define dso_local range(i32 0, 2) i32 @cmListFileLexer_SetString(ptr noundef init
   br i1 %.not, label %14, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #32
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #33
   %5 = shl i64 %4, 32
   %sext = add i64 %5, 4294967296
   %6 = ashr exact i64 %sext, 32
-  %7 = tail call noalias ptr @malloc(i64 noundef %6) #28
+  %7 = tail call noalias ptr @malloc(i64 noundef %6) #29
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %7, ptr %8, align 8, !tbaa !80
   %.not15 = icmp eq ptr %7, null
@@ -3713,7 +3713,7 @@ define dso_local range(i32 0, 2) i32 @cmListFileLexer_SetString(ptr noundef init
 
 9:                                                ; preds = %3
   %10 = trunc i64 %4 to i32
-  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %1) #31
+  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %1) #32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %7, ptr %12, align 8, !tbaa !73
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -3741,7 +3741,7 @@ define dso_local range(i32 0, 2) i32 @cmListFileLexer_SetString(ptr noundef init
   br i1 %22, label %23, label %cmListFileLexer_yylex_init.exit.i
 
 23:                                               ; preds = %20
-  %24 = tail call ptr @__errno_location() #35
+  %24 = tail call ptr @__errno_location() #36
   store i32 12, ptr %24, align 4, !tbaa !58
   br label %cmListFileLexer_yylex_init.exit.i
 
@@ -3754,7 +3754,7 @@ cmListFileLexerInit.exit:                         ; preds = %17, %cmListFileLexe
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #19
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @cmListFileLexer_Scan(ptr noundef %0) local_unnamed_addr #0 {
@@ -3795,7 +3795,7 @@ define dso_local noundef ptr @cmListFileLexer_Scan(ptr noundef %0) local_unnamed
   br i1 %17, label %18, label %cmListFileLexer_yylex_init.exit.i.i
 
 18:                                               ; preds = %16
-  %19 = tail call ptr @__errno_location() #35
+  %19 = tail call ptr @__errno_location() #36
   store i32 12, ptr %19, align 4, !tbaa !58
   br label %cmListFileLexer_yylex_init.exit.i.i
 
@@ -3825,7 +3825,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @cmListFileLexer_GetCurr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @cmListFileLexer_GetTypeAsString(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #20 {
+define dso_local noundef nonnull ptr @cmListFileLexer_GetTypeAsString(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #21 {
   %3 = icmp ult i32 %1, 13
   br i1 %3, label %switch.lookup, label %5
 
@@ -3841,89 +3841,90 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #18
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #21
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #22
 
 ; Function Attrs: nounwind
-declare i32 @isatty(i32 noundef) local_unnamed_addr #22
+declare i32 @isatty(i32 noundef) local_unnamed_addr #23
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #18
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #18
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #19
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #23
+declare void @exit(i32 noundef) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #24
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #18
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fgetpos(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #18
+declare noundef i32 @fgetpos(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fsetpos(ptr noundef captures(none), ptr noundef) local_unnamed_addr #18
+declare noundef i32 @fsetpos(ptr noundef captures(none), ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #18
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #25
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #26
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #25
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #26
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #26
+declare i32 @llvm.smin.i32(i32, i32) #27
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #26
+declare i32 @llvm.umin.i32(i32, i32) #27
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #27
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #28
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold nofree noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #22 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #26 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #27 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #28 = { nounwind allocsize(0) }
-attributes #29 = { noreturn }
-attributes #30 = { nounwind allocsize(1) }
-attributes #31 = { nounwind }
-attributes #32 = { nounwind willreturn memory(read) }
-attributes #33 = { cold nounwind }
-attributes #34 = { cold noreturn nounwind }
-attributes #35 = { nounwind willreturn memory(none) }
+attributes #14 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #23 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #27 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #28 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #29 = { nounwind allocsize(0) }
+attributes #30 = { noreturn }
+attributes #31 = { nounwind allocsize(1) }
+attributes #32 = { nounwind }
+attributes #33 = { nounwind willreturn memory(read) }
+attributes #34 = { cold nounwind }
+attributes #35 = { cold noreturn nounwind }
+attributes #36 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

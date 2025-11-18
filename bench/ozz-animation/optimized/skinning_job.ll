@@ -145,7 +145,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz8geometry11SkinningJob8ValidateEv(p
   ret i1 %.1.in
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN3ozz8geometry14SkinningPNOIT1ERKNS0_11SkinningJobE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !31
@@ -259,7 +259,7 @@ define dso_local void @_ZN3ozz8geometry14SkinningPNOIT1ERKNS0_11SkinningJobE(ptr
   br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !38
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN3ozz8geometry15SkinningPNNOIT1ERKNS0_11SkinningJobE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !31
@@ -438,7 +438,7 @@ define dso_local void @_ZN3ozz8geometry15SkinningPNNOIT1ERKNS0_11SkinningJobE(pt
   br i1 %exitcond.not, label %._crit_edge, label %79, !llvm.loop !40
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN3ozz8geometry16SkinningPNTNOIT1ERKNS0_11SkinningJobE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !31
@@ -682,7 +682,7 @@ define dso_local void @_ZN3ozz8geometry16SkinningPNTNOIT1ERKNS0_11SkinningJobE(p
   br i1 %exitcond.not, label %._crit_edge, label %109, !llvm.loop !41
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN3ozz8geometry13SkinningPNIT1ERKNS0_11SkinningJobE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !31
@@ -871,7 +871,7 @@ define dso_local void @_ZN3ozz8geometry13SkinningPNIT1ERKNS0_11SkinningJobE(ptr 
   br i1 %exitcond.not, label %._crit_edge, label %85, !llvm.loop !42
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN3ozz8geometry14SkinningPNTIT1ERKNS0_11SkinningJobE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !31
@@ -1125,7 +1125,7 @@ define dso_local void @_ZN3ozz8geometry14SkinningPNTIT1ERKNS0_11SkinningJobE(ptr
   br i1 %exitcond.not, label %._crit_edge, label %115, !llvm.loop !43
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN3ozz8geometry14SkinningPNOIT2ERKNS0_11SkinningJobE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !31
@@ -1302,7 +1302,7 @@ define dso_local void @_ZN3ozz8geometry14SkinningPNOIT2ERKNS0_11SkinningJobE(ptr
   br i1 %exitcond.not, label %._crit_edge, label %79, !llvm.loop !56
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN3ozz8geometry15SkinningPNNOIT2ERKNS0_11SkinningJobE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !31
@@ -1538,7 +1538,7 @@ define dso_local void @_ZN3ozz8geometry15SkinningPNNOIT2ERKNS0_11SkinningJobE(pt
   br i1 %exitcond.not, label %._crit_edge, label %106, !llvm.loop !69
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN3ozz8geometry16SkinningPNTNOIT2ERKNS0_11SkinningJobE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !31
@@ -1833,7 +1833,7 @@ define dso_local void @_ZN3ozz8geometry16SkinningPNTNOIT2ERKNS0_11SkinningJobE(p
   br i1 %exitcond.not, label %._crit_edge, label %133, !llvm.loop !82
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN3ozz8geometry13SkinningPNIT2ERKNS0_11SkinningJobE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !31
@@ -2115,7 +2115,7 @@ define dso_local void @_ZN3ozz8geometry13SkinningPNIT2ERKNS0_11SkinningJobE(ptr 
   br i1 %exitcond.not, label %._crit_edge, label %130, !llvm.loop !107
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN3ozz8geometry14SkinningPNTIT2ERKNS0_11SkinningJobE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !31
@@ -2456,7 +2456,7 @@ define dso_local void @_ZN3ozz8geometry14SkinningPNTIT2ERKNS0_11SkinningJobE(ptr
   br i1 %exitcond.not, label %._crit_edge, label %157, !llvm.loop !132
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN3ozz8geometry14SkinningPNOIT3ERKNS0_11SkinningJobE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !31
@@ -2677,7 +2677,7 @@ define dso_local void @_ZN3ozz8geometry14SkinningPNOIT3ERKNS0_11SkinningJobE(ptr
   br i1 %exitcond.not, label %._crit_edge, label %103, !llvm.loop !151
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN3ozz8geometry15SkinningPNNOIT3ERKNS0_11SkinningJobE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !31
@@ -2957,7 +2957,7 @@ define dso_local void @_ZN3ozz8geometry15SkinningPNNOIT3ERKNS0_11SkinningJobE(pt
   br i1 %exitcond.not, label %._crit_edge, label %130, !llvm.loop !170
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN3ozz8geometry16SkinningPNTNOIT3ERKNS0_11SkinningJobE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !31
@@ -3296,7 +3296,7 @@ define dso_local void @_ZN3ozz8geometry16SkinningPNTNOIT3ERKNS0_11SkinningJobE(p
   br i1 %exitcond.not, label %._crit_edge, label %157, !llvm.loop !189
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN3ozz8geometry13SkinningPNIT3ERKNS0_11SkinningJobE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !31
@@ -3646,7 +3646,7 @@ define dso_local void @_ZN3ozz8geometry13SkinningPNIT3ERKNS0_11SkinningJobE(ptr 
   br i1 %exitcond.not, label %._crit_edge, label %166, !llvm.loop !226
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN3ozz8geometry14SkinningPNTIT3ERKNS0_11SkinningJobE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !31
@@ -4055,7 +4055,7 @@ define dso_local void @_ZN3ozz8geometry14SkinningPNTIT3ERKNS0_11SkinningJobE(ptr
   br i1 %exitcond.not, label %._crit_edge, label %193, !llvm.loop !263
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN3ozz8geometry14SkinningPNOIT4ERKNS0_11SkinningJobE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !31
@@ -4321,7 +4321,7 @@ define dso_local void @_ZN3ozz8geometry14SkinningPNOIT4ERKNS0_11SkinningJobE(ptr
   br i1 %exitcond.not, label %._crit_edge, label %127, !llvm.loop !288
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN3ozz8geometry15SkinningPNNOIT4ERKNS0_11SkinningJobE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !31
@@ -4646,7 +4646,7 @@ define dso_local void @_ZN3ozz8geometry15SkinningPNNOIT4ERKNS0_11SkinningJobE(pt
   br i1 %exitcond.not, label %._crit_edge, label %154, !llvm.loop !313
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN3ozz8geometry16SkinningPNTNOIT4ERKNS0_11SkinningJobE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !31
@@ -5030,7 +5030,7 @@ define dso_local void @_ZN3ozz8geometry16SkinningPNTNOIT4ERKNS0_11SkinningJobE(p
   br i1 %exitcond.not, label %._crit_edge, label %181, !llvm.loop !338
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN3ozz8geometry13SkinningPNIT4ERKNS0_11SkinningJobE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !31
@@ -5449,7 +5449,7 @@ define dso_local void @_ZN3ozz8geometry13SkinningPNIT4ERKNS0_11SkinningJobE(ptr 
   br i1 %exitcond.not, label %._crit_edge, label %202, !llvm.loop !387
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN3ozz8geometry14SkinningPNTIT4ERKNS0_11SkinningJobE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !31
@@ -5927,7 +5927,7 @@ define dso_local void @_ZN3ozz8geometry14SkinningPNTIT4ERKNS0_11SkinningJobE(ptr
   br i1 %exitcond.not, label %._crit_edge, label %229, !llvm.loop !436
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN3ozz8geometry14SkinningPNOITNERKNS0_11SkinningJobE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !31
@@ -6208,7 +6208,7 @@ define dso_local void @_ZN3ozz8geometry14SkinningPNOITNERKNS0_11SkinningJobE(ptr
   br i1 %exitcond179.not, label %._crit_edge154, label %.lr.ph153, !llvm.loop !457
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN3ozz8geometry15SkinningPNNOITNERKNS0_11SkinningJobE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !31
@@ -6548,7 +6548,7 @@ define dso_local void @_ZN3ozz8geometry15SkinningPNNOITNERKNS0_11SkinningJobE(pt
   br i1 %exitcond208.not, label %._crit_edge181, label %.lr.ph180, !llvm.loop !478
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN3ozz8geometry16SkinningPNTNOITNERKNS0_11SkinningJobE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !31
@@ -6947,7 +6947,7 @@ define dso_local void @_ZN3ozz8geometry16SkinningPNTNOITNERKNS0_11SkinningJobE(p
   br i1 %exitcond238.not, label %._crit_edge209, label %.lr.ph208, !llvm.loop !499
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN3ozz8geometry13SkinningPNITNERKNS0_11SkinningJobE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !31
@@ -7369,7 +7369,7 @@ define dso_local void @_ZN3ozz8geometry13SkinningPNITNERKNS0_11SkinningJobE(ptr 
   br i1 %exitcond299.not, label %._crit_edge263, label %.lr.ph262, !llvm.loop !538
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN3ozz8geometry14SkinningPNTITNERKNS0_11SkinningJobE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !31
@@ -7899,7 +7899,7 @@ declare i32 @llvm.umin.i32(i32, i32) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }

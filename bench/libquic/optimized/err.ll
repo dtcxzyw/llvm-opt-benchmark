@@ -62,7 +62,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ERR_get_error() local_unnamed_addr #0 {
-  %1 = tail call ptr @CRYPTO_get_thread_local(i32 noundef 0) #17
+  %1 = tail call ptr @CRYPTO_get_thread_local(i32 noundef 0) #18
   %2 = icmp eq ptr %1, null
   br i1 %2, label %3, label %err_get_state.exit.i
 
@@ -72,7 +72,7 @@ define hidden i32 @ERR_get_error() local_unnamed_addr #0 {
   br i1 %4, label %get_error_values.exit, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @CRYPTO_set_thread_local(i32 noundef 0, ptr noundef nonnull %calloc.i.i, ptr noundef nonnull @err_state_free) #17
+  %6 = tail call i32 @CRYPTO_set_thread_local(i32 noundef 0, ptr noundef nonnull %calloc.i.i, ptr noundef nonnull @err_state_free) #18
   %.not.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i, label %get_error_values.exit, label %err_get_state.exit.i
 
@@ -101,7 +101,7 @@ err_get_state.exit.i:                             ; preds = %5, %0
 21:                                               ; preds = %12
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !18
-  tail call void @free(ptr noundef %23) #17
+  tail call void @free(ptr noundef %23) #18
   br label %err_clear.exit.i
 
 err_clear.exit.i:                                 ; preds = %21, %12
@@ -116,7 +116,7 @@ get_error_values.exit:                            ; preds = %3, %5, %err_get_sta
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @get_error_values(i32 noundef range(i32 0, 2) %0, i32 noundef range(i32 0, 2) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #0 {
-  %7 = tail call ptr @CRYPTO_get_thread_local(i32 noundef 0) #17
+  %7 = tail call ptr @CRYPTO_get_thread_local(i32 noundef 0) #18
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %err_get_state.exit
 
@@ -126,7 +126,7 @@ define internal fastcc i32 @get_error_values(i32 noundef range(i32 0, 2) %0, i32
   br i1 %10, label %err_get_state.exit.thread, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call i32 @CRYPTO_set_thread_local(i32 noundef 0, ptr noundef nonnull %calloc.i, ptr noundef nonnull @err_state_free) #17
+  %12 = tail call i32 @CRYPTO_set_thread_local(i32 noundef 0, ptr noundef nonnull %calloc.i, ptr noundef nonnull @err_state_free) #18
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %err_get_state.exit.thread, label %err_get_state.exit
 
@@ -219,7 +219,7 @@ err_get_state.exit:                               ; preds = %6, %11
 53:                                               ; preds = %49
   %54 = getelementptr inbounds nuw i8, ptr %.06.i, i64 392
   %55 = load ptr, ptr %54, align 8, !tbaa !23
-  tail call void @free(ptr noundef %55) #17
+  tail call void @free(ptr noundef %55) #18
   %56 = load ptr, ptr %37, align 8, !tbaa !18
   store ptr %56, ptr %54, align 8, !tbaa !23
   br label %err_clear.exit
@@ -238,7 +238,7 @@ err_get_state.exit:                               ; preds = %6, %11
 61:                                               ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !18
-  tail call void @free(ptr noundef %63) #17
+  tail call void @free(ptr noundef %63) #18
   br label %err_clear.exit
 
 err_clear.exit:                                   ; preds = %49, %53, %58, %61
@@ -265,7 +265,7 @@ define hidden i32 @ERR_get_error_line_data(ptr noundef writeonly captures(addres
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ERR_peek_error() local_unnamed_addr #0 {
-  %1 = tail call ptr @CRYPTO_get_thread_local(i32 noundef 0) #17
+  %1 = tail call ptr @CRYPTO_get_thread_local(i32 noundef 0) #18
   %2 = icmp eq ptr %1, null
   br i1 %2, label %3, label %err_get_state.exit.i
 
@@ -275,7 +275,7 @@ define hidden i32 @ERR_peek_error() local_unnamed_addr #0 {
   br i1 %4, label %get_error_values.exit, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @CRYPTO_set_thread_local(i32 noundef 0, ptr noundef nonnull %calloc.i.i, ptr noundef nonnull @err_state_free) #17
+  %6 = tail call i32 @CRYPTO_set_thread_local(i32 noundef 0, ptr noundef nonnull %calloc.i.i, ptr noundef nonnull @err_state_free) #18
   %.not.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i, label %get_error_values.exit, label %err_get_state.exit.i
 
@@ -304,7 +304,7 @@ get_error_values.exit:                            ; preds = %3, %5, %err_get_sta
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ERR_peek_error_line(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @CRYPTO_get_thread_local(i32 noundef 0) #17
+  %3 = tail call ptr @CRYPTO_get_thread_local(i32 noundef 0) #18
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %err_get_state.exit.i
 
@@ -314,7 +314,7 @@ define hidden i32 @ERR_peek_error_line(ptr noundef writeonly captures(address_is
   br i1 %6, label %get_error_values.exit, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i32 @CRYPTO_set_thread_local(i32 noundef 0, ptr noundef nonnull %calloc.i.i, ptr noundef nonnull @err_state_free) #17
+  %8 = tail call i32 @CRYPTO_set_thread_local(i32 noundef 0, ptr noundef nonnull %calloc.i.i, ptr noundef nonnull @err_state_free) #18
   %.not.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i, label %get_error_values.exit, label %err_get_state.exit.i
 
@@ -370,7 +370,7 @@ define hidden i32 @ERR_peek_error_line_data(ptr noundef writeonly captures(addre
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ERR_peek_last_error() local_unnamed_addr #0 {
-  %1 = tail call ptr @CRYPTO_get_thread_local(i32 noundef 0) #17
+  %1 = tail call ptr @CRYPTO_get_thread_local(i32 noundef 0) #18
   %2 = icmp eq ptr %1, null
   br i1 %2, label %3, label %err_get_state.exit.i
 
@@ -380,7 +380,7 @@ define hidden i32 @ERR_peek_last_error() local_unnamed_addr #0 {
   br i1 %4, label %get_error_values.exit, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @CRYPTO_set_thread_local(i32 noundef 0, ptr noundef nonnull %calloc.i.i, ptr noundef nonnull @err_state_free) #17
+  %6 = tail call i32 @CRYPTO_set_thread_local(i32 noundef 0, ptr noundef nonnull %calloc.i.i, ptr noundef nonnull @err_state_free) #18
   %.not.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i, label %get_error_values.exit, label %err_get_state.exit.i
 
@@ -407,7 +407,7 @@ get_error_values.exit:                            ; preds = %3, %5, %err_get_sta
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ERR_peek_last_error_line(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @CRYPTO_get_thread_local(i32 noundef 0) #17
+  %3 = tail call ptr @CRYPTO_get_thread_local(i32 noundef 0) #18
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %err_get_state.exit.i
 
@@ -417,7 +417,7 @@ define hidden i32 @ERR_peek_last_error_line(ptr noundef writeonly captures(addre
   br i1 %6, label %get_error_values.exit, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i32 @CRYPTO_set_thread_local(i32 noundef 0, ptr noundef nonnull %calloc.i.i, ptr noundef nonnull @err_state_free) #17
+  %8 = tail call i32 @CRYPTO_set_thread_local(i32 noundef 0, ptr noundef nonnull %calloc.i.i, ptr noundef nonnull @err_state_free) #18
   %.not.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i, label %get_error_values.exit, label %err_get_state.exit.i
 
@@ -471,7 +471,7 @@ define hidden i32 @ERR_peek_last_error_line_data(ptr noundef writeonly captures(
 
 ; Function Attrs: nounwind uwtable
 define hidden void @ERR_clear_error() local_unnamed_addr #0 {
-  %1 = tail call ptr @CRYPTO_get_thread_local(i32 noundef 0) #17
+  %1 = tail call ptr @CRYPTO_get_thread_local(i32 noundef 0) #18
   %2 = icmp eq ptr %1, null
   br i1 %2, label %3, label %err_get_state.exit
 
@@ -481,7 +481,7 @@ define hidden void @ERR_clear_error() local_unnamed_addr #0 {
   br i1 %4, label %err_get_state.exit.thread, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @CRYPTO_set_thread_local(i32 noundef 0, ptr noundef nonnull %calloc.i, ptr noundef nonnull @err_state_free) #17
+  %6 = tail call i32 @CRYPTO_set_thread_local(i32 noundef 0, ptr noundef nonnull %calloc.i, ptr noundef nonnull @err_state_free) #18
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %err_get_state.exit.thread, label %err_get_state.exit
 
@@ -501,7 +501,7 @@ err_get_state.exit:                               ; preds = %5, %0
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !18
-  tail call void @free(ptr noundef %14) #17
+  tail call void @free(ptr noundef %14) #18
   br label %err_clear.exit
 
 err_clear.exit:                                   ; preds = %7, %12
@@ -513,7 +513,7 @@ err_clear.exit:                                   ; preds = %7, %12
 15:                                               ; preds = %err_clear.exit
   %16 = getelementptr inbounds nuw i8, ptr %.06.i, i64 392
   %17 = load ptr, ptr %16, align 8, !tbaa !23
-  tail call void @free(ptr noundef %17) #17
+  tail call void @free(ptr noundef %17) #18
   %18 = getelementptr inbounds nuw i8, ptr %.06.i, i64 384
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   br label %err_get_state.exit.thread
@@ -540,11 +540,11 @@ define hidden void @ERR_remove_thread_state(ptr noundef readnone captures(addres
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ERR_get_next_error_library() local_unnamed_addr #0 {
-  tail call void @CRYPTO_STATIC_MUTEX_lock_write(ptr noundef nonnull @global_next_library_mutex) #17
+  tail call void @CRYPTO_STATIC_MUTEX_lock_write(ptr noundef nonnull @global_next_library_mutex) #18
   %1 = load i32, ptr @global_next_library, align 4, !tbaa !22
   %2 = add nsw i32 %1, 1
   store i32 %2, ptr @global_next_library, align 4, !tbaa !22
-  tail call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @global_next_library_mutex) #17
+  tail call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @global_next_library_mutex) #18
   ret i32 %1
 }
 
@@ -558,9 +558,9 @@ define hidden void @ERR_remove_state(i64 noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @ERR_clear_system_error() local_unnamed_addr #3 {
-  %1 = tail call ptr @__errno_location() #18
+  %1 = tail call ptr @__errno_location() #19
   store i32 0, ptr %1, align 4, !tbaa !22
   ret void
 }
@@ -603,7 +603,7 @@ ERR_lib_error_string.exit:                        ; preds = %7
   br i1 %15, label %16, label %ERR_reason_error_string.exit
 
 16:                                               ; preds = %14
-  %17 = tail call ptr @strerror(i32 noundef %8) #17
+  %17 = tail call ptr @strerror(i32 noundef %8) #18
   br label %ERR_reason_error_string.exit
 
 ERR_lib_error_string.exit.thread:                 ; preds = %7, %ERR_lib_error_string.exit
@@ -698,7 +698,7 @@ ERR_reason_error_string.exit:                     ; preds = %48, %14, %16, %19, 
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %ERR_reason_error_string.exit
-  %55 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %4, i64 noundef 64, ptr noundef nonnull @.str, i32 noundef %.pre-phi67) #17
+  %55 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %4, i64 noundef 64, ptr noundef nonnull @.str, i32 noundef %.pre-phi67) #18
   br label %56
 
 56:                                               ; preds = %54, %ERR_reason_error_string.exit
@@ -707,13 +707,13 @@ ERR_reason_error_string.exit:                     ; preds = %48, %14, %16, %19, 
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %56
-  %59 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %5, i64 noundef 64, ptr noundef nonnull @.str.1, i32 noundef %8) #17
+  %59 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %5, i64 noundef 64, ptr noundef nonnull @.str.1, i32 noundef %8) #18
   br label %60
 
 60:                                               ; preds = %58, %56
   %.031 = phi ptr [ %5, %58 ], [ %.0.i42, %56 ]
-  %61 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.2, i32 noundef %0, ptr noundef nonnull %.0, ptr noundef nonnull %.031) #17
-  %62 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
+  %61 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.2, i32 noundef %0, ptr noundef nonnull %.0, ptr noundef nonnull %.031) #18
+  %62 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   %63 = add i64 %2, -1
   %64 = icmp eq i64 %62, %63
   %65 = icmp ugt i64 %2, 4
@@ -728,7 +728,7 @@ ERR_reason_error_string.exit:                     ; preds = %48, %14, %16, %19, 
 68:                                               ; preds = %.preheader, %76
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %76 ]
   %.03250 = phi ptr [ %1, %.preheader ], [ %77, %76 ]
-  %69 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.03250, i32 noundef 58) #19
+  %69 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.03250, i32 noundef 58) #20
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 %indvars.iv
   %71 = icmp eq ptr %69, null
   %72 = icmp ugt ptr %69, %70
@@ -782,7 +782,7 @@ define hidden ptr @ERR_reason_error_string(i32 noundef %0) local_unnamed_addr #0
   br i1 %6, label %7, label %err_string_lookup.exit
 
 7:                                                ; preds = %5
-  %8 = tail call ptr @strerror(i32 noundef %3) #17
+  %8 = tail call ptr @strerror(i32 noundef %3) #18
   br label %err_string_lookup.exit
 
 9:                                                ; preds = %1
@@ -893,7 +893,7 @@ define hidden void @ERR_print_errors_cb(ptr noundef readonly captures(none) %0, 
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %9 = tail call ptr @CRYPTO_get_thread_local(i32 noundef 0) #17
+  %9 = tail call ptr @CRYPTO_get_thread_local(i32 noundef 0) #18
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %err_get_state.exit
 
@@ -903,7 +903,7 @@ define hidden void @ERR_print_errors_cb(ptr noundef readonly captures(none) %0, 
   br i1 %12, label %err_get_state.exit, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call i32 @CRYPTO_set_thread_local(i32 noundef 0, ptr noundef nonnull %calloc.i, ptr noundef nonnull @err_state_free) #17
+  %14 = tail call i32 @CRYPTO_set_thread_local(i32 noundef 0, ptr noundef nonnull %calloc.i, ptr noundef nonnull @err_state_free) #18
   %.not.i = icmp eq i32 %14, 0
   %spec.select.i = select i1 %.not.i, ptr null, ptr %calloc.i
   br label %err_get_state.exit
@@ -927,9 +927,9 @@ err_get_state.exit:                               ; preds = %2, %11, %13
   %.not = icmp eq i32 %23, 0
   %24 = load ptr, ptr %6, align 8
   %25 = select i1 %.not, ptr @.str.10, ptr %24
-  %26 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.9, i64 noundef %15, ptr noundef nonnull %3, ptr noundef %20, i32 noundef %21, ptr noundef %25) #17
-  %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #19
-  %28 = call i32 %0(ptr noundef nonnull %4, i64 noundef %27, ptr noundef %1) #17
+  %26 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.9, i64 noundef %15, ptr noundef nonnull %3, ptr noundef %20, i32 noundef %21, ptr noundef %25) #18
+  %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #20
+  %28 = call i32 %0(ptr noundef nonnull %4, i64 noundef %27, ptr noundef %1) #18
   %29 = icmp slt i32 %28, 1
   br i1 %29, label %30, label %16
 
@@ -959,7 +959,7 @@ define internal range(i32 0, 2) i32 @print_errors_to_file(ptr noundef readonly c
 
 ; Function Attrs: nounwind uwtable
 define hidden void @ERR_put_error(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = tail call ptr @CRYPTO_get_thread_local(i32 noundef 0) #17
+  %6 = tail call ptr @CRYPTO_get_thread_local(i32 noundef 0) #18
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %err_get_state.exit
 
@@ -969,7 +969,7 @@ define hidden void @ERR_put_error(i32 noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %9, label %err_get_state.exit.thread, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call i32 @CRYPTO_set_thread_local(i32 noundef 0, ptr noundef nonnull %calloc.i, ptr noundef nonnull @err_state_free) #17
+  %11 = tail call i32 @CRYPTO_set_thread_local(i32 noundef 0, ptr noundef nonnull %calloc.i, ptr noundef nonnull @err_state_free) #18
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %err_get_state.exit.thread, label %err_get_state.exit
 
@@ -981,7 +981,7 @@ err_get_state.exit:                               ; preds = %5, %10
   br i1 %or.cond, label %14, label %17
 
 14:                                               ; preds = %err_get_state.exit
-  %15 = tail call ptr @__errno_location() #18
+  %15 = tail call ptr @__errno_location() #19
   %16 = load i32, ptr %15, align 4, !tbaa !22
   br label %17
 
@@ -1015,7 +1015,7 @@ err_get_state.exit:                               ; preds = %5, %10
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !18
-  tail call void @free(ptr noundef %36) #17
+  tail call void @free(ptr noundef %36) #18
   br label %err_clear.exit
 
 err_clear.exit:                                   ; preds = %28, %34
@@ -1041,7 +1041,7 @@ define hidden void @ERR_add_error_data(i32 noundef %0, ...) local_unnamed_addr #
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.va_start.p0(ptr nonnull %2)
-  %3 = call noalias dereferenceable_or_null(81) ptr @malloc(i64 noundef 81) #20
+  %3 = call noalias dereferenceable_or_null(81) ptr @malloc(i64 noundef 81) #21
   %4 = icmp eq ptr %3, null
   br i1 %4, label %err_add_error_vdata.exit, label %.preheader.i
 
@@ -1084,7 +1084,7 @@ define hidden void @ERR_add_error_data(i32 noundef %0, ...) local_unnamed_addr #
   br i1 %21, label %37, label %22
 
 22:                                               ; preds = %18
-  %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #19
+  %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #20
   %24 = add i64 %23, %.03147.i
   %25 = icmp ugt i64 %24, %.049.i
   br i1 %25, label %26, label %35
@@ -1094,18 +1094,18 @@ define hidden void @ERR_add_error_data(i32 noundef %0, ...) local_unnamed_addr #
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %26
-  call void @free(ptr noundef %.03346.i) #17
+  call void @free(ptr noundef %.03346.i) #18
   br label %err_add_error_vdata.exit
 
 29:                                               ; preds = %26
   %30 = add i64 %24, 20
   %31 = add i64 %24, 21
-  %32 = call ptr @realloc(ptr noundef %.03346.i, i64 noundef %31) #21
+  %32 = call ptr @realloc(ptr noundef %.03346.i, i64 noundef %31) #22
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %29
-  call void @free(ptr noundef %.03346.i) #17
+  call void @free(ptr noundef %.03346.i) #18
   br label %err_add_error_vdata.exit
 
 35:                                               ; preds = %29, %22
@@ -1128,7 +1128,7 @@ define hidden void @ERR_add_error_data(i32 noundef %0, ...) local_unnamed_addr #
   %.031.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %.132.i, %37 ]
   %39 = getelementptr inbounds nuw i8, ptr %.033.lcssa.i, i64 %.031.lcssa.i
   store i8 0, ptr %39, align 1, !tbaa !31
-  %40 = call ptr @CRYPTO_get_thread_local(i32 noundef 0) #17
+  %40 = call ptr @CRYPTO_get_thread_local(i32 noundef 0) #18
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %err_get_state.exit.i.i
 
@@ -1138,7 +1138,7 @@ define hidden void @ERR_add_error_data(i32 noundef %0, ...) local_unnamed_addr #
   br i1 %43, label %err_get_state.exit.thread.i.i, label %44
 
 44:                                               ; preds = %42
-  %45 = call i32 @CRYPTO_set_thread_local(i32 noundef 0, ptr noundef nonnull %calloc.i.i.i, ptr noundef nonnull @err_state_free) #17
+  %45 = call i32 @CRYPTO_set_thread_local(i32 noundef 0, ptr noundef nonnull %calloc.i.i.i, ptr noundef nonnull @err_state_free) #18
   %.not.i.i.i = icmp eq i32 %45, 0
   br i1 %.not.i.i.i, label %err_get_state.exit.thread.i.i, label %err_get_state.exit.i.i
 
@@ -1152,7 +1152,7 @@ err_get_state.exit.i.i:                           ; preds = %44, %._crit_edge.i
   br i1 %50, label %err_get_state.exit.thread.i.i, label %51
 
 err_get_state.exit.thread.i.i:                    ; preds = %err_get_state.exit.i.i, %44, %42
-  call void @free(ptr noundef nonnull %.033.lcssa.i) #17
+  call void @free(ptr noundef nonnull %.033.lcssa.i) #18
   br label %err_add_error_vdata.exit
 
 51:                                               ; preds = %err_get_state.exit.i.i
@@ -1167,7 +1167,7 @@ err_get_state.exit.thread.i.i:                    ; preds = %err_get_state.exit.
 57:                                               ; preds = %51
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !18
-  call void @free(ptr noundef %59) #17
+  call void @free(ptr noundef %59) #18
   br label %err_clear_data.exit.i.i
 
 err_clear_data.exit.i.i:                          ; preds = %57, %51
@@ -1192,17 +1192,17 @@ declare void @llvm.va_end.p0(ptr) #10
 define hidden void @ERR_add_error_dataf(ptr noundef %0, ...) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %3 = tail call noalias dereferenceable_or_null(257) ptr @malloc(i64 noundef 257) #20
+  %3 = tail call noalias dereferenceable_or_null(257) ptr @malloc(i64 noundef 257) #21
   %4 = icmp eq ptr %3, null
   br i1 %4, label %err_set_error_data.exit, label %5
 
 5:                                                ; preds = %1
   call void @llvm.va_start.p0(ptr nonnull %2)
-  %6 = call i32 @BIO_vsnprintf(ptr noundef nonnull %3, i64 noundef 256, ptr noundef %0, ptr noundef nonnull %2) #17
+  %6 = call i32 @BIO_vsnprintf(ptr noundef nonnull %3, i64 noundef 256, ptr noundef %0, ptr noundef nonnull %2) #18
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 256
   store i8 0, ptr %7, align 1, !tbaa !31
   call void @llvm.va_end.p0(ptr nonnull %2)
-  %8 = call ptr @CRYPTO_get_thread_local(i32 noundef 0) #17
+  %8 = call ptr @CRYPTO_get_thread_local(i32 noundef 0) #18
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %err_get_state.exit.i
 
@@ -1212,7 +1212,7 @@ define hidden void @ERR_add_error_dataf(ptr noundef %0, ...) local_unnamed_addr 
   br i1 %11, label %err_get_state.exit.thread.i, label %12
 
 12:                                               ; preds = %10
-  %13 = call i32 @CRYPTO_set_thread_local(i32 noundef 0, ptr noundef nonnull %calloc.i.i, ptr noundef nonnull @err_state_free) #17
+  %13 = call i32 @CRYPTO_set_thread_local(i32 noundef 0, ptr noundef nonnull %calloc.i.i, ptr noundef nonnull @err_state_free) #18
   %.not.i.i = icmp eq i32 %13, 0
   br i1 %.not.i.i, label %err_get_state.exit.thread.i, label %err_get_state.exit.i
 
@@ -1226,7 +1226,7 @@ err_get_state.exit.i:                             ; preds = %12, %5
   br i1 %18, label %err_get_state.exit.thread.i, label %19
 
 err_get_state.exit.thread.i:                      ; preds = %err_get_state.exit.i, %12, %10
-  call void @free(ptr noundef nonnull %3) #17
+  call void @free(ptr noundef nonnull %3) #18
   br label %err_set_error_data.exit
 
 19:                                               ; preds = %err_get_state.exit.i
@@ -1241,7 +1241,7 @@ err_get_state.exit.thread.i:                      ; preds = %err_get_state.exit.
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !18
-  call void @free(ptr noundef %27) #17
+  call void @free(ptr noundef %27) #18
   br label %err_clear_data.exit.i
 
 err_clear_data.exit.i:                            ; preds = %25, %19
@@ -1262,7 +1262,7 @@ declare i32 @BIO_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) l
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @ERR_set_mark() local_unnamed_addr #0 {
-  %1 = tail call ptr @CRYPTO_get_thread_local(i32 noundef 0) #17
+  %1 = tail call ptr @CRYPTO_get_thread_local(i32 noundef 0) #18
   %2 = icmp eq ptr %1, null
   br i1 %2, label %3, label %err_get_state.exit
 
@@ -1272,7 +1272,7 @@ define hidden range(i32 0, 2) i32 @ERR_set_mark() local_unnamed_addr #0 {
   br i1 %4, label %err_get_state.exit.thread, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @CRYPTO_set_thread_local(i32 noundef 0, ptr noundef nonnull %calloc.i, ptr noundef nonnull @err_state_free) #17
+  %6 = tail call i32 @CRYPTO_set_thread_local(i32 noundef 0, ptr noundef nonnull %calloc.i, ptr noundef nonnull @err_state_free) #18
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %err_get_state.exit.thread, label %err_get_state.exit
 
@@ -1301,7 +1301,7 @@ err_get_state.exit.thread:                        ; preds = %5, %3, %err_get_sta
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @ERR_pop_to_mark() local_unnamed_addr #0 {
-  %1 = tail call ptr @CRYPTO_get_thread_local(i32 noundef 0) #17
+  %1 = tail call ptr @CRYPTO_get_thread_local(i32 noundef 0) #18
   %2 = icmp eq ptr %1, null
   br i1 %2, label %3, label %err_get_state.exit
 
@@ -1311,7 +1311,7 @@ define hidden range(i32 0, 2) i32 @ERR_pop_to_mark() local_unnamed_addr #0 {
   br i1 %4, label %err_get_state.exit.thread, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @CRYPTO_set_thread_local(i32 noundef 0, ptr noundef nonnull %calloc.i, ptr noundef nonnull @err_state_free) #17
+  %6 = tail call i32 @CRYPTO_set_thread_local(i32 noundef 0, ptr noundef nonnull %calloc.i, ptr noundef nonnull @err_state_free) #18
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %err_get_state.exit.thread, label %err_get_state.exit
 
@@ -1348,7 +1348,7 @@ err_get_state.exit:                               ; preds = %5, %0
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !18
-  tail call void @free(ptr noundef %23) #17
+  tail call void @free(ptr noundef %23) #18
   br label %24
 
 24:                                               ; preds = %21, %19
@@ -1391,8 +1391,8 @@ declare ptr @CRYPTO_get_thread_local(i32 noundef) local_unnamed_addr #2
 
 declare i32 @CRYPTO_set_thread_local(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define internal void @err_state_free(ptr noundef captures(address_is_null) %0) #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal void @err_state_free(ptr noundef captures(address_is_null) %0) #12 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %13, label %.preheader
 
@@ -1408,7 +1408,7 @@ define internal void @err_state_free(ptr noundef captures(address_is_null) %0) #
 7:                                                ; preds = %.preheader
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !18
-  tail call void @free(ptr noundef %9) #17
+  tail call void @free(ptr noundef %9) #18
   br label %err_clear.exit
 
 err_clear.exit:                                   ; preds = %.preheader, %7
@@ -1420,8 +1420,8 @@ err_clear.exit:                                   ; preds = %.preheader, %7
 10:                                               ; preds = %err_clear.exit
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %12 = load ptr, ptr %11, align 8, !tbaa !23
-  tail call void @free(ptr noundef %12) #17
-  tail call void @free(ptr noundef nonnull %0) #17
+  tail call void @free(ptr noundef %12) #18
+  tail call void @free(ptr noundef nonnull %0) #18
   br label %13
 
 13:                                               ; preds = %1, %10
@@ -1429,27 +1429,27 @@ err_clear.exit:                                   ; preds = %.preheader, %7
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #12
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #13
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #16
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #17
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1458,16 +1458,17 @@ attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #9 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #17 = { nounwind }
-attributes #18 = { nounwind willreturn memory(none) }
-attributes #19 = { nounwind willreturn memory(read) }
-attributes #20 = { nounwind allocsize(0) }
-attributes #21 = { nounwind allocsize(1) }
+attributes #12 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #18 = { nounwind }
+attributes #19 = { nounwind willreturn memory(none) }
+attributes #20 = { nounwind willreturn memory(read) }
+attributes #21 = { nounwind allocsize(0) }
+attributes #22 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

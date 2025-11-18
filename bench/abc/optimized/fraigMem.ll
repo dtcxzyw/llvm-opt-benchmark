@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [68 x i8] c"Fixed memory manager: Entry = %5d. Chunk = %5d. Chunks used = %5d.\0A\00", align 1
 @.str.1 = private unnamed_addr constant [83 x i8] c"   Entries used = %8d. Entries peak = %8d. Memory used = %8d. Memory alloc = %8d.\0A\00", align 1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define noalias noundef ptr @Fraig_MemFixedStart(i32 noundef %0) local_unnamed_addr #0 {
   %calloc = tail call dereferenceable_or_null(56) ptr @calloc(i64 1, i64 56)
   store i32 %0, ptr %calloc, align 8, !tbaa !3
@@ -26,7 +26,7 @@ define noalias noundef ptr @Fraig_MemFixedStart(i32 noundef %0) local_unnamed_ad
   store i32 64, ptr %8, align 4, !tbaa !11
   %9 = getelementptr inbounds nuw i8, ptr %calloc, i64 32
   store i32 0, ptr %9, align 8, !tbaa !12
-  %10 = tail call noalias dereferenceable_or_null(512) ptr @malloc(i64 noundef 512) #10
+  %10 = tail call noalias dereferenceable_or_null(512) ptr @malloc(i64 noundef 512) #11
   %11 = getelementptr inbounds nuw i8, ptr %calloc, i64 40
   store ptr %10, ptr %11, align 8, !tbaa !13
   %12 = getelementptr inbounds nuw i8, ptr %calloc, i64 48
@@ -84,7 +84,7 @@ define void @Fraig_MemFixedStop(ptr noundef captures(address_is_null) %0, i32 no
   br i1 %.not27, label %33, label %30
 
 30:                                               ; preds = %.lr.ph
-  tail call void @free(ptr noundef nonnull %29) #11
+  tail call void @free(ptr noundef nonnull %29) #12
   %31 = load ptr, ptr %25, align 8, !tbaa !13
   %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
   store ptr null, ptr %32, align 8, !tbaa !19
@@ -105,11 +105,11 @@ define void @Fraig_MemFixedStop(ptr noundef captures(address_is_null) %0, i32 no
 
 ._crit_edge.thread:                               ; preds = %33, %._crit_edge
   %38 = phi ptr [ %.pre, %._crit_edge ], [ %35, %33 ]
-  tail call void @free(ptr noundef nonnull %38) #11
+  tail call void @free(ptr noundef nonnull %38) #12
   br label %39
 
 39:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  tail call void @free(ptr noundef nonnull %0) #11
+  tail call void @free(ptr noundef nonnull %0) #12
   br label %40
 
 40:                                               ; preds = %2, %39
@@ -122,8 +122,8 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
-; Function Attrs: nounwind uwtable
-define noundef ptr @Fraig_MemFixedEntryFetch(ptr noundef captures(none) %0) local_unnamed_addr #2 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define noundef ptr @Fraig_MemFixedEntryFetch(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -150,11 +150,11 @@ define noundef ptr @Fraig_MemFixedEntryFetch(ptr noundef captures(none) %0) loca
   br i1 %.not, label %21, label %19
 
 19:                                               ; preds = %13
-  %20 = tail call ptr @realloc(ptr noundef nonnull %16, i64 noundef %18) #12
+  %20 = tail call ptr @realloc(ptr noundef nonnull %16, i64 noundef %18) #13
   br label %23
 
 21:                                               ; preds = %13
-  %22 = tail call noalias ptr @malloc(i64 noundef %18) #10
+  %22 = tail call noalias ptr @malloc(i64 noundef %18) #11
   br label %23
 
 23:                                               ; preds = %21, %19
@@ -168,7 +168,7 @@ define noundef ptr @Fraig_MemFixedEntryFetch(ptr noundef captures(none) %0) loca
   %28 = load i32, ptr %27, align 8, !tbaa !16
   %29 = mul nsw i32 %28, %26
   %30 = sext i32 %29 to i64
-  %31 = tail call noalias ptr @malloc(i64 noundef %30) #10
+  %31 = tail call noalias ptr @malloc(i64 noundef %30) #11
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %31, ptr %32, align 8, !tbaa !23
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -230,10 +230,10 @@ define noundef ptr @Fraig_MemFixedEntryFetch(ptr noundef captures(none) %0) loca
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @Fraig_MemFixedEntryRecycle(ptr noundef captures(none) %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #6 {
+define void @Fraig_MemFixedEntryRecycle(ptr noundef captures(none) %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !17
   %5 = add nsw i32 %4, -1
@@ -245,8 +245,8 @@ define void @Fraig_MemFixedEntryRecycle(ptr noundef captures(none) %0, ptr nound
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define void @Fraig_MemFixedRestart(ptr noundef captures(none) %0) local_unnamed_addr #2 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define void @Fraig_MemFixedRestart(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8, !tbaa !12
   %4 = icmp sgt i32 %3, 1
@@ -264,7 +264,7 @@ define void @Fraig_MemFixedRestart(ptr noundef captures(none) %0) local_unnamed_
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %.lr.ph
-  tail call void @free(ptr noundef nonnull %9) #11
+  tail call void @free(ptr noundef nonnull %9) #12
   %11 = load ptr, ptr %5, align 8, !tbaa !13
   %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   store ptr null, ptr %12, align 8, !tbaa !19
@@ -321,31 +321,32 @@ define void @Fraig_MemFixedRestart(ptr noundef captures(none) %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Fraig_MemFixedReadMemUsage(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define i32 @Fraig_MemFixedReadMemUsage(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %3 = load i32, ptr %2, align 4, !tbaa !15
   ret i32 %3
 }
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #8
+declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #10
 
-attributes #0 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #10 = { nounwind allocsize(0) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind allocsize(1) }
+attributes #5 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #11 = { nounwind allocsize(0) }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

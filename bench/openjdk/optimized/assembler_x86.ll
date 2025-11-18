@@ -348,7 +348,7 @@ define hidden noundef i32 @_ZN17AbstractAssembler14code_fill_byteEv() local_unna
   ret i32 244
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler15init_attributesEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((24, 28), (32, 40)) %0) local_unnamed_addr #6 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 4294967296
@@ -492,7 +492,7 @@ define hidden void @_ZN9Assembler6membarENS_16Membar_mask_bitsE(ptr noundef nonn
 
 declare noundef i32 @_ZN10VM_Version12L1_line_sizeEv() local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4lockEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -601,7 +601,7 @@ define hidden void @_ZN9Assembler9emit_dataEiRK16RelocationHolderi(ptr noundef n
 
 declare void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef, ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler12emit_arith_bEii8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = sext i32 %3 to i64
   %7 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %6
@@ -727,7 +727,7 @@ switch.lookup:                                    ; preds = %28
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler16emit_arith_imm32Eii8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = sext i32 %3 to i64
   %7 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %6
@@ -943,7 +943,7 @@ define hidden void @_ZN9Assembler24emit_arith_operand_imm32Ei8Register7Addressi(
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10emit_arithEii8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 %3, i32 %4) local_unnamed_addr #8 align 2 {
   %6 = sext i32 %3 to i64
   %7 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %6
@@ -974,7 +974,7 @@ define hidden void @_ZN9Assembler10emit_arithEii8RegisterS0_(ptr noundef nonnull
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZN9Assembler26query_compressed_disp_byteEibiiii(i32 noundef %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #9 align 2 {
   %7 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %8 = and i64 %7, 134217728
@@ -1059,7 +1059,7 @@ switch.lookup:                                    ; preds = %20, %10, %13, %16, 
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZN9Assembler25emit_compressed_disp_byteERi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #10 align 2 {
   %3 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %4 = and i64 %3, 134217728
@@ -2370,7 +2370,7 @@ define hidden void @_ZN9Assembler12emit_operandE11XMMRegister7Addressi(ptr nound
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler31emit_opcode_prefix_and_encodingEiiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = and i32 %3, 65280
   %.not = icmp eq i32 %6, 0
@@ -2420,7 +2420,7 @@ define hidden void @_ZN9Assembler31emit_opcode_prefix_and_encodingEiiii(ptr noun
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler31emit_opcode_prefix_and_encodingEiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = and i32 %3, 65280
   %.not = icmp eq i32 %5, 0
@@ -2464,7 +2464,7 @@ define hidden void @_ZN9Assembler31emit_opcode_prefix_and_encodingEiii(ptr nound
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler31emit_opcode_prefix_and_encodingEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = and i32 %2, 65280
   %.not = icmp eq i32 %4, 0
@@ -2936,7 +2936,7 @@ _ZN9Assembler11prefix_rex2E7Address8Registerbb.exit: ; preds = %30, %42
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4adclE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -3048,7 +3048,7 @@ _ZN9Assembler10emit_arithEii8Registeri.exit:      ; preds = %29, %44, %53
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6prefixE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -3155,7 +3155,7 @@ define hidden void @_ZN9Assembler4adclE8Register7Address(ptr noundef nonnull rea
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4adclE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -3367,7 +3367,7 @@ define hidden void @_ZN9Assembler4addbE7Address8Register(ptr noundef nonnull rea
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4addbE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -3438,7 +3438,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %_ZN9Assembler17pref
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN9Assembler17prefix_and_encodeEibb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #8 align 2 {
   %5 = icmp sgt i32 %1, 15
   br i1 %5, label %6, label %23
@@ -3508,7 +3508,7 @@ define hidden noundef i32 @_ZN9Assembler17prefix_and_encodeEibb(ptr noundef nonn
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4addwE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -3795,7 +3795,7 @@ define hidden void @_ZN9Assembler4addlE7Address8Register(ptr noundef nonnull rea
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4addlE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -3966,7 +3966,7 @@ define hidden void @_ZN9Assembler4addlE8Register7Address(ptr noundef nonnull rea
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4addlE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -4058,7 +4058,7 @@ _ZN9Assembler17prefix_and_encodeEiib.exit:        ; preds = %36, %38, %44, %16
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10addr_nop_4Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -4076,7 +4076,7 @@ define hidden void @_ZN9Assembler10addr_nop_4Ev(ptr noundef nonnull readonly ali
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10addr_nop_5Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -4100,7 +4100,7 @@ define hidden void @_ZN9Assembler10addr_nop_5Ev(ptr noundef nonnull readonly ali
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10addr_nop_7Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -4123,7 +4123,7 @@ define hidden void @_ZN9Assembler10addr_nop_7Ev(ptr noundef nonnull readonly ali
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10addr_nop_8Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -4148,7 +4148,7 @@ define hidden void @_ZN9Assembler10addr_nop_8Ev(ptr noundef nonnull readonly ali
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5addsdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -4235,7 +4235,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i1 noundef zeroext %7) local_unnamed_addr #8 align 2 {
   %9 = sext i32 %1 to i64
   %10 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %9
@@ -4395,7 +4395,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN15InstructionAttr22set_address_attributesEii(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
   %4 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %5 = and i64 %4, 134217728
@@ -4536,7 +4536,7 @@ _ZN9Assembler10rex_prefixE7Address11XMMRegisterNS_13VexSimdPrefixENS_9VexOpcodeE
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5addssE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -4845,7 +4845,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6aesdecE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -4925,7 +4925,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vaesdecE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -4998,7 +4998,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef range(i32 0, 64) i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef initializes((32, 40)) %6, i1 noundef zeroext %7) local_unnamed_addr #8 align 2 {
   %9 = icmp sgt i32 %3, 15
   %10 = icmp sgt i32 %1, 15
@@ -5335,7 +5335,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10aesdeclastE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -5415,7 +5415,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler11vaesdeclastE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -5595,7 +5595,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6aesencE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -5675,7 +5675,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -5855,7 +5855,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10aesenclastE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -5935,7 +5935,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler11vaesenclastE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -6067,7 +6067,7 @@ define hidden void @_ZN9Assembler4andbE7Address8Register(ptr noundef nonnull rea
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4andwE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -6190,7 +6190,7 @@ define hidden void @_ZN9Assembler4andlE7Addressi(ptr noundef nonnull readonly al
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4andlE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -6420,7 +6420,7 @@ define hidden void @_ZN9Assembler4andlE8Register7Address(ptr noundef nonnull rea
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4andlE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -6512,7 +6512,7 @@ _ZN9Assembler17prefix_and_encodeEiib.exit:        ; preds = %36, %38, %44, %16
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5andnlE8RegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -6701,7 +6701,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10vex_prefixE7AddressiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef initializes((32, 40)) %6) local_unnamed_addr #8 align 2 {
   %8 = load i32, ptr %1, align 4
   %9 = sext i32 %8 to i64
@@ -7005,7 +7005,7 @@ _ZN9Assembler10vex_prefixEbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit: ; preds = 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4bsflE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -7138,7 +7138,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %64, %76
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4bsrlE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -7271,7 +7271,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %64, %76
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6bswaplE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -7362,7 +7362,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEii.exit: ; preds = %37, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5blsilE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -7541,7 +7541,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7blsmsklE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -7720,7 +7720,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5blsrlE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -8021,7 +8021,7 @@ _ZN9Assembler9emit_dataEiN9relocInfo9relocTypeEi.exit10: ; preds = %39, %61, %.s
 
 declare void @_ZN5Label12add_patch_atEP10CodeBufferiPKci(ptr noundef nonnull align 8 dereferenceable(33), ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4callE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -8188,7 +8188,7 @@ _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit: ; preds = %3, %.sink.split.
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4cdqlEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -8200,7 +8200,7 @@ define hidden void @_ZN9Assembler4cdqlEv(ptr noundef nonnull readonly align 8 ca
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler3cldEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -8212,7 +8212,7 @@ define hidden void @_ZN9Assembler3cldEv(ptr noundef nonnull readonly align 8 cap
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5cmovlENS_9ConditionE8RegisterS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %5
@@ -8619,7 +8619,7 @@ define hidden void @_ZN9Assembler4cmplE7Addressi(ptr noundef nonnull readonly al
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4cmplE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -8729,7 +8729,7 @@ _ZN9Assembler10emit_arithEii8Registeri.exit:      ; preds = %29, %43, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4cmplE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -9266,7 +9266,7 @@ define hidden void @_ZN9Assembler8cmpxchgwE8Register7Address(ptr noundef nonnull
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler11size_prefixEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -9459,7 +9459,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6comisdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -9664,7 +9664,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6comissE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -9744,7 +9744,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5cpuidEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -9758,7 +9758,7 @@ define hidden void @_ZN9Assembler5cpuidEv(ptr noundef nonnull readonly align 8 c
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5crc32E8RegisterS0_a(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i8 noundef signext %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   %6 = sext i32 %1 to i64
@@ -9940,7 +9940,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %54, %._crit_edge, %
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6prefixE8RegisterS0_NS_6PrefixE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = and i32 %3, 54528
   %.not = icmp eq i32 %5, 0
@@ -10377,7 +10377,7 @@ define hidden void @_ZN9Assembler6prefixE8Register7AddressNS_6PrefixE(ptr nounde
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8cvtdq2pdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -10457,7 +10457,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vcvtdq2pdE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -10537,7 +10537,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vcvtps2phE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -10867,7 +10867,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vcvtph2psE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -11054,7 +11054,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8cvtdq2psE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -11134,7 +11134,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vcvtdq2psE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -11214,7 +11214,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8cvtsd2ssE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -11423,7 +11423,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9cvtsi2sdlE11XMMRegister8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -11632,7 +11632,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9cvtsi2sslE11XMMRegister8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -11841,7 +11841,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9cvtsi2ssqE11XMMRegister8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %4, align 8
@@ -11930,7 +11930,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8cvtss2sdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -12132,7 +12132,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10cvttsd2silE8Register11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -12219,7 +12219,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9cvtss2silE8Register11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -12306,7 +12306,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10cvttss2silE8Register11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -12393,7 +12393,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9cvttpd2dqE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -12477,7 +12477,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5pabsbE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -12561,7 +12561,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5pabswE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -12645,7 +12645,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5pabsdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -12725,7 +12725,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpabsbE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -12797,7 +12797,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %46
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpabswE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -12869,7 +12869,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %46
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpabsdE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -12937,7 +12937,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %42
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpabsqE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -13005,7 +13005,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %42
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vcvtps2pdE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -13073,7 +13073,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %42
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vcvtpd2psE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   %6 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -13145,7 +13145,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %46
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10vcvttps2dqE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -13213,7 +13213,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %42
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10vcvttpd2dqE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -13281,7 +13281,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %42
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vcvtps2dqE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -13349,7 +13349,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %42
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler11evcvttps2qqE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -13417,7 +13417,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %42
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10evcvtpd2qqE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -13485,7 +13485,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %42
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10evcvtqq2psE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -13553,7 +13553,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %42
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler11evcvttpd2qqE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -13621,7 +13621,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %42
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10evcvtqq2pdE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -13689,7 +13689,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %42
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpmovwbE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -13757,7 +13757,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %42
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpmovdwE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -13825,7 +13825,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %42
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpmovdbE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -13893,7 +13893,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %42
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpmovqdE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -13961,7 +13961,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %42
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpmovqbE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -14029,7 +14029,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %42
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpmovqwE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -14097,7 +14097,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %42
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9evpmovsqdE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -14341,7 +14341,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5divsdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -14548,7 +14548,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5divssE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -14630,7 +14630,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler3hltEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -14642,7 +14642,7 @@ define hidden void @_ZN9Assembler3hltEv(ptr noundef nonnull readonly align 8 cap
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5idivlE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -14704,7 +14704,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %25, %23, %9
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4divlE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -14767,7 +14767,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %26, %24, %9
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5imullE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -14830,7 +14830,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %26, %24, %9
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5imullE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -15074,7 +15074,7 @@ define hidden void @_ZN9Assembler5imullE8Register7Addressi(ptr noundef nonnull r
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5imullE8RegisterS0_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %5
@@ -15635,7 +15635,7 @@ define hidden void @_ZN9Assembler3jmpER5Labelb(ptr noundef nonnull readonly alig
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler3jmpE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -16013,7 +16013,7 @@ define hidden void @_ZN9Assembler4lealE8Register7Address(ptr noundef nonnull rea
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6lfenceEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -16029,7 +16029,7 @@ define hidden void @_ZN9Assembler6lfenceEv(ptr noundef nonnull readonly align 8 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6lzcntlE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -16229,7 +16229,7 @@ define hidden void @_ZN9Assembler6lzcntlE8Register7Address(ptr noundef nonnull r
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6mfenceEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -16245,7 +16245,7 @@ define hidden void @_ZN9Assembler6mfenceEv(ptr noundef nonnull readonly align 8 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6sfenceEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -16261,7 +16261,7 @@ define hidden void @_ZN9Assembler6sfenceEv(ptr noundef nonnull readonly align 8 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler3movE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -16366,7 +16366,7 @@ _ZN9Assembler4movqE8RegisterS0_.exit:             ; preds = %16, %54
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4movqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -16471,7 +16471,7 @@ _ZN9Assembler18prefixq_and_encodeEiib.exit:       ; preds = %16, %54
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6movapdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -16559,7 +16559,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6movapsE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -16643,7 +16643,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7movlhpsE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -16784,7 +16784,7 @@ define hidden void @_ZN9Assembler4movbE8Register7Address(ptr noundef nonnull rea
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7movddupE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -17116,7 +17116,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6kmovblE9KRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -17181,7 +17181,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %3, %38
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6kmovblE9KRegister8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -17249,7 +17249,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %3, %41
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6kmovblE8Register9KRegister(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -17317,7 +17317,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %3, %41
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6kmovwlE9KRegister8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -17385,7 +17385,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %3, %41
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6kmovwlE8Register9KRegister(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -17675,7 +17675,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6kmovwlE9KRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -17740,7 +17740,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %3, %38
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6kmovdlE9KRegister8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -17808,7 +17808,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %3, %41
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6kmovdlE8Register9KRegister(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -17876,7 +17876,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %3, %41
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6kmovqlE9KRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %4, align 8
@@ -18163,7 +18163,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6kmovqlE9KRegister8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %4, align 8
@@ -18231,7 +18231,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %3, %41
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6kmovqlE8Register9KRegister(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %4, align 8
@@ -18299,7 +18299,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %3, %41
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6knotwlE9KRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -18364,7 +18364,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %3, %38
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6knotblE9KRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -18429,7 +18429,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %3, %38
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5korblE9KRegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -18499,7 +18499,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %44
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5korwlE9KRegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -18569,7 +18569,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %44
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5kordlE9KRegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -18639,7 +18639,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %44
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5korqlE9KRegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -18709,7 +18709,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %44
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6kxorblE9KRegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -18779,7 +18779,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %44
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7kxnorwlE9KRegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -18849,7 +18849,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %44
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6kxorwlE9KRegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -18919,7 +18919,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %44
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6kxordlE9KRegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -18989,7 +18989,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %44
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6kxorqlE9KRegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -19059,7 +19059,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %44
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6kandblE9KRegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -19129,7 +19129,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %44
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6kandwlE9KRegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -19199,7 +19199,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %44
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6kanddlE9KRegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -19269,7 +19269,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %44
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6kandqlE9KRegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -19339,7 +19339,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %44
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6knotdlE9KRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %4, align 8
@@ -19404,7 +19404,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %3, %38
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6knotqlE9KRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %4, align 8
@@ -19469,7 +19469,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %3, %38
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9kortestblE9KRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -19534,7 +19534,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %3, %38
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9kortestwlE9KRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -19599,7 +19599,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %3, %38
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9kortestdlE9KRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %4, align 8
@@ -19664,7 +19664,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %3, %38
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9kortestqlE9KRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %4, align 8
@@ -19729,7 +19729,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %3, %38
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7ktestqlE9KRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %4, align 8
@@ -19794,7 +19794,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %3, %38
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7ktestdlE9KRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %4, align 8
@@ -19859,7 +19859,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %3, %38
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7ktestwlE9KRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -19924,7 +19924,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %3, %38
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7ktestblE9KRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -19989,7 +19989,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %3, %38
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6ktestqE9KRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %4, align 8
@@ -20054,7 +20054,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %3, %38
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6ktestdE9KRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %4, align 8
@@ -20119,7 +20119,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %3, %38
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7kxnorblE9KRegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -20189,7 +20189,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %44
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9kshiftlblE9KRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -20261,7 +20261,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %44
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9kshiftlqlE9KRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -20333,7 +20333,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %44
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9kshiftrblE9KRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -20398,7 +20398,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %39
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9kshiftrwlE9KRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -20470,7 +20470,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %44
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9kshiftrdlE9KRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -20542,7 +20542,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %44
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9kshiftrqlE9KRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -20614,7 +20614,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %44
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9kunpckdqlE9KRegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -20804,7 +20804,7 @@ define hidden void @_ZN9Assembler4movbE7Address8Register(ptr noundef nonnull rea
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5movdlE11XMMRegister8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -20891,7 +20891,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5movdlE8Register11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -21218,7 +21218,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6movdqaE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -21536,7 +21536,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6movdquE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -21735,7 +21735,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vmovdquE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -22701,7 +22701,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9evmovdqubE11XMMRegister9KRegisterS0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i1 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -22786,7 +22786,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %35, %56
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9evmovdqubE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -23446,7 +23446,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9evmovdqulE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -23516,7 +23516,7 @@ _ZN9Assembler9evmovdqulE11XMMRegister9KRegisterS0_bi.exit: ; preds = %4, %42
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9evmovdqulE11XMMRegister9KRegisterS0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i1 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %7, align 8
@@ -23889,7 +23889,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9evmovdquqE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -23959,7 +23959,7 @@ _ZN9Assembler9evmovdquqE11XMMRegister9KRegisterS0_bi.exit: ; preds = %4, %42
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9evmovdquqE11XMMRegister9KRegisterS0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i1 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %7, align 8
@@ -24478,7 +24478,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -24546,7 +24546,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %27, %25, %10
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4movlE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -25196,7 +25196,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4movqE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -25281,7 +25281,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4movqE8Register11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %4, align 8
@@ -25368,7 +25368,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4movqE11XMMRegister8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %4, align 8
@@ -25514,7 +25514,7 @@ define hidden void @_ZN9Assembler6movsblE8Register7Address(ptr noundef nonnull r
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6movsblE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -25661,7 +25661,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %72, %84
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN9Assembler17prefix_and_encodeEibibb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #8 align 2 {
   %7 = icmp sgt i32 %3, 15
   %8 = icmp sgt i32 %1, 15
@@ -25777,7 +25777,7 @@ define hidden noundef i32 @_ZN9Assembler17prefix_and_encodeEibibb(ptr noundef no
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5movsdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -26108,7 +26108,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vmovsdE11XMMRegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -26189,7 +26189,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %51
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5movssE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -26570,7 +26570,7 @@ define hidden void @_ZN9Assembler6movswlE8Register7Address(ptr noundef nonnull r
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6movswlE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -27436,7 +27436,7 @@ define hidden void @_ZN9Assembler6movzblE8Register7Address(ptr noundef nonnull r
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6movzblE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -27642,7 +27642,7 @@ define hidden void @_ZN9Assembler6movzwlE8Register7Address(ptr noundef nonnull r
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6movzwlE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -27829,7 +27829,7 @@ define hidden void @_ZN9Assembler4mullE7Address(ptr noundef nonnull readonly ali
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4mullE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -28014,7 +28014,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5mulsdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -28221,7 +28221,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5mulssE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -28303,7 +28303,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4neglE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -28420,7 +28420,7 @@ define hidden void @_ZN9Assembler4neglE7Address(ptr noundef nonnull readonly ali
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler3nopEj(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #11 align 2 {
   %3 = load i8, ptr @UseAddressNop, align 1
   %4 = trunc i8 %3 to i1
@@ -29481,7 +29481,7 @@ define hidden void @_ZN9Assembler3nopEj(ptr noundef nonnull readonly align 8 der
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4notlE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -29544,7 +29544,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %26, %24, %9
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler3orwE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -29667,7 +29667,7 @@ define hidden void @_ZN9Assembler3orlE7Addressi(ptr noundef nonnull readonly ali
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler3orlE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -29838,7 +29838,7 @@ define hidden void @_ZN9Assembler3orlE8Register7Address(ptr noundef nonnull read
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler3orlE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -30109,7 +30109,7 @@ define hidden void @_ZN9Assembler3orbE7Address8Register(ptr noundef nonnull read
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8packsswbE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -30195,7 +30195,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vpacksswbE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -30272,7 +30272,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8packssdwE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -30358,7 +30358,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vpackssdwE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -30558,7 +30558,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8packuswbE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -30644,7 +30644,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vpackuswbE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -30721,7 +30721,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8packusdwE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -30807,7 +30807,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vpackusdwE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -30884,7 +30884,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpermqE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -30955,7 +30955,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %45
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpermqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -31028,7 +31028,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpermbE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -31216,7 +31216,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpermwE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -31293,7 +31293,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpermdE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -31481,7 +31481,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vpermpsE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -31554,7 +31554,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10vperm2i128E11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -31627,7 +31627,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %47
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10vperm2f128E11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -31700,7 +31700,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %47
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vpermilpsE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -31771,7 +31771,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %45
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vpermilpsE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -31844,7 +31844,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vpermilpdE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -31919,7 +31919,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %49
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vpermpdE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -31990,7 +31990,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %45
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9evpermi2qE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -32063,7 +32063,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9evpermt2bE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -32136,7 +32136,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler15evpmultishiftqbE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -32209,7 +32209,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5pauseEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -32223,7 +32223,7 @@ define hidden void @_ZN9Assembler5pauseEv(ptr noundef nonnull readonly align 8 c
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler3ud2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -32351,7 +32351,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9pcmpestriE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -32432,7 +32432,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7pcmpeqbE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -32512,7 +32512,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10vpcmpCCbwdE11XMMRegisterS0_S0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %7, align 8
@@ -32583,7 +32583,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %6, %47
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8vpcmpeqbE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -32765,7 +32765,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9evpcmpeqbE9KRegister11XMMRegisterS1_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -33088,7 +33088,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpcmpuwE9KRegister11XMMRegisterS1_NS_19ComparisonPredicateEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %7, align 8
@@ -33164,7 +33164,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %6, %51
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpcmpuqE9KRegister11XMMRegisterS1_NS_19ComparisonPredicateEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %7, align 8
@@ -33619,7 +33619,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7pcmpeqwE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -33699,7 +33699,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8vpcmpeqwE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -33881,7 +33881,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9evpcmpeqwE9KRegister11XMMRegisterS1_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -34076,7 +34076,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7pcmpeqdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -34156,7 +34156,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8vpcmpeqdE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -34226,7 +34226,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %45
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9evpcmpeqdE9KRegisterS0_11XMMRegisterS1_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %7, align 8
@@ -34433,7 +34433,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7pcmpeqqE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -34513,7 +34513,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9evpcmpeqqE9KRegisterS0_11XMMRegisterS1_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %7, align 8
@@ -34592,7 +34592,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %6, %55
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8vpcmpCCqE11XMMRegisterS0_S0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %7, align 8
@@ -34663,7 +34663,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %6, %47
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8vpcmpeqqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -34733,7 +34733,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %45
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9evpcmpeqqE9KRegister11XMMRegisterS1_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -34928,7 +34928,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7pcmpgtqE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -35008,7 +35008,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8pmovmskbE8Register11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -35093,7 +35093,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vpmovmskbE8Register11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -35158,7 +35158,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %39
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vmovmskpsE8Register11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -35223,7 +35223,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %39
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vmovmskpdE8Register11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -35288,7 +35288,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %39
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6pextrdE8Register11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -35513,7 +35513,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6pextrqE8Register11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -35738,7 +35738,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6pextrwE8Register11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -35963,7 +35963,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6pextrbE8Register11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -36188,7 +36188,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6pinsrdE11XMMRegister8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -36415,7 +36415,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vpinsrdE11XMMRegisterS0_8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -36495,7 +36495,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %54
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6pinsrqE11XMMRegister8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -36722,7 +36722,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vpinsrqE11XMMRegisterS0_8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -36802,7 +36802,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %54
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6pinsrwE11XMMRegister8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -37029,7 +37029,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vpinsrwE11XMMRegisterS0_8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -37240,7 +37240,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6pinsrbE11XMMRegister8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -37336,7 +37336,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vpinsrbE11XMMRegisterS0_8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -37416,7 +37416,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %54
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8insertpsE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -37501,7 +37501,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vinsertpsE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -37700,7 +37700,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8pmovzxbwE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -37784,7 +37784,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8pmovsxbwE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -37868,7 +37868,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8pmovzxdqE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -37948,7 +37948,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8pmovsxbdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -38028,7 +38028,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8pmovzxbdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -38108,7 +38108,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8pmovsxbqE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -38188,7 +38188,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8pmovsxwdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -38391,7 +38391,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vpmovzxbwE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -38463,7 +38463,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %46
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vpmovsxbwE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -38819,7 +38819,7 @@ define hidden void @_ZN9Assembler10evpmovzxbdE11XMMRegister7Addressi(ptr noundef
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpanddE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -38905,7 +38905,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vpmovzxdqE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -38985,7 +38985,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vpmovzxbdE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -39065,7 +39065,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vpmovzxbqE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -39145,7 +39145,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vpmovsxbdE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -39225,7 +39225,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vpmovsxbqE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -39305,7 +39305,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vpmovsxwdE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -39385,7 +39385,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vpmovsxwqE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -39465,7 +39465,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vpmovsxdqE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -39908,7 +39908,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vpmovzxwdE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -39976,7 +39976,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %42
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vpmovzxwqE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -40044,7 +40044,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %42
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7pmaddwdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -40130,7 +40130,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8vpmaddwdE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -40221,7 +40221,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10vpmaddubswE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -40442,7 +40442,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler11vpmadd52luqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -40525,7 +40525,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %26, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler12evpmadd52luqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -40600,7 +40600,7 @@ _ZN9Assembler12evpmadd52luqE11XMMRegister9KRegisterS0_S0_bi.exit: ; preds = %5, 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler12evpmadd52luqE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -40816,7 +40816,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler11vpmadd52huqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -40899,7 +40899,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %26, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler12evpmadd52huqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -40974,7 +40974,7 @@ _ZN9Assembler12evpmadd52huqE11XMMRegister9KRegisterS0_S0_bi.exit: ; preds = %5, 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler12evpmadd52huqE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -41060,7 +41060,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9evpdpwssdE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -41133,7 +41133,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler3popE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -41259,7 +41259,7 @@ define hidden void @_ZN9Assembler7popcntlE8Register7Address(ptr noundef nonnull 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7popcntlE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -41394,7 +41394,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %66, %77
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9evpopcntbE11XMMRegister9KRegisterS0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i1 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %7, align 8
@@ -41475,7 +41475,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %31, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9evpopcntwE11XMMRegister9KRegisterS0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i1 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %7, align 8
@@ -41556,7 +41556,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %31, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9evpopcntdE11XMMRegister9KRegisterS0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i1 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %7, align 8
@@ -41637,7 +41637,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %31, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9evpopcntqE11XMMRegister9KRegisterS0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i1 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %7, align 8
@@ -41718,7 +41718,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %31, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4popfEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -42054,7 +42054,7 @@ define hidden void @_ZN9Assembler9prefetchwE7Address(ptr noundef nonnull readonl
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6prefixENS_6PrefixE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -42067,7 +42067,7 @@ define hidden void @_ZN9Assembler6prefixENS_6PrefixE(ptr noundef nonnull readonl
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8prefix16Ei(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = lshr i32 %1, 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -42088,7 +42088,7 @@ define hidden void @_ZN9Assembler8prefix16Ei(ptr noundef nonnull readonly align 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6pshufbE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -42174,7 +42174,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpshufbE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -42274,7 +42274,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vpshufbE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -42611,7 +42611,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6pshufdE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   %6 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -42698,7 +42698,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vpshufdE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -42907,7 +42907,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7pshufhwE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -42994,7 +42994,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8vpshufhwE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -43081,7 +43081,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7pshuflwE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -43298,7 +43298,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8vpshuflwE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -43385,7 +43385,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler11evshufi64x2E11XMMRegisterS0_S0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   %8 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -43465,7 +43465,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %6, %55
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6shufpdE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -43550,7 +43550,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vshufpdE11XMMRegisterS0_S0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   %8 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -43630,7 +43630,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %6, %55
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6shufpsE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -43715,7 +43715,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vshufpsE11XMMRegisterS0_S0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %7, align 8
@@ -43791,7 +43791,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %6, %51
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6psrldqE11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -43928,7 +43928,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vpsrldqE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -44003,7 +44003,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %49
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6pslldqE11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -44139,7 +44139,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vpslldqE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -44321,7 +44321,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5ptestE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -44510,7 +44510,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vptestE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -44575,7 +44575,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %3, %38
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vptestE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -44640,7 +44640,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %39
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vtestpsE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -44705,7 +44705,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %39
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9evptestmbE9KRegister11XMMRegisterS1_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -44778,7 +44778,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9evptestmdE9KRegister11XMMRegisterS1_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -44851,7 +44851,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10evptestnmdE9KRegister11XMMRegisterS1_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -45047,7 +45047,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9punpcklbwE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 27
@@ -45252,7 +45252,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9punpckldqE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -45334,7 +45334,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10punpcklqdqE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -45421,7 +45421,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler12evpunpcklqdqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -45496,7 +45496,7 @@ _ZN9Assembler12evpunpcklqdqE11XMMRegister9KRegisterS0_S0_bi.exit: ; preds = %5, 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler12evpunpcklqdqE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -45582,7 +45582,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler12evpunpckhqdqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -45657,7 +45657,7 @@ _ZN9Assembler12evpunpckhqdqE11XMMRegister9KRegisterS0_S0_bi.exit: ; preds = %5, 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler12evpunpckhqdqE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -45743,7 +45743,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5push2E8RegisterS0_b(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i1 noundef zeroext %3) local_unnamed_addr #8 align 2 {
 _ZN9Assembler11evex_prefixEbbbbbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit:
   %4 = alloca %class.InstructionAttr, align 8
@@ -45818,7 +45818,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler11evex
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler11evex_prefixEbbbbbbbiNS_13VexSimdPrefixENS_9VexOpcodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #8 align 2 {
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
@@ -45906,7 +45906,7 @@ define hidden void @_ZN9Assembler11evex_prefixEbbbbbbbiNS_13VexSimdPrefixENS_9Ve
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4pop2E8RegisterS0_b(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i1 noundef zeroext %3) local_unnamed_addr #8 align 2 {
 _ZN9Assembler11evex_prefixEbbbbbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit:
   %4 = alloca %class.InstructionAttr, align 8
@@ -45981,7 +45981,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler11evex
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6push2pE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -46055,7 +46055,7 @@ _ZN9Assembler5push2E8RegisterS0_b.exit:           ; preds = %3, %46
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5pop2pE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -46129,7 +46129,7 @@ _ZN9Assembler4pop2E8RegisterS0_b.exit:            ; preds = %3, %46
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5pushpE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -46167,7 +46167,7 @@ define hidden void @_ZN9Assembler5pushpE8Register(ptr noundef nonnull readonly a
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef range(i32 0, 8) i32 @_ZN9Assembler23prefixq_and_encode_rex2Eib(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #8 align 2 {
   %4 = select i1 %2, i32 136, i32 8
   %5 = and i32 %1, 16
@@ -46193,7 +46193,7 @@ define hidden noundef range(i32 0, 8) i32 @_ZN9Assembler23prefixq_and_encode_rex
   ret i32 %19
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4poppE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -46231,7 +46231,7 @@ define hidden void @_ZN9Assembler4poppE8Register(ptr noundef nonnull readonly al
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4pushEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -46250,7 +46250,7 @@ define hidden void @_ZN9Assembler4pushEi(ptr noundef nonnull readonly align 8 ca
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4pushE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -46311,7 +46311,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %26, %24, %9
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5pushfEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -46323,7 +46323,7 @@ define hidden void @_ZN9Assembler5pushfEv(ptr noundef nonnull readonly align 8 c
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4rcllE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -46406,7 +46406,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %27, %25, %10
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5rcppsE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -46484,7 +46484,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5rcpssE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -46564,7 +46564,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5rdtscEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -46578,7 +46578,7 @@ define hidden void @_ZN9Assembler5rdtscEv(ptr noundef nonnull readonly align 8 c
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7rep_movEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -46594,7 +46594,7 @@ define hidden void @_ZN9Assembler7rep_movEv(ptr noundef nonnull readonly align 8
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9rep_stosbEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -46610,7 +46610,7 @@ define hidden void @_ZN9Assembler9rep_stosbEv(ptr noundef nonnull readonly align
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8rep_stosEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -46626,7 +46626,7 @@ define hidden void @_ZN9Assembler8rep_stosEv(ptr noundef nonnull readonly align 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10repne_scanEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -46642,7 +46642,7 @@ define hidden void @_ZN9Assembler10repne_scanEv(ptr noundef nonnull readonly ali
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler11repne_scanlEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -46656,7 +46656,7 @@ define hidden void @_ZN9Assembler11repne_scanlEv(ptr noundef nonnull readonly al
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler3retEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = icmp eq i32 %1, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -46688,7 +46688,7 @@ define hidden void @_ZN9Assembler3retEi(ptr noundef nonnull readonly align 8 cap
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4rollE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -46771,7 +46771,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %27, %25, %10
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4rollE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -46834,7 +46834,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %26, %24, %9
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4rorlE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -46917,7 +46917,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %27, %25, %10
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4rorlE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -46980,7 +46980,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %26, %24, %9
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4rorqE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -47049,7 +47049,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %32, %33, %9
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN9Assembler18prefixq_and_encodeEib(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #8 align 2 {
   %4 = icmp sgt i32 %1, 15
   br i1 %4, label %5, label %22
@@ -47109,7 +47109,7 @@ define hidden noundef i32 @_ZN9Assembler18prefixq_and_encodeEib(ptr noundef nonn
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4rorqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -47198,7 +47198,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %33, %34, %10
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4rolqE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -47267,7 +47267,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %32, %33, %9
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4rolqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -47516,7 +47516,7 @@ define hidden void @_ZN9Assembler4sallE7Address(ptr noundef nonnull readonly ali
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4sallE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -47599,7 +47599,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %27, %25, %10
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4sallE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -47814,7 +47814,7 @@ define hidden void @_ZN9Assembler4sarlE7Address(ptr noundef nonnull readonly ali
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4sarlE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -47896,7 +47896,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %26, %24, %10
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4sarlE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -47989,7 +47989,7 @@ define hidden void @_ZN9Assembler4sbblE7Addressi(ptr noundef nonnull readonly al
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4sbblE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -48160,7 +48160,7 @@ define hidden void @_ZN9Assembler4sbblE8Register7Address(ptr noundef nonnull rea
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4sbblE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -48252,7 +48252,7 @@ _ZN9Assembler17prefix_and_encodeEiib.exit:        ; preds = %36, %38, %44, %16
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4setbENS_9ConditionE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -48364,7 +48364,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %47, %60
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7palignrE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -48453,7 +48453,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8vpalignrE11XMMRegisterS0_S0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -48547,7 +48547,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evalignqE11XMMRegisterS0_S0_h(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i8 noundef zeroext %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -48622,7 +48622,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %49
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7pblendwE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -48705,7 +48705,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9sha1rnds4E11XMMRegisterS0_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %5
@@ -48825,7 +48825,7 @@ _ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #8 align 2 {
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %8, label %18
@@ -49037,7 +49037,7 @@ _ZN9Assembler18prefixq_and_encodeEiib.exit:       ; preds = %108, %66, %60, %22
   ret i32 %111
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9sha1nexteE11XMMRegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %4
@@ -49154,7 +49154,7 @@ _ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8sha1msg1E11XMMRegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %4
@@ -49271,7 +49271,7 @@ _ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8sha1msg2E11XMMRegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %4
@@ -49388,7 +49388,7 @@ _ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler11sha256rnds2E11XMMRegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %4
@@ -49505,7 +49505,7 @@ _ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10sha256msg1E11XMMRegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %4
@@ -49622,7 +49622,7 @@ _ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10sha256msg2E11XMMRegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %4
@@ -49739,7 +49739,7 @@ _ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4shllE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -49822,7 +49822,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %27, %25, %10
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4shllE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -49885,7 +49885,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %26, %24, %9
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4shrlE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -49968,7 +49968,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %27, %25, %10
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4shrlE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -50183,7 +50183,7 @@ define hidden void @_ZN9Assembler4shrlE7Addressi(ptr noundef nonnull readonly al
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5shldlE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -50316,7 +50316,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %64, %76
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5shldlE8RegisterS0_a(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2, i8 noundef signext %3) local_unnamed_addr #8 align 2 {
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %5
@@ -50453,7 +50453,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiiii.exit: ; preds = %65, %78
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5shrdlE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -50586,7 +50586,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %64, %76
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5shrdlE8RegisterS0_a(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2, i8 noundef signext %3) local_unnamed_addr #8 align 2 {
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %5
@@ -50723,7 +50723,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiiii.exit: ; preds = %65, %78
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5shldqE8RegisterS0_a(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2, i8 noundef signext %3) local_unnamed_addr #8 align 2 {
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %5
@@ -50859,7 +50859,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiiii.exit: ; preds = %60, %73
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @_ZN9Assembler18prefixq_and_encodeEiib(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #8 align 2 {
   %5 = icmp sgt i32 %1, 15
   %6 = icmp sgt i32 %2, 15
@@ -50956,7 +50956,7 @@ define hidden noundef i32 @_ZN9Assembler18prefixq_and_encodeEiib(ptr noundef non
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5shrdqE8RegisterS0_a(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2, i8 noundef signext %3) local_unnamed_addr #8 align 2 {
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %5
@@ -51092,7 +51092,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiiii.exit: ; preds = %60, %73
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5smovlEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -51104,7 +51104,7 @@ define hidden void @_ZN9Assembler5smovlEv(ptr noundef nonnull readonly align 8 c
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7roundsdE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -51301,7 +51301,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6sqrtsdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -51510,7 +51510,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6sqrtssE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -51592,7 +51592,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler3stdEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -51957,7 +51957,7 @@ define hidden void @_ZN9Assembler4sublE7Address8Register(ptr noundef nonnull rea
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4sublE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -52069,7 +52069,7 @@ _ZN9Assembler10emit_arithEii8Registeri.exit:      ; preds = %29, %44, %53
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10subl_imm32E8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -52195,7 +52195,7 @@ define hidden void @_ZN9Assembler4sublE8Register7Address(ptr noundef nonnull rea
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4sublE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -52287,7 +52287,7 @@ _ZN9Assembler17prefix_and_encodeEiib.exit:        ; preds = %36, %38, %44, %16
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5subsdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -52496,7 +52496,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5subssE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -52698,7 +52698,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5testbE8Registerib(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #8 align 2 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %5, label %27
@@ -52936,7 +52936,7 @@ define hidden void @_ZN9Assembler5testlE7Addressi(ptr noundef nonnull readonly a
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5testlE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %10
@@ -53024,7 +53024,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %34, %32, %17
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5testlE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -53175,7 +53175,7 @@ define hidden void @_ZN9Assembler5testlE8Register7Address(ptr noundef nonnull re
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6tzcntlE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -53375,7 +53375,7 @@ define hidden void @_ZN9Assembler6tzcntlE8Register7Address(ptr noundef nonnull r
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6tzcntqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -53830,7 +53830,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7ucomisdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -54035,7 +54035,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7ucomissE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -54115,7 +54115,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6xabortEa(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i8 noundef signext %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -54574,7 +54574,7 @@ define hidden void @_ZN9Assembler5xchglE8Register7Address(ptr noundef nonnull re
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5xchglE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -54679,7 +54679,7 @@ _ZN9Assembler17prefix_and_encodeEiib.exit:        ; preds = %16, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4xendEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -54695,7 +54695,7 @@ define hidden void @_ZN9Assembler4xendEv(ptr noundef nonnull readonly align 8 ca
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6xgetbvEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -54742,7 +54742,7 @@ define hidden void @_ZN9Assembler4xorlE7Addressi(ptr noundef nonnull readonly al
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4xorlE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -54913,7 +54913,7 @@ define hidden void @_ZN9Assembler4xorlE8Register7Address(ptr noundef nonnull rea
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4xorlE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -55182,7 +55182,7 @@ define hidden void @_ZN9Assembler4xorbE7Address8Register(ptr noundef nonnull rea
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4xorwE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -55466,7 +55466,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vaddsdE11XMMRegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   %6 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -55668,7 +55668,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vaddssE11XMMRegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -55868,7 +55868,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vdivsdE11XMMRegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   %6 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -56070,7 +56070,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vdivssE11XMMRegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -56143,7 +56143,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %47
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler11vfmadd231sdE11XMMRegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -56216,7 +56216,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %47
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler13evfnmadd213sdE11XMMRegisterS0_S0_NS_15EvexRoundPrefixE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -56289,7 +56289,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler12vfnmadd213sdE11XMMRegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -56362,7 +56362,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %47
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler12vfnmadd231sdE11XMMRegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -56435,7 +56435,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %47
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler11vfmadd231ssE11XMMRegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -56635,7 +56635,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vmulsdE11XMMRegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   %6 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -56837,7 +56837,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vmulssE11XMMRegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -57037,7 +57037,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vsubsdE11XMMRegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   %6 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -57239,7 +57239,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vsubssE11XMMRegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -57312,7 +57312,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %47
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5addpdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -57520,7 +57520,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5addpsE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -57602,7 +57602,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vaddpdE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -57679,7 +57679,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vaddpsE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -58002,7 +58002,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5subpdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -58089,7 +58089,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5subpsE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -58171,7 +58171,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vsubpdE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -58248,7 +58248,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vsubpsE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -58571,7 +58571,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5mulpdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -58779,7 +58779,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5mulpsE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -58861,7 +58861,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vmulpdE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -58938,7 +58938,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vmulpsE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -59261,7 +59261,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler11vfmadd231pdE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -59334,7 +59334,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler11vfmadd231psE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -59655,7 +59655,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5divpdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -59742,7 +59742,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5divpsE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -59824,7 +59824,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vdivpdE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -59901,7 +59901,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vdivpsE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -60224,7 +60224,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8vroundpdE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -60406,7 +60406,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8vroundsdE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -60482,7 +60482,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %50
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler11vrndscalesdE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -60558,7 +60558,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %50
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler11vrndscalepdE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -60755,7 +60755,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vsqrtpdE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   %6 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -60948,7 +60948,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vsqrtpsE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -61135,7 +61135,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5andpdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -61223,7 +61223,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5andpsE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -61557,7 +61557,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vandpdE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -61636,7 +61636,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %54
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vandpsE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -61971,7 +61971,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8unpckhpdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -62062,7 +62062,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8unpcklpdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -62149,7 +62149,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5xorpdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -62237,7 +62237,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5xorpsE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -62571,7 +62571,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vxorpdE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -62650,7 +62650,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %54
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vxorpsE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -62985,7 +62985,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vphaddwE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -63055,7 +63055,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %45
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vphadddE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -63125,7 +63125,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %45
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5paddbE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -63211,7 +63211,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5paddwE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -63297,7 +63297,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5padddE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -63489,7 +63489,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5paddqE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -63576,7 +63576,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6phaddwE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -63656,7 +63656,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6phadddE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -63736,7 +63736,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpaddbE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -63813,7 +63813,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpaddwE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -63890,7 +63890,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpadddE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -63963,7 +63963,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpaddqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -64546,7 +64546,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5psubbE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -64632,7 +64632,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5psubwE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -64718,7 +64718,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5psubdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -64800,7 +64800,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5psubqE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -64891,7 +64891,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8vpsubusbE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -64968,7 +64968,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpsubbE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -65045,7 +65045,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpsubwE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -65122,7 +65122,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpsubdE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -65195,7 +65195,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpsubqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -65778,7 +65778,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6pmullwE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -65864,7 +65864,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6pmulldE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -65946,7 +65946,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7pmuludqE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -66028,7 +66028,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8vpmulhuwE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -66105,7 +66105,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vpmullwE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -66182,7 +66182,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vpmulldE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -66255,7 +66255,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpmullqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -66332,7 +66332,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8vpmuludqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -66789,7 +66789,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6pminsbE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -66875,7 +66875,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vpminsbE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -66952,7 +66952,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vpminubE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -67029,7 +67029,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6pminswE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -67115,7 +67115,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vpminswE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -67192,7 +67192,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6pminsdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -67274,7 +67274,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vpminsdE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -67347,7 +67347,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vpminsqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -67420,7 +67420,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5minpsE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -67502,7 +67502,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vminpsE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -67575,7 +67575,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5minpdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -67657,7 +67657,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vminpdE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -67730,7 +67730,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6pmaxsbE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -67816,7 +67816,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vpmaxsbE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -67893,7 +67893,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6pmaxswE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -67979,7 +67979,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vpmaxswE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -68056,7 +68056,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6pmaxsdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -68138,7 +68138,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vpmaxsdE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -68211,7 +68211,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vpmaxsqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -68284,7 +68284,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5maxpsE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -68366,7 +68366,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vmaxpsE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -68439,7 +68439,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5maxpdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -68519,7 +68519,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vmaxpdE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -68592,7 +68592,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5psllwE11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -68729,7 +68729,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5pslldE11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -68862,7 +68862,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5psllqE11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %4, align 8
@@ -69001,7 +69001,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5psllwE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -69087,7 +69087,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5pslldE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -69169,7 +69169,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5psllqE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -69256,7 +69256,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpsllwE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -69331,7 +69331,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %49
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpslldE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -69402,7 +69402,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %45
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpsllqE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -69477,7 +69477,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %49
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpsllwE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -69554,7 +69554,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpslldE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -69627,7 +69627,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpsllqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -69704,7 +69704,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5psrlwE11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -69841,7 +69841,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5psrldE11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -69974,7 +69974,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5psrlqE11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -70159,7 +70159,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5psrlwE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -70245,7 +70245,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5psrldE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -70327,7 +70327,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5psrlqE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -70414,7 +70414,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpsrlwE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -70489,7 +70489,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %49
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpsrldE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -70560,7 +70560,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %45
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpsrlqE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -70635,7 +70635,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %49
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpsrlwE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -70712,7 +70712,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpsrldE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -70785,7 +70785,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpsrlqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -70862,7 +70862,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpsrlvwE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -70935,7 +70935,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpsllvwE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -71008,7 +71008,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5psrawE11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -71145,7 +71145,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5psradE11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -71286,7 +71286,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5psrawE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -71372,7 +71372,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5psradE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -71454,7 +71454,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpsrawE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -71529,7 +71529,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %49
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpsradE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -71600,7 +71600,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %45
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpsrawE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -71677,7 +71677,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpsradE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -71750,7 +71750,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpsraqE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -71821,7 +71821,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %45
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpsraqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -71894,7 +71894,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4pandE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -71976,7 +71976,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5vpandE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -72173,7 +72173,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpandqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -72248,7 +72248,7 @@ _ZN9Assembler7evpandqE11XMMRegister9KRegisterS0_S0_bi.exit: ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpandqE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -72485,7 +72485,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vpsllvdE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -72558,7 +72558,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vpsllvqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -72631,7 +72631,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vpsrlvdE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -72704,7 +72704,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vpsrlvqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -72777,7 +72777,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vpsravdE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -72850,7 +72850,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpsravwE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -72923,7 +72923,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpsravqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -72996,7 +72996,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8vpshldvdE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -73069,7 +73069,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8vpshrdvdE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -73142,7 +73142,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5pandnE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -73229,7 +73229,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpandnE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -73302,7 +73302,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler3porE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -73384,7 +73384,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4vporE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -73581,7 +73581,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6evporqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -73656,7 +73656,7 @@ _ZN9Assembler6evporqE11XMMRegister9KRegisterS0_S0_bi.exit: ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6evporqE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -73893,7 +73893,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6evpordE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -74116,7 +74116,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4pxorE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -74198,7 +74198,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5vpxorE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -74395,7 +74395,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vpxorqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -74472,7 +74472,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpxordE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -74695,7 +74695,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpxorqE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -75055,7 +75055,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpxorqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -75252,7 +75252,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evproldE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -75323,7 +75323,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %45
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evprolqE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -75394,7 +75394,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %45
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evprordE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -75465,7 +75465,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %45
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evprorqE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -75536,7 +75536,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %45
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evprolvdE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -75609,7 +75609,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evprolvqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -75682,7 +75682,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evprorvdE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -75755,7 +75755,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evprorvqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -75828,7 +75828,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9evplzcntdE11XMMRegister9KRegisterS0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i1 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %7, align 8
@@ -75909,7 +75909,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %31, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9evplzcntqE11XMMRegister9KRegisterS0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i1 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %7, align 8
@@ -75990,7 +75990,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %31, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10vpternlogdE11XMMRegisteriS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2, i32 %3, i32 %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %7, align 8
@@ -76205,7 +76205,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10vpternlogqE11XMMRegisteriS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2, i32 %3, i32 %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %7, align 8
@@ -76420,7 +76420,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10evexpandpsE11XMMRegister9KRegisterS0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i1 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %7, align 8
@@ -76501,7 +76501,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %31, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10evexpandpdE11XMMRegister9KRegisterS0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i1 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %7, align 8
@@ -76582,7 +76582,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %31, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10evpexpandbE11XMMRegister9KRegisterS0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i1 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %7, align 8
@@ -76663,7 +76663,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %31, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10evpexpandwE11XMMRegister9KRegisterS0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i1 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %7, align 8
@@ -76744,7 +76744,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %31, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10evpexpanddE11XMMRegister9KRegisterS0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i1 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %7, align 8
@@ -76825,7 +76825,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %31, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10evpexpandqE11XMMRegister9KRegisterS0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i1 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %7, align 8
@@ -76906,7 +76906,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %31, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler11vinserti128E11XMMRegisterS0_S0_h(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i8 noundef zeroext %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -77114,7 +77114,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler12vinserti32x4E11XMMRegisterS0_S0_h(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i8 noundef zeroext %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -77322,7 +77322,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler12vinserti64x4E11XMMRegisterS0_S0_h(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i8 noundef zeroext %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -77398,7 +77398,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %50
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler11vinsertf128E11XMMRegisterS0_S0_h(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i8 noundef zeroext %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -77606,7 +77606,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler12vinsertf32x4E11XMMRegisterS0_S0_h(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i8 noundef zeroext %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -77814,7 +77814,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler12vinsertf64x4E11XMMRegisterS0_S0_h(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i8 noundef zeroext %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -78022,7 +78022,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler12vextracti128E11XMMRegisterS0_h(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i8 noundef zeroext %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -78220,7 +78220,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler13vextracti32x4E11XMMRegisterS0_h(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i8 noundef zeroext %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -78418,7 +78418,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler13vextracti64x2E11XMMRegisterS0_h(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i8 noundef zeroext %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -78489,7 +78489,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %44
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler13vextracti64x4E11XMMRegisterS0_h(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i8 noundef zeroext %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -78687,7 +78687,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler12vextractf128E11XMMRegisterS0_h(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i8 noundef zeroext %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -78885,7 +78885,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler13vextractf32x4E11XMMRegisterS0_h(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i8 noundef zeroext %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -79083,7 +79083,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler13vextractf64x2E11XMMRegisterS0_h(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i8 noundef zeroext %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -79154,7 +79154,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %44
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler13vextractf64x4E11XMMRegisterS0_h(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i8 noundef zeroext %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -79352,7 +79352,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9extractpsE8Register11XMMRegisterh(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i8 noundef zeroext %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -79442,7 +79442,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler12vpbroadcastbE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -79638,7 +79638,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler12vpbroadcastwE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -79834,7 +79834,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7vpsadbwE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -79911,7 +79911,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10vpunpckhwdE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -79984,7 +79984,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10vpunpcklwdE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -80057,7 +80057,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10vpunpckhdqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -80130,7 +80130,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler11vpunpckhqdqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -80203,7 +80203,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10vpunpckldqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -80276,7 +80276,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler11vpunpcklqdqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -80349,7 +80349,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpaddbE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -80572,7 +80572,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpaddwE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -80795,7 +80795,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpadddE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -81018,7 +81018,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpaddqE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -81241,7 +81241,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evaddpsE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -81464,7 +81464,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evaddpdE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -81687,7 +81687,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpsubbE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -81910,7 +81910,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpsubwE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -82133,7 +82133,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpsubdE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -82356,7 +82356,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpsubqE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -82579,7 +82579,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evsubpsE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -82802,7 +82802,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evsubpdE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -83025,7 +83025,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpmullwE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -83248,7 +83248,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpmulldE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -83471,7 +83471,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpmullqE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -83694,7 +83694,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evmulpsE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -83917,7 +83917,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evmulpdE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -84140,7 +84140,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evsqrtpsE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -84353,7 +84353,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evsqrtpdE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -84566,7 +84566,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evdivpsE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -84789,7 +84789,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evdivpdE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -85012,7 +85012,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evdivsdE11XMMRegisterS0_S0_NS_15EvexRoundPrefixE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %6, align 8
@@ -85085,7 +85085,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpabsbE11XMMRegister9KRegisterS0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i1 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %7, align 8
@@ -85308,7 +85308,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpabswE11XMMRegister9KRegisterS0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i1 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %7, align 8
@@ -85531,7 +85531,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpabsdE11XMMRegister9KRegisterS0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i1 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %7, align 8
@@ -85754,7 +85754,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpabsqE11XMMRegister9KRegisterS0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i1 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %7, align 8
@@ -85977,7 +85977,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler11evpfma213psE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -86200,7 +86200,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler11evpfma213pdE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -86424,7 +86424,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpermbE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -86637,7 +86637,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpermwE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -86850,7 +86850,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpermdE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -87063,7 +87063,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpermqE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -87276,7 +87276,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpsllwE11XMMRegister9KRegisterS0_ibi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -87360,7 +87360,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %55
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpslldE11XMMRegister9KRegisterS0_ibi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -87444,7 +87444,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %55
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpsllqE11XMMRegister9KRegisterS0_ibi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -87528,7 +87528,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %55
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpsrlwE11XMMRegister9KRegisterS0_ibi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -87612,7 +87612,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %55
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpsrldE11XMMRegister9KRegisterS0_ibi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -87696,7 +87696,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %55
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpsrlqE11XMMRegister9KRegisterS0_ibi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -87780,7 +87780,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %55
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpsrawE11XMMRegister9KRegisterS0_ibi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -87864,7 +87864,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %55
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpsradE11XMMRegister9KRegisterS0_ibi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -87948,7 +87948,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %55
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpsraqE11XMMRegister9KRegisterS0_ibi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -88032,7 +88032,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %55
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpsllwE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -88118,7 +88118,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpslldE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -88204,7 +88204,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpsllqE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -88290,7 +88290,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpsrlwE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -88376,7 +88376,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpsrldE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -88462,7 +88462,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpsrlqE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -88548,7 +88548,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpsrawE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -88634,7 +88634,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpsradE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -88720,7 +88720,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpsraqE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -88806,7 +88806,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpsllvwE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -88892,7 +88892,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpsllvdE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -88978,7 +88978,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpsllvqE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -89064,7 +89064,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpsrlvwE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -89150,7 +89150,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpsrlvdE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -89236,7 +89236,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpsrlvqE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -89322,7 +89322,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpsravwE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -89408,7 +89408,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpsravdE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -89494,7 +89494,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpsravqE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -89580,7 +89580,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpminsbE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -89793,7 +89793,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpminswE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -90006,7 +90006,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpminsdE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -90219,7 +90219,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpminsqE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -90432,7 +90432,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpmaxsbE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -90645,7 +90645,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpmaxswE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -90858,7 +90858,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpmaxsdE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -91071,7 +91071,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evpmaxsqE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -91284,7 +91284,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler11evpternlogdE11XMMRegisteri9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2, i32 %3, i32 %4, i32 %5, i1 noundef zeroext %6, i32 noundef %7) local_unnamed_addr #8 align 2 {
   %9 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %9, align 8
@@ -91517,7 +91517,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler11evpternlogqE11XMMRegisteri9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2, i32 %3, i32 %4, i32 %5, i1 noundef zeroext %6, i32 noundef %7) local_unnamed_addr #8 align 2 {
   %9 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %9, align 8
@@ -91750,7 +91750,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler13gf2p8affineqbE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -91835,7 +91835,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler14vgf2p8affineqbE11XMMRegisterS0_S0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %7, align 8
@@ -91911,7 +91911,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %6, %51
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler12vpbroadcastdE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -92099,7 +92099,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler12vpbroadcastqE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   %6 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -92413,7 +92413,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler16evbroadcasti64x2E11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -92601,7 +92601,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler12vbroadcastssE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -92789,7 +92789,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler12vbroadcastsdE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   %6 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -93103,7 +93103,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler13evpbroadcastbE11XMMRegister8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -93175,7 +93175,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %46
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler13evpbroadcastwE11XMMRegister8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -93247,7 +93247,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %46
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler13evpbroadcastdE11XMMRegister8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -93315,7 +93315,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %42
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler13evpbroadcastqE11XMMRegister8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -94833,7 +94833,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9pclmulqdqE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -94916,7 +94916,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10vpclmulqdqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -94989,7 +94989,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %47
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler11evpclmulqdqE11XMMRegisterS0_S0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %7, align 8
@@ -95065,7 +95065,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %6, %51
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler19vzeroupper_uncachedEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = alloca %class.InstructionAttr, align 8
   %3 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -95122,7 +95122,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %26, %5, %1
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10vfpclassssE9KRegister11XMMRegisterh(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i8 noundef zeroext %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -95188,7 +95188,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %41
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10vfpclasssdE9KRegister11XMMRegisterh(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i8 noundef zeroext %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -95421,7 +95421,7 @@ define hidden void @_ZN9Assembler5fld_dE7Address(ptr noundef nonnull readonly al
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5fpremEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -95435,7 +95435,7 @@ define hidden void @_ZN9Assembler5fpremEv(ptr noundef nonnull readonly align 8 c
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9fnstsw_axEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -95495,7 +95495,7 @@ define hidden void @_ZN9Assembler6fstp_dE7Address(ptr noundef nonnull readonly a
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6fstp_dEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -95511,7 +95511,7 @@ define hidden void @_ZN9Assembler6fstp_dEi(ptr noundef nonnull readonly align 8 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler11emit_farithEiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = add nsw i32 %3, %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -95957,7 +95957,7 @@ _ZN9Assembler12prefixq_rex2E7Address11XMMRegister.exit: ; preds = %28, %40
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10vex_prefixEbbbiNS_13VexSimdPrefixENS_9VexOpcodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
@@ -96029,7 +96029,7 @@ define hidden void @_ZN9Assembler10vex_prefixEbbbiNS_13VexSimdPrefixENS_9VexOpco
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vmaxssE11XMMRegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -96102,7 +96102,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %47
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vmaxsdE11XMMRegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   %6 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -96179,7 +96179,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %51
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vminssE11XMMRegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -96252,7 +96252,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %47
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vminsdE11XMMRegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   %6 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -96329,7 +96329,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %51
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vcmppdE11XMMRegisterS0_S0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %7, align 8
@@ -96418,7 +96418,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8blendvpbE11XMMRegisterS0_S0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %7, align 8
@@ -96496,7 +96496,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %6, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vblendvpdE11XMMRegisterS0_S0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %7, align 8
@@ -96574,7 +96574,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %6, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8vpblenddE11XMMRegisterS0_S0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %7, align 8
@@ -96647,7 +96647,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %6, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6vcmppsE11XMMRegisterS0_S0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %7, align 8
@@ -96720,7 +96720,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %6, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evcmppsE9KRegisterS0_11XMMRegisterS1_NS_21ComparisonPredicateFPEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -96802,7 +96802,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %7, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evcmppdE9KRegisterS0_11XMMRegisterS1_NS_21ComparisonPredicateFPEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -96884,7 +96884,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %7, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8blendvpsE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -96962,7 +96962,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8blendvpdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -97040,7 +97040,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8pblendvbE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %4, align 8
@@ -97118,7 +97118,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vblendvpsE11XMMRegisterS0_S0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %7, align 8
@@ -97196,7 +97196,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %6, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8vblendpsE11XMMRegisterS0_S0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %7, align 8
@@ -97269,7 +97269,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %6, %48
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8vpcmpgtbE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -97339,7 +97339,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %45
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8vpcmpgtwE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -97409,7 +97409,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %45
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8vpcmpgtdE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -97479,7 +97479,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %45
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8vpcmpgtqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %6, align 8
@@ -97549,7 +97549,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %45
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpcmpdE9KRegisterS0_11XMMRegisterS1_ibi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 noundef %5, i1 noundef zeroext %6, i32 noundef %7) local_unnamed_addr #8 align 2 {
   %9 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %9, align 8
@@ -97768,7 +97768,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpcmpqE9KRegisterS0_11XMMRegisterS1_ibi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 noundef %5, i1 noundef zeroext %6, i32 noundef %7) local_unnamed_addr #8 align 2 {
   %9 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %9, align 8
@@ -97987,7 +97987,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpcmpbE9KRegisterS0_11XMMRegisterS1_ibi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 noundef %5, i1 noundef zeroext %6, i32 noundef %7) local_unnamed_addr #8 align 2 {
   %9 = alloca %class.InstructionAttr, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -98214,7 +98214,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evpcmpwE9KRegisterS0_11XMMRegisterS1_ibi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 noundef %5, i1 noundef zeroext %6, i32 noundef %7) local_unnamed_addr #8 align 2 {
   %9 = alloca %class.InstructionAttr, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -98441,7 +98441,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evprordE11XMMRegister9KRegisterS0_ibi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -98525,7 +98525,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %55
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evprorqE11XMMRegister9KRegisterS0_ibi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -98609,7 +98609,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %55
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evprorvdE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -98695,7 +98695,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evprorvqE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -98781,7 +98781,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evproldE11XMMRegister9KRegisterS0_ibi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -98865,7 +98865,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %55
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7evprolqE11XMMRegister9KRegisterS0_ibi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -98949,7 +98949,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %55
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evprolvdE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -99035,7 +99035,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8evprolvqE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -99121,7 +99121,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9vpblendvbE11XMMRegisterS0_S0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %7, align 8
@@ -99199,7 +99199,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %6, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10evblendmpdE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -99285,7 +99285,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10evblendmpsE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -99371,7 +99371,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10evpblendmbE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -99461,7 +99461,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %36, %62
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10evpblendmwE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -99551,7 +99551,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %36, %62
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10evpblendmdE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %8, align 8
@@ -99637,7 +99637,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10evpblendmqE11XMMRegister9KRegisterS0_S0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %8, align 8
@@ -99723,7 +99723,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %32, %58
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5bzhiqE8RegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -99796,7 +99796,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %47
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5bzhilE8RegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -99869,7 +99869,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %47
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5pextlE8RegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -99942,7 +99942,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %47
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5pdeplE8RegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -100015,7 +100015,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %47
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5pextqE8RegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -100088,7 +100088,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %47
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5pdepqE8RegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -100625,7 +100625,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5sarxlE8RegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -100814,7 +100814,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5sarxqE8RegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -101003,7 +101003,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5shlxlE8RegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -101192,7 +101192,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5shlxqE8RegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -101381,7 +101381,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5shrxlE8RegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -101570,7 +101570,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5shrxqE8RegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -101759,7 +101759,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9evpmovq2mE9KRegister11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -101827,7 +101827,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %42
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9evpmovd2mE9KRegister11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -101895,7 +101895,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %42
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9evpmovw2mE9KRegister11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -101963,7 +101963,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %42
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9evpmovb2mE9KRegister11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -102031,7 +102031,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %42
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9evpmovm2qE11XMMRegister9KRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -102099,7 +102099,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %42
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9evpmovm2dE11XMMRegister9KRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -102167,7 +102167,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %42
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9evpmovm2wE11XMMRegister9KRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -102235,7 +102235,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %42
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9evpmovm2bE11XMMRegister9KRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -102303,7 +102303,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %42
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler12evpcompressbE11XMMRegister9KRegisterS0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i1 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %7, align 8
@@ -102384,7 +102384,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %31, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler12evpcompresswE11XMMRegister9KRegisterS0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i1 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %7, align 8
@@ -102465,7 +102465,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %31, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler12evpcompressdE11XMMRegister9KRegisterS0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i1 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %7, align 8
@@ -102546,7 +102546,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %31, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler12evpcompressqE11XMMRegister9KRegisterS0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i1 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %7, align 8
@@ -102627,7 +102627,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %31, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler12evcompresspsE11XMMRegister9KRegisterS0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i1 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %7, align 8
@@ -102708,7 +102708,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %31, %52
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler12evcompresspdE11XMMRegister9KRegisterS0_bi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i1 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #8 align 2 {
   %7 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %7, align 8
@@ -103006,7 +103006,7 @@ define hidden noundef range(i32 0, 69) i32 @_ZN9Assembler19get_reg_prefix_bitsEi
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler11prefix_rex2E8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -103045,7 +103045,7 @@ define hidden void @_ZN9Assembler11prefix_rex2E8RegisterS0_(ptr noundef nonnull 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler11prefix_rex2E8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #8 align 2 {
   %.sroa.0.0.copyload.i = load i32, ptr %2, align 8
   %4 = sext i32 %.sroa.0.0.copyload.i to i64
@@ -103087,7 +103087,7 @@ define hidden void @_ZN9Assembler11prefix_rex2E8Register7Address(ptr noundef non
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler11prefix_rex2E7Addressb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #8 align 2 {
   %.sroa.0.0.copyload.i = load i32, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -103141,7 +103141,7 @@ _ZN9Assembler21get_index_prefix_bitsE8Register.exit: ; preds = %3, %10
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler11prefix_rex2E7Address8Registerbb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly captures(none) %1, i32 %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #8 align 2 {
   %.sroa.0.0.copyload.i = load i32, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -103206,7 +103206,7 @@ _ZN9Assembler21get_index_prefix_bitsE8Register.exit: ; preds = %5, %12
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler12prefixq_rex2E7Address11XMMRegister(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly captures(none) %1, i32 %2) local_unnamed_addr #8 align 2 {
   %.sroa.0.0.copyload.i = load i32, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -103270,7 +103270,7 @@ _ZN9Assembler21get_index_prefix_bitsE8Register.exit: ; preds = %3, %10
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler11prefix_rex2E7Address11XMMRegister(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly captures(none) %1, i32 %2) local_unnamed_addr #8 align 2 {
   %.sroa.0.0.copyload.i = load i32, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -103333,7 +103333,7 @@ _ZN9Assembler21get_index_prefix_bitsE8Register.exit: ; preds = %3, %10
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef range(i32 0, 8) i32 @_ZN9Assembler22prefix_and_encode_rex2Eib(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #8 align 2 {
   %4 = select i1 %2, i32 128, i32 0
   %5 = and i32 %1, 16
@@ -103359,7 +103359,7 @@ define hidden noundef range(i32 0, 8) i32 @_ZN9Assembler22prefix_and_encode_rex2
   ret i32 %19
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef range(i32 0, 64) i32 @_ZN9Assembler22prefix_and_encode_rex2Eiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = shl i32 %1, 2
   %spec.select.i = and i32 %5, 64
@@ -103883,7 +103883,7 @@ _ZN9Assembler16get_prefixq_rex2E7Addressb.exit:   ; preds = %21, %33
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef range(i32 0, 64) i32 @_ZN9Assembler23prefixq_and_encode_rex2Eiib(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #8 align 2 {
   %5 = select i1 %3, i32 136, i32 8
   %6 = shl i32 %1, 2
@@ -103918,7 +103918,7 @@ define hidden noundef range(i32 0, 64) i32 @_ZN9Assembler23prefixq_and_encode_re
   ret i32 %27
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler20emit_prefix_and_int8Eii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = and i32 %1, 65280
   %5 = icmp eq i32 %4, 0
@@ -103960,7 +103960,7 @@ define hidden void @_ZN9Assembler20emit_prefix_and_int8Eii(ptr noundef nonnull r
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4adcqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -104164,7 +104164,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4adcqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -104372,7 +104372,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4addqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -104576,7 +104576,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4addqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -104668,7 +104668,7 @@ _ZN9Assembler18prefixq_and_encodeEiib.exit:       ; preds = %44, %45, %46, %16
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5adcxqE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = sext i32 %1 to i64
@@ -104851,7 +104851,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %47, %._crit_edge, %
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5adoxqE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   %5 = sext i32 %1 to i64
@@ -105065,7 +105065,7 @@ define hidden void @_ZN9Assembler4andqE7Addressi(ptr noundef nonnull readonly al
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4andqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -105269,7 +105269,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4andqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -105446,7 +105446,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5andnqE8RegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -105635,7 +105635,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4bsfqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -105767,7 +105767,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %59, %71
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4bsrqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -105899,7 +105899,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %59, %71
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6bswapqE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -105985,7 +105985,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEii.exit: ; preds = %35, %46
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5blsiqE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %4, align 8
@@ -106164,7 +106164,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7blsmskqE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %4, align 8
@@ -106343,7 +106343,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5blsrqE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %4, align 8
@@ -106522,7 +106522,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4cdqqEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -106536,7 +106536,7 @@ define hidden void @_ZN9Assembler4cdqqEv(ptr noundef nonnull readonly align 8 ca
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4cdqeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -106700,7 +106700,7 @@ define hidden void @_ZN9Assembler4clwbE7Address(ptr noundef nonnull readonly ali
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5cmovqENS_9ConditionE8RegisterS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %5
@@ -106954,7 +106954,7 @@ define hidden void @_ZN9Assembler4cmpqE7Addressi(ptr noundef nonnull readonly al
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4cmpqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -107156,7 +107156,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4cmpqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -107418,7 +107418,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9cvtsi2sdqE11XMMRegister8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %4, align 8
@@ -107812,7 +107812,7 @@ define hidden void @_ZN9Assembler10cvttsd2siqE8Register7Address(ptr noundef nonn
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10cvttsd2siqE8Register11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %4, align 8
@@ -107899,7 +107899,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9cvtsd2siqE8Register11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %4, align 8
@@ -107986,7 +107986,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10cvttss2siqE8Register11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %4, align 8
@@ -108073,7 +108073,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4declE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -108136,7 +108136,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %26, %24, %9
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4decqE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -108522,7 +108522,7 @@ define hidden void @_ZN9Assembler5xsaveE7Address(ptr noundef nonnull readonly al
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5idivqE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -108590,7 +108590,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %31, %32, %9
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4divqE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -108659,7 +108659,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %32, %33, %9
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5imulqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -108791,7 +108791,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %59, %71
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5imulqE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -108971,7 +108971,7 @@ define hidden void @_ZN9Assembler5imulqE8Register7Addressi(ptr noundef nonnull r
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5imulqE8RegisterS0_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %5
@@ -109189,7 +109189,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4inclE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -109252,7 +109252,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %26, %24, %9
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4incqE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -109501,7 +109501,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5mov64E8Registerl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i64 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -110083,7 +110083,7 @@ _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit: ; preds = %4, %.sink.split.
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6lzcntqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -110283,7 +110283,7 @@ define hidden void @_ZN9Assembler6lzcntqE8Register7Address(ptr noundef nonnull r
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5movdqE11XMMRegister8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %4, align 8
@@ -110370,7 +110370,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5movdqE8Register11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %4, align 8
@@ -110715,7 +110715,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %19, %26
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4movqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -110876,7 +110876,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6movsbqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -111181,7 +111181,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6movslqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -111371,7 +111371,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6movswqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -111588,7 +111588,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6movzbqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -111805,7 +111805,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler6movzwqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -112018,7 +112018,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4mulqE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -112087,7 +112087,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %32, %33, %9
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5mulxqE8RegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -112160,7 +112160,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %47
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4negqE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -112310,7 +112310,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4notqE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -112379,7 +112379,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %32, %33, %9
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler3btqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -112511,7 +112511,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %59, %71
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler3btqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -112901,7 +112901,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler3orqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -113020,7 +113020,7 @@ _ZN9Assembler10emit_arithEii8Registeri.exit:      ; preds = %36, %51, %60
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler9orq_imm32E8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -113179,7 +113179,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler3orqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -113362,7 +113362,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %22, %29
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler7popcntqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -113578,7 +113578,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4popqE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -115951,7 +115951,7 @@ declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEn
 ; Function Attrs: nounwind
 declare void @_ZN10CodeBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(448)) unnamed_addr #13
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5pushaEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -115966,7 +115966,7 @@ define hidden void @_ZN9Assembler5pushaEv(ptr noundef nonnull readonly align 8 c
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4subqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -116085,7 +116085,7 @@ _ZN9Assembler10emit_arithEii8Registeri.exit:      ; preds = %36, %51, %60
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4popaEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -116100,7 +116100,7 @@ define hidden void @_ZN9Assembler4popaEv(ptr noundef nonnull readonly align 8 ca
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10vzeroupperEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -116115,7 +116115,7 @@ define hidden void @_ZN9Assembler10vzeroupperEv(ptr noundef nonnull readonly ali
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler8vzeroallEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %2, align 8
@@ -116247,7 +116247,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4rclqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -116336,7 +116336,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %33, %34, %10
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4rcrqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -116425,7 +116425,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %33, %34, %10
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5rorxlE8RegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 0, ptr %5, align 8
@@ -116614,7 +116614,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5rorxqE8RegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.InstructionAttr, align 8
   store i8 1, ptr %5, align 8
@@ -117048,7 +117048,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4salqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -117137,7 +117137,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %33, %34, %10
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4salqE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -117451,7 +117451,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4sarqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -117539,7 +117539,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %32, %33, %10
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4sarqE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -117638,7 +117638,7 @@ define hidden void @_ZN9Assembler4sbbqE7Addressi(ptr noundef nonnull readonly al
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4sbbqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -117842,7 +117842,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4sbbqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -117934,7 +117934,7 @@ _ZN9Assembler18prefixq_and_encodeEiib.exit:       ; preds = %44, %45, %46, %16
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4shlqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -118023,7 +118023,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %33, %34, %10
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4shlqE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -118092,7 +118092,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %32, %33, %9
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4shrqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -118181,7 +118181,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %33, %34, %10
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4shrqE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
@@ -118611,7 +118611,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler10subq_imm32E8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -118770,7 +118770,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4subqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -118950,7 +118950,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %19, %26
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5testqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %14
@@ -119050,7 +119050,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %44, %45, %21
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5testqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -119397,7 +119397,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler5xchgqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -119502,7 +119502,7 @@ _ZN9Assembler18prefixq_and_encodeEiib.exit:       ; preds = %16, %54
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4xorqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -119679,7 +119679,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN9Assembler4xorqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -119958,12 +119958,12 @@ attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #3 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

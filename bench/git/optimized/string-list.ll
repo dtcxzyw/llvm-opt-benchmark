@@ -58,7 +58,7 @@ define dso_local ptr @string_list_insert(ptr noundef captures(none) %0, ptr noun
   %13 = sext i32 %11 to i64
   %14 = getelementptr inbounds %struct.string_list_item, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !14
-  %16 = tail call i32 %spec.select.i.i(ptr noundef %1, ptr noundef %15) #11
+  %16 = tail call i32 %spec.select.i.i(ptr noundef %1, ptr noundef %15) #12
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %19, label %18
 
@@ -101,13 +101,13 @@ get_entry_index.exit.i:                           ; preds = %18
   br i1 %32, label %33, label %st_mult.exit.i
 
 33:                                               ; preds = %28
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.6, i64 noundef 16, i64 noundef %..i) #12
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.6, i64 noundef 16, i64 noundef %..i) #13
   unreachable
 
 st_mult.exit.i:                                   ; preds = %28
   %34 = load ptr, ptr %0, align 8, !tbaa !13
   %35 = shl nuw i64 %..i, 4
-  %36 = tail call ptr @xrealloc(ptr noundef %34, i64 noundef %35) #11
+  %36 = tail call ptr @xrealloc(ptr noundef %34, i64 noundef %35) #12
   store ptr %36, ptr %0, align 8, !tbaa !13
   %.pre47.i = load i64, ptr %3, align 8, !tbaa !4
   br label %37
@@ -124,7 +124,7 @@ st_mult.exit.i:                                   ; preds = %28
   br i1 %43, label %44, label %st_mult.exit.i.i
 
 44:                                               ; preds = %41
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.6, i64 noundef 16, i64 noundef %42) #12
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.6, i64 noundef 16, i64 noundef %42) #13
   unreachable
 
 st_mult.exit.i.i:                                 ; preds = %41
@@ -143,7 +143,7 @@ move_array.exit.i:                                ; preds = %st_mult.exit.i.i, %
   br i1 %.not39.i, label %54, label %52
 
 52:                                               ; preds = %move_array.exit.i
-  %53 = tail call ptr @xstrdup(ptr noundef %1) #11
+  %53 = tail call ptr @xstrdup(ptr noundef %1) #12
   br label %54
 
 54:                                               ; preds = %52, %move_array.exit.i
@@ -190,7 +190,7 @@ define dso_local void @string_list_remove(ptr noundef captures(none) %0, ptr nou
   %14 = sext i32 %12 to i64
   %15 = getelementptr inbounds %struct.string_list_item, ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !14
-  %17 = tail call i32 %spec.select.i(ptr noundef %1, ptr noundef %16) #11
+  %17 = tail call i32 %spec.select.i(ptr noundef %1, ptr noundef %16) #12
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %20, label %19
 
@@ -216,7 +216,7 @@ get_entry_index.exit:                             ; preds = %19
   %27 = load ptr, ptr %0, align 8, !tbaa !13
   %28 = getelementptr inbounds %struct.string_list_item, ptr %27, i64 %14
   %29 = load ptr, ptr %28, align 8, !tbaa !14
-  tail call void @free(ptr noundef %29) #11
+  tail call void @free(ptr noundef %29) #12
   br label %30
 
 30:                                               ; preds = %26, %get_entry_index.exit
@@ -228,7 +228,7 @@ get_entry_index.exit:                             ; preds = %19
   %33 = getelementptr inbounds %struct.string_list_item, ptr %32, i64 %14
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !20
-  tail call void @free(ptr noundef %35) #11
+  tail call void @free(ptr noundef %35) #12
   br label %36
 
 36:                                               ; preds = %31, %30
@@ -247,7 +247,7 @@ get_entry_index.exit:                             ; preds = %19
   br i1 %44, label %45, label %st_mult.exit.i
 
 45:                                               ; preds = %43
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.6, i64 noundef 16, i64 noundef %42) #12
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.6, i64 noundef 16, i64 noundef %42) #13
   unreachable
 
 st_mult.exit.i:                                   ; preds = %43
@@ -284,7 +284,7 @@ define dso_local range(i32 0, 2) i32 @string_list_has_string(ptr noundef readonl
   %13 = sext i32 %11 to i64
   %14 = getelementptr inbounds %struct.string_list_item, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !14
-  %16 = tail call i32 %spec.select.i(ptr noundef %1, ptr noundef %15) #11
+  %16 = tail call i32 %spec.select.i(ptr noundef %1, ptr noundef %15) #12
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %19, label %18
 
@@ -326,7 +326,7 @@ define dso_local i32 @string_list_find_insert_index(ptr noundef readonly capture
   %14 = sext i32 %12 to i64
   %15 = getelementptr inbounds %struct.string_list_item, ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !14
-  %17 = tail call i32 %spec.select.i(ptr noundef %1, ptr noundef %16) #11
+  %17 = tail call i32 %spec.select.i(ptr noundef %1, ptr noundef %16) #12
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %20, label %19
 
@@ -374,7 +374,7 @@ define dso_local ptr @string_list_lookup(ptr noundef readonly captures(none) %0,
   %13 = sext i32 %11 to i64
   %14 = getelementptr inbounds %struct.string_list_item, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !14
-  %16 = tail call i32 %spec.select.i(ptr noundef %1, ptr noundef %15) #11
+  %16 = tail call i32 %spec.select.i(ptr noundef %1, ptr noundef %15) #12
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %19, label %18
 
@@ -425,7 +425,7 @@ define dso_local void @string_list_remove_duplicates(ptr noundef captures(none) 
   %13 = load ptr, ptr %12, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw %struct.string_list_item, ptr %9, i64 %indvars.iv32
   %15 = load ptr, ptr %14, align 8, !tbaa !14
-  %16 = tail call i32 %spec.select(ptr noundef %13, ptr noundef %15) #11
+  %16 = tail call i32 %spec.select(ptr noundef %13, ptr noundef %15) #12
   %.not25.us = icmp eq i32 %16, 0
   br i1 %.not25.us, label %22, label %17
 
@@ -447,7 +447,7 @@ define dso_local void @string_list_remove_duplicates(ptr noundef captures(none) 
   %26 = load ptr, ptr %0, align 8, !tbaa !13
   %27 = getelementptr inbounds nuw %struct.string_list_item, ptr %26, i64 %indvars.iv32
   %28 = load ptr, ptr %27, align 8, !tbaa !14
-  tail call void @free(ptr noundef %28) #11
+  tail call void @free(ptr noundef %28) #12
   br label %29
 
 29:                                               ; preds = %22, %25, %17
@@ -467,7 +467,7 @@ define dso_local void @string_list_remove_duplicates(ptr noundef captures(none) 
   %36 = load ptr, ptr %35, align 8, !tbaa !14
   %37 = getelementptr inbounds nuw %struct.string_list_item, ptr %32, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !14
-  %39 = tail call i32 %spec.select(ptr noundef %36, ptr noundef %38) #11
+  %39 = tail call i32 %spec.select(ptr noundef %36, ptr noundef %38) #12
   %.not25 = icmp eq i32 %39, 0
   br i1 %.not25, label %40, label %52
 
@@ -481,7 +481,7 @@ define dso_local void @string_list_remove_duplicates(ptr noundef captures(none) 
   %44 = load ptr, ptr %0, align 8, !tbaa !13
   %45 = getelementptr inbounds nuw %struct.string_list_item, ptr %44, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !14
-  tail call void @free(ptr noundef %46) #11
+  tail call void @free(ptr noundef %46) #12
   br label %47
 
 47:                                               ; preds = %43, %40
@@ -489,7 +489,7 @@ define dso_local void @string_list_remove_duplicates(ptr noundef captures(none) 
   %49 = getelementptr inbounds nuw %struct.string_list_item, ptr %48, i64 %indvars.iv
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !20
-  tail call void @free(ptr noundef %51) #11
+  tail call void @free(ptr noundef %51) #12
   br label %57
 
 52:                                               ; preds = %.lr.ph.split
@@ -537,7 +537,7 @@ define dso_local i32 @for_each_string_list(ptr noundef readonly captures(none) %
   %indvars.iv = phi i64 [ %indvars.iv.next, %6 ], [ 0, %3 ]
   %9 = load ptr, ptr %0, align 8, !tbaa !13
   %10 = getelementptr inbounds nuw %struct.string_list_item, ptr %9, i64 %indvars.iv
-  %11 = tail call i32 %1(ptr noundef %10, ptr noundef %2) #11
+  %11 = tail call i32 %1(ptr noundef %10, ptr noundef %2) #12
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %6, label %._crit_edge
 
@@ -563,7 +563,7 @@ define dso_local void @filter_string_list(ptr noundef captures(none) %0, i32 nou
   %.023.us = phi i32 [ %.1.us, %24 ], [ 0, %.lr.ph ]
   %8 = load ptr, ptr %0, align 8, !tbaa !13
   %9 = getelementptr inbounds nuw %struct.string_list_item, ptr %8, i64 %indvars.iv27
-  %10 = tail call i32 %2(ptr noundef %9, ptr noundef %3) #11
+  %10 = tail call i32 %2(ptr noundef %9, ptr noundef %3) #12
   %.not.us = icmp eq i32 %10, 0
   br i1 %.not.us, label %17, label %11
 
@@ -586,7 +586,7 @@ define dso_local void @filter_string_list(ptr noundef captures(none) %0, i32 nou
   %21 = load ptr, ptr %0, align 8, !tbaa !13
   %22 = getelementptr inbounds nuw %struct.string_list_item, ptr %21, i64 %indvars.iv27
   %23 = load ptr, ptr %22, align 8, !tbaa !14
-  tail call void @free(ptr noundef %23) #11
+  tail call void @free(ptr noundef %23) #12
   br label %24
 
 24:                                               ; preds = %17, %20, %11
@@ -601,7 +601,7 @@ define dso_local void @filter_string_list(ptr noundef captures(none) %0, i32 nou
   %.023 = phi i32 [ %.1, %48 ], [ 0, %.lr.ph ]
   %27 = load ptr, ptr %0, align 8, !tbaa !13
   %28 = getelementptr inbounds nuw %struct.string_list_item, ptr %27, i64 %indvars.iv
-  %29 = tail call i32 %2(ptr noundef %28, ptr noundef %3) #11
+  %29 = tail call i32 %2(ptr noundef %28, ptr noundef %3) #12
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %36, label %30
 
@@ -624,7 +624,7 @@ define dso_local void @filter_string_list(ptr noundef captures(none) %0, i32 nou
   %40 = load ptr, ptr %0, align 8, !tbaa !13
   %41 = getelementptr inbounds nuw %struct.string_list_item, ptr %40, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !14
-  tail call void @free(ptr noundef %42) #11
+  tail call void @free(ptr noundef %42) #12
   br label %43
 
 43:                                               ; preds = %39, %36
@@ -632,7 +632,7 @@ define dso_local void @filter_string_list(ptr noundef captures(none) %0, i32 nou
   %45 = getelementptr inbounds nuw %struct.string_list_item, ptr %44, i64 %indvars.iv
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !20
-  tail call void @free(ptr noundef %47) #11
+  tail call void @free(ptr noundef %47) #12
   br label %48
 
 48:                                               ; preds = %30, %43
@@ -649,8 +649,8 @@ define dso_local void @filter_string_list(ptr noundef captures(none) %0, i32 nou
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define dso_local void @string_list_remove_empty_items(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define dso_local void @string_list_remove_empty_items(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !4
   %.not24.i = icmp eq i64 %4, 0
@@ -685,7 +685,7 @@ define dso_local void @string_list_remove_empty_items(ptr noundef captures(none)
   br i1 %.not20.us.i, label %18, label %17
 
 17:                                               ; preds = %14
-  tail call void @free(ptr noundef nonnull %8) #11
+  tail call void @free(ptr noundef nonnull %8) #12
   br label %18
 
 18:                                               ; preds = %17, %14, %10
@@ -719,7 +719,7 @@ define dso_local void @string_list_remove_empty_items(ptr noundef captures(none)
   br i1 %.not20.i, label %33, label %32
 
 32:                                               ; preds = %29
-  tail call void @free(ptr noundef nonnull %23) #11
+  tail call void @free(ptr noundef nonnull %23) #12
   %.pre = load ptr, ptr %0, align 8, !tbaa !13
   br label %33
 
@@ -728,7 +728,7 @@ define dso_local void @string_list_remove_empty_items(ptr noundef captures(none)
   %35 = getelementptr inbounds nuw %struct.string_list_item, ptr %34, i64 %indvars.iv.i
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !20
-  tail call void @free(ptr noundef %37) #11
+  tail call void @free(ptr noundef %37) #12
   br label %38
 
 38:                                               ; preds = %33, %25
@@ -745,8 +745,8 @@ filter_string_list.exit:                          ; preds = %38, %18, %2
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define dso_local void @string_list_clear(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define dso_local void @string_list_clear(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = load ptr, ptr %0, align 8, !tbaa !13
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %24, label %4
@@ -769,7 +769,7 @@ define dso_local void @string_list_clear(ptr noundef captures(none) %0, i32 noun
   %10 = load ptr, ptr %0, align 8, !tbaa !13
   %11 = getelementptr inbounds nuw %struct.string_list_item, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !14
-  tail call void @free(ptr noundef %12) #11
+  tail call void @free(ptr noundef %12) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i64, ptr %8, align 8, !tbaa !4
   %14 = icmp ugt i64 %13, %indvars.iv.next
@@ -791,7 +791,7 @@ define dso_local void @string_list_clear(ptr noundef captures(none) %0, i32 noun
   %18 = getelementptr inbounds nuw %struct.string_list_item, ptr %17, i64 %indvars.iv28
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !20
-  tail call void @free(ptr noundef %20) #11
+  tail call void @free(ptr noundef %20) #12
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %21 = load i64, ptr %15, align 8, !tbaa !4
   %22 = icmp ugt i64 %21, %indvars.iv.next29
@@ -799,7 +799,7 @@ define dso_local void @string_list_clear(ptr noundef captures(none) %0, i32 noun
 
 .loopexit:                                        ; preds = %.lr.ph24, %.preheader, %.loopexit21
   %23 = load ptr, ptr %0, align 8, !tbaa !13
-  tail call void @free(ptr noundef %23) #11
+  tail call void @free(ptr noundef %23) #12
   br label %24
 
 24:                                               ; preds = %.loopexit, %2
@@ -830,7 +830,7 @@ define dso_local void @string_list_clear_func(ptr noundef captures(none) %0, ptr
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !20
   %11 = load ptr, ptr %8, align 8, !tbaa !14
-  tail call void %1(ptr noundef %10, ptr noundef %11) #11
+  tail call void %1(ptr noundef %10, ptr noundef %11) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i64, ptr %5, align 8, !tbaa !4
   %13 = icmp ugt i64 %12, %indvars.iv.next
@@ -854,7 +854,7 @@ define dso_local void @string_list_clear_func(ptr noundef captures(none) %0, ptr
   %19 = load ptr, ptr %0, align 8, !tbaa !13
   %20 = getelementptr inbounds nuw %struct.string_list_item, ptr %19, i64 %indvars.iv32
   %21 = load ptr, ptr %20, align 8, !tbaa !14
-  tail call void @free(ptr noundef %21) #11
+  tail call void @free(ptr noundef %21) #12
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %22 = load i64, ptr %17, align 8, !tbaa !4
   %23 = icmp ugt i64 %22, %indvars.iv.next33
@@ -862,7 +862,7 @@ define dso_local void @string_list_clear_func(ptr noundef captures(none) %0, ptr
 
 .loopexit:                                        ; preds = %.lr.ph28, %.preheader, %.loopexit25
   %24 = load ptr, ptr %0, align 8, !tbaa !13
-  tail call void @free(ptr noundef %24) #11
+  tail call void @free(ptr noundef %24) #12
   br label %25
 
 25:                                               ; preds = %.loopexit, %2
@@ -879,7 +879,7 @@ define dso_local void @string_list_setlen(ptr noundef captures(none) %0, i64 nou
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %2
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 210, ptr noundef nonnull @.str.1) #12
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 210, ptr noundef nonnull @.str.1) #13
   unreachable
 
 7:                                                ; preds = %2
@@ -889,7 +889,7 @@ define dso_local void @string_list_setlen(ptr noundef captures(none) %0, i64 nou
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %7
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 212, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 212, ptr noundef nonnull @.str.2) #13
   unreachable
 
 12:                                               ; preds = %7
@@ -898,7 +898,7 @@ define dso_local void @string_list_setlen(ptr noundef captures(none) %0, i64 nou
 }
 
 ; Function Attrs: noreturn
-declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #6
+declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @string_list_append_nodup(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
@@ -924,13 +924,13 @@ define dso_local noundef ptr @string_list_append_nodup(ptr noundef captures(none
   br i1 %13, label %14, label %st_mult.exit
 
 14:                                               ; preds = %9
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.6, i64 noundef 16, i64 noundef %.) #12
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.6, i64 noundef 16, i64 noundef %.) #13
   unreachable
 
 st_mult.exit:                                     ; preds = %9
   %15 = load ptr, ptr %0, align 8, !tbaa !13
   %16 = shl nuw i64 %., 4
-  %17 = tail call ptr @xrealloc(ptr noundef %15, i64 noundef %16) #11
+  %17 = tail call ptr @xrealloc(ptr noundef %15, i64 noundef %16) #12
   store ptr %17, ptr %0, align 8, !tbaa !13
   %.pre19 = load i64, ptr %3, align 8, !tbaa !4
   %.pre20 = add i64 %.pre19, 1
@@ -948,7 +948,7 @@ st_mult.exit:                                     ; preds = %9
   ret ptr %21
 }
 
-declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @string_list_append(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
@@ -959,7 +959,7 @@ define dso_local noundef ptr @string_list_append(ptr noundef captures(none) %0, 
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @xstrdup(ptr noundef %1) #11
+  %7 = tail call ptr @xstrdup(ptr noundef %1) #12
   br label %8
 
 8:                                                ; preds = %2, %6
@@ -986,13 +986,13 @@ define dso_local noundef ptr @string_list_append(ptr noundef captures(none) %0, 
   br i1 %20, label %21, label %st_mult.exit.i
 
 21:                                               ; preds = %16
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.6, i64 noundef 16, i64 noundef %..i) #12
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.6, i64 noundef 16, i64 noundef %..i) #13
   unreachable
 
 st_mult.exit.i:                                   ; preds = %16
   %22 = load ptr, ptr %0, align 8, !tbaa !13
   %23 = shl nuw i64 %..i, 4
-  %24 = tail call ptr @xrealloc(ptr noundef %22, i64 noundef %23) #11
+  %24 = tail call ptr @xrealloc(ptr noundef %22, i64 noundef %23) #12
   store ptr %24, ptr %0, align 8, !tbaa !13
   %.pre19.i = load i64, ptr %10, align 8, !tbaa !4
   %.pre20.i = add i64 %.pre19.i, 1
@@ -1010,7 +1010,7 @@ string_list_append_nodup.exit:                    ; preds = %._crit_edge.i, %st_
   ret ptr %27
 }
 
-declare ptr @xstrdup(ptr noundef) local_unnamed_addr #7
+declare ptr @xstrdup(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @string_list_sort(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
@@ -1024,12 +1024,12 @@ define dso_local void @string_list_sort(ptr noundef readonly captures(none) %0) 
   %5 = load ptr, ptr %0, align 8, !tbaa !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !4
-  %8 = call i32 @git_qsort_s(ptr noundef %5, i64 noundef %7, i64 noundef 16, ptr noundef nonnull @cmp_items, ptr noundef nonnull %2) #11
+  %8 = call i32 @git_qsort_s(ptr noundef %5, i64 noundef %7, i64 noundef 16, ptr noundef nonnull @cmp_items, ptr noundef nonnull %2) #12
   %.not4 = icmp eq i32 %8, 0
   br i1 %.not4, label %10, label %9
 
 9:                                                ; preds = %1
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 256, ptr noundef nonnull @.str.3) #12
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 256, ptr noundef nonnull @.str.3) #13
   unreachable
 
 10:                                               ; preds = %1
@@ -1037,14 +1037,14 @@ define dso_local void @string_list_sort(ptr noundef readonly captures(none) %0) 
   ret void
 }
 
-declare i32 @git_qsort_s(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
+declare i32 @git_qsort_s(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @cmp_items(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #3 {
   %4 = load ptr, ptr %2, align 8, !tbaa !32
   %5 = load ptr, ptr %0, align 8, !tbaa !14
   %6 = load ptr, ptr %1, align 8, !tbaa !14
-  %7 = tail call i32 %4(ptr noundef %5, ptr noundef %6) #11
+  %7 = tail call i32 %4(ptr noundef %5, ptr noundef %6) #12
   ret i32 %7
 }
 
@@ -1069,7 +1069,7 @@ define dso_local ptr @unsorted_string_list_lookup(ptr noundef readonly captures(
 .lr.ph25:                                         ; preds = %.lr.ph, %13
   %.0131824 = phi ptr [ %14, %13 ], [ %5, %.lr.ph ]
   %11 = load ptr, ptr %.0131824, align 8, !tbaa !14
-  %12 = tail call i32 %spec.select(ptr noundef %1, ptr noundef %11) #11
+  %12 = tail call i32 %spec.select(ptr noundef %1, ptr noundef %11) #12
   %.not16 = icmp eq i32 %12, 0
   br i1 %.not16, label %.critedge, label %13
 
@@ -1113,7 +1113,7 @@ define dso_local range(i32 0, 2) i32 @unsorted_string_list_has_string(ptr nounde
 .lr.ph:                                           ; preds = %.lr.ph.i, %8
   %.01318.i2 = phi ptr [ %9, %8 ], [ %5, %.lr.ph.i ]
   %14 = load ptr, ptr %.01318.i2, align 8, !tbaa !14
-  %15 = tail call i32 %spec.select.i(ptr noundef %1, ptr noundef %14) #11
+  %15 = tail call i32 %spec.select.i(ptr noundef %1, ptr noundef %14) #12
   %.not16.i = icmp eq i32 %15, 0
   br i1 %.not16.i, label %unsorted_string_list_lookup.exit, label %8
 
@@ -1122,8 +1122,8 @@ unsorted_string_list_lookup.exit:                 ; preds = %.lr.ph, %8, %.lr.ph
   ret i32 %.0.i
 }
 
-; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @unsorted_string_list_delete_item(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define dso_local void @unsorted_string_list_delete_item(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 8
   %6 = and i8 %5, 1
@@ -1135,7 +1135,7 @@ define dso_local void @unsorted_string_list_delete_item(ptr noundef captures(non
   %9 = sext i32 %1 to i64
   %10 = getelementptr inbounds %struct.string_list_item, ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !14
-  tail call void @free(ptr noundef %11) #11
+  tail call void @free(ptr noundef %11) #12
   br label %12
 
 12:                                               ; preds = %7, %3
@@ -1152,7 +1152,7 @@ define dso_local void @unsorted_string_list_delete_item(ptr noundef captures(non
   %16 = getelementptr inbounds %struct.string_list_item, ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !20
-  tail call void @free(ptr noundef %18) #11
+  tail call void @free(ptr noundef %18) #12
   br label %19
 
 19:                                               ; preds = %._crit_edge, %13
@@ -1193,7 +1193,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @string_list_split(ptr 
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %12 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef %2) #13
+  %12 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef %2) #14
   %.not24.us46 = icmp eq ptr %12, null
   br i1 %.not24.us46, label %.split.us, label %.lr.ph48
 
@@ -1204,7 +1204,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @string_list_split(ptr 
   %15 = ptrtoint ptr %13 to i64
   %16 = ptrtoint ptr %.02040.us47 to i64
   %17 = sub i64 %15, %16
-  %18 = tail call ptr @xmemdupz(ptr noundef nonnull %.02040.us47, i64 noundef %17) #11
+  %18 = tail call ptr @xmemdupz(ptr noundef nonnull %.02040.us47, i64 noundef %17) #12
   %19 = load i64, ptr %9, align 8, !tbaa !4
   %20 = add i64 %19, 1
   %21 = load i64, ptr %10, align 8, !tbaa !19
@@ -1227,7 +1227,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @string_list_split(ptr 
 st_mult.exit.i.us:                                ; preds = %23
   %28 = load ptr, ptr %0, align 8, !tbaa !13
   %29 = shl nuw i64 %..i.us, 4
-  %30 = tail call ptr @xrealloc(ptr noundef %28, i64 noundef %29) #11
+  %30 = tail call ptr @xrealloc(ptr noundef %28, i64 noundef %29) #12
   store ptr %30, ptr %0, align 8, !tbaa !13
   %.pre19.i.us = load i64, ptr %9, align 8, !tbaa !4
   %.pre20.i.us = add i64 %.pre19.i.us, 1
@@ -1244,12 +1244,12 @@ string_list_append_nodup.exit.us:                 ; preds = %st_mult.exit.i.us, 
   store ptr null, ptr %34, align 8, !tbaa !20
   %35 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %36 = add nuw nsw i32 %14, 1
-  %37 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %35, i32 noundef %2) #13
+  %37 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %35, i32 noundef %2) #14
   %.not24.us = icmp eq ptr %37, null
   br i1 %.not24.us, label %.split.us, label %.lr.ph48
 
 38:                                               ; preds = %4
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.4) #13
   unreachable
 
 ._crit_edge:                                      ; preds = %string_list_append_nodup.exit
@@ -1261,7 +1261,7 @@ string_list_append_nodup.exit.us:                 ; preds = %st_mult.exit.i.us, 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
   %.lcssa84 = phi i32 [ %11, %._crit_edge ], [ 1, %.preheader ]
   %.020.lcssa83 = phi ptr [ %84, %._crit_edge ], [ %1, %.preheader ]
-  %40 = tail call ptr @xstrdup(ptr noundef %.020.lcssa83) #11
+  %40 = tail call ptr @xstrdup(ptr noundef %.020.lcssa83) #12
   br label %41
 
 41:                                               ; preds = %._crit_edge.thread, %._crit_edge
@@ -1289,13 +1289,13 @@ string_list_append_nodup.exit.us:                 ; preds = %st_mult.exit.i.us, 
   br i1 %53, label %54, label %st_mult.exit.i.i
 
 54:                                               ; preds = %49
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.6, i64 noundef 16, i64 noundef %..i.i) #12
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.6, i64 noundef 16, i64 noundef %..i.i) #13
   unreachable
 
 st_mult.exit.i.i:                                 ; preds = %49
   %55 = load ptr, ptr %0, align 8, !tbaa !13
   %56 = shl nuw i64 %..i.i, 4
-  %57 = tail call ptr @xrealloc(ptr noundef %55, i64 noundef %56) #11
+  %57 = tail call ptr @xrealloc(ptr noundef %55, i64 noundef %56) #12
   store ptr %57, ptr %0, align 8, !tbaa !13
   %.pre19.i.i = load i64, ptr %43, align 8, !tbaa !4
   %.pre20.i.i = add i64 %.pre19.i.i, 1
@@ -1313,7 +1313,7 @@ string_list_append.exit:                          ; preds = %._crit_edge.i.i, %s
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %string_list_append_nodup.exit
   %61 = phi i32 [ %85, %string_list_append_nodup.exit ], [ 1, %.lr.ph.split.preheader ]
   %.02040 = phi ptr [ %84, %string_list_append_nodup.exit ], [ %1, %.lr.ph.split.preheader ]
-  %62 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.02040, i32 noundef %2) #13
+  %62 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.02040, i32 noundef %2) #14
   %.not24 = icmp eq ptr %62, null
   br i1 %.not24, label %.split.us, label %63
 
@@ -1321,7 +1321,7 @@ string_list_append.exit:                          ; preds = %._crit_edge.i.i, %s
   %64 = ptrtoint ptr %62 to i64
   %65 = ptrtoint ptr %.02040 to i64
   %66 = sub i64 %64, %65
-  %67 = tail call ptr @xmemdupz(ptr noundef nonnull %.02040, i64 noundef %66) #11
+  %67 = tail call ptr @xmemdupz(ptr noundef nonnull %.02040, i64 noundef %66) #12
   %68 = load i64, ptr %9, align 8, !tbaa !4
   %69 = add i64 %68, 1
   %70 = load i64, ptr %10, align 8, !tbaa !19
@@ -1343,13 +1343,13 @@ string_list_append.exit:                          ; preds = %._crit_edge.i.i, %s
 
 .split44.us:                                      ; preds = %72, %23
   %.us-phi45 = phi i64 [ %..i.us, %23 ], [ %..i, %72 ]
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.6, i64 noundef 16, i64 noundef %.us-phi45) #12
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.6, i64 noundef 16, i64 noundef %.us-phi45) #13
   unreachable
 
 st_mult.exit.i:                                   ; preds = %72
   %77 = load ptr, ptr %0, align 8, !tbaa !13
   %78 = shl nuw i64 %..i, 4
-  %79 = tail call ptr @xrealloc(ptr noundef %77, i64 noundef %78) #11
+  %79 = tail call ptr @xrealloc(ptr noundef %77, i64 noundef %78) #12
   store ptr %79, ptr %0, align 8, !tbaa !13
   %.pre19.i = load i64, ptr %9, align 8, !tbaa !4
   %.pre20.i = add i64 %.pre19.i, 1
@@ -1378,7 +1378,7 @@ string_list_append_nodup.exit:                    ; preds = %._crit_edge.i, %st_
   br i1 %.not.i25, label %90, label %88
 
 88:                                               ; preds = %.split.us
-  %89 = tail call ptr @xstrdup(ptr noundef nonnull %.us-phi) #11
+  %89 = tail call ptr @xstrdup(ptr noundef nonnull %.us-phi) #12
   br label %90
 
 90:                                               ; preds = %88, %.split.us
@@ -1403,13 +1403,13 @@ string_list_append_nodup.exit:                    ; preds = %._crit_edge.i, %st_
   br i1 %100, label %101, label %st_mult.exit.i.i30
 
 101:                                              ; preds = %96
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.6, i64 noundef 16, i64 noundef %..i.i29) #12
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.6, i64 noundef 16, i64 noundef %..i.i29) #13
   unreachable
 
 st_mult.exit.i.i30:                               ; preds = %96
   %102 = load ptr, ptr %0, align 8, !tbaa !13
   %103 = shl nuw i64 %..i.i29, 4
-  %104 = tail call ptr @xrealloc(ptr noundef %102, i64 noundef %103) #11
+  %104 = tail call ptr @xrealloc(ptr noundef %102, i64 noundef %103) #12
   store ptr %104, ptr %0, align 8, !tbaa !13
   %.pre19.i.i31 = load i64, ptr %9, align 8, !tbaa !4
   %.pre20.i.i32 = add i64 %.pre19.i.i31, 1
@@ -1433,12 +1433,12 @@ string_list_append.exit33:                        ; preds = %._crit_edge.i.i26, 
 }
 
 ; Function Attrs: noreturn
-declare void @die(ptr noundef, ...) local_unnamed_addr #6
+declare void @die(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare ptr @xmemdupz(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare ptr @xmemdupz(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -2147483647, -2147483648) i32 @string_list_split_in_place(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #3 {
@@ -1463,7 +1463,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @string_list_split_in_p
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %12 = tail call ptr @strpbrk(ptr noundef %1, ptr noundef %2) #13
+  %12 = tail call ptr @strpbrk(ptr noundef %1, ptr noundef %2) #14
   %.not23.us54 = icmp eq ptr %12, null
   br i1 %.not23.us54, label %.split.us, label %.lr.ph56
 
@@ -1478,7 +1478,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @string_list_split_in_p
   br i1 %.not.i24.us, label %19, label %17
 
 17:                                               ; preds = %.lr.ph56
-  %18 = tail call ptr @xstrdup(ptr noundef %.01948.us55) #11
+  %18 = tail call ptr @xstrdup(ptr noundef %.01948.us55) #12
   br label %19
 
 19:                                               ; preds = %17, %.lr.ph56
@@ -1505,7 +1505,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @string_list_split_in_p
 st_mult.exit.i.i29.us:                            ; preds = %25
   %30 = load ptr, ptr %0, align 8, !tbaa !13
   %31 = shl nuw i64 %..i.i28.us, 4
-  %32 = tail call ptr @xrealloc(ptr noundef %30, i64 noundef %31) #11
+  %32 = tail call ptr @xrealloc(ptr noundef %30, i64 noundef %31) #12
   store ptr %32, ptr %0, align 8, !tbaa !13
   %.pre19.i.i30.us = load i64, ptr %9, align 8, !tbaa !4
   %.pre20.i.i31.us = add i64 %.pre19.i.i30.us, 1
@@ -1522,12 +1522,12 @@ string_list_append.exit32.us:                     ; preds = %st_mult.exit.i.i29.
   store ptr null, ptr %36, align 8, !tbaa !20
   %37 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %38 = add nuw nsw i32 %14, 1
-  %39 = tail call ptr @strpbrk(ptr noundef nonnull %37, ptr noundef %2) #13
+  %39 = tail call ptr @strpbrk(ptr noundef nonnull %37, ptr noundef %2) #14
   %.not23.us = icmp eq ptr %39, null
   br i1 %.not23.us, label %.split.us, label %.lr.ph56
 
 40:                                               ; preds = %4
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.5) #12
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.5) #13
   unreachable
 
 ._crit_edge:                                      ; preds = %string_list_append.exit32
@@ -1537,7 +1537,7 @@ string_list_append.exit32.us:                     ; preds = %st_mult.exit.i.i29.
   br i1 %41, label %._crit_edge.thread, label %42
 
 42:                                               ; preds = %._crit_edge
-  %43 = tail call ptr @xstrdup(ptr noundef nonnull %88) #11
+  %43 = tail call ptr @xstrdup(ptr noundef nonnull %88) #12
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %42, %._crit_edge
@@ -1565,13 +1565,13 @@ string_list_append.exit32.us:                     ; preds = %st_mult.exit.i.i29.
   br i1 %55, label %56, label %st_mult.exit.i.i
 
 56:                                               ; preds = %51
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.6, i64 noundef 16, i64 noundef %..i.i) #12
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.6, i64 noundef 16, i64 noundef %..i.i) #13
   unreachable
 
 st_mult.exit.i.i:                                 ; preds = %51
   %57 = load ptr, ptr %0, align 8, !tbaa !13
   %58 = shl nuw i64 %..i.i, 4
-  %59 = tail call ptr @xrealloc(ptr noundef %57, i64 noundef %58) #11
+  %59 = tail call ptr @xrealloc(ptr noundef %57, i64 noundef %58) #12
   store ptr %59, ptr %0, align 8, !tbaa !13
   %.pre19.i.i = load i64, ptr %45, align 8, !tbaa !4
   %.pre20.i.i = add i64 %.pre19.i.i, 1
@@ -1589,7 +1589,7 @@ string_list_append.exit:                          ; preds = %._crit_edge.i.i, %s
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %string_list_append.exit32
   %63 = phi i32 [ %89, %string_list_append.exit32 ], [ 1, %.lr.ph.split.preheader ]
   %.01948 = phi ptr [ %88, %string_list_append.exit32 ], [ %1, %.lr.ph.split.preheader ]
-  %64 = tail call ptr @strpbrk(ptr noundef %.01948, ptr noundef %2) #13
+  %64 = tail call ptr @strpbrk(ptr noundef %.01948, ptr noundef %2) #14
   %.not23 = icmp eq ptr %64, null
   br i1 %.not23, label %.split.us, label %65
 
@@ -1601,7 +1601,7 @@ string_list_append.exit:                          ; preds = %._crit_edge.i.i, %s
   br i1 %.not.i24, label %70, label %68
 
 68:                                               ; preds = %65
-  %69 = tail call ptr @xstrdup(ptr noundef %.01948) #11
+  %69 = tail call ptr @xstrdup(ptr noundef %.01948) #12
   br label %70
 
 70:                                               ; preds = %68, %65
@@ -1627,13 +1627,13 @@ string_list_append.exit:                          ; preds = %._crit_edge.i.i, %s
 
 .split52.us:                                      ; preds = %76, %25
   %.us-phi53 = phi i64 [ %..i.i28.us, %25 ], [ %..i.i28, %76 ]
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.6, i64 noundef 16, i64 noundef %.us-phi53) #12
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.6, i64 noundef 16, i64 noundef %.us-phi53) #13
   unreachable
 
 st_mult.exit.i.i29:                               ; preds = %76
   %81 = load ptr, ptr %0, align 8, !tbaa !13
   %82 = shl nuw i64 %..i.i28, 4
-  %83 = tail call ptr @xrealloc(ptr noundef %81, i64 noundef %82) #11
+  %83 = tail call ptr @xrealloc(ptr noundef %81, i64 noundef %82) #12
   store ptr %83, ptr %0, align 8, !tbaa !13
   %.pre19.i.i30 = load i64, ptr %9, align 8, !tbaa !4
   %.pre20.i.i31 = add i64 %.pre19.i.i30, 1
@@ -1662,7 +1662,7 @@ string_list_append.exit32:                        ; preds = %._crit_edge.i.i25, 
   br i1 %.not.i33, label %94, label %92
 
 92:                                               ; preds = %.split.us
-  %93 = tail call ptr @xstrdup(ptr noundef %.us-phi) #11
+  %93 = tail call ptr @xstrdup(ptr noundef %.us-phi) #12
   br label %94
 
 94:                                               ; preds = %92, %.split.us
@@ -1687,13 +1687,13 @@ string_list_append.exit32:                        ; preds = %._crit_edge.i.i25, 
   br i1 %104, label %105, label %st_mult.exit.i.i38
 
 105:                                              ; preds = %100
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.6, i64 noundef 16, i64 noundef %..i.i37) #12
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.6, i64 noundef 16, i64 noundef %..i.i37) #13
   unreachable
 
 st_mult.exit.i.i38:                               ; preds = %100
   %106 = load ptr, ptr %0, align 8, !tbaa !13
   %107 = shl nuw i64 %..i.i37, 4
-  %108 = tail call ptr @xrealloc(ptr noundef %106, i64 noundef %107) #11
+  %108 = tail call ptr @xrealloc(ptr noundef %106, i64 noundef %107) #12
   store ptr %108, ptr %0, align 8, !tbaa !13
   %.pre19.i.i39 = load i64, ptr %9, align 8, !tbaa !4
   %.pre20.i.i40 = add i64 %.pre19.i.i39, 1
@@ -1723,13 +1723,13 @@ declare ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #10
+declare i64 @llvm.umax.i64(i64, i64) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -1737,14 +1737,15 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { nounwind willreturn memory(read) }
+attributes #6 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

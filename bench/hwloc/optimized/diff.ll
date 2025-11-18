@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hwloc_internal_cpukind_s = type { ptr, i32, i32, i64, %struct.hwloc_infos_s }
 %struct.hwloc_infos_s = type { ptr, i32, i32 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @hwloc_topology_diff_destroy(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not9 = icmp eq ptr %0, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph
@@ -36,17 +36,17 @@ define noundef i32 @hwloc_topology_diff_destroy(ptr noundef captures(address_is_
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %.010, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !3
-  tail call void @free(ptr noundef %10) #13
+  tail call void @free(ptr noundef %10) #15
   %11 = getelementptr inbounds nuw i8, ptr %.010, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !3
-  tail call void @free(ptr noundef %12) #13
+  tail call void @free(ptr noundef %12) #15
   %13 = getelementptr inbounds nuw i8, ptr %.010, i64 48
   %14 = load ptr, ptr %13, align 8, !tbaa !3
-  tail call void @free(ptr noundef %14) #13
+  tail call void @free(ptr noundef %14) #15
   br label %15
 
 15:                                               ; preds = %5, %8, %.lr.ph
-  tail call void @free(ptr noundef nonnull %.010) #13
+  tail call void @free(ptr noundef nonnull %.010) #15
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
@@ -58,7 +58,7 @@ define noundef i32 @hwloc_topology_diff_destroy(ptr noundef captures(address_is_
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -75,7 +75,7 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
   br i1 %.not203, label %13, label %15
 
 13:                                               ; preds = %9, %4
-  %14 = tail call ptr @__errno_location() #14
+  %14 = tail call ptr @__errno_location() #16
   store i32 22, ptr %14, align 4, !tbaa !34
   br label %.critedge252
 
@@ -84,14 +84,14 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
   br i1 %.not204, label %18, label %16
 
 16:                                               ; preds = %15
-  %17 = tail call ptr @__errno_location() #14
+  %17 = tail call ptr @__errno_location() #16
   store i32 22, ptr %17, align 4, !tbaa !34
   br label %.critedge252
 
 18:                                               ; preds = %15
   store ptr null, ptr %3, align 8, !tbaa !35
-  %19 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef 0, i32 noundef 0) #15
-  %20 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %1, i32 noundef 0, i32 noundef 0) #15
+  %19 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef 0, i32 noundef 0) #17
+  %20 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %1, i32 noundef 0, i32 noundef 0) #17
   %21 = call fastcc i32 @hwloc_diff_trees(ptr noundef nonnull %0, ptr noundef %19, ptr noundef %20, ptr noundef nonnull %3, ptr noundef %5)
   %.not205 = icmp eq i32 %21, 0
   br i1 %.not205, label %.preheader306, label %.critedge252
@@ -127,7 +127,7 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
   br i1 %.not208, label %34, label %32
 
 32:                                               ; preds = %31
-  %33 = call i32 @hwloc_bitmap_isequal(ptr noundef nonnull %27, ptr noundef %29) #15
+  %33 = call i32 @hwloc_bitmap_isequal(ptr noundef nonnull %27, ptr noundef %29) #17
   %.not211 = icmp eq i32 %33, 0
   br i1 %.not211, label %.thread282, label %34
 
@@ -145,7 +145,7 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
   br i1 %.not212, label %43, label %41
 
 41:                                               ; preds = %40
-  %42 = call i32 @hwloc_bitmap_isequal(ptr noundef nonnull %36, ptr noundef %38) #15
+  %42 = call i32 @hwloc_bitmap_isequal(ptr noundef nonnull %36, ptr noundef %38) #17
   %.not215 = icmp eq i32 %42, 0
   br i1 %.not215, label %.thread282, label %43
 
@@ -172,7 +172,7 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
   %54 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %53, i64 %indvars.iv
   %55 = load ptr, ptr %52, align 8, !tbaa !42
   %56 = load ptr, ptr %54, align 8, !tbaa !42
-  %57 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(1) %56) #15
+  %57 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(1) %56) #17
   %.not217 = icmp eq i32 %57, 0
   br i1 %.not217, label %58, label %.thread282
 
@@ -181,7 +181,7 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
   %60 = load ptr, ptr %59, align 8, !tbaa !45
   %61 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !45
-  %63 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(1) %62) #15
+  %63 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(1) %62) #17
   %.not218 = icmp eq i32 %63, 0
   br i1 %.not218, label %67, label %64
 
@@ -202,8 +202,8 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
   br i1 %70, label %.lr.ph312, label %.critedge, !llvm.loop !46
 
 .critedge:                                        ; preds = %67, %.preheader303
-  call void @hwloc_internal_distances_refresh(ptr noundef nonnull %0) #13
-  call void @hwloc_internal_distances_refresh(ptr noundef nonnull %1) #13
+  call void @hwloc_internal_distances_refresh(ptr noundef nonnull %0) #15
+  call void @hwloc_internal_distances_refresh(ptr noundef nonnull %1) #15
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 728
   %.0177316 = load ptr, ptr %71, align 8, !tbaa !47
@@ -310,8 +310,8 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
   br i1 %126, label %.lr.ph320, label %._crit_edge321, !llvm.loop !63
 
 ._crit_edge321:                                   ; preds = %._crit_edge315, %.critedge
-  call void @hwloc_internal_memattrs_refresh(ptr noundef nonnull %0) #13
-  call void @hwloc_internal_memattrs_refresh(ptr noundef nonnull %1) #13
+  call void @hwloc_internal_memattrs_refresh(ptr noundef nonnull %0) #15
+  call void @hwloc_internal_memattrs_refresh(ptr noundef nonnull %1) #15
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 748
   %128 = load i32, ptr %127, align 4, !tbaa !64
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 748
@@ -337,7 +337,7 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
   %138 = getelementptr inbounds nuw %struct.hwloc_internal_memattr_s, ptr %134, i64 %136
   %139 = load ptr, ptr %137, align 8, !tbaa !66
   %140 = load ptr, ptr %138, align 8, !tbaa !66
-  %141 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %139, ptr noundef nonnull dereferenceable(1) %140) #15
+  %141 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %139, ptr noundef nonnull dereferenceable(1) %140) #17
   %.not229 = icmp eq i32 %141, 0
   br i1 %.not229, label %142, label %.thread282
 
@@ -472,7 +472,7 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
   %212 = load ptr, ptr %211, align 8, !tbaa !3
   %213 = getelementptr inbounds nuw i8, ptr %201, i64 8
   %214 = load ptr, ptr %213, align 8, !tbaa !3
-  %215 = call i32 @hwloc_bitmap_isequal(ptr noundef %212, ptr noundef %214) #15
+  %215 = call i32 @hwloc_bitmap_isequal(ptr noundef %212, ptr noundef %214) #17
   %.not240 = icmp eq i32 %215, 0
   br i1 %.not240, label %.thread282, label %230
 
@@ -537,7 +537,7 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
   %244 = getelementptr inbounds nuw %struct.hwloc_internal_cpukind_s, ptr %240, i64 %242
   %245 = load ptr, ptr %243, align 8, !tbaa !88
   %246 = load ptr, ptr %244, align 8, !tbaa !88
-  %247 = call i32 @hwloc_bitmap_isequal(ptr noundef %245, ptr noundef %246) #15
+  %247 = call i32 @hwloc_bitmap_isequal(ptr noundef %245, ptr noundef %246) #17
   %.not242 = icmp eq i32 %247, 0
   br i1 %.not242, label %.thread282, label %248
 
@@ -596,7 +596,7 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
   %275 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %271, i64 %indvars.iv362
   %276 = load ptr, ptr %274, align 8, !tbaa !42
   %277 = load ptr, ptr %275, align 8, !tbaa !42
-  %278 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %276, ptr noundef nonnull dereferenceable(1) %277) #15
+  %278 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %276, ptr noundef nonnull dereferenceable(1) %277) #17
   %.not247 = icmp eq i32 %278, 0
   br i1 %.not247, label %279, label %.thread282
 
@@ -605,7 +605,7 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
   %281 = load ptr, ptr %280, align 8, !tbaa !45
   %282 = getelementptr inbounds nuw i8, ptr %275, i64 8
   %283 = load ptr, ptr %282, align 8, !tbaa !45
-  %284 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %281, ptr noundef nonnull dereferenceable(1) %283) #15
+  %284 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %281, ptr noundef nonnull dereferenceable(1) %283) #17
   %.not248 = icmp eq i32 %284, 0
   br i1 %.not248, label %272, label %.thread282
 
@@ -615,8 +615,8 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
   br i1 %exitcond367.not, label %.critedge252, label %241, !llvm.loop !96
 
 .thread282:                                       ; preds = %.lr.ph312, %79, %84, %87, %90, %95, %100, %.lr.ph320, %113, %135, %142, %147, %.lr.ph325.split, %186, %173, %166, %.lr.ph325.split.us, %221, %216, %210, %199, %206, %241, %248, %253, %258, %263, %279, %273, %.critedge250, %._crit_edge321, %43, %._crit_edge, %32, %34, %41
-  %286 = call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef 0, i32 noundef 0) #15
-  %287 = call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #16
+  %286 = call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef 0, i32 noundef 0) #17
+  %287 = call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #18
   %.not.i = icmp eq ptr %287, null
   br i1 %.not.i, label %.critedge252, label %288
 
@@ -656,10 +656,10 @@ hwloc_append_diff.exit.i:                         ; preds = %299, %296
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #2
+declare ptr @__errno_location() local_unnamed_addr #3
 
-; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @hwloc_diff_trees(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #3 {
+; Function Attrs: nofree nounwind memory(readwrite, target_mem0: read, target_mem1: read) uwtable
+define internal fastcc range(i32 -1, 1) i32 @hwloc_diff_trees(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #4 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = load i32, ptr %6, align 8, !tbaa !97
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -687,7 +687,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_diff_trees(ptr noundef %0, pt
   br i1 %.not190, label %22, label %20
 
 20:                                               ; preds = %19
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %17) #15
+  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %17) #17
   %.not193 = icmp eq i32 %21, 0
   br i1 %.not193, label %22, label %.loopexit
 
@@ -713,7 +713,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_diff_trees(ptr noundef %0, pt
   br i1 %.not195, label %36, label %34
 
 34:                                               ; preds = %33
-  %35 = tail call i32 @hwloc_bitmap_isequal(ptr noundef nonnull %29, ptr noundef %31) #15
+  %35 = tail call i32 @hwloc_bitmap_isequal(ptr noundef nonnull %29, ptr noundef %31) #17
   %.not198 = icmp eq i32 %35, 0
   br i1 %.not198, label %.loopexit, label %36
 
@@ -731,7 +731,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_diff_trees(ptr noundef %0, pt
   br i1 %.not199, label %45, label %43
 
 43:                                               ; preds = %42
-  %44 = tail call i32 @hwloc_bitmap_isequal(ptr noundef nonnull %38, ptr noundef %40) #15
+  %44 = tail call i32 @hwloc_bitmap_isequal(ptr noundef nonnull %38, ptr noundef %40) #17
   %.not202 = icmp eq i32 %44, 0
   br i1 %.not202, label %.loopexit, label %45
 
@@ -749,7 +749,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_diff_trees(ptr noundef %0, pt
   br i1 %.not203, label %54, label %52
 
 52:                                               ; preds = %51
-  %53 = tail call i32 @hwloc_bitmap_isequal(ptr noundef nonnull %47, ptr noundef %49) #15
+  %53 = tail call i32 @hwloc_bitmap_isequal(ptr noundef nonnull %47, ptr noundef %49) #17
   %.not206 = icmp eq i32 %53, 0
   br i1 %.not206, label %.loopexit, label %54
 
@@ -767,7 +767,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_diff_trees(ptr noundef %0, pt
   br i1 %.not207, label %63, label %61
 
 61:                                               ; preds = %60
-  %62 = tail call i32 @hwloc_bitmap_isequal(ptr noundef nonnull %56, ptr noundef %58) #15
+  %62 = tail call i32 @hwloc_bitmap_isequal(ptr noundef nonnull %56, ptr noundef %58) #17
   %.not210 = icmp eq i32 %62, 0
   br i1 %.not210, label %.loopexit, label %63
 
@@ -785,7 +785,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_diff_trees(ptr noundef %0, pt
   br i1 %.not211, label %75, label %70
 
 70:                                               ; preds = %69
-  %71 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %67) #15
+  %71 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %67) #17
   %.not214 = icmp eq i32 %71, 0
   br i1 %.not214, label %75, label %72
 
@@ -899,7 +899,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_diff_trees(ptr noundef %0, pt
   %123 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %122, i64 %indvars.iv
   %124 = load ptr, ptr %121, align 8, !tbaa !42
   %125 = load ptr, ptr %123, align 8, !tbaa !42
-  %126 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %124, ptr noundef nonnull dereferenceable(1) %125) #15
+  %126 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %124, ptr noundef nonnull dereferenceable(1) %125) #17
   %.not226 = icmp eq i32 %126, 0
   br i1 %.not226, label %127, label %.loopexit
 
@@ -908,7 +908,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_diff_trees(ptr noundef %0, pt
   %129 = load ptr, ptr %128, align 8, !tbaa !45
   %130 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %131 = load ptr, ptr %130, align 8, !tbaa !45
-  %132 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %129, ptr noundef nonnull dereferenceable(1) %131) #15
+  %132 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %129, ptr noundef nonnull dereferenceable(1) %131) #17
   %.not227 = icmp eq i32 %132, 0
   br i1 %.not227, label %136, label %133
 
@@ -1061,7 +1061,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_diff_trees(ptr noundef %0, pt
   br i1 %or.cond7, label %.loopexit, label %hwloc_append_diff_too_complex.exit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge63, %._crit_edge54, %._crit_edge45, %._crit_edge37, %112, %107, %102, %97, %92, %87, %27, %34, %36, %43, %45, %52, %54, %61, %22, %13, %20, %10, %5
-  %195 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #16
+  %195 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #18
   %.not.i = icmp eq ptr %195, null
   br i1 %.not.i, label %hwloc_append_diff_too_complex.exit, label %196
 
@@ -1100,14 +1100,14 @@ hwloc_append_diff_too_complex.exit:               ; preds = %133, %.lr.ph36, %.l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @hwloc_bitmap_isequal(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @hwloc_bitmap_isequal(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
-; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc range(i32 -1, 1) i32 @hwloc_append_diff_obj_attr_string(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef range(i32 1, 3) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef captures(none) %6, ptr noundef nonnull captures(none) %7) unnamed_addr #6 {
-  %9 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #16
+; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 -1, 1) i32 @hwloc_append_diff_obj_attr_string(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef range(i32 1, 3) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef captures(none) %6, ptr noundef nonnull captures(none) %7) unnamed_addr #7 {
+  %9 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #18
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %43, label %10
 
@@ -1137,7 +1137,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_append_diff_obj_attr_string(p
   br i1 %.not29, label %24, label %22
 
 22:                                               ; preds = %18
-  %23 = tail call noalias ptr @strdup(ptr noundef nonnull %3) #13
+  %23 = tail call noalias ptr @strdup(ptr noundef nonnull %3) #15
   br label %24
 
 24:                                               ; preds = %18, %22
@@ -1148,7 +1148,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_append_diff_obj_attr_string(p
   br i1 %.not30, label %29, label %27
 
 27:                                               ; preds = %24
-  %28 = tail call noalias ptr @strdup(ptr noundef nonnull %4) #13
+  %28 = tail call noalias ptr @strdup(ptr noundef nonnull %4) #15
   br label %29
 
 29:                                               ; preds = %24, %27
@@ -1159,7 +1159,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_append_diff_obj_attr_string(p
   br i1 %.not31, label %34, label %32
 
 32:                                               ; preds = %29
-  %33 = tail call noalias ptr @strdup(ptr noundef nonnull %5) #13
+  %33 = tail call noalias ptr @strdup(ptr noundef nonnull %5) #15
   br label %34
 
 34:                                               ; preds = %29, %32
@@ -1191,12 +1191,12 @@ hwloc_append_diff.exit:                           ; preds = %38, %41
   ret i32 %.0
 }
 
-declare void @hwloc_internal_distances_refresh(ptr noundef) local_unnamed_addr #7
+declare void @hwloc_internal_distances_refresh(ptr noundef) local_unnamed_addr #8
 
-declare void @hwloc_internal_memattrs_refresh(ptr noundef) local_unnamed_addr #7
+declare void @hwloc_internal_memattrs_refresh(ptr noundef) local_unnamed_addr #8
 
-; Function Attrs: nounwind uwtable
-define i32 @hwloc_topology_diff_apply(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: read, target_mem1: read) uwtable
+define i32 @hwloc_topology_diff_apply(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #9 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = load i64, ptr %4, align 8, !tbaa !8
   %6 = and i64 %5, 2
@@ -1204,7 +1204,7 @@ define i32 @hwloc_topology_diff_apply(ptr noundef %0, ptr noundef readonly captu
   br i1 %.not, label %7, label %9
 
 7:                                                ; preds = %3
-  %8 = tail call ptr @__errno_location() #14
+  %8 = tail call ptr @__errno_location() #16
   store i32 22, ptr %8, align 4, !tbaa !34
   br label %.loopexit
 
@@ -1215,7 +1215,7 @@ define i32 @hwloc_topology_diff_apply(ptr noundef %0, ptr noundef readonly captu
   br i1 %.not22, label %14, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call ptr @__errno_location() #14
+  %13 = tail call ptr @__errno_location() #16
   store i32 1, ptr %13, align 4, !tbaa !34
   br label %.loopexit
 
@@ -1228,7 +1228,7 @@ define i32 @hwloc_topology_diff_apply(ptr noundef %0, ptr noundef readonly captu
   br i1 %.not2429, label %.loopexit, label %.lr.ph
 
 15:                                               ; preds = %14
-  %16 = tail call ptr @__errno_location() #14
+  %16 = tail call ptr @__errno_location() #16
   store i32 22, ptr %16, align 4, !tbaa !34
   br label %.loopexit
 
@@ -1263,7 +1263,7 @@ define i32 @hwloc_topology_diff_apply(ptr noundef %0, ptr noundef readonly captu
   br i1 %.not25, label %._crit_edge, label %24, !llvm.loop !116
 
 ._crit_edge:                                      ; preds = %24, %.preheader
-  %28 = tail call ptr @__errno_location() #14
+  %28 = tail call ptr @__errno_location() #16
   store i32 22, ptr %28, align 4, !tbaa !34
   %29 = xor i32 %.031, -1
   br label %.loopexit
@@ -1273,8 +1273,8 @@ define i32 @hwloc_topology_diff_apply(ptr noundef %0, ptr noundef readonly captu
   ret i32 %.020
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @hwloc_apply_diff_one(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: read, target_mem1: read) uwtable
+define internal fastcc range(i32 -1, 1) i32 @hwloc_apply_diff_one(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #9 {
   %4 = and i64 %2, 1
   %.not = icmp eq i64 %4, 0
   %5 = load i32, ptr %1, align 8, !tbaa !3
@@ -1286,7 +1286,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_apply_diff_one(ptr noundef %0
   %8 = load i32, ptr %7, align 8, !tbaa !117
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %10 = load i32, ptr %9, align 4, !tbaa !119
-  %11 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %0, i32 noundef %8, i32 noundef %10) #15
+  %11 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %0, i32 noundef %8, i32 noundef %10) #17
   %.not85 = icmp eq ptr %11, null
   br i1 %.not85, label %14, label %12
 
@@ -1367,13 +1367,13 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_apply_diff_one(ptr noundef %0
   br i1 %.not92, label %.critedge, label %50
 
 50:                                               ; preds = %47
-  %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %45) #15
+  %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %45) #17
   %.not93 = icmp eq i32 %51, 0
   br i1 %.not93, label %.critedge100, label %.critedge
 
 .critedge100:                                     ; preds = %50
-  tail call void @free(ptr noundef nonnull %49) #13
-  %52 = tail call noalias ptr @strdup(ptr noundef %46) #13
+  tail call void @free(ptr noundef nonnull %49) #15
+  %52 = tail call noalias ptr @strdup(ptr noundef %46) #15
   store ptr %52, ptr %48, align 8, !tbaa !105
   br label %.critedge
 
@@ -1400,14 +1400,14 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_apply_diff_one(ptr noundef %0
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %71 ]
   %64 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %62, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8, !tbaa !42
-  %66 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %55) #15
+  %66 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %55) #17
   %.not87 = icmp eq i32 %66, 0
   br i1 %.not87, label %67, label %71
 
 67:                                               ; preds = %63
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %69 = load ptr, ptr %68, align 8, !tbaa !45
-  %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %69, ptr noundef nonnull dereferenceable(1) %58) #15
+  %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %69, ptr noundef nonnull dereferenceable(1) %58) #17
   %.not88 = icmp eq i32 %70, 0
   br i1 %.not88, label %72, label %71
 
@@ -1418,8 +1418,8 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_apply_diff_one(ptr noundef %0
 
 72:                                               ; preds = %67
   %73 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  tail call void @free(ptr noundef nonnull %69) #13
-  %74 = tail call noalias ptr @strdup(ptr noundef %59) #13
+  tail call void @free(ptr noundef nonnull %69) #15
+  %74 = tail call noalias ptr @strdup(ptr noundef %59) #15
   store ptr %74, ptr %73, align 8, !tbaa !45
   br label %.critedge
 
@@ -1428,9 +1428,9 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_apply_diff_one(ptr noundef %0
   ret i32 %.5
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc range(i32 -1, 1) i32 @hwloc_append_diff_obj_attr_uint64(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #8 {
-  %6 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #16
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc range(i32 -1, 1) i32 @hwloc_append_diff_obj_attr_uint64(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #10 {
+  %6 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #18
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %24, label %7
 
@@ -1478,40 +1478,42 @@ hwloc_append_diff.exit:                           ; preds = %19, %22
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @hwloc_get_obj_by_depth(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @hwloc_get_obj_by_depth(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #10
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
-attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind willreturn memory(none) }
-attributes #15 = { nounwind willreturn memory(read) }
-attributes #16 = { nounwind allocsize(0) }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind memory(readwrite, target_mem0: read, target_mem1: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind memory(readwrite, target_mem0: read, target_mem1: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #15 = { nounwind }
+attributes #16 = { nounwind willreturn memory(none) }
+attributes #17 = { nounwind willreturn memory(read) }
+attributes #18 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -14,19 +14,19 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @_yr_arena_new_page(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @cli_max_malloc(i64 noundef 64) #12
+  %2 = tail call ptr @cli_max_malloc(i64 noundef 64) #13
   %3 = icmp eq ptr %2, null
   br i1 %3, label %12, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @cli_max_malloc(i64 noundef %0) #12
+  %5 = tail call ptr @cli_max_malloc(i64 noundef %0) #13
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %5, ptr %6, align 8, !tbaa !3
   %7 = icmp eq ptr %5, null
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %4
-  tail call void @free(ptr noundef nonnull %2) #12
+  tail call void @free(ptr noundef nonnull %2) #13
   br label %12
 
 9:                                                ; preds = %4
@@ -46,7 +46,7 @@ declare ptr @cli_max_malloc(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @_yr_arena_page_for_address(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !13
@@ -144,7 +144,7 @@ define range(i32 0, 2) i32 @_yr_arena_make_relocatable(ptr noundef readonly capt
   br i1 %.not24.i, label %.loopexit, label %.lr.ph.i
 
 .loopexit:                                        ; preds = %23, %14
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 178, ptr noundef nonnull @__PRETTY_FUNCTION__._yr_arena_make_relocatable) #13
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 178, ptr noundef nonnull @__PRETTY_FUNCTION__._yr_arena_make_relocatable) #14
   unreachable
 
 _yr_arena_page_for_address.exit:                  ; preds = %18, %9
@@ -196,11 +196,11 @@ _yr_arena_page_for_address.exit:                  ; preds = %18, %9
   br i1 %.not33, label %52, label %53
 
 52:                                               ; preds = %48
-  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 185, ptr noundef nonnull @__PRETTY_FUNCTION__._yr_arena_make_relocatable) #13
+  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 185, ptr noundef nonnull @__PRETTY_FUNCTION__._yr_arena_make_relocatable) #14
   unreachable
 
 53:                                               ; preds = %48
-  %54 = tail call ptr @cli_max_malloc(i64 noundef 16) #12
+  %54 = tail call ptr @cli_max_malloc(i64 noundef 16) #13
   %55 = icmp eq ptr %54, null
   br i1 %55, label %._crit_edge, label %56
 
@@ -264,28 +264,28 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @yr_arena_create(i64 noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   store ptr null, ptr %2, align 8, !tbaa !24
-  %4 = tail call ptr @cli_max_malloc(i64 noundef 24) #12
+  %4 = tail call ptr @cli_max_malloc(i64 noundef 24) #13
   %5 = icmp eq ptr %4, null
   br i1 %5, label %21, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @cli_max_malloc(i64 noundef 64) #12
+  %7 = tail call ptr @cli_max_malloc(i64 noundef 64) #13
   %8 = icmp eq ptr %7, null
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @cli_max_malloc(i64 noundef %0) #12
+  %10 = tail call ptr @cli_max_malloc(i64 noundef %0) #13
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %10, ptr %11, align 8, !tbaa !3
   %12 = icmp eq ptr %10, null
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %9
-  tail call void @free(ptr noundef nonnull %7) #12
+  tail call void @free(ptr noundef nonnull %7) #13
   br label %14
 
 14:                                               ; preds = %13, %6
-  tail call void @free(ptr noundef nonnull %4) #12
+  tail call void @free(ptr noundef nonnull %4) #13
   br label %21
 
 15:                                               ; preds = %9
@@ -307,8 +307,8 @@ define range(i32 0, 2) i32 @yr_arena_create(i64 noundef %0, i32 noundef %1, ptr 
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define void @yr_arena_destroy(ptr noundef captures(none) %0) local_unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define void @yr_arena_destroy(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
   %.not16 = icmp eq ptr %3, null
@@ -327,25 +327,25 @@ define void @yr_arena_destroy(ptr noundef captures(none) %0) local_unnamed_addr 
   %.015 = phi ptr [ %9, %.lr.ph ], [ %7, %.lr.ph19 ]
   %8 = getelementptr inbounds nuw i8, ptr %.015, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !21
-  tail call void @free(ptr noundef nonnull %.015) #12
+  tail call void @free(ptr noundef nonnull %.015) #13
   %.not13 = icmp eq ptr %9, null
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph19
   %10 = getelementptr inbounds nuw i8, ptr %.01217, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !3
-  tail call void @free(ptr noundef %11) #12
-  tail call void @free(ptr noundef nonnull %.01217) #12
+  tail call void @free(ptr noundef %11) #13
+  tail call void @free(ptr noundef nonnull %.01217) #13
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %._crit_edge20, label %.lr.ph19
 
 ._crit_edge20:                                    ; preds = %._crit_edge, %1
-  tail call void @free(ptr noundef %0) #12
+  tail call void @free(ptr noundef %0) #13
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @yr_arena_base_address(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define ptr @yr_arena_base_address(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !26
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -400,7 +400,7 @@ define ptr @yr_arena_next_address(ptr noundef readonly captures(none) %0, ptr no
   br i1 %.not24.i, label %.loopexit58, label %.lr.ph.i
 
 .loopexit58:                                      ; preds = %23, %14
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 346, ptr noundef nonnull @__PRETTY_FUNCTION__.yr_arena_next_address) #13
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 346, ptr noundef nonnull @__PRETTY_FUNCTION__.yr_arena_next_address) #14
   unreachable
 
 _yr_arena_page_for_address.exit:                  ; preds = %18, %9
@@ -511,19 +511,19 @@ define range(i32 0, 2) i32 @yr_arena_coalesce(ptr noundef captures(none) %0) loc
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
   %.0.lcssa = phi i64 [ 0, %1 ], [ %8, %._crit_edge.loopexit ]
-  %9 = tail call ptr @cli_max_malloc(i64 noundef 64) #12
+  %9 = tail call ptr @cli_max_malloc(i64 noundef 64) #13
   %10 = icmp eq ptr %9, null
   br i1 %10, label %_yr_arena_new_page.exit.thread, label %11
 
 11:                                               ; preds = %._crit_edge
-  %12 = tail call ptr @cli_max_malloc(i64 noundef %.0.lcssa) #12
+  %12 = tail call ptr @cli_max_malloc(i64 noundef %.0.lcssa) #13
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %12, ptr %13, align 8, !tbaa !3
   %14 = icmp eq ptr %12, null
   br i1 %14, label %15, label %_yr_arena_new_page.exit
 
 15:                                               ; preds = %11
-  tail call void @free(ptr noundef nonnull %9) #12
+  tail call void @free(ptr noundef nonnull %9) #13
   br label %_yr_arena_new_page.exit.thread
 
 _yr_arena_new_page.exit:                          ; preds = %11
@@ -674,7 +674,7 @@ _yr_arena_new_page.exit:                          ; preds = %11
   br i1 %.not24.i, label %.loopexit, label %.lr.ph.i
 
 .loopexit:                                        ; preds = %69, %77
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 466, ptr noundef nonnull @__PRETTY_FUNCTION__.yr_arena_coalesce) #13
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 466, ptr noundef nonnull @__PRETTY_FUNCTION__.yr_arena_coalesce) #14
   unreachable
 
 _yr_arena_page_for_address.exit:                  ; preds = %72, %64
@@ -705,8 +705,8 @@ _yr_arena_page_for_address.exit:                  ; preds = %72, %64
   %88 = load ptr, ptr %87, align 8, !tbaa !28
   %89 = getelementptr inbounds nuw i8, ptr %.2102, i64 8
   %90 = load ptr, ptr %89, align 8, !tbaa !3
-  tail call void @free(ptr noundef %90) #12
-  tail call void @free(ptr noundef nonnull %.2102) #12
+  tail call void @free(ptr noundef %90) #13
+  tail call void @free(ptr noundef nonnull %.2102) #13
   %.not68 = icmp eq ptr %88, null
   br i1 %.not68, label %._crit_edge105, label %.lr.ph104
 
@@ -725,7 +725,7 @@ _yr_arena_new_page.exit.thread:                   ; preds = %._crit_edge, %15, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @yr_arena_reserve_memory(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -758,7 +758,7 @@ define range(i32 0, 2) i32 @yr_arena_reserve_memory(ptr noundef captures(none) %
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !3
-  %20 = tail call ptr @cli_max_realloc(ptr noundef %19, i64 noundef %.025) #12
+  %20 = tail call ptr @cli_max_realloc(ptr noundef %19, i64 noundef %.025) #13
   %21 = icmp eq ptr %20, null
   br i1 %21, label %_yr_arena_new_page.exit.thread, label %22
 
@@ -771,19 +771,19 @@ define range(i32 0, 2) i32 @yr_arena_reserve_memory(ptr noundef captures(none) %
   br label %_yr_arena_new_page.exit.thread
 
 26:                                               ; preds = %15
-  %27 = tail call ptr @cli_max_malloc(i64 noundef 64) #12
+  %27 = tail call ptr @cli_max_malloc(i64 noundef 64) #13
   %28 = icmp eq ptr %27, null
   br i1 %28, label %_yr_arena_new_page.exit.thread, label %29
 
 29:                                               ; preds = %26
-  %30 = tail call ptr @cli_max_malloc(i64 noundef %.025) #12
+  %30 = tail call ptr @cli_max_malloc(i64 noundef %.025) #13
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %30, ptr %31, align 8, !tbaa !3
   %32 = icmp eq ptr %30, null
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %29
-  tail call void @free(ptr noundef nonnull %27) #12
+  tail call void @free(ptr noundef nonnull %27) #13
   br label %_yr_arena_new_page.exit.thread
 
 34:                                               ; preds = %29
@@ -872,13 +872,13 @@ yr_arena_allocate_memory.exit:                    ; preds = %3, %6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #7
+declare void @llvm.va_start.p0(ptr) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #7
+declare void @llvm.va_end.p0(ptr) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @yr_arena_make_relocatable(ptr noundef readonly captures(none) %0, ptr noundef %1, ...) local_unnamed_addr #0 {
@@ -944,7 +944,7 @@ yr_arena_allocate_memory.exit:                    ; preds = %13, %27, %28
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @yr_arena_write_string(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
   %5 = add i64 %4, 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !13
@@ -996,10 +996,10 @@ yr_arena_write_data.exit:                         ; preds = %14, %28, %29
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
-; Function Attrs: mustprogress nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @yr_arena_append(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #10 {
+; Function Attrs: mustprogress nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
+define noundef i32 @yr_arena_append(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !26
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1011,31 +1011,32 @@ define noundef i32 @yr_arena_append(ptr noundef captures(none) %0, ptr noundef c
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !13
   store ptr %10, ptr %5, align 8, !tbaa !13
-  tail call void @free(ptr noundef %1) #12
+  tail call void @free(ptr noundef %1) #13
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nounwind }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { nounwind willreturn memory(read) }
+attributes #5 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

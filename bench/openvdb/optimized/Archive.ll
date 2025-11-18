@@ -4122,7 +4122,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_02io14StreamMetadataEED2Ev.exit: ; preds = %if.e
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZNK7openvdb5v11_02io14StreamMetadata11fileVersionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
@@ -4130,7 +4130,7 @@ entry:
   ret i32 %1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i64 @_ZNK7openvdb5v11_02io14StreamMetadata14libraryVersionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
@@ -4139,7 +4139,7 @@ entry:
   ret i64 %retval.sroa.0.0.copyload
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZNK7openvdb5v11_02io14StreamMetadata11compressionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
@@ -4148,7 +4148,7 @@ entry:
   ret i32 %1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZNK7openvdb5v11_02io14StreamMetadata9gridClassEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
@@ -4157,7 +4157,7 @@ entry:
   ret i32 %1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @_ZNK7openvdb5v11_02io14StreamMetadata13backgroundPtrEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
@@ -4166,7 +4166,7 @@ entry:
   ret ptr %1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK7openvdb5v11_02io14StreamMetadata9halfFloatEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
@@ -4176,7 +4176,7 @@ entry:
   ret i1 %tobool
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK7openvdb5v11_02io14StreamMetadata14writeGridStatsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
@@ -4186,7 +4186,7 @@ entry:
   ret i1 %tobool
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK7openvdb5v11_02io14StreamMetadata8seekableEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
@@ -4196,7 +4196,7 @@ entry:
   ret i1 %tobool
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK7openvdb5v11_02io14StreamMetadata15delayedLoadMetaEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
@@ -4206,7 +4206,7 @@ entry:
   ret i1 %tobool
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZNK7openvdb5v11_02io14StreamMetadata14countingPassesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
@@ -4216,7 +4216,7 @@ entry:
   ret i1 %tobool
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZNK7openvdb5v11_02io14StreamMetadata4passEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
@@ -4225,7 +4225,7 @@ entry:
   ret i32 %1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i64 @_ZNK7openvdb5v11_02io14StreamMetadata4leafEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
@@ -4250,7 +4250,7 @@ entry:
   ret ptr %mGridMetadata
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZNK7openvdb5v11_02io14StreamMetadata6__testEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
@@ -4275,7 +4275,7 @@ entry:
   ret ptr %mAuxData
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN7openvdb5v11_02io14StreamMetadata14setFileVersionEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %v) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
@@ -4283,7 +4283,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN7openvdb5v11_02io14StreamMetadata17setLibraryVersionENS0_9VersionIdE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 %v.coerce) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
@@ -4292,7 +4292,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN7openvdb5v11_02io14StreamMetadata14setCompressionEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %c) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
@@ -4301,7 +4301,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN7openvdb5v11_02io14StreamMetadata12setGridClassEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %c) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
@@ -4310,7 +4310,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN7openvdb5v11_02io14StreamMetadata16setBackgroundPtrEPKv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef %ptr) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
@@ -4319,7 +4319,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN7openvdb5v11_02io14StreamMetadata12setHalfFloatEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i1 noundef zeroext %b) local_unnamed_addr #11 align 2 {
 entry:
   %frombool = zext i1 %b to i8
@@ -4329,7 +4329,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN7openvdb5v11_02io14StreamMetadata17setWriteGridStatsEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i1 noundef zeroext %b) local_unnamed_addr #11 align 2 {
 entry:
   %frombool = zext i1 %b to i8
@@ -4339,7 +4339,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN7openvdb5v11_02io14StreamMetadata11setSeekableEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i1 noundef zeroext %b) local_unnamed_addr #11 align 2 {
 entry:
   %frombool = zext i1 %b to i8
@@ -4349,7 +4349,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN7openvdb5v11_02io14StreamMetadata17setCountingPassesEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i1 noundef zeroext %b) local_unnamed_addr #11 align 2 {
 entry:
   %frombool = zext i1 %b to i8
@@ -4359,7 +4359,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN7openvdb5v11_02io14StreamMetadata7setPassEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %i) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
@@ -4368,7 +4368,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN7openvdb5v11_02io14StreamMetadata7setLeafEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 noundef %i) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
@@ -4377,7 +4377,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN7openvdb5v11_02io14StreamMetadata9__setTestEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %t) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
@@ -78241,9 +78241,9 @@ attributes #5 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #6 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { cold noreturn }

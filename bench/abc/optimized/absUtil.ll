@@ -38,7 +38,7 @@ define void @Abs_ParSetDefaults(ptr noundef writeonly captures(none) initializes
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
-; Function Attrs: nofree nounwind uwtable
+; Function Attrs: nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noalias noundef ptr @Gia_VtaConvertToGla(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %3, align 8, !tbaa !21
@@ -52,7 +52,7 @@ define noalias noundef ptr @Gia_VtaConvertToGla(ptr noundef readonly captures(no
   %.09.i = select i1 %6, i32 %.val, i32 %9
   %notmask = shl nsw i32 -1, %.09.i
   %10 = xor i32 %notmask, -1
-  %11 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
+  %11 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #12
   %or.cond.i.i = icmp ult i32 %7, 15
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 16, i32 %.val
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -69,7 +69,7 @@ Vec_IntAlloc.exit.thread.i:                       ; preds = %2
 Vec_IntAlloc.exit.i:                              ; preds = %2
   %14 = sext i32 %spec.store.select.i.i to i64
   %15 = shl nsw i64 %14, 2
-  %16 = tail call noalias ptr @malloc(i64 noundef %15) #11
+  %16 = tail call noalias ptr @malloc(i64 noundef %15) #12
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %16, ptr %17, align 8, !tbaa !41
   store i32 %.val, ptr %12, align 4, !tbaa !44
@@ -114,7 +114,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   ret ptr %11
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noalias noundef ptr @Gia_VtaConvertFromGla(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %4, align 8, !tbaa !21
@@ -146,10 +146,10 @@ Vec_IntPush.exit:                                 ; preds = %10, %3
   %16 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %15, i1 true)
   %17 = sub nuw nsw i32 32, %16
   %.09.i = select i1 %14, i32 %.val, i32 %17
-  %18 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
+  %18 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #12
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 1000, ptr %18, align 8, !tbaa !43
-  %20 = tail call noalias dereferenceable_or_null(4000) ptr @malloc(i64 noundef 4000) #11
+  %20 = tail call noalias dereferenceable_or_null(4000) ptr @malloc(i64 noundef 4000) #12
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %20, ptr %21, align 8, !tbaa !41
   store i32 1, ptr %19, align 4, !tbaa !44
@@ -194,7 +194,7 @@ Vec_IntPush.exit49.sink.split:                    ; preds = %.lr.ph
   %36 = shl nuw nsw i64 %35, 2
   %.sink107 = select i1 %33, i64 64, i64 %36
   %.sink = select i1 %33, i32 16, i32 %34
-  %37 = tail call ptr @realloc(ptr noundef nonnull %30, i64 noundef %.sink107) #12
+  %37 = tail call ptr @realloc(ptr noundef nonnull %30, i64 noundef %.sink107) #13
   store ptr %37, ptr %21, align 8, !tbaa !41
   store i32 %.sink, ptr %18, align 8, !tbaa !43
   br label %Vec_IntPush.exit49
@@ -257,11 +257,11 @@ Vec_IntPush.exit49:                               ; preds = %Vec_IntPush.exit49.
   br i1 %.not9.i.i54, label %60, label %58
 
 58:                                               ; preds = %57
-  %59 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %46, i64 noundef 64) #12
+  %59 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %46, i64 noundef 64) #13
   br label %Vec_IntPush.exit56.sink.split
 
 60:                                               ; preds = %57
-  %61 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #11
+  %61 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #12
   br label %Vec_IntPush.exit56.sink.split
 
 62:                                               ; preds = %55
@@ -272,11 +272,11 @@ Vec_IntPush.exit49:                               ; preds = %Vec_IntPush.exit49.
   br i1 %.not9.i9.i53, label %68, label %66
 
 66:                                               ; preds = %62
-  %67 = tail call ptr @realloc(ptr noundef nonnull %46, i64 noundef %65) #12
+  %67 = tail call ptr @realloc(ptr noundef nonnull %46, i64 noundef %65) #13
   br label %Vec_IntPush.exit56.sink.split
 
 68:                                               ; preds = %62
-  %69 = tail call noalias ptr @malloc(i64 noundef %65) #11
+  %69 = tail call noalias ptr @malloc(i64 noundef %65) #12
   br label %Vec_IntPush.exit56.sink.split
 
 Vec_IntPush.exit56.sink.split:                    ; preds = %66, %68, %58, %60
@@ -325,7 +325,7 @@ Vec_IntPush.exit56:                               ; preds = %Vec_IntPush.exit56.
   ret ptr %18
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @Gia_FlaConvertToGla_rec(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %5 = getelementptr i8, ptr %0, i64 32
@@ -407,8 +407,8 @@ Gia_ObjIsRo.exit._crit_edge:                      ; preds = %Gia_ObjIsRo.exit.th
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Gia_FlaConvertToGla(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
-  tail call void @Gia_ManIncrementTravId(ptr noundef %0) #13
+define noalias noundef ptr @Gia_FlaConvertToGla(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
+  tail call void @Gia_ManIncrementTravId(ptr noundef %0) #14
   %3 = getelementptr i8, ptr %0, i64 32
   %.val63 = load ptr, ptr %3, align 8, !tbaa !54
   %.val63.fr = freeze ptr %.val63
@@ -500,7 +500,7 @@ define noalias noundef ptr @Gia_FlaConvertToGla(ptr noundef %0, ptr noundef read
   %.val7095 = phi i32 [ %.val6891, %.lr.ph94 ], [ %.val6891, %.critedge.preheader ], [ %.val68, %.critedge ]
   %38 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %38, align 8, !tbaa !21
-  %39 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
+  %39 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #12
   %40 = add i32 %.val, -1
   %or.cond.i.i = icmp ult i32 %40, 15
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 16, i32 %.val
@@ -510,7 +510,7 @@ define noalias noundef ptr @Gia_FlaConvertToGla(ptr noundef %0, ptr noundef read
   tail call void @llvm.assume(i1 %.not.i.i)
   %42 = sext i32 %spec.store.select.i.i to i64
   %43 = shl nsw i64 %42, 2
-  %44 = tail call noalias ptr @malloc(i64 noundef %43) #11
+  %44 = tail call noalias ptr @malloc(i64 noundef %43) #12
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %44, ptr %45, align 8, !tbaa !41
   store i32 %.val, ptr %41, align 4, !tbaa !44
@@ -621,13 +621,13 @@ define noalias noundef ptr @Gia_FlaConvertToGla(ptr noundef %0, ptr noundef read
   ret ptr %39
 }
 
-declare void @Gia_ManIncrementTravId(ptr noundef) local_unnamed_addr #5
+declare void @Gia_ManIncrementTravId(ptr noundef) local_unnamed_addr #6
 
-; Function Attrs: nofree nounwind uwtable
+; Function Attrs: nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noalias noundef ptr @Gia_GlaConvertToFla(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 16
   %.val21 = load i32, ptr %3, align 8, !tbaa !56
-  %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
+  %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #12
   %5 = add i32 %.val21, -1
   %or.cond.i.i = icmp ult i32 %5, 15
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 16, i32 %.val21
@@ -645,7 +645,7 @@ Vec_IntAlloc.exit.thread.i:                       ; preds = %2
 Vec_IntAlloc.exit.i:                              ; preds = %2
   %8 = sext i32 %spec.store.select.i.i to i64
   %9 = shl nsw i64 %8, 2
-  %10 = tail call noalias ptr @malloc(i64 noundef %9) #11
+  %10 = tail call noalias ptr @malloc(i64 noundef %9) #12
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %11, align 8, !tbaa !41
   store i32 %.val21, ptr %6, align 4, !tbaa !44
@@ -709,8 +709,8 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   ret ptr %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Gia_GlaCountFlops(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define i32 @Gia_GlaCountFlops(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
   %3 = getelementptr i8, ptr %0, i64 16
   %.val18 = load i32, ptr %3, align 8, !tbaa !56
   %4 = icmp sgt i32 %.val18, 0
@@ -758,8 +758,8 @@ define i32 @Gia_GlaCountFlops(ptr noundef readonly captures(none) %0, ptr nounde
   ret i32 %.0.lcssa
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Gia_GlaCountNodes(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define i32 @Gia_GlaCountNodes(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !21
   %5 = icmp sgt i32 %4, 0
@@ -809,31 +809,32 @@ define i32 @Gia_GlaCountNodes(ptr noundef readonly captures(none) %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #10
+declare void @llvm.assume(i1 noundef) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #11 = { nounwind allocsize(0) }
-attributes #12 = { nounwind allocsize(1) }
-attributes #13 = { nounwind }
+attributes #2 = { nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #12 = { nounwind allocsize(0) }
+attributes #13 = { nounwind allocsize(1) }
+attributes #14 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

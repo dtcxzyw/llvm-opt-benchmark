@@ -70,7 +70,7 @@ define ptr @cuddSubsetHeavyBranch(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %191
 
 14:                                               ; preds = %4
-  %15 = tail call ptr @Cudd_ReadOne(ptr noundef %0) #7
+  %15 = tail call ptr @Cudd_ReadOne(ptr noundef %0) #8
   store ptr %15, ptr @one, align 8, !tbaa !28
   %16 = ptrtoint ptr %15 to i64
   %17 = xor i64 %16, 1
@@ -88,20 +88,20 @@ define ptr @cuddSubsetHeavyBranch(ptr noundef %0, ptr noundef %1, i32 noundef %2
 25:                                               ; preds = %14
   %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %spec.store.select)
   store double %ldexp, ptr @max, align 8, !tbaa !30
-  %26 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #7
+  %26 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %45, label %28
 
 28:                                               ; preds = %25
   store i32 128, ptr @maxPages, align 4, !tbaa !31
-  %29 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #8
+  %29 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #9
   store ptr %29, ptr @mintermPages, align 8, !tbaa !32
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.sink.split.i, label %31
 
 31:                                               ; preds = %28
   store i32 0, ptr @page, align 4, !tbaa !31
-  %32 = tail call noalias dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #8
+  %32 = tail call noalias dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #9
   store ptr %32, ptr @currentMintermPage, align 8, !tbaa !34
   store ptr %32, ptr %29, align 8, !tbaa !34
   %33 = icmp eq ptr %32, null
@@ -110,26 +110,26 @@ define ptr @cuddSubsetHeavyBranch(ptr noundef %0, ptr noundef %1, i32 noundef %2
 34:                                               ; preds = %31
   store i32 0, ptr @pageIndex, align 4, !tbaa !31
   store i32 128, ptr @maxNodeDataPages, align 4, !tbaa !31
-  %35 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #8
+  %35 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #9
   store ptr %35, ptr @nodeDataPages, align 8, !tbaa !36
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %34
-  tail call void @free(ptr noundef nonnull %32) #7
+  tail call void @free(ptr noundef nonnull %32) #8
   br label %.sink.split.sink.split.i
 
 38:                                               ; preds = %34
   store i32 0, ptr @nodeDataPage, align 4, !tbaa !31
-  %39 = tail call noalias dereferenceable_or_null(24576) ptr @malloc(i64 noundef 24576) #8
+  %39 = tail call noalias dereferenceable_or_null(24576) ptr @malloc(i64 noundef 24576) #9
   store ptr %39, ptr @currentNodeDataPage, align 8, !tbaa !38
   store ptr %39, ptr %35, align 8, !tbaa !38
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %38
-  tail call void @free(ptr noundef nonnull %32) #7
-  tail call void @free(ptr noundef nonnull %29) #7
+  tail call void @free(ptr noundef nonnull %32) #8
+  tail call void @free(ptr noundef nonnull %29) #8
   store ptr null, ptr @mintermPages, align 8, !tbaa !32
   br label %.sink.split.sink.split.i
 
@@ -143,12 +143,12 @@ define ptr @cuddSubsetHeavyBranch(ptr noundef %0, ptr noundef %1, i32 noundef %2
 .sink.split.sink.split.i:                         ; preds = %41, %37, %31
   %.sink.i = phi ptr [ %29, %37 ], [ %35, %41 ], [ %29, %31 ]
   %mintermPages.sink.i = phi ptr [ @mintermPages, %37 ], [ @nodeDataPages, %41 ], [ @mintermPages, %31 ]
-  tail call void @free(ptr noundef nonnull %.sink.i) #7
+  tail call void @free(ptr noundef nonnull %.sink.i) #8
   store ptr null, ptr %mintermPages.sink.i, align 8, !tbaa !40
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.sink.split.sink.split.i, %28
-  tail call void @st__free_table(ptr noundef nonnull %26) #7
+  tail call void @st__free_table(ptr noundef nonnull %26) #8
   br label %45
 
 45:                                               ; preds = %.sink.split.i, %42, %25
@@ -164,13 +164,13 @@ SubsetCountMinterm.exit:                          ; preds = %42
   %ldexp.i108 = tail call double @ldexp(double 1.000000e+00, i32 %spec.store.select)
   store double %ldexp.i108, ptr @max, align 8, !tbaa !30
   store i32 128, ptr @maxPages, align 4, !tbaa !31
-  %50 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #8
+  %50 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #9
   store ptr %50, ptr @nodePages, align 8, !tbaa !41
   %51 = icmp eq ptr %50, null
   br i1 %51, label %100, label %52
 
 52:                                               ; preds = %SubsetCountMinterm.exit
-  %53 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #8
+  %53 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #9
   store ptr %53, ptr @lightNodePages, align 8, !tbaa !41
   %54 = icmp eq ptr %53, null
   br i1 %54, label %.preheader.i, label %70
@@ -194,7 +194,7 @@ SubsetCountMinterm.exit:                          ; preds = %42
   br i1 %.not75.i, label %61, label %60
 
 60:                                               ; preds = %57
-  tail call void @free(ptr noundef nonnull %59) #7
+  tail call void @free(ptr noundef nonnull %59) #8
   store ptr null, ptr %58, align 8, !tbaa !34
   br label %61
 
@@ -208,7 +208,7 @@ SubsetCountMinterm.exit:                          ; preds = %42
   br i1 %.not70.i, label %62, label %._crit_edge90.thread.i
 
 ._crit_edge90.thread.i:                           ; preds = %61, %._crit_edge90.i
-  tail call void @free(ptr noundef nonnull %.pre115.i) #7
+  tail call void @free(ptr noundef nonnull %.pre115.i) #8
   store ptr null, ptr @mintermPages, align 8, !tbaa !32
   br label %62
 
@@ -231,7 +231,7 @@ SubsetCountMinterm.exit:                          ; preds = %42
   br i1 %.not74.i, label %69, label %68
 
 68:                                               ; preds = %65
-  tail call void @free(ptr noundef nonnull %67) #7
+  tail call void @free(ptr noundef nonnull %67) #8
   store ptr null, ptr %66, align 8, !tbaa !38
   br label %69
 
@@ -246,7 +246,7 @@ SubsetCountMinterm.exit:                          ; preds = %42
 
 70:                                               ; preds = %52
   store i32 0, ptr @page, align 4, !tbaa !31
-  %71 = tail call noalias dereferenceable_or_null(8192) ptr @malloc(i64 noundef 8192) #8
+  %71 = tail call noalias dereferenceable_or_null(8192) ptr @malloc(i64 noundef 8192) #9
   store ptr %71, ptr %50, align 8, !tbaa !45
   store ptr %71, ptr @currentNodePage, align 8, !tbaa !45
   %72 = icmp eq ptr %71, null
@@ -259,11 +259,11 @@ SubsetCountMinterm.exit:                          ; preds = %42
   br i1 %.not68.i, label %76, label %75
 
 75:                                               ; preds = %.preheader76.split.i
-  tail call void @free(ptr noundef nonnull %74) #7
+  tail call void @free(ptr noundef nonnull %74) #8
   br label %76
 
 76:                                               ; preds = %75, %.preheader76.split.i
-  tail call void @free(ptr noundef nonnull %73) #7
+  tail call void @free(ptr noundef nonnull %73) #8
   store ptr null, ptr @mintermPages, align 8, !tbaa !32
   %77 = load i32, ptr @nodeDataPage, align 4, !tbaa !31
   %.not6382.i = icmp slt i32 %77, 0
@@ -283,7 +283,7 @@ SubsetCountMinterm.exit:                          ; preds = %42
   br i1 %.not67.i, label %83, label %82
 
 82:                                               ; preds = %79
-  tail call void @free(ptr noundef nonnull %81) #7
+  tail call void @free(ptr noundef nonnull %81) #8
   store ptr null, ptr %80, align 8, !tbaa !38
   br label %83
 
@@ -297,7 +297,7 @@ SubsetCountMinterm.exit:                          ; preds = %42
   br i1 %.not64.i, label %.sink.split.sink.split.i110, label %.sink.split.sink.split.sink.split.i
 
 84:                                               ; preds = %70
-  %85 = tail call noalias dereferenceable_or_null(8192) ptr @malloc(i64 noundef 8192) #8
+  %85 = tail call noalias dereferenceable_or_null(8192) ptr @malloc(i64 noundef 8192) #9
   store ptr %85, ptr %53, align 8, !tbaa !45
   store ptr %85, ptr @currentLightNodePage, align 8, !tbaa !45
   %86 = icmp eq ptr %85, null
@@ -310,11 +310,11 @@ SubsetCountMinterm.exit:                          ; preds = %42
   br i1 %.not60.i, label %90, label %89
 
 89:                                               ; preds = %.preheader77.split.i
-  tail call void @free(ptr noundef nonnull %88) #7
+  tail call void @free(ptr noundef nonnull %88) #8
   br label %90
 
 90:                                               ; preds = %89, %.preheader77.split.i
-  tail call void @free(ptr noundef nonnull %87) #7
+  tail call void @free(ptr noundef nonnull %87) #8
   store ptr null, ptr @mintermPages, align 8, !tbaa !32
   %91 = load i32, ptr @nodeDataPage, align 4, !tbaa !31
   %.not5479.i = icmp slt i32 %91, 0
@@ -334,7 +334,7 @@ SubsetCountMinterm.exit:                          ; preds = %42
   br i1 %.not59.i, label %97, label %96
 
 96:                                               ; preds = %93
-  tail call void @free(ptr noundef nonnull %95) #7
+  tail call void @free(ptr noundef nonnull %95) #8
   store ptr null, ptr %94, align 8, !tbaa !38
   br label %97
 
@@ -348,7 +348,7 @@ SubsetCountMinterm.exit:                          ; preds = %42
   br i1 %.not55.i, label %.sink.split.sink.split.sink.split.i, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %97, %._crit_edge.i
-  tail call void @free(ptr noundef nonnull %.pre.i) #7
+  tail call void @free(ptr noundef nonnull %.pre.i) #8
   store ptr null, ptr @nodeDataPages, align 8, !tbaa !36
   br label %.sink.split.sink.split.sink.split.i
 
@@ -361,19 +361,19 @@ SubsetCountMinterm.exit:                          ; preds = %42
 .sink.split.sink.split.sink.split.i:              ; preds = %83, %._crit_edge.thread.i, %._crit_edge.i, %._crit_edge86.i
   %.pre114.sink.i = phi ptr [ %.pre114.i, %._crit_edge86.i ], [ %71, %._crit_edge.thread.i ], [ %71, %._crit_edge.i ], [ %.pre114.i, %83 ]
   %nodeDataPages.sink133.i = phi ptr [ @nodeDataPages, %._crit_edge86.i ], [ @currentNodePage, %._crit_edge.thread.i ], [ @currentNodePage, %._crit_edge.i ], [ @nodeDataPages, %83 ]
-  tail call void @free(ptr noundef %.pre114.sink.i) #7
+  tail call void @free(ptr noundef %.pre114.sink.i) #8
   store ptr null, ptr %nodeDataPages.sink133.i, align 8, !tbaa !40
   br label %.sink.split.sink.split.i110
 
 .sink.split.sink.split.i110:                      ; preds = %69, %.sink.split.sink.split.sink.split.i, %._crit_edge86.i, %._crit_edge95.i
   %.pre116.sink.i = phi ptr [ %.pre116.i, %._crit_edge95.i ], [ %53, %._crit_edge86.i ], [ %53, %.sink.split.sink.split.sink.split.i ], [ %.pre116.i, %69 ]
   %nodeDataPages.sink.i = phi ptr [ @nodeDataPages, %._crit_edge95.i ], [ @lightNodePages, %._crit_edge86.i ], [ @lightNodePages, %.sink.split.sink.split.sink.split.i ], [ @nodeDataPages, %69 ]
-  tail call void @free(ptr noundef %.pre116.sink.i) #7
+  tail call void @free(ptr noundef %.pre116.sink.i) #8
   store ptr null, ptr %nodeDataPages.sink.i, align 8, !tbaa !40
   br label %.sink.split.i111
 
 .sink.split.i111:                                 ; preds = %.sink.split.sink.split.i110, %._crit_edge95.i
-  tail call void @free(ptr noundef %50) #7
+  tail call void @free(ptr noundef %50) #8
   store ptr null, ptr @nodePages, align 8, !tbaa !41
   br label %100
 
@@ -387,7 +387,7 @@ SubsetCountMinterm.exit:                          ; preds = %42
   br label %191
 
 SubsetCountNodes.exit:                            ; preds = %98
-  %105 = call i32 @st__lookup(ptr noundef nonnull %26, ptr noundef nonnull %1, ptr noundef nonnull %5) #7
+  %105 = call i32 @st__lookup(ptr noundef nonnull %26, ptr noundef nonnull %1, ptr noundef nonnull %5) #8
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %107, label %112
 
@@ -400,7 +400,7 @@ SubsetCountNodes.exit:                            ; preds = %98
   br label %112
 
 112:                                              ; preds = %107, %SubsetCountNodes.exit
-  %113 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #8
+  %113 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #9
   %114 = icmp eq ptr %113, null
   br i1 %114, label %115, label %117
 
@@ -411,7 +411,7 @@ SubsetCountNodes.exit:                            ; preds = %98
 
 117:                                              ; preds = %112
   store i32 %99, ptr %113, align 4, !tbaa !31
-  %118 = call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #7
+  %118 = call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #8
   %119 = load ptr, ptr @one, align 8, !tbaa !28
   %120 = ptrtoint ptr %119 to i64
   %121 = and i64 %120, -2
@@ -420,8 +420,8 @@ SubsetCountNodes.exit:                            ; preds = %98
   %124 = load i32, ptr %123, align 4, !tbaa !48
   %125 = add i32 %124, 1
   store i32 %125, ptr %123, align 4, !tbaa !48
-  %126 = call ptr @Cudd_ReadOne(ptr noundef %0) #7
-  %127 = call i32 @st__insert(ptr noundef %118, ptr noundef %126, ptr noundef null) #7
+  %126 = call ptr @Cudd_ReadOne(ptr noundef %0) #8
+  %127 = call i32 @st__insert(ptr noundef %118, ptr noundef %126, ptr noundef null) #8
   %128 = icmp eq i32 %127, -10000
   br i1 %128, label %129, label %133
 
@@ -432,7 +432,7 @@ SubsetCountNodes.exit:                            ; preds = %98
   br label %133
 
 133:                                              ; preds = %129, %117
-  %134 = call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #7
+  %134 = call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #8
   %135 = call fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %113, ptr noundef %26, i32 noundef %3, ptr noundef %118, ptr noundef %134)
   %.not = icmp eq ptr %135, null
   br i1 %.not, label %143, label %136
@@ -448,52 +448,52 @@ SubsetCountNodes.exit:                            ; preds = %98
   br label %143
 
 143:                                              ; preds = %136, %133
-  %144 = call ptr @st__init_gen(ptr noundef %134) #7
+  %144 = call ptr @st__init_gen(ptr noundef %134) #8
   %145 = icmp eq ptr %144, null
   br i1 %145, label %147, label %.preheader117
 
 .preheader117:                                    ; preds = %143
-  %146 = call i32 @st__gen(ptr noundef nonnull %144, ptr noundef nonnull %6, ptr noundef nonnull %7) #7
+  %146 = call i32 @st__gen(ptr noundef nonnull %144, ptr noundef nonnull %6, ptr noundef nonnull %7) #8
   %.not94118 = icmp eq i32 %146, 0
   br i1 %.not94118, label %._crit_edge, label %.lr.ph
 
 147:                                              ; preds = %143
-  call void @st__free_table(ptr noundef %134) #7
+  call void @st__free_table(ptr noundef %134) #8
   br label %191
 
 .lr.ph:                                           ; preds = %.preheader117, %.lr.ph
   %148 = load ptr, ptr %7, align 8, !tbaa !50
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %148) #7
-  %149 = call i32 @st__gen(ptr noundef nonnull %144, ptr noundef nonnull %6, ptr noundef nonnull %7) #7
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %148) #8
+  %149 = call i32 @st__gen(ptr noundef nonnull %144, ptr noundef nonnull %6, ptr noundef nonnull %7) #8
   %.not94 = icmp eq i32 %149, 0
   br i1 %.not94, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader117
-  call void @st__free_gen(ptr noundef nonnull %144) #7
-  call void @st__free_table(ptr noundef %134) #7
-  %150 = call ptr @st__init_gen(ptr noundef %118) #7
+  call void @st__free_gen(ptr noundef nonnull %144) #8
+  call void @st__free_table(ptr noundef %134) #8
+  %150 = call ptr @st__init_gen(ptr noundef %118) #8
   %151 = icmp eq ptr %150, null
   br i1 %151, label %153, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
-  %152 = call i32 @st__gen(ptr noundef nonnull %150, ptr noundef nonnull %6, ptr noundef nonnull %7) #7
+  %152 = call i32 @st__gen(ptr noundef nonnull %150, ptr noundef nonnull %6, ptr noundef nonnull %7) #8
   %.not95119 = icmp eq i32 %152, 0
   br i1 %.not95119, label %._crit_edge121, label %.lr.ph120
 
 153:                                              ; preds = %._crit_edge
-  call void @st__free_table(ptr noundef %118) #7
+  call void @st__free_table(ptr noundef %118) #8
   br label %191
 
 .lr.ph120:                                        ; preds = %.preheader, %.lr.ph120
   %154 = load ptr, ptr %6, align 8, !tbaa !50
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %154) #7
-  %155 = call i32 @st__gen(ptr noundef nonnull %150, ptr noundef nonnull %6, ptr noundef nonnull %7) #7
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %154) #8
+  %155 = call i32 @st__gen(ptr noundef nonnull %150, ptr noundef nonnull %6, ptr noundef nonnull %7) #8
   %.not95 = icmp eq i32 %155, 0
   br i1 %.not95, label %._crit_edge121, label %.lr.ph120, !llvm.loop !52
 
 ._crit_edge121:                                   ; preds = %.lr.ph120, %.preheader
-  call void @st__free_gen(ptr noundef nonnull %150) #7
-  call void @st__free_table(ptr noundef %118) #7
+  call void @st__free_gen(ptr noundef nonnull %150) #8
+  call void @st__free_table(ptr noundef %118) #8
   %156 = load i32, ptr @page, align 4, !tbaa !31
   %.not96122 = icmp slt i32 %156, 0
   %.pre = load ptr, ptr @mintermPages, align 8, !tbaa !32
@@ -512,7 +512,7 @@ SubsetCountNodes.exit:                            ; preds = %98
   br i1 %.not107, label %162, label %161
 
 161:                                              ; preds = %158
-  call void @free(ptr noundef nonnull %160) #7
+  call void @free(ptr noundef nonnull %160) #8
   store ptr null, ptr %159, align 8, !tbaa !34
   br label %162
 
@@ -526,12 +526,12 @@ SubsetCountNodes.exit:                            ; preds = %98
   br i1 %.not97, label %._crit_edge131, label %.thread193
 
 .thread193:                                       ; preds = %._crit_edge126
-  call void @free(ptr noundef nonnull %.pre) #7
+  call void @free(ptr noundef nonnull %.pre) #8
   store ptr null, ptr @mintermPages, align 8, !tbaa !32
   br label %._crit_edge131
 
 .lr.ph130:                                        ; preds = %162
-  call void @free(ptr noundef nonnull %.pre) #7
+  call void @free(ptr noundef nonnull %.pre) #8
   store ptr null, ptr @mintermPages, align 8, !tbaa !32
   %.pre158 = load ptr, ptr @nodePages, align 8, !tbaa !41
   %163 = add nuw i32 %156, 1
@@ -546,7 +546,7 @@ SubsetCountNodes.exit:                            ; preds = %98
   br i1 %.not106, label %168, label %167
 
 167:                                              ; preds = %164
-  call void @free(ptr noundef nonnull %166) #7
+  call void @free(ptr noundef nonnull %166) #8
   store ptr null, ptr %165, align 8, !tbaa !45
   br label %168
 
@@ -561,12 +561,12 @@ SubsetCountNodes.exit:                            ; preds = %98
   br i1 %.not99, label %._crit_edge136, label %.thread201
 
 .thread201:                                       ; preds = %._crit_edge131
-  call void @free(ptr noundef nonnull %.pre158192) #7
+  call void @free(ptr noundef nonnull %.pre158192) #8
   store ptr null, ptr @nodePages, align 8, !tbaa !41
   br label %._crit_edge136
 
 .lr.ph135:                                        ; preds = %168
-  call void @free(ptr noundef nonnull %.pre158) #7
+  call void @free(ptr noundef nonnull %.pre158) #8
   store ptr null, ptr @nodePages, align 8, !tbaa !41
   %.pre159 = load ptr, ptr @lightNodePages, align 8, !tbaa !41
   %169 = add nuw i32 %156, 1
@@ -581,7 +581,7 @@ SubsetCountNodes.exit:                            ; preds = %98
   br i1 %.not105, label %174, label %173
 
 173:                                              ; preds = %170
-  call void @free(ptr noundef nonnull %172) #7
+  call void @free(ptr noundef nonnull %172) #8
   store ptr null, ptr %171, align 8, !tbaa !45
   br label %174
 
@@ -597,7 +597,7 @@ SubsetCountNodes.exit:                            ; preds = %98
 
 ._crit_edge136.thread:                            ; preds = %174, %._crit_edge136
   %.pre159200206 = phi ptr [ %.pre159200, %._crit_edge136 ], [ %.pre159, %174 ]
-  call void @free(ptr noundef nonnull %.pre159200206) #7
+  call void @free(ptr noundef nonnull %.pre159200206) #8
   store ptr null, ptr @lightNodePages, align 8, !tbaa !41
   br label %175
 
@@ -620,7 +620,7 @@ SubsetCountNodes.exit:                            ; preds = %98
   br i1 %.not104, label %182, label %181
 
 181:                                              ; preds = %178
-  call void @free(ptr noundef nonnull %180) #7
+  call void @free(ptr noundef nonnull %180) #8
   store ptr null, ptr %179, align 8, !tbaa !38
   br label %182
 
@@ -634,13 +634,13 @@ SubsetCountNodes.exit:                            ; preds = %98
   br i1 %.not103, label %183, label %._crit_edge141.thread
 
 ._crit_edge141.thread:                            ; preds = %182, %._crit_edge141
-  call void @free(ptr noundef nonnull %.pre160) #7
+  call void @free(ptr noundef nonnull %.pre160) #8
   store ptr null, ptr @nodeDataPages, align 8, !tbaa !36
   br label %183
 
 183:                                              ; preds = %._crit_edge141, %._crit_edge141.thread
-  call void @st__free_table(ptr noundef nonnull %26) #7
-  call void @free(ptr noundef %113) #7
+  call void @st__free_table(ptr noundef nonnull %26) #8
+  call void @free(ptr noundef %113) #8
   br i1 %.not, label %191, label %184
 
 184:                                              ; preds = %183
@@ -730,7 +730,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %19, label %172, label %20
 
 20:                                               ; preds = %14
-  %21 = call i32 @st__lookup(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %8) #7
+  %21 = call i32 @st__lookup(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %8) #8
   %.not110 = icmp eq i32 %21, 0
   br i1 %.not110, label %22, label %26
 
@@ -759,7 +759,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %41, label %53, label %42
 
 42:                                               ; preds = %26
-  %43 = call i32 @st__lookup(ptr noundef nonnull %3, ptr noundef %34, ptr noundef nonnull %9) #7
+  %43 = call i32 @st__lookup(ptr noundef nonnull %3, ptr noundef %34, ptr noundef nonnull %9) #8
   %.not111 = icmp eq i32 %43, 0
   br i1 %.not111, label %44, label %49
 
@@ -795,7 +795,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %62, label %74, label %63
 
 63:                                               ; preds = %58
-  %64 = call i32 @st__lookup(ptr noundef nonnull %3, ptr noundef %37, ptr noundef nonnull %10) #7
+  %64 = call i32 @st__lookup(ptr noundef nonnull %3, ptr noundef %37, ptr noundef nonnull %10) #8
   %.not112 = icmp eq i32 %64, 0
   br i1 %.not112, label %65, label %70
 
@@ -847,12 +847,12 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr n
   %95 = load i32, ptr %94, align 4, !tbaa !48
   %96 = add i32 %95, 1
   store i32 %96, ptr %94, align 4, !tbaa !48
-  %97 = call i32 @st__lookup(ptr noundef %5, ptr noundef nonnull %60, ptr noundef nonnull %11) #7
+  %97 = call i32 @st__lookup(ptr noundef %5, ptr noundef nonnull %60, ptr noundef nonnull %11) #8
   %.not115 = icmp eq i32 %97, 0
   br i1 %.not115, label %98, label %133
 
 98:                                               ; preds = %90
-  %99 = call i32 @st__lookup(ptr noundef %6, ptr noundef %37, ptr noundef nonnull %11) #7
+  %99 = call i32 @st__lookup(ptr noundef %6, ptr noundef %37, ptr noundef nonnull %11) #8
   %.not116 = icmp eq i32 %99, 0
   br i1 %.not116, label %105, label %100
 
@@ -883,12 +883,12 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr n
   %118 = load i32, ptr %117, align 4, !tbaa !48
   %119 = add i32 %118, 1
   store i32 %119, ptr %117, align 4, !tbaa !48
-  %120 = call i32 @st__lookup(ptr noundef %5, ptr noundef nonnull %39, ptr noundef nonnull %11) #7
+  %120 = call i32 @st__lookup(ptr noundef %5, ptr noundef nonnull %39, ptr noundef nonnull %11) #8
   %.not113 = icmp eq i32 %120, 0
   br i1 %.not113, label %121, label %133
 
 121:                                              ; preds = %113
-  %122 = call i32 @st__lookup(ptr noundef %6, ptr noundef %34, ptr noundef nonnull %11) #7
+  %122 = call i32 @st__lookup(ptr noundef %6, ptr noundef %34, ptr noundef nonnull %11) #8
   %.not114 = icmp eq i32 %122, 0
   br i1 %.not114, label %128, label %123
 
@@ -914,8 +914,8 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr n
   %135 = load i32, ptr %134, align 4, !tbaa !48
   %136 = add i32 %135, 1
   store i32 %136, ptr %134, align 4, !tbaa !48
-  %137 = call i32 @Cudd_NodeReadIndex(ptr noundef nonnull %17) #7
-  %138 = call ptr @Cudd_ReadVars(ptr noundef %0, i32 noundef %137) #7
+  %137 = call i32 @Cudd_NodeReadIndex(ptr noundef nonnull %17) #8
+  %138 = call ptr @Cudd_ReadVars(ptr noundef %0, i32 noundef %137) #8
   %139 = ptrtoint ptr %138 to i64
   %140 = and i64 %139, -2
   %141 = inttoptr i64 %140 to ptr
@@ -923,7 +923,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr n
   %143 = load i32, ptr %142, align 4, !tbaa !48
   %144 = add i32 %143, 1
   store i32 %144, ptr %142, align 4, !tbaa !48
-  %145 = call ptr @cuddBddIteRecur(ptr noundef %0, ptr noundef %138, ptr noundef %.0102, ptr noundef %.0101) #7
+  %145 = call ptr @cuddBddIteRecur(ptr noundef %0, ptr noundef %138, ptr noundef %.0102, ptr noundef %.0101) #8
   %.not117 = icmp eq ptr %145, null
   br i1 %.not117, label %.critedge, label %146
 
@@ -935,10 +935,10 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr n
   %151 = load i32, ptr %150, align 4, !tbaa !48
   %152 = add i32 %151, 1
   store i32 %152, ptr %150, align 4, !tbaa !48
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %138) #7
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0102) #7
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0101) #7
-  %153 = call i32 @st__lookup(ptr noundef %5, ptr noundef %149, ptr noundef nonnull %11) #7
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %138) #8
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0102) #8
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0101) #8
+  %153 = call i32 @st__lookup(ptr noundef %5, ptr noundef %149, ptr noundef nonnull %11) #8
   %.not118 = icmp eq i32 %153, 0
   br i1 %.not118, label %154, label %158
 
@@ -946,7 +946,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr n
   %155 = load i32, ptr %150, align 4, !tbaa !48
   %156 = add i32 %155, 1
   store i32 %156, ptr %150, align 4, !tbaa !48
-  %157 = call i32 @st__insert(ptr noundef %5, ptr noundef nonnull %149, ptr noundef null) #7
+  %157 = call i32 @st__insert(ptr noundef %5, ptr noundef nonnull %149, ptr noundef null) #8
   %.not119 = icmp eq i32 %157, 0
   br i1 %.not119, label %172, label %158
 
@@ -955,7 +955,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not120, label %169, label %159
 
 159:                                              ; preds = %158
-  %160 = call i32 @st__lookup(ptr noundef %6, ptr noundef %1, ptr noundef nonnull %11) #7
+  %160 = call i32 @st__lookup(ptr noundef %6, ptr noundef %1, ptr noundef nonnull %11) #8
   %.not121 = icmp eq i32 %160, 0
   br i1 %.not121, label %165, label %161
 
@@ -969,7 +969,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr n
   %166 = load i32, ptr %150, align 4, !tbaa !48
   %167 = add i32 %166, 1
   store i32 %167, ptr %150, align 4, !tbaa !48
-  %168 = call i32 @st__insert(ptr noundef %6, ptr noundef %1, ptr noundef nonnull %145) #7
+  %168 = call i32 @st__insert(ptr noundef %6, ptr noundef %1, ptr noundef nonnull %145) #8
   %.not122 = icmp eq i32 %168, 0
   br i1 %.not122, label %172, label %169
 
@@ -980,9 +980,9 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr n
   br label %172
 
 .critedge:                                        ; preds = %133
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %138) #7
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0102) #7
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0101) #7
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %138) #8
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0102) #8
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0101) #8
   br label %172
 
 172:                                              ; preds = %.critedge, %165, %154, %110, %87, %14, %169, %65, %44, %13
@@ -1025,7 +1025,7 @@ define internal fastcc double @SubsetCountMintermAux(ptr noundef %0, double noun
   br label %122
 
 13:                                               ; preds = %3
-  %14 = call i32 @st__lookup(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %4) #7
+  %14 = call i32 @st__lookup(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %4) #8
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %19, label %15
 
@@ -1080,7 +1080,7 @@ define internal fastcc double @SubsetCountMintermAux(ptr noundef %0, double noun
   %46 = add nsw i32 %41, 129
   %47 = sext i32 %46 to i64
   %48 = shl nsw i64 %47, 3
-  %49 = call noalias ptr @malloc(i64 noundef %48) #8
+  %49 = call noalias ptr @malloc(i64 noundef %48) #9
   %50 = icmp eq ptr %49, null
   %.pre54.i = load ptr, ptr @mintermPages, align 8, !tbaa !32
   br i1 %50, label %.preheader.i, label %.preheader31.i
@@ -1109,7 +1109,7 @@ define internal fastcc double @SubsetCountMintermAux(ptr noundef %0, double noun
   br i1 %.not27.i, label %56, label %55
 
 55:                                               ; preds = %52
-  call void @free(ptr noundef nonnull %54) #7
+  call void @free(ptr noundef nonnull %54) #8
   store ptr null, ptr %53, align 8, !tbaa !34
   br label %56
 
@@ -1142,7 +1142,7 @@ define internal fastcc double @SubsetCountMintermAux(ptr noundef %0, double noun
   br i1 %.not.i, label %62, label %61
 
 61:                                               ; preds = %._crit_edge.i, %._crit_edge.thread.i
-  call void @free(ptr noundef nonnull %.pre54.i) #7
+  call void @free(ptr noundef nonnull %.pre54.i) #8
   br label %62
 
 62:                                               ; preds = %61, %._crit_edge.i
@@ -1151,7 +1151,7 @@ define internal fastcc double @SubsetCountMintermAux(ptr noundef %0, double noun
 
 63:                                               ; preds = %62, %._crit_edge52.i
   %64 = phi ptr [ %.pre53.i, %._crit_edge52.i ], [ %49, %62 ]
-  %65 = call noalias dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #8
+  %65 = call noalias dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #9
   %66 = sext i32 %42 to i64
   %67 = getelementptr inbounds ptr, ptr %64, i64 %66
   store ptr %65, ptr %67, align 8, !tbaa !34
@@ -1175,7 +1175,7 @@ define internal fastcc double @SubsetCountMintermAux(ptr noundef %0, double noun
   br i1 %.not25.i, label %72, label %71
 
 71:                                               ; preds = %.lr.ph35.i
-  call void @free(ptr noundef nonnull %70) #7
+  call void @free(ptr noundef nonnull %70) #8
   store ptr null, ptr %69, align 8, !tbaa !34
   br label %72
 
@@ -1186,7 +1186,7 @@ define internal fastcc double @SubsetCountMintermAux(ptr noundef %0, double noun
 
 .preheader.sink.split:                            ; preds = %72, %56, %.preheader30.i, %._crit_edge40.i
   %.sink = phi ptr [ %.pre54.i, %._crit_edge40.i ], [ %64, %.preheader30.i ], [ %.pre54.i, %56 ], [ %64, %72 ]
-  call void @free(ptr noundef nonnull %.sink) #7
+  call void @free(ptr noundef nonnull %.sink) #8
   store ptr null, ptr @mintermPages, align 8, !tbaa !32
   br label %.preheader
 
@@ -1210,7 +1210,7 @@ define internal fastcc double @SubsetCountMintermAux(ptr noundef %0, double noun
   br i1 %.not76, label %79, label %78
 
 78:                                               ; preds = %75
-  call void @free(ptr noundef nonnull %77) #7
+  call void @free(ptr noundef nonnull %77) #8
   store ptr null, ptr %76, align 8, !tbaa !38
   br label %79
 
@@ -1224,12 +1224,12 @@ define internal fastcc double @SubsetCountMintermAux(ptr noundef %0, double noun
   br i1 %.not75, label %80, label %._crit_edge92.thread
 
 ._crit_edge92.thread:                             ; preds = %79, %._crit_edge92
-  call void @free(ptr noundef nonnull %.pre112) #7
+  call void @free(ptr noundef nonnull %.pre112) #8
   store ptr null, ptr @nodeDataPages, align 8, !tbaa !36
   br label %80
 
 80:                                               ; preds = %._crit_edge92, %._crit_edge92.thread
-  call void @st__free_table(ptr noundef nonnull %2) #7
+  call void @st__free_table(ptr noundef nonnull %2) #8
   br label %122
 
 ResizeCountMintermPages.exitthread-pre-split:     ; preds = %63, %35
@@ -1268,7 +1268,7 @@ ResizeCountMintermPages.exitthread-pre-split:     ; preds = %63, %35
   br i1 %.not73, label %95, label %94
 
 94:                                               ; preds = %91
-  call void @free(ptr noundef nonnull %93) #7
+  call void @free(ptr noundef nonnull %93) #8
   store ptr null, ptr %92, align 8, !tbaa !34
   br label %95
 
@@ -1282,12 +1282,12 @@ ResizeCountMintermPages.exitthread-pre-split:     ; preds = %63, %35
   br i1 %.not72, label %96, label %._crit_edge88.thread
 
 ._crit_edge88.thread:                             ; preds = %95, %._crit_edge88
-  call void @free(ptr noundef nonnull %.pre111) #7
+  call void @free(ptr noundef nonnull %.pre111) #8
   store ptr null, ptr @mintermPages, align 8, !tbaa !32
   br label %96
 
 96:                                               ; preds = %._crit_edge88, %._crit_edge88.thread
-  call void @st__free_table(ptr noundef nonnull %2) #7
+  call void @st__free_table(ptr noundef nonnull %2) #8
   br label %122
 
 .thread:                                          ; preds = %ResizeCountMintermPages.exitthread-pre-split, %88
@@ -1300,7 +1300,7 @@ ResizeCountMintermPages.exitthread-pre-split:     ; preds = %63, %35
   store ptr %84, ptr %100, align 8, !tbaa !59
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
   store ptr null, ptr %102, align 8, !tbaa !67
-  %103 = call i32 @st__insert(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %100) #7
+  %103 = call i32 @st__insert(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %100) #8
   %104 = icmp eq i32 %103, -10000
   br i1 %104, label %105, label %122
 
@@ -1324,7 +1324,7 @@ ResizeCountMintermPages.exitthread-pre-split:     ; preds = %63, %35
   br i1 %.not70, label %112, label %111
 
 111:                                              ; preds = %108
-  call void @free(ptr noundef nonnull %110) #7
+  call void @free(ptr noundef nonnull %110) #8
   store ptr null, ptr %109, align 8, !tbaa !34
   br label %112
 
@@ -1338,7 +1338,7 @@ ResizeCountMintermPages.exitthread-pre-split:     ; preds = %63, %35
   br i1 %.not66, label %113, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %112, %._crit_edge
-  call void @free(ptr noundef nonnull %.pre) #7
+  call void @free(ptr noundef nonnull %.pre) #8
   store ptr null, ptr @mintermPages, align 8, !tbaa !32
   br label %113
 
@@ -1361,7 +1361,7 @@ ResizeCountMintermPages.exitthread-pre-split:     ; preds = %63, %35
   br i1 %.not69, label %120, label %119
 
 119:                                              ; preds = %116
-  call void @free(ptr noundef nonnull %118) #7
+  call void @free(ptr noundef nonnull %118) #8
   store ptr null, ptr %117, align 8, !tbaa !38
   br label %120
 
@@ -1375,12 +1375,12 @@ ResizeCountMintermPages.exitthread-pre-split:     ; preds = %63, %35
   br i1 %.not68, label %121, label %._crit_edge84.thread
 
 ._crit_edge84.thread:                             ; preds = %120, %._crit_edge84
-  call void @free(ptr noundef nonnull %.pre110) #7
+  call void @free(ptr noundef nonnull %.pre110) #8
   store ptr null, ptr @nodeDataPages, align 8, !tbaa !36
   br label %121
 
 121:                                              ; preds = %._crit_edge84, %._crit_edge84.thread
-  call void @st__free_table(ptr noundef nonnull %2) #7
+  call void @st__free_table(ptr noundef nonnull %2) #8
   br label %122
 
 122:                                              ; preds = %.thread, %30, %19, %10, %121, %96, %80, %15
@@ -1389,8 +1389,8 @@ ResizeCountMintermPages.exitthread-pre-split:     ; preds = %63, %35
   ret double %.053
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc void @ResizeNodeDataPages() unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc void @ResizeNodeDataPages() unnamed_addr #4 {
   %1 = load i32, ptr @nodeDataPage, align 4, !tbaa !31
   %2 = add nsw i32 %1, 1
   store i32 %2, ptr @nodeDataPage, align 4, !tbaa !31
@@ -1406,7 +1406,7 @@ define internal fastcc void @ResizeNodeDataPages() unnamed_addr #0 {
   %6 = add nsw i32 %1, 129
   %7 = sext i32 %6 to i64
   %8 = shl nsw i64 %7, 3
-  %9 = tail call noalias ptr @malloc(i64 noundef %8) #8
+  %9 = tail call noalias ptr @malloc(i64 noundef %8) #9
   %10 = icmp eq ptr %9, null
   %.pre54 = load ptr, ptr @nodeDataPages, align 8, !tbaa !36
   br i1 %10, label %.preheader, label %.preheader31
@@ -1435,7 +1435,7 @@ define internal fastcc void @ResizeNodeDataPages() unnamed_addr #0 {
   br i1 %.not27, label %16, label %15
 
 15:                                               ; preds = %12
-  tail call void @free(ptr noundef nonnull %14) #7
+  tail call void @free(ptr noundef nonnull %14) #8
   store ptr null, ptr %13, align 8, !tbaa !38
   br label %16
 
@@ -1449,7 +1449,7 @@ define internal fastcc void @ResizeNodeDataPages() unnamed_addr #0 {
   br i1 %.not26, label %17, label %._crit_edge40.thread
 
 ._crit_edge40.thread:                             ; preds = %16, %._crit_edge40
-  tail call void @free(ptr noundef nonnull %.pre54) #7
+  tail call void @free(ptr noundef nonnull %.pre54) #8
   store ptr null, ptr @nodeDataPages, align 8, !tbaa !36
   br label %17
 
@@ -1477,7 +1477,7 @@ define internal fastcc void @ResizeNodeDataPages() unnamed_addr #0 {
   br i1 %.not, label %23, label %22
 
 22:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  tail call void @free(ptr noundef nonnull %.pre54) #7
+  tail call void @free(ptr noundef nonnull %.pre54) #8
   br label %23
 
 23:                                               ; preds = %._crit_edge, %22
@@ -1486,7 +1486,7 @@ define internal fastcc void @ResizeNodeDataPages() unnamed_addr #0 {
 
 24:                                               ; preds = %._crit_edge52, %23
   %25 = phi ptr [ %.pre53, %._crit_edge52 ], [ %9, %23 ]
-  %26 = tail call noalias dereferenceable_or_null(24576) ptr @malloc(i64 noundef 24576) #8
+  %26 = tail call noalias dereferenceable_or_null(24576) ptr @malloc(i64 noundef 24576) #9
   %27 = sext i32 %2 to i64
   %28 = getelementptr inbounds ptr, ptr %25, i64 %27
   store ptr %26, ptr %28, align 8, !tbaa !38
@@ -1510,7 +1510,7 @@ define internal fastcc void @ResizeNodeDataPages() unnamed_addr #0 {
   br i1 %.not25, label %33, label %32
 
 32:                                               ; preds = %.lr.ph35
-  tail call void @free(ptr noundef nonnull %31) #7
+  tail call void @free(ptr noundef nonnull %31) #8
   store ptr null, ptr %30, align 8, !tbaa !38
   br label %33
 
@@ -1520,7 +1520,7 @@ define internal fastcc void @ResizeNodeDataPages() unnamed_addr #0 {
   br i1 %exitcond46.not, label %._crit_edge36, label %.lr.ph35, !llvm.loop !72
 
 ._crit_edge36:                                    ; preds = %33, %.preheader30
-  tail call void @free(ptr noundef nonnull %25) #7
+  tail call void @free(ptr noundef nonnull %25) #8
   store ptr null, ptr @nodeDataPages, align 8, !tbaa !36
   store i1 true, ptr @memOut, align 4
   br label %35
@@ -1555,7 +1555,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
   br i1 %14, label %183, label %15
 
 15:                                               ; preds = %9
-  %16 = call i32 @st__lookup(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %4) #7
+  %16 = call i32 @st__lookup(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %4) #8
   %17 = icmp eq i32 %16, 1
   br i1 %17, label %18, label %183
 
@@ -1591,7 +1591,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
   br label %48
 
 41:                                               ; preds = %22
-  %42 = call i32 @st__lookup(ptr noundef nonnull %1, ptr noundef %30, ptr noundef nonnull %5) #7
+  %42 = call i32 @st__lookup(ptr noundef nonnull %1, ptr noundef %30, ptr noundef nonnull %5) #8
   %43 = icmp eq i32 %42, 1
   br i1 %43, label %44, label %183
 
@@ -1616,7 +1616,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
   br label %63
 
 56:                                               ; preds = %48
-  %57 = call i32 @st__lookup(ptr noundef nonnull %1, ptr noundef %33, ptr noundef nonnull %6) #7
+  %57 = call i32 @st__lookup(ptr noundef nonnull %1, ptr noundef %33, ptr noundef nonnull %6) #8
   %58 = icmp eq i32 %57, 1
   br i1 %58, label %59, label %183
 
@@ -1674,7 +1674,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
   br i1 %.not145, label %79, label %78
 
 78:                                               ; preds = %75
-  call void @free(ptr noundef nonnull %77) #7
+  call void @free(ptr noundef nonnull %77) #8
   store ptr null, ptr %76, align 8, !tbaa !34
   br label %79
 
@@ -1688,7 +1688,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
   br i1 %.not141, label %80, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %79, %._crit_edge
-  call void @free(ptr noundef nonnull %.pre219) #7
+  call void @free(ptr noundef nonnull %.pre219) #8
   store ptr null, ptr @mintermPages, align 8, !tbaa !32
   br label %80
 
@@ -1711,7 +1711,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
   br i1 %.not144, label %87, label %86
 
 86:                                               ; preds = %83
-  call void @free(ptr noundef nonnull %85) #7
+  call void @free(ptr noundef nonnull %85) #8
   store ptr null, ptr %84, align 8, !tbaa !38
   br label %87
 
@@ -1725,12 +1725,12 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
   br i1 %.not143, label %88, label %._crit_edge159.thread
 
 ._crit_edge159.thread:                            ; preds = %87, %._crit_edge159
-  call void @free(ptr noundef nonnull %.pre220) #7
+  call void @free(ptr noundef nonnull %.pre220) #8
   store ptr null, ptr @nodeDataPages, align 8, !tbaa !36
   br label %88
 
 88:                                               ; preds = %._crit_edge159, %._crit_edge159.thread
-  call void @st__free_table(ptr noundef nonnull %1) #7
+  call void @st__free_table(ptr noundef nonnull %1) #8
   br label %183
 
 89:                                               ; preds = %63
@@ -1776,7 +1776,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
   br i1 %.not131, label %103, label %102
 
 102:                                              ; preds = %99
-  call void @free(ptr noundef nonnull %101) #7
+  call void @free(ptr noundef nonnull %101) #8
   store ptr null, ptr %100, align 8, !tbaa !34
   br label %103
 
@@ -1790,7 +1790,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
   br i1 %.not127, label %104, label %._crit_edge177.thread
 
 ._crit_edge177.thread:                            ; preds = %103, %._crit_edge177
-  call void @free(ptr noundef nonnull %.pre227) #7
+  call void @free(ptr noundef nonnull %.pre227) #8
   store ptr null, ptr @mintermPages, align 8, !tbaa !32
   br label %104
 
@@ -1813,7 +1813,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
   br i1 %.not130, label %111, label %110
 
 110:                                              ; preds = %107
-  call void @free(ptr noundef nonnull %109) #7
+  call void @free(ptr noundef nonnull %109) #8
   store ptr null, ptr %108, align 8, !tbaa !38
   br label %111
 
@@ -1827,12 +1827,12 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
   br i1 %.not129, label %112, label %._crit_edge182.thread
 
 ._crit_edge182.thread:                            ; preds = %111, %._crit_edge182
-  call void @free(ptr noundef nonnull %.pre228) #7
+  call void @free(ptr noundef nonnull %.pre228) #8
   store ptr null, ptr @nodeDataPages, align 8, !tbaa !36
   br label %112
 
 112:                                              ; preds = %._crit_edge182, %._crit_edge182.thread
-  call void @st__free_table(ptr noundef nonnull %1) #7
+  call void @st__free_table(ptr noundef nonnull %1) #8
   br label %183
 
 .thread:                                          ; preds = %93, %..thread148_crit_edge, %69, %..thread_crit_edge
@@ -1858,7 +1858,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
   store i32 %123, ptr @pageIndex, align 4, !tbaa !31
   %124 = xor i64 %10, 1
   %125 = inttoptr i64 %124 to ptr
-  %126 = call i32 @st__lookup(ptr noundef nonnull %1, ptr noundef %125, ptr noundef nonnull %7) #7
+  %126 = call i32 @st__lookup(ptr noundef nonnull %1, ptr noundef %125, ptr noundef nonnull %7) #8
   %127 = icmp eq i32 %126, 1
   br i1 %127, label %128, label %181
 
@@ -1893,7 +1893,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
   br i1 %.not139, label %139, label %138
 
 138:                                              ; preds = %135
-  call void @free(ptr noundef nonnull %137) #7
+  call void @free(ptr noundef nonnull %137) #8
   store ptr null, ptr %136, align 8, !tbaa !34
   br label %139
 
@@ -1907,7 +1907,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
   br i1 %.not136, label %140, label %._crit_edge169.thread
 
 ._crit_edge169.thread:                            ; preds = %139, %._crit_edge169
-  call void @free(ptr noundef nonnull %.pre225) #7
+  call void @free(ptr noundef nonnull %.pre225) #8
   store ptr null, ptr @mintermPages, align 8, !tbaa !32
   br label %140
 
@@ -1929,7 +1929,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
   br i1 %.not138, label %147, label %146
 
 146:                                              ; preds = %143
-  call void @free(ptr noundef nonnull %145) #7
+  call void @free(ptr noundef nonnull %145) #8
   store ptr null, ptr %144, align 8, !tbaa !38
   br label %147
 
@@ -1943,12 +1943,12 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
   br i1 %.not137, label %148, label %._crit_edge173.thread
 
 ._crit_edge173.thread:                            ; preds = %147, %._crit_edge173
-  call void @free(ptr noundef nonnull %.pre226) #7
+  call void @free(ptr noundef nonnull %.pre226) #8
   store ptr null, ptr @nodeDataPages, align 8, !tbaa !36
   br label %148
 
 148:                                              ; preds = %._crit_edge173, %._crit_edge173.thread
-  call void @st__free_table(ptr noundef nonnull %1) #7
+  call void @st__free_table(ptr noundef nonnull %1) #8
   br label %183
 
 149:                                              ; preds = %132
@@ -1986,7 +1986,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
   br i1 %.not135, label %164, label %163
 
 163:                                              ; preds = %160
-  call void @free(ptr noundef nonnull %162) #7
+  call void @free(ptr noundef nonnull %162) #8
   store ptr null, ptr %161, align 8, !tbaa !34
   br label %164
 
@@ -2000,7 +2000,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
   br i1 %.not132, label %165, label %._crit_edge162.thread
 
 ._crit_edge162.thread:                            ; preds = %164, %._crit_edge162
-  call void @free(ptr noundef nonnull %.pre223) #7
+  call void @free(ptr noundef nonnull %.pre223) #8
   store ptr null, ptr @mintermPages, align 8, !tbaa !32
   br label %165
 
@@ -2022,7 +2022,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
   br i1 %.not134, label %172, label %171
 
 171:                                              ; preds = %168
-  call void @free(ptr noundef nonnull %170) #7
+  call void @free(ptr noundef nonnull %170) #8
   store ptr null, ptr %169, align 8, !tbaa !38
   br label %172
 
@@ -2036,12 +2036,12 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
   br i1 %.not133, label %173, label %._crit_edge166.thread
 
 ._crit_edge166.thread:                            ; preds = %172, %._crit_edge166
-  call void @free(ptr noundef nonnull %.pre224) #7
+  call void @free(ptr noundef nonnull %.pre224) #8
   store ptr null, ptr @nodeDataPages, align 8, !tbaa !36
   br label %173
 
 173:                                              ; preds = %._crit_edge166, %._crit_edge166.thread
-  call void @st__free_table(ptr noundef nonnull %1) #7
+  call void @st__free_table(ptr noundef nonnull %1) #8
   br label %183
 
 .thread254:                                       ; preds = %149, %157
@@ -2070,8 +2070,8 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc void @ResizeCountNodePages() unnamed_addr #0 {
+; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
+define internal fastcc void @ResizeCountNodePages() unnamed_addr #4 {
   %1 = load i32, ptr @page, align 4, !tbaa !31
   %2 = add nsw i32 %1, 1
   store i32 %2, ptr @page, align 4, !tbaa !31
@@ -2087,7 +2087,7 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #0 {
   %6 = add nsw i32 %1, 129
   %7 = sext i32 %6 to i64
   %8 = shl nsw i64 %7, 3
-  %9 = tail call noalias ptr @malloc(i64 noundef %8) #8
+  %9 = tail call noalias ptr @malloc(i64 noundef %8) #9
   %10 = icmp eq ptr %9, null
   %.pre195 = load ptr, ptr @nodePages, align 8, !tbaa !41
   br i1 %10, label %.preheader, label %.preheader103
@@ -2116,7 +2116,7 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #0 {
   br i1 %.not91, label %16, label %15
 
 15:                                               ; preds = %12
-  tail call void @free(ptr noundef nonnull %14) #7
+  tail call void @free(ptr noundef nonnull %14) #8
   store ptr null, ptr %13, align 8, !tbaa !45
   br label %16
 
@@ -2130,12 +2130,12 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #0 {
   br i1 %.not88, label %._crit_edge143, label %.thread212
 
 .thread212:                                       ; preds = %._crit_edge138
-  tail call void @free(ptr noundef nonnull %.pre195) #7
+  tail call void @free(ptr noundef nonnull %.pre195) #8
   store ptr null, ptr @nodePages, align 8, !tbaa !41
   br label %._crit_edge143
 
 .lr.ph142:                                        ; preds = %16
-  tail call void @free(ptr noundef nonnull %.pre195) #7
+  tail call void @free(ptr noundef nonnull %.pre195) #8
   store ptr null, ptr @nodePages, align 8, !tbaa !41
   %.pre196 = load ptr, ptr @lightNodePages, align 8, !tbaa !41
   %wide.trip.count188 = zext nneg i32 %2 to i64
@@ -2149,7 +2149,7 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #0 {
   br i1 %.not90, label %21, label %20
 
 20:                                               ; preds = %17
-  tail call void @free(ptr noundef nonnull %19) #7
+  tail call void @free(ptr noundef nonnull %19) #8
   store ptr null, ptr %18, align 8, !tbaa !45
   br label %21
 
@@ -2165,7 +2165,7 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #0 {
 
 ._crit_edge143.thread:                            ; preds = %21, %._crit_edge143
   %.pre196211216 = phi ptr [ %.pre196211, %._crit_edge143 ], [ %.pre196, %21 ]
-  tail call void @free(ptr noundef nonnull %.pre196211216) #7
+  tail call void @free(ptr noundef nonnull %.pre196211216) #8
   store ptr null, ptr @lightNodePages, align 8, !tbaa !41
   br label %22
 
@@ -2188,12 +2188,12 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #0 {
   br i1 %.not, label %27, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %23, %._crit_edge
-  tail call void @free(ptr noundef nonnull %.pre195) #7
+  tail call void @free(ptr noundef nonnull %.pre195) #8
   br label %27
 
 27:                                               ; preds = %._crit_edge, %._crit_edge.thread
   store ptr %9, ptr @nodePages, align 8, !tbaa !41
-  %28 = tail call noalias ptr @malloc(i64 noundef %8) #8
+  %28 = tail call noalias ptr @malloc(i64 noundef %8) #9
   %29 = icmp eq ptr %28, null
   br i1 %29, label %.preheader99, label %.preheader102
 
@@ -2210,7 +2210,7 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #0 {
   br i1 %.not95126, label %._crit_edge129.thread, label %.lr.ph128.preheader
 
 ._crit_edge129.thread:                            ; preds = %.preheader99
-  tail call void @free(ptr noundef nonnull %9) #7
+  tail call void @free(ptr noundef nonnull %9) #8
   store ptr null, ptr @nodePages, align 8, !tbaa !41
   %.pre194218 = load ptr, ptr @lightNodePages, align 8, !tbaa !41
   %.not85 = icmp eq ptr %.pre194218, null
@@ -2228,7 +2228,7 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #0 {
   br i1 %.not87, label %33, label %32
 
 32:                                               ; preds = %.lr.ph128
-  tail call void @free(ptr noundef nonnull %31) #7
+  tail call void @free(ptr noundef nonnull %31) #8
   store ptr null, ptr %30, align 8, !tbaa !45
   br label %33
 
@@ -2238,7 +2238,7 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #0 {
   br i1 %exitcond174.not, label %._crit_edge129, label %.lr.ph128, !llvm.loop !84
 
 ._crit_edge129:                                   ; preds = %33
-  tail call void @free(ptr noundef nonnull %9) #7
+  tail call void @free(ptr noundef nonnull %9) #8
   store ptr null, ptr @nodePages, align 8, !tbaa !41
   %.pre194 = load ptr, ptr @lightNodePages, align 8, !tbaa !41
   %wide.trip.count178 = zext nneg i32 %2 to i64
@@ -2252,7 +2252,7 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #0 {
   br i1 %.not86, label %38, label %37
 
 37:                                               ; preds = %34
-  tail call void @free(ptr noundef nonnull %36) #7
+  tail call void @free(ptr noundef nonnull %36) #8
   store ptr null, ptr %35, align 8, !tbaa !45
   br label %38
 
@@ -2263,7 +2263,7 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #0 {
 
 ._crit_edge134.thread:                            ; preds = %38, %._crit_edge129.thread
   %.pre194219222 = phi ptr [ %.pre194218, %._crit_edge129.thread ], [ %.pre194, %38 ]
-  tail call void @free(ptr noundef nonnull %.pre194219222) #7
+  tail call void @free(ptr noundef nonnull %.pre194219222) #8
   store ptr null, ptr @lightNodePages, align 8, !tbaa !41
   br label %39
 
@@ -2286,7 +2286,7 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #0 {
   br i1 %.not74, label %44, label %._crit_edge107.thread
 
 ._crit_edge107.thread:                            ; preds = %40, %._crit_edge107
-  tail call void @free(ptr noundef nonnull %.pre190) #7
+  tail call void @free(ptr noundef nonnull %.pre190) #8
   br label %44
 
 44:                                               ; preds = %._crit_edge107, %._crit_edge107.thread
@@ -2296,7 +2296,7 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #0 {
 
 45:                                               ; preds = %._crit_edge191, %44
   %46 = phi ptr [ %.pre192, %._crit_edge191 ], [ %9, %44 ]
-  %47 = tail call noalias dereferenceable_or_null(8192) ptr @malloc(i64 noundef 8192) #8
+  %47 = tail call noalias dereferenceable_or_null(8192) ptr @malloc(i64 noundef 8192) #9
   %48 = sext i32 %2 to i64
   %49 = getelementptr inbounds ptr, ptr %46, i64 %48
   store ptr %47, ptr %49, align 8, !tbaa !45
@@ -2309,7 +2309,7 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #0 {
   br i1 %.not93117, label %._crit_edge120.thread, label %.lr.ph119.preheader
 
 ._crit_edge120.thread:                            ; preds = %.preheader100
-  tail call void @free(ptr noundef nonnull %46) #7
+  tail call void @free(ptr noundef nonnull %46) #8
   store ptr null, ptr @nodePages, align 8, !tbaa !41
   %.pre193224 = load ptr, ptr @lightNodePages, align 8, !tbaa !41
   %.not81 = icmp eq ptr %.pre193224, null
@@ -2327,7 +2327,7 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #0 {
   br i1 %.not83, label %54, label %53
 
 53:                                               ; preds = %.lr.ph119
-  tail call void @free(ptr noundef nonnull %52) #7
+  tail call void @free(ptr noundef nonnull %52) #8
   store ptr null, ptr %51, align 8, !tbaa !45
   br label %54
 
@@ -2337,7 +2337,7 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #0 {
   br i1 %exitcond164.not, label %._crit_edge120, label %.lr.ph119, !llvm.loop !87
 
 ._crit_edge120:                                   ; preds = %54
-  tail call void @free(ptr noundef nonnull %46) #7
+  tail call void @free(ptr noundef nonnull %46) #8
   store ptr null, ptr @nodePages, align 8, !tbaa !41
   %.pre193 = load ptr, ptr @lightNodePages, align 8, !tbaa !41
   %wide.trip.count168 = zext nneg i32 %2 to i64
@@ -2351,7 +2351,7 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #0 {
   br i1 %.not82, label %59, label %58
 
 58:                                               ; preds = %55
-  tail call void @free(ptr noundef nonnull %57) #7
+  tail call void @free(ptr noundef nonnull %57) #8
   store ptr null, ptr %56, align 8, !tbaa !45
   br label %59
 
@@ -2362,7 +2362,7 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #0 {
 
 ._crit_edge125.thread:                            ; preds = %59, %._crit_edge120.thread
   %.pre193225228 = phi ptr [ %.pre193224, %._crit_edge120.thread ], [ %.pre193, %59 ]
-  tail call void @free(ptr noundef nonnull %.pre193225228) #7
+  tail call void @free(ptr noundef nonnull %.pre193225228) #8
   store ptr null, ptr @lightNodePages, align 8, !tbaa !41
   br label %60
 
@@ -2371,7 +2371,7 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #0 {
   br label %77
 
 61:                                               ; preds = %45
-  %62 = tail call noalias dereferenceable_or_null(8192) ptr @malloc(i64 noundef 8192) #8
+  %62 = tail call noalias dereferenceable_or_null(8192) ptr @malloc(i64 noundef 8192) #9
   %63 = load ptr, ptr @lightNodePages, align 8, !tbaa !41
   %64 = getelementptr inbounds ptr, ptr %63, i64 %48
   store ptr %62, ptr %64, align 8, !tbaa !45
@@ -2384,7 +2384,7 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #0 {
   br i1 %.not75108, label %._crit_edge111.thread, label %.lr.ph110.preheader
 
 ._crit_edge111.thread:                            ; preds = %.preheader101
-  tail call void @free(ptr noundef nonnull %46) #7
+  tail call void @free(ptr noundef nonnull %46) #8
   store ptr null, ptr @nodePages, align 8, !tbaa !41
   br label %._crit_edge116.thread
 
@@ -2401,7 +2401,7 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #0 {
   br i1 %.not79, label %70, label %69
 
 69:                                               ; preds = %.lr.ph110
-  tail call void @free(ptr noundef nonnull %68) #7
+  tail call void @free(ptr noundef nonnull %68) #8
   store ptr null, ptr %67, align 8, !tbaa !45
   br label %70
 
@@ -2411,7 +2411,7 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #0 {
   br i1 %exitcond154, label %._crit_edge111, label %.lr.ph110, !llvm.loop !89
 
 ._crit_edge111:                                   ; preds = %70
-  tail call void @free(ptr noundef nonnull %46) #7
+  tail call void @free(ptr noundef nonnull %46) #8
   store ptr null, ptr @nodePages, align 8, !tbaa !41
   %.not92112 = icmp slt i32 %1, 0
   br i1 %.not92112, label %._crit_edge116, label %.lr.ph115.preheader
@@ -2428,7 +2428,7 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #0 {
   br i1 %.not78, label %74, label %73
 
 73:                                               ; preds = %.lr.ph115
-  tail call void @free(ptr noundef nonnull %72) #7
+  tail call void @free(ptr noundef nonnull %72) #8
   store ptr null, ptr %71, align 8, !tbaa !45
   br label %74
 
@@ -2442,7 +2442,7 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #0 {
   br i1 %.not77, label %75, label %._crit_edge116.thread
 
 ._crit_edge116.thread:                            ; preds = %74, %._crit_edge111.thread, %._crit_edge116
-  tail call void @free(ptr noundef nonnull %63) #7
+  tail call void @free(ptr noundef nonnull %63) #8
   store ptr null, ptr @lightNodePages, align 8, !tbaa !41
   br label %75
 
@@ -2476,7 +2476,7 @@ define internal fastcc void @StoreNodes(ptr noundef %0, ptr noundef %1, ptr noun
   %11 = ptrtoint ptr %.tr1718 to i64
   %12 = and i64 %11, -2
   %13 = inttoptr i64 %12 to ptr
-  %14 = tail call i32 @st__lookup(ptr noundef %0, ptr noundef %13, ptr noundef null) #7
+  %14 = tail call i32 @st__lookup(ptr noundef %0, ptr noundef %13, ptr noundef null) #8
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %._crit_edge
 
@@ -2485,7 +2485,7 @@ define internal fastcc void @StoreNodes(ptr noundef %0, ptr noundef %1, ptr noun
   %17 = load i32, ptr %16, align 4, !tbaa !48
   %18 = add i32 %17, 1
   store i32 %18, ptr %16, align 4, !tbaa !48
-  %19 = tail call i32 @st__insert(ptr noundef %0, ptr noundef %13, ptr noundef null) #7
+  %19 = tail call i32 @st__insert(ptr noundef %0, ptr noundef %13, ptr noundef null) #8
   %20 = icmp eq i32 %19, -10000
   br i1 %20, label %21, label %tailrecurse
 
@@ -2515,26 +2515,27 @@ declare ptr @Cudd_ReadVars(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @cuddBddIteRecur(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @ldexp(double, i32) local_unnamed_addr #5
+declare double @ldexp(double, i32) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nounwind willreturn memory(errnomem: write) }
-attributes #6 = { nofree nounwind }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind allocsize(0) }
+attributes #4 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(errnomem: write) }
+attributes #7 = { nofree nounwind }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

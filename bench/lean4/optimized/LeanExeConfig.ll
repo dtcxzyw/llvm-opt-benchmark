@@ -80,7 +80,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.11 = private unnamed_addr constant [5 x i8] c"Lake\00", align 1
 @.str.12 = private unnamed_addr constant [14 x i8] c"LeanExeConfig\00", align 1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Lake_instInhabitedLeanExeConfig___lambda__1(i8 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @l_Lake_instInhabitedLeanExeConfig___lambda__1___closed__1, align 8, !tbaa !4
   ret ptr %2
@@ -216,7 +216,7 @@ lean_dec.exit:                                    ; preds = %26, %25, %23, %l_La
   ret ptr %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Lake_LeanExeConfig_srcDir___proj___elambda__1(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @l_Lake_LeanExeConfig_srcDir___proj___elambda__1___closed__1, align 8, !tbaa !4
   ret ptr %3
@@ -3136,7 +3136,7 @@ define noalias nonnull ptr @l_Lake_LeanExeConfig_exeName_instConfigField(ptr nou
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Lake_LeanExeConfig_needs___proj___elambda__1(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @l_Lake_LeanExeConfig_needs___proj___elambda__1___closed__1, align 8, !tbaa !4
   ret ptr %3
@@ -4089,7 +4089,7 @@ define noalias nonnull ptr @l_Lake_LeanExeConfig_needs_instConfigField(ptr nound
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Lake_LeanExeConfig_extraDepTargets___proj___elambda__1(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @l_Lake_LeanExeConfig_needs___proj___elambda__1___closed__1, align 8, !tbaa !4
   ret ptr %3
@@ -6034,7 +6034,7 @@ define noalias nonnull ptr @l_Lake_LeanExeConfig_supportInterpreter_instConfigFi
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Lake_LeanExeConfig_nativeFacets___proj___elambda__1___rarg(i8 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = icmp eq i8 %0, 0
   %l_Lake_LeanExeConfig_nativeFacets___proj___elambda__1___rarg___closed__2.val = load ptr, ptr @l_Lake_LeanExeConfig_nativeFacets___proj___elambda__1___rarg___closed__2, align 8
@@ -7123,7 +7123,7 @@ define noalias nonnull ptr @l_Lake_LeanExeConfig_nativeFacets_instConfigField(pt
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Lake_LeanExeConfig_toLeanConfig___proj___elambda__1(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @l_Lake_LeanExeConfig_toLeanConfig___proj___elambda__1___closed__1, align 8, !tbaa !4
   ret ptr %3
@@ -8074,7 +8074,7 @@ define noalias nonnull ptr @l_Lake_LeanExeConfig_toLeanConfig_instConfigParent(p
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @l_Lake_LeanExeConfig_instConfigFields(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @l_Lake_LeanExeConfig___fields, align 8, !tbaa !4
   ret ptr %2
@@ -9153,7 +9153,7 @@ declare ptr @l_Array_foldlMUnsafe_fold___at_Lake_LeanConfig_instConfigMeta___spe
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

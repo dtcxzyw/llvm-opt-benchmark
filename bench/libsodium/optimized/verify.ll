@@ -18,7 +18,7 @@ define dso_local noundef i64 @crypto_verify_64_bytes() local_unnamed_addr #0 {
   ret i64 64
 }
 
-; Function Attrs: nofree norecurse nounwind ssp memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind ssp memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local range(i32 -1, 65535) i32 @crypto_verify_16(ptr noundef nonnull %0, ptr noundef nonnull %1) local_unnamed_addr #1 {
   %3 = alloca <2 x i64>, align 16
   %4 = alloca <2 x i64>, align 16
@@ -69,7 +69,7 @@ define dso_local range(i32 -1, 65535) i32 @crypto_verify_16(ptr noundef nonnull 
   ret i32 %21
 }
 
-; Function Attrs: nofree norecurse nounwind ssp memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind ssp memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local range(i32 -1, 65535) i32 @crypto_verify_32(ptr noundef nonnull %0, ptr noundef nonnull %1) local_unnamed_addr #1 {
 .lr.ph.i:
   %2 = alloca <2 x i64>, align 16
@@ -135,7 +135,7 @@ define dso_local range(i32 -1, 65535) i32 @crypto_verify_32(ptr noundef nonnull 
   ret i32 %26
 }
 
-; Function Attrs: nofree norecurse nounwind ssp memory(read, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind ssp memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local range(i32 -1, 65535) i32 @crypto_verify_64(ptr noundef nonnull %0, ptr noundef nonnull %1) local_unnamed_addr #1 {
   %3 = alloca <2 x i64>, align 16
   %4 = alloca <2 x i64>, align 16
@@ -216,7 +216,7 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nounwind ssp memory(read, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nounwind ssp memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

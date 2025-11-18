@@ -1503,7 +1503,7 @@ define hidden void @_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterhENtNtNtNtBa
   ret void
 }
 
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden { i64, i64 } @_RINvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3zip3ZipINtNtNtBc_5slice4iter4IterhEBR_ENtNtNtBa_6traits8iterator8Iterator8try_folduNCINvNvB1n_8position5checkTRhB2w_ENCNvXsk_NtCsaPKTPzkFU9s_3nom6traitsRShINtB2L_7CompareB3c_E7compare0E0INtNtNtBc_3ops12control_flow11ControlFlowjEECseG2FYMysgNb_3wax.llvm.8413233830278194149(ptr noalias noundef align 8 captures(none) dereferenceable(56) %0, ptr noalias noundef align 8 captures(none) dereferenceable(8) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1917,7 +1917,7 @@ define hidden void @_RNCINvCs4DJqE8qduBp_4pori4spanINtB4_8StatefulINtB4_7Located
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_RNCINvMNtNtCs1LoaDTb72WA_4core3ops9try_traitINtB5_17NeverShortCircuituE10wrap_mut_2uNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNCINvNvXs_NtNtNtB9_4iter8adapters9enumerateINtB2q_9EnumeratepENtNtNtB2u_6traits8iterator8Iterator4fold9enumerateB1k_uNCINvNvB3g_8for_each4callTjB1k_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB4O_8VecDequeB1k_E10write_iterINtNtB2s_4take4TakeINtNtB2s_12by_ref_sized10ByRefSizedINtNtB2s_6cloned6ClonedINtNtB4O_4iter4IterB1k_EEEEE0E0E0E0B1q_.llvm.8413233830278194149(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !433)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2361,7 +2361,7 @@ _RNvXsE_NtNtCseG2FYMysgNb_3wax5token8varianceNtB5_17InvariantFragmentNtNtCs1LoaD
   ret i1 %55
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_RNCINvNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters4takeINtB9_4TakepENtNtNtBd_6traits8iterator8Iterator8try_fold5checkNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentuINtNtNtBf_3ops9try_trait17NeverShortCircuituENCINvMB2R_B2O_10wrap_mut_2uB1R_NCINvNvXs_NtBb_9enumerateINtB4c_9EnumeratepEB14_4fold9enumerateB1R_uNCINvNvB14_8for_each4callTjB1R_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5N_8VecDequeB1R_E10write_iterIBS_INtNtBb_12by_ref_sized10ByRefSizedINtNtBb_6cloned6ClonedINtNtB5N_4iter4IterB1R_EEEEE0E0E0E0E0B1X_.llvm.8413233830278194149(ptr noalias noundef align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !153, !noundef !4
   %4 = load i64, ptr %3, align 8, !noundef !4
@@ -2395,7 +2395,7 @@ define hidden noundef zeroext i1 @_RNCINvNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8ada
   ret i1 %23
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_RNCINvNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB9_9EnumeratepENtNtNtBd_6traits8iterator8Iterator4fold9enumerateNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentuNCINvNvB1e_8for_each4callTjB21_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB3D_8VecDequeB21_E10write_iterINtNtBb_4take4TakeINtNtBb_12by_ref_sized10ByRefSizedINtNtBb_6cloned6ClonedINtNtB3D_4iter4IterB21_EEEEE0E0E0B27_.llvm.8413233830278194149(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !noundef !4
@@ -5140,9 +5140,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #30
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #2 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #2 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #4 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #4 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { alwaysinline nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { inlinehint mustprogress nofree norecurse noreturn nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

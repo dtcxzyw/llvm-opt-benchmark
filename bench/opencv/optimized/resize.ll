@@ -21461,7 +21461,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2ELb0ELi1EEEvPT_iPiPT0_S6_iii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #17 {
   %9 = icmp sgt i32 %5, 0
   br i1 %9, label %.preheader70.lr.ph.i.i, label %.preheader69.i.i
@@ -21761,7 +21761,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2ELb0ELi2EEEvPT_iPiPT0_S6_iii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #17 {
   %9 = icmp sgt i32 %5, 0
   br i1 %9, label %.preheader70.lr.ph.i.i, label %.preheader69.i.i
@@ -22092,7 +22092,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2ELb0ELi3EEEvPT_iPiPT0_S6_iii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #17 {
   %9 = icmp sgt i32 %5, 0
   br i1 %9, label %.preheader70.lr.ph.i.i, label %.preheader69.i.i
@@ -22454,7 +22454,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2ELb0ELi4EEEvPT_iPiPT0_S6_iii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #17 {
   %9 = icmp sgt i32 %5, 0
   br i1 %9, label %.preheader70.lr.ph.i.i, label %.preheader69.i.i
@@ -22627,7 +22627,7 @@ _ZN12_GLOBAL__N_15hlineIhNS_13ufixedpoint16ELi2ELb0ELi4EE8ResizeCnEPhiPiPS1_S5_i
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_111hlineResizeIhNS_13ufixedpoint16ELi2ELb1EEEvPT_iPiPT0_S6_iii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #17 {
   %9 = icmp sgt i32 %5, 0
   br i1 %9, label %.preheader67.lr.ph, label %.preheader66
@@ -22784,7 +22784,7 @@ define internal void @_ZN12_GLOBAL__N_111hlineResizeIhNS_13ufixedpoint16ELi2ELb1
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_111hlineResizeIhNS_13ufixedpoint16ELi2ELb0EEEvPT_iPiPT0_S6_iii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #17 {
   %9 = icmp sgt i32 %5, 0
   br i1 %9, label %.preheader70.lr.ph, label %.preheader69
@@ -23619,7 +23619,7 @@ _ZN12_GLOBAL__N_15hlineIaNS_12fixedpoint32ELi2ELb1ELi1EE8ResizeCnEPaiPiPS1_S5_ii
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIaNS_12fixedpoint32ELi2ELb0ELi1EEEvPT_iPiPT0_S6_iii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #17 {
   tail call void @_ZN12_GLOBAL__N_111hlineResizeIaNS_12fixedpoint32ELi2ELb0EEEvPT_iPiPT0_S6_iii(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7)
   ret void
@@ -23770,7 +23770,7 @@ _ZN12_GLOBAL__N_15hlineIaNS_12fixedpoint32ELi2ELb1ELi2EE8ResizeCnEPaiPiPS1_S5_ii
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIaNS_12fixedpoint32ELi2ELb0ELi2EEEvPT_iPiPT0_S6_iii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #17 {
   tail call void @_ZN12_GLOBAL__N_111hlineResizeIaNS_12fixedpoint32ELi2ELb0EEEvPT_iPiPT0_S6_iii(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7)
   ret void
@@ -23961,7 +23961,7 @@ _ZN12_GLOBAL__N_15hlineIaNS_12fixedpoint32ELi2ELb1ELi3EE8ResizeCnEPaiPiPS1_S5_ii
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIaNS_12fixedpoint32ELi2ELb0ELi3EEEvPT_iPiPT0_S6_iii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #17 {
   tail call void @_ZN12_GLOBAL__N_111hlineResizeIaNS_12fixedpoint32ELi2ELb0EEEvPT_iPiPT0_S6_iii(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7)
   ret void
@@ -24192,13 +24192,13 @@ _ZN12_GLOBAL__N_15hlineIaNS_12fixedpoint32ELi2ELb1ELi4EE8ResizeCnEPaiPiPS1_S5_ii
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIaNS_12fixedpoint32ELi2ELb0ELi4EEEvPT_iPiPT0_S6_iii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #17 {
   tail call void @_ZN12_GLOBAL__N_111hlineResizeIaNS_12fixedpoint32ELi2ELb0EEEvPT_iPiPT0_S6_iii(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7)
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_111hlineResizeIaNS_12fixedpoint32ELi2ELb1EEEvPT_iPiPT0_S6_iii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #17 {
   %9 = icmp sgt i32 %5, 0
   br i1 %9, label %.preheader66.lr.ph, label %.preheader65
@@ -24364,7 +24364,7 @@ define internal void @_ZN12_GLOBAL__N_111hlineResizeIaNS_12fixedpoint32ELi2ELb1E
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_111hlineResizeIaNS_12fixedpoint32ELi2ELb0EEEvPT_iPiPT0_S6_iii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #17 {
   %9 = icmp sgt i32 %5, 0
   br i1 %9, label %.preheader69.lr.ph, label %.preheader68
@@ -25179,7 +25179,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2ELb0ELi1EEEvPT_iPiPT0_S6_iii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #17 {
   %9 = icmp sgt i32 %5, 0
   br i1 %9, label %.preheader70.lr.ph.i.i, label %.preheader69.i.i
@@ -25479,7 +25479,7 @@ _ZN12_GLOBAL__N_15hlineItNS_13ufixedpoint32ELi2ELb1ELi2EE8ResizeCnEPtiPiPS1_S5_i
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2ELb0ELi2EEEvPT_iPiPT0_S6_iii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #17 {
   %9 = icmp sgt i32 %5, 0
   br i1 %9, label %.preheader70.lr.ph.i.i, label %.preheader69.i.i
@@ -25810,7 +25810,7 @@ _ZN12_GLOBAL__N_15hlineItNS_13ufixedpoint32ELi2ELb1ELi3EE8ResizeCnEPtiPiPS1_S5_i
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2ELb0ELi3EEEvPT_iPiPT0_S6_iii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #17 {
   %9 = icmp sgt i32 %5, 0
   br i1 %9, label %.preheader70.lr.ph.i.i, label %.preheader69.i.i
@@ -26172,7 +26172,7 @@ _ZN12_GLOBAL__N_15hlineItNS_13ufixedpoint32ELi2ELb1ELi4EE8ResizeCnEPtiPiPS1_S5_i
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2ELb0ELi4EEEvPT_iPiPT0_S6_iii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #17 {
   %9 = icmp sgt i32 %5, 0
   br i1 %9, label %.preheader70.lr.ph.i.i, label %.preheader69.i.i
@@ -26345,7 +26345,7 @@ _ZN12_GLOBAL__N_15hlineItNS_13ufixedpoint32ELi2ELb0ELi4EE8ResizeCnEPtiPiPS1_S5_i
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_111hlineResizeItNS_13ufixedpoint32ELi2ELb1EEEvPT_iPiPT0_S6_iii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #17 {
   %9 = icmp sgt i32 %5, 0
   br i1 %9, label %.preheader67.lr.ph, label %.preheader66
@@ -26502,7 +26502,7 @@ define internal void @_ZN12_GLOBAL__N_111hlineResizeItNS_13ufixedpoint32ELi2ELb1
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_111hlineResizeItNS_13ufixedpoint32ELi2ELb0EEEvPT_iPiPT0_S6_iii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #17 {
   %9 = icmp sgt i32 %5, 0
   br i1 %9, label %.preheader70.lr.ph, label %.preheader69
@@ -27316,7 +27316,7 @@ _ZN12_GLOBAL__N_15hlineIsNS_12fixedpoint32ELi2ELb1ELi1EE8ResizeCnEPsiPiPS1_S5_ii
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIsNS_12fixedpoint32ELi2ELb0ELi1EEEvPT_iPiPT0_S6_iii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #17 {
   tail call void @_ZN12_GLOBAL__N_111hlineResizeIsNS_12fixedpoint32ELi2ELb0EEEvPT_iPiPT0_S6_iii(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7)
   ret void
@@ -27467,7 +27467,7 @@ _ZN12_GLOBAL__N_15hlineIsNS_12fixedpoint32ELi2ELb1ELi2EE8ResizeCnEPsiPiPS1_S5_ii
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIsNS_12fixedpoint32ELi2ELb0ELi2EEEvPT_iPiPT0_S6_iii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #17 {
   tail call void @_ZN12_GLOBAL__N_111hlineResizeIsNS_12fixedpoint32ELi2ELb0EEEvPT_iPiPT0_S6_iii(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7)
   ret void
@@ -27658,7 +27658,7 @@ _ZN12_GLOBAL__N_15hlineIsNS_12fixedpoint32ELi2ELb1ELi3EE8ResizeCnEPsiPiPS1_S5_ii
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIsNS_12fixedpoint32ELi2ELb0ELi3EEEvPT_iPiPT0_S6_iii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #17 {
   tail call void @_ZN12_GLOBAL__N_111hlineResizeIsNS_12fixedpoint32ELi2ELb0EEEvPT_iPiPT0_S6_iii(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7)
   ret void
@@ -27889,13 +27889,13 @@ _ZN12_GLOBAL__N_15hlineIsNS_12fixedpoint32ELi2ELb1ELi4EE8ResizeCnEPsiPiPS1_S5_ii
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIsNS_12fixedpoint32ELi2ELb0ELi4EEEvPT_iPiPT0_S6_iii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #17 {
   tail call void @_ZN12_GLOBAL__N_111hlineResizeIsNS_12fixedpoint32ELi2ELb0EEEvPT_iPiPT0_S6_iii(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7)
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_111hlineResizeIsNS_12fixedpoint32ELi2ELb1EEEvPT_iPiPT0_S6_iii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #17 {
   %9 = icmp sgt i32 %5, 0
   br i1 %9, label %.preheader66.lr.ph, label %.preheader65
@@ -28061,7 +28061,7 @@ define internal void @_ZN12_GLOBAL__N_111hlineResizeIsNS_12fixedpoint32ELi2ELb1E
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_111hlineResizeIsNS_12fixedpoint32ELi2ELb0EEEvPT_iPiPT0_S6_iii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #17 {
   %9 = icmp sgt i32 %5, 0
   br i1 %9, label %.preheader69.lr.ph, label %.preheader68
@@ -28946,7 +28946,7 @@ _ZN12_GLOBAL__N_15hlineIiNS_12fixedpoint64ELi2ELb1ELi1EE8ResizeCnEPiiS3_PS1_S4_i
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIiNS_12fixedpoint64ELi2ELb0ELi1EEEvPT_iPiPT0_S6_iii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #17 {
   tail call void @_ZN12_GLOBAL__N_111hlineResizeIiNS_12fixedpoint64ELi2ELb0EEEvPT_iPiPT0_S6_iii(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7)
   ret void
@@ -29229,7 +29229,7 @@ _ZN12_GLOBAL__N_15hlineIiNS_12fixedpoint64ELi2ELb1ELi2EE8ResizeCnEPiiS3_PS1_S4_i
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIiNS_12fixedpoint64ELi2ELb0ELi2EEEvPT_iPiPT0_S6_iii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #17 {
   tail call void @_ZN12_GLOBAL__N_111hlineResizeIiNS_12fixedpoint64ELi2ELb0EEEvPT_iPiPT0_S6_iii(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7)
   ret void
@@ -29618,7 +29618,7 @@ _ZN12_GLOBAL__N_15hlineIiNS_12fixedpoint64ELi2ELb1ELi3EE8ResizeCnEPiiS3_PS1_S4_i
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIiNS_12fixedpoint64ELi2ELb0ELi3EEEvPT_iPiPT0_S6_iii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #17 {
   tail call void @_ZN12_GLOBAL__N_111hlineResizeIiNS_12fixedpoint64ELi2ELb0EEEvPT_iPiPT0_S6_iii(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7)
   ret void
@@ -30113,13 +30113,13 @@ _ZN12_GLOBAL__N_15hlineIiNS_12fixedpoint64ELi2ELb1ELi4EE8ResizeCnEPiiS3_PS1_S4_i
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIiNS_12fixedpoint64ELi2ELb0ELi4EEEvPT_iPiPT0_S6_iii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #17 {
   tail call void @_ZN12_GLOBAL__N_111hlineResizeIiNS_12fixedpoint64ELi2ELb0EEEvPT_iPiPT0_S6_iii(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7)
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_111hlineResizeIiNS_12fixedpoint64ELi2ELb1EEEvPT_iPiPT0_S6_iii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #17 {
   %9 = icmp sgt i32 %5, 0
   br i1 %9, label %.preheader79.lr.ph, label %.preheader78
@@ -30351,7 +30351,7 @@ _ZNK12_GLOBAL__N_112fixedpoint64mlERKS0_.exit.us: ; preds = %81, %78, %77
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @_ZN12_GLOBAL__N_111hlineResizeIiNS_12fixedpoint64ELi2ELb0EEEvPT_iPiPT0_S6_iii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #17 {
   %9 = icmp sgt i32 %5, 0
   br i1 %9, label %.preheader82.lr.ph, label %.preheader81
@@ -31302,7 +31302,7 @@ attributes #13 = { cold nofree noreturn }
 attributes #14 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #19 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

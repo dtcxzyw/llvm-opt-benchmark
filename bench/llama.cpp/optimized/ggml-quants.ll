@@ -773,7 +773,7 @@ define void @quantize_row_q8_1_ref(ptr noalias noundef readonly captures(none) %
   br i1 %exitcond63.not, label %41, label %66, !llvm.loop !31
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @dequantize_row_q4_0(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = sdiv i64 %2, 32
   %5 = trunc i64 %4 to i32
@@ -826,7 +826,7 @@ define void @dequantize_row_q4_0(ptr noalias noundef readonly captures(none) %0,
   br i1 %exitcond.not, label %13, label %14, !llvm.loop !33
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @dequantize_row_q4_1(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = sdiv i64 %2, 32
   %5 = trunc i64 %4 to i32
@@ -885,7 +885,7 @@ define void @dequantize_row_q4_1(ptr noalias noundef readonly captures(none) %0,
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #1
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @dequantize_row_q5_0(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = sdiv i64 %2, 32
   %5 = trunc i64 %4 to i32
@@ -950,7 +950,7 @@ define void @dequantize_row_q5_0(ptr noalias noundef readonly captures(none) %0,
   br i1 %exitcond.not, label %14, label %15, !llvm.loop !37
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @dequantize_row_q5_1(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = sdiv i64 %2, 32
   %5 = trunc i64 %4 to i32
@@ -1018,7 +1018,7 @@ define void @dequantize_row_q5_1(ptr noalias noundef readonly captures(none) %0,
   br i1 %exitcond.not, label %19, label %20, !llvm.loop !39
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @dequantize_row_q8_0(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = sdiv i64 %2, 32
   %5 = trunc i64 %4 to i32
@@ -1062,7 +1062,7 @@ define void @dequantize_row_q8_0(ptr noalias noundef readonly captures(none) %0,
   br i1 %exitcond.not, label %13, label %14, !llvm.loop !41
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @quantize_row_q2_K_ref(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = alloca [256 x i8], align 16
   %5 = alloca [16 x i8], align 16
@@ -1512,7 +1512,7 @@ make_qkx2_quants.exit:                            ; preds = %.loopexit.i, %.preh
   br i1 %exitcond176.not, label %230, label %231, !llvm.loop !73
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @dequantize_row_q2_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = sdiv i64 %2, 256
   %5 = trunc i64 %4 to i32
@@ -2535,7 +2535,7 @@ quantize_row_q2_K_impl.exit.loopexit.us:          ; preds = %473
 
 declare i64 @ggml_row_size(i32 noundef, i64 noundef) local_unnamed_addr #6
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @quantize_row_q3_K_ref(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = alloca [256 x i8], align 16
   %5 = alloca [16 x float], align 16
@@ -2973,7 +2973,7 @@ make_q3_quants.exit:                              ; preds = %.preheader.preheade
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @dequantize_row_q3_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [4 x i32], align 16
   %5 = sdiv i64 %2, 256
@@ -3757,7 +3757,7 @@ quantize_row_q3_K_impl.exit.loopexit.us:          ; preds = %321
   ret i64 %328
 }
 
-; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite, errnomem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite, errnomem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @quantize_row_q4_K_ref(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #8 {
   %4 = alloca [256 x i8], align 16
   %5 = alloca [32 x i8], align 16
@@ -4248,7 +4248,7 @@ get_scale_min_k4.exit:                            ; preds = %229, %235
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @sqrtf(float noundef) local_unnamed_addr #9
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @dequantize_row_q4_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = sdiv i64 %2, 256
   %5 = trunc i64 %4 to i32
@@ -5346,7 +5346,7 @@ quantize_row_q4_K_impl.exit.loopexit.us:          ; preds = %504
   ret i64 %511
 }
 
-; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite, errnomem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite, errnomem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @quantize_row_q5_K_ref(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #8 {
   %4 = alloca [256 x i8], align 16
   %5 = alloca [8 x float], align 16
@@ -5861,7 +5861,7 @@ get_scale_min_k4.exit:                            ; preds = %229, %235
   br i1 %exitcond216.not, label %272, label %277, !llvm.loop !365
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @dequantize_row_q5_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = sdiv i64 %2, 256
   %5 = icmp sgt i64 %2, 255
@@ -7007,7 +7007,7 @@ quantize_row_q5_K_impl.exit.loopexit.us:          ; preds = %523
   ret i64 %530
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @quantize_row_q6_K_ref(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = alloca [256 x i8], align 16
   %5 = alloca [16 x float], align 16
@@ -7347,7 +7347,7 @@ make_qx_quants.exit:                              ; preds = %86, %.preheader.pre
   br i1 %exitcond153.not, label %._crit_edge, label %.preheader111, !llvm.loop !456
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @dequantize_row_q6_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = sdiv i64 %2, 256
   %5 = icmp sgt i64 %2, 255
@@ -9651,7 +9651,7 @@ quantize_row_tq2_0_ref.exit:                      ; preds = %41, %5
   ret i64 %62
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @dequantize_row_tq1_0(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #11 {
   %4 = sdiv i64 %2, 256
   %5 = icmp sgt i64 %2, 255
@@ -9775,7 +9775,7 @@ define void @dequantize_row_tq1_0(ptr noalias noundef readonly captures(none) %0
   br i1 %exitcond84.not, label %50, label %52, !llvm.loop !622
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @dequantize_row_tq2_0(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = sdiv i64 %2, 256
   %5 = icmp sgt i64 %2, 255
@@ -9840,7 +9840,7 @@ define void @dequantize_row_tq2_0(ptr noalias noundef readonly captures(none) %0
   br i1 %exitcond.not, label %18, label %20, !llvm.loop !626
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @dequantize_row_iq2_xxs(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [2 x i32], align 8
   %5 = sdiv i64 %2, 256
@@ -9930,7 +9930,7 @@ define void @dequantize_row_iq2_xxs(ptr noalias noundef readonly captures(none) 
   br i1 %exitcond.not, label %37, label %39, !llvm.loop !630
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @dequantize_row_iq2_xs(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [2 x float], align 4
   %5 = sdiv i64 %2, 256
@@ -10033,7 +10033,7 @@ define void @dequantize_row_iq2_xs(ptr noalias noundef readonly captures(none) %
   br i1 %exitcond.not, label %44, label %46, !llvm.loop !637
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @dequantize_row_iq2_s(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [2 x float], align 4
   %5 = sdiv i64 %2, 256
@@ -10146,7 +10146,7 @@ define void @dequantize_row_iq2_s(ptr noalias noundef readonly captures(none) %0
   br i1 %exitcond.not, label %55, label %57, !llvm.loop !643
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @dequantize_row_iq3_xxs(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = sdiv i64 %2, 256
   %5 = icmp sgt i64 %2, 255
@@ -10251,7 +10251,7 @@ define void @dequantize_row_iq3_xxs(ptr noalias noundef readonly captures(none) 
   br i1 %exitcond.not, label %41, label %43, !llvm.loop !647
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @dequantize_row_iq3_s(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = sdiv i64 %2, 256
   %5 = icmp sgt i64 %2, 255
@@ -10449,7 +10449,7 @@ define void @dequantize_row_iq3_s(ptr noalias noundef readonly captures(none) %0
   br i1 %exitcond119.not, label %115, label %117, !llvm.loop !655
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @dequantize_row_iq1_s(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = sdiv i64 %2, 256
   %5 = icmp sgt i64 %2, 255
@@ -10533,7 +10533,7 @@ define void @dequantize_row_iq1_s(ptr noalias noundef readonly captures(none) %0
   br i1 %exitcond.not, label %38, label %40, !llvm.loop !661
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @dequantize_row_iq1_m(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %.sroa.0111 = alloca float, align 16
   %.sroa.4112 = alloca float, align 4
@@ -10720,7 +10720,7 @@ define void @dequantize_row_iq1_m(ptr noalias noundef readonly captures(none) %0
   br i1 %exitcond93.not, label %104, label %106, !llvm.loop !667
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @dequantize_row_iq4_nl(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = sdiv i64 %2, 32
   %5 = icmp sgt i64 %2, 31
@@ -10771,7 +10771,7 @@ define void @dequantize_row_iq4_nl(ptr noalias noundef readonly captures(none) %
   br i1 %exitcond.not, label %12, label %14, !llvm.loop !669
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @dequantize_row_iq4_xs(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = sdiv i64 %2, 256
   %5 = icmp sgt i64 %2, 255
@@ -20247,15 +20247,15 @@ declare i32 @llvm.usub.sat.i32(i32, i32) #20
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite, errnomem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite, errnomem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 @ff_xma_parser = local_unnamed_addr constant %struct.AVCodecParser { [7 x i32] [i32 86096, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0], i32 4, ptr null, ptr @xma_parse, ptr null, ptr null }, align 8
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef i32 @xma_parse(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef %4, i32 noundef returned %5) #0 {
   %7 = load ptr, ptr %0, align 8, !tbaa !4
   %8 = and i32 %5, 2047
@@ -69,7 +69,7 @@ define internal noundef i32 @xma_parse(ptr noundef captures(none) %0, ptr readno
   ret i32 %5
 }
 
-attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
